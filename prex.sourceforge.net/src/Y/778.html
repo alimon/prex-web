@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>esc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/65.html#L64'>esc</a>                64 bsp/drv/dev/base/wscons.c 	struct esc_state esc;		/* escape state */
+<a href='../S/65.html#L209'>esc</a>               209 bsp/drv/dev/base/wscons.c 	struct esc_state *esc = &amp;sc-&gt;esc;
+<a href='../S/65.html#L215'>esc</a>               215 bsp/drv/dev/base/wscons.c 		esc-&gt;index = 1;
+<a href='../S/65.html#L216'>esc</a>               216 bsp/drv/dev/base/wscons.c 		esc-&gt;argc = 0;
+<a href='../S/65.html#L219'>esc</a>               219 bsp/drv/dev/base/wscons.c 	if (esc-&gt;index == 0)
+<a href='../S/65.html#L224'>esc</a>               224 bsp/drv/dev/base/wscons.c 		switch (esc-&gt;argc) {
+<a href='../S/65.html#L226'>esc</a>               226 bsp/drv/dev/base/wscons.c 			esc-&gt;arg1 = val;
+<a href='../S/65.html#L227'>esc</a>               227 bsp/drv/dev/base/wscons.c 			esc-&gt;index++;
+<a href='../S/65.html#L230'>esc</a>               230 bsp/drv/dev/base/wscons.c 			esc-&gt;arg1 = esc-&gt;arg1 * 10 + val;
+<a href='../S/65.html#L233'>esc</a>               233 bsp/drv/dev/base/wscons.c 			esc-&gt;arg2 = val;
+<a href='../S/65.html#L234'>esc</a>               234 bsp/drv/dev/base/wscons.c 			esc-&gt;index++;
+<a href='../S/65.html#L237'>esc</a>               237 bsp/drv/dev/base/wscons.c 			esc-&gt;arg2 = esc-&gt;arg2 * 10 + val;
+<a href='../S/65.html#L242'>esc</a>               242 bsp/drv/dev/base/wscons.c 		esc-&gt;argc++;
+<a href='../S/65.html#L246'>esc</a>               246 bsp/drv/dev/base/wscons.c 	esc-&gt;index++;
+<a href='../S/65.html#L248'>esc</a>               248 bsp/drv/dev/base/wscons.c 	switch (esc-&gt;index) {
+<a href='../S/65.html#L256'>esc</a>               256 bsp/drv/dev/base/wscons.c 			esc-&gt;saved_col = sc-&gt;col;
+<a href='../S/65.html#L257'>esc</a>               257 bsp/drv/dev/base/wscons.c 			esc-&gt;saved_row = sc-&gt;row;
+<a href='../S/65.html#L261'>esc</a>               261 bsp/drv/dev/base/wscons.c 			sc-&gt;col = esc-&gt;saved_col;
+<a href='../S/65.html#L262'>esc</a>               262 bsp/drv/dev/base/wscons.c 			sc-&gt;row = esc-&gt;saved_row;
+<a href='../S/65.html#L273'>esc</a>               273 bsp/drv/dev/base/wscons.c 			sc-&gt;row -= esc-&gt;arg1;
+<a href='../S/65.html#L279'>esc</a>               279 bsp/drv/dev/base/wscons.c 			sc-&gt;row += esc-&gt;arg1;
+<a href='../S/65.html#L285'>esc</a>               285 bsp/drv/dev/base/wscons.c 			sc-&gt;col += esc-&gt;arg1;
+<a href='../S/65.html#L291'>esc</a>               291 bsp/drv/dev/base/wscons.c 			sc-&gt;col -= esc-&gt;arg1;
+<a href='../S/65.html#L297'>esc</a>               297 bsp/drv/dev/base/wscons.c 			if (esc-&gt;argc == 1)
+<a href='../S/65.html#L298'>esc</a>               298 bsp/drv/dev/base/wscons.c 				esc-&gt;argc = 2;
+<a href='../S/65.html#L301'>esc</a>               301 bsp/drv/dev/base/wscons.c 			if (esc-&gt;arg1 == 2)	/* Clear screen */
+<a href='../S/65.html#L305'>esc</a>               305 bsp/drv/dev/base/wscons.c 			switch (esc-&gt;arg1) {
+<a href='../S/65.html#L319'>esc</a>               319 bsp/drv/dev/base/wscons.c 				color = ansi_colors[esc-&gt;arg1 - 30];
+<a href='../S/65.html#L324'>esc</a>               324 bsp/drv/dev/base/wscons.c 				color = ansi_colors[esc-&gt;arg1 - 40];
+<a href='../S/65.html#L339'>esc</a>               339 bsp/drv/dev/base/wscons.c 			sc-&gt;row = esc-&gt;arg1;
+<a href='../S/65.html#L340'>esc</a>               340 bsp/drv/dev/base/wscons.c 			sc-&gt;col = esc-&gt;arg2;
+<a href='../S/65.html#L357'>esc</a>               357 bsp/drv/dev/base/wscons.c 	esc-&gt;index = 0;
+<a href='../S/65.html#L358'>esc</a>               358 bsp/drv/dev/base/wscons.c 	esc-&gt;argc = 0;
+<a href='../S/65.html#L486'>esc</a>               486 bsp/drv/dev/base/wscons.c 	sc-&gt;esc.index = 0;
+</pre>
+</body>
+</html>

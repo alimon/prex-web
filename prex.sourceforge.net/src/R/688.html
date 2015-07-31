@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>PATH_MAX</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/218.html#L48'>PATH_MAX</a>           48 include/ipc/exec.h 	char	path[PATH_MAX];		/* program path */
+<a href='../S/218.html#L49'>PATH_MAX</a>           49 include/ipc/exec.h 	char	cwd[PATH_MAX];		/* current directory */
+<a href='../S/218.html#L61'>PATH_MAX</a>           61 include/ipc/exec.h 	char	path[PATH_MAX];		/* program path */
+<a href='../S/219.html#L90'>PATH_MAX</a>           90 include/ipc/fs.h 	char	dev[PATH_MAX];		/* mount device */
+<a href='../S/219.html#L91'>PATH_MAX</a>           91 include/ipc/fs.h 	char	dir[PATH_MAX];		/* mount directory */
+<a href='../S/219.html#L104'>PATH_MAX</a>          104 include/ipc/fs.h 	char	path[PATH_MAX];		/* open file */
+<a href='../S/219.html#L124'>PATH_MAX</a>          124 include/ipc/fs.h 	char	path[PATH_MAX];		/* open file */
+<a href='../S/219.html#L134'>PATH_MAX</a>          134 include/ipc/fs.h 	char	path[PATH_MAX];
+<a href='../S/219.html#L135'>PATH_MAX</a>          135 include/ipc/fs.h 	char	path2[PATH_MAX];
+<a href='../S/263.html#L67'>PATH_MAX</a>           67 include/sys/mount.h 	char		m_path[PATH_MAX]; /* mounted path */
+<a href='../S/264.html#L155'>PATH_MAX</a>          155 include/sys/param.h #define	MAXPATHLEN	PATH_MAX
+<a href='../S/374.html#L131'>PATH_MAX</a>          131 usr/bin/cp/cp.c 	char path[PATH_MAX];
+<a href='../S/390.html#L259'>PATH_MAX</a>          259 usr/bin/ls/ls.c 	char buf[PATH_MAX];
+<a href='../S/398.html#L46'>PATH_MAX</a>           46 usr/bin/mv/mv.c 	char path[PATH_MAX];
+<a href='../S/406.html#L44'>PATH_MAX</a>           44 usr/bin/pwd/pwd.c 	char cwd[PATH_MAX];
+<a href='../S/406.html#L51'>PATH_MAX</a>           51 usr/bin/pwd/pwd.c 	if ((p = getcwd(cwd, PATH_MAX)) == NULL) {
+<a href='../S/413.html#L104'>PATH_MAX</a>          104 usr/bin/sh/sh.c 	static char cwd[PATH_MAX];
+<a href='../S/413.html#L105'>PATH_MAX</a>          105 usr/bin/sh/sh.c 	static char prompt[PATH_MAX+20];
+<a href='../S/413.html#L107'>PATH_MAX</a>          107 usr/bin/sh/sh.c 	getcwd(cwd, PATH_MAX);
+<a href='../S/478.html#L50'>PATH_MAX</a>           50 usr/lib/libc/gen/execvp.c 	char buf[PATH_MAX];
+<a href='../S/655.html#L102'>PATH_MAX</a>          102 usr/lib/posix/exec/execve.c 	getcwd(msg.cwd, PATH_MAX);
+<a href='../S/655.html#L103'>PATH_MAX</a>          103 usr/lib/posix/exec/execve.c 	strlcpy(msg.path, path, PATH_MAX);
+<a href='../S/657.html#L42'>PATH_MAX</a>           42 usr/lib/posix/file/access.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/658.html#L48'>PATH_MAX</a>           48 usr/lib/posix/file/chdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/671.html#L50'>PATH_MAX</a>           50 usr/lib/posix/file/getcwd.c 	strlcpy(buf, m.path, PATH_MAX);
+<a href='../S/674.html#L47'>PATH_MAX</a>           47 usr/lib/posix/file/link.c 	if (strlen(oldpath) &gt;= PATH_MAX ||
+<a href='../S/674.html#L48'>PATH_MAX</a>           48 usr/lib/posix/file/link.c 	    strlen(newpath) &gt;= PATH_MAX) {
+<a href='../S/674.html#L52'>PATH_MAX</a>           52 usr/lib/posix/file/link.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/674.html#L53'>PATH_MAX</a>           53 usr/lib/posix/file/link.c 	strlcpy(m.path2, newpath, PATH_MAX);
+<a href='../S/678.html#L47'>PATH_MAX</a>           47 usr/lib/posix/file/mkdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/679.html#L47'>PATH_MAX</a>           47 usr/lib/posix/file/mknod.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/680.html#L44'>PATH_MAX</a>           44 usr/lib/posix/file/mount.c 	strlcpy(m.dev, (char *)dev, PATH_MAX);
+<a href='../S/680.html#L45'>PATH_MAX</a>           45 usr/lib/posix/file/mount.c 	strlcpy(m.dir, (char *)dir, PATH_MAX);
+<a href='../S/681.html#L53'>PATH_MAX</a>           53 usr/lib/posix/file/open.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/682.html#L50'>PATH_MAX</a>           50 usr/lib/posix/file/opendir.c 	strlcpy(m.path, (char *)name, PATH_MAX);
+<a href='../S/686.html#L47'>PATH_MAX</a>           47 usr/lib/posix/file/rename.c 	if (strlen(oldpath) &gt;= PATH_MAX ||
+<a href='../S/686.html#L48'>PATH_MAX</a>           48 usr/lib/posix/file/rename.c 	    strlen(newpath) &gt;= PATH_MAX) {
+<a href='../S/686.html#L52'>PATH_MAX</a>           52 usr/lib/posix/file/rename.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/686.html#L53'>PATH_MAX</a>           53 usr/lib/posix/file/rename.c 	strlcpy(m.path2, newpath, PATH_MAX);
+<a href='../S/688.html#L47'>PATH_MAX</a>           47 usr/lib/posix/file/rmdir.c 	if (strlen(path) &gt;= PATH_MAX) {
+<a href='../S/688.html#L52'>PATH_MAX</a>           52 usr/lib/posix/file/rmdir.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/689.html#L45'>PATH_MAX</a>           45 usr/lib/posix/file/stat.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/691.html#L44'>PATH_MAX</a>           44 usr/lib/posix/file/truncate.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/693.html#L45'>PATH_MAX</a>           45 usr/lib/posix/file/umount.c 	strlcpy(m.path, (char *)dir, PATH_MAX);
+<a href='../S/694.html#L43'>PATH_MAX</a>           43 usr/lib/posix/file/unlink.c 	if (path == NULL || strlen(path) &gt;= PATH_MAX) {
+<a href='../S/694.html#L48'>PATH_MAX</a>           48 usr/lib/posix/file/unlink.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/862.html#L115'>PATH_MAX</a>          115 usr/sbin/install/install.c 	char path[PATH_MAX];
+<a href='../S/874.html#L56'>PATH_MAX</a>           56 usr/server/exec/exec_cap.c 		if (!strncmp(path, map-&gt;c_path, PATH_MAX)) {
+<a href='../S/877.html#L79'>PATH_MAX</a>           79 usr/server/exec/exec_execve.c 	char path[PATH_MAX];
+<a href='../S/877.html#L238'>PATH_MAX</a>          238 usr/server/exec/exec_execve.c 	path[PATH_MAX - 1] = '\0';
+<a href='../S/877.html#L240'>PATH_MAX</a>          240 usr/server/exec/exec_execve.c 	if (len &gt;= PATH_MAX)
+<a href='../S/877.html#L242'>PATH_MAX</a>          242 usr/server/exec/exec_execve.c 	if (strlen(cwd) + len &gt;= PATH_MAX)
+<a href='../S/877.html#L251'>PATH_MAX</a>          251 usr/server/exec/exec_execve.c 		strlcpy(full, cwd, PATH_MAX);
+<a href='../S/877.html#L346'>PATH_MAX</a>          346 usr/server/exec/exec_execve.c 	strlcpy((char *)sp, path, PATH_MAX);
+<a href='../S/878.html#L47'>PATH_MAX</a>           47 usr/server/exec/exec_script.c static char interp[PATH_MAX];		/* interpreter name */
+<a href='../S/878.html#L88'>PATH_MAX</a>           88 usr/server/exec/exec_script.c 	if (!strncmp(name, "/bin/sh", PATH_MAX)) {
+<a href='../S/903.html#L129'>PATH_MAX</a>          129 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L187'>PATH_MAX</a>          187 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L293'>PATH_MAX</a>          293 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L386'>PATH_MAX</a>          386 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L398'>PATH_MAX</a>          398 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L412'>PATH_MAX</a>          412 usr/server/fs/vfs/main.c 	char src[PATH_MAX];
+<a href='../S/903.html#L413'>PATH_MAX</a>          413 usr/server/fs/vfs/main.c 	char dest[PATH_MAX];
+<a href='../S/903.html#L431'>PATH_MAX</a>          431 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L476'>PATH_MAX</a>          476 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L490'>PATH_MAX</a>          490 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L621'>PATH_MAX</a>          621 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L762'>PATH_MAX</a>          762 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L822'>PATH_MAX</a>          822 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/905.html#L84'>PATH_MAX</a>           84 usr/server/fs/vfs/vfs.h 	char 	    t_cwd[PATH_MAX];	/* current working directory */
+<a href='../S/908.html#L54'>PATH_MAX</a>           54 usr/server/fs/vfs/vfs_lookup.c 	char node[PATH_MAX];
+<a href='../S/908.html#L55'>PATH_MAX</a>           55 usr/server/fs/vfs/vfs_lookup.c 	char name[PATH_MAX];
+<a href='../S/908.html#L94'>PATH_MAX</a>           94 usr/server/fs/vfs/vfs_lookup.c 		for (i = 0; i &lt; PATH_MAX; i++) {
+<a href='../S/908.html#L152'>PATH_MAX</a>          152 usr/server/fs/vfs/vfs_lookup.c 	char buf[PATH_MAX];
+<a href='../S/911.html#L583'>PATH_MAX</a>          583 usr/server/fs/vfs/vfs_syscalls.c 	if (!strncmp(src, dest, PATH_MAX))
+<a href='../S/911.html#L754'>PATH_MAX</a>          754 usr/server/fs/vfs/vfs_syscalls.c 	strlcpy(cwd, dvp-&gt;v_path, PATH_MAX);
+<a href='../S/912.html#L230'>PATH_MAX</a>          230 usr/server/fs/vfs/vfs_task.c 	path[PATH_MAX - 1] = '\0';
+<a href='../S/912.html#L232'>PATH_MAX</a>          232 usr/server/fs/vfs/vfs_task.c 	if (len &gt;= PATH_MAX)
+<a href='../S/912.html#L234'>PATH_MAX</a>          234 usr/server/fs/vfs/vfs_task.c 	if (strlen(cwd) + len &gt;= PATH_MAX)
+<a href='../S/912.html#L243'>PATH_MAX</a>          243 usr/server/fs/vfs/vfs_task.c 		strlcpy(full, cwd, PATH_MAX);
+<a href='../S/913.html#L115'>PATH_MAX</a>          115 usr/server/fs/vfs/vfs_vnode.c 		    !strncmp(vp-&gt;v_path, path, PATH_MAX)) {
+</pre>
+</body>
+</html>

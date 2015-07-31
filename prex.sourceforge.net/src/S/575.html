@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/lib/libc/stdlib/qsort.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1119.html'>lib</a>/<a href='../files/1121.html'>libc</a>/<a href='../files/1126.html'>stdlib</a>/qsort.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='575.html#L61'>[^]</a><a href='575.html#L93'>[v]</a>[top]<a href='575.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='575.html#L61' title='Defined at 61.'>swapfunc</a></li>
+<li><a href='575.html#L83' title='Defined at 83.'>med3</a></li>
+<li><a href='575.html#L93' title='Defined at 93.'>qsort</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1992, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='427.html'>assert.h</a>&gt;
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <strong class='reserved'>static</strong> <strong class='reserved'>__inline</strong> <strong class='reserved'>char</strong>    *<a href='575.html#L83' title='Defined at 83 in usr/lib/libc/stdlib/qsort.c.'>med3</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *,
+<a id='L38' name='L38' />  38     <strong class='reserved'>int</strong> (*)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *));
+<a id='L39' name='L39' />  39 <strong class='reserved'>static</strong> <strong class='reserved'>__inline</strong> <strong class='reserved'>void</strong>     <a href='575.html#L61' title='Defined at 61 in usr/lib/libc/stdlib/qsort.c.'>swapfunc</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <strong class='reserved'>int</strong>);
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/2147.html' title='Multiple refered from 11 places.'>min</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>)       (<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>) &lt; (<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>) ? <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> : <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>
+<a id='L42' name='L42' />  42 
+<a id='L43' name='L43' />  43 <em class='comment'>/*</em>
+<a id='L44' name='L44' />  44 <em class='comment'> * Qsort routine from Bentley &amp; McIlroy's "Engineering a Sort Function".</em>
+<a id='L45' name='L45' />  45 <em class='comment'> */</em>
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='../R/2627.html' title='Multiple refered from 2 places.'>swapcode</a>(<a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a>, <a href='../Y/1548.html' title='Multiple used in 2 places.'>parmi</a>, <a href='../Y/1549.html' title='Multiple used in 2 places.'>parmj</a>, <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>) <em class='brace'>{</em>               \
+<a id='L47' name='L47' />  47         <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>) / <strong class='reserved'>sizeof</strong> (<a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a>);                 \
+<a id='L48' name='L48' />  48         <a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a> *<a href='../Y/1607.html' title='Multiple used in 19 places.'>pi</a> = (<a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a> *)(<strong class='reserved'>void</strong> *)(<a href='../Y/1548.html' title='Multiple used in 2 places.'>parmi</a>);             \
+<a id='L49' name='L49' />  49         <a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a> *<a href='../Y/1615.html' title='Multiple used in 3 places.'>pj</a> = (<a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a> *)(<strong class='reserved'>void</strong> *)(<a href='../Y/1549.html' title='Multiple used in 2 places.'>parmj</a>);             \
+<a id='L50' name='L50' />  50         <strong class='reserved'>do</strong> <em class='brace'>{</em>                                            \
+<a id='L51' name='L51' />  51                 <a href='../Y/226.html' title='Multiple used in 5 places.'>TYPE</a>    <a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a> = *<a href='../Y/1607.html' title='Multiple used in 19 places.'>pi</a>;                        \
+<a id='L52' name='L52' />  52                 *<a href='../Y/1607.html' title='Multiple used in 19 places.'>pi</a>++ = *<a href='../Y/1615.html' title='Multiple used in 3 places.'>pj</a>;                            \
+<a id='L53' name='L53' />  53                 *<a href='../Y/1615.html' title='Multiple used in 3 places.'>pj</a>++ = <a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a>;                              \
+<a id='L54' name='L54' />  54         <em class='brace'>}</em> <strong class='reserved'>while</strong> (--<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &gt; 0);                              \
+<a id='L55' name='L55' />  55 <em class='brace'>}</em>
+<a id='L56' name='L56' />  56 
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> <a href='575.html#L101' title='Refered from 101 in usr/lib/libc/stdlib/qsort.c.'>SWAPINIT</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>) <a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a> = ((<strong class='reserved'>char</strong> *)<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> - (<strong class='reserved'>char</strong> *)0) % <strong class='reserved'>sizeof</strong>(<strong class='reserved'>long</strong>) || \
+<a id='L58' name='L58' />  58         <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a> % <strong class='reserved'>sizeof</strong>(<strong class='reserved'>long</strong>) ? 2 : <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a> == <strong class='reserved'>sizeof</strong>(<strong class='reserved'>long</strong>)? 0 : 1;
+<a id='L59' name='L59' />  59 
+<a id='L60' name='L60' />  60 <strong class='reserved'>static</strong> <strong class='reserved'>__inline</strong> <strong class='reserved'>void</strong>
+<a id='L61' name='L61' />  61 <a href='../R/2628.html' title='Multiple refered from 3 places.'>swapfunc</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>, <a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a>)
+<a id='L62' name='L62' />  62         <strong class='reserved'>char</strong> *<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, *<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>;
+<a id='L63' name='L63' />  63         <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>;
+<a id='L64' name='L64' />  64         <strong class='reserved'>int</strong> <a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a>;
+<a id='L65' name='L65' />  65 <em class='brace'>{</em>
+<a id='L66' name='L66' />  66         <strong class='reserved'>if</strong> (<a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a> &lt;= 1)
+<a id='L67' name='L67' />  67                 <a href='575.html#L46' title='Defined at 46 in usr/lib/libc/stdlib/qsort.c.'>swapcode</a>(<strong class='reserved'>long</strong>, <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>)
+<a id='L68' name='L68' />  68         <strong class='reserved'>else</strong>
+<a id='L69' name='L69' />  69                 <a href='575.html#L46' title='Defined at 46 in usr/lib/libc/stdlib/qsort.c.'>swapcode</a>(<strong class='reserved'>char</strong>, <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>)
+<a id='L70' name='L70' />  70 <em class='brace'>}</em>
+<a id='L71' name='L71' />  71 
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <a href='../R/2626.html' title='Multiple refered from 6 places.'>swap</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>)                                              \
+<a id='L73' name='L73' />  73         <strong class='reserved'>if</strong> (<a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a> == 0) <em class='brace'>{</em>                                    \
+<a id='L74' name='L74' />  74                 <strong class='reserved'>long</strong> <a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a> = *(<strong class='reserved'>long</strong> *)(<strong class='reserved'>void</strong> *)(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>);                  \
+<a id='L75' name='L75' />  75                 *(<strong class='reserved'>long</strong> *)(<strong class='reserved'>void</strong> *)(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>) = *(<strong class='reserved'>long</strong> *)(<strong class='reserved'>void</strong> *)(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>);    \
+<a id='L76' name='L76' />  76                 *(<strong class='reserved'>long</strong> *)(<strong class='reserved'>void</strong> *)(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>) = <a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a>;                       \
+<a id='L77' name='L77' />  77         <em class='brace'>}</em> <strong class='reserved'>else</strong>                                                  \
+<a id='L78' name='L78' />  78                 <a href='575.html#L61' title='Defined at 61 in usr/lib/libc/stdlib/qsort.c.'>swapfunc</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a>)
+<a id='L79' name='L79' />  79 
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> <a href='../R/2855.html' title='Multiple refered from 2 places.'>vecswap</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>) <strong class='reserved'>if</strong> ((<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>) &gt; 0) <a href='575.html#L61' title='Defined at 61 in usr/lib/libc/stdlib/qsort.c.'>swapfunc</a>((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>), (<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>), (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>)(<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>), <a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a>)
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82 <strong class='reserved'>static</strong> <strong class='reserved'>__inline</strong> <strong class='reserved'>char</strong> *
+<a id='L83' name='L83' />  83 <a href='../R/2141.html' title='Multiple refered from 5 places.'>med3</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>)
+<a id='L84' name='L84' />  84         <strong class='reserved'>char</strong> *<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, *<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, *<a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>;
+<a id='L85' name='L85' />  85         <strong class='reserved'>int</strong> (*<a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *);
+<a id='L86' name='L86' />  86 <em class='brace'>{</em>
+<a id='L87' name='L87' />  87         <strong class='reserved'>return</strong> <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>) &lt; 0 ?
+<a id='L88' name='L88' />  88                (<a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>) &lt; 0 ? <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a> : (<a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>) &lt; 0 ? <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a> : <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> ))
+<a id='L89' name='L89' />  89               :(<a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>) &gt; 0 ? <a href='../Y/400.html' title='Multiple used in 26 places.'>b</a> : (<a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>) &lt; 0 ? <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> : <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a> ));
+<a id='L90' name='L90' />  90 <em class='brace'>}</em>
+<a id='L91' name='L91' />  91 
+<a id='L92' name='L92' />  92 <strong class='reserved'>void</strong>
+<a id='L93' name='L93' />  93 <a href='../R/2368.html' title='Multiple refered from 2 places.'>qsort</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>, <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>)
+<a id='L94' name='L94' />  94         <strong class='reserved'>void</strong> *<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>;
+<a id='L95' name='L95' />  95         <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>, <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L96' name='L96' />  96         <strong class='reserved'>int</strong> (*<a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *);
+<a id='L97' name='L97' />  97 <em class='brace'>{</em>
+<a id='L98' name='L98' />  98         <strong class='reserved'>char</strong> *<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, *<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a>, *<a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>, *<a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a>, *<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>, *<a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a>, *<a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a>;
+<a id='L99' name='L99' />  99         <strong class='reserved'>int</strong> <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>, <a href='../Y/2057.html' title='Multiple used in 8 places.'>swaptype</a>, <a href='../Y/2056.html' title='Multiple used in 6 places.'>swap_cnt</a>;
+<a id='L100' name='L100' /> 100 
+<a id='L101' name='L101' /> 101 <a href='../Y/1220.html' title='Multiple used in 2 places.'>loop</a>:   <a href='575.html#L57' title='Defined at 57 in usr/lib/libc/stdlib/qsort.c.'>SWAPINIT</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>);
+<a id='L102' name='L102' /> 102         <a href='../Y/2056.html' title='Multiple used in 6 places.'>swap_cnt</a> = 0;
+<a id='L103' name='L103' /> 103         <strong class='reserved'>if</strong> (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> &lt; 7) <em class='brace'>{</em>
+<a id='L104' name='L104' /> 104                 <strong class='reserved'>for</strong> (<a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>; <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> &lt; (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>; <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> += <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>)
+<a id='L105' name='L105' /> 105                         <strong class='reserved'>for</strong> (<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> = <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a>; <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> &gt; (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> &amp;&amp; <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> - <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>) &gt; 0;
+<a id='L106' name='L106' /> 106                              <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> -= <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>)
+<a id='L107' name='L107' /> 107                                 <a href='575.html#L72' title='Defined at 72 in usr/lib/libc/stdlib/qsort.c.'>swap</a>(<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>, <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> - <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>);
+<a id='L108' name='L108' /> 108                 <strong class='reserved'>return</strong>;
+<a id='L109' name='L109' /> 109         <em class='brace'>}</em>
+<a id='L110' name='L110' /> 110         <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> / 2) * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L111' name='L111' /> 111         <strong class='reserved'>if</strong> (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> &gt; 7) <em class='brace'>{</em>
+<a id='L112' name='L112' /> 112                 <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>;
+<a id='L113' name='L113' /> 113                 <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> - 1) * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L114' name='L114' /> 114                 <strong class='reserved'>if</strong> (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> &gt; 40) <em class='brace'>{</em>
+<a id='L115' name='L115' /> 115                         <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a> = (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> / 8) * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L116' name='L116' /> 116                         <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> = <a href='575.html#L83' title='Defined at 83 in usr/lib/libc/stdlib/qsort.c.'>med3</a>(<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>, <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> + <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> + 2 * <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>);
+<a id='L117' name='L117' /> 117                         <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> = <a href='575.html#L83' title='Defined at 83 in usr/lib/libc/stdlib/qsort.c.'>med3</a>(<a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> - <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a>, <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> + <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>);
+<a id='L118' name='L118' /> 118                         <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> = <a href='575.html#L83' title='Defined at 83 in usr/lib/libc/stdlib/qsort.c.'>med3</a>(<a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> - 2 * <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> - <a href='../Y/606.html' title='Multiple used in 33 places.'>d</a>, <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>);
+<a id='L119' name='L119' /> 119                 <em class='brace'>}</em>
+<a id='L120' name='L120' /> 120                 <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> = <a href='575.html#L83' title='Defined at 83 in usr/lib/libc/stdlib/qsort.c.'>med3</a>(<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>, <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a>, <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>);
+<a id='L121' name='L121' /> 121         <em class='brace'>}</em>
+<a id='L122' name='L122' /> 122         <a href='575.html#L72' title='Defined at 72 in usr/lib/libc/stdlib/qsort.c.'>swap</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a>);
+<a id='L123' name='L123' /> 123         <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> = <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L124' name='L124' /> 124 
+<a id='L125' name='L125' /> 125         <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a> = <a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + (<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> - 1) * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L126' name='L126' /> 126         <strong class='reserved'>for</strong> (;;) <em class='brace'>{</em>
+<a id='L127' name='L127' /> 127                 <strong class='reserved'>while</strong> (<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> &lt;= <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a> &amp;&amp; (<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> = <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a>, <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)) &lt;= 0) <em class='brace'>{</em>
+<a id='L128' name='L128' /> 128                         <strong class='reserved'>if</strong> (<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> == 0) <em class='brace'>{</em>
+<a id='L129' name='L129' /> 129                                 <a href='../Y/2056.html' title='Multiple used in 6 places.'>swap_cnt</a> = 1;
+<a id='L130' name='L130' /> 130                                 <a href='575.html#L72' title='Defined at 72 in usr/lib/libc/stdlib/qsort.c.'>swap</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a>);
+<a id='L131' name='L131' /> 131                                 <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> += <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L132' name='L132' /> 132                         <em class='brace'>}</em>
+<a id='L133' name='L133' /> 133                         <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> += <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L134' name='L134' /> 134                 <em class='brace'>}</em>
+<a id='L135' name='L135' /> 135                 <strong class='reserved'>while</strong> (<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> &lt;= <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a> &amp;&amp; (<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> = <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>, <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)) &gt;= 0) <em class='brace'>{</em>
+<a id='L136' name='L136' /> 136                         <strong class='reserved'>if</strong> (<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> == 0) <em class='brace'>{</em>
+<a id='L137' name='L137' /> 137                                 <a href='../Y/2056.html' title='Multiple used in 6 places.'>swap_cnt</a> = 1;
+<a id='L138' name='L138' /> 138                                 <a href='575.html#L72' title='Defined at 72 in usr/lib/libc/stdlib/qsort.c.'>swap</a>(<a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>, <a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a>);
+<a id='L139' name='L139' /> 139                                 <a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a> -= <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L140' name='L140' /> 140                         <em class='brace'>}</em>
+<a id='L141' name='L141' /> 141                         <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a> -= <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L142' name='L142' /> 142                 <em class='brace'>}</em>
+<a id='L143' name='L143' /> 143                 <strong class='reserved'>if</strong> (<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> &gt; <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>)
+<a id='L144' name='L144' /> 144                         <strong class='reserved'>break</strong>;
+<a id='L145' name='L145' /> 145                 <a href='575.html#L72' title='Defined at 72 in usr/lib/libc/stdlib/qsort.c.'>swap</a>(<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a>, <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>);
+<a id='L146' name='L146' /> 146                 <a href='../Y/2056.html' title='Multiple used in 6 places.'>swap_cnt</a> = 1;
+<a id='L147' name='L147' /> 147                 <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> += <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L148' name='L148' /> 148                 <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a> -= <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L149' name='L149' /> 149         <em class='brace'>}</em>
+<a id='L150' name='L150' /> 150         <strong class='reserved'>if</strong> (<a href='../Y/2056.html' title='Multiple used in 6 places.'>swap_cnt</a> == 0) <em class='brace'>{</em>  <em class='comment'>/* Switch to insertion sort */</em>
+<a id='L151' name='L151' /> 151                 <strong class='reserved'>for</strong> (<a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>; <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> &lt; (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>; <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a> += <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>)
+<a id='L152' name='L152' /> 152                         <strong class='reserved'>for</strong> (<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> = <a href='../Y/1622.html' title='Multiple used in 9 places.'>pm</a>; <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> &gt; (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> &amp;&amp; <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>(<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> - <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>) &gt; 0;
+<a id='L153' name='L153' /> 153                              <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> -= <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>)
+<a id='L154' name='L154' /> 154                                 <a href='575.html#L72' title='Defined at 72 in usr/lib/libc/stdlib/qsort.c.'>swap</a>(<a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a>, <a href='../Y/1616.html' title='Multiple used in 10 places.'>pl</a> - <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>);
+<a id='L155' name='L155' /> 155                 <strong class='reserved'>return</strong>;
+<a id='L156' name='L156' /> 156         <em class='brace'>}</em>
+<a id='L157' name='L157' /> 157         <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> = (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> + <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> * <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L158' name='L158' /> 158         <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> = <a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> - (<strong class='reserved'>char</strong> *) <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> - <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>);
+<a id='L159' name='L159' /> 159         <a href='575.html#L80' title='Defined at 80 in usr/lib/libc/stdlib/qsort.c.'>vecswap</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> - <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>, <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>);
+<a id='L160' name='L160' /> 160         <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> = <a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a>(<a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a> - <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>, <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> - <a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a> - <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>);
+<a id='L161' name='L161' /> 161         <a href='575.html#L80' title='Defined at 80 in usr/lib/libc/stdlib/qsort.c.'>vecswap</a>(<a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a>, <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> - <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>, <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>);
+<a id='L162' name='L162' /> 162         <strong class='reserved'>if</strong> ((<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> = <a href='../Y/1556.html' title='Multiple used in 13 places.'>pb</a> - <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>) &gt; <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>)
+<a id='L163' name='L163' /> 163                 <a href='575.html#L93' title='Defined at 93 in usr/lib/libc/stdlib/qsort.c.'>qsort</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>, <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> / <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/535.html' title='Multiple used in 19 places.'>cmp</a>);
+<a id='L164' name='L164' /> 164         <strong class='reserved'>if</strong> ((<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> = <a href='../Y/1560.html' title='Multiple used in 6 places.'>pd</a> - <a href='../Y/1557.html' title='Multiple used in 24 places.'>pc</a>) &gt; <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>) <em class='brace'>{</em>
+<a id='L165' name='L165' /> 165                 <em class='comment'>/* Iterate rather than recurse to save stack space */</em>
+<a id='L166' name='L166' /> 166                 <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a> = <a href='../Y/1630.html' title='Multiple used in 8 places.'>pn</a> - <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>;
+<a id='L167' name='L167' /> 167                 <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> = <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a> / <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>;
+<a id='L168' name='L168' /> 168                 <strong class='reserved'>goto</strong> <a href='../Y/1220.html' title='Multiple used in 2 places.'>loop</a>;
+<a id='L169' name='L169' /> 169         <em class='brace'>}</em>
+<a id='L170' name='L170' /> 170 <em class='comment'>/*              qsort(pn - r, r / es, es, cmp);*/</em>
+<a id='L171' name='L171' /> 171 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='575.html#L61'>[^]</a><a href='575.html#L93'>[v]</a><a href='575.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

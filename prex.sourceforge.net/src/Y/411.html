@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>base</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/8.html#L51'>base</a>               51 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].base = 0x2000000;
+<a href='../S/11.html#L51'>base</a>               51 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/12.html#L71'>base</a>               71 bsp/boot/common/bootinfo.c 			       bi-&gt;ram[i].base,
+<a href='../S/12.html#L78'>base</a>               78 bsp/boot/common/bootinfo.c 	       bi-&gt;bootdisk.base,
+<a href='../S/14.html#L140'>base</a>              140 bsp/boot/common/load.c 	bi-&gt;ram[i].base = load_start;
+<a href='../S/14.html#L181'>base</a>              181 bsp/boot/common/load.c 	paddr_t base;
+<a href='../S/14.html#L197'>base</a>              197 bsp/boot/common/load.c 	base = (paddr_t)hdr + sizeof(struct ar_hdr);
+<a href='../S/14.html#L198'>base</a>              198 bsp/boot/common/load.c 	bi-&gt;bootdisk.base = base;
+<a href='../S/14.html#L206'>base</a>              206 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].base = base;
+<a href='../S/14.html#L212'>base</a>              212 bsp/boot/common/load.c 		 bi-&gt;bootdisk.base, bi-&gt;bootdisk.size));
+<a href='../S/32.html#L51'>base</a>               51 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/42.html#L64'>base</a>               64 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/42.html#L73'>base</a>               73 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].base = lo_mem * 1024;
+<a href='../S/68.html#L168'>base</a>              168 bsp/drv/dev/block/ramdisk.c 	sc-&gt;addr = (char *)ptokv(phys-&gt;base);
+<a href='../S/72.html#L252'>base</a>              252 bsp/drv/dev/dma/i8237.c 	paddr_t tmp, base;
+<a href='../S/72.html#L273'>base</a>              273 bsp/drv/dev/dma/i8237.c 	base = DMA_ALIGN(tmp);
+<a href='../S/72.html#L274'>base</a>              274 bsp/drv/dev/dma/i8237.c 	page_reserve(base, size);
+<a href='../S/72.html#L277'>base</a>              277 bsp/drv/dev/dma/i8237.c 	return ptokv(base);
+<a href='../S/94.html#L97'>base</a>               97 bsp/drv/include/ddi.h u_long	 strtoul(const char *nptr, char **endptr, int base);
+<a href='../S/114.html#L42'>base</a>               42 bsp/drv/lib/strtoul.c strtoul(const char *nptr, char **endptr, int base)
+<a href='../S/114.html#L64'>base</a>               64 bsp/drv/lib/strtoul.c 	if ((base == 0 || base == 16) &amp;&amp;
+<a href='../S/114.html#L68'>base</a>               68 bsp/drv/lib/strtoul.c 		base = 16;
+<a href='../S/114.html#L70'>base</a>               70 bsp/drv/lib/strtoul.c 	if (base == 0)
+<a href='../S/114.html#L71'>base</a>               71 bsp/drv/lib/strtoul.c 		base = c == '0' ? 8 : 10;
+<a href='../S/114.html#L73'>base</a>               73 bsp/drv/lib/strtoul.c 	cutoff = ULONG_MAX / base;
+<a href='../S/114.html#L74'>base</a>               74 bsp/drv/lib/strtoul.c 	cutlim = (int)(ULONG_MAX % (unsigned long)base);
+<a href='../S/114.html#L82'>base</a>               82 bsp/drv/lib/strtoul.c 		if (c &gt;= base)
+<a href='../S/114.html#L91'>base</a>               91 bsp/drv/lib/strtoul.c 			acc *= (unsigned long)base;
+<a href='../S/174.html#L94'>base</a>               94 bsp/hal/x86/arch/cpu.c gdt_set(int vec, void *base, size_t limit, int type, u_int size)
+<a href='../S/174.html#L103'>base</a>              103 bsp/hal/x86/arch/cpu.c 	seg-&gt;base_lo = (u_int)base &amp; 0xffff;
+<a href='../S/174.html#L104'>base</a>              104 bsp/hal/x86/arch/cpu.c 	seg-&gt;base_mid = ((u_int)base &gt;&gt; 16) &amp; 0xff;
+<a href='../S/174.html#L106'>base</a>              106 bsp/hal/x86/arch/cpu.c 	seg-&gt;base_hi = (u_int)base &gt;&gt; 24;
+<a href='../S/174.html#L145'>base</a>              145 bsp/hal/x86/arch/cpu.c 	gdt_p.base = (uint32_t)&amp;gdt;
+<a href='../S/174.html#L186'>base</a>              186 bsp/hal/x86/arch/cpu.c 	idt_p.base = (uint32_t)&amp;idt;
+<a href='../S/181.html#L126'>base</a>              126 bsp/hal/x86/include/cpu.h 	uint32_t base;
+<a href='../S/247.html#L77'>base</a>               77 include/sys/bootinfo.h 	paddr_t		base;		/* start address */
+<a href='../S/339.html#L39'>base</a>               39 sys/lib/vsprintf.c divide(long *n, int base)
+<a href='../S/339.html#L43'>base</a>               43 sys/lib/vsprintf.c 	res = ((u_long)*n) % base;
+<a href='../S/339.html#L44'>base</a>               44 sys/lib/vsprintf.c 	*n = (long)(((u_long)*n) / base);
+<a href='../S/339.html#L76'>base</a>               76 sys/lib/vsprintf.c 	int width, base, sign, i;
+<a href='../S/339.html#L99'>base</a>               99 sys/lib/vsprintf.c 		base = 10;
+<a href='../S/339.html#L117'>base</a>              117 sys/lib/vsprintf.c 			base = 16;
+<a href='../S/339.html#L138'>base</a>              138 sys/lib/vsprintf.c 				tmp[i++] = digits[divide(&amp;num, base)];
+<a href='../S/342.html#L278'>base</a>              278 sys/mem/page.c 			page_free(ram-&gt;base, ram-&gt;size);
+<a href='../S/342.html#L295'>base</a>              295 sys/mem/page.c 			if (page_reserve(ram-&gt;base, ram-&gt;size))
+<a href='../S/344.html#L457'>base</a>              457 sys/mem/vm_nommu.c 	vaddr_t base, start, end;
+<a href='../S/344.html#L465'>base</a>              465 sys/mem/vm_nommu.c 	base = mod-&gt;text;
+<a href='../S/344.html#L470'>base</a>              470 sys/mem/vm_nommu.c 	start = trunc_page(base);
+<a href='../S/552.html#L112'>base</a>              112 usr/lib/libc/stdio/vfprintf.c __ultoa(u_long val, char *endp, int base, int octzero, char *xdigs)
+<a href='../S/552.html#L121'>base</a>              121 usr/lib/libc/stdio/vfprintf.c 	switch (base) {
+<a href='../S/552.html#L197'>base</a>              197 usr/lib/libc/stdio/vfprintf.c 	int base;		/* base for [diouxX] conversion */
+<a href='../S/552.html#L380'>base</a>              380 usr/lib/libc/stdio/vfprintf.c 			base = 10;
+<a href='../S/552.html#L395'>base</a>              395 usr/lib/libc/stdio/vfprintf.c 			base = 8;
+<a href='../S/552.html#L406'>base</a>              406 usr/lib/libc/stdio/vfprintf.c 			base = 16;
+<a href='../S/552.html#L437'>base</a>              437 usr/lib/libc/stdio/vfprintf.c 			base = 10;
+<a href='../S/552.html#L446'>base</a>              446 usr/lib/libc/stdio/vfprintf.c 			base = 16;
+<a href='../S/552.html#L468'>base</a>              468 usr/lib/libc/stdio/vfprintf.c 				cp = __ultoa(ulval, cp, base,
+<a href='../S/553.html#L97'>base</a>               97 usr/lib/libc/stdio/vfscanf.c 	int base;		/* base argument to strtol/strtoul */
+<a href='../S/553.html#L109'>base</a>              109 usr/lib/libc/stdio/vfscanf.c 	base = 0;		/* XXX just to keep gcc happy */
+<a href='../S/553.html#L176'>base</a>              176 usr/lib/libc/stdio/vfscanf.c 			base = 10;
+<a href='../S/553.html#L182'>base</a>              182 usr/lib/libc/stdio/vfscanf.c 			base = 0;
+<a href='../S/553.html#L191'>base</a>              191 usr/lib/libc/stdio/vfscanf.c 			base = 8;
+<a href='../S/553.html#L197'>base</a>              197 usr/lib/libc/stdio/vfscanf.c 			base = 10;
+<a href='../S/553.html#L207'>base</a>              207 usr/lib/libc/stdio/vfscanf.c 			base = 16;
+<a href='../S/553.html#L229'>base</a>              229 usr/lib/libc/stdio/vfscanf.c 			base = 16;
+<a href='../S/553.html#L254'>base</a>              254 usr/lib/libc/stdio/vfscanf.c 			base = 10;
+<a href='../S/553.html#L427'>base</a>              427 usr/lib/libc/stdio/vfscanf.c 					if (base == 0) {
+<a href='../S/553.html#L428'>base</a>              428 usr/lib/libc/stdio/vfscanf.c 						base = 8;
+<a href='../S/553.html#L440'>base</a>              440 usr/lib/libc/stdio/vfscanf.c 					base = basefix[base];
+<a href='../S/553.html#L446'>base</a>              446 usr/lib/libc/stdio/vfscanf.c 					base = basefix[base];
+<a href='../S/553.html#L447'>base</a>              447 usr/lib/libc/stdio/vfscanf.c 					if (base &lt;= 8)
+<a href='../S/553.html#L458'>base</a>              458 usr/lib/libc/stdio/vfscanf.c 					if (base &lt;= 10)
+<a href='../S/553.html#L474'>base</a>              474 usr/lib/libc/stdio/vfscanf.c 						base = 16;	/* if %i */
+<a href='../S/553.html#L516'>base</a>              516 usr/lib/libc/stdio/vfscanf.c 				res = (*ccfn)(buf, (char **)NULL, base);
+<a href='../S/579.html#L43'>base</a>               43 usr/lib/libc/stdlib/strtol.c strtol(nptr, endptr, base)
+<a href='../S/579.html#L46'>base</a>               46 usr/lib/libc/stdlib/strtol.c 	int base;
+<a href='../S/579.html#L70'>base</a>               70 usr/lib/libc/stdlib/strtol.c 	if ((base == 0 || base == 16) &amp;&amp;
+<a href='../S/579.html#L74'>base</a>               74 usr/lib/libc/stdlib/strtol.c 		base = 16;
+<a href='../S/579.html#L76'>base</a>               76 usr/lib/libc/stdlib/strtol.c 	if (base == 0)
+<a href='../S/579.html#L77'>base</a>               77 usr/lib/libc/stdlib/strtol.c 		base = c == '0' ? 8 : 10;
+<a href='../S/579.html#L97'>base</a>               97 usr/lib/libc/stdlib/strtol.c 	cutlim = (int)(cutoff % base);
+<a href='../S/579.html#L98'>base</a>               98 usr/lib/libc/stdlib/strtol.c 	cutoff /= base;
+<a href='../S/579.html#L101'>base</a>              101 usr/lib/libc/stdlib/strtol.c 			cutlim -= base;
+<a href='../S/579.html#L113'>base</a>              113 usr/lib/libc/stdlib/strtol.c 		if (c &gt;= base)
+<a href='../S/579.html#L124'>base</a>              124 usr/lib/libc/stdlib/strtol.c 				acc *= base;
+<a href='../S/579.html#L134'>base</a>              134 usr/lib/libc/stdlib/strtol.c 				acc *= base;
+<a href='../S/580.html#L42'>base</a>               42 usr/lib/libc/stdlib/strtoul.c strtoul(nptr, endptr, base)
+<a href='../S/580.html#L45'>base</a>               45 usr/lib/libc/stdlib/strtoul.c 	register int base;
+<a href='../S/580.html#L67'>base</a>               67 usr/lib/libc/stdlib/strtoul.c 	if ((base == 0 || base == 16) &amp;&amp;
+<a href='../S/580.html#L71'>base</a>               71 usr/lib/libc/stdlib/strtoul.c 		base = 16;
+<a href='../S/580.html#L73'>base</a>               73 usr/lib/libc/stdlib/strtoul.c 	if (base == 0)
+<a href='../S/580.html#L74'>base</a>               74 usr/lib/libc/stdlib/strtoul.c 		base = c == '0' ? 8 : 10;
+<a href='../S/580.html#L76'>base</a>               76 usr/lib/libc/stdlib/strtoul.c 	cutoff = ULONG_MAX / (unsigned long)base;
+<a href='../S/580.html#L77'>base</a>               77 usr/lib/libc/stdlib/strtoul.c 	cutlim = (int)(ULONG_MAX % (unsigned long)base);
+<a href='../S/580.html#L85'>base</a>               85 usr/lib/libc/stdlib/strtoul.c 		if (c &gt;= base)
+<a href='../S/580.html#L95'>base</a>               95 usr/lib/libc/stdlib/strtoul.c 			acc *= (unsigned long)base;
+<a href='../S/650.html#L42'>base</a>               42 usr/lib/libsa/vsprintf.c divide(long *n, int base)
+<a href='../S/650.html#L54'>base</a>               54 usr/lib/libsa/vsprintf.c 	if (base == 10) {
+<a href='../S/650.html#L92'>base</a>               92 usr/lib/libsa/vsprintf.c 	int width, base, sign, i, size;
+<a href='../S/650.html#L115'>base</a>              115 usr/lib/libsa/vsprintf.c 		base = 10;
+<a href='../S/650.html#L133'>base</a>              133 usr/lib/libsa/vsprintf.c 			base = 16;
+<a href='../S/650.html#L154'>base</a>              154 usr/lib/libsa/vsprintf.c 				tmp[i++] = digits[divide(&amp;num, base)];
+<a href='../S/852.html#L94'>base</a>               94 usr/sample/tetris/tetris.c 	int i, j, base;
+<a href='../S/852.html#L98'>base</a>               98 usr/sample/tetris/tetris.c 		base = i * B_COLS + 1;
+<a href='../S/852.html#L99'>base</a>               99 usr/sample/tetris/tetris.c 		p = &amp;board[base];
+<a href='../S/852.html#L103'>base</a>              103 usr/sample/tetris/tetris.c 				bzero(&amp;board[base], B_COLS - 2);
+<a href='../S/852.html#L106'>base</a>              106 usr/sample/tetris/tetris.c 				while (--base != 0)
+<a href='../S/852.html#L107'>base</a>              107 usr/sample/tetris/tetris.c 					board[base + B_COLS] = board[base];
+<a href='../S/876.html#L199'>base</a>              199 usr/server/exec/exec_elf.c 	void *base, *addr, *mapped;
+<a href='../S/876.html#L234'>base</a>              234 usr/server/exec/exec_elf.c 	if (vm_allocate(task, &amp;base, total_size, 1) != 0) {
+<a href='../S/876.html#L240'>base</a>              240 usr/server/exec/exec_elf.c 	if (vm_map(task, base, total_size, &amp;mapped) != 0) {
+</pre>
+</body>
+</html>

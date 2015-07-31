@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_wp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/421.html#L144'>t_wp</a>              144 usr/bin/test/test.c static char **t_wp;
+<a href='../S/421.html#L188'>t_wp</a>              188 usr/bin/test/test.c 	t_wp = &amp;argv[1];
+<a href='../S/421.html#L189'>t_wp</a>              189 usr/bin/test/test.c 	res = !oexpr(t_lex(*t_wp));
+<a href='../S/421.html#L191'>t_wp</a>              191 usr/bin/test/test.c 	if (*t_wp != NULL &amp;&amp; *++t_wp != NULL)
+<a href='../S/421.html#L192'>t_wp</a>              192 usr/bin/test/test.c 		syntax(*t_wp, "unexpected operator");
+<a href='../S/421.html#L213'>t_wp</a>              213 usr/bin/test/test.c 	if (t_lex(*++t_wp) == BOR)
+<a href='../S/421.html#L214'>t_wp</a>              214 usr/bin/test/test.c 		return oexpr(t_lex(*++t_wp)) || res;
+<a href='../S/421.html#L215'>t_wp</a>              215 usr/bin/test/test.c 	t_wp--;
+<a href='../S/421.html#L225'>t_wp</a>              225 usr/bin/test/test.c 	if (t_lex(*++t_wp) == BAND)
+<a href='../S/421.html#L226'>t_wp</a>              226 usr/bin/test/test.c 		return aexpr(t_lex(*++t_wp)) &amp;&amp; res;
+<a href='../S/421.html#L227'>t_wp</a>              227 usr/bin/test/test.c 	t_wp--;
+<a href='../S/421.html#L236'>t_wp</a>              236 usr/bin/test/test.c 		return !nexpr(t_lex(*++t_wp));
+<a href='../S/421.html#L249'>t_wp</a>              249 usr/bin/test/test.c 		if ((nn = t_lex(*++t_wp)) == RPAREN)
+<a href='../S/421.html#L252'>t_wp</a>              252 usr/bin/test/test.c 		if (t_lex(*++t_wp) != RPAREN)
+<a href='../S/421.html#L258'>t_wp</a>              258 usr/bin/test/test.c 		if (*++t_wp == NULL)
+<a href='../S/421.html#L262'>t_wp</a>              262 usr/bin/test/test.c 			return strlen(*t_wp) == 0;
+<a href='../S/421.html#L264'>t_wp</a>              264 usr/bin/test/test.c 			return strlen(*t_wp) != 0;
+<a href='../S/421.html#L266'>t_wp</a>              266 usr/bin/test/test.c 			return isatty(getn(*t_wp));
+<a href='../S/421.html#L268'>t_wp</a>              268 usr/bin/test/test.c 			return filstat(*t_wp, n);
+<a href='../S/421.html#L272'>t_wp</a>              272 usr/bin/test/test.c 	if (t_lex(t_wp[1]), t_wp_op &amp;&amp; t_wp_op-&gt;op_type == BINOP) {
+<a href='../S/421.html#L276'>t_wp</a>              276 usr/bin/test/test.c 	return strlen(*t_wp) &gt; 0;
+<a href='../S/421.html#L285'>t_wp</a>              285 usr/bin/test/test.c 	opnd1 = *t_wp;
+<a href='../S/421.html#L286'>t_wp</a>              286 usr/bin/test/test.c 	(void) t_lex(*++t_wp);
+<a href='../S/421.html#L289'>t_wp</a>              289 usr/bin/test/test.c 	if ((opnd2 = *++t_wp) == NULL)
+<a href='../S/421.html#L387'>t_wp</a>              387 usr/bin/test/test.c 			    (op-&gt;op_num == LPAREN &amp;&amp; *(t_wp+1) == 0))
+<a href='../S/421.html#L405'>t_wp</a>              405 usr/bin/test/test.c 	if ((s  = *(t_wp+1)) == 0)
+<a href='../S/421.html#L407'>t_wp</a>              407 usr/bin/test/test.c 	if ((t = *(t_wp+2)) == 0)
+</pre>
+</body>
+</html>

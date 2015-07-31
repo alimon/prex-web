@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sysfn_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/332.html#L45'>sysfn_t</a>            45 sys/kern/sysent.c typedef register_t (*sysfn_t)(register_t, register_t, register_t, register_t);
+<a href='../S/332.html#L58'>sysfn_t</a>            58 sys/kern/sysent.c 	sysfn_t	sy_call;	/* handler */
+<a href='../S/332.html#L71'>sysfn_t</a>            71 sys/kern/sysent.c #define SYSENT(n, fn)	{n, __STRING(fn), (sysfn_t)(fn)}
+<a href='../S/332.html#L73'>sysfn_t</a>            73 sys/kern/sysent.c #define SYSENT(n, fn)	{(sysfn_t)(fn)}
+</pre>
+</body>
+</html>

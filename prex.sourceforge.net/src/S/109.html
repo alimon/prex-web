@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/lib/endian.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1043.html'>lib</a>/endian.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='109.html#L17'>[^]</a><a href='109.html#L41'>[v]</a>[top]<a href='109.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='109.html#L17' title='Defined at 17.'>htonl</a></li>
+<li><a href='109.html#L25' title='Defined at 25.'>htons</a></li>
+<li><a href='109.html#L33' title='Defined at 33.'>ntohl</a></li>
+<li><a href='109.html#L41' title='Defined at 41.'>ntohs</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Written by J.T. Conklin &lt;jtc@NetBSD.org&gt;.</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * Public domain.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> */</em>
+<a id='L5' name='L5' />   5 
+<a id='L6' name='L6' />   6 <em class='sharp'>#include</em> &lt;<a href='97.html'>driver.h</a>&gt;
+<a id='L7' name='L7' />   7 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L8' name='L8' />   8 <em class='sharp'>#include</em> &lt;<a href='../I/210.html'>sys/endian.h</a>&gt;
+<a id='L9' name='L9' />   9 
+<a id='L10' name='L10' />  10 <em class='sharp'>#undef</em> <a href='255.html#L68' title='Refered from 68 in include/sys/endian.h.'>htonl</a>
+<a id='L11' name='L11' />  11 <em class='sharp'>#undef</em> <a href='255.html#L69' title='Refered from 69 in include/sys/endian.h.'>htons</a>
+<a id='L12' name='L12' />  12 <em class='sharp'>#undef</em> <a href='255.html#L70' title='Refered from 70 in include/sys/endian.h.'>ntohl</a>
+<a id='L13' name='L13' />  13 <em class='sharp'>#undef</em> <a href='255.html#L71' title='Refered from 71 in include/sys/endian.h.'>ntohs</a>
+<a id='L14' name='L14' />  14 
+<a id='L15' name='L15' />  15 <em class='sharp'>#if</em> <a href='255.html#L53' title='Defined at 53 in include/sys/endian.h.'>BYTE_ORDER</a> == <a href='255.html#L45' title='Defined at 45 in include/sys/endian.h.'>LITTLE_ENDIAN</a>
+<a id='L16' name='L16' />  16 <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>
+<a id='L17' name='L17' />  17 <a href='255.html#L68' title='Refered from 68 in include/sys/endian.h.'>htonl</a>(<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)
+<a id='L18' name='L18' />  18 <em class='brace'>{</em>
+<a id='L19' name='L19' />  19 
+<a id='L20' name='L20' />  20         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = (<a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *)&amp;<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>;
+<a id='L21' name='L21' />  21         <strong class='reserved'>return</strong> (<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>)(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[0] &lt;&lt; 24 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[1] &lt;&lt; 16 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[2] &lt;&lt; 8 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[3]);
+<a id='L22' name='L22' />  22 <em class='brace'>}</em>
+<a id='L23' name='L23' />  23 
+<a id='L24' name='L24' />  24 <a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a>
+<a id='L25' name='L25' />  25 <a href='255.html#L69' title='Refered from 69 in include/sys/endian.h.'>htons</a>(<a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a> <a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)
+<a id='L26' name='L26' />  26 <em class='brace'>{</em>
+<a id='L27' name='L27' />  27 
+<a id='L28' name='L28' />  28         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = (<a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *) &amp;<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>;
+<a id='L29' name='L29' />  29         <strong class='reserved'>return</strong> (<a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a>)(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[0] &lt;&lt; 8 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[1]);
+<a id='L30' name='L30' />  30 <em class='brace'>}</em>
+<a id='L31' name='L31' />  31 
+<a id='L32' name='L32' />  32 <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>
+<a id='L33' name='L33' />  33 <a href='255.html#L70' title='Refered from 70 in include/sys/endian.h.'>ntohl</a>(<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)
+<a id='L34' name='L34' />  34 <em class='brace'>{</em>
+<a id='L35' name='L35' />  35 
+<a id='L36' name='L36' />  36         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = (<a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *)&amp;<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>;
+<a id='L37' name='L37' />  37         <strong class='reserved'>return</strong> (<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>)(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[0] &lt;&lt; 24 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[1] &lt;&lt; 16 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[2] &lt;&lt; 8 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[3]);
+<a id='L38' name='L38' />  38 <em class='brace'>}</em>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a>
+<a id='L41' name='L41' />  41 <a href='255.html#L71' title='Refered from 71 in include/sys/endian.h.'>ntohs</a>(<a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a> <a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)
+<a id='L42' name='L42' />  42 <em class='brace'>{</em>
+<a id='L43' name='L43' />  43 
+<a id='L44' name='L44' />  44         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = (<a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> *) &amp;<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>;
+<a id='L45' name='L45' />  45         <strong class='reserved'>return</strong> (<a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a>)(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[0] &lt;&lt; 8 | <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>[1]);
+<a id='L46' name='L46' />  46 <em class='brace'>}</em>
+<a id='L47' name='L47' />  47 <em class='sharp'>#endif</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='109.html#L17'>[^]</a><a href='109.html#L41'>[v]</a><a href='109.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

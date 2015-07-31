@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>file_pos</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/883.html#L208'>file_pos</a>          208 usr/server/fs/arfs/arfs_vnops.c 	off_t off, file_pos, buf_pos;
+<a href='../S/883.html#L221'>file_pos</a>          221 usr/server/fs/arfs/arfs_vnops.c 	file_pos = fp-&gt;f_offset;
+<a href='../S/883.html#L222'>file_pos</a>          222 usr/server/fs/arfs/arfs_vnops.c 	if (file_pos &gt;= (off_t)vp-&gt;v_size) {
+<a href='../S/883.html#L227'>file_pos</a>          227 usr/server/fs/arfs/arfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/883.html#L228'>file_pos</a>          228 usr/server/fs/arfs/arfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/883.html#L235'>file_pos</a>          235 usr/server/fs/arfs/arfs_vnops.c 			 file_pos, buf, size));
+<a href='../S/883.html#L237'>file_pos</a>          237 usr/server/fs/arfs/arfs_vnops.c 		blkno = (off + file_pos) / BSIZE;
+<a href='../S/883.html#L238'>file_pos</a>          238 usr/server/fs/arfs/arfs_vnops.c 		buf_pos = (off + file_pos) % BSIZE;
+<a href='../S/883.html#L250'>file_pos</a>          250 usr/server/fs/arfs/arfs_vnops.c 		file_pos += nr_copy;
+<a href='../S/883.html#L252'>file_pos</a>          252 usr/server/fs/arfs/arfs_vnops.c 			 file_pos, nr_copy));
+<a href='../S/883.html#L261'>file_pos</a>          261 usr/server/fs/arfs/arfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/893.html#L169'>file_pos</a>          169 usr/server/fs/fatfs/fatfs_vnops.c 	u_long cl, file_pos;
+<a href='../S/893.html#L182'>file_pos</a>          182 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = fp-&gt;f_offset;
+<a href='../S/893.html#L183'>file_pos</a>          183 usr/server/fs/fatfs/fatfs_vnops.c 	if (file_pos &gt;= vp-&gt;v_size)
+<a href='../S/893.html#L189'>file_pos</a>          189 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/893.html#L190'>file_pos</a>          190 usr/server/fs/fatfs/fatfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/893.html#L193'>file_pos</a>          193 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L199'>file_pos</a>          199 usr/server/fs/fatfs/fatfs_vnops.c 	buf_pos = file_pos % fmp-&gt;cluster_size;
+<a href='../S/893.html#L213'>file_pos</a>          213 usr/server/fs/fatfs/fatfs_vnops.c 		file_pos += nr_copy;
+<a href='../S/893.html#L227'>file_pos</a>          227 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/893.html#L242'>file_pos</a>          242 usr/server/fs/fatfs/fatfs_vnops.c 	u_long file_pos, end_pos;
+<a href='../S/893.html#L259'>file_pos</a>          259 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/893.html#L260'>file_pos</a>          260 usr/server/fs/fatfs/fatfs_vnops.c 	if (file_pos + size &gt; end_pos) {
+<a href='../S/893.html#L262'>file_pos</a>          262 usr/server/fs/fatfs/fatfs_vnops.c 		end_pos = file_pos + size;
+<a href='../S/893.html#L280'>file_pos</a>          280 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L284'>file_pos</a>          284 usr/server/fs/fatfs/fatfs_vnops.c 	buf_pos = file_pos % fmp-&gt;cluster_size;
+<a href='../S/893.html#L307'>file_pos</a>          307 usr/server/fs/fatfs/fatfs_vnops.c 		file_pos += nr_copy;
+<a href='../S/893.html#L322'>file_pos</a>          322 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/902.html#L364'>file_pos</a>          364 usr/server/fs/ramfs/ramfs_vnops.c 	off_t file_pos, end_pos;
+<a href='../S/902.html#L378'>file_pos</a>          378 usr/server/fs/ramfs/ramfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/902.html#L379'>file_pos</a>          379 usr/server/fs/ramfs/ramfs_vnops.c 	if (file_pos + size &gt; (size_t)end_pos) {
+<a href='../S/902.html#L381'>file_pos</a>          381 usr/server/fs/ramfs/ramfs_vnops.c 		end_pos = file_pos + size;
+<a href='../S/902.html#L404'>file_pos</a>          404 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(np-&gt;rn_buf + file_pos, buf, size);
+</pre>
+</body>
+</html>

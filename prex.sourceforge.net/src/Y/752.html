@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>end</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L119'>end</a>               119 bsp/drv/arm/gba/lcd.c 	int i, start, end;
+<a href='../S/51.html#L122'>end</a>               122 bsp/drv/arm/gba/lcd.c 	end = start + nrows * VSCR_COLS;
+<a href='../S/51.html#L124'>end</a>               124 bsp/drv/arm/gba/lcd.c 	for (i = start; i &lt; end; i++)
+<a href='../S/91.html#L172'>end</a>               172 bsp/drv/dev/video/vga.c 	int i, start, end;
+<a href='../S/91.html#L175'>end</a>               175 bsp/drv/dev/video/vga.c 	end = start + nrows * sc-&gt;cols;
+<a href='../S/91.html#L177'>end</a>               177 bsp/drv/dev/video/vga.c 	for (i = start; i &lt; end; i++)
+<a href='../S/131.html#L253'>end</a>               253 bsp/hal/arm/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/131.html#L257'>end</a>               257 bsp/hal/arm/arch/mmu.c 	end = trunc_page(virt + size - 1);
+<a href='../S/131.html#L260'>end</a>               260 bsp/hal/arm/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/178.html#L223'>end</a>               223 bsp/hal/x86/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/178.html#L227'>end</a>               227 bsp/hal/x86/arch/mmu.c 	end = trunc_page(va + size - 1);
+<a href='../S/178.html#L230'>end</a>               230 bsp/hal/x86/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/342.html#L185'>end</a>               185 sys/mem/page.c 	vaddr_t start, end;
+<a href='../S/342.html#L192'>end</a>               192 sys/mem/page.c 	end = round_page((vaddr_t)ptokv(paddr + psize));
+<a href='../S/342.html#L193'>end</a>               193 sys/mem/page.c 	size = end - start;
+<a href='../S/342.html#L204'>end</a>               204 sys/mem/page.c 		    &amp;&amp; end &lt;= (vaddr_t)blk + blk-&gt;size)
+<a href='../S/342.html#L218'>end</a>               218 sys/mem/page.c 		if ((vaddr_t)blk + blk-&gt;size != end) {
+<a href='../S/342.html#L219'>end</a>               219 sys/mem/page.c 			tmp = (struct page *)end;
+<a href='../S/342.html#L220'>end</a>               220 sys/mem/page.c 			tmp-&gt;size = (vaddr_t)blk + blk-&gt;size - end;
+<a href='../S/343.html#L122'>end</a>               122 sys/mem/vm.c   	vaddr_t start, end;
+<a href='../S/343.html#L139'>end</a>               139 sys/mem/vm.c   		end = round_page(start + size);
+<a href='../S/343.html#L140'>end</a>               140 sys/mem/vm.c   		size = (size_t)(end - start);
+<a href='../S/343.html#L390'>end</a>               390 sys/mem/vm.c   	vaddr_t start, end;
+<a href='../S/343.html#L407'>end</a>               407 sys/mem/vm.c   	end = round_page((vaddr_t)addr + size);
+<a href='../S/343.html#L408'>end</a>               408 sys/mem/vm.c   	size = (size_t)(end - start);
+<a href='../S/344.html#L115'>end</a>               115 sys/mem/vm_nommu.c 	vaddr_t start, end;
+<a href='../S/344.html#L132'>end</a>               132 sys/mem/vm_nommu.c 		end = round_page(start + size);
+<a href='../S/344.html#L133'>end</a>               133 sys/mem/vm_nommu.c 		size = (size_t)(end - start);
+<a href='../S/344.html#L324'>end</a>               324 sys/mem/vm_nommu.c 	vaddr_t start, end;
+<a href='../S/344.html#L338'>end</a>               338 sys/mem/vm_nommu.c 	end = round_page((vaddr_t)addr + size);
+<a href='../S/344.html#L339'>end</a>               339 sys/mem/vm_nommu.c 	size = (size_t)(end - start);
+<a href='../S/344.html#L457'>end</a>               457 sys/mem/vm_nommu.c 	vaddr_t base, start, end;
+<a href='../S/344.html#L471'>end</a>               471 sys/mem/vm_nommu.c 	end = round_page(start + size);
+<a href='../S/344.html#L472'>end</a>               472 sys/mem/vm_nommu.c 	size = (size_t)(end - start);
+<a href='../S/831.html#L62'>end</a>                62 usr/sample/bench/bench.c 	u_long start, end;
+<a href='../S/831.html#L102'>end</a>               102 usr/sample/bench/bench.c 	sys_time(&amp;end);
+<a href='../S/831.html#L107'>end</a>               107 usr/sample/bench/bench.c 	       (int)((end - start) * 1000 / info.hz),
+<a href='../S/831.html#L108'>end</a>               108 usr/sample/bench/bench.c 	       (int)(end - start));
+<a href='../S/877.html#L235'>end</a>               235 usr/server/exec/exec_execve.c 	char *src, *tgt, *p, *end;
+<a href='../S/877.html#L246'>end</a>               246 usr/server/exec/exec_execve.c 	end = src + len;
+<a href='../S/877.html#L286'>end</a>               286 usr/server/exec/exec_execve.c 		if (p == end)
+<a href='../S/912.html#L226'>end</a>               226 usr/server/fs/vfs/vfs_task.c 	char *src, *tgt, *p, *end, *cwd;
+<a href='../S/912.html#L238'>end</a>               238 usr/server/fs/vfs/vfs_task.c 	end = src + len;
+<a href='../S/912.html#L278'>end</a>               278 usr/server/fs/vfs/vfs_task.c 		if (p == end)
+</pre>
+</body>
+</html>

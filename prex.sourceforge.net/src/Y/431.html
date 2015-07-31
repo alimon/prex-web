@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>blk</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/341.html#L177'>blk</a>               177 sys/mem/kmem.c 	struct block_hdr *blk, *newblk;
+<a href='../S/341.html#L195'>blk</a>               195 sys/mem/kmem.c 	blk = block_find(size);
+<a href='../S/341.html#L196'>blk</a>               196 sys/mem/kmem.c 	if (blk) {
+<a href='../S/341.html#L200'>blk</a>               200 sys/mem/kmem.c 		list_remove(&amp;blk-&gt;link); /* Remove from free list */
+<a href='../S/341.html#L201'>blk</a>               201 sys/mem/kmem.c 		pg = PAGETOP(blk);	 /* Get the page address */
+<a href='../S/341.html#L217'>blk</a>               217 sys/mem/kmem.c 		blk = &amp;pg-&gt;first_blk;
+<a href='../S/341.html#L218'>blk</a>               218 sys/mem/kmem.c 		blk-&gt;magic = BLOCK_MAGIC;
+<a href='../S/341.html#L219'>blk</a>               219 sys/mem/kmem.c 		blk-&gt;size = MAX_BLOCK_SIZE;
+<a href='../S/341.html#L220'>blk</a>               220 sys/mem/kmem.c 		blk-&gt;pg_next = NULL;
+<a href='../S/341.html#L226'>blk</a>               226 sys/mem/kmem.c 	if (pg-&gt;magic != PAGE_MAGIC || blk-&gt;magic != BLOCK_MAGIC)
+<a href='../S/341.html#L232'>blk</a>               232 sys/mem/kmem.c 	if (blk-&gt;size - size &gt;= MIN_BLOCK_SIZE) {
+<a href='../S/341.html#L236'>blk</a>               236 sys/mem/kmem.c 		newblk = (struct block_hdr *)((vaddr_t)blk + size);
+<a href='../S/341.html#L238'>blk</a>               238 sys/mem/kmem.c 		newblk-&gt;size = (u_short)(blk-&gt;size - size);
+<a href='../S/341.html#L244'>blk</a>               244 sys/mem/kmem.c 		newblk-&gt;pg_next = blk-&gt;pg_next;
+<a href='../S/341.html#L245'>blk</a>               245 sys/mem/kmem.c 		blk-&gt;pg_next = newblk;
+<a href='../S/341.html#L246'>blk</a>               246 sys/mem/kmem.c 		blk-&gt;size = (u_short)size;
+<a href='../S/341.html#L252'>blk</a>               252 sys/mem/kmem.c 	p = (void *)((vaddr_t)blk + BLKHDR_SIZE);
+<a href='../S/341.html#L271'>blk</a>               271 sys/mem/kmem.c 	struct block_hdr *blk;
+<a href='../S/341.html#L280'>blk</a>               280 sys/mem/kmem.c 	blk = (struct block_hdr *)((vaddr_t)ptr - BLKHDR_SIZE);
+<a href='../S/341.html#L281'>blk</a>               281 sys/mem/kmem.c 	if (blk-&gt;magic != BLOCK_MAGIC)
+<a href='../S/341.html#L289'>blk</a>               289 sys/mem/kmem.c 	list_insert(&amp;free_blocks[BLKNDX(blk)], &amp;blk-&gt;link);
+<a href='../S/341.html#L294'>blk</a>               294 sys/mem/kmem.c 	pg = PAGETOP(blk);
+<a href='../S/341.html#L300'>blk</a>               300 sys/mem/kmem.c 		for (blk = &amp;pg-&gt;first_blk; blk != NULL; blk = blk-&gt;pg_next) {
+<a href='../S/341.html#L301'>blk</a>               301 sys/mem/kmem.c 			list_remove(&amp;blk-&gt;link); /* Remove from free list */
+<a href='../S/342.html#L78'>blk</a>                78 sys/mem/page.c 	struct page *blk, *tmp;
+<a href='../S/342.html#L89'>blk</a>                89 sys/mem/page.c 	blk = &amp;page_head;
+<a href='../S/342.html#L91'>blk</a>                91 sys/mem/page.c 		blk = blk-&gt;next;
+<a href='../S/342.html#L92'>blk</a>                92 sys/mem/page.c 		if (blk == &amp;page_head) {
+<a href='../S/342.html#L97'>blk</a>                97 sys/mem/page.c 	} while (blk-&gt;size &lt; size);
+<a href='../S/342.html#L105'>blk</a>               105 sys/mem/page.c 	if (blk-&gt;size == size) {
+<a href='../S/342.html#L106'>blk</a>               106 sys/mem/page.c 		blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L107'>blk</a>               107 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L109'>blk</a>               109 sys/mem/page.c 		tmp = (struct page *)((vaddr_t)blk + size);
+<a href='../S/342.html#L110'>blk</a>               110 sys/mem/page.c 		tmp-&gt;size = blk-&gt;size - size;
+<a href='../S/342.html#L111'>blk</a>               111 sys/mem/page.c 		tmp-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L112'>blk</a>               112 sys/mem/page.c 		tmp-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L113'>blk</a>               113 sys/mem/page.c 		blk-&gt;prev-&gt;next = tmp;
+<a href='../S/342.html#L114'>blk</a>               114 sys/mem/page.c 		blk-&gt;next-&gt;prev = tmp;
+<a href='../S/342.html#L118'>blk</a>               118 sys/mem/page.c 	return kvtop(blk);
+<a href='../S/342.html#L131'>blk</a>               131 sys/mem/page.c 	struct page *blk, *prev;
+<a href='../S/342.html#L139'>blk</a>               139 sys/mem/page.c 	blk = ptokv(paddr);
+<a href='../S/342.html#L144'>blk</a>               144 sys/mem/page.c 	for (prev = &amp;page_head; prev-&gt;next &lt; blk; prev = prev-&gt;next) {
+<a href='../S/342.html#L152'>blk</a>               152 sys/mem/page.c 	blk-&gt;size = size;
+<a href='../S/342.html#L153'>blk</a>               153 sys/mem/page.c 	blk-&gt;prev = prev;
+<a href='../S/342.html#L154'>blk</a>               154 sys/mem/page.c 	blk-&gt;next = prev-&gt;next;
+<a href='../S/342.html#L155'>blk</a>               155 sys/mem/page.c 	prev-&gt;next-&gt;prev = blk;
+<a href='../S/342.html#L156'>blk</a>               156 sys/mem/page.c 	prev-&gt;next = blk;
+<a href='../S/342.html#L162'>blk</a>               162 sys/mem/page.c 	if (blk-&gt;next != &amp;page_head &amp;&amp;
+<a href='../S/342.html#L163'>blk</a>               163 sys/mem/page.c 	    ((vaddr_t)blk + blk-&gt;size) == (vaddr_t)blk-&gt;next) {
+<a href='../S/342.html#L164'>blk</a>               164 sys/mem/page.c 		blk-&gt;size += blk-&gt;next-&gt;size;
+<a href='../S/342.html#L165'>blk</a>               165 sys/mem/page.c 		blk-&gt;next = blk-&gt;next-&gt;next;
+<a href='../S/342.html#L166'>blk</a>               166 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk;
+<a href='../S/342.html#L168'>blk</a>               168 sys/mem/page.c 	if (blk-&gt;prev != &amp;page_head &amp;&amp;
+<a href='../S/342.html#L169'>blk</a>               169 sys/mem/page.c 	    (vaddr_t)blk-&gt;prev + blk-&gt;prev-&gt;size == (vaddr_t)blk) {
+<a href='../S/342.html#L170'>blk</a>               170 sys/mem/page.c 		blk-&gt;prev-&gt;size += blk-&gt;size;
+<a href='../S/342.html#L171'>blk</a>               171 sys/mem/page.c 		blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L172'>blk</a>               172 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L184'>blk</a>               184 sys/mem/page.c 	struct page *blk, *tmp;
+<a href='../S/342.html#L198'>blk</a>               198 sys/mem/page.c 	blk = page_head.next;
+<a href='../S/342.html#L200'>blk</a>               200 sys/mem/page.c 		if (blk == &amp;page_head)
+<a href='../S/342.html#L203'>blk</a>               203 sys/mem/page.c 		if ((vaddr_t)blk &lt;= start
+<a href='../S/342.html#L204'>blk</a>               204 sys/mem/page.c 		    &amp;&amp; end &lt;= (vaddr_t)blk + blk-&gt;size)
+<a href='../S/342.html#L206'>blk</a>               206 sys/mem/page.c 		blk = blk-&gt;next;
+<a href='../S/342.html#L208'>blk</a>               208 sys/mem/page.c 	if ((vaddr_t)blk == start &amp;&amp; blk-&gt;size == size) {
+<a href='../S/342.html#L212'>blk</a>               212 sys/mem/page.c 		blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L213'>blk</a>               213 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L218'>blk</a>               218 sys/mem/page.c 		if ((vaddr_t)blk + blk-&gt;size != end) {
+<a href='../S/342.html#L220'>blk</a>               220 sys/mem/page.c 			tmp-&gt;size = (vaddr_t)blk + blk-&gt;size - end;
+<a href='../S/342.html#L221'>blk</a>               221 sys/mem/page.c 			tmp-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L222'>blk</a>               222 sys/mem/page.c 			tmp-&gt;prev = blk;
+<a href='../S/342.html#L224'>blk</a>               224 sys/mem/page.c 			blk-&gt;size -= tmp-&gt;size;
+<a href='../S/342.html#L225'>blk</a>               225 sys/mem/page.c 			blk-&gt;next-&gt;prev = tmp;
+<a href='../S/342.html#L226'>blk</a>               226 sys/mem/page.c 			blk-&gt;next = tmp;
+<a href='../S/342.html#L228'>blk</a>               228 sys/mem/page.c 		if ((vaddr_t)blk == start) {
+<a href='../S/342.html#L229'>blk</a>               229 sys/mem/page.c 			blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L230'>blk</a>               230 sys/mem/page.c 			blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L232'>blk</a>               232 sys/mem/page.c 			blk-&gt;size = start - (vaddr_t)blk;
+</pre>
+</body>
+</html>

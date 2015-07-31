@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>file_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L105'>file_t</a>            105 include/sys/vnode.h 	int (*vop_close)	(vnode_t, file_t);
+<a href='../S/279.html#L106'>file_t</a>            106 include/sys/vnode.h 	int (*vop_read)		(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/279.html#L107'>file_t</a>            107 include/sys/vnode.h 	int (*vop_write)	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/279.html#L108'>file_t</a>            108 include/sys/vnode.h 	int (*vop_seek)		(vnode_t, file_t, off_t, off_t);
+<a href='../S/279.html#L109'>file_t</a>            109 include/sys/vnode.h 	int (*vop_ioctl)	(vnode_t, file_t, u_long, void *);
+<a href='../S/279.html#L110'>file_t</a>            110 include/sys/vnode.h 	int (*vop_fsync)	(vnode_t, file_t);
+<a href='../S/279.html#L111'>file_t</a>            111 include/sys/vnode.h 	int (*vop_readdir)	(vnode_t, file_t, struct dirent *);
+<a href='../S/883.html#L66'>file_t</a>             66 usr/server/fs/arfs/arfs_vnops.c static int arfs_read	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/883.html#L68'>file_t</a>             68 usr/server/fs/arfs/arfs_vnops.c static int arfs_seek	(vnode_t, file_t, off_t, off_t);
+<a href='../S/883.html#L71'>file_t</a>             71 usr/server/fs/arfs/arfs_vnops.c static int arfs_readdir	(vnode_t, file_t, struct dirent *);
+<a href='../S/883.html#L206'>file_t</a>            206 usr/server/fs/arfs/arfs_vnops.c arfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/883.html#L274'>file_t</a>            274 usr/server/fs/arfs/arfs_vnops.c arfs_seek(vnode_t vp, file_t fp, off_t oldoff, off_t newoff)
+<a href='../S/883.html#L284'>file_t</a>            284 usr/server/fs/arfs/arfs_vnops.c arfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/886.html#L60'>file_t</a>             60 usr/server/fs/devfs/devfs_vnops.c static int devfs_close	(vnode_t, file_t);
+<a href='../S/886.html#L61'>file_t</a>             61 usr/server/fs/devfs/devfs_vnops.c static int devfs_read	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/886.html#L62'>file_t</a>             62 usr/server/fs/devfs/devfs_vnops.c static int devfs_write	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/886.html#L64'>file_t</a>             64 usr/server/fs/devfs/devfs_vnops.c static int devfs_ioctl	(vnode_t, file_t, u_long, void *);
+<a href='../S/886.html#L66'>file_t</a>             66 usr/server/fs/devfs/devfs_vnops.c static int devfs_readdir(vnode_t, file_t, struct dirent *);
+<a href='../S/886.html#L144'>file_t</a>            144 usr/server/fs/devfs/devfs_vnops.c devfs_close(vnode_t vp, file_t fp)
+<a href='../S/886.html#L156'>file_t</a>            156 usr/server/fs/devfs/devfs_vnops.c devfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L169'>file_t</a>            169 usr/server/fs/devfs/devfs_vnops.c devfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L183'>file_t</a>            183 usr/server/fs/devfs/devfs_vnops.c devfs_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/886.html#L229'>file_t</a>            229 usr/server/fs/devfs/devfs_vnops.c devfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/893.html#L56'>file_t</a>             56 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_read	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/893.html#L57'>file_t</a>             57 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_write	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/893.html#L61'>file_t</a>             61 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_readdir(vnode_t, file_t, struct dirent *);
+<a href='../S/893.html#L165'>file_t</a>            165 usr/server/fs/fatfs/fatfs_vnops.c fatfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L236'>file_t</a>            236 usr/server/fs/fatfs/fatfs_vnops.c fatfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L339'>file_t</a>            339 usr/server/fs/fatfs/fatfs_vnops.c fatfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/896.html#L75'>file_t</a>             75 usr/server/fs/fifofs/fifo_vnops.c static int fifo_close	(vnode_t, file_t);
+<a href='../S/896.html#L76'>file_t</a>             76 usr/server/fs/fifofs/fifo_vnops.c static int fifo_read	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/896.html#L77'>file_t</a>             77 usr/server/fs/fifofs/fifo_vnops.c static int fifo_write	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/896.html#L79'>file_t</a>             79 usr/server/fs/fifofs/fifo_vnops.c static int fifo_ioctl	(vnode_t, file_t, u_long, void *);
+<a href='../S/896.html#L81'>file_t</a>             81 usr/server/fs/fifofs/fifo_vnops.c static int fifo_readdir	(vnode_t, file_t, struct dirent *);
+<a href='../S/896.html#L188'>file_t</a>            188 usr/server/fs/fifofs/fifo_vnops.c fifo_close(vnode_t vp, file_t fp)
+<a href='../S/896.html#L219'>file_t</a>            219 usr/server/fs/fifofs/fifo_vnops.c fifo_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L264'>file_t</a>            264 usr/server/fs/fifofs/fifo_vnops.c fifo_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L310'>file_t</a>            310 usr/server/fs/fifofs/fifo_vnops.c fifo_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/896.html#L424'>file_t</a>            424 usr/server/fs/fifofs/fifo_vnops.c fifo_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/902.html#L52'>file_t</a>             52 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_read	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/902.html#L53'>file_t</a>             53 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_write	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/902.html#L57'>file_t</a>             57 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_readdir(vnode_t, file_t, struct dirent *);
+<a href='../S/902.html#L334'>file_t</a>            334 usr/server/fs/ramfs/ramfs_vnops.c ramfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L361'>file_t</a>            361 usr/server/fs/ramfs/ramfs_vnops.c ramfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L452'>file_t</a>            452 usr/server/fs/ramfs/ramfs_vnops.c ramfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/903.html#L130'>file_t</a>            130 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L165'>file_t</a>            165 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L199'>file_t</a>            199 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L216'>file_t</a>            216 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L236'>file_t</a>            236 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L256'>file_t</a>            256 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L267'>file_t</a>            267 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L278'>file_t</a>            278 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L294'>file_t</a>            294 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L315'>file_t</a>            315 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L334'>file_t</a>            334 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L345'>file_t</a>            345 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L356'>file_t</a>            356 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L369'>file_t</a>            369 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L432'>file_t</a>            432 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L453'>file_t</a>            453 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L516'>file_t</a>            516 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L543'>file_t</a>            543 usr/server/fs/vfs/main.c 	file_t fp, org;
+<a href='../S/903.html#L575'>file_t</a>            575 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L644'>file_t</a>            644 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L689'>file_t</a>            689 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L723'>file_t</a>            723 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L763'>file_t</a>            763 usr/server/fs/vfs/main.c 	file_t rfp, wfp;
+<a href='../S/903.html#L770'>file_t</a>            770 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[rfd] = (file_t)1; /* temp */
+<a href='../S/903.html#L807'>file_t</a>            807 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L836'>file_t</a>            836 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/905.html#L85'>file_t</a>             85 usr/server/fs/vfs/vfs.h 	file_t	    t_cwdfp;		/* directory for cwd */
+<a href='../S/905.html#L86'>file_t</a>             86 usr/server/fs/vfs/vfs.h 	file_t	    t_ofile[NOFILE];	/* pointers to file structures of open files */
+<a href='../S/905.html#L94'>file_t</a>             94 usr/server/fs/vfs/vfs.h int	 sys_open(char *path, int flags, mode_t mode, file_t *pfp);
+<a href='../S/905.html#L95'>file_t</a>             95 usr/server/fs/vfs/vfs.h int	 sys_close(file_t fp);
+<a href='../S/905.html#L96'>file_t</a>             96 usr/server/fs/vfs/vfs.h int	 sys_read(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L97'>file_t</a>             97 usr/server/fs/vfs/vfs.h int	 sys_write(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L98'>file_t</a>             98 usr/server/fs/vfs/vfs.h int	 sys_lseek(file_t fp, off_t off, int type, off_t * cur_off);
+<a href='../S/905.html#L99'>file_t</a>             99 usr/server/fs/vfs/vfs.h int	 sys_ioctl(file_t fp, u_long request, void *buf);
+<a href='../S/905.html#L100'>file_t</a>            100 usr/server/fs/vfs/vfs.h int	 sys_fstat(file_t fp, struct stat *st);
+<a href='../S/905.html#L101'>file_t</a>            101 usr/server/fs/vfs/vfs.h int	 sys_fsync(file_t fp);
+<a href='../S/905.html#L102'>file_t</a>            102 usr/server/fs/vfs/vfs.h int	 sys_ftruncate(file_t fp, off_t length);
+<a href='../S/905.html#L104'>file_t</a>            104 usr/server/fs/vfs/vfs.h int	 sys_opendir(char *path, file_t * file);
+<a href='../S/905.html#L105'>file_t</a>            105 usr/server/fs/vfs/vfs.h int	 sys_closedir(file_t fp);
+<a href='../S/905.html#L106'>file_t</a>            106 usr/server/fs/vfs/vfs.h int	 sys_readdir(file_t fp, struct dirent *dirent);
+<a href='../S/905.html#L107'>file_t</a>            107 usr/server/fs/vfs/vfs.h int	 sys_rewinddir(file_t fp);
+<a href='../S/905.html#L108'>file_t</a>            108 usr/server/fs/vfs/vfs.h int	 sys_seekdir(file_t fp, long loc);
+<a href='../S/905.html#L109'>file_t</a>            109 usr/server/fs/vfs/vfs.h int	 sys_telldir(file_t fp, long *loc);
+<a href='../S/905.html#L110'>file_t</a>            110 usr/server/fs/vfs/vfs.h int	 sys_fchdir(file_t fp, char *path);
+<a href='../S/905.html#L132'>file_t</a>            132 usr/server/fs/vfs/vfs.h file_t	 task_getfp(struct task *t, int fd);
+<a href='../S/905.html#L133'>file_t</a>            133 usr/server/fs/vfs/vfs.h void	 task_setfp(struct task *t, int fd, file_t fp);
+<a href='../S/911.html#L55'>file_t</a>             55 usr/server/fs/vfs/vfs_syscalls.c sys_open(char *path, int flags, mode_t mode, file_t *pfp)
+<a href='../S/911.html#L58'>file_t</a>             58 usr/server/fs/vfs/vfs_syscalls.c 	file_t fp;
+<a href='../S/911.html#L148'>file_t</a>            148 usr/server/fs/vfs/vfs_syscalls.c sys_close(file_t fp)
+<a href='../S/911.html#L175'>file_t</a>            175 usr/server/fs/vfs/vfs_syscalls.c sys_read(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L197'>file_t</a>            197 usr/server/fs/vfs/vfs_syscalls.c sys_write(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L219'>file_t</a>            219 usr/server/fs/vfs/vfs_syscalls.c sys_lseek(file_t fp, off_t off, int type, off_t *origin)
+<a href='../S/911.html#L267'>file_t</a>            267 usr/server/fs/vfs/vfs_syscalls.c sys_ioctl(file_t fp, u_long request, void *buf)
+<a href='../S/911.html#L286'>file_t</a>            286 usr/server/fs/vfs/vfs_syscalls.c sys_fsync(file_t fp)
+<a href='../S/911.html#L304'>file_t</a>            304 usr/server/fs/vfs/vfs_syscalls.c sys_fstat(file_t fp, struct stat *st)
+<a href='../S/911.html#L325'>file_t</a>            325 usr/server/fs/vfs/vfs_syscalls.c 	file_t fp;
+<a href='../S/911.html#L348'>file_t</a>            348 usr/server/fs/vfs/vfs_syscalls.c sys_opendir(char *path, file_t *file)
+<a href='../S/911.html#L351'>file_t</a>            351 usr/server/fs/vfs/vfs_syscalls.c 	file_t fp;
+<a href='../S/911.html#L373'>file_t</a>            373 usr/server/fs/vfs/vfs_syscalls.c sys_closedir(file_t fp)
+<a href='../S/911.html#L392'>file_t</a>            392 usr/server/fs/vfs/vfs_syscalls.c sys_readdir(file_t fp, struct dirent *dir)
+<a href='../S/911.html#L413'>file_t</a>            413 usr/server/fs/vfs/vfs_syscalls.c sys_rewinddir(file_t fp)
+<a href='../S/911.html#L429'>file_t</a>            429 usr/server/fs/vfs/vfs_syscalls.c sys_seekdir(file_t fp, long loc)
+<a href='../S/911.html#L445'>file_t</a>            445 usr/server/fs/vfs/vfs_syscalls.c sys_telldir(file_t fp, long *loc)
+<a href='../S/911.html#L738'>file_t</a>            738 usr/server/fs/vfs/vfs_syscalls.c sys_ftruncate(file_t fp, off_t length)
+<a href='../S/911.html#L744'>file_t</a>            744 usr/server/fs/vfs/vfs_syscalls.c sys_fchdir(file_t fp, char *cwd)
+<a href='../S/912.html#L164'>file_t</a>            164 usr/server/fs/vfs/vfs_task.c file_t
+<a href='../S/912.html#L178'>file_t</a>            178 usr/server/fs/vfs/vfs_task.c task_setfp(struct task *t, int fd, file_t fp)
+</pre>
+</body>
+</html>

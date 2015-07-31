@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>read</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L95'>read</a>               95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/66.html#L300'>read</a>              300 bsp/drv/dev/block/fdd.c 	int read;
+<a href='../S/66.html#L309'>read</a>              309 bsp/drv/dev/block/fdd.c 	read = (irp-&gt;cmd == IO_READ) ? 1 : 0;
+<a href='../S/66.html#L312'>read</a>              312 bsp/drv/dev/block/fdd.c 		 head, track, sect, io_size, read));
+<a href='../S/66.html#L316'>read</a>              316 bsp/drv/dev/block/fdd.c 	dma_setup(sc-&gt;dma, irp-&gt;buf, io_size, read);
+<a href='../S/66.html#L319'>read</a>              319 bsp/drv/dev/block/fdd.c 	fdc_out(read ? CMD_READ : CMD_WRITE);
+<a href='../S/72.html#L209'>read</a>              209 bsp/drv/dev/dma/i8237.c 	mode = read ? 0x44U : 0x48U;
+<a href='../S/252.html#L56'>read</a>               56 include/sys/device.h 	int (*read)	(device_t, char *, size_t *, int);
+<a href='../S/327.html#L380'>read</a>              380 sys/kern/device.c 	ASSERT(ops-&gt;read != NULL);
+<a href='../S/327.html#L381'>read</a>              381 sys/kern/device.c 	error = (*ops-&gt;read)(dev, buf, &amp;count, blkno);
+<a href='../S/366.html#L104'>read</a>              104 usr/bin/cat/cat.c 	while ((nr = read(rfd, stdbuf, BUFSIZ)) &gt; 0)
+<a href='../S/374.html#L159'>read</a>              159 usr/bin/cp/cp.c 	while ((n = read(fold, iobuf, BUFSIZ)) &gt; 0) {
+<a href='../S/396.html#L93'>read</a>               93 usr/bin/more/more.c 			read(2, &amp;c, 1);
+<a href='../S/413.html#L416'>read</a>              416 usr/bin/sh/sh.c 		cnt = read(fd, p, 1);
+<a href='../S/547.html#L48'>read</a>               48 usr/lib/libc/stdio/stdio.c 	return (read(fp-&gt;_file, buf, n));
+<a href='../S/846.html#L130'>read</a>              130 usr/sample/tetris/input.c 		if (rwait(&amp;tv) &amp;&amp; read(0, &amp;c, 1) != 1)
+<a href='../S/846.html#L145'>read</a>              145 usr/sample/tetris/input.c 	} while (rwait(&amp;tv) &amp;&amp; read(0, &amp;c, 1) == 1);
+<a href='../S/846.html#L173'>read</a>              173 usr/sample/tetris/input.c 	if (read(0, &amp;c, 1) != 1)
+<a href='../S/862.html#L137'>read</a>              137 usr/sbin/install/install.c 	while ((n = read(fold, iobuf, BUFSIZ)) &gt; 0) {
+<a href='../S/871.html#L254'>read</a>              254 usr/server/boot/boot.c 	while ((n = read(fold, iobuf, BUFSIZ)) &gt; 0) {
+<a href='../S/876.html#L88'>read</a>               88 usr/server/exec/exec_elf.c 			if (read(fd, mapped, phdr-&gt;p_filesz) &lt; 0)
+<a href='../S/876.html#L216'>read</a>              216 usr/server/exec/exec_elf.c 	if (read(fd, buf, shdr_size) &lt; 0) {
+<a href='../S/876.html#L288'>read</a>              288 usr/server/exec/exec_elf.c 		if (read(fd, addr, shdr-&gt;sh_size) &lt; 0) {
+<a href='../S/877.html#L467'>read</a>              467 usr/server/exec/exec_execve.c 	if (read(fd, hdrbuf, HEADER_SIZE) == -1) {
+<a href='../S/952.html#L72'>read</a>               72 usr/test/fifo/fifo.c 			len = read(fd1, buf1, sizeof(buf1) - 1);
+<a href='../S/954.html#L78'>read</a>               78 usr/test/fileio/fileio.c 	while ((rd = read(fd, iobuf, IOBUFSZ)) &gt; 0)
+<a href='../S/954.html#L124'>read</a>              124 usr/test/fileio/fileio.c 		while ((rd = read(fd, iobuf, IOBUFSZ)) &gt; 0)
+<a href='../S/981.html#L58'>read</a>               58 usr/test/pipe/pipe.c 	read(fd[0], buf, sizeof(buf));
+<a href='../S/981.html#L82'>read</a>               82 usr/test/pipe/pipe.c 		read(fd[0], buf, 256);
+</pre>
+</body>
+</html>

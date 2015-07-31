@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>de</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L146'>de</a>                146 usr/server/fs/fatfs/fatfs.h #define IS_DIR(de)	(((de)-&gt;attr) &amp; FA_SUBDIR)
+<a href='../S/888.html#L147'>de</a>                147 usr/server/fs/fatfs/fatfs.h #define IS_VOL(de)	(((de)-&gt;attr) &amp; FA_VOLID)
+<a href='../S/888.html#L148'>de</a>                148 usr/server/fs/fatfs/fatfs.h #define IS_FILE(de)	(!IS_DIR(de) &amp;&amp; !IS_VOL(de))
+<a href='../S/888.html#L150'>de</a>                150 usr/server/fs/fatfs/fatfs.h #define IS_DELETED(de)  ((de)-&gt;name[0] == 0xe5)
+<a href='../S/888.html#L151'>de</a>                151 usr/server/fs/fatfs/fatfs.h #define IS_EMPTY(de)    ((de)-&gt;name[0] == 0)
+<a href='../S/890.html#L83'>de</a>                 83 usr/server/fs/fatfs/fatfs_node.c 	struct fat_dirent *de;
+<a href='../S/890.html#L90'>de</a>                 90 usr/server/fs/fatfs/fatfs_node.c 	de = (struct fat_dirent *)fmp-&gt;dir_buf;
+<a href='../S/890.html#L94'>de</a>                 94 usr/server/fs/fatfs/fatfs_node.c 		if (IS_EMPTY(de))
+<a href='../S/890.html#L96'>de</a>                 96 usr/server/fs/fatfs/fatfs_node.c 		if (!IS_VOL(de) &amp;&amp;
+<a href='../S/890.html#L97'>de</a>                 97 usr/server/fs/fatfs/fatfs_node.c 		    !fat_compare_name((char *)de-&gt;name, name)) {
+<a href='../S/890.html#L99'>de</a>                 99 usr/server/fs/fatfs/fatfs_node.c 			*(&amp;np-&gt;dirent) = *de;
+<a href='../S/890.html#L105'>de</a>                105 usr/server/fs/fatfs/fatfs_node.c 		if (!IS_DELETED(de))
+<a href='../S/890.html#L106'>de</a>                106 usr/server/fs/fatfs/fatfs_node.c 			DPRINTF(("fat_lookup_dirent: %s\n", de-&gt;name));
+<a href='../S/890.html#L107'>de</a>                107 usr/server/fs/fatfs/fatfs_node.c 		de++;
+<a href='../S/890.html#L178'>de</a>                178 usr/server/fs/fatfs/fatfs_node.c 	struct fat_dirent *de;
+<a href='../S/890.html#L185'>de</a>                185 usr/server/fs/fatfs/fatfs_node.c 	de = (struct fat_dirent *)fmp-&gt;dir_buf;
+<a href='../S/890.html#L187'>de</a>                187 usr/server/fs/fatfs/fatfs_node.c 		if (IS_EMPTY(de))
+<a href='../S/890.html#L189'>de</a>                189 usr/server/fs/fatfs/fatfs_node.c 		if (!IS_DELETED(de) &amp;&amp; !IS_VOL(de)) {
+<a href='../S/890.html#L192'>de</a>                192 usr/server/fs/fatfs/fatfs_node.c 				*(&amp;np-&gt;dirent) = *de;
+<a href='../S/890.html#L200'>de</a>                200 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fat_get_dirent: %s\n", de-&gt;name));
+<a href='../S/890.html#L201'>de</a>                201 usr/server/fs/fatfs/fatfs_node.c 		de++;
+<a href='../S/890.html#L262'>de</a>                262 usr/server/fs/fatfs/fatfs_node.c 	struct fat_dirent *de;
+<a href='../S/890.html#L269'>de</a>                269 usr/server/fs/fatfs/fatfs_node.c 	de = (struct fat_dirent *)fmp-&gt;dir_buf;
+<a href='../S/890.html#L271'>de</a>                271 usr/server/fs/fatfs/fatfs_node.c 		if (IS_DELETED(de) || IS_EMPTY(de))
+<a href='../S/890.html#L273'>de</a>                273 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fat_add_dirent: scan %s\n", de-&gt;name));
+<a href='../S/890.html#L274'>de</a>                274 usr/server/fs/fatfs/fatfs_node.c 		de++;
+<a href='../S/890.html#L280'>de</a>                280 usr/server/fs/fatfs/fatfs_node.c 	memcpy(de, &amp;np-&gt;dirent, sizeof(struct fat_dirent));
+<a href='../S/893.html#L133'>de</a>                133 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L152'>de</a>                152 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L153'>de</a>                153 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_type = IS_DIR(de) ? VDIR : VREG;
+<a href='../S/893.html#L154'>de</a>                154 usr/server/fs/fatfs/fatfs_vnops.c 	fat_attr_to_mode(de-&gt;attr, &amp;vp-&gt;v_mode);
+<a href='../S/893.html#L156'>de</a>                156 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = de-&gt;size;
+<a href='../S/893.html#L157'>de</a>                157 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_blkno = de-&gt;cluster;
+<a href='../S/893.html#L159'>de</a>                159 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_lookup: cl=%d\n", de-&gt;cluster));
+<a href='../S/893.html#L240'>de</a>                240 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L271'>de</a>                271 usr/server/fs/fatfs/fatfs_vnops.c 		de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L272'>de</a>                272 usr/server/fs/fatfs/fatfs_vnops.c 		de-&gt;size = end_pos;
+<a href='../S/893.html#L343'>de</a>                343 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L352'>de</a>                352 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L353'>de</a>                353 usr/server/fs/fatfs/fatfs_vnops.c 	fat_restore_name((char *)&amp;de-&gt;name, dir-&gt;d_name);
+<a href='../S/893.html#L355'>de</a>                355 usr/server/fs/fatfs/fatfs_vnops.c 	if (de-&gt;attr &amp; FA_SUBDIR)
+<a href='../S/893.html#L357'>de</a>                357 usr/server/fs/fatfs/fatfs_vnops.c 	else if (de-&gt;attr &amp; FA_DEVICE)
+<a href='../S/893.html#L380'>de</a>                380 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L400'>de</a>                400 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L401'>de</a>                401 usr/server/fs/fatfs/fatfs_vnops.c 	memset(de, 0, sizeof(struct fat_dirent));
+<a href='../S/893.html#L402'>de</a>                402 usr/server/fs/fatfs/fatfs_vnops.c 	fat_convert_name(name, (char *)de-&gt;name);
+<a href='../S/893.html#L403'>de</a>                403 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L404'>de</a>                404 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;time = TEMP_TIME;
+<a href='../S/893.html#L405'>de</a>                405 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;date = TEMP_DATE;
+<a href='../S/893.html#L406'>de</a>                406 usr/server/fs/fatfs/fatfs_vnops.c 	fat_mode_to_attr(mode, &amp;de-&gt;attr);
+<a href='../S/893.html#L421'>de</a>                421 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L433'>de</a>                433 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L434'>de</a>                434 usr/server/fs/fatfs/fatfs_vnops.c 	if (IS_DIR(de)) {
+<a href='../S/893.html#L438'>de</a>                438 usr/server/fs/fatfs/fatfs_vnops.c 	if (!IS_FILE(de)) {
+<a href='../S/893.html#L444'>de</a>                444 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L449'>de</a>                449 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;name[0] = 0xe5;
+<a href='../S/893.html#L557'>de</a>                557 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L576'>de</a>                576 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L577'>de</a>                577 usr/server/fs/fatfs/fatfs_vnops.c 	fat_convert_name(name, (char *)&amp;de-&gt;name);
+<a href='../S/893.html#L578'>de</a>                578 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L579'>de</a>                579 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;time = TEMP_TIME;
+<a href='../S/893.html#L580'>de</a>                580 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;date = TEMP_DATE;
+<a href='../S/893.html#L581'>de</a>                581 usr/server/fs/fatfs/fatfs_vnops.c 	fat_mode_to_attr(mode, &amp;de-&gt;attr);
+<a href='../S/893.html#L589'>de</a>                589 usr/server/fs/fatfs/fatfs_vnops.c 	de = (struct fat_dirent *)fmp-&gt;io_buf;
+<a href='../S/893.html#L590'>de</a>                590 usr/server/fs/fatfs/fatfs_vnops.c 	memcpy(de-&gt;name, ".          ", 11);
+<a href='../S/893.html#L591'>de</a>                591 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;attr = FA_SUBDIR;
+<a href='../S/893.html#L592'>de</a>                592 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L593'>de</a>                593 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;time = TEMP_TIME;
+<a href='../S/893.html#L594'>de</a>                594 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;date = TEMP_DATE;
+<a href='../S/893.html#L595'>de</a>                595 usr/server/fs/fatfs/fatfs_vnops.c 	de++;
+<a href='../S/893.html#L596'>de</a>                596 usr/server/fs/fatfs/fatfs_vnops.c 	memcpy(de-&gt;name, "..         ", 11);
+<a href='../S/893.html#L597'>de</a>                597 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;attr = FA_SUBDIR;
+<a href='../S/893.html#L598'>de</a>                598 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = dvp-&gt;v_blkno;
+<a href='../S/893.html#L599'>de</a>                599 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;time = TEMP_TIME;
+<a href='../S/893.html#L600'>de</a>                600 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;date = TEMP_DATE;
+<a href='../S/893.html#L621'>de</a>                621 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L634'>de</a>                634 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L635'>de</a>                635 usr/server/fs/fatfs/fatfs_vnops.c 	if (!IS_DIR(de)) {
+<a href='../S/893.html#L641'>de</a>                641 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L646'>de</a>                646 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;name[0] = 0xe5;
+<a href='../S/893.html#L682'>de</a>                682 usr/server/fs/fatfs/fatfs_vnops.c 	struct fat_dirent *de;
+<a href='../S/893.html#L689'>de</a>                689 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L693'>de</a>                693 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L705'>de</a>                705 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;size = length;
+</pre>
+</body>
+</html>

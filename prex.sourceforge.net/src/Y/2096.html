@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_oproc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L194'>t_oproc</a>           194 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_oproc)
+<a href='../S/64.html#L195'>t_oproc</a>           195 bsp/drv/dev/base/tty.c 		(*tp-&gt;t_oproc)(tp);
+<a href='../S/64.html#L244'>t_oproc</a>           244 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_outq.tq_count &gt; 0) &amp;&amp; tp-&gt;t_oproc) {
+<a href='../S/64.html#L247'>t_oproc</a>           247 bsp/drv/dev/base/tty.c 			(*tp-&gt;t_oproc)(tp);
+<a href='../S/65.html#L492'>t_oproc</a>           492 bsp/drv/dev/base/wscons.c 	sc-&gt;tty.t_oproc = wscons_start;
+<a href='../S/89.html#L195'>t_oproc</a>           195 bsp/drv/dev/serial/serial.c 	sc-&gt;tty.t_oproc = serial_start;
+<a href='../S/102.html#L65'>t_oproc</a>            65 bsp/drv/include/tty.h 	void (*t_oproc)(struct tty *);	/* routine to start output */
+</pre>
+</body>
+</html>

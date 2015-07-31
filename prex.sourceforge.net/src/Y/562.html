@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L138'>cp</a>                138 include/sys/prex.h int	cond_init(cond_t *cp);
+<a href='../S/267.html#L139'>cp</a>                139 include/sys/prex.h int	cond_destroy(cond_t *cp);
+<a href='../S/267.html#L140'>cp</a>                140 include/sys/prex.h int	cond_wait(cond_t *cp, mutex_t *mp);
+<a href='../S/267.html#L141'>cp</a>                141 include/sys/prex.h int	cond_signal(cond_t *cp);
+<a href='../S/267.html#L142'>cp</a>                142 include/sys/prex.h int	cond_broadcast(cond_t *cp);
+<a href='../S/345.html#L52'>cp</a>                 52 sys/sync/cond.c cond_init(cond_t *cp)
+<a href='../S/345.html#L66'>cp</a>                 66 sys/sync/cond.c 	if (copyout(&amp;c, cp, sizeof(c))) {
+<a href='../S/345.html#L93'>cp</a>                 93 sys/sync/cond.c cond_destroy(cond_t *cp)
+<a href='../S/345.html#L98'>cp</a>                 98 sys/sync/cond.c 	if (cond_copyin(cp, &amp;c)) {
+<a href='../S/345.html#L137'>cp</a>                137 sys/sync/cond.c cond_wait(cond_t *cp, mutex_t *mp)
+<a href='../S/345.html#L142'>cp</a>                142 sys/sync/cond.c 	if (copyin(cp, &amp;c, sizeof(cp)))
+<a href='../S/345.html#L147'>cp</a>                147 sys/sync/cond.c 		if ((error = cond_init(cp)) != 0) {
+<a href='../S/345.html#L151'>cp</a>                151 sys/sync/cond.c 		copyin(cp, &amp;c, sizeof(cp));
+<a href='../S/345.html#L182'>cp</a>                182 sys/sync/cond.c cond_signal(cond_t *cp)
+<a href='../S/345.html#L187'>cp</a>                187 sys/sync/cond.c 	if (cond_copyin(cp, &amp;c)) {
+<a href='../S/345.html#L200'>cp</a>                200 sys/sync/cond.c cond_broadcast(cond_t *cp)
+<a href='../S/345.html#L205'>cp</a>                205 sys/sync/cond.c 	if (cond_copyin(cp, &amp;c)) {
+<a href='../S/402.html#L53'>cp</a>                 53 usr/bin/printenv/printenv.c 	char *cp, **ep;
+<a href='../S/402.html#L74'>cp</a>                 74 usr/bin/printenv/printenv.c 			cp = *ep + len;
+<a href='../S/402.html#L75'>cp</a>                 75 usr/bin/printenv/printenv.c 			if (!*cp || *cp == '=') {
+<a href='../S/402.html#L76'>cp</a>                 76 usr/bin/printenv/printenv.c 				(void)printf("%s\n", *cp ? cp + 1 : cp);
+<a href='../S/479.html#L178'>cp</a>                178 usr/lib/libc/gen/fts.c 	char *cp;
+<a href='../S/479.html#L189'>cp</a>                189 usr/lib/libc/gen/fts.c 	if ((cp = strrchr(p-&gt;fts_name, '/')) &amp;&amp; (cp != p-&gt;fts_name || cp[1])) {
+<a href='../S/479.html#L190'>cp</a>                190 usr/lib/libc/gen/fts.c 		len = strlen(++cp);
+<a href='../S/479.html#L191'>cp</a>                191 usr/lib/libc/gen/fts.c 		memmove(p-&gt;fts_name, cp, len + 1);
+<a href='../S/479.html#L548'>cp</a>                548 usr/lib/libc/gen/fts.c 	char *cp = NULL;	/* pacify gcc */
+<a href='../S/479.html#L631'>cp</a>                631 usr/lib/libc/gen/fts.c 		cp = sp-&gt;fts_path + len;
+<a href='../S/479.html#L632'>cp</a>                632 usr/lib/libc/gen/fts.c 		*cp++ = '/';
+<a href='../S/479.html#L696'>cp</a>                696 usr/lib/libc/gen/fts.c 				memmove(cp, p-&gt;fts_name, p-&gt;fts_namelen + 1);
+<a href='../S/479.html#L732'>cp</a>                732 usr/lib/libc/gen/fts.c 		if (cp - 1 &gt; sp-&gt;fts_path)
+<a href='../S/479.html#L733'>cp</a>                733 usr/lib/libc/gen/fts.c 			--cp;
+<a href='../S/479.html#L734'>cp</a>                734 usr/lib/libc/gen/fts.c 		*cp = '\0';
+<a href='../S/552.html#L114'>cp</a>                114 usr/lib/libc/stdio/vfprintf.c 	char *cp = endp;
+<a href='../S/552.html#L124'>cp</a>                124 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(val);
+<a href='../S/552.html#L125'>cp</a>                125 usr/lib/libc/stdio/vfprintf.c 			return (cp);
+<a href='../S/552.html#L134'>cp</a>                134 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(val % 10);
+<a href='../S/552.html#L139'>cp</a>                139 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(sval % 10);
+<a href='../S/552.html#L146'>cp</a>                146 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(val &amp; 7);
+<a href='../S/552.html#L149'>cp</a>                149 usr/lib/libc/stdio/vfprintf.c 		if (octzero &amp;&amp; *cp != '0')
+<a href='../S/552.html#L150'>cp</a>                150 usr/lib/libc/stdio/vfprintf.c 			*--cp = '0';
+<a href='../S/552.html#L155'>cp</a>                155 usr/lib/libc/stdio/vfprintf.c 			*--cp = xdigs[val &amp; 15];
+<a href='../S/552.html#L163'>cp</a>                163 usr/lib/libc/stdio/vfprintf.c 	return (cp);
+<a href='../S/552.html#L189'>cp</a>                189 usr/lib/libc/stdio/vfprintf.c 	char *cp;		/* handy char pointer (short term usage) */
+<a href='../S/552.html#L282'>cp</a>                282 usr/lib/libc/stdio/vfprintf.c 		for (cp = fmt; (ch = *fmt) != '\0' &amp;&amp; ch != '%'; fmt++)
+<a href='../S/552.html#L284'>cp</a>                284 usr/lib/libc/stdio/vfprintf.c 		if ((n = fmt - cp) != 0) {
+<a href='../S/552.html#L285'>cp</a>                285 usr/lib/libc/stdio/vfprintf.c 			PRINT(cp, n);
+<a href='../S/552.html#L366'>cp</a>                366 usr/lib/libc/stdio/vfprintf.c 			*(cp = buf) = va_arg(ap, int);
+<a href='../S/552.html#L412'>cp</a>                412 usr/lib/libc/stdio/vfprintf.c 			if ((cp = va_arg(ap, char *)) == NULL)
+<a href='../S/552.html#L413'>cp</a>                413 usr/lib/libc/stdio/vfprintf.c 				cp = "(null)";
+<a href='../S/552.html#L420'>cp</a>                420 usr/lib/libc/stdio/vfprintf.c 				char *p = memchr(cp, 0, prec);
+<a href='../S/552.html#L423'>cp</a>                423 usr/lib/libc/stdio/vfprintf.c 					size = p - cp;
+<a href='../S/552.html#L429'>cp</a>                429 usr/lib/libc/stdio/vfprintf.c 				size = strlen(cp);
+<a href='../S/552.html#L466'>cp</a>                466 usr/lib/libc/stdio/vfprintf.c 			cp = buf + BUF;
+<a href='../S/552.html#L468'>cp</a>                468 usr/lib/libc/stdio/vfprintf.c 				cp = __ultoa(ulval, cp, base,
+<a href='../S/552.html#L470'>cp</a>                470 usr/lib/libc/stdio/vfprintf.c 			size = buf + BUF - cp;
+<a href='../S/552.html#L476'>cp</a>                476 usr/lib/libc/stdio/vfprintf.c 			cp = buf;
+<a href='../S/552.html#L477'>cp</a>                477 usr/lib/libc/stdio/vfprintf.c 			*cp = ch;
+<a href='../S/552.html#L525'>cp</a>                525 usr/lib/libc/stdio/vfprintf.c 		PRINT(cp, size);
+</pre>
+</body>
+</html>

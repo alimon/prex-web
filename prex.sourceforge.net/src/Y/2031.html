@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>str</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/19.html#L41'>str</a>                41 bsp/boot/common/string.c atol(const char *str)
+<a href='../S/19.html#L45'>str</a>                45 bsp/boot/common/string.c 	while (*str == ' ')
+<a href='../S/19.html#L46'>str</a>                46 bsp/boot/common/string.c 		str++;
+<a href='../S/19.html#L47'>str</a>                47 bsp/boot/common/string.c 	while (*str &gt;= '0' &amp;&amp; *str &lt;= '9') {
+<a href='../S/19.html#L49'>str</a>                49 bsp/boot/common/string.c 		val += (long)(*str - '0');
+<a href='../S/19.html#L50'>str</a>                50 bsp/boot/common/string.c 		str++;
+<a href='../S/58.html#L167'>str</a>               167 bsp/drv/dev/base/cons.c cons_puts(char *str)
+<a href='../S/58.html#L173'>str</a>               173 bsp/drv/dev/base/cons.c 	while (*str) {
+<a href='../S/58.html#L174'>str</a>               174 bsp/drv/dev/base/cons.c 		consdev-&gt;cnputc(consdev-&gt;dev, *str);
+<a href='../S/58.html#L175'>str</a>               175 bsp/drv/dev/base/cons.c 		if (*str == '\n')
+<a href='../S/58.html#L177'>str</a>               177 bsp/drv/dev/base/cons.c 		str++;
+<a href='../S/94.html#L89'>str</a>                89 bsp/drv/include/ddi.h long	 atol(const char *str);
+<a href='../S/94.html#L93'>str</a>                93 bsp/drv/include/ddi.h size_t	 strnlen(const char *str, size_t max);
+<a href='../S/113.html#L38'>str</a>                38 bsp/drv/lib/string.c atol(const char *str)
+<a href='../S/113.html#L42'>str</a>                42 bsp/drv/lib/string.c 	while (*str == ' ')
+<a href='../S/113.html#L43'>str</a>                43 bsp/drv/lib/string.c 		str++;
+<a href='../S/113.html#L44'>str</a>                44 bsp/drv/lib/string.c 	while (*str &gt;= '0' &amp;&amp; *str &lt;= '9') {
+<a href='../S/113.html#L46'>str</a>                46 bsp/drv/lib/string.c 		val += (*str - '0');
+<a href='../S/113.html#L47'>str</a>                47 bsp/drv/lib/string.c 		str++;
+<a href='../S/113.html#L53'>str</a>                53 bsp/drv/lib/string.c strnlen(const char *str, size_t count)
+<a href='../S/113.html#L57'>str</a>                57 bsp/drv/lib/string.c 	for (tmp = str; count-- &amp;&amp; *tmp != '\0'; ++tmp);
+<a href='../S/113.html#L58'>str</a>                58 bsp/drv/lib/string.c 	return (size_t)(tmp - str);
+<a href='../S/134.html#L182'>str</a>               182 bsp/hal/arm/gba/diag.c diag_puts(char *str)
+<a href='../S/134.html#L185'>str</a>               185 bsp/hal/arm/gba/diag.c 	vba_puts(str);
+<a href='../S/168.html#L55'>str</a>                55 bsp/hal/ppc/prep/diag.c diag_puts(char *str)
+<a href='../S/168.html#L58'>str</a>                58 bsp/hal/ppc/prep/diag.c 	while (*str) {
+<a href='../S/168.html#L59'>str</a>                59 bsp/hal/ppc/prep/diag.c 		if (*str == '\n')
+<a href='../S/168.html#L61'>str</a>                61 bsp/hal/ppc/prep/diag.c 		serial_putc(*str++);
+<a href='../S/168.html#L78'>str</a>                78 bsp/hal/ppc/prep/diag.c diag_puts(char *str)
+<a href='../S/168.html#L81'>str</a>                81 bsp/hal/ppc/prep/diag.c 	while (*str) {
+<a href='../S/168.html#L83'>str</a>                83 bsp/hal/ppc/prep/diag.c 		outb(0xf00, (u_char)*str++);
+<a href='../S/187.html#L115'>str</a>               115 bsp/hal/x86/pc/diag.c diag_puts(char *str)
+<a href='../S/187.html#L118'>str</a>               118 bsp/hal/x86/pc/diag.c 	while (*str)
+<a href='../S/187.html#L119'>str</a>               119 bsp/hal/x86/pc/diag.c 		screen_putc(*str++);
+<a href='../S/187.html#L149'>str</a>               149 bsp/hal/x86/pc/diag.c diag_puts(char *str)
+<a href='../S/187.html#L156'>str</a>               156 bsp/hal/x86/pc/diag.c 	while (*str)
+<a href='../S/187.html#L157'>str</a>               157 bsp/hal/x86/pc/diag.c 		bochs_putc(*str++);
+<a href='../S/187.html#L183'>str</a>               183 bsp/hal/x86/pc/diag.c diag_puts(char *str)
+<a href='../S/187.html#L186'>str</a>               186 bsp/hal/x86/pc/diag.c 	while (*str) {
+<a href='../S/187.html#L187'>str</a>               187 bsp/hal/x86/pc/diag.c 		if (*str == '\n')
+<a href='../S/187.html#L189'>str</a>               189 bsp/hal/x86/pc/diag.c 		serial_putc(*str++);
+<a href='../S/325.html#L84'>str</a>                84 sys/ipc/object.c 	char str[MAXOBJNAME];
+<a href='../S/325.html#L88'>str</a>                88 sys/ipc/object.c 		str[0] = '\0';
+<a href='../S/325.html#L90'>str</a>                90 sys/ipc/object.c 		error = copyinstr(name, str, MAXOBJNAME);
+<a href='../S/325.html#L112'>str</a>               112 sys/ipc/object.c 	if (object_find(str) != NULL) {
+<a href='../S/325.html#L121'>str</a>               121 sys/ipc/object.c 		strlcpy(obj-&gt;name, str, MAXOBJNAME);
+<a href='../S/325.html#L143'>str</a>               143 sys/ipc/object.c 	char str[MAXOBJNAME];
+<a href='../S/325.html#L146'>str</a>               146 sys/ipc/object.c 	error = copyinstr(name, str, MAXOBJNAME);
+<a href='../S/325.html#L151'>str</a>               151 sys/ipc/object.c 	obj = object_find(str);
+<a href='../S/327.html#L303'>str</a>               303 sys/kern/device.c 	char str[MAXDEVNAME];
+<a href='../S/327.html#L306'>str</a>               306 sys/kern/device.c 	error = copyinstr(name, str, MAXDEVNAME);
+<a href='../S/327.html#L311'>str</a>               311 sys/kern/device.c 	if ((dev = device_lookup(str)) == NULL) {
+<a href='../S/333.html#L158'>str</a>               158 sys/kern/system.c sys_log(const char *str)
+<a href='../S/333.html#L163'>str</a>               163 sys/kern/system.c 	if (copyinstr(str, buf, DBGMSGSZ))
+<a href='../S/333.html#L208'>str</a>               208 sys/kern/system.c sys_panic(const char *str)
+<a href='../S/333.html#L214'>str</a>               214 sys/kern/system.c 	copyinstr(str, buf, DBGMSGSZ - 20);
+<a href='../S/333.html#L215'>str</a>               215 sys/kern/system.c 	printf("User panic: %s\n", str);
+<a href='../S/334.html#L307'>str</a>               307 sys/kern/task.c 	char str[MAXTASKNAME];
+<a href='../S/334.html#L323'>str</a>               323 sys/kern/task.c 		error = copyinstr(name, str, MAXTASKNAME);
+<a href='../S/334.html#L328'>str</a>               328 sys/kern/task.c 		strlcpy(task-&gt;name, str, MAXTASKNAME);
+<a href='../S/338.html#L81'>str</a>                81 sys/lib/string.c strnlen(const char *str, size_t count)
+<a href='../S/338.html#L85'>str</a>                85 sys/lib/string.c 	for (tmp = str; count-- &amp;&amp; *tmp != '\0'; ++tmp);
+<a href='../S/338.html#L86'>str</a>                86 sys/lib/string.c 	return (size_t)(tmp - str);
+<a href='../S/339.html#L73'>str</a>                73 sys/lib/vsprintf.c 	char *p, *str;
+<a href='../S/339.html#L106'>str</a>               106 sys/lib/vsprintf.c 			str = va_arg(args, char *);
+<a href='../S/339.html#L107'>str</a>               107 sys/lib/vsprintf.c 			if (str == NULL)
+<a href='../S/339.html#L108'>str</a>               108 sys/lib/vsprintf.c 				str = "&lt;NULL&gt;";
+<a href='../S/339.html#L109'>str</a>               109 sys/lib/vsprintf.c 			for (; *str &amp;&amp; width != 0; str++, width--) {
+<a href='../S/339.html#L110'>str</a>               110 sys/lib/vsprintf.c 				*p++ = *str;
+<a href='../S/413.html#L349'>str</a>               349 usr/bin/sh/sh.c parsepipe(char *str, int flags)
+<a href='../S/413.html#L355'>str</a>               355 usr/bin/sh/sh.c 	p = cmds = str;
+<a href='../S/415.html#L148'>str</a>               148 usr/bin/sh/var.c setvareq(char *str)
+<a href='../S/415.html#L154'>str</a>               154 usr/bin/sh/var.c 	s = str;
+<a href='../S/415.html#L162'>str</a>               162 usr/bin/sh/var.c 	p = strchr(str, '=');
+<a href='../S/544.html#L37'>str</a>                37 usr/lib/libc/stdio/snprintf.c snprintf(char *str, size_t n, char const *fmt, ...)
+<a href='../S/544.html#L47'>str</a>                47 usr/lib/libc/stdio/snprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/545.html#L39'>str</a>                39 usr/lib/libc/stdio/sprintf.c sprintf(char *str, char const *fmt, ...)
+<a href='../S/545.html#L46'>str</a>                46 usr/lib/libc/stdio/sprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/546.html#L39'>str</a>                39 usr/lib/libc/stdio/sscanf.c sscanf(const char *str, char const *fmt, ...)
+<a href='../S/546.html#L46'>str</a>                46 usr/lib/libc/stdio/sscanf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/546.html#L47'>str</a>                47 usr/lib/libc/stdio/sscanf.c 	f._bf._size = f._r = strlen(str);
+<a href='../S/556.html#L36'>str</a>                36 usr/lib/libc/stdio/vsnprintf.c vsnprintf(str, n, fmt, ap)
+<a href='../S/556.html#L37'>str</a>                37 usr/lib/libc/stdio/vsnprintf.c 	char *str;
+<a href='../S/556.html#L48'>str</a>                48 usr/lib/libc/stdio/vsnprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/557.html#L37'>str</a>                37 usr/lib/libc/stdio/vsprintf.c vsprintf(str, fmt, ap)
+<a href='../S/557.html#L38'>str</a>                38 usr/lib/libc/stdio/vsprintf.c 	char *str;
+<a href='../S/557.html#L46'>str</a>                46 usr/lib/libc/stdio/vsprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/558.html#L37'>str</a>                37 usr/lib/libc/stdio/vsscanf.c vsscanf(str, fmt, ap)
+<a href='../S/558.html#L38'>str</a>                38 usr/lib/libc/stdio/vsscanf.c 	const char *str;
+<a href='../S/558.html#L45'>str</a>                45 usr/lib/libc/stdio/vsscanf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/558.html#L46'>str</a>                46 usr/lib/libc/stdio/vsscanf.c 	f._bf._size = f._r = strlen(str);
+<a href='../S/565.html#L34'>str</a>                34 usr/lib/libc/stdlib/atoi.c atoi(str)
+<a href='../S/565.html#L35'>str</a>                35 usr/lib/libc/stdlib/atoi.c 	const char *str;
+<a href='../S/565.html#L37'>str</a>                37 usr/lib/libc/stdlib/atoi.c 	return((int)strtol(str, (char **)NULL, 10));
+<a href='../S/566.html#L34'>str</a>                34 usr/lib/libc/stdlib/atol.c atol(str)
+<a href='../S/566.html#L35'>str</a>                35 usr/lib/libc/stdlib/atol.c 	const char *str;
+<a href='../S/566.html#L37'>str</a>                37 usr/lib/libc/stdlib/atol.c 	return(strtol(str, (char **)NULL, 10));
+<a href='../S/574.html#L34'>str</a>                34 usr/lib/libc/stdlib/putenv.c putenv(str)
+<a href='../S/574.html#L35'>str</a>                35 usr/lib/libc/stdlib/putenv.c 	const char *str;
+<a href='../S/574.html#L40'>str</a>                40 usr/lib/libc/stdlib/putenv.c 	if ((p = strdup(str)) == NULL)
+<a href='../S/601.html#L37'>str</a>                37 usr/lib/libc/string/strdup.c strdup(str)
+<a href='../S/601.html#L38'>str</a>                38 usr/lib/libc/string/strdup.c 	const char *str;
+<a href='../S/601.html#L43'>str</a>                43 usr/lib/libc/string/strdup.c 	len = strlen(str) + 1;
+<a href='../S/601.html#L46'>str</a>                46 usr/lib/libc/string/strdup.c 	bcopy(str, copy, len);
+<a href='../S/605.html#L34'>str</a>                34 usr/lib/libc/string/strlen.c strlen(str)
+<a href='../S/605.html#L35'>str</a>                35 usr/lib/libc/string/strlen.c 	const char *str;
+<a href='../S/605.html#L39'>str</a>                39 usr/lib/libc/string/strlen.c 	for (s = str; *s; ++s);
+<a href='../S/605.html#L40'>str</a>                40 usr/lib/libc/string/strlen.c 	return(s - str);
+<a href='../S/642.html#L277'>str</a>               277 usr/lib/libc/time/strftime.c _add(str)
+<a href='../S/642.html#L278'>str</a>               278 usr/lib/libc/time/strftime.c 	const char *str;
+<a href='../S/642.html#L283'>str</a>               283 usr/lib/libc/time/strftime.c 		if (!(*pt = *str++))
+<a href='../S/649.html#L38'>str</a>                38 usr/lib/libsa/sprintf.c sprintf(char *str, char const *fmt, ...)
+<a href='../S/649.html#L45'>str</a>                45 usr/lib/libsa/sprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/650.html#L89'>str</a>                89 usr/lib/libsa/vsprintf.c 	char *p, *str;
+<a href='../S/650.html#L122'>str</a>               122 usr/lib/libsa/vsprintf.c 			str = va_arg(args, char *);
+<a href='../S/650.html#L123'>str</a>               123 usr/lib/libsa/vsprintf.c 			if (str == NULL)
+<a href='../S/650.html#L124'>str</a>               124 usr/lib/libsa/vsprintf.c 				str = "&lt;NULL&gt;";
+<a href='../S/650.html#L125'>str</a>               125 usr/lib/libsa/vsprintf.c 			for (; *str; str++) {
+<a href='../S/650.html#L126'>str</a>               126 usr/lib/libsa/vsprintf.c 				*p++ = *str;
+<a href='../S/837.html#L44'>str</a>                44 usr/sample/ipc/ipc.c 	char	str[128];	/* String */
+<a href='../S/837.html#L81'>str</a>                81 usr/sample/ipc/ipc.c send_message(object_t obj, const char *str)
+<a href='../S/837.html#L86'>str</a>                86 usr/sample/ipc/ipc.c 	strcpy(msg.str, str);
+<a href='../S/837.html#L88'>str</a>                88 usr/sample/ipc/ipc.c 	printf("client: Received \"%s\"\n", msg.str);
+<a href='../S/837.html#L166'>str</a>               166 usr/sample/ipc/ipc.c 		printf("server: Received \"%s\"\n", msg.str);
+<a href='../S/837.html#L167'>str</a>               167 usr/sample/ipc/ipc.c 		if (!strcmp(msg.str, "Exit"))
+<a href='../S/837.html#L170'>str</a>               170 usr/sample/ipc/ipc.c 		if (!strcmp(msg.str, "Hello!"))
+<a href='../S/837.html#L171'>str</a>               171 usr/sample/ipc/ipc.c 			strcpy(msg.str, "Hi.");
+<a href='../S/837.html#L172'>str</a>               172 usr/sample/ipc/ipc.c 		else if (!strcmp(msg.str, "Bye!"))
+<a href='../S/837.html#L173'>str</a>               173 usr/sample/ipc/ipc.c 			strcpy(msg.str, "Bye.");
+<a href='../S/837.html#L175'>str</a>               175 usr/sample/ipc/ipc.c 			strcpy(msg.str, "OK.");
+<a href='../S/973.html#L47'>str</a>                47 usr/test/memleak/memleak.c 	char str[5];
+<a href='../S/973.html#L62'>str</a>                62 usr/test/memleak/memleak.c 	str[0] = '1';
+<a href='../S/973.html#L63'>str</a>                63 usr/test/memleak/memleak.c 	str[1] = 0;
+<a href='../S/973.html#L65'>str</a>                65 usr/test/memleak/memleak.c 		printf("memleak: object create name=%s\n", str);
+<a href='../S/973.html#L66'>str</a>                66 usr/test/memleak/memleak.c 		error = object_create(str, &amp;obj);
+<a href='../S/973.html#L71'>str</a>                71 usr/test/memleak/memleak.c 		str[0] += 1;
+<a href='../S/981.html#L48'>str</a>                48 usr/test/pipe/pipe.c 	char str[] = "test1";
+<a href='../S/981.html#L57'>str</a>                57 usr/test/pipe/pipe.c 	write(fd[1], str, sizeof(str));
+<a href='../S/981.html#L66'>str</a>                66 usr/test/pipe/pipe.c 	char str[] = "test2: hello!";
+<a href='../S/981.html#L90'>str</a>                90 usr/test/pipe/pipe.c 		write(fd[1], str, sizeof(str));
+</pre>
+</body>
+</html>

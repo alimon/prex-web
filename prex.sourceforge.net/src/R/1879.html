@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fpos_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L190'>fpos_t</a>            190 usr/include/stdio.h int	 fgetpos(FILE *, fpos_t *);
+<a href='../S/441.html#L200'>fpos_t</a>            200 usr/include/stdio.h int	 fsetpos(FILE *, const fpos_t *);
+<a href='../S/503.html#L38'>fpos_t</a>             38 usr/lib/libc/stdio/fgetpos.c 	fpos_t *pos;
+<a href='../S/503.html#L40'>fpos_t</a>             40 usr/lib/libc/stdio/fgetpos.c 	return((*pos = (fpos_t)ftell(fp)) == (fpos_t)-1);
+<a href='../S/508.html#L69'>fpos_t</a>             69 usr/lib/libc/stdio/fopen.c 		(void) __sseek((void *)fp, (fpos_t)0, SEEK_END);
+<a href='../S/516.html#L41'>fpos_t</a>             41 usr/lib/libc/stdio/fseek.c #define	POS_ERR	(-(fpos_t)1)
+<a href='../S/516.html#L53'>fpos_t</a>             53 usr/lib/libc/stdio/fseek.c 	fpos_t curoff;
+<a href='../S/516.html#L72'>fpos_t</a>             72 usr/lib/libc/stdio/fseek.c 		curoff = __sseek(fp, (fpos_t)0, SEEK_CUR);
+<a href='../S/516.html#L102'>fpos_t</a>            102 usr/lib/libc/stdio/fseek.c 	    __sseek(fp, (fpos_t)offset, whence) == POS_ERR) {
+<a href='../S/517.html#L41'>fpos_t</a>             41 usr/lib/libc/stdio/fsetpos.c 	const fpos_t *pos;
+<a href='../S/518.html#L44'>fpos_t</a>             44 usr/lib/libc/stdio/ftell.c 	fpos_t pos;
+<a href='../S/518.html#L50'>fpos_t</a>             50 usr/lib/libc/stdio/ftell.c 	pos = __sseek(fp, (fpos_t)0, SEEK_CUR);
+<a href='../S/518.html#L51'>fpos_t</a>             51 usr/lib/libc/stdio/ftell.c 	if (pos == -(fpos_t)1)
+<a href='../S/527.html#L48'>fpos_t</a>             48 usr/lib/libc/stdio/local.h fpos_t	__sseek(FILE *, fpos_t, int);
+<a href='../S/547.html#L62'>fpos_t</a>             62 usr/lib/libc/stdio/stdio.c fpos_t
+<a href='../S/547.html#L65'>fpos_t</a>             65 usr/lib/libc/stdio/stdio.c 	fpos_t offset;
+</pre>
+</body>
+</html>

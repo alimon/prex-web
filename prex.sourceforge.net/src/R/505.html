@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>KSTACKSZ</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/335.html#L104'>KSTACKSZ</a>          104 sys/kern/thread.c 	memcpy(t-&gt;kstack, curthread-&gt;kstack, KSTACKSZ);
+<a href='../S/335.html#L105'>KSTACKSZ</a>          105 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L419'>KSTACKSZ</a>          419 sys/kern/thread.c 	if ((stack = kmem_alloc(KSTACKSZ)) == NULL) {
+<a href='../S/335.html#L539'>KSTACKSZ</a>          539 sys/kern/thread.c 	memset(t-&gt;kstack, 0, KSTACKSZ);
+<a href='../S/335.html#L540'>KSTACKSZ</a>          540 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L583'>KSTACKSZ</a>          583 sys/kern/thread.c 	if ((stack = kmem_alloc(KSTACKSZ)) == NULL)
+<a href='../S/335.html#L586'>KSTACKSZ</a>          586 sys/kern/thread.c 	memset(stack, 0, KSTACKSZ);
+<a href='../S/335.html#L587'>KSTACKSZ</a>          587 sys/kern/thread.c 	sp = (vaddr_t)stack + KSTACKSZ;
+</pre>
+</body>
+</html>

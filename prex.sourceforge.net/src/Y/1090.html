@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>iov</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/519.html#L51'>iov</a>                51 usr/lib/libc/stdio/fvwrite.c 	struct __siov *iov;
+<a href='../S/519.html#L65'>iov</a>                65 usr/lib/libc/stdio/fvwrite.c 	iov = uio-&gt;uio_iov;
+<a href='../S/519.html#L66'>iov</a>                66 usr/lib/libc/stdio/fvwrite.c 	p = iov-&gt;iov_base;
+<a href='../S/519.html#L67'>iov</a>                67 usr/lib/libc/stdio/fvwrite.c 	len = iov-&gt;iov_len;
+<a href='../S/519.html#L68'>iov</a>                68 usr/lib/libc/stdio/fvwrite.c 	iov++;
+<a href='../S/519.html#L72'>iov</a>                72 usr/lib/libc/stdio/fvwrite.c 		p = iov-&gt;iov_base; \
+<a href='../S/519.html#L73'>iov</a>                73 usr/lib/libc/stdio/fvwrite.c 		len = iov-&gt;iov_len; \
+<a href='../S/519.html#L74'>iov</a>                74 usr/lib/libc/stdio/fvwrite.c 		iov++; \
+<a href='../S/552.html#L205'>iov</a>               205 usr/lib/libc/stdio/vfprintf.c 	struct __siov iov[NIOV];/* ... and individual io vectors */
+<a href='../S/552.html#L231'>iov</a>               231 usr/lib/libc/stdio/vfprintf.c 		iovp = iov; \
+<a href='../S/552.html#L247'>iov</a>               247 usr/lib/libc/stdio/vfprintf.c 	iovp = iov; \
+<a href='../S/552.html#L273'>iov</a>               273 usr/lib/libc/stdio/vfprintf.c 	uio.uio_iov = iovp = iov;
+</pre>
+</body>
+</html>

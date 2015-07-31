@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>FTS_NOCHDIR</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/433.html#L49'>FTS_NOCHDIR</a>        49 usr/include/fts.h #define	FTS_NOCHDIR	0x004		/* don't change directories */
+<a href='../S/479.html#L60'>FTS_NOCHDIR</a>        60 usr/lib/libc/gen/fts.c #define	CHDIR(sp, path)	(!ISSET(FTS_NOCHDIR) &amp;&amp; chdir(path))
+<a href='../S/479.html#L61'>FTS_NOCHDIR</a>        61 usr/lib/libc/gen/fts.c #define	FCHDIR(sp, fd)	(!ISSET(FTS_NOCHDIR) &amp;&amp; fchdir(fd))
+<a href='../S/479.html#L93'>FTS_NOCHDIR</a>        93 usr/lib/libc/gen/fts.c 		SET(FTS_NOCHDIR);
+<a href='../S/479.html#L162'>FTS_NOCHDIR</a>       162 usr/lib/libc/gen/fts.c 	if (!ISSET(FTS_NOCHDIR) &amp;&amp; (sp-&gt;fts_rfd = open(".", O_RDONLY, 0)) &lt; 0)
+<a href='../S/479.html#L163'>FTS_NOCHDIR</a>       163 usr/lib/libc/gen/fts.c 		SET(FTS_NOCHDIR);
+<a href='../S/479.html#L226'>FTS_NOCHDIR</a>       226 usr/lib/libc/gen/fts.c 	if (!ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L235'>FTS_NOCHDIR</a>       235 usr/lib/libc/gen/fts.c 	if (!ISSET(FTS_NOCHDIR) &amp;&amp; saved_errno) {
+<a href='../S/479.html#L284'>FTS_NOCHDIR</a>       284 usr/lib/libc/gen/fts.c 		if (p-&gt;fts_info == FTS_D &amp;&amp; !ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L356'>FTS_NOCHDIR</a>       356 usr/lib/libc/gen/fts.c 			if (!ISSET(FTS_NOCHDIR) &amp;&amp; FCHDIR(sp, sp-&gt;fts_rfd)) {
+<a href='../S/479.html#L373'>FTS_NOCHDIR</a>       373 usr/lib/libc/gen/fts.c 			if (p-&gt;fts_info == FTS_D &amp;&amp; !ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L413'>FTS_NOCHDIR</a>       413 usr/lib/libc/gen/fts.c 		if (!ISSET(FTS_NOCHDIR) &amp;&amp; FCHDIR(sp, sp-&gt;fts_rfd)) {
+<a href='../S/479.html#L509'>FTS_NOCHDIR</a>       509 usr/lib/libc/gen/fts.c 	    ISSET(FTS_NOCHDIR))
+<a href='../S/479.html#L630'>FTS_NOCHDIR</a>       630 usr/lib/libc/gen/fts.c 	if (ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L690'>FTS_NOCHDIR</a>       690 usr/lib/libc/gen/fts.c 			    ISSET(FTS_NOCHDIR) ? p-&gt;fts_path : p-&gt;fts_name;
+<a href='../S/479.html#L694'>FTS_NOCHDIR</a>       694 usr/lib/libc/gen/fts.c 			if (ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L731'>FTS_NOCHDIR</a>       731 usr/lib/libc/gen/fts.c 	if (ISSET(FTS_NOCHDIR)) {
+</pre>
+</body>
+</html>

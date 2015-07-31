@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>resid</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/513.html#L43'>resid</a>              43 usr/lib/libc/stdio/fread.c 	size_t resid;
+<a href='../S/513.html#L53'>resid</a>              53 usr/lib/libc/stdio/fread.c 	if ((resid = count * size) == 0)
+<a href='../S/513.html#L57'>resid</a>              57 usr/lib/libc/stdio/fread.c 	total = resid;
+<a href='../S/513.html#L59'>resid</a>              59 usr/lib/libc/stdio/fread.c 	while (resid &gt; (size_t)(r = fp-&gt;_r)) {
+<a href='../S/513.html#L64'>resid</a>              64 usr/lib/libc/stdio/fread.c 		resid -= r;
+<a href='../S/513.html#L67'>resid</a>              67 usr/lib/libc/stdio/fread.c 			return ((total - resid) / size);
+<a href='../S/513.html#L70'>resid</a>              70 usr/lib/libc/stdio/fread.c 	(void)memcpy((void *)p, (void *)fp-&gt;_p, resid);
+<a href='../S/513.html#L71'>resid</a>              71 usr/lib/libc/stdio/fread.c 	fp-&gt;_r -= resid;
+<a href='../S/513.html#L72'>resid</a>              72 usr/lib/libc/stdio/fread.c 	fp-&gt;_p += resid;
+</pre>
+</body>
+</html>

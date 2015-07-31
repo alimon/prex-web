@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>v_data</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L76'>v_data</a>             76 include/sys/vnode.h 	void		*v_data;	/* private data for fs */
+<a href='../S/883.html#L197'>v_data</a>            197 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_data = (void *)(off + sizeof(struct ar_hdr));
+<a href='../S/883.html#L231'>v_data</a>            231 usr/server/fs/arfs/arfs_vnops.c 	off = (off_t)vp-&gt;v_data;
+<a href='../S/886.html#L139'>v_data</a>            139 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_data = (void *)dev;	/* Store private data */
+<a href='../S/886.html#L152'>v_data</a>            152 usr/server/fs/devfs/devfs_vnops.c 	return device_close((device_t)vp-&gt;v_data);
+<a href='../S/886.html#L162'>v_data</a>            162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L175'>v_data</a>            175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L187'>v_data</a>            187 usr/server/fs/devfs/devfs_vnops.c 	error = device_ioctl((device_t)vp-&gt;v_data, cmd, arg);
+<a href='../S/892.html#L207'>v_data</a>            207 usr/server/fs/fatfs/fatfs_vfsops.c 	vp-&gt;v_data = np;
+<a href='../S/893.html#L145'>v_data</a>            145 usr/server/fs/fatfs/fatfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/893.html#L270'>v_data</a>            270 usr/server/fs/fatfs/fatfs_vnops.c 		np = vp-&gt;v_data;
+<a href='../S/893.html#L673'>v_data</a>            673 usr/server/fs/fatfs/fatfs_vnops.c 	free(vp-&gt;v_data);
+<a href='../S/893.html#L688'>v_data</a>            688 usr/server/fs/fatfs/fatfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/896.html#L144'>v_data</a>            144 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L190'>v_data</a>            190 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L221'>v_data</a>            221 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L266'>v_data</a>            266 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L343'>v_data</a>            343 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_data = np;
+<a href='../S/896.html#L398'>v_data</a>            398 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L408'>v_data</a>            408 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_data = NULL;
+<a href='../S/896.html#L476'>v_data</a>            476 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L489'>v_data</a>            489 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L498'>v_data</a>            498 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L511'>v_data</a>            511 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/901.html#L71'>v_data</a>             71 usr/server/fs/ramfs/ramfs_vfsops.c 	mp-&gt;m_root-&gt;v_data = np;
+<a href='../S/902.html#L216'>v_data</a>            216 usr/server/fs/ramfs/ramfs_vnops.c 	dnp = dvp-&gt;v_data;
+<a href='../S/902.html#L229'>v_data</a>            229 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_data = np;
+<a href='../S/902.html#L247'>v_data</a>            247 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_add_node(dvp-&gt;v_data, name, VDIR);
+<a href='../S/902.html#L259'>v_data</a>            259 usr/server/fs/ramfs/ramfs_vnops.c 	return ramfs_remove_node(dvp-&gt;v_data, vp-&gt;v_data);
+<a href='../S/902.html#L270'>v_data</a>            270 usr/server/fs/ramfs/ramfs_vnops.c 	error = ramfs_remove_node(dvp-&gt;v_data, vp-&gt;v_data);
+<a href='../S/902.html#L274'>v_data</a>            274 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L290'>v_data</a>            290 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L327'>v_data</a>            327 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_add_node(dvp-&gt;v_data, name, VREG);
+<a href='../S/902.html#L352'>v_data</a>            352 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L375'>v_data</a>            375 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L419'>v_data</a>            419 usr/server/fs/ramfs/ramfs_vnops.c 		error = ramfs_remove_node(dvp2-&gt;v_data, vp2-&gt;v_data);
+<a href='../S/902.html#L426'>v_data</a>            426 usr/server/fs/ramfs/ramfs_vnops.c 		error = ramfs_rename_node(vp1-&gt;v_data, name2);
+<a href='../S/902.html#L431'>v_data</a>            431 usr/server/fs/ramfs/ramfs_vnops.c 		old_np = vp1-&gt;v_data;
+<a href='../S/902.html#L432'>v_data</a>            432 usr/server/fs/ramfs/ramfs_vnops.c 		np = ramfs_add_node(dvp2-&gt;v_data, name2, VREG);
+<a href='../S/902.html#L443'>v_data</a>            443 usr/server/fs/ramfs/ramfs_vnops.c 		ramfs_remove_node(dvp1-&gt;v_data, vp1-&gt;v_data);
+<a href='../S/902.html#L466'>v_data</a>            466 usr/server/fs/ramfs/ramfs_vnops.c 		dnp = vp-&gt;v_data;
+<a href='../S/913.html#L383'>v_data</a>            383 usr/server/fs/vfs/vfs_vnode.c 		st-&gt;st_rdev = (dev_t)vp-&gt;v_data;
+</pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>limit</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L94'>limit</a>              94 bsp/hal/x86/arch/cpu.c gdt_set(int vec, void *base, size_t limit, int type, u_int size)
+<a href='../S/174.html#L98'>limit</a>              98 bsp/hal/x86/arch/cpu.c 	if (limit &gt; 0xfffff) {
+<a href='../S/174.html#L99'>limit</a>              99 bsp/hal/x86/arch/cpu.c 		limit &gt;&gt;= 12;
+<a href='../S/174.html#L102'>limit</a>             102 bsp/hal/x86/arch/cpu.c 	seg-&gt;limit_lo = limit;
+<a href='../S/174.html#L105'>limit</a>             105 bsp/hal/x86/arch/cpu.c 	seg-&gt;limit_hi = limit &gt;&gt; 16;
+<a href='../S/174.html#L144'>limit</a>             144 bsp/hal/x86/arch/cpu.c 	gdt_p.limit = (uint16_t)(sizeof(gdt) - 1);
+<a href='../S/174.html#L185'>limit</a>             185 bsp/hal/x86/arch/cpu.c 	idt_p.limit = (uint16_t)(sizeof(idt) - 1);
+<a href='../S/181.html#L125'>limit</a>             125 bsp/hal/x86/include/cpu.h 	uint16_t limit;
+<a href='../S/698.html#L37'>limit</a>              37 usr/lib/posix/gen/getrlimit.c 	rlim_t limit = 0;
+<a href='../S/698.html#L48'>limit</a>              48 usr/lib/posix/gen/getrlimit.c 		limit = MAXMEM;
+<a href='../S/698.html#L51'>limit</a>              51 usr/lib/posix/gen/getrlimit.c 		limit = MAXTASKS;
+<a href='../S/698.html#L54'>limit</a>              54 usr/lib/posix/gen/getrlimit.c 		limit = OPEN_MAX;
+<a href='../S/698.html#L57'>limit</a>              57 usr/lib/posix/gen/getrlimit.c 	rlp-&gt;rlim_cur = limit;
+<a href='../S/698.html#L58'>limit</a>              58 usr/lib/posix/gen/getrlimit.c 	rlp-&gt;rlim_max = limit;
+</pre>
+</body>
+</html>

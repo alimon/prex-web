@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/sys/wait.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1070.html'>include</a>/<a href='../files/1075.html'>sys</a>/wait.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='280.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/281.html' title='Multiple included from 5 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1982, 1986, 1989, 1993, 1994</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> *</em>
+<a id='L29' name='L29' />  29 <em class='comment'> *      @(#)wait.h      8.2 (Berkeley) 7/10/94</em>
+<a id='L30' name='L30' />  30 <em class='comment'> */</em>
+<a id='L31' name='L31' />  31 
+<a id='L32' name='L32' />  32 <em class='sharp'>#ifndef</em> <a href='280.html#L33' title='Defined at 33 in include/sys/wait.h.'>_SYS_WAIT_H_</a>
+<a id='L33' name='L33' />  33 <em class='sharp'>#define</em> <a href='280.html#L32' title='Refered from 32 in include/sys/wait.h.'>_SYS_WAIT_H_</a>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='comment'>/*</em>
+<a id='L36' name='L36' />  36 <em class='comment'> * This file holds definitions relevent to the wait4 system call</em>
+<a id='L37' name='L37' />  37 <em class='comment'> * and the alternate interfaces that use it (wait, wait3, waitpid).</em>
+<a id='L38' name='L38' />  38 <em class='comment'> */</em>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='comment'>/*</em>
+<a id='L41' name='L41' />  41 <em class='comment'> * Macros to test the exit status returned by wait</em>
+<a id='L42' name='L42' />  42 <em class='comment'> * and extract the relevant values.</em>
+<a id='L43' name='L43' />  43 <em class='comment'> */</em>
+<a id='L44' name='L44' />  44 <em class='sharp'>#ifdef</em> <a href='../Y/248.html' title='Multiple used in 17 places.'>_POSIX_SOURCE</a>
+<a id='L45' name='L45' />  45 <em class='sharp'>#define</em> <a href='../R/1368.html' title='Multiple refered from 4 places.'>_W_INT</a>(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)       (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)
+<a id='L46' name='L46' />  46 <em class='sharp'>#else</em>
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> <a href='../R/1368.html' title='Multiple refered from 4 places.'>_W_INT</a>(<a href='../Y/2395.html' title='Multiple used in 49 places.'>w</a>)       (*(<strong class='reserved'>int</strong> *)&amp;(<a href='../Y/2395.html' title='Multiple used in 49 places.'>w</a>))  <em class='comment'>/* convert union wait to int */</em>
+<a id='L48' name='L48' />  48 <em class='sharp'>#define</em> <a href='280.html#L60' title='Refered from 60 in include/sys/wait.h.'>WCOREFLAG</a>       0200
+<a id='L49' name='L49' />  49 <em class='sharp'>#endif</em>
+<a id='L50' name='L50' />  50 
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='../R/1366.html' title='Multiple refered from 4 places.'>_WSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)     (<a href='../D/2227.html' title='Multiple defined in 2 places.'>_W_INT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &amp; 0177)
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/1367.html' title='Multiple refered from 4 places.'>_WSTOPPED</a>       0177            <em class='comment'>/* _WSTATUS if process is stopped */</em>
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> WIFSTOPPED(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)   (<a href='280.html#L51' title='Defined at 51 in include/sys/wait.h.'>_WSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) == <a href='280.html#L52' title='Defined at 52 in include/sys/wait.h.'>_WSTOPPED</a>)
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> WSTOPSIG(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)     (<a href='../D/2227.html' title='Multiple defined in 2 places.'>_W_INT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &gt;&gt; 8)
+<a id='L55' name='L55' />  55 <em class='sharp'>#define</em> <a href='413.html#L191' title='Refered from 191 in usr/bin/sh/sh.c.'>WIFSIGNALED</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)  (<a href='280.html#L51' title='Defined at 51 in include/sys/wait.h.'>_WSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) != <a href='280.html#L52' title='Defined at 52 in include/sys/wait.h.'>_WSTOPPED</a> &amp;&amp; <a href='280.html#L51' title='Defined at 51 in include/sys/wait.h.'>_WSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) != 0)
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> <a href='413.html#L90' title='Refered from 90 in usr/bin/sh/sh.c.'>WTERMSIG</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)     (<a href='280.html#L51' title='Defined at 51 in include/sys/wait.h.'>_WSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>))
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> <a href='413.html#L193' title='Refered from 193 in usr/bin/sh/sh.c.'>WIFEXITED</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)    (<a href='280.html#L51' title='Defined at 51 in include/sys/wait.h.'>_WSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) == 0)
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> <a href='413.html#L194' title='Refered from 194 in usr/bin/sh/sh.c.'>WEXITSTATUS</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)  (<a href='../D/2227.html' title='Multiple defined in 2 places.'>_W_INT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &gt;&gt; 8)
+<a id='L59' name='L59' />  59 <em class='sharp'>#ifndef</em> <a href='../Y/248.html' title='Multiple used in 17 places.'>_POSIX_SOURCE</a>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> WCOREDUMP(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)    (<a href='../D/2227.html' title='Multiple defined in 2 places.'>_W_INT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &amp; <a href='280.html#L48' title='Defined at 48 in include/sys/wait.h.'>WCOREFLAG</a>)
+<a id='L61' name='L61' />  61 
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> W_EXITCODE(<a href='../Y/1756.html' title='Multiple used in 61 places.'>ret</a>, <a href='../Y/1943.html' title='Multiple used in 77 places.'>sig</a>)    ((<a href='../Y/1756.html' title='Multiple used in 61 places.'>ret</a>) &lt;&lt; 8 | (<a href='../Y/1943.html' title='Multiple used in 77 places.'>sig</a>))
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> W_STOPCODE(<a href='../Y/1943.html' title='Multiple used in 77 places.'>sig</a>)         ((<a href='../Y/1943.html' title='Multiple used in 77 places.'>sig</a>) &lt;&lt; 8 | <a href='280.html#L52' title='Defined at 52 in include/sys/wait.h.'>_WSTOPPED</a>)
+<a id='L64' name='L64' />  64 <em class='sharp'>#endif</em>
+<a id='L65' name='L65' />  65 
+<a id='L66' name='L66' />  66 <em class='comment'>/*</em>
+<a id='L67' name='L67' />  67 <em class='comment'> * Option bits for the third argument of wait4.  WNOHANG causes the</em>
+<a id='L68' name='L68' />  68 <em class='comment'> * wait to not hang if there are no stopped or terminated processes, rather</em>
+<a id='L69' name='L69' />  69 <em class='comment'> * returning an error indication in this case (pid==0).  WUNTRACED</em>
+<a id='L70' name='L70' />  70 <em class='comment'> * indicates that the caller should receive status about untraced children</em>
+<a id='L71' name='L71' />  71 <em class='comment'> * which stop due to signals.  If children are stopped and a wait without</em>
+<a id='L72' name='L72' />  72 <em class='comment'> * this option is done, it is as though they were still running... nothing</em>
+<a id='L73' name='L73' />  73 <em class='comment'> * about them is returned.</em>
+<a id='L74' name='L74' />  74 <em class='comment'> */</em>
+<a id='L75' name='L75' />  75 <em class='sharp'>#define</em> <a href='731.html#L71' title='Refered from 71 in usr/lib/posix/process/waitpid.c.'>WNOHANG</a>         1       <em class='comment'>/* don't hang in wait */</em>
+<a id='L76' name='L76' />  76 <em class='sharp'>#define</em> WUNTRACED       2       <em class='comment'>/* tell about stopped, untraced children */</em>
+<a id='L77' name='L77' />  77 
+<a id='L78' name='L78' />  78 <em class='sharp'>#ifndef</em> <a href='../Y/248.html' title='Multiple used in 17 places.'>_POSIX_SOURCE</a>
+<a id='L79' name='L79' />  79 <em class='comment'>/* POSIX extensions and 4.2/4.3 compatability: */</em>
+<a id='L80' name='L80' />  80 
+<a id='L81' name='L81' />  81 <em class='comment'>/*</em>
+<a id='L82' name='L82' />  82 <em class='comment'> * Tokens for special values of the "pid" parameter to wait4.</em>
+<a id='L83' name='L83' />  83 <em class='comment'> */</em>
+<a id='L84' name='L84' />  84 <em class='sharp'>#define</em> WAIT_ANY        (-1)    <em class='comment'>/* any process */</em>
+<a id='L85' name='L85' />  85 <em class='sharp'>#define</em> WAIT_MYPGRP     0       <em class='comment'>/* any process in my process group */</em>
+<a id='L86' name='L86' />  86 
+<a id='L87' name='L87' />  87 <em class='sharp'>#include</em> &lt;<a href='../I/210.html'>sys/endian.h</a>&gt;
+<a id='L88' name='L88' />  88 
+<a id='L89' name='L89' />  89 <em class='comment'>/*</em>
+<a id='L90' name='L90' />  90 <em class='comment'> * Deprecated:</em>
+<a id='L91' name='L91' />  91 <em class='comment'> * Structure of the information in the status word returned by wait4.</em>
+<a id='L92' name='L92' />  92 <em class='comment'> * If w_stopval==WSTOPPED, then the second structure describes</em>
+<a id='L93' name='L93' />  93 <em class='comment'> * the information returned, else the first.</em>
+<a id='L94' name='L94' />  94 <em class='comment'> */</em>
+<a id='L95' name='L95' />  95 <strong class='reserved'>union</strong> <a href='730.html#L36' title='Defined at 36 in usr/lib/posix/process/wait.c.'>wait</a> <em class='brace'>{</em>
+<a id='L96' name='L96' />  96         <strong class='reserved'>int</strong>     <a href='280.html#L96' title='Used at 96 in include/sys/wait.h.'>w_status</a>;               <em class='comment'>/* used in syscall */</em>
+<a id='L97' name='L97' />  97         <em class='comment'>/*</em>
+<a id='L98' name='L98' />  98 <em class='comment'>         * Terminated process status.</em>
+<a id='L99' name='L99' />  99 <em class='comment'>         */</em>
+<a id='L100' name='L100' /> 100         <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L101' name='L101' /> 101 <em class='sharp'>#if</em> <a href='255.html#L53' title='Defined at 53 in include/sys/endian.h.'>BYTE_ORDER</a> == <a href='255.html#L45' title='Defined at 45 in include/sys/endian.h.'>LITTLE_ENDIAN</a>
+<a id='L102' name='L102' /> 102                 <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>    <a href='../Y/2403.html' title='Multiple used in 3 places.'>w_Termsig</a>:7,    <em class='comment'>/* termination signal */</em>
+<a id='L103' name='L103' /> 103                                 <a href='../Y/2396.html' title='Multiple used in 3 places.'>w_Coredump</a>:1,   <em class='comment'>/* core dump indicator */</em>
+<a id='L104' name='L104' /> 104                                 <a href='../Y/2398.html' title='Multiple used in 3 places.'>w_Retcode</a>:8,    <em class='comment'>/* exit code if w_termsig==0 */</em>
+<a id='L105' name='L105' /> 105                                 <a href='../Y/2397.html' title='Multiple used in 4 places.'>w_Filler</a>:16;    <em class='comment'>/* upper bits filler */</em>
+<a id='L106' name='L106' /> 106 <em class='sharp'>#endif</em>
+<a id='L107' name='L107' /> 107 <em class='sharp'>#if</em> <a href='255.html#L53' title='Defined at 53 in include/sys/endian.h.'>BYTE_ORDER</a> == <a href='255.html#L46' title='Defined at 46 in include/sys/endian.h.'>BIG_ENDIAN</a>
+<a id='L108' name='L108' /> 108                 <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>    <a href='../Y/2397.html' title='Multiple used in 4 places.'>w_Filler</a>:16,    <em class='comment'>/* upper bits filler */</em>
+<a id='L109' name='L109' /> 109                                 <a href='../Y/2398.html' title='Multiple used in 3 places.'>w_Retcode</a>:8,    <em class='comment'>/* exit code if w_termsig==0 */</em>
+<a id='L110' name='L110' /> 110                                 <a href='../Y/2396.html' title='Multiple used in 3 places.'>w_Coredump</a>:1,   <em class='comment'>/* core dump indicator */</em>
+<a id='L111' name='L111' /> 111                                 <a href='../Y/2403.html' title='Multiple used in 3 places.'>w_Termsig</a>:7;    <em class='comment'>/* termination signal */</em>
+<a id='L112' name='L112' /> 112 <em class='sharp'>#endif</em>
+<a id='L113' name='L113' /> 113         <em class='brace'>}</em> <a href='../Y/2402.html' title='Multiple used in 4 places.'>w_T</a>;
+<a id='L114' name='L114' /> 114         <em class='comment'>/*</em>
+<a id='L115' name='L115' /> 115 <em class='comment'>         * Stopped process status.  Returned</em>
+<a id='L116' name='L116' /> 116 <em class='comment'>         * only for traced children unless requested</em>
+<a id='L117' name='L117' /> 117 <em class='comment'>         * with the WUNTRACED option bit.</em>
+<a id='L118' name='L118' /> 118 <em class='comment'>         */</em>
+<a id='L119' name='L119' /> 119         <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L120' name='L120' /> 120 <em class='sharp'>#if</em> <a href='255.html#L53' title='Defined at 53 in include/sys/endian.h.'>BYTE_ORDER</a> == <a href='255.html#L45' title='Defined at 45 in include/sys/endian.h.'>LITTLE_ENDIAN</a>
+<a id='L121' name='L121' /> 121                 <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>    <a href='../Y/2401.html' title='Multiple used in 3 places.'>w_Stopval</a>:8,    <em class='comment'>/* == W_STOPPED if stopped */</em>
+<a id='L122' name='L122' /> 122                                 <a href='../Y/2400.html' title='Multiple used in 3 places.'>w_Stopsig</a>:8,    <em class='comment'>/* signal that stopped us */</em>
+<a id='L123' name='L123' /> 123                                 <a href='../Y/2397.html' title='Multiple used in 4 places.'>w_Filler</a>:16;    <em class='comment'>/* upper bits filler */</em>
+<a id='L124' name='L124' /> 124 <em class='sharp'>#endif</em>
+<a id='L125' name='L125' /> 125 <em class='sharp'>#if</em> <a href='255.html#L53' title='Defined at 53 in include/sys/endian.h.'>BYTE_ORDER</a> == <a href='255.html#L46' title='Defined at 46 in include/sys/endian.h.'>BIG_ENDIAN</a>
+<a id='L126' name='L126' /> 126                 <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>    <a href='../Y/2397.html' title='Multiple used in 4 places.'>w_Filler</a>:16,    <em class='comment'>/* upper bits filler */</em>
+<a id='L127' name='L127' /> 127                                 <a href='../Y/2400.html' title='Multiple used in 3 places.'>w_Stopsig</a>:8,    <em class='comment'>/* signal that stopped us */</em>
+<a id='L128' name='L128' /> 128                                 <a href='../Y/2401.html' title='Multiple used in 3 places.'>w_Stopval</a>:8;    <em class='comment'>/* == W_STOPPED if stopped */</em>
+<a id='L129' name='L129' /> 129 <em class='sharp'>#endif</em>
+<a id='L130' name='L130' /> 130         <em class='brace'>}</em> <a href='../Y/2399.html' title='Multiple used in 3 places.'>w_S</a>;
+<a id='L131' name='L131' /> 131 <em class='brace'>}</em>;
+<a id='L132' name='L132' /> 132 <em class='sharp'>#define</em> w_termsig       <a href='../Y/2402.html' title='Multiple used in 4 places.'>w_T</a>.<a href='../Y/2403.html' title='Multiple used in 3 places.'>w_Termsig</a>
+<a id='L133' name='L133' /> 133 <em class='sharp'>#define</em> w_coredump      <a href='../Y/2402.html' title='Multiple used in 4 places.'>w_T</a>.<a href='../Y/2396.html' title='Multiple used in 3 places.'>w_Coredump</a>
+<a id='L134' name='L134' /> 134 <em class='sharp'>#define</em> w_retcode       <a href='../Y/2402.html' title='Multiple used in 4 places.'>w_T</a>.<a href='../Y/2398.html' title='Multiple used in 3 places.'>w_Retcode</a>
+<a id='L135' name='L135' /> 135 <em class='sharp'>#define</em> w_stopval       <a href='../Y/2399.html' title='Multiple used in 3 places.'>w_S</a>.<a href='../Y/2401.html' title='Multiple used in 3 places.'>w_Stopval</a>
+<a id='L136' name='L136' /> 136 <em class='sharp'>#define</em> w_stopsig       <a href='../Y/2399.html' title='Multiple used in 3 places.'>w_S</a>.<a href='../Y/2400.html' title='Multiple used in 3 places.'>w_Stopsig</a>
+<a id='L137' name='L137' /> 137 
+<a id='L138' name='L138' /> 138 <em class='sharp'>#define</em> WSTOPPED        <a href='280.html#L52' title='Defined at 52 in include/sys/wait.h.'>_WSTOPPED</a>
+<a id='L139' name='L139' /> 139 <em class='sharp'>#endif</em> <em class='comment'>/* _POSIX_SOURCE */</em>
+<a id='L140' name='L140' /> 140 
+<a id='L141' name='L141' /> 141 <em class='sharp'>#ifndef</em> <a href='../D/826.html' title='Multiple defined in 2 places.'>KERNEL</a>
+<a id='L142' name='L142' /> 142 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L143' name='L143' /> 143 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L144' name='L144' /> 144 
+<a id='L145' name='L145' /> 145 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L146' name='L146' /> 146 <a href='277.html#L54' title='Defined at 54 in include/sys/types.h.'>pid_t</a>   <a href='730.html#L36' title='Defined at 36 in usr/lib/posix/process/wait.c.'>wait</a>(<strong class='reserved'>int</strong> *);
+<a id='L147' name='L147' /> 147 <a href='277.html#L54' title='Defined at 54 in include/sys/types.h.'>pid_t</a>   <a href='731.html#L46' title='Defined at 46 in usr/lib/posix/process/waitpid.c.'>waitpid</a>(<a href='277.html#L54' title='Defined at 54 in include/sys/types.h.'>pid_t</a>, <strong class='reserved'>int</strong> *, <strong class='reserved'>int</strong>);
+<a id='L148' name='L148' /> 148 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L149' name='L149' /> 149 <em class='sharp'>#endif</em>
+<a id='L150' name='L150' /> 150 
+<a id='L151' name='L151' /> 151 <em class='sharp'>#endif</em> <em class='comment'>/* !_SYS_WAIT_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='280.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

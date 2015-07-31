@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>blkno</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L90'>blkno</a>              90 bsp/drv/dev/base/cons.c cons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L95'>blkno</a>              95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L99'>blkno</a>              99 bsp/drv/dev/base/cons.c cons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L104'>blkno</a>             104 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;write(dev, buf, nbyte, blkno);
+<a href='../S/65.html#L117'>blkno</a>             117 bsp/drv/dev/base/wscons.c wscons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L125'>blkno</a>             125 bsp/drv/dev/base/wscons.c wscons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L276'>blkno</a>             276 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L277'>blkno</a>             277 bsp/drv/dev/block/fdd.c 	track = irp-&gt;blkno / (FDG_SECTORS * FDG_HEADS);
+<a href='../S/66.html#L305'>blkno</a>             305 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L306'>blkno</a>             306 bsp/drv/dev/block/fdd.c 	track = irp-&gt;blkno / (FDG_SECTORS * FDG_HEADS);
+<a href='../S/66.html#L307'>blkno</a>             307 bsp/drv/dev/block/fdd.c 	sect = irp-&gt;blkno % FDG_SECTORS + 1;
+<a href='../S/66.html#L518'>blkno</a>             518 bsp/drv/dev/block/fdd.c fdd_rw(struct fdd_softc *sc, int cmd, char *buf, u_long blksz, int blkno)
+<a href='../S/66.html#L524'>blkno</a>             524 bsp/drv/dev/block/fdd.c 		 cmd, buf, blksz, blkno));
+<a href='../S/66.html#L528'>blkno</a>             528 bsp/drv/dev/block/fdd.c 	irp-&gt;blkno = blkno;
+<a href='../S/66.html#L558'>blkno</a>             558 bsp/drv/dev/block/fdd.c fdd_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L565'>blkno</a>             565 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_read: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L568'>blkno</a>             568 bsp/drv/dev/block/fdd.c 	if (blkno &gt; FDG_HEADS * FDG_TRACKS * FDG_SECTORS)
+<a href='../S/66.html#L579'>blkno</a>             579 bsp/drv/dev/block/fdd.c 		track = blkno / FDG_SECTORS;
+<a href='../S/66.html#L580'>blkno</a>             580 bsp/drv/dev/block/fdd.c 		sect = blkno % FDG_SECTORS;
+<a href='../S/66.html#L597'>blkno</a>             597 bsp/drv/dev/block/fdd.c 		blkno++;
+<a href='../S/66.html#L614'>blkno</a>             614 bsp/drv/dev/block/fdd.c fdd_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L621'>blkno</a>             621 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_write: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L624'>blkno</a>             624 bsp/drv/dev/block/fdd.c 	if (blkno &gt; FDG_HEADS * FDG_TRACKS * FDG_SECTORS)
+<a href='../S/66.html#L635'>blkno</a>             635 bsp/drv/dev/block/fdd.c 		track = blkno / FDG_SECTORS;
+<a href='../S/66.html#L636'>blkno</a>             636 bsp/drv/dev/block/fdd.c 		sect = blkno % FDG_SECTORS;
+<a href='../S/66.html#L648'>blkno</a>             648 bsp/drv/dev/block/fdd.c 		error = fdd_rw(sc, IO_WRITE, wbuf, 1, blkno);
+<a href='../S/66.html#L653'>blkno</a>             653 bsp/drv/dev/block/fdd.c 		blkno++;
+<a href='../S/68.html#L78'>blkno</a>              78 bsp/drv/dev/block/ramdisk.c ramdisk_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L81'>blkno</a>              81 bsp/drv/dev/block/ramdisk.c 	int offset = blkno * BSIZE;
+<a href='../S/68.html#L86'>blkno</a>              86 bsp/drv/dev/block/ramdisk.c 		 buf, *nbyte, blkno));
+<a href='../S/68.html#L109'>blkno</a>             109 bsp/drv/dev/block/ramdisk.c ramdisk_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L112'>blkno</a>             112 bsp/drv/dev/block/ramdisk.c 	int offset = blkno * BSIZE;
+<a href='../S/68.html#L117'>blkno</a>             117 bsp/drv/dev/block/ramdisk.c 		 buf, *nbyte, blkno));
+<a href='../S/77.html#L194'>blkno</a>             194 bsp/drv/dev/input/psaux.c psaux_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L63'>blkno</a>              63 bsp/drv/dev/misc/null.c null_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L74'>blkno</a>              74 bsp/drv/dev/misc/null.c null_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/80.html#L59'>blkno</a>              59 bsp/drv/dev/misc/random.c random_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L63'>blkno</a>              63 bsp/drv/dev/misc/zero.c zero_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L79'>blkno</a>              79 bsp/drv/dev/misc/zero.c zero_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L95'>blkno</a>              95 bsp/drv/dev/serial/serial.c serial_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L103'>blkno</a>             103 bsp/drv/dev/serial/serial.c serial_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/94.html#L57'>blkno</a>              57 bsp/drv/include/ddi.h 	int	blkno;		/* block number */
+<a href='../S/267.html#L128'>blkno</a>             128 include/sys/prex.h int	device_read(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L129'>blkno</a>             129 include/sys/prex.h int	device_write(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/327.html#L362'>blkno</a>             362 sys/kern/device.c device_read(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L381'>blkno</a>             381 sys/kern/device.c 	error = (*ops-&gt;read)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L395'>blkno</a>             395 sys/kern/device.c device_write(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L414'>blkno</a>             414 sys/kern/device.c 	error = (*ops-&gt;write)(dev, buf, &amp;count, blkno);
+<a href='../S/883.html#L118'>blkno</a>             118 usr/server/fs/arfs/arfs_vnops.c arfs_readblk(mount_t mp, int blkno)
+<a href='../S/883.html#L126'>blkno</a>             126 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L131'>blkno</a>             131 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno + 1, &amp;bp)) != 0)
+<a href='../S/883.html#L147'>blkno</a>             147 usr/server/fs/arfs/arfs_vnops.c 	int blkno, error;
+<a href='../S/883.html#L161'>blkno</a>             161 usr/server/fs/arfs/arfs_vnops.c 	blkno = 0;
+<a href='../S/883.html#L165'>blkno</a>             165 usr/server/fs/arfs/arfs_vnops.c 		if (arfs_readblk(mp, blkno) != 0)
+<a href='../S/883.html#L189'>blkno</a>             189 usr/server/fs/arfs/arfs_vnops.c 		blkno = (int)(off / BSIZE);
+<a href='../S/883.html#L196'>blkno</a>             196 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_blkno = blkno;
+<a href='../S/883.html#L209'>blkno</a>             209 usr/server/fs/arfs/arfs_vnops.c 	int blkno, error;
+<a href='../S/883.html#L237'>blkno</a>             237 usr/server/fs/arfs/arfs_vnops.c 		blkno = (off + file_pos) / BSIZE;
+<a href='../S/883.html#L239'>blkno</a>             239 usr/server/fs/arfs/arfs_vnops.c 		if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L287'>blkno</a>             287 usr/server/fs/arfs/arfs_vnops.c 	int blkno, i, error;
+<a href='../S/883.html#L298'>blkno</a>             298 usr/server/fs/arfs/arfs_vnops.c 	blkno = 0;
+<a href='../S/883.html#L302'>blkno</a>             302 usr/server/fs/arfs/arfs_vnops.c 		if ((error = arfs_readblk(mp, blkno)) != 0)
+<a href='../S/883.html#L320'>blkno</a>             320 usr/server/fs/arfs/arfs_vnops.c 		blkno = off / BSIZE;
+<a href='../S/906.html#L134'>blkno</a>             134 usr/server/fs/vfs/vfs_bio.c incore(dev_t dev, int blkno)
+<a href='../S/906.html#L141'>blkno</a>             141 usr/server/fs/vfs/vfs_bio.c 		if (bp-&gt;b_blkno == blkno &amp;&amp; bp-&gt;b_dev == dev &amp;&amp;
+<a href='../S/906.html#L157'>blkno</a>             157 usr/server/fs/vfs/vfs_bio.c getblk(dev_t dev, int blkno)
+<a href='../S/906.html#L161'>blkno</a>             161 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("getblk: dev=%x blkno=%d\n", dev, blkno));
+<a href='../S/906.html#L164'>blkno</a>             164 usr/server/fs/vfs/vfs_bio.c 	bp = incore(dev, blkno);
+<a href='../S/906.html#L188'>blkno</a>             188 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_blkno = blkno;
+<a href='../S/906.html#L226'>blkno</a>             226 usr/server/fs/vfs/vfs_bio.c bread(dev_t dev, int blkno, struct buf **bpp)
+<a href='../S/906.html#L232'>blkno</a>             232 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bread: dev=%x blkno=%d\n", dev, blkno));
+<a href='../S/906.html#L233'>blkno</a>             233 usr/server/fs/vfs/vfs_bio.c 	bp = getblk(dev, blkno);
+<a href='../S/906.html#L237'>blkno</a>             237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>nr_write</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/68.html#L114'>nr_write</a>          114 bsp/drv/dev/block/ramdisk.c 	size_t nr_write;
+<a href='../S/68.html#L122'>nr_write</a>          122 bsp/drv/dev/block/ramdisk.c 	nr_write = *nbyte;
+<a href='../S/68.html#L123'>nr_write</a>          123 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_write &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L124'>nr_write</a>          124 bsp/drv/dev/block/ramdisk.c 		nr_write = sc-&gt;size - offset;
+<a href='../S/68.html#L127'>nr_write</a>          127 bsp/drv/dev/block/ramdisk.c 	if ((kbuf = kmem_map(buf, nr_write)) == NULL)
+<a href='../S/68.html#L131'>nr_write</a>          131 bsp/drv/dev/block/ramdisk.c 	memcpy(sc-&gt;addr + offset, kbuf, nr_write);
+<a href='../S/68.html#L132'>nr_write</a>          132 bsp/drv/dev/block/ramdisk.c 	*nbyte = nr_write;
+<a href='../S/893.html#L241'>nr_write</a>          241 usr/server/fs/fatfs/fatfs_vnops.c 	int nr_copy, nr_write, buf_pos, i, cl_size, error;
+<a href='../S/893.html#L286'>nr_write</a>          286 usr/server/fs/fatfs/fatfs_vnops.c 	nr_write = 0;
+<a href='../S/893.html#L308'>nr_write</a>          308 usr/server/fs/fatfs/fatfs_vnops.c 		nr_write += nr_copy;
+<a href='../S/893.html#L331'>nr_write</a>          331 usr/server/fs/fatfs/fatfs_vnops.c 	*result = nr_write;
+</pre>
+</body>
+</html>

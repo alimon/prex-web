@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>thread_self</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L99'>thread_self</a>        99 include/sys/prex.h thread_t thread_self(void);
+<a href='../S/319.html#L107'>thread_self</a>       107 sys/include/thread.h thread_t thread_self(void);
+<a href='../S/332.html#L98'>thread_self</a>        98 sys/kern/sysent.c 	/* 15 */ SYSENT(0, thread_self),
+<a href='../S/706.html#L141'>thread_self</a>       141 usr/lib/posix/process/fork_nommu.c 		__parent_thread = thread_self();
+<a href='../S/706.html#L149'>thread_self</a>       149 usr/lib/posix/process/fork_nommu.c 		t = thread_self();
+<a href='../S/714.html#L62'>thread_self</a>        62 usr/lib/posix/process/getpriority.c 	thread_getpri(thread_self(), &amp;pri);
+<a href='../S/726.html#L75'>thread_self</a>        75 usr/lib/posix/process/setpriority.c 	error = thread_setpri(thread_self(), val);
+<a href='../S/731.html#L55'>thread_self</a>        55 usr/lib/posix/process/waitpid.c 	self = thread_self();
+<a href='../S/831.html#L71'>thread_self</a>        71 usr/sample/bench/bench.c 	thread_getpri(thread_self(), &amp;pri);
+<a href='../S/831.html#L72'>thread_self</a>        72 usr/sample/bench/bench.c 	thread_setpri(thread_self(), pri - 1);
+<a href='../S/833.html#L49'>thread_self</a>        49 usr/sample/cpumon/cpumon.c 	thread_setpri(thread_self(), 50);
+<a href='../S/833.html#L65'>thread_self</a>        65 usr/sample/cpumon/cpumon.c 	timer_periodic(thread_self(), 100, 10);
+<a href='../S/837.html#L138'>thread_self</a>       138 usr/sample/ipc/ipc.c 	thread_setpri(thread_self(), 90);
+<a href='../S/841.html#L225'>thread_self</a>       225 usr/sample/mutex/mutex.c 	thread_setpri(thread_self(), 90);
+<a href='../S/841.html#L255'>thread_self</a>       255 usr/sample/mutex/mutex.c 	thread_suspend(thread_self());
+<a href='../S/843.html#L65'>thread_self</a>        65 usr/sample/sem/sem.c 	t = thread_self();
+<a href='../S/843.html#L105'>thread_self</a>       105 usr/sample/sem/sem.c 	thread_setpri(thread_self(), 100);
+<a href='../S/843.html#L116'>thread_self</a>       116 usr/sample/sem/sem.c 	thread_suspend(thread_self());
+<a href='../S/855.html#L86'>thread_self</a>        86 usr/sample/thread/thread.c 	thread_terminate(thread_self());
+<a href='../S/855.html#L105'>thread_self</a>       105 usr/sample/thread/thread.c 	thread_terminate(thread_self());
+<a href='../S/855.html#L124'>thread_self</a>       124 usr/sample/thread/thread.c 	thread_terminate(thread_self());
+<a href='../S/855.html#L133'>thread_self</a>       133 usr/sample/thread/thread.c 	main_th = thread_self();
+<a href='../S/860.html#L94'>thread_self</a>        94 usr/sbin/init/init.c 	thread_setpri(thread_self(), 254);
+<a href='../S/871.html#L274'>thread_self</a>       274 usr/server/boot/boot.c 	thread_setpri(thread_self(), PRI_DEFAULT);
+<a href='../S/879.html#L172'>thread_self</a>       172 usr/server/exec/main.c 	thread_setpri(thread_self(), PRI_EXEC);
+<a href='../S/903.html#L1102'>thread_self</a>      1102 usr/server/fs/vfs/main.c 	thread_setpri(thread_self(), PRI_FS);
+<a href='../S/916.html#L405'>thread_self</a>       405 usr/server/pow/pow.c 	thread_setpri(thread_self(), PRI_POW);
+<a href='../S/917.html#L532'>thread_self</a>       532 usr/server/proc/main.c 	thread_setpri(thread_self(), PRI_PROC);
+<a href='../S/938.html#L150'>thread_self</a>       150 usr/test/deadlock/deadlock.c 	thread_setpri(thread_self(), 90);
+<a href='../S/938.html#L175'>thread_self</a>       175 usr/test/deadlock/deadlock.c 	thread_suspend(thread_self());
+<a href='../S/962.html#L79'>thread_self</a>        79 usr/test/ipc_mt/ipc_mt.c 	thread_setpri(thread_self(), 240);
+<a href='../S/962.html#L130'>thread_self</a>       130 usr/test/ipc_mt/ipc_mt.c 	thread_setpri(thread_self(), 241);
+<a href='../S/998.html#L45'>thread_self</a>        45 usr/test/task/task.c 	printf("New thread %x is started\n", (u_int)thread_self());
+<a href='../S/998.html#L66'>thread_self</a>        66 usr/test/task/task.c 	thread_setpri(thread_self(), 90);
+<a href='../S/1000.html#L73'>thread_self</a>        73 usr/test/thread/thread.c 	self = thread_self();
+<a href='../S/1004.html#L47'>thread_self</a>        47 usr/test/timer/timer.c 	timer_periodic(thread_self(), 5000, 2000);
+</pre>
+</body>
+</html>

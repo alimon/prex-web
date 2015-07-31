@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>rel</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/2.html#L35'>rel</a>                35 bsp/boot/arm/arch/elf_reloc.c relocate_rel(Elf32_Rel *rel, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/2.html#L40'>rel</a>                40 bsp/boot/arm/arch/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/2.html#L42'>rel</a>                42 bsp/boot/arm/arch/elf_reloc.c 	switch (ELF32_R_TYPE(rel-&gt;r_info)) {
+<a href='../S/2.html#L65'>rel</a>                65 bsp/boot/arm/arch/elf_reloc.c 			ELF32_R_TYPE(rel-&gt;r_info)));
+<a href='../S/13.html#L206'>rel</a>               206 bsp/boot/common/elf.c relocate_section_rel(Elf32_Sym *sym_table, Elf32_Rel *rel,
+<a href='../S/13.html#L214'>rel</a>               214 bsp/boot/common/elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rel-&gt;r_info)];
+<a href='../S/13.html#L219'>rel</a>               219 bsp/boot/common/elf.c 			if (relocate_rel(rel, sym_val, target_sect) != 0)
+<a href='../S/13.html#L228'>rel</a>               228 bsp/boot/common/elf.c 		rel++;
+<a href='../S/26.html#L35'>rel</a>                35 bsp/boot/ppc/arch/elf_reloc.c relocate_rel(Elf32_Rel *rel, Elf32_Addr sym_val, char *target_sec)
+<a href='../S/37.html#L35'>rel</a>                35 bsp/boot/x86/arch/elf_reloc.c relocate_rel(Elf32_Rel *rel, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/37.html#L39'>rel</a>                39 bsp/boot/x86/arch/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/37.html#L41'>rel</a>                41 bsp/boot/x86/arch/elf_reloc.c 	switch (ELF32_R_TYPE(rel-&gt;r_info)) {
+<a href='../S/37.html#L56'>rel</a>                56 bsp/boot/x86/arch/elf_reloc.c 			ELF32_R_TYPE(rel-&gt;r_info)));
+<a href='../S/348.html#L33'>rel</a>                33 usr/arch/arm/elf_reloc.c relocate_rel(Elf32_Rel *rel, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/348.html#L38'>rel</a>                38 usr/arch/arm/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/348.html#L40'>rel</a>                40 usr/arch/arm/elf_reloc.c 	switch (ELF32_R_TYPE(rel-&gt;r_info)) {
+<a href='../S/348.html#L61'>rel</a>                61 usr/arch/arm/elf_reloc.c 		syslog(LOG_ERR, "relocation fail type=%d\n", ELF32_R_TYPE(rel-&gt;r_info));
+<a href='../S/354.html#L33'>rel</a>                33 usr/arch/ppc/elf_reloc.c relocate_rel(Elf32_Rel *rel, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/360.html#L33'>rel</a>                33 usr/arch/x86/elf_reloc.c relocate_rel(Elf32_Rel *rel, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/360.html#L37'>rel</a>                37 usr/arch/x86/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/360.html#L40'>rel</a>                40 usr/arch/x86/elf_reloc.c 	switch (ELF32_R_TYPE(rel-&gt;r_info)) {
+<a href='../S/876.html#L133'>rel</a>               133 usr/server/exec/exec_elf.c relocate_section_rel(Elf32_Sym *sym_table, Elf32_Rel *rel,
+<a href='../S/876.html#L141'>rel</a>               141 usr/server/exec/exec_elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rel-&gt;r_info)];
+<a href='../S/876.html#L145'>rel</a>               145 usr/server/exec/exec_elf.c 			if (relocate_rel(rel, sym_val, target_sect) != 0)
+<a href='../S/876.html#L150'>rel</a>               150 usr/server/exec/exec_elf.c 		rel++;
+</pre>
+</body>
+</html>

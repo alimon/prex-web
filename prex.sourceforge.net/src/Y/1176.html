@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>lcd_dev</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/63.html#L62'>lcd_dev</a>            62 bsp/drv/dev/base/pm.c 	device_t	lcd_dev;	/* lcd device */
+<a href='../S/63.html#L341'>lcd_dev</a>           341 bsp/drv/dev/base/pm.c 	if (sc-&gt;lcd_dev != NODEV &amp;&amp; sc-&gt;lcd_on) {
+<a href='../S/63.html#L342'>lcd_dev</a>           342 bsp/drv/dev/base/pm.c 		device_control(sc-&gt;lcd_dev, DEVCTL_PM_LCDOFF, NULL);
+<a href='../S/63.html#L356'>lcd_dev</a>           356 bsp/drv/dev/base/pm.c 	if (sc-&gt;lcd_dev != NODEV &amp;&amp; !sc-&gt;lcd_on) {
+<a href='../S/63.html#L357'>lcd_dev</a>           357 bsp/drv/dev/base/pm.c 		device_control(sc-&gt;lcd_dev, DEVCTL_PM_LCDON, NULL);
+<a href='../S/63.html#L496'>lcd_dev</a>           496 bsp/drv/dev/base/pm.c 	pm_softc-&gt;lcd_dev = dev;
+<a href='../S/63.html#L517'>lcd_dev</a>           517 bsp/drv/dev/base/pm.c 	sc-&gt;lcd_dev = NODEV;
+</pre>
+</body>
+</html>

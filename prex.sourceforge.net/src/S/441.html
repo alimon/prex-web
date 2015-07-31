@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/include/stdio.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1118.html'>include</a>/stdio.h</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='441.html#L115'>[^]</a>[v][top]<a href='441.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/442.html' title='Multiple included from 189 places.'>INCLUDED FROM</a></h2>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='441.html#L115' title='Defined at 115.'>FILE</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1990, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * This code is derived from software contributed to Berkeley by</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * Chris Torek.</em>
+<a id='L7' name='L7' />   7 <em class='comment'> *</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * are met:</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L18' name='L18' />  18 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L31' name='L31' />  31 <em class='comment'> *</em>
+<a id='L32' name='L32' />  32 <em class='comment'> *      @(#)stdio.h     8.5 (Berkeley) 4/29/95</em>
+<a id='L33' name='L33' />  33 <em class='comment'> */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#ifndef</em> <a href='441.html#L36' title='Defined at 36 in usr/include/stdio.h.'>_STDIO_H_</a>
+<a id='L36' name='L36' />  36 <em class='sharp'>#define</em> <a href='441.html#L35' title='Refered from 35 in usr/include/stdio.h.'>_STDIO_H_</a>
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../D/2165.html' title='Multiple defined in 6 places.'>_SIZE_T</a>)
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='../R/1306.html' title='Multiple refered from 6 places.'>_SIZE_T</a>
+<a id='L43' name='L43' />  43 <strong class='reserved'>typedef</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>    <a href='../R/2572.html' title='Multiple refered from 460 places.'>size_t</a>;         <em class='comment'>/* size of something in bytes */</em>
+<a id='L44' name='L44' />  44 <em class='sharp'>#endif</em>
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <em class='sharp'>#include</em> &lt;<a href='../I/215.html'>machine/stdarg.h</a>&gt;
+<a id='L47' name='L47' />  47 
+<a id='L48' name='L48' />  48 <em class='sharp'>#ifndef</em> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>
+<a id='L49' name='L49' />  49 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../Y/274.html' title='Multiple used in 5 places.'>__cplusplus</a>)
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='../R/660.html' title='Multiple refered from 755 places.'>NULL</a>    ((<strong class='reserved'>void</strong> *)0)
+<a id='L51' name='L51' />  51 <em class='sharp'>#else</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/660.html' title='Multiple refered from 755 places.'>NULL</a>    0
+<a id='L53' name='L53' />  53 <em class='sharp'>#endif</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#endif</em>
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56 <strong class='reserved'>typedef</strong> <a href='277.html#L53' title='Defined at 53 in include/sys/types.h.'>off_t</a> <a href='../R/1879.html' title='Multiple refered from 16 places.'>fpos_t</a>;
+<a id='L57' name='L57' />  57 
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> _FSTDIO                 <em class='comment'>/* Define for new stdio with functions. */</em>
+<a id='L59' name='L59' />  59 
+<a id='L60' name='L60' />  60 <em class='comment'>/*</em>
+<a id='L61' name='L61' />  61 <em class='comment'> * NB: to fit things in six character monocase externals, the stdio</em>
+<a id='L62' name='L62' />  62 <em class='comment'> * code uses the prefix `__s' for stdio objects, typically followed</em>
+<a id='L63' name='L63' />  63 <em class='comment'> * by a three-character attempt at a mnemonic.</em>
+<a id='L64' name='L64' />  64 <em class='comment'> */</em>
+<a id='L65' name='L65' />  65 
+<a id='L66' name='L66' />  66 <em class='comment'>/* stdio buffers */</em>
+<a id='L67' name='L67' />  67 <strong class='reserved'>struct</strong> <a href='../Y/292.html' title='Multiple used in 3 places.'>__sbuf</a> <em class='brace'>{</em>
+<a id='L68' name='L68' />  68         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> *<a href='../Y/306.html' title='Multiple used in 36 places.'>_base</a>;
+<a id='L69' name='L69' />  69         <strong class='reserved'>int</strong>     <a href='../Y/323.html' title='Multiple used in 26 places.'>_size</a>;
+<a id='L70' name='L70' />  70 <em class='brace'>}</em>;
+<a id='L71' name='L71' />  71 
+<a id='L72' name='L72' />  72 <em class='comment'>/*</em>
+<a id='L73' name='L73' />  73 <em class='comment'> * stdio state variables.</em>
+<a id='L74' name='L74' />  74 <em class='comment'> *</em>
+<a id='L75' name='L75' />  75 <em class='comment'> * The following always hold:</em>
+<a id='L76' name='L76' />  76 <em class='comment'> *</em>
+<a id='L77' name='L77' />  77 <em class='comment'> *      if (_flags&amp;(__SLBF|__SWR)) == (__SLBF|__SWR),</em>
+<a id='L78' name='L78' />  78 <em class='comment'> *              _lbfsize is -_bf._size, else _lbfsize is 0</em>
+<a id='L79' name='L79' />  79 <em class='comment'> *      if _flags&amp;__SRD, _w is 0</em>
+<a id='L80' name='L80' />  80 <em class='comment'> *      if _flags&amp;__SWR, _r is 0</em>
+<a id='L81' name='L81' />  81 <em class='comment'> *</em>
+<a id='L82' name='L82' />  82 <em class='comment'> * This ensures that the getc and putc macros (or inline functions) never</em>
+<a id='L83' name='L83' />  83 <em class='comment'> * try to write or read from a file that is in `read' or `write' mode.</em>
+<a id='L84' name='L84' />  84 <em class='comment'> * (Moreover, they can, and do, automatically switch from read mode to</em>
+<a id='L85' name='L85' />  85 <em class='comment'> * write mode, and back, on "r+" and "w+" files.)</em>
+<a id='L86' name='L86' />  86 <em class='comment'> *</em>
+<a id='L87' name='L87' />  87 <em class='comment'> * _lbfsize is used only to make the inline line-buffered output stream</em>
+<a id='L88' name='L88' />  88 <em class='comment'> * code as compact as possible.</em>
+<a id='L89' name='L89' />  89 <em class='comment'> *</em>
+<a id='L90' name='L90' />  90 <em class='comment'> * _ub, _up, and _ur are used when ungetc() pushes back more characters</em>
+<a id='L91' name='L91' />  91 <em class='comment'> * than fit in the current _bf, or when ungetc() pushes back a character</em>
+<a id='L92' name='L92' />  92 <em class='comment'> * that does not match the previous one in _bf.  When this happens,</em>
+<a id='L93' name='L93' />  93 <em class='comment'> * _ub._base becomes non-nil (i.e., a stream has ungetc() data iff</em>
+<a id='L94' name='L94' />  94 <em class='comment'> * _ub._base!=NULL) and _up and _ur save the current values of _p and _r.</em>
+<a id='L95' name='L95' />  95 <em class='comment'> *</em>
+<a id='L96' name='L96' />  96 <em class='comment'> * NB: see WARNING above before changing the layout of this structure!</em>
+<a id='L97' name='L97' />  97 <em class='comment'> */</em>
+<a id='L98' name='L98' />  98 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <a href='../Y/289.html' title='Multiple used in 2 places.'>__sFILE</a> <em class='brace'>{</em>
+<a id='L99' name='L99' />  99         <strong class='reserved'>struct</strong> <a href='../Y/289.html' title='Multiple used in 2 places.'>__sFILE</a> *<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;   <em class='comment'>/* file chain */</em>
+<a id='L100' name='L100' /> 100         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> *<a href='../Y/319.html' title='Multiple used in 72 places.'>_p</a>;      <em class='comment'>/* current position in (some) buffer */</em>
+<a id='L101' name='L101' /> 101         <strong class='reserved'>int</strong>     <a href='../Y/320.html' title='Multiple used in 45 places.'>_r</a>;             <em class='comment'>/* read space left for getc() */</em>
+<a id='L102' name='L102' /> 102         <strong class='reserved'>int</strong>     <a href='../Y/331.html' title='Multiple used in 22 places.'>_w</a>;             <em class='comment'>/* write space left for putc() */</em>
+<a id='L103' name='L103' /> 103         <strong class='reserved'>short</strong>   <a href='../Y/313.html' title='Multiple used in 78 places.'>_flags</a>;         <em class='comment'>/* flags, below; this FILE is free if 0 */</em>
+<a id='L104' name='L104' /> 104         <strong class='reserved'>short</strong>   <a href='../Y/312.html' title='Multiple used in 16 places.'>_file</a>;          <em class='comment'>/* fileno, if Unix descriptor, else -1 */</em>
+<a id='L105' name='L105' /> 105         <strong class='reserved'>struct</strong>  <a href='../Y/292.html' title='Multiple used in 3 places.'>__sbuf</a> <a href='../Y/307.html' title='Multiple used in 54 places.'>_bf</a>;     <em class='comment'>/* the buffer (at least 1 byte, if !NULL) */</em>
+<a id='L106' name='L106' /> 106 
+<a id='L107' name='L107' /> 107         <em class='comment'>/* separate buffer for long sequences of ungetc() */</em>
+<a id='L108' name='L108' /> 108         <strong class='reserved'>struct</strong>  <a href='../Y/292.html' title='Multiple used in 3 places.'>__sbuf</a> <a href='../Y/327.html' title='Multiple used in 8 places.'>_ub</a>;     <em class='comment'>/* ungetc buffer */</em>
+<a id='L109' name='L109' /> 109         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> *<a href='../Y/329.html' title='Multiple used in 3 places.'>_up</a>;     <em class='comment'>/* saved _p when _p is doing ungetc data */</em>
+<a id='L110' name='L110' /> 110         <strong class='reserved'>int</strong>     <a href='../Y/330.html' title='Multiple used in 5 places.'>_ur</a>;            <em class='comment'>/* saved _r when _r is counting ungetc data */</em>
+<a id='L111' name='L111' /> 111 
+<a id='L112' name='L112' /> 112         <em class='comment'>/* tricks to meet minimum requirements even when malloc() fails */</em>
+<a id='L113' name='L113' /> 113         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> <a href='../Y/328.html' title='Multiple used in 5 places.'>_ubuf</a>[3]; <em class='comment'>/* guarantee an ungetc() buffer */</em>
+<a id='L114' name='L114' /> 114         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> <a href='../Y/318.html' title='Multiple used in 3 places.'>_nbuf</a>[1]; <em class='comment'>/* guarantee a getc() buffer */</em>
+<a id='L115' name='L115' /> 115 <em class='brace'>}</em> <a href='../R/319.html' title='Multiple refered from 133 places.'>FILE</a>;
+<a id='L116' name='L116' /> 116 
+<a id='L117' name='L117' /> 117 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L118' name='L118' /> 118 <strong class='reserved'>extern</strong> <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> <a href='../Y/288.html' title='Multiple used in 10 places.'>__sF</a>[];
+<a id='L119' name='L119' /> 119 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L120' name='L120' /> 120 
+<a id='L121' name='L121' /> 121 <em class='sharp'>#define</em> <a href='../R/1392.html' title='Multiple refered from 10 places.'>__SLBF</a>  0x0001          <em class='comment'>/* line buffered */</em>
+<a id='L122' name='L122' /> 122 <em class='sharp'>#define</em> <a href='../R/1394.html' title='Multiple refered from 11 places.'>__SNBF</a>  0x0002          <em class='comment'>/* unbuffered */</em>
+<a id='L123' name='L123' /> 123 <em class='sharp'>#define</em> <a href='../R/1395.html' title='Multiple refered from 12 places.'>__SRD</a>   0x0004          <em class='comment'>/* OK to read */</em>
+<a id='L124' name='L124' /> 124 <em class='sharp'>#define</em> <a href='../R/1399.html' title='Multiple refered from 24 places.'>__SWR</a>   0x0008          <em class='comment'>/* OK to write */</em>
+<a id='L125' name='L125' /> 125         <em class='comment'>/* RD and WR are never simultaneously asserted */</em>
+<a id='L126' name='L126' /> 126 <em class='sharp'>#define</em> <a href='../R/1396.html' title='Multiple refered from 6 places.'>__SRW</a>   0x0010          <em class='comment'>/* open for reading &amp; writing */</em>
+<a id='L127' name='L127' /> 127 <em class='sharp'>#define</em> <a href='../R/1390.html' title='Multiple refered from 10 places.'>__SEOF</a>  0x0020          <em class='comment'>/* found EOF */</em>
+<a id='L128' name='L128' /> 128 <em class='sharp'>#define</em> <a href='../R/1391.html' title='Multiple refered from 9 places.'>__SERR</a>  0x0040          <em class='comment'>/* found error */</em>
+<a id='L129' name='L129' /> 129 <em class='sharp'>#define</em> <a href='../R/1393.html' title='Multiple refered from 5 places.'>__SMBF</a>  0x0080          <em class='comment'>/* _buf is from malloc */</em>
+<a id='L130' name='L130' /> 130 <em class='sharp'>#define</em> <a href='../R/1389.html' title='Multiple refered from 2 places.'>__SAPP</a>  0x0100          <em class='comment'>/* fdopen()ed in append mode */</em>
+<a id='L131' name='L131' /> 131 <em class='sharp'>#define</em> <a href='../R/1397.html' title='Multiple refered from 6 places.'>__SSTR</a>  0x0200          <em class='comment'>/* this is an sprintf/snprintf string */</em>
+<a id='L132' name='L132' /> 132 
+<a id='L133' name='L133' /> 133 <em class='comment'>/*</em>
+<a id='L134' name='L134' /> 134 <em class='comment'> * The following three definitions are for ANSI C, which took them</em>
+<a id='L135' name='L135' /> 135 <em class='comment'> * from System V, which brilliantly took internal interface macros and</em>
+<a id='L136' name='L136' /> 136 <em class='comment'> * made them official arguments to setvbuf(), without renaming them.</em>
+<a id='L137' name='L137' /> 137 <em class='comment'> * Hence, these ugly _IOxxx names are *supposed* to appear in user code.</em>
+<a id='L138' name='L138' /> 138 <em class='comment'> *</em>
+<a id='L139' name='L139' /> 139 <em class='comment'> * Although numbered as their counterparts above, the implementation</em>
+<a id='L140' name='L140' /> 140 <em class='comment'> * does not rely on this.</em>
+<a id='L141' name='L141' /> 141 <em class='comment'> */</em>
+<a id='L142' name='L142' /> 142 <em class='sharp'>#define</em> <a href='../R/1255.html' title='Multiple refered from 3 places.'>_IOFBF</a>  0               <em class='comment'>/* setvbuf should set fully buffered */</em>
+<a id='L143' name='L143' /> 143 <em class='sharp'>#define</em> <a href='../R/1256.html' title='Multiple refered from 3 places.'>_IOLBF</a>  1               <em class='comment'>/* setvbuf should set line buffered */</em>
+<a id='L144' name='L144' /> 144 <em class='sharp'>#define</em> <a href='../R/1257.html' title='Multiple refered from 3 places.'>_IONBF</a>  2               <em class='comment'>/* setvbuf should set unbuffered */</em>
+<a id='L145' name='L145' /> 145 
+<a id='L146' name='L146' /> 146 <em class='sharp'>#define</em> <a href='../R/52.html' title='Multiple refered from 12 places.'>BUFSIZ</a>  512             <em class='comment'>/* size of buffer used by setbuf */</em>
+<a id='L147' name='L147' /> 147 <em class='sharp'>#define</em> <a href='../R/261.html' title='Multiple refered from 48 places.'>EOF</a>     (-1)
+<a id='L148' name='L148' /> 148 
+<a id='L149' name='L149' /> 149 <em class='comment'>/*</em>
+<a id='L150' name='L150' /> 150 <em class='comment'> * FOPEN_MAX is a minimum maximum, and is the number of streams that</em>
+<a id='L151' name='L151' /> 151 <em class='comment'> * stdio can provide without attempting to allocate further resources</em>
+<a id='L152' name='L152' /> 152 <em class='comment'> * (which could fail).  Do not use this for anything.</em>
+<a id='L153' name='L153' /> 153 <em class='comment'> */</em>
+<a id='L154' name='L154' /> 154                                 <em class='comment'>/* must be == _POSIX_STREAM_MAX &lt;limits.h&gt; */</em>
+<a id='L155' name='L155' /> 155 <em class='sharp'>#define</em> FOPEN_MAX       16      <em class='comment'>/* must be &lt;= OPEN_MAX &lt;sys/syslimits.h&gt; */</em>
+<a id='L156' name='L156' /> 156 <em class='sharp'>#define</em> FILENAME_MAX    256     <em class='comment'>/* must be &lt;= PATH_MAX &lt;sys/syslimits.h&gt; */</em>
+<a id='L157' name='L157' /> 157 
+<a id='L158' name='L158' /> 158 <em class='comment'>/* System V/ANSI C; this is the wrong way to do this, do *not* use these. */</em>
+<a id='L159' name='L159' /> 159 <em class='sharp'>#ifndef</em> <a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>
+<a id='L160' name='L160' /> 160 <em class='sharp'>#define</em> <a href='../R/799.html' title='Multiple refered from 2 places.'>P_tmpdir</a>        "/var/tmp/"
+<a id='L161' name='L161' /> 161 <em class='sharp'>#endif</em>
+<a id='L162' name='L162' /> 162 <em class='sharp'>#define</em> <a href='../R/558.html' title='Multiple refered from 2 places.'>L_tmpnam</a>        255     <em class='comment'>/* XXX must be == PATH_MAX */</em>
+<a id='L163' name='L163' /> 163 <em class='sharp'>#define</em> TMP_MAX         308915776
+<a id='L164' name='L164' /> 164 
+<a id='L165' name='L165' /> 165 <em class='comment'>/* access function */</em>
+<a id='L166' name='L166' /> 166 <em class='sharp'>#define</em> <a href='421.html#L341' title='Refered from 341 in usr/bin/test/test.c.'>F_OK</a>            0       <em class='comment'>/* test for existence of file */</em>
+<a id='L167' name='L167' /> 167 <em class='sharp'>#define</em> <a href='../R/1202.html' title='Multiple refered from 5 places.'>X_OK</a>            0x01    <em class='comment'>/* test for execute or search permission */</em>
+<a id='L168' name='L168' /> 168 <em class='sharp'>#define</em> <a href='../R/1201.html' title='Multiple refered from 3 places.'>W_OK</a>            0x02    <em class='comment'>/* test for write permission */</em>
+<a id='L169' name='L169' /> 169 <em class='sharp'>#define</em> <a href='../R/850.html' title='Multiple refered from 3 places.'>R_OK</a>            0x04    <em class='comment'>/* test for read permission */</em>
+<a id='L170' name='L170' /> 170 
+<a id='L171' name='L171' /> 171 <em class='comment'>/* whence values for lseek(2) */</em>
+<a id='L172' name='L172' /> 172 <em class='sharp'>#define</em> <a href='../R/879.html' title='Multiple refered from 8 places.'>SEEK_SET</a>        0       <em class='comment'>/* set file offset to offset */</em>
+<a id='L173' name='L173' /> 173 <em class='sharp'>#define</em> <a href='../R/877.html' title='Multiple refered from 4 places.'>SEEK_CUR</a>        1       <em class='comment'>/* set file offset to current plus offset */</em>
+<a id='L174' name='L174' /> 174 <em class='sharp'>#define</em> <a href='../R/878.html' title='Multiple refered from 4 places.'>SEEK_END</a>        2       <em class='comment'>/* set file offset to EOF plus offset */</em>
+<a id='L175' name='L175' /> 175 
+<a id='L176' name='L176' /> 176 <em class='sharp'>#define</em> <a href='../R/2592.html' title='Multiple refered from 12 places.'>stdin</a>   (&amp;<a href='../Y/288.html' title='Multiple used in 10 places.'>__sF</a>[0])
+<a id='L177' name='L177' /> 177 <em class='sharp'>#define</em> <a href='../R/2593.html' title='Multiple refered from 16 places.'>stdout</a>  (&amp;<a href='../Y/288.html' title='Multiple used in 10 places.'>__sF</a>[1])
+<a id='L178' name='L178' /> 178 <em class='sharp'>#define</em> <a href='../R/2591.html' title='Multiple refered from 91 places.'>stderr</a>  (&amp;<a href='../Y/288.html' title='Multiple used in 10 places.'>__sF</a>[2])
+<a id='L179' name='L179' /> 179 
+<a id='L180' name='L180' /> 180 <em class='comment'>/*</em>
+<a id='L181' name='L181' /> 181 <em class='comment'> * Functions defined in ANSI C standard.</em>
+<a id='L182' name='L182' /> 182 <em class='comment'> */</em>
+<a id='L183' name='L183' /> 183 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L184' name='L184' /> 184 <strong class='reserved'>void</strong>     <a href='../D/2416.html' title='Multiple defined in 3 places.'>clearerr</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L185' name='L185' /> 185 <strong class='reserved'>int</strong>      <a href='497.html#L39' title='Defined at 39 in usr/lib/libc/stdio/fclose.c.'>fclose</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L186' name='L186' /> 186 <strong class='reserved'>int</strong>      <a href='../D/2714.html' title='Multiple defined in 3 places.'>feof</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L187' name='L187' /> 187 <strong class='reserved'>int</strong>      <a href='../D/2715.html' title='Multiple defined in 3 places.'>ferror</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L188' name='L188' /> 188 <strong class='reserved'>int</strong>      <a href='501.html#L39' title='Defined at 39 in usr/lib/libc/stdio/fflush.c.'>fflush</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L189' name='L189' /> 189 <strong class='reserved'>int</strong>      <a href='502.html#L36' title='Defined at 36 in usr/lib/libc/stdio/fgetc.c.'>fgetc</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L190' name='L190' /> 190 <strong class='reserved'>int</strong>      <a href='503.html#L36' title='Defined at 36 in usr/lib/libc/stdio/fgetpos.c.'>fgetpos</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <a href='441.html#L56' title='Defined at 56 in usr/include/stdio.h.'>fpos_t</a> *);
+<a id='L191' name='L191' /> 191 <strong class='reserved'>char</strong>    *<a href='504.html#L43' title='Defined at 43 in usr/lib/libc/stdio/fgets.c.'>fgets</a>(<strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L192' name='L192' /> 192 <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a>    *<a href='508.html#L41' title='Defined at 41 in usr/lib/libc/stdio/fopen.c.'>fopen</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L193' name='L193' /> 193 <strong class='reserved'>int</strong>      <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L194' name='L194' /> 194 <strong class='reserved'>int</strong>      <a href='511.html#L36' title='Defined at 36 in usr/lib/libc/stdio/fputc.c.'>fputc</a>(<strong class='reserved'>int</strong>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L195' name='L195' /> 195 <strong class='reserved'>int</strong>      <a href='512.html#L40' title='Defined at 40 in usr/lib/libc/stdio/fputs.c.'>fputs</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L196' name='L196' /> 196 <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>   <a href='513.html#L38' title='Defined at 38 in usr/lib/libc/stdio/fread.c.'>fread</a>(<strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L197' name='L197' /> 197 <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a>    *<a href='514.html#L48' title='Defined at 48 in usr/lib/libc/stdio/freopen.c.'>freopen</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L198' name='L198' /> 198 <strong class='reserved'>int</strong>      <a href='515.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fscanf.c.'>fscanf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L199' name='L199' /> 199 <strong class='reserved'>int</strong>      <a href='516.html#L48' title='Defined at 48 in usr/lib/libc/stdio/fseek.c.'>fseek</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>long</strong>, <strong class='reserved'>int</strong>);
+<a id='L200' name='L200' /> 200 <strong class='reserved'>int</strong>      <a href='517.html#L39' title='Defined at 39 in usr/lib/libc/stdio/fsetpos.c.'>fsetpos</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>const</strong> <a href='441.html#L56' title='Defined at 56 in usr/include/stdio.h.'>fpos_t</a> *);
+<a id='L201' name='L201' /> 201 <strong class='reserved'>long</strong>     <a href='518.html#L41' title='Defined at 41 in usr/lib/libc/stdio/ftell.c.'>ftell</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L202' name='L202' /> 202 <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>   <a href='522.html#L41' title='Defined at 41 in usr/lib/libc/stdio/fwrite.c.'>fwrite</a>(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L203' name='L203' /> 203 <strong class='reserved'>int</strong>      <a href='523.html#L37' title='Defined at 37 in usr/lib/libc/stdio/getc.c.'>getc</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L204' name='L204' /> 204 <strong class='reserved'>int</strong>      <a href='../D/2846.html' title='Multiple defined in 3 places.'>getchar</a>(<strong class='reserved'>void</strong>);
+<a id='L205' name='L205' /> 205 <strong class='reserved'>char</strong>    *<a href='525.html#L37' title='Defined at 37 in usr/lib/libc/stdio/gets.c.'>gets</a>(<strong class='reserved'>char</strong> *);
+<a id='L206' name='L206' /> 206 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>) &amp;&amp; !<strong class='reserved'>defined</strong>(<a href='../Y/248.html' title='Multiple used in 17 places.'>_POSIX_SOURCE</a>)
+<a id='L207' name='L207' /> 207 <strong class='reserved'>extern</strong> <strong class='reserved'>const</strong> <strong class='reserved'>int</strong> <a href='441.html#L207' title='Used at 207 in usr/include/stdio.h.'>_sys_nerr</a>;                     <em class='comment'>/* perror(3) external variables */</em>
+<a id='L208' name='L208' /> 208 <strong class='reserved'>extern</strong> <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *<strong class='reserved'>const</strong> <a href='441.html#L208' title='Used at 208 in usr/include/stdio.h.'>_sys_errlist</a>[];
+<a id='L209' name='L209' /> 209 <em class='sharp'>#endif</em>
+<a id='L210' name='L210' /> 210 <strong class='reserved'>void</strong>     <a href='531.html#L36' title='Defined at 36 in usr/lib/libc/stdio/perror.c.'>perror</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L211' name='L211' /> 211 <strong class='reserved'>int</strong>      <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L212' name='L212' /> 212 <strong class='reserved'>int</strong>      <a href='533.html#L76' title='Defined at 76 in usr/lib/libc/stdio/putc.c.'>putc</a>(<strong class='reserved'>int</strong>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L213' name='L213' /> 213 <strong class='reserved'>int</strong>      <a href='../D/3263.html' title='Multiple defined in 3 places.'>putchar</a>(<strong class='reserved'>int</strong>);
+<a id='L214' name='L214' /> 214 <strong class='reserved'>int</strong>      <a href='../D/3265.html' title='Multiple defined in 2 places.'>puts</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L215' name='L215' /> 215 <strong class='reserved'>int</strong>      <a href='538.html#L41' title='Defined at 41 in usr/lib/libc/stdio/remove.c.'>remove</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L216' name='L216' /> 216 <strong class='reserved'>int</strong>      <a href='686.html#L39' title='Defined at 39 in usr/lib/posix/file/rename.c.'>rename</a> (<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L217' name='L217' /> 217 <strong class='reserved'>void</strong>     <a href='539.html#L37' title='Defined at 37 in usr/lib/libc/stdio/rewind.c.'>rewind</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L218' name='L218' /> 218 <strong class='reserved'>int</strong>      <a href='540.html#L37' title='Defined at 37 in usr/lib/libc/stdio/scanf.c.'>scanf</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L219' name='L219' /> 219 <strong class='reserved'>void</strong>     <a href='541.html#L37' title='Defined at 37 in usr/lib/libc/stdio/setbuf.c.'>setbuf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>char</strong> *);
+<a id='L220' name='L220' /> 220 <strong class='reserved'>int</strong>      <a href='543.html#L42' title='Defined at 42 in usr/lib/libc/stdio/setvbuf.c.'>setvbuf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>int</strong>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L221' name='L221' /> 221 <strong class='reserved'>int</strong>      <a href='../D/3498.html' title='Multiple defined in 3 places.'>sprintf</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L222' name='L222' /> 222 <strong class='reserved'>int</strong>      <a href='546.html#L39' title='Defined at 39 in usr/lib/libc/stdio/sscanf.c.'>sscanf</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L223' name='L223' /> 223 <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a>    *<a href='549.html#L42' title='Defined at 42 in usr/lib/libc/stdio/tmpfile.c.'>tmpfile</a>(<strong class='reserved'>void</strong>);
+<a id='L224' name='L224' /> 224 <strong class='reserved'>char</strong>    *<a href='550.html#L39' title='Defined at 39 in usr/lib/libc/stdio/tmpnam.c.'>tmpnam</a>(<strong class='reserved'>char</strong> *);
+<a id='L225' name='L225' /> 225 <strong class='reserved'>int</strong>      <a href='551.html#L39' title='Defined at 39 in usr/lib/libc/stdio/ungetc.c.'>ungetc</a>(<strong class='reserved'>int</strong>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L226' name='L226' /> 226 <strong class='reserved'>int</strong>      <a href='552.html#L181' title='Defined at 181 in usr/lib/libc/stdio/vfprintf.c.'>vfprintf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L227' name='L227' /> 227 <strong class='reserved'>int</strong>      <a href='554.html#L36' title='Defined at 36 in usr/lib/libc/stdio/vprintf.c.'>vprintf</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L228' name='L228' /> 228 <strong class='reserved'>int</strong>      <a href='../D/3844.html' title='Multiple defined in 3 places.'>vsprintf</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L229' name='L229' /> 229 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L230' name='L230' /> 230 
+<a id='L231' name='L231' /> 231 <em class='comment'>/*</em>
+<a id='L232' name='L232' /> 232 <em class='comment'> * Functions defined in POSIX 1003.1.</em>
+<a id='L233' name='L233' /> 233 <em class='comment'> */</em>
+<a id='L234' name='L234' /> 234 <em class='sharp'>#ifndef</em> <a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>
+<a id='L235' name='L235' /> 235 <em class='sharp'>#define</em> L_cuserid       9       <em class='comment'>/* size for cuserid(); UT_NAMESIZE + 1 */</em>
+<a id='L236' name='L236' /> 236 <em class='sharp'>#define</em> L_ctermid       1024    <em class='comment'>/* size for ctermid(); PATH_MAX */</em>
+<a id='L237' name='L237' /> 237 
+<a id='L238' name='L238' /> 238 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L239' name='L239' /> 239 <strong class='reserved'>char</strong>    *ctermid(<strong class='reserved'>char</strong> *);
+<a id='L240' name='L240' /> 240 <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a>    *<a href='498.html#L41' title='Defined at 41 in usr/lib/libc/stdio/fdopen.c.'>fdopen</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L241' name='L241' /> 241 <strong class='reserved'>int</strong>      <a href='../D/2746.html' title='Multiple defined in 3 places.'>fileno</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L242' name='L242' /> 242 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L243' name='L243' /> 243 <em class='sharp'>#endif</em> <em class='comment'>/* not ANSI */</em>
+<a id='L244' name='L244' /> 244 
+<a id='L245' name='L245' /> 245 <em class='comment'>/*</em>
+<a id='L246' name='L246' /> 246 <em class='comment'> * Routines that are purely local.</em>
+<a id='L247' name='L247' /> 247 <em class='comment'> */</em>
+<a id='L248' name='L248' /> 248 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong> (<a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>) &amp;&amp; !<strong class='reserved'>defined</strong>(<a href='../Y/248.html' title='Multiple used in 17 places.'>_POSIX_SOURCE</a>)
+<a id='L249' name='L249' /> 249 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L250' name='L250' /> 250 <strong class='reserved'>int</strong>      <a href='510.html#L43' title='Defined at 43 in usr/lib/libc/stdio/fpurge.c.'>fpurge</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L251' name='L251' /> 251 <strong class='reserved'>int</strong>      <a href='526.html#L36' title='Defined at 36 in usr/lib/libc/stdio/getw.c.'>getw</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L252' name='L252' /> 252 <strong class='reserved'>int</strong>      pclose(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L253' name='L253' /> 253 <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a>    *popen(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L254' name='L254' /> 254 <strong class='reserved'>int</strong>      <a href='536.html#L36' title='Defined at 36 in usr/lib/libc/stdio/putw.c.'>putw</a>(<strong class='reserved'>int</strong>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L255' name='L255' /> 255 <strong class='reserved'>void</strong>     <a href='542.html#L36' title='Defined at 36 in usr/lib/libc/stdio/setbuffer.c.'>setbuffer</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>int</strong>);
+<a id='L256' name='L256' /> 256 <strong class='reserved'>int</strong>      <a href='542.html#L49' title='Defined at 49 in usr/lib/libc/stdio/setbuffer.c.'>setlinebuf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L257' name='L257' /> 257 <strong class='reserved'>char</strong>    *<a href='548.html#L39' title='Defined at 39 in usr/lib/libc/stdio/tempnam.c.'>tempnam</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L258' name='L258' /> 258 <strong class='reserved'>int</strong>      <a href='544.html#L37' title='Defined at 37 in usr/lib/libc/stdio/snprintf.c.'>snprintf</a>(<strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L259' name='L259' /> 259 <strong class='reserved'>int</strong>      <a href='556.html#L36' title='Defined at 36 in usr/lib/libc/stdio/vsnprintf.c.'>vsnprintf</a>(<strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L260' name='L260' /> 260 <strong class='reserved'>int</strong>      <a href='555.html#L36' title='Defined at 36 in usr/lib/libc/stdio/vscanf.c.'>vscanf</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L261' name='L261' /> 261 <strong class='reserved'>int</strong>      <a href='558.html#L37' title='Defined at 37 in usr/lib/libc/stdio/vsscanf.c.'>vsscanf</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L262' name='L262' /> 262 <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a>    *zopen(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>int</strong>);
+<a id='L263' name='L263' /> 263 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L264' name='L264' /> 264 
+<a id='L265' name='L265' /> 265 <em class='comment'>/*</em>
+<a id='L266' name='L266' /> 266 <em class='comment'> * This is a #define because the function is used internally and</em>
+<a id='L267' name='L267' /> 267 <em class='comment'> * (unlike vfscanf) the name __svfscanf is guaranteed not to collide</em>
+<a id='L268' name='L268' /> 268 <em class='comment'> * with a user function when _ANSI_SOURCE or _POSIX_SOURCE is defined.</em>
+<a id='L269' name='L269' /> 269 <em class='comment'> */</em>
+<a id='L270' name='L270' /> 270 <em class='sharp'>#define</em>  vfscanf        <a href='553.html#L83' title='Defined at 83 in usr/lib/libc/stdio/vfscanf.c.'>__svfscanf</a>
+<a id='L271' name='L271' /> 271 
+<a id='L272' name='L272' /> 272 <em class='sharp'>#endif</em> <em class='comment'>/* !_ANSI_SOURCE &amp;&amp; !_POSIX_SOURCE */</em>
+<a id='L273' name='L273' /> 273 
+<a id='L274' name='L274' /> 274 <em class='comment'>/*</em>
+<a id='L275' name='L275' /> 275 <em class='comment'> * Functions internal to the implementation.</em>
+<a id='L276' name='L276' /> 276 <em class='comment'> */</em>
+<a id='L277' name='L277' /> 277 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L278' name='L278' /> 278 <strong class='reserved'>int</strong>     __srget(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L279' name='L279' /> 279 <strong class='reserved'>int</strong>     <a href='553.html#L83' title='Defined at 83 in usr/lib/libc/stdio/vfscanf.c.'>__svfscanf</a>(<a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L280' name='L280' /> 280 <strong class='reserved'>int</strong>     <a href='533.html#L42' title='Defined at 42 in usr/lib/libc/stdio/putc.c.'>__swbuf</a>(<strong class='reserved'>int</strong>, <a href='441.html#L115' title='Defined at 115 in usr/include/stdio.h.'>FILE</a> *);
+<a id='L281' name='L281' /> 281 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L282' name='L282' /> 282 
+<a id='L283' name='L283' /> 283 <em class='comment'>/*</em>
+<a id='L284' name='L284' /> 284 <em class='comment'> * The __sfoo macros are here so that we can</em>
+<a id='L285' name='L285' /> 285 <em class='comment'> * define function versions in the C library.</em>
+<a id='L286' name='L286' /> 286 <em class='comment'> */</em>
+<a id='L287' name='L287' /> 287 
+<a id='L288' name='L288' /> 288 <em class='sharp'>#define</em> <a href='../R/1425.html' title='Multiple refered from 2 places.'>__sfeof</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)      (((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)-&gt;<a href='../Y/313.html' title='Multiple used in 78 places.'>_flags</a> &amp; <a href='441.html#L127' title='Defined at 127 in usr/include/stdio.h.'>__SEOF</a>) != 0)
+<a id='L289' name='L289' /> 289 <em class='sharp'>#define</em> <a href='../R/1426.html' title='Multiple refered from 3 places.'>__sferror</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)    (((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)-&gt;<a href='../Y/313.html' title='Multiple used in 78 places.'>_flags</a> &amp; <a href='441.html#L128' title='Defined at 128 in usr/include/stdio.h.'>__SERR</a>) != 0)
+<a id='L290' name='L290' /> 290 <em class='sharp'>#define</em> <a href='../R/1423.html' title='Multiple refered from 2 places.'>__sclearerr</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)  ((<strong class='reserved'>void</strong>)((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)-&gt;<a href='../Y/313.html' title='Multiple used in 78 places.'>_flags</a> &amp;= ~(<a href='441.html#L128' title='Defined at 128 in usr/include/stdio.h.'>__SERR</a>|<a href='441.html#L127' title='Defined at 127 in usr/include/stdio.h.'>__SEOF</a>)))
+<a id='L291' name='L291' /> 291 <em class='sharp'>#define</em> <a href='../R/1427.html' title='Multiple refered from 2 places.'>__sfileno</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)    ((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)-&gt;<a href='../Y/312.html' title='Multiple used in 16 places.'>_file</a>)
+<a id='L292' name='L292' /> 292 
+<a id='L293' name='L293' /> 293 <em class='sharp'>#define</em> <a href='../R/1839.html' title='Multiple refered from 2 places.'>feof</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)         <a href='441.html#L288' title='Defined at 288 in usr/include/stdio.h.'>__sfeof</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)
+<a id='L294' name='L294' /> 294 <em class='sharp'>#define</em> <a href='441.html#L187' title='Refered from 187 in usr/include/stdio.h.'>ferror</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)       <a href='441.html#L289' title='Defined at 289 in usr/include/stdio.h.'>__sferror</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)
+<a id='L295' name='L295' /> 295 <em class='sharp'>#define</em> <a href='../R/1546.html' title='Multiple refered from 2 places.'>clearerr</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)     <a href='441.html#L290' title='Defined at 290 in usr/include/stdio.h.'>__sclearerr</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)
+<a id='L296' name='L296' /> 296 
+<a id='L297' name='L297' /> 297 <em class='sharp'>#ifndef</em> <a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>
+<a id='L298' name='L298' /> 298 <em class='sharp'>#define</em> <a href='../R/1871.html' title='Multiple refered from 11 places.'>fileno</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)       <a href='441.html#L291' title='Defined at 291 in usr/include/stdio.h.'>__sfileno</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)
+<a id='L299' name='L299' /> 299 <em class='sharp'>#endif</em>
+<a id='L300' name='L300' /> 300 
+<a id='L301' name='L301' /> 301 <em class='sharp'>#endif</em> <em class='comment'>/* _STDIO_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^]<a href='441.html#L115'>[v]</a><a href='441.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

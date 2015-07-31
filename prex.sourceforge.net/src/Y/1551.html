@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>path</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/218.html#L48'>path</a>               48 include/ipc/exec.h 	char	path[PATH_MAX];		/* program path */
+<a href='../S/218.html#L61'>path</a>               61 include/ipc/exec.h 	char	path[PATH_MAX];		/* program path */
+<a href='../S/219.html#L104'>path</a>              104 include/ipc/fs.h 	char	path[PATH_MAX];		/* open file */
+<a href='../S/219.html#L124'>path</a>              124 include/ipc/fs.h 	char	path[PATH_MAX];		/* open file */
+<a href='../S/219.html#L134'>path</a>              134 include/ipc/fs.h 	char	path[PATH_MAX];
+<a href='../S/374.html#L131'>path</a>              131 usr/bin/cp/cp.c 	char path[PATH_MAX];
+<a href='../S/374.html#L140'>path</a>              140 usr/bin/cp/cp.c 		strlcpy(path, to, sizeof(path));
+<a href='../S/374.html#L142'>path</a>              142 usr/bin/cp/cp.c 			strlcat(path, "/", sizeof(path));
+<a href='../S/374.html#L143'>path</a>              143 usr/bin/cp/cp.c 		strlcat(path, p, sizeof(path));
+<a href='../S/374.html#L144'>path</a>              144 usr/bin/cp/cp.c 		to = path;
+<a href='../S/390.html#L47'>path</a>               47 usr/bin/ls/ls.c static int do_ls(char *path);
+<a href='../S/390.html#L255'>path</a>              255 usr/bin/ls/ls.c do_ls(char *path)
+<a href='../S/390.html#L263'>path</a>              263 usr/bin/ls/ls.c 	if (stat(path, &amp;st) == -1)
+<a href='../S/390.html#L268'>path</a>              268 usr/bin/ls/ls.c 		dir = opendir(path);
+<a href='../S/390.html#L280'>path</a>              280 usr/bin/ls/ls.c 			strlcpy(buf, path, sizeof(buf));
+<a href='../S/390.html#L302'>path</a>              302 usr/bin/ls/ls.c 		printentry(path, &amp;st);
+<a href='../S/394.html#L82'>path</a>               82 usr/bin/mkdir/mkdir.c build(path)
+<a href='../S/394.html#L83'>path</a>               83 usr/bin/mkdir/mkdir.c 	char *path;
+<a href='../S/394.html#L88'>path</a>               88 usr/bin/mkdir/mkdir.c 	p = path;
+<a href='../S/394.html#L97'>path</a>               97 usr/bin/mkdir/mkdir.c 		if (stat(path, &amp;sb)) {
+<a href='../S/394.html#L99'>path</a>               99 usr/bin/mkdir/mkdir.c 			    mkdir(path, (mode_t)(S_IRWXU | S_IRWXG | S_IRWXO)) &lt; 0) {
+<a href='../S/394.html#L100'>path</a>              100 usr/bin/mkdir/mkdir.c 				warn("%s", path);
+<a href='../S/398.html#L46'>path</a>               46 usr/bin/mv/mv.c 	char path[PATH_MAX];
+<a href='../S/398.html#L71'>path</a>               71 usr/bin/mv/mv.c 		strlcpy(path, dest, sizeof(path));
+<a href='../S/398.html#L73'>path</a>               73 usr/bin/mv/mv.c 			strlcat(path, "/", sizeof(path));
+<a href='../S/398.html#L74'>path</a>               74 usr/bin/mv/mv.c 		strlcat(path, p, sizeof(path));
+<a href='../S/398.html#L75'>path</a>               75 usr/bin/mv/mv.c 		dest = path;
+<a href='../S/469.html#L23'>path</a>               23 usr/lib/libc/gen/basename.c basename(const char *path)
+<a href='../S/469.html#L30'>path</a>               30 usr/lib/libc/gen/basename.c         if (path == NULL || *path == '\0') {
+<a href='../S/469.html#L37'>path</a>               37 usr/lib/libc/gen/basename.c         endp = path + strlen(path) - 1;
+<a href='../S/469.html#L38'>path</a>               38 usr/lib/libc/gen/basename.c         while (endp &gt; path &amp;&amp; *endp == '/')
+<a href='../S/469.html#L42'>path</a>               42 usr/lib/libc/gen/basename.c         if (endp == path &amp;&amp; *endp == '/') {
+<a href='../S/469.html#L50'>path</a>               50 usr/lib/libc/gen/basename.c         while (startp &gt; path &amp;&amp; *(startp - 1) != '/')
+<a href='../S/471.html#L23'>path</a>               23 usr/lib/libc/gen/dirname.c dirname(const char *path)
+<a href='../S/471.html#L30'>path</a>               30 usr/lib/libc/gen/dirname.c         if (path == NULL || *path == '\0') {
+<a href='../S/471.html#L37'>path</a>               37 usr/lib/libc/gen/dirname.c         endp = path + strlen(path) - 1;
+<a href='../S/471.html#L38'>path</a>               38 usr/lib/libc/gen/dirname.c         while (endp &gt; path &amp;&amp; *endp == '/')
+<a href='../S/471.html#L42'>path</a>               42 usr/lib/libc/gen/dirname.c         while (endp &gt; path &amp;&amp; *endp != '/')
+<a href='../S/471.html#L46'>path</a>               46 usr/lib/libc/gen/dirname.c         if (endp == path) {
+<a href='../S/471.html#L54'>path</a>               54 usr/lib/libc/gen/dirname.c                 } while (endp &gt; path &amp;&amp; *endp == '/');
+<a href='../S/471.html#L57'>path</a>               57 usr/lib/libc/gen/dirname.c         len = endp - path + 1;
+<a href='../S/471.html#L62'>path</a>               62 usr/lib/libc/gen/dirname.c         memcpy(dname, path, len);
+<a href='../S/478.html#L51'>path</a>               51 usr/lib/libc/gen/execvp.c 	const char *bp, *path, *p;
+<a href='../S/478.html#L61'>path</a>               61 usr/lib/libc/gen/execvp.c 		path = "";
+<a href='../S/478.html#L67'>path</a>               67 usr/lib/libc/gen/execvp.c 	if (!(path = getenv("PATH")))
+<a href='../S/478.html#L68'>path</a>               68 usr/lib/libc/gen/execvp.c 		path = _PATH_DEFPATH;
+<a href='../S/478.html#L73'>path</a>               73 usr/lib/libc/gen/execvp.c 		for (p = path; *path != 0 &amp;&amp; *path != ':'; path++)
+<a href='../S/478.html#L79'>path</a>               79 usr/lib/libc/gen/execvp.c 		if (p == path) {
+<a href='../S/478.html#L83'>path</a>               83 usr/lib/libc/gen/execvp.c 			lp = path - p;
+<a href='../S/478.html#L123'>path</a>              123 usr/lib/libc/gen/execvp.c 	} while (*path++ == ':');	/* Otherwise, *path was NUL */
+<a href='../S/479.html#L60'>path</a>               60 usr/lib/libc/gen/fts.c #define	CHDIR(sp, path)	(!ISSET(FTS_NOCHDIR) &amp;&amp; chdir(path))
+<a href='../S/479.html#L563'>path</a>              563 usr/lib/libc/gen/fts.c #define __opendir2(path, flag) opendir(path)
+<a href='../S/530.html#L41'>path</a>               41 usr/lib/libc/stdio/mktemp.c mkstemp(path)
+<a href='../S/530.html#L42'>path</a>               42 usr/lib/libc/stdio/mktemp.c 	char *path;
+<a href='../S/530.html#L46'>path</a>               46 usr/lib/libc/stdio/mktemp.c 	return (_gettemp(path, &amp;fd) ? fd : -1);
+<a href='../S/530.html#L50'>path</a>               50 usr/lib/libc/stdio/mktemp.c mktemp(path)
+<a href='../S/530.html#L51'>path</a>               51 usr/lib/libc/stdio/mktemp.c 	char *path;
+<a href='../S/530.html#L53'>path</a>               53 usr/lib/libc/stdio/mktemp.c 	return(_gettemp(path, (int *)NULL) ? path : (char *)NULL);
+<a href='../S/530.html#L57'>path</a>               57 usr/lib/libc/stdio/mktemp.c _gettemp(path, doopen)
+<a href='../S/530.html#L58'>path</a>               58 usr/lib/libc/stdio/mktemp.c 	char *path;
+<a href='../S/530.html#L67'>path</a>               67 usr/lib/libc/stdio/mktemp.c 	for (trv = path; *trv; ++trv);		/* extra X's get set to 0's */
+<a href='../S/530.html#L78'>path</a>               78 usr/lib/libc/stdio/mktemp.c 		if (trv &lt;= path)
+<a href='../S/530.html#L82'>path</a>               82 usr/lib/libc/stdio/mktemp.c 			if (stat(path, &amp;sbuf))
+<a href='../S/530.html#L96'>path</a>               96 usr/lib/libc/stdio/mktemp.c 			    open(path, O_CREAT|O_EXCL|O_RDWR, 0600)) &gt;= 0)
+<a href='../S/530.html#L101'>path</a>              101 usr/lib/libc/stdio/mktemp.c 		else if (stat(path, &amp;sbuf))
+<a href='../S/655.html#L50'>path</a>               50 usr/lib/posix/exec/execve.c execve(const char *path, char * const *argv, char * const *envp)
+<a href='../S/655.html#L61'>path</a>               61 usr/lib/posix/exec/execve.c 	if (path == NULL)
+<a href='../S/655.html#L103'>path</a>              103 usr/lib/posix/exec/execve.c 	strlcpy(msg.path, path, PATH_MAX);
+<a href='../S/657.html#L36'>path</a>               36 usr/lib/posix/file/access.c access(const char *path, int mode)
+<a href='../S/657.html#L42'>path</a>               42 usr/lib/posix/file/access.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/658.html#L39'>path</a>               39 usr/lib/posix/file/chdir.c chdir(char *path)
+<a href='../S/658.html#L43'>path</a>               43 usr/lib/posix/file/chdir.c 	if (path == NULL) {
+<a href='../S/658.html#L48'>path</a>               48 usr/lib/posix/file/chdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/659.html#L37'>path</a>               37 usr/lib/posix/file/chmod.c chmod(const char *path, mode_t mode)
+<a href='../S/660.html#L37'>path</a>               37 usr/lib/posix/file/chown.c chown(const char *path, uid_t owner, gid_t group)
+<a href='../S/671.html#L50'>path</a>               50 usr/lib/posix/file/getcwd.c 	strlcpy(buf, m.path, PATH_MAX);
+<a href='../S/674.html#L52'>path</a>               52 usr/lib/posix/file/link.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/676.html#L40'>path</a>               40 usr/lib/posix/file/lstat.c lstat(const char *path, struct stat *st)
+<a href='../S/676.html#L42'>path</a>               42 usr/lib/posix/file/lstat.c 	return stat(path, st);
+<a href='../S/678.html#L40'>path</a>               40 usr/lib/posix/file/mkdir.c mkdir(const char *path, mode_t mode)
+<a href='../S/678.html#L47'>path</a>               47 usr/lib/posix/file/mkdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/679.html#L40'>path</a>               40 usr/lib/posix/file/mknod.c mknod(const char *path, mode_t mode, dev_t dev)
+<a href='../S/679.html#L47'>path</a>               47 usr/lib/posix/file/mknod.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/681.html#L40'>path</a>               40 usr/lib/posix/file/open.c open(const char *path, int flags, ...)
+<a href='../S/681.html#L53'>path</a>               53 usr/lib/posix/file/open.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/682.html#L50'>path</a>               50 usr/lib/posix/file/opendir.c 	strlcpy(m.path, (char *)name, PATH_MAX);
+<a href='../S/686.html#L52'>path</a>               52 usr/lib/posix/file/rename.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/688.html#L39'>path</a>               39 usr/lib/posix/file/rmdir.c rmdir(char *path)
+<a href='../S/688.html#L43'>path</a>               43 usr/lib/posix/file/rmdir.c 	if (path == NULL) {
+<a href='../S/688.html#L47'>path</a>               47 usr/lib/posix/file/rmdir.c 	if (strlen(path) &gt;= PATH_MAX) {
+<a href='../S/688.html#L52'>path</a>               52 usr/lib/posix/file/rmdir.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/689.html#L40'>path</a>               40 usr/lib/posix/file/stat.c stat(const char *path, struct stat *st)
+<a href='../S/689.html#L45'>path</a>               45 usr/lib/posix/file/stat.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/691.html#L38'>path</a>               38 usr/lib/posix/file/truncate.c truncate(const char *path, off_t length)
+<a href='../S/691.html#L44'>path</a>               44 usr/lib/posix/file/truncate.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/693.html#L45'>path</a>               45 usr/lib/posix/file/umount.c 	strlcpy(m.path, (char *)dir, PATH_MAX);
+<a href='../S/694.html#L39'>path</a>               39 usr/lib/posix/file/unlink.c unlink(char *path)
+<a href='../S/694.html#L43'>path</a>               43 usr/lib/posix/file/unlink.c 	if (path == NULL || strlen(path) &gt;= PATH_MAX) {
+<a href='../S/694.html#L48'>path</a>               48 usr/lib/posix/file/unlink.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/862.html#L115'>path</a>              115 usr/sbin/install/install.c 	char path[PATH_MAX];
+<a href='../S/862.html#L123'>path</a>              123 usr/sbin/install/install.c 	strlcpy(path, to, sizeof(path));
+<a href='../S/862.html#L124'>path</a>              124 usr/sbin/install/install.c 	strlcat(path, "/", sizeof(path));
+<a href='../S/862.html#L125'>path</a>              125 usr/sbin/install/install.c 	strlcat(path, p, sizeof(path));
+<a href='../S/862.html#L126'>path</a>              126 usr/sbin/install/install.c 	to = path;
+<a href='../S/871.html#L223'>path</a>              223 usr/server/boot/boot.c 	strlcpy(msg.path, "/boot/init", sizeof(msg.path));
+<a href='../S/871.html#L297'>path</a>              297 usr/server/boot/boot.c 	strlcpy(bm.path, "/boot/boot", sizeof(bm.path));
+<a href='../S/873.html#L59'>path</a>               59 usr/server/exec/exec.h 	char	*path;			/* path name */
+<a href='../S/874.html#L45'>path</a>               45 usr/server/exec/exec_cap.c bind_cap(char *path, task_t task)
+<a href='../S/874.html#L56'>path</a>               56 usr/server/exec/exec_cap.c 		if (!strncmp(path, map-&gt;c_path, PATH_MAX)) {
+<a href='../S/874.html#L63'>path</a>               63 usr/server/exec/exec_cap.c 		DPRINTF(("exec: set capability:%08x to %s\n", cap, path));
+<a href='../S/874.html#L81'>path</a>               81 usr/server/exec/exec_cap.c 	if (msg-&gt;path == NULL)
+<a href='../S/874.html#L94'>path</a>               94 usr/server/exec/exec_cap.c 	bind_cap(msg-&gt;path, task);
+<a href='../S/876.html#L341'>path</a>              341 usr/server/exec/exec_elf.c 	if (access(exec-&gt;path, X_OK) == -1) {
+<a href='../S/876.html#L346'>path</a>              346 usr/server/exec/exec_elf.c 	if ((fd = open(exec-&gt;path, O_RDONLY)) == -1)
+<a href='../S/877.html#L79'>path</a>               79 usr/server/exec/exec_execve.c 	char path[PATH_MAX];
+<a href='../S/877.html#L83'>path</a>               83 usr/server/exec/exec_execve.c 	DPRINTF(("exec_execve: path=%s task=%x\n", msg-&gt;path, msg-&gt;hdr.task));
+<a href='../S/877.html#L90'>path</a>               90 usr/server/exec/exec_execve.c 	if ((error = conv_path(msg-&gt;cwd, msg-&gt;path, path)) != 0) {
+<a href='../S/877.html#L98'>path</a>               98 usr/server/exec/exec_execve.c 	if (access(path, X_OK) == -1) {
+<a href='../S/877.html#L104'>path</a>              104 usr/server/exec/exec_execve.c 	exec.path = path;
+<a href='../S/877.html#L113'>path</a>              113 usr/server/exec/exec_execve.c 	DPRINTF(("exec: read header for %s\n", exec.path));
+<a href='../S/877.html#L114'>path</a>              114 usr/server/exec/exec_execve.c 	if ((error = read_header(exec.path)) != 0)
+<a href='../S/877.html#L144'>path</a>              144 usr/server/exec/exec_execve.c 	if (access(exec.path, X_OK) == -1) {
+<a href='../S/877.html#L164'>path</a>              164 usr/server/exec/exec_execve.c 	if (*exec.path != '\0')
+<a href='../S/877.html#L165'>path</a>              165 usr/server/exec/exec_execve.c 		task_setname(new_task, basename(exec.path));
+<a href='../S/877.html#L170'>path</a>              170 usr/server/exec/exec_execve.c 	bind_cap(exec.path, new_task);
+<a href='../S/877.html#L183'>path</a>              183 usr/server/exec/exec_execve.c 	if ((error = build_args(new_task, stack, exec.path, msg,
+<a href='../S/877.html#L233'>path</a>              233 usr/server/exec/exec_execve.c conv_path(char *cwd, char *path, char *full)
+<a href='../S/877.html#L238'>path</a>              238 usr/server/exec/exec_execve.c 	path[PATH_MAX - 1] = '\0';
+<a href='../S/877.html#L239'>path</a>              239 usr/server/exec/exec_execve.c 	len = strlen(path);
+<a href='../S/877.html#L244'>path</a>              244 usr/server/exec/exec_execve.c 	src = path;
+<a href='../S/877.html#L247'>path</a>              247 usr/server/exec/exec_execve.c 	if (path[0] == '/') {
+<a href='../S/877.html#L254'>path</a>              254 usr/server/exec/exec_execve.c 		if (len &gt; 1 &amp;&amp; path[0] != '.') {
+<a href='../S/877.html#L314'>path</a>              314 usr/server/exec/exec_execve.c build_args(task_t task, void *stack, char *path, struct exec_msg *msg,
+<a href='../S/877.html#L344'>path</a>              344 usr/server/exec/exec_execve.c 	sp -= strlen(path);
+<a href='../S/877.html#L346'>path</a>              346 usr/server/exec/exec_execve.c 	strlcpy((char *)sp, path, PATH_MAX);
+<a href='../S/877.html#L443'>path</a>              443 usr/server/exec/exec_execve.c read_header(char *path)
+<a href='../S/877.html#L451'>path</a>              451 usr/server/exec/exec_execve.c 	if ((fd = open(path, O_RDONLY)) == -1)
+<a href='../S/878.html#L98'>path</a>               98 usr/server/exec/exec_script.c 	strlcpy(script, exec-&gt;path, sizeof(script));
+<a href='../S/878.html#L99'>path</a>               99 usr/server/exec/exec_script.c 	exec-&gt;path = interp;
+<a href='../S/886.html#L117'>path</a>              117 usr/server/fs/devfs/devfs_vnops.c 	char *path;
+<a href='../S/886.html#L123'>path</a>              123 usr/server/fs/devfs/devfs_vnops.c 	path = vp-&gt;v_path;
+<a href='../S/886.html#L124'>path</a>              124 usr/server/fs/devfs/devfs_vnops.c 	if (!strcmp(path, "/"))	/* root ? */
+<a href='../S/886.html#L131'>path</a>              131 usr/server/fs/devfs/devfs_vnops.c 	if (*path == '/')
+<a href='../S/886.html#L132'>path</a>              132 usr/server/fs/devfs/devfs_vnops.c 		path++;
+<a href='../S/886.html#L133'>path</a>              133 usr/server/fs/devfs/devfs_vnops.c 	error = device_open(path, flags &amp; DO_RWMASK, &amp;dev);
+<a href='../S/886.html#L136'>path</a>              136 usr/server/fs/devfs/devfs_vnops.c 			 path, error));
+<a href='../S/903.html#L116'>path</a>              116 usr/server/fs/vfs/main.c 	return sys_umount(msg-&gt;path);
+<a href='../S/903.html#L129'>path</a>              129 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L150'>path</a>              150 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L153'>path</a>              153 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, msg-&gt;flags, msg-&gt;mode, &amp;fp)) != 0)
+<a href='../S/903.html#L187'>path</a>              187 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L190'>path</a>              190 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L193'>path</a>              193 usr/server/fs/vfs/main.c 	return sys_mknod(path, msg-&gt;mode);
+<a href='../S/903.html#L293'>path</a>              293 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L302'>path</a>              302 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, path)) != 0)
+<a href='../S/903.html#L305'>path</a>              305 usr/server/fs/vfs/main.c 	if ((error = sys_opendir(path, &amp;fp)) != 0)
+<a href='../S/903.html#L386'>path</a>              386 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L389'>path</a>              389 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L392'>path</a>              392 usr/server/fs/vfs/main.c 	return sys_mkdir(path, msg-&gt;mode);
+<a href='../S/903.html#L398'>path</a>              398 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L401'>path</a>              401 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L403'>path</a>              403 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L406'>path</a>              406 usr/server/fs/vfs/main.c 	return sys_rmdir(path);
+<a href='../S/903.html#L416'>path</a>              416 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL || msg-&gt;path2 == NULL)
+<a href='../S/903.html#L419'>path</a>              419 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, src)) != 0)
+<a href='../S/903.html#L431'>path</a>              431 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L435'>path</a>              435 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L437'>path</a>              437 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, path)) != 0)
+<a href='../S/903.html#L441'>path</a>              441 usr/server/fs/vfs/main.c 	if ((error = sys_opendir(path, &amp;fp)) != 0)
+<a href='../S/903.html#L446'>path</a>              446 usr/server/fs/vfs/main.c 	strlcpy(t-&gt;t_cwd, path, sizeof(t-&gt;t_cwd));
+<a href='../S/903.html#L476'>path</a>              476 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L479'>path</a>              479 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L481'>path</a>              481 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L484'>path</a>              484 usr/server/fs/vfs/main.c 	return sys_unlink(path);
+<a href='../S/903.html#L490'>path</a>              490 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L494'>path</a>              494 usr/server/fs/vfs/main.c 	error = task_conv(t, msg-&gt;path, 0, path);
+<a href='../S/903.html#L497'>path</a>              497 usr/server/fs/vfs/main.c 		error = sys_stat(path, st);
+<a href='../S/903.html#L506'>path</a>              506 usr/server/fs/vfs/main.c 	strlcpy(msg-&gt;path, t-&gt;t_cwd, sizeof(msg-&gt;path));
+<a href='../S/903.html#L621'>path</a>              621 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L631'>path</a>              631 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L634'>path</a>              634 usr/server/fs/vfs/main.c 	return sys_access(path, mode);
+<a href='../S/903.html#L762'>path</a>              762 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L776'>path</a>              776 usr/server/fs/vfs/main.c 	sprintf(path, "/mnt/fifo/pipe-%x-%d", (u_int)t-&gt;t_taskid, rfd);
+<a href='../S/903.html#L778'>path</a>              778 usr/server/fs/vfs/main.c 	if ((error = sys_mknod(path, S_IFIFO)) != 0)
+<a href='../S/903.html#L780'>path</a>              780 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, O_RDONLY | O_NONBLOCK, 0, &amp;rfp)) != 0) {
+<a href='../S/903.html#L783'>path</a>              783 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, O_WRONLY | O_NONBLOCK, 0, &amp;wfp)) != 0) {
+<a href='../S/903.html#L822'>path</a>              822 usr/server/fs/vfs/main.c 	char path[PATH_MAX];
+<a href='../S/903.html#L825'>path</a>              825 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L827'>path</a>              827 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L830'>path</a>              830 usr/server/fs/vfs/main.c 	return sys_truncate(path, msg-&gt;data[0]);
+<a href='../S/903.html#L865'>path</a>              865 usr/server/fs/vfs/main.c 	strlcpy(bm.path, "/boot/fs", sizeof(bm.path));
+<a href='../S/905.html#L94'>path</a>               94 usr/server/fs/vfs/vfs.h int	 sys_open(char *path, int flags, mode_t mode, file_t *pfp);
+<a href='../S/905.html#L104'>path</a>              104 usr/server/fs/vfs/vfs.h int	 sys_opendir(char *path, file_t * file);
+<a href='../S/905.html#L110'>path</a>              110 usr/server/fs/vfs/vfs.h int	 sys_fchdir(file_t fp, char *path);
+<a href='../S/905.html#L112'>path</a>              112 usr/server/fs/vfs/vfs.h int	 sys_mkdir(char *path, mode_t mode);
+<a href='../S/905.html#L113'>path</a>              113 usr/server/fs/vfs/vfs.h int	 sys_rmdir(char *path);
+<a href='../S/905.html#L114'>path</a>              114 usr/server/fs/vfs/vfs.h int	 sys_mknod(char *path, mode_t mode);
+<a href='../S/905.html#L116'>path</a>              116 usr/server/fs/vfs/vfs.h int	 sys_unlink(char *path);
+<a href='../S/905.html#L117'>path</a>              117 usr/server/fs/vfs/vfs.h int	 sys_access(char *path, int mode);
+<a href='../S/905.html#L118'>path</a>              118 usr/server/fs/vfs/vfs.h int	 sys_stat(char *path, struct stat *st);
+<a href='../S/905.html#L119'>path</a>              119 usr/server/fs/vfs/vfs.h int	 sys_truncate(char *path, off_t length);
+<a href='../S/905.html#L122'>path</a>              122 usr/server/fs/vfs/vfs.h int	 sys_umount(char *path);
+<a href='../S/905.html#L137'>path</a>              137 usr/server/fs/vfs/vfs.h int	 task_conv(struct task *t, char *path, int mode, char *full);
+<a href='../S/905.html#L140'>path</a>              140 usr/server/fs/vfs/vfs.h int	 sec_file_permission(task_t task, char *path, int mode);
+<a href='../S/905.html#L141'>path</a>              141 usr/server/fs/vfs/vfs.h int	 sec_vnode_permission(char *path);
+<a href='../S/905.html#L143'>path</a>              143 usr/server/fs/vfs/vfs.h int	 namei(char *path, vnode_t *vpp);
+<a href='../S/905.html#L144'>path</a>              144 usr/server/fs/vfs/vfs.h int	 lookup(char *path, vnode_t *vpp, char **name);
+<a href='../S/905.html#L147'>path</a>              147 usr/server/fs/vfs/vfs.h int	 vfs_findroot(char *path, mount_t *mp, char **root);
+<a href='../S/908.html#L51'>path</a>               51 usr/server/fs/vfs/vfs_lookup.c namei(char *path, vnode_t *vpp)
+<a href='../S/908.html#L60'>path</a>               60 usr/server/fs/vfs/vfs_lookup.c 	DPRINTF(VFSDB_VNODE, ("namei: path=%s\n", path));
+<a href='../S/908.html#L66'>path</a>               66 usr/server/fs/vfs/vfs_lookup.c 	if (vfs_findroot(path, &amp;mp, &amp;p))
+<a href='../S/908.html#L131'>path</a>              131 usr/server/fs/vfs/vfs_lookup.c 	if (vp-&gt;v_type != VDIR &amp;&amp; sec_vnode_permission(path) != 0) {
+<a href='../S/908.html#L150'>path</a>              150 usr/server/fs/vfs/vfs_lookup.c lookup(char *path, vnode_t *vpp, char **name)
+<a href='../S/908.html#L158'>path</a>              158 usr/server/fs/vfs/vfs_lookup.c 	DPRINTF(VFSDB_VNODE, ("lookup: path=%s\n", path));
+<a href='../S/908.html#L163'>path</a>              163 usr/server/fs/vfs/vfs_lookup.c 	strlcpy(buf, path, sizeof(buf));
+<a href='../S/908.html#L187'>path</a>              187 usr/server/fs/vfs/vfs_lookup.c 	*name = strrchr(path, '/') + 1;
+<a href='../S/909.html#L212'>path</a>              212 usr/server/fs/vfs/vfs_mount.c sys_umount(char *path)
+<a href='../S/909.html#L218'>path</a>              218 usr/server/fs/vfs/vfs_mount.c 	DPRINTF(VFSDB_SYSCALL, ("sys_umount: path=%s\n", path));
+<a href='../S/909.html#L226'>path</a>              226 usr/server/fs/vfs/vfs_mount.c 		if (!strcmp(path, mp-&gt;m_path))
+<a href='../S/909.html#L285'>path</a>              285 usr/server/fs/vfs/vfs_mount.c count_match(char *path, char *mount_root)
+<a href='../S/909.html#L289'>path</a>              289 usr/server/fs/vfs/vfs_mount.c 	while (*path &amp;&amp; *mount_root) {
+<a href='../S/909.html#L290'>path</a>              290 usr/server/fs/vfs/vfs_mount.c 		if (*path++ != *mount_root++)
+<a href='../S/909.html#L297'>path</a>              297 usr/server/fs/vfs/vfs_mount.c 	if (len == 1 &amp;&amp; *(path - 1) == '/')
+<a href='../S/909.html#L300'>path</a>              300 usr/server/fs/vfs/vfs_mount.c 	if (*path == '\0' || *path == '/')
+<a href='../S/909.html#L312'>path</a>              312 usr/server/fs/vfs/vfs_mount.c vfs_findroot(char *path, mount_t *mp, char **root)
+<a href='../S/909.html#L318'>path</a>              318 usr/server/fs/vfs/vfs_mount.c 	if (!path)
+<a href='../S/909.html#L327'>path</a>              327 usr/server/fs/vfs/vfs_mount.c 		len = count_match(path, tmp-&gt;m_path);
+<a href='../S/909.html#L336'>path</a>              336 usr/server/fs/vfs/vfs_mount.c 	*root = (char *)(path + max_len);
+<a href='../S/910.html#L113'>path</a>              113 usr/server/fs/vfs/vfs_security.c 	char	*path;			/* directory name */
+<a href='../S/910.html#L160'>path</a>              160 usr/server/fs/vfs/vfs_security.c sec_file_permission(task_t task, char *path, int acc)
+<a href='../S/910.html#L173'>path</a>              173 usr/server/fs/vfs/vfs_security.c 	while (map-&gt;path != NULL) {
+<a href='../S/910.html#L174'>path</a>              174 usr/server/fs/vfs/vfs_security.c 		if (!strncmp(path, map-&gt;path, map-&gt;len)) {
+<a href='../S/910.html#L196'>path</a>              196 usr/server/fs/vfs/vfs_security.c 			 path, map-&gt;cap_read, map-&gt;cap_write, map-&gt;cap_exec));
+<a href='../S/910.html#L203'>path</a>              203 usr/server/fs/vfs/vfs_security.c 			 acc, task, path));
+<a href='../S/910.html#L212'>path</a>              212 usr/server/fs/vfs/vfs_security.c sec_vnode_permission(char *path)
+<a href='../S/910.html#L221'>path</a>              221 usr/server/fs/vfs/vfs_security.c 	while (map-&gt;path != NULL) {
+<a href='../S/910.html#L222'>path</a>              222 usr/server/fs/vfs/vfs_security.c 		if (!strncmp(path, map-&gt;path, map-&gt;len)) {
+<a href='../S/911.html#L55'>path</a>               55 usr/server/fs/vfs/vfs_syscalls.c sys_open(char *path, int flags, mode_t mode, file_t *pfp)
+<a href='../S/911.html#L63'>path</a>               63 usr/server/fs/vfs/vfs_syscalls.c 				path, flags, mode));
+<a href='../S/911.html#L69'>path</a>               69 usr/server/fs/vfs/vfs_syscalls.c 		error = namei(path, &amp;vp);
+<a href='../S/911.html#L72'>path</a>               72 usr/server/fs/vfs/vfs_syscalls.c 			if ((error = lookup(path, &amp;dvp, &amp;filename)) != 0)
+<a href='../S/911.html#L84'>path</a>               84 usr/server/fs/vfs/vfs_syscalls.c 			if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L99'>path</a>               99 usr/server/fs/vfs/vfs_syscalls.c 		if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L322'>path</a>              322 usr/server/fs/vfs/vfs_syscalls.c check_dir_empty(char *path)
+<a href='../S/911.html#L330'>path</a>              330 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = sys_opendir(path, &amp;fp)) != 0)
+<a href='../S/911.html#L348'>path</a>              348 usr/server/fs/vfs/vfs_syscalls.c sys_opendir(char *path, file_t *file)
+<a href='../S/911.html#L354'>path</a>              354 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_opendir: path=%s\n", path));
+<a href='../S/911.html#L356'>path</a>              356 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = sys_open(path, O_RDONLY, 0, &amp;fp)) != 0)
+<a href='../S/911.html#L461'>path</a>              461 usr/server/fs/vfs/vfs_syscalls.c sys_mkdir(char *path, mode_t mode)
+<a href='../S/911.html#L467'>path</a>              467 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_mkdir: path=%s mode=%d\n",	path, mode));
+<a href='../S/911.html#L469'>path</a>              469 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) == 0) {
+<a href='../S/911.html#L476'>path</a>              476 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0) {
+<a href='../S/911.html#L492'>path</a>              492 usr/server/fs/vfs/vfs_syscalls.c sys_rmdir(char *path)
+<a href='../S/911.html#L498'>path</a>              498 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_rmdir: path=%s\n", path));
+<a href='../S/911.html#L500'>path</a>              500 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = check_dir_empty(path)) != 0)
+<a href='../S/911.html#L502'>path</a>              502 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L514'>path</a>              514 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0)
+<a href='../S/911.html#L529'>path</a>              529 usr/server/fs/vfs/vfs_syscalls.c sys_mknod(char *path, mode_t mode)
+<a href='../S/911.html#L535'>path</a>              535 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_mknod: path=%s mode=%d\n",	path, mode));
+<a href='../S/911.html#L548'>path</a>              548 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) == 0) {
+<a href='../S/911.html#L553'>path</a>              553 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0)
+<a href='../S/911.html#L655'>path</a>              655 usr/server/fs/vfs/vfs_syscalls.c sys_unlink(char *path)
+<a href='../S/911.html#L661'>path</a>              661 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_unlink: path=%s\n", path));
+<a href='../S/911.html#L663'>path</a>              663 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L676'>path</a>              676 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0)
+<a href='../S/911.html#L691'>path</a>              691 usr/server/fs/vfs/vfs_syscalls.c sys_access(char *path, int mode)
+<a href='../S/911.html#L696'>path</a>              696 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_access: path=%s mode=%x\n", path, mode));
+<a href='../S/911.html#L699'>path</a>              699 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L717'>path</a>              717 usr/server/fs/vfs/vfs_syscalls.c sys_stat(char *path, struct stat *st)
+<a href='../S/911.html#L722'>path</a>              722 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_stat: path=%s\n", path));
+<a href='../S/911.html#L724'>path</a>              724 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L732'>path</a>              732 usr/server/fs/vfs/vfs_syscalls.c sys_truncate(char *path, off_t length)
+<a href='../S/912.html#L224'>path</a>              224 usr/server/fs/vfs/vfs_task.c task_conv(struct task *t, char *path, int acc, char *full)
+<a href='../S/912.html#L230'>path</a>              230 usr/server/fs/vfs/vfs_task.c 	path[PATH_MAX - 1] = '\0';
+<a href='../S/912.html#L231'>path</a>              231 usr/server/fs/vfs/vfs_task.c 	len = strlen(path);
+<a href='../S/912.html#L236'>path</a>              236 usr/server/fs/vfs/vfs_task.c 	src = path;
+<a href='../S/912.html#L239'>path</a>              239 usr/server/fs/vfs/vfs_task.c 	if (path[0] == '/') {
+<a href='../S/912.html#L246'>path</a>              246 usr/server/fs/vfs/vfs_task.c 		if (len &gt; 1 &amp;&amp; path[0] != '.') {
+<a href='../S/913.html#L89'>path</a>               89 usr/server/fs/vfs/vfs_vnode.c vn_hash(mount_t mp, char *path)
+<a href='../S/913.html#L93'>path</a>               93 usr/server/fs/vfs/vfs_vnode.c 	if (path) {
+<a href='../S/913.html#L94'>path</a>               94 usr/server/fs/vfs/vfs_vnode.c 		while (*path)
+<a href='../S/913.html#L95'>path</a>               95 usr/server/fs/vfs/vfs_vnode.c 			val = ((val &lt;&lt; 5) + val) + *path++;
+<a href='../S/913.html#L105'>path</a>              105 usr/server/fs/vfs/vfs_vnode.c vn_lookup(mount_t mp, char *path)
+<a href='../S/913.html#L111'>path</a>              111 usr/server/fs/vfs/vfs_vnode.c 	head = &amp;vnode_table[vn_hash(mp, path)];
+<a href='../S/913.html#L115'>path</a>              115 usr/server/fs/vfs/vfs_vnode.c 		    !strncmp(vp-&gt;v_path, path, PATH_MAX)) {
+<a href='../S/913.html#L161'>path</a>              161 usr/server/fs/vfs/vfs_vnode.c vget(mount_t mp, char *path)
+<a href='../S/913.html#L167'>path</a>              167 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vget: %s\n", path));
+<a href='../S/913.html#L173'>path</a>              173 usr/server/fs/vfs/vfs_vnode.c 	len = strlen(path) + 1;
+<a href='../S/913.html#L181'>path</a>              181 usr/server/fs/vfs/vfs_vnode.c 	strlcpy(vp-&gt;v_path, path, len);
+<a href='../S/913.html#L199'>path</a>              199 usr/server/fs/vfs/vfs_vnode.c 	list_insert(&amp;vnode_table[vn_hash(mp, path)], &amp;vp-&gt;v_link);
+<a href='../S/916.html#L418'>path</a>              418 usr/server/pow/pow.c 	strlcpy(bm.path, "/boot/pow", sizeof(bm.path));
+<a href='../S/917.html#L424'>path</a>              424 usr/server/proc/main.c 	strlcpy(m.path, "/boot/proc", sizeof(m.path));
+<a href='../S/936.html#L46'>path</a>               46 usr/test/creat/creat.c static char path[128];
+<a href='../S/936.html#L55'>path</a>               55 usr/test/creat/creat.c 	sprintf(path, "t%05d", pid);
+<a href='../S/936.html#L56'>path</a>               56 usr/test/creat/creat.c 	if (mkdir(path, 0770) &lt; 0)
+<a href='../S/936.html#L57'>path</a>               57 usr/test/creat/creat.c 		err(1, "mkdir(%s)", path);
+<a href='../S/936.html#L58'>path</a>               58 usr/test/creat/creat.c 	if (chdir(path) == -1)
+<a href='../S/936.html#L59'>path</a>               59 usr/test/creat/creat.c 		err(1, "chdir(%s)", path);
+</pre>
+</body>
+</html>

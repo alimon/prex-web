@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>_IOC</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/259.html#L61'>_IOC</a>               61 include/sys/ioctl.h #define	_IO(g,n)	_IOC(IOC_VOID,	(g), (n), 0)
+<a href='../S/259.html#L62'>_IOC</a>               62 include/sys/ioctl.h #define	_IOR(g,n,t)	_IOC(IOC_OUT,	(g), (n), sizeof(t))
+<a href='../S/259.html#L63'>_IOC</a>               63 include/sys/ioctl.h #define	_IOW(g,n,t)	_IOC(IOC_IN,	(g), (n), sizeof(t))
+<a href='../S/259.html#L65'>_IOC</a>               65 include/sys/ioctl.h #define	_IOWR(g,n,t)	_IOC(IOC_INOUT,	(g), (n), sizeof(t))
+<a href='../S/259.html#L67'>_IOC</a>               67 include/sys/ioctl.h #define	_IORN(g,n,t)	_IOC((IOC_OVAL|IOC_OUT), (g), (n), sizeof(t))
+<a href='../S/259.html#L68'>_IOC</a>               68 include/sys/ioctl.h #define	_IOWN(g,n,t)	_IOC((IOC_IVAL|IOC_IN),  (g), (n), sizeof(t))
+</pre>
+</body>
+</html>

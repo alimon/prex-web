@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/arch/arm/setjmp.S</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1086.html'>arch</a>/<a href='../files/1087.html'>arm</a>/setjmp.S</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='349.html#L48'>[^]</a><a href='349.html#L84'>[v]</a>[top]<a href='349.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='349.html#L48' title='Defined at 48.'>setjmp</a></li>
+<li><a href='349.html#L84' title='Defined at 84.'>longjmp</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*      $NetBSD: setjmp.S,v 1.5 2003/04/05 23:08:51 bjh21 Exp $ */</em>
+<a id='L2' name='L2' />   2 
+<a id='L3' name='L3' />   3 <em class='comment'>/*</em>
+<a id='L4' name='L4' />   4 <em class='comment'> * Copyright (c) 1997 Mark Brinicombe</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * All rights reserved.</em>
+<a id='L6' name='L6' />   6 <em class='comment'> *</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * are met:</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L12' name='L12' />  12 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L13' name='L13' />  13 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L15' name='L15' />  15 <em class='comment'> * 3. All advertising materials mentioning features or use of this software</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *    must display the following acknowledgement:</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *      This product includes software developed by Mark Brinicombe</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * 4. Neither the name of the University nor the names of its contributors</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L20' name='L20' />  20 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L21' name='L21' />  21 <em class='comment'> *</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L32' name='L32' />  32 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L33' name='L33' />  33 <em class='comment'> */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='../I/208.html'>machine/asm.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='../I/213.html'>machine/setjmp.h</a>&gt;
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='comment'>/*</em>
+<a id='L39' name='L39' />  39 <em class='comment'> * C library -- setjmp, longjmp</em>
+<a id='L40' name='L40' />  40 <em class='comment'> *</em>
+<a id='L41' name='L41' />  41 <em class='comment'> *      longjmp(a,v)</em>
+<a id='L42' name='L42' />  42 <em class='comment'> * will generate a "return(v)" from the last call to</em>
+<a id='L43' name='L43' />  43 <em class='comment'> *      setjmp(a)</em>
+<a id='L44' name='L44' />  44 <em class='comment'> * by restoring registers from the stack.</em>
+<a id='L45' name='L45' />  45 <em class='comment'> * The previous signal state is restored.</em>
+<a id='L46' name='L46' />  46 <em class='comment'> */</em>
+<a id='L47' name='L47' />  47 
+<a id='L48' name='L48' />  48 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='http://prex.sourceforge.net/src/R/2537.html' title='Multiple refered from 5 places.'>setjmp</a>)
+<a id='L49' name='L49' />  49         <em class='comment'>/* Block all signals and retrieve the old signal mask */</em>
+<a id='L50' name='L50' />  50         stmfd   sp!, <em class='brace'>{</em>r0, r14<em class='brace'>}</em>
+<a id='L51' name='L51' />  51         mov     r0, #0x00000000
+<a id='L52' name='L52' />  52 
+<a id='L53' name='L53' />  53         bl      PIC_SYM(_C_LABEL(sigblock), PLT)
+<a id='L54' name='L54' />  54         mov     r1, r0
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56         ldmfd   sp!, <em class='brace'>{</em>r0, r14<em class='brace'>}</em>
+<a id='L57' name='L57' />  57 
+<a id='L58' name='L58' />  58         <em class='comment'>/* Store signal mask */</em>
+<a id='L59' name='L59' />  59         str     r1, [r0, #((25-13) * 4)]
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61         ldr     r1, .Lsetjmp_magic
+<a id='L62' name='L62' />  62         str     r1, [r0], #4
+<a id='L63' name='L63' />  63 
+<a id='L64' name='L64' />  64 <em class='sharp'>#if</em> 0 <em class='comment'>/* PREX */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#ifdef</em> SOFTFLOAT
+<a id='L66' name='L66' />  66         add     r0, r0, #52
+<a id='L67' name='L67' />  67 <em class='sharp'>#else</em>
+<a id='L68' name='L68' />  68         <em class='comment'>/* Store fp registers */</em>
+<a id='L69' name='L69' />  69         sfm     f4, 4, [r0], #48
+<a id='L70' name='L70' />  70         <em class='comment'>/* Store fpsr */</em>
+<a id='L71' name='L71' />  71         rfs     r1
+<a id='L72' name='L72' />  72         str     r1, [r0], #0x0004
+<a id='L73' name='L73' />  73 <em class='sharp'>#endif</em>  <em class='comment'>/*SOFTFLOAT*/</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#endif</em>
+<a id='L75' name='L75' />  75         <em class='comment'>/* Store integer registers */</em>
+<a id='L76' name='L76' />  76         stmia   r0, <em class='brace'>{</em>r4-r14<em class='brace'>}</em>
+<a id='L77' name='L77' />  77         mov     r0, #0x00000000
+<a id='L78' name='L78' />  78         mov     r15, r14
+<a id='L79' name='L79' />  79 
+<a id='L80' name='L80' />  80 .Lsetjmp_magic:
+<a id='L81' name='L81' />  81         .word   _JB_MAGIC_SETJMP
+<a id='L82' name='L82' />  82 
+<a id='L83' name='L83' />  83 
+<a id='L84' name='L84' />  84 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='http://prex.sourceforge.net/src/R/2123.html' title='Multiple refered from 6 places.'>longjmp</a>)
+<a id='L85' name='L85' />  85         ldr     r2, .Lsetjmp_magic
+<a id='L86' name='L86' />  86         ldr     r3, [r0]
+<a id='L87' name='L87' />  87         teq     r2, r3
+<a id='L88' name='L88' />  88         bne     botch
+<a id='L89' name='L89' />  89 
+<a id='L90' name='L90' />  90         <em class='comment'>/* Fetch signal mask */</em>
+<a id='L91' name='L91' />  91         ldr     r2, [r0, #((25-13) * 4)]
+<a id='L92' name='L92' />  92 
+<a id='L93' name='L93' />  93         <em class='comment'>/* Set signal mask */</em>
+<a id='L94' name='L94' />  94         stmfd   sp!, <em class='brace'>{</em>r0, r1, r14<em class='brace'>}</em>
+<a id='L95' name='L95' />  95         sub     sp, sp, #4      <em class='comment'>/* align the stack */</em>
+<a id='L96' name='L96' />  96 
+<a id='L97' name='L97' />  97         mov     r0, r2
+<a id='L98' name='L98' />  98         bl      PIC_SYM(_C_LABEL(sigsetmask), PLT)
+<a id='L99' name='L99' />  99 
+<a id='L100' name='L100' /> 100         add     sp, sp, #4      <em class='comment'>/* unalign the stack */</em>
+<a id='L101' name='L101' /> 101         ldmfd   sp!, <em class='brace'>{</em>r0, r1, r14<em class='brace'>}</em>
+<a id='L102' name='L102' /> 102 
+<a id='L103' name='L103' /> 103         add     r0, r0, #4
+<a id='L104' name='L104' /> 104 <em class='sharp'>#if</em> 0 <em class='comment'>/* PREX */</em>
+<a id='L105' name='L105' /> 105 <em class='sharp'>#ifdef</em> SOFTFLOAT
+<a id='L106' name='L106' /> 106         add     r0, r0, #52
+<a id='L107' name='L107' /> 107 <em class='sharp'>#else</em>
+<a id='L108' name='L108' /> 108         <em class='comment'>/* Restore fp registers */</em>
+<a id='L109' name='L109' /> 109         lfm     f4, 4, [r0], #48
+<a id='L110' name='L110' /> 110         <em class='comment'>/* Restore FPSR */</em>
+<a id='L111' name='L111' /> 111         ldr     r4, [r0], #0x0004
+<a id='L112' name='L112' /> 112         wfs     r4
+<a id='L113' name='L113' /> 113 <em class='sharp'>#endif</em>  <em class='comment'>/* SOFTFLOAT */</em>
+<a id='L114' name='L114' /> 114 <em class='sharp'>#endif</em>
+<a id='L115' name='L115' /> 115         <em class='comment'>/* Restore integer registers */</em>
+<a id='L116' name='L116' /> 116         ldmia   r0, <em class='brace'>{</em>r4-r14<em class='brace'>}</em>
+<a id='L117' name='L117' /> 117 
+<a id='L118' name='L118' /> 118         <em class='comment'>/* Validate sp and r14 */</em>
+<a id='L119' name='L119' /> 119         teq     sp, #0
+<a id='L120' name='L120' /> 120         teqne   r14, #0
+<a id='L121' name='L121' /> 121         beq     botch
+<a id='L122' name='L122' /> 122 
+<a id='L123' name='L123' /> 123         <em class='comment'>/* Set return value */</em>
+<a id='L124' name='L124' /> 124 
+<a id='L125' name='L125' /> 125         mov     r0, r1
+<a id='L126' name='L126' /> 126         teq     r0, #0x00000000
+<a id='L127' name='L127' /> 127         moveq   r0, #0x00000001
+<a id='L128' name='L128' /> 128 <em class='sharp'>#ifdef</em> __ARM_26__
+<a id='L129' name='L129' /> 129         mov     r15, r14
+<a id='L130' name='L130' /> 130 <em class='sharp'>#else</em>
+<a id='L131' name='L131' /> 131         mov     r15, r14
+<a id='L132' name='L132' /> 132 <em class='sharp'>#endif</em>
+<a id='L133' name='L133' /> 133 
+<a id='L134' name='L134' /> 134         <em class='comment'>/* validation failed, die die die. */</em>
+<a id='L135' name='L135' /> 135 botch:
+<a id='L136' name='L136' /> 136 <em class='sharp'>#if</em> 0 <em class='comment'>/* PREX */</em>
+<a id='L137' name='L137' /> 137         bl      PIC_SYM(_C_LABEL(longjmperror), PLT)
+<a id='L138' name='L138' /> 138 <em class='sharp'>#endif</em>
+<a id='L139' name='L139' /> 139         bl      PIC_SYM(_C_LABEL(abort), PLT)
+<a id='L140' name='L140' /> 140         b       . - 8           <em class='comment'>/* Cannot get here */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='349.html#L48'>[^]</a><a href='349.html#L84'>[v]</a><a href='349.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

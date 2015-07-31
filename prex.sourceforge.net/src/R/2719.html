@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>task_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L141'>task_t</a>            141 bsp/drv/dev/base/kd.c static task_t
+<a href='../S/60.html#L145'>task_t</a>            145 bsp/drv/dev/base/kd.c 	task_t task = TASK_NULL;
+<a href='../S/60.html#L269'>task_t</a>            269 bsp/drv/dev/base/kd.c kd_vm_region(task_t task)
+<a href='../S/60.html#L421'>task_t</a>            421 bsp/drv/dev/base/kd.c 	task_t task;
+<a href='../S/63.html#L60'>task_t</a>             60 bsp/drv/dev/base/pm.c 	task_t		powtask;	/* task for power server */
+<a href='../S/63.html#L143'>task_t</a>            143 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;powtask, sizeof(task_t)))
+<a href='../S/64.html#L591'>task_t</a>            591 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_sigtask, sizeof(task_t)))
+<a href='../S/96.html#L146'>task_t</a>            146 bsp/drv/include/dki.h int	 exception_post(task_t, int);
+<a href='../S/102.html#L70'>task_t</a>             70 bsp/drv/include/tty.h 	task_t		t_sigtask;	/* task to dispatch the tty signal */
+<a href='../S/220.html#L44'>task_t</a>             44 include/ipc/ipc.h 	task_t	task;		/* id of send task */
+<a href='../S/267.html#L84'>task_t</a>             84 include/sys/prex.h int	exception_raise(task_t task, int excno);
+<a href='../S/267.html#L87'>task_t</a>             87 include/sys/prex.h int	task_create(task_t parent, int vm_option, task_t *childp);
+<a href='../S/267.html#L88'>task_t</a>             88 include/sys/prex.h int	task_terminate(task_t task);
+<a href='../S/267.html#L89'>task_t</a>             89 include/sys/prex.h task_t	task_self(void);
+<a href='../S/267.html#L90'>task_t</a>             90 include/sys/prex.h int	task_suspend(task_t task);
+<a href='../S/267.html#L91'>task_t</a>             91 include/sys/prex.h int	task_resume(task_t task);
+<a href='../S/267.html#L92'>task_t</a>             92 include/sys/prex.h int	task_setname(task_t task, const char *name);
+<a href='../S/267.html#L93'>task_t</a>             93 include/sys/prex.h int	task_setcap(task_t task, cap_t cap);
+<a href='../S/267.html#L94'>task_t</a>             94 include/sys/prex.h int	task_chkcap(task_t task, cap_t cap);
+<a href='../S/267.html#L96'>task_t</a>             96 include/sys/prex.h int	thread_create(task_t task, thread_t *tp);
+<a href='../S/267.html#L108'>task_t</a>            108 include/sys/prex.h int	vm_allocate(task_t task, void **addr, size_t size, int anywhere);
+<a href='../S/267.html#L109'>task_t</a>            109 include/sys/prex.h int	vm_free(task_t task, void *addr);
+<a href='../S/267.html#L110'>task_t</a>            110 include/sys/prex.h int	vm_attribute(task_t task, void *addr, int prot);
+<a href='../S/267.html#L111'>task_t</a>            111 include/sys/prex.h int	vm_map(task_t target, void  *addr, size_t size, void **alloc);
+<a href='../S/272.html#L91'>task_t</a>             91 include/sys/sysinfo.h 	task_t		task;		/* task id */
+<a href='../S/272.html#L102'>task_t</a>            102 include/sys/sysinfo.h 	task_t		id;		/* task id */
+<a href='../S/272.html#L117'>task_t</a>            117 include/sys/sysinfo.h 	task_t		task;		/* task id */
+<a href='../S/277.html#L69'>task_t</a>             69 include/sys/types.h #define TASK_NULL	  ((task_t)0)
+<a href='../S/307.html#L44'>task_t</a>             44 sys/include/exception.h int	 exception_raise(task_t, int);
+<a href='../S/307.html#L45'>task_t</a>             45 sys/include/exception.h int	 exception_post(task_t, int);
+<a href='../S/309.html#L43'>task_t</a>             43 sys/include/ipc.h 	task_t		owner;		/* creator of this object */
+<a href='../S/309.html#L53'>task_t</a>             53 sys/include/ipc.h void	 object_cleanup(task_t);
+<a href='../S/316.html#L41'>task_t</a>             41 sys/include/sync.h 	task_t		owner;		/* owner task */
+<a href='../S/316.html#L49'>task_t</a>             49 sys/include/sync.h 	task_t		owner;		/* owner task */
+<a href='../S/316.html#L59'>task_t</a>             59 sys/include/sync.h 	task_t		owner;		/* owner task */
+<a href='../S/316.html#L79'>task_t</a>             79 sys/include/sync.h void	 sem_cleanup(task_t);
+<a href='../S/316.html#L88'>task_t</a>             88 sys/include/sync.h void	 mutex_cleanup(task_t);
+<a href='../S/316.html#L95'>task_t</a>             95 sys/include/sync.h void	 cond_cleanup(task_t);
+<a href='../S/318.html#L47'>task_t</a>             47 sys/include/task.h 	task_t		parent;		/* parent task */
+<a href='../S/318.html#L85'>task_t</a>             85 sys/include/task.h int	 task_create(task_t, int, task_t *);
+<a href='../S/318.html#L86'>task_t</a>             86 sys/include/task.h int	 task_terminate(task_t);
+<a href='../S/318.html#L87'>task_t</a>             87 sys/include/task.h task_t	 task_self(void);
+<a href='../S/318.html#L88'>task_t</a>             88 sys/include/task.h int	 task_suspend(task_t);
+<a href='../S/318.html#L89'>task_t</a>             89 sys/include/task.h int	 task_resume(task_t);
+<a href='../S/318.html#L90'>task_t</a>             90 sys/include/task.h int	 task_setname(task_t, const char *);
+<a href='../S/318.html#L91'>task_t</a>             91 sys/include/task.h int	 task_setcap(task_t, cap_t);
+<a href='../S/318.html#L92'>task_t</a>             92 sys/include/task.h int	 task_chkcap(task_t, cap_t);
+<a href='../S/318.html#L94'>task_t</a>             94 sys/include/task.h int	 task_valid(task_t);
+<a href='../S/318.html#L95'>task_t</a>             95 sys/include/task.h int	 task_access(task_t);
+<a href='../S/319.html#L49'>task_t</a>             49 sys/include/thread.h 	task_t		task;		/* task to which I belong */
+<a href='../S/319.html#L103'>task_t</a>            103 sys/include/thread.h int	 thread_create(task_t, thread_t *);
+<a href='../S/323.html#L77'>task_t</a>             77 sys/include/vm.h int	 vm_allocate(task_t, void **, size_t, int);
+<a href='../S/323.html#L78'>task_t</a>             78 sys/include/vm.h int	 vm_free(task_t, void *);
+<a href='../S/323.html#L79'>task_t</a>             79 sys/include/vm.h int	 vm_attribute(task_t, void *, int);
+<a href='../S/323.html#L80'>task_t</a>             80 sys/include/vm.h int	 vm_map(task_t, void *, size_t, void **);
+<a href='../S/325.html#L234'>task_t</a>            234 sys/ipc/object.c object_cleanup(task_t task)
+<a href='../S/326.html#L163'>task_t</a>            163 sys/kern/debug.c 	task_t task;
+<a href='../S/326.html#L178'>task_t</a>            178 sys/kern/debug.c 		task = (task_t)data;
+<a href='../S/328.html#L99'>task_t</a>             99 sys/kern/exception.c 	task_t self = curtask;
+<a href='../S/328.html#L150'>task_t</a>            150 sys/kern/exception.c exception_raise(task_t task, int excno)
+<a href='../S/328.html#L173'>task_t</a>            173 sys/kern/exception.c exception_post(task_t task, int excno)
+<a href='../S/328.html#L311'>task_t</a>            311 sys/kern/exception.c 	task_t self = curtask;
+<a href='../S/333.html#L181'>task_t</a>            181 sys/kern/system.c 	task_t task = 0;
+<a href='../S/333.html#L189'>task_t</a>            189 sys/kern/system.c 		task = (task_t)data;
+<a href='../S/334.html#L62'>task_t</a>             62 sys/kern/task.c task_create(task_t parent, int vm_option, task_t *childp)
+<a href='../S/334.html#L166'>task_t</a>            166 sys/kern/task.c task_terminate(task_t task)
+<a href='../S/334.html#L216'>task_t</a>            216 sys/kern/task.c task_t
+<a href='../S/334.html#L227'>task_t</a>            227 sys/kern/task.c task_suspend(task_t task)
+<a href='../S/334.html#L263'>task_t</a>            263 sys/kern/task.c task_resume(task_t task)
+<a href='../S/334.html#L305'>task_t</a>            305 sys/kern/task.c task_setname(task_t task, const char *name)
+<a href='../S/334.html#L338'>task_t</a>            338 sys/kern/task.c task_setcap(task_t task, cap_t cap)
+<a href='../S/334.html#L362'>task_t</a>            362 sys/kern/task.c task_chkcap(task_t task, cap_t cap)
+<a href='../S/334.html#L405'>task_t</a>            405 sys/kern/task.c task_valid(task_t task)
+<a href='../S/334.html#L407'>task_t</a>            407 sys/kern/task.c 	task_t tmp;
+<a href='../S/334.html#L423'>task_t</a>            423 sys/kern/task.c task_access(task_t task)
+<a href='../S/334.html#L443'>task_t</a>            443 sys/kern/task.c 	task_t task;
+<a href='../S/334.html#L477'>task_t</a>            477 sys/kern/task.c 	task_t task;
+<a href='../S/335.html#L44'>task_t</a>             44 sys/kern/thread.c static thread_t thread_allocate(task_t);
+<a href='../S/335.html#L65'>task_t</a>             65 sys/kern/thread.c thread_create(task_t task, thread_t *tp)
+<a href='../S/335.html#L411'>task_t</a>            411 sys/kern/thread.c thread_allocate(task_t task)
+<a href='../S/336.html#L191'>task_t</a>            191 sys/kern/timer.c 	task_t task = (task_t)arg;
+<a href='../S/343.html#L85'>task_t</a>             85 sys/mem/vm.c   vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L182'>task_t</a>            182 sys/mem/vm.c   vm_free(task_t task, void *addr)
+<a href='../S/343.html#L247'>task_t</a>            247 sys/mem/vm.c   vm_attribute(task_t task, void *addr, int attr)
+<a href='../S/343.html#L357'>task_t</a>            357 sys/mem/vm.c   vm_map(task_t target, void *addr, size_t size, void **alloc)
+<a href='../S/343.html#L743'>task_t</a>            743 sys/mem/vm.c   	task_t task = info-&gt;task;
+<a href='../S/344.html#L78'>task_t</a>             78 sys/mem/vm_nommu.c vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L158'>task_t</a>            158 sys/mem/vm_nommu.c vm_free(task_t task, void *addr)
+<a href='../S/344.html#L218'>task_t</a>            218 sys/mem/vm_nommu.c vm_attribute(task_t task, void *addr, int attr)
+<a href='../S/344.html#L291'>task_t</a>            291 sys/mem/vm_nommu.c vm_map(task_t target, void *addr, size_t size, void **alloc)
+<a href='../S/344.html#L503'>task_t</a>            503 sys/mem/vm_nommu.c 	task_t task = info-&gt;task;
+<a href='../S/345.html#L54'>task_t</a>             54 sys/sync/cond.c 	task_t self = curtask;
+<a href='../S/345.html#L115'>task_t</a>            115 sys/sync/cond.c cond_cleanup(task_t task)
+<a href='../S/346.html#L96'>task_t</a>             96 sys/sync/mutex.c 	task_t self = curtask;
+<a href='../S/346.html#L165'>task_t</a>            165 sys/sync/mutex.c mutex_cleanup(task_t task)
+<a href='../S/347.html#L61'>task_t</a>             61 sys/sync/sem.c 	task_t self = curtask;
+<a href='../S/347.html#L306'>task_t</a>            306 sys/sync/sem.c sem_cleanup(task_t task)
+<a href='../S/404.html#L55'>task_t</a>             55 usr/bin/ps/ps.c pstat(task_t task, struct procinfo *pi)
+<a href='../S/705.html#L86'>task_t</a>             86 usr/lib/posix/process/fork.c 	task_t tsk;
+<a href='../S/706.html#L88'>task_t</a>             88 usr/lib/posix/process/fork_nommu.c 	task_t tsk;
+<a href='../S/831.html#L60'>task_t</a>             60 usr/sample/bench/bench.c 	task_t task;
+<a href='../S/837.html#L53'>task_t</a>             53 usr/sample/ipc/ipc.c static task_t
+<a href='../S/837.html#L56'>task_t</a>             56 usr/sample/ipc/ipc.c 	task_t task;
+<a href='../S/845.html#L43'>task_t</a>             43 usr/sample/task/task.c static task_t
+<a href='../S/845.html#L47'>task_t</a>             47 usr/sample/task/task.c 	task_t task;
+<a href='../S/845.html#L72'>task_t</a>             72 usr/sample/task/task.c 	task_t self;
+<a href='../S/873.html#L63'>task_t</a>             63 usr/server/exec/exec.h 	task_t	task;			/* task id */
+<a href='../S/873.html#L101'>task_t</a>            101 usr/server/exec/exec.h void	 bind_cap(char *, task_t);
+<a href='../S/874.html#L45'>task_t</a>             45 usr/server/exec/exec_cap.c bind_cap(char *path, task_t task)
+<a href='../S/874.html#L76'>task_t</a>             76 usr/server/exec/exec_cap.c 	task_t task;
+<a href='../S/876.html#L59'>task_t</a>             59 usr/server/exec/exec_elf.c load_exec(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L195'>task_t</a>            195 usr/server/exec/exec_elf.c load_reloc(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/877.html#L57'>task_t</a>             57 usr/server/exec/exec_execve.c static int	build_args(task_t, void *, char *, struct exec_msg *,
+<a href='../S/877.html#L60'>task_t</a>             60 usr/server/exec/exec_execve.c static void	notify_server(task_t, task_t, void *);
+<a href='../S/877.html#L76'>task_t</a>             76 usr/server/exec/exec_execve.c 	task_t old_task, new_task;
+<a href='../S/877.html#L314'>task_t</a>            314 usr/server/exec/exec_execve.c build_args(task_t task, void *stack, char *path, struct exec_msg *msg,
+<a href='../S/877.html#L412'>task_t</a>            412 usr/server/exec/exec_execve.c notify_server(task_t org_task, task_t new_task, void *stack)
+<a href='../S/902.html#L287'>task_t</a>            287 usr/server/fs/ramfs/ramfs_vnops.c 	task_t task;
+<a href='../S/902.html#L367'>task_t</a>            367 usr/server/fs/ramfs/ramfs_vnops.c 	task_t task;
+<a href='../S/903.html#L649'>task_t</a>            649 usr/server/fs/vfs/main.c 	if ((error = task_alloc((task_t)msg-&gt;data[0], &amp;newtask)) != 0)
+<a href='../S/903.html#L687'>task_t</a>            687 usr/server/fs/vfs/main.c 	task_t old_id, new_id;
+<a href='../S/903.html#L692'>task_t</a>            692 usr/server/fs/vfs/main.c 	old_id = (task_t)msg-&gt;data[0];
+<a href='../S/903.html#L693'>task_t</a>            693 usr/server/fs/vfs/main.c 	new_id = (task_t)msg-&gt;data[1];
+<a href='../S/903.html#L947'>task_t</a>            947 usr/server/fs/vfs/main.c 	task_t self;
+<a href='../S/905.html#L83'>task_t</a>             83 usr/server/fs/vfs/vfs.h 	task_t	    t_taskid;		/* task id */
+<a href='../S/905.html#L126'>task_t</a>            126 usr/server/fs/vfs/vfs.h struct task *task_lookup(task_t task);
+<a href='../S/905.html#L127'>task_t</a>            127 usr/server/fs/vfs/vfs.h int	 task_alloc(task_t task, struct task **pt);
+<a href='../S/905.html#L129'>task_t</a>            129 usr/server/fs/vfs/vfs.h void	 task_setid(struct task *t, task_t task);
+<a href='../S/905.html#L140'>task_t</a>            140 usr/server/fs/vfs/vfs.h int	 sec_file_permission(task_t task, char *path, int mode);
+<a href='../S/910.html#L139'>task_t</a>            139 usr/server/fs/vfs/vfs_security.c capable(task_t task, cap_t cap)
+<a href='../S/910.html#L160'>task_t</a>            160 usr/server/fs/vfs/vfs_security.c sec_file_permission(task_t task, char *path, int acc)
+<a href='../S/912.html#L70'>task_t</a>             70 usr/server/fs/vfs/vfs_task.c task_lookup(task_t task)
+<a href='../S/912.html#L99'>task_t</a>             99 usr/server/fs/vfs/vfs_task.c task_alloc(task_t task, struct task **pt)
+<a href='../S/912.html#L140'>task_t</a>            140 usr/server/fs/vfs/vfs_task.c task_setid(struct task *t, task_t task)
+<a href='../S/916.html#L268'>task_t</a>            268 usr/server/pow/pow.c 	task_t self;
+<a href='../S/916.html#L289'>task_t</a>            289 usr/server/pow/pow.c 	task_t self;
+<a href='../S/917.html#L208'>task_t</a>            208 usr/server/proc/main.c 	task_t child;
+<a href='../S/917.html#L213'>task_t</a>            213 usr/server/proc/main.c 	child = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L283'>task_t</a>            283 usr/server/proc/main.c 	task_t orgtask, newtask;
+<a href='../S/917.html#L288'>task_t</a>            288 usr/server/proc/main.c 	orgtask = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L289'>task_t</a>            289 usr/server/proc/main.c 	newtask = (task_t)msg-&gt;data[1];
+<a href='../S/917.html#L317'>task_t</a>            317 usr/server/proc/main.c 	task_t task;
+<a href='../S/917.html#L322'>task_t</a>            322 usr/server/proc/main.c 	task = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L363'>task_t</a>            363 usr/server/proc/main.c 	task_t task = msg-&gt;hdr.task;
+<a href='../S/919.html#L100'>task_t</a>            100 usr/server/proc/proc.h 	task_t		p_task;		/* task id */
+<a href='../S/919.html#L132'>task_t</a>            132 usr/server/proc/proc.h int	newproc(struct proc *, pid_t, task_t);
+<a href='../S/919.html#L133'>task_t</a>            133 usr/server/proc/proc.h int	sys_fork(task_t, int, pid_t *);
+<a href='../S/919.html#L149'>task_t</a>            149 usr/server/proc/proc.h struct proc *task_to_proc(task_t);
+<a href='../S/921.html#L84'>task_t</a>             84 usr/server/proc/proc_fork.c newproc(struct proc *p, pid_t pid, task_t task)
+<a href='../S/921.html#L126'>task_t</a>            126 usr/server/proc/proc_fork.c sys_fork(task_t child, int vfork, pid_t *retval)
+<a href='../S/922.html#L93'>task_t</a>             93 usr/server/proc/proc_hash.c task_to_proc(task_t task)
+<a href='../S/925.html#L108'>task_t</a>            108 usr/server/proc/proc_tty.c 	task_t self;
+<a href='../S/928.html#L49'>task_t</a>             49 usr/test/attack/attack.c 	task_t self	= task_self();
+<a href='../S/946.html#L51'>task_t</a>             51 usr/test/exception/exception.c 	task_t task;
+<a href='../S/998.html#L56'>task_t</a>             56 usr/test/task/task.c 	task_t task;
+</pre>
+</body>
+</html>

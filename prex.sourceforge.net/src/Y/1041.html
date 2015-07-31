@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>img</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L53'>img</a>                53 bsp/boot/common/elf.c load_elf(char *img, struct module *m)
+<a href='../S/13.html#L60'>img</a>                60 bsp/boot/common/elf.c 	ehdr = (Elf32_Ehdr *)img;
+<a href='../S/13.html#L94'>img</a>                94 bsp/boot/common/elf.c 		if (load_executable(img, m) != 0)
+<a href='../S/13.html#L98'>img</a>                98 bsp/boot/common/elf.c 		if (load_relocatable(img, m) != 0)
+<a href='../S/13.html#L110'>img</a>               110 bsp/boot/common/elf.c load_executable(char *img, struct module *m)
+<a href='../S/13.html#L118'>img</a>               118 bsp/boot/common/elf.c 	ehdr = (Elf32_Ehdr *)img;
+<a href='../S/13.html#L149'>img</a>               149 bsp/boot/common/elf.c 			memcpy((char *)load_base, img + phdr-&gt;p_offset,
+<a href='../S/13.html#L234'>img</a>               234 bsp/boot/common/elf.c relocate_section(char *img, Elf32_Shdr *shdr)
+<a href='../S/13.html#L257'>img</a>               257 bsp/boot/common/elf.c 				(Elf32_Rel *)(img + shdr-&gt;sh_offset),
+<a href='../S/13.html#L263'>img</a>               263 bsp/boot/common/elf.c 				(Elf32_Rela *)(img + shdr-&gt;sh_offset),
+<a href='../S/13.html#L275'>img</a>               275 bsp/boot/common/elf.c load_relocatable(char *img, struct module *m)
+<a href='../S/13.html#L283'>img</a>               283 bsp/boot/common/elf.c 	ehdr = (Elf32_Ehdr *)img;
+<a href='../S/13.html#L319'>img</a>               319 bsp/boot/common/elf.c 			memcpy((char *)sect_base, img + shdr-&gt;sh_offset,
+<a href='../S/13.html#L339'>img</a>               339 bsp/boot/common/elf.c 			sect_addr[i] = img + shdr-&gt;sh_offset;
+<a href='../S/13.html#L345'>img</a>               345 bsp/boot/common/elf.c 			sect_addr[i] = img + shdr-&gt;sh_offset;
+<a href='../S/13.html#L365'>img</a>               365 bsp/boot/common/elf.c 			if (relocate_section(img, shdr) != 0) {
+</pre>
+</body>
+</html>

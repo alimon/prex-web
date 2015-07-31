@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ascii</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/76.html#L144'>ascii</a>             144 bsp/drv/dev/input/pckbd.c 	u_char scan, ascii, val;
+<a href='../S/76.html#L162'>ascii</a>             162 bsp/drv/dev/input/pckbd.c 	ascii = key_map[scan];
+<a href='../S/76.html#L165'>ascii</a>             165 bsp/drv/dev/input/pckbd.c 	switch (ascii) {
+<a href='../S/76.html#L185'>ascii</a>             185 bsp/drv/dev/input/pckbd.c 	if (ascii &gt;= 0x80)
+<a href='../S/76.html#L186'>ascii</a>             186 bsp/drv/dev/input/pckbd.c 		return ascii;
+<a href='../S/76.html#L189'>ascii</a>             189 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;alt &amp;&amp; sc-&gt;ctrl &amp;&amp; ascii == 0x7f) {
+<a href='../S/76.html#L199'>ascii</a>             199 bsp/drv/dev/input/pckbd.c 		if (ascii &gt;= 'a' &amp;&amp; ascii &lt;= 'z')
+<a href='../S/76.html#L200'>ascii</a>             200 bsp/drv/dev/input/pckbd.c 			ascii = ascii - 'a' + 0x01;
+<a href='../S/76.html#L201'>ascii</a>             201 bsp/drv/dev/input/pckbd.c 		else if (ascii == '\\')
+<a href='../S/76.html#L202'>ascii</a>             202 bsp/drv/dev/input/pckbd.c 			ascii = 0x1c;
+<a href='../S/76.html#L204'>ascii</a>             204 bsp/drv/dev/input/pckbd.c 			ascii = 0;
+<a href='../S/76.html#L206'>ascii</a>             206 bsp/drv/dev/input/pckbd.c 		ascii = shift_map[scan];
+<a href='../S/76.html#L208'>ascii</a>             208 bsp/drv/dev/input/pckbd.c 	if (ascii == 0)
+<a href='../S/76.html#L213'>ascii</a>             213 bsp/drv/dev/input/pckbd.c 		if (ascii &gt;= 'A' &amp;&amp; ascii &lt;= 'Z')
+<a href='../S/76.html#L214'>ascii</a>             214 bsp/drv/dev/input/pckbd.c 			ascii += 'a' - 'A';
+<a href='../S/76.html#L215'>ascii</a>             215 bsp/drv/dev/input/pckbd.c 		else if (ascii &gt;= 'a' &amp;&amp; ascii &lt;= 'z')
+<a href='../S/76.html#L216'>ascii</a>             216 bsp/drv/dev/input/pckbd.c 			ascii -= 'a' - 'A';
+<a href='../S/76.html#L221'>ascii</a>             221 bsp/drv/dev/input/pckbd.c 		ascii |= 0x80;
+<a href='../S/76.html#L224'>ascii</a>             224 bsp/drv/dev/input/pckbd.c 	return ascii;
+<a href='../S/564.html#L34'>ascii</a>              34 usr/lib/libc/stdlib/atof.c atof(ascii)
+<a href='../S/564.html#L35'>ascii</a>              35 usr/lib/libc/stdlib/atof.c 	const char *ascii;
+<a href='../S/564.html#L37'>ascii</a>              37 usr/lib/libc/stdlib/atof.c 	return (strtod(ascii, NULL));
+</pre>
+</body>
+</html>

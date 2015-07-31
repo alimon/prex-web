@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bits</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/72.html#L194'>bits</a>              194 bsp/drv/dev/dma/i8237.c 	u_int chan, bits, mode;
+<a href='../S/72.html#L208'>bits</a>              208 bsp/drv/dev/dma/i8237.c 	bits = (chan &lt; 4) ? chan : chan &gt;&gt; 2;
+<a href='../S/72.html#L212'>bits</a>              212 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits | 0x04);	/* Disable channel */
+<a href='../S/72.html#L214'>bits</a>              214 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mode, bits | mode);	/* Set mode */
+<a href='../S/72.html#L221'>bits</a>              221 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits);		/* Enable channel */
+<a href='../S/72.html#L231'>bits</a>              231 bsp/drv/dev/dma/i8237.c 	u_int bits;
+<a href='../S/72.html#L238'>bits</a>              238 bsp/drv/dev/dma/i8237.c 	bits = (chan &lt; 4) ? chan : chan &gt;&gt; 2;
+<a href='../S/72.html#L239'>bits</a>              239 bsp/drv/dev/dma/i8237.c 	bus_write_8(dma_regs[chan].mask, bits | 0x04);	/* Disable channel */
+<a href='../S/136.html#L165'>bits</a>              165 bsp/hal/arm/gba/interrupt.c 	uint16_t bits;
+<a href='../S/136.html#L168'>bits</a>              168 bsp/hal/arm/gba/interrupt.c 	bits = ICU_IF;
+<a href='../S/136.html#L171'>bits</a>              171 bsp/hal/arm/gba/interrupt.c 		if (bits &amp; (uint16_t)(1 &lt;&lt; vector))
+<a href='../S/136.html#L183'>bits</a>              183 bsp/hal/arm/gba/interrupt.c 	bits = ICU_IF;
+<a href='../S/136.html#L184'>bits</a>              184 bsp/hal/arm/gba/interrupt.c 	if (bits &amp; IRQ_VALID)
+<a href='../S/148.html#L136'>bits</a>              136 bsp/hal/arm/integrator/interrupt.c 	uint32_t bits;
+<a href='../S/148.html#L140'>bits</a>              140 bsp/hal/arm/integrator/interrupt.c 	bits = ICU_IRQSTS;
+<a href='../S/148.html#L142'>bits</a>              142 bsp/hal/arm/integrator/interrupt.c 		if (bits &amp; (uint32_t)(1 &lt;&lt; vector))
+</pre>
+</body>
+</html>

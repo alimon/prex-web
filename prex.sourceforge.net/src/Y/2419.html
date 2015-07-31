@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>where</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/2.html#L37'>where</a>              37 bsp/boot/arm/arch/elf_reloc.c 	Elf32_Addr *where, tmp;
+<a href='../S/2.html#L40'>where</a>              40 bsp/boot/arm/arch/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/2.html#L46'>where</a>              46 bsp/boot/arm/arch/elf_reloc.c 		*where += (vaddr_t)ptokv(sym_val);
+<a href='../S/2.html#L48'>where</a>              48 bsp/boot/arm/arch/elf_reloc.c 			(long)where, (long)*where));
+<a href='../S/2.html#L54'>where</a>              54 bsp/boot/arm/arch/elf_reloc.c 		addend = (Elf32_Sword)(*where &amp; 0x00ffffff);
+<a href='../S/2.html#L57'>where</a>              57 bsp/boot/arm/arch/elf_reloc.c 		tmp = sym_val - (Elf32_Addr)where + (addend &lt;&lt; 2);
+<a href='../S/2.html#L59'>where</a>              59 bsp/boot/arm/arch/elf_reloc.c 		*where = (*where &amp; 0xff000000) | (tmp &amp; 0x00ffffff);
+<a href='../S/2.html#L61'>where</a>              61 bsp/boot/arm/arch/elf_reloc.c 			(long)where, (long)*where));
+<a href='../S/26.html#L45'>where</a>              45 bsp/boot/ppc/arch/elf_reloc.c 	Elf32_Addr *where;
+<a href='../S/26.html#L48'>where</a>              48 bsp/boot/ppc/arch/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rela-&gt;r_offset);
+<a href='../S/26.html#L56'>where</a>              56 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where = val;
+<a href='../S/26.html#L60'>where</a>              60 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)val;
+<a href='../S/26.html#L64'>where</a>              64 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)(val &gt;&gt; 16);
+<a href='../S/26.html#L68'>where</a>              68 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)((val + 0x8000) &gt;&gt; 16);
+<a href='../S/26.html#L72'>where</a>              72 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where =
+<a href='../S/26.html#L73'>where</a>              73 bsp/boot/ppc/arch/elf_reloc.c 			(*(uint32_t *)where &amp; ~0x03fffffc)
+<a href='../S/26.html#L74'>where</a>              74 bsp/boot/ppc/arch/elf_reloc.c 			| ((val - (uint32_t)where)
+<a href='../S/26.html#L79'>where</a>              79 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where = val - (uint32_t)where;
+<a href='../S/37.html#L37'>where</a>              37 bsp/boot/x86/arch/elf_reloc.c 	Elf32_Addr *where;
+<a href='../S/37.html#L39'>where</a>              39 bsp/boot/x86/arch/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/37.html#L45'>where</a>              45 bsp/boot/x86/arch/elf_reloc.c 		*where += (vaddr_t)ptokv(sym_val);
+<a href='../S/37.html#L47'>where</a>              47 bsp/boot/x86/arch/elf_reloc.c 			(long)where, (long)*where));
+<a href='../S/37.html#L50'>where</a>              50 bsp/boot/x86/arch/elf_reloc.c 		*where += sym_val - (Elf32_Addr)where;
+<a href='../S/37.html#L52'>where</a>              52 bsp/boot/x86/arch/elf_reloc.c 			(long)where, (long)*where));
+<a href='../S/348.html#L35'>where</a>              35 usr/arch/arm/elf_reloc.c 	Elf32_Addr *where, tmp;
+<a href='../S/348.html#L38'>where</a>              38 usr/arch/arm/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/348.html#L44'>where</a>              44 usr/arch/arm/elf_reloc.c 		*where += (Elf32_Addr)sym_val;
+<a href='../S/348.html#L51'>where</a>              51 usr/arch/arm/elf_reloc.c 		addend = *where &amp; 0x00ffffff;
+<a href='../S/348.html#L54'>where</a>              54 usr/arch/arm/elf_reloc.c 		tmp = sym_val - (Elf32_Addr)where + (addend &lt;&lt; 2);
+<a href='../S/348.html#L56'>where</a>              56 usr/arch/arm/elf_reloc.c 		*where = (*where &amp; 0xff000000) | (tmp &amp; 0x00ffffff);
+<a href='../S/354.html#L43'>where</a>              43 usr/arch/ppc/elf_reloc.c 	Elf32_Addr *where;
+<a href='../S/354.html#L46'>where</a>              46 usr/arch/ppc/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rela-&gt;r_offset);
+<a href='../S/354.html#L54'>where</a>              54 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where = val;
+<a href='../S/354.html#L58'>where</a>              58 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = val;
+<a href='../S/354.html#L62'>where</a>              62 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = (val &gt;&gt; 16);
+<a href='../S/354.html#L66'>where</a>              66 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = (val + 0x8000) &gt;&gt; 16;
+<a href='../S/354.html#L70'>where</a>              70 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where =
+<a href='../S/354.html#L71'>where</a>              71 usr/arch/ppc/elf_reloc.c 			(*(uint32_t *)where &amp; ~0x03fffffc)
+<a href='../S/354.html#L72'>where</a>              72 usr/arch/ppc/elf_reloc.c 			| ((val - (uint32_t)where)
+<a href='../S/354.html#L77'>where</a>              77 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where = val - (uint32_t)where;
+<a href='../S/360.html#L35'>where</a>              35 usr/arch/x86/elf_reloc.c 	Elf32_Addr *where;
+<a href='../S/360.html#L37'>where</a>              37 usr/arch/x86/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rel-&gt;r_offset);
+<a href='../S/360.html#L44'>where</a>              44 usr/arch/x86/elf_reloc.c 		*where += (Elf32_Addr)sym_val;
+<a href='../S/360.html#L48'>where</a>              48 usr/arch/x86/elf_reloc.c 		*where += sym_val - (Elf32_Addr)where;
+</pre>
+</body>
+</html>

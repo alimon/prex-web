@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cond_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L78'>cond_t</a>             78 include/sys/prex.h #define COND_INITIALIZER	(cond_t)0x43496e69
+<a href='../S/267.html#L138'>cond_t</a>            138 include/sys/prex.h int	cond_init(cond_t *cp);
+<a href='../S/267.html#L139'>cond_t</a>            139 include/sys/prex.h int	cond_destroy(cond_t *cp);
+<a href='../S/267.html#L140'>cond_t</a>            140 include/sys/prex.h int	cond_wait(cond_t *cp, mutex_t *mp);
+<a href='../S/267.html#L141'>cond_t</a>            141 include/sys/prex.h int	cond_signal(cond_t *cp);
+<a href='../S/267.html#L142'>cond_t</a>            142 include/sys/prex.h int	cond_broadcast(cond_t *cp);
+<a href='../S/277.html#L72'>cond_t</a>             72 include/sys/types.h #define COND_NULL	  ((cond_t)0)
+<a href='../S/316.html#L70'>cond_t</a>             70 sys/include/sync.h #define COND_INITIALIZER	(cond_t)0x43496e69	/* 'CIni' */
+<a href='../S/316.html#L90'>cond_t</a>             90 sys/include/sync.h int	 cond_init(cond_t *);
+<a href='../S/316.html#L91'>cond_t</a>             91 sys/include/sync.h int	 cond_destroy(cond_t *);
+<a href='../S/316.html#L92'>cond_t</a>             92 sys/include/sync.h int	 cond_wait(cond_t *, mutex_t *);
+<a href='../S/316.html#L93'>cond_t</a>             93 sys/include/sync.h int	 cond_signal(cond_t *);
+<a href='../S/316.html#L94'>cond_t</a>             94 sys/include/sync.h int	 cond_broadcast(cond_t *);
+<a href='../S/345.html#L42'>cond_t</a>             42 sys/sync/cond.c static int	cond_valid(cond_t);
+<a href='../S/345.html#L43'>cond_t</a>             43 sys/sync/cond.c static int	cond_copyin(cond_t *, cond_t *);
+<a href='../S/345.html#L52'>cond_t</a>             52 sys/sync/cond.c cond_init(cond_t *cp)
+<a href='../S/345.html#L55'>cond_t</a>             55 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L78'>cond_t</a>             78 sys/sync/cond.c cond_deallocate(cond_t c)
+<a href='../S/345.html#L93'>cond_t</a>             93 sys/sync/cond.c cond_destroy(cond_t *cp)
+<a href='../S/345.html#L95'>cond_t</a>             95 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L117'>cond_t</a>            117 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L137'>cond_t</a>            137 sys/sync/cond.c cond_wait(cond_t *cp, mutex_t *mp)
+<a href='../S/345.html#L139'>cond_t</a>            139 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L182'>cond_t</a>            182 sys/sync/cond.c cond_signal(cond_t *cp)
+<a href='../S/345.html#L184'>cond_t</a>            184 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L200'>cond_t</a>            200 sys/sync/cond.c cond_broadcast(cond_t *cp)
+<a href='../S/345.html#L202'>cond_t</a>            202 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L218'>cond_t</a>            218 sys/sync/cond.c cond_valid(cond_t c)
+<a href='../S/345.html#L220'>cond_t</a>            220 sys/sync/cond.c 	cond_t tmp;
+<a href='../S/345.html#L237'>cond_t</a>            237 sys/sync/cond.c cond_copyin(cond_t *ucp, cond_t *kcp)
+<a href='../S/345.html#L239'>cond_t</a>            239 sys/sync/cond.c 	cond_t c;
+<a href='../S/760.html#L33'>cond_t</a>             33 usr/lib/prex/syscalls/cond_wait.c extern int _cond_wait(cond_t *cond, mutex_t *mu);
+<a href='../S/760.html#L39'>cond_t</a>             39 usr/lib/prex/syscalls/cond_wait.c cond_wait(cond_t *cond, mutex_t *mu)
+<a href='../S/896.html#L57'>cond_t</a>             57 usr/server/fs/fifofs/fifo_vnops.c 	cond_t	fn_rcond;	/* cv for read */
+<a href='../S/896.html#L58'>cond_t</a>             58 usr/server/fs/fifofs/fifo_vnops.c 	cond_t	fn_wcond;	/* cv for write */
+</pre>
+</body>
+</html>

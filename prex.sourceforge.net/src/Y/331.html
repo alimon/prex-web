@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>_w</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L102'>_w</a>                102 usr/include/stdio.h 	int	_w;		/* write space left for putc() */
+<a href='../S/497.html#L56'>_w</a>                 56 usr/lib/libc/stdio/fclose.c 	fp-&gt;_r = fp-&gt;_w = 0;	/* Mess up if reaccessed. */
+<a href='../S/501.html#L73'>_w</a>                 73 usr/lib/libc/stdio/fflush.c 	fp-&gt;_w = t &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/510.html#L55'>_w</a>                 55 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/514.html#L108'>_w</a>                108 usr/lib/libc/stdio/freopen.c 	fp-&gt;_w = 0;
+<a href='../S/519.html#L102'>_w</a>                102 usr/lib/libc/stdio/fvwrite.c 			w = fp-&gt;_w;
+<a href='../S/519.html#L107'>_w</a>                107 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L126'>_w</a>                126 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L150'>_w</a>                150 usr/lib/libc/stdio/fvwrite.c 			w = fp-&gt;_w + fp-&gt;_bf._size;
+<a href='../S/519.html#L164'>_w</a>                164 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/533.html#L67'>_w</a>                 67 usr/lib/libc/stdio/putc.c 	fp-&gt;_w--;
+<a href='../S/533.html#L80'>_w</a>                 80 usr/lib/libc/stdio/putc.c 	if (--fp-&gt;_w &gt;= 0)
+<a href='../S/537.html#L77'>_w</a>                 77 usr/lib/libc/stdio/refill.c 			fp-&gt;_w = 0;
+<a href='../S/543.html#L92'>_w</a>                 92 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_w = 0;
+<a href='../S/544.html#L48'>_w</a>                 48 usr/lib/libc/stdio/snprintf.c 	f._bf._size = f._w = n - 1;
+<a href='../S/545.html#L47'>_w</a>                 47 usr/lib/libc/stdio/sprintf.c 	f._bf._size = f._w = INT_MAX;
+<a href='../S/551.html#L58'>_w</a>                 58 usr/lib/libc/stdio/ungetc.c 			fp-&gt;_w = 0;
+<a href='../S/552.html#L87'>_w</a>                 87 usr/lib/libc/stdio/vfprintf.c 	fake._bf._size = fake._w = sizeof(buf);
+<a href='../S/556.html#L49'>_w</a>                 49 usr/lib/libc/stdio/vsnprintf.c 	f._bf._size = f._w = n - 1;
+<a href='../S/557.html#L47'>_w</a>                 47 usr/lib/libc/stdio/vsprintf.c 	f._bf._size = f._w = INT_MAX;
+<a href='../S/559.html#L74'>_w</a>                 74 usr/lib/libc/stdio/wsetup.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SNBF|__SLBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/649.html#L46'>_w</a>                 46 usr/lib/libsa/sprintf.c 	f._bf._size = f._w = INT_MAX;
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>idle_thread</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/335.html#L47'>idle_thread</a>        47 sys/kern/thread.c static struct thread	idle_thread;	/* idle thread */
+<a href='../S/335.html#L52'>idle_thread</a>        52 sys/kern/thread.c thread_t curthread = &amp;idle_thread;	/* current thread */
+<a href='../S/335.html#L588'>idle_thread</a>       588 sys/kern/thread.c 	context_set(&amp;idle_thread.ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L589'>idle_thread</a>       589 sys/kern/thread.c 	sched_start(&amp;idle_thread, PRI_IDLE, SCHED_FIFO);
+<a href='../S/335.html#L590'>idle_thread</a>       590 sys/kern/thread.c 	idle_thread.kstack = stack;
+<a href='../S/335.html#L591'>idle_thread</a>       591 sys/kern/thread.c 	idle_thread.task = &amp;kernel_task;
+<a href='../S/335.html#L592'>idle_thread</a>       592 sys/kern/thread.c 	idle_thread.state = TS_RUN;
+<a href='../S/335.html#L593'>idle_thread</a>       593 sys/kern/thread.c 	idle_thread.locks = 1;
+<a href='../S/335.html#L594'>idle_thread</a>       594 sys/kern/thread.c 	list_init(&amp;idle_thread.mutexes);
+<a href='../S/335.html#L596'>idle_thread</a>       596 sys/kern/thread.c 	list_insert(&amp;thread_list, &amp;idle_thread.link);
+<a href='../S/335.html#L597'>idle_thread</a>       597 sys/kern/thread.c 	list_insert(&amp;kernel_task.threads, &amp;idle_thread.task_link);
+</pre>
+</body>
+</html>

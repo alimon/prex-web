@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>irp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L105'>irp</a>               105 bsp/drv/dev/block/fdd.c 	struct irp	irp;		/* I/O request packet */
+<a href='../S/66.html#L222'>irp</a>               222 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L227'>irp</a>               227 bsp/drv/dev/block/fdd.c 	irp-&gt;error = error;
+<a href='../S/66.html#L228'>irp</a>               228 bsp/drv/dev/block/fdd.c 	sched_wakeup(&amp;irp-&gt;iocomp);
+<a href='../S/66.html#L271'>irp</a>               271 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L276'>irp</a>               276 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L277'>irp</a>               277 bsp/drv/dev/block/fdd.c 	track = irp-&gt;blkno / (FDG_SECTORS * FDG_HEADS);
+<a href='../S/66.html#L297'>irp</a>               297 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L305'>irp</a>               305 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L306'>irp</a>               306 bsp/drv/dev/block/fdd.c 	track = irp-&gt;blkno / (FDG_SECTORS * FDG_HEADS);
+<a href='../S/66.html#L307'>irp</a>               307 bsp/drv/dev/block/fdd.c 	sect = irp-&gt;blkno % FDG_SECTORS + 1;
+<a href='../S/66.html#L308'>irp</a>               308 bsp/drv/dev/block/fdd.c 	io_size = irp-&gt;blksz * SECTOR_SIZE;
+<a href='../S/66.html#L309'>irp</a>               309 bsp/drv/dev/block/fdd.c 	read = (irp-&gt;cmd == IO_READ) ? 1 : 0;
+<a href='../S/66.html#L316'>irp</a>               316 bsp/drv/dev/block/fdd.c 	dma_setup(sc-&gt;dma, irp-&gt;buf, io_size, read);
+<a href='../S/66.html#L337'>irp</a>               337 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L342'>irp</a>               342 bsp/drv/dev/block/fdd.c 	sched_wakeup(&amp;irp-&gt;iocomp);
+<a href='../S/66.html#L353'>irp</a>               353 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L368'>irp</a>               368 bsp/drv/dev/block/fdd.c 		DPRINTF(("fdc: seek/io timeout retry=%d\n", irp-&gt;nr_retry));
+<a href='../S/66.html#L369'>irp</a>               369 bsp/drv/dev/block/fdd.c 		if (++irp-&gt;ntries &lt;= 3)
+<a href='../S/66.html#L390'>irp</a>               390 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L403'>irp</a>               403 bsp/drv/dev/block/fdd.c 		if (irp-&gt;cmd == IO_NONE) {
+<a href='../S/66.html#L426'>irp</a>               426 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L430'>irp</a>               430 bsp/drv/dev/block/fdd.c 	if (irp-&gt;cmd == IO_NONE)
+<a href='../S/66.html#L457'>irp</a>               457 bsp/drv/dev/block/fdd.c 			if (++irp-&gt;ntries &lt;= 3)
+<a href='../S/66.html#L468'>irp</a>               468 bsp/drv/dev/block/fdd.c 			if (++irp-&gt;ntries &lt;= 3)
+<a href='../S/66.html#L495'>irp</a>               495 bsp/drv/dev/block/fdd.c 	sc-&gt;irp.cmd = IO_NONE;
+<a href='../S/66.html#L508'>irp</a>               508 bsp/drv/dev/block/fdd.c 	sc-&gt;irp.cmd = IO_NONE;
+<a href='../S/66.html#L520'>irp</a>               520 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L526'>irp</a>               526 bsp/drv/dev/block/fdd.c 	irp-&gt;cmd = cmd;
+<a href='../S/66.html#L527'>irp</a>               527 bsp/drv/dev/block/fdd.c 	irp-&gt;ntries = 0;
+<a href='../S/66.html#L528'>irp</a>               528 bsp/drv/dev/block/fdd.c 	irp-&gt;blkno = blkno;
+<a href='../S/66.html#L529'>irp</a>               529 bsp/drv/dev/block/fdd.c 	irp-&gt;blksz = blksz;
+<a href='../S/66.html#L530'>irp</a>               530 bsp/drv/dev/block/fdd.c 	irp-&gt;buf = buf;
+<a href='../S/66.html#L531'>irp</a>               531 bsp/drv/dev/block/fdd.c 	irp-&gt;error = 0;
+<a href='../S/66.html#L539'>irp</a>               539 bsp/drv/dev/block/fdd.c 	if (sched_sleep(&amp;irp-&gt;iocomp) == SLP_INTR)
+<a href='../S/66.html#L542'>irp</a>               542 bsp/drv/dev/block/fdd.c 		error = irp-&gt;error;
+<a href='../S/66.html#L677'>irp</a>               677 bsp/drv/dev/block/fdd.c 	struct irp *irp;
+<a href='../S/66.html#L688'>irp</a>               688 bsp/drv/dev/block/fdd.c 	irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L689'>irp</a>               689 bsp/drv/dev/block/fdd.c 	irp-&gt;cmd = IO_NONE;
+<a href='../S/66.html#L690'>irp</a>               690 bsp/drv/dev/block/fdd.c 	event_init(&amp;irp-&gt;iocomp, "fdd i/o");
+<a href='../S/94.html#L55'>irp</a>                55 bsp/drv/include/ddi.h struct irp {
+</pre>
+</body>
+</html>

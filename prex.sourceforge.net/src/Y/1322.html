@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>msr_lo</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/70.html#L395'>msr_lo</a>            395 bsp/drv/dev/cpufreq/est.c 	u_int msr_lo, msr_hi;
+<a href='../S/70.html#L416'>msr_lo</a>            416 bsp/drv/dev/cpufreq/est.c 	rdmsr(MSR_PERF_CTL, &amp;msr_lo, &amp;msr_hi);
+<a href='../S/70.html#L417'>msr_lo</a>            417 bsp/drv/dev/cpufreq/est.c 	msr_lo = (msr_lo &amp; ~0xffff) |
+<a href='../S/70.html#L419'>msr_lo</a>            419 bsp/drv/dev/cpufreq/est.c 	wrmsr(MSR_PERF_CTL, msr_lo, msr_hi);
+<a href='../S/70.html#L454'>msr_lo</a>            454 bsp/drv/dev/cpufreq/est.c 	u_int msr_lo, msr_hi;
+<a href='../S/70.html#L462'>msr_lo</a>            462 bsp/drv/dev/cpufreq/est.c 		msr_lo = 0x1031;
+<a href='../S/70.html#L466'>msr_lo</a>            466 bsp/drv/dev/cpufreq/est.c 		rdmsr(MSR_PERF_STATUS, &amp;msr_lo, &amp;msr_hi);
+<a href='../S/70.html#L468'>msr_lo</a>            468 bsp/drv/dev/cpufreq/est.c 	rdmsr(MSR_PERF_STATUS, &amp;msr_lo, &amp;msr_hi);
+<a href='../S/70.html#L470'>msr_lo</a>            470 bsp/drv/dev/cpufreq/est.c 	mhz = MSR2MHZ(msr_lo);
+<a href='../S/70.html#L471'>msr_lo</a>            471 bsp/drv/dev/cpufreq/est.c 	mv = MSR2MV(msr_lo);
+</pre>
+</body>
+</html>

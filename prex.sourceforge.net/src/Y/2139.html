@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>textsz</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L52'>textsz</a>             52 bsp/boot/common/bootinfo.c 	       m-&gt;text, m-&gt;data, m-&gt;textsz,
+<a href='../S/13.html#L139'>textsz</a>            139 bsp/boot/common/elf.c 			m-&gt;textsz = (size_t)phdr-&gt;p_memsz;
+<a href='../S/13.html#L165'>textsz</a>            165 bsp/boot/common/elf.c 		load_base = phys_base + m-&gt;textsz;
+<a href='../S/13.html#L350'>textsz</a>            350 bsp/boot/common/elf.c 	m-&gt;textsz = (size_t)(m-&gt;data - m-&gt;text);
+<a href='../S/247.html#L67'>textsz</a>             67 include/sys/bootinfo.h 	size_t		textsz;		/* text size */
+<a href='../S/343.html#L695'>textsz</a>            695 sys/mem/vm.c   	error = do_allocate(map, &amp;text, mod-&gt;textsz, 0);
+<a href='../S/343.html#L698'>textsz</a>            698 sys/mem/vm.c   	memcpy(text, src, mod-&gt;textsz);
+<a href='../S/344.html#L466'>textsz</a>            466 sys/mem/vm_nommu.c 	size = mod-&gt;textsz + mod-&gt;datasz + mod-&gt;bsssz;
+</pre>
+</body>
+</html>

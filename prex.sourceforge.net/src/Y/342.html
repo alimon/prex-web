@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>act</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/736.html#L41'>act</a>                41 usr/lib/posix/signal/sigaction.c sigaction(int signum, const struct sigaction *act, struct sigaction *oact)
+<a href='../S/736.html#L58'>act</a>                58 usr/lib/posix/signal/sigaction.c 	if (act != NULL)
+<a href='../S/736.html#L59'>act</a>                59 usr/lib/posix/signal/sigaction.c 		*sa = *act;
+<a href='../S/739.html#L38'>act</a>                38 usr/lib/posix/signal/signal.c 	struct sigaction act, oact;
+<a href='../S/739.html#L45'>act</a>                45 usr/lib/posix/signal/signal.c 	act.sa_handler = handler;
+<a href='../S/739.html#L46'>act</a>                46 usr/lib/posix/signal/signal.c 	act.sa_flags = 0;
+<a href='../S/739.html#L47'>act</a>                47 usr/lib/posix/signal/signal.c 	act.sa_mask = 0;
+<a href='../S/739.html#L49'>act</a>                49 usr/lib/posix/signal/signal.c 		act.sa_mask = sigmask(sig);
+<a href='../S/739.html#L51'>act</a>                51 usr/lib/posix/signal/signal.c 	error = sigaction(sig, &amp;act, &amp;oact);
+</pre>
+</body>
+</html>

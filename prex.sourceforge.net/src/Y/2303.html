@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vec</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L94'>vec</a>                94 bsp/hal/x86/arch/cpu.c gdt_set(int vec, void *base, size_t limit, int type, u_int size)
+<a href='../S/174.html#L96'>vec</a>                96 bsp/hal/x86/arch/cpu.c 	struct seg_desc *seg = &amp;gdt[vec];
+<a href='../S/174.html#L115'>vec</a>               115 bsp/hal/x86/arch/cpu.c idt_set(int vec, trapfn_t off, u_int sel, int type)
+<a href='../S/174.html#L117'>vec</a>               117 bsp/hal/x86/arch/cpu.c 	struct gate_desc *gate = &amp;idt[vec];
+<a href='../S/329.html#L227'>vec</a>               227 sys/kern/irq.c 	int vec = info-&gt;cookie;
+<a href='../S/329.html#L231'>vec</a>               231 sys/kern/irq.c 	while (vec &lt; MAXIRQS) {
+<a href='../S/329.html#L232'>vec</a>               232 sys/kern/irq.c 		if (irq_table[vec]) {
+<a href='../S/329.html#L236'>vec</a>               236 sys/kern/irq.c 		vec++;
+<a href='../S/329.html#L241'>vec</a>               241 sys/kern/irq.c 	irq = irq_table[vec];
+<a href='../S/329.html#L247'>vec</a>               247 sys/kern/irq.c 	info-&gt;cookie = vec + 1;
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>newtask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/903.html#L643'>newtask</a>           643 usr/server/fs/vfs/main.c 	struct task *newtask;
+<a href='../S/903.html#L649'>newtask</a>           649 usr/server/fs/vfs/main.c 	if ((error = task_alloc((task_t)msg-&gt;data[0], &amp;newtask)) != 0)
+<a href='../S/903.html#L655'>newtask</a>           655 usr/server/fs/vfs/main.c 	newtask-&gt;t_cwdfp = t-&gt;t_cwdfp;
+<a href='../S/903.html#L656'>newtask</a>           656 usr/server/fs/vfs/main.c 	strlcpy(newtask-&gt;t_cwd, t-&gt;t_cwd, sizeof(newtask-&gt;t_cwd));
+<a href='../S/903.html#L659'>newtask</a>           659 usr/server/fs/vfs/main.c 		newtask-&gt;t_ofile[i] = fp;
+<a href='../S/903.html#L669'>newtask</a>           669 usr/server/fs/vfs/main.c 	if (newtask-&gt;t_cwdfp)
+<a href='../S/903.html#L670'>newtask</a>           670 usr/server/fs/vfs/main.c 		newtask-&gt;t_cwdfp-&gt;f_count++;
+<a href='../S/903.html#L672'>newtask</a>           672 usr/server/fs/vfs/main.c 	if (newtask-&gt;t_cwdfp)
+<a href='../S/903.html#L673'>newtask</a>           673 usr/server/fs/vfs/main.c 		vref(newtask-&gt;t_cwdfp-&gt;f_vnode);
+<a href='../S/917.html#L283'>newtask</a>           283 usr/server/proc/main.c 	task_t orgtask, newtask;
+<a href='../S/917.html#L289'>newtask</a>           289 usr/server/proc/main.c 	newtask = (task_t)msg-&gt;data[1];
+<a href='../S/917.html#L294'>newtask</a>           294 usr/server/proc/main.c 	p-&gt;p_task = newtask;
+<a href='../S/917.html#L301'>newtask</a>           301 usr/server/proc/main.c 		sys_debug(DBGC_TRACE, (void *)newtask);
+</pre>
+</body>
+</html>

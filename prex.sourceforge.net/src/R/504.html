@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>KMC_STS</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/74.html#L73'>KMC_STS</a>            73 bsp/drv/dev/input/i8042.h #define kmc_wait_obf()	while ((bus_read_8(KMC_STS) &amp; STS_OBF) == 0)
+<a href='../S/74.html#L74'>KMC_STS</a>            74 bsp/drv/dev/input/i8042.h #define kmc_wait_obe()	while (bus_read_8(KMC_STS) &amp; STS_OBF)
+<a href='../S/74.html#L75'>KMC_STS</a>            75 bsp/drv/dev/input/i8042.h #define kmc_wait_ibf()	while ((bus_read_8(KMC_STS) &amp; STS_IBF) == 0)
+<a href='../S/74.html#L76'>KMC_STS</a>            76 bsp/drv/dev/input/i8042.h #define kmc_wait_ibe()	while (bus_read_8(KMC_STS) &amp; STS_IBF)
+<a href='../S/76.html#L132'>KMC_STS</a>           132 bsp/drv/dev/input/pckbd.c 		while (bus_read_8(KMC_STS) &amp; 2);
+<a href='../S/76.html#L134'>KMC_STS</a>           134 bsp/drv/dev/input/pckbd.c 		while (bus_read_8(KMC_STS) &amp; 2);
+<a href='../S/76.html#L286'>KMC_STS</a>           286 bsp/drv/dev/input/pckbd.c 	while (bus_read_8(KMC_STS) &amp; STS_OBF)
+<a href='../S/77.html#L123'>KMC_STS</a>           123 bsp/drv/dev/input/psaux.c 	if ((bus_read_8(KMC_STS) &amp; 0x20) == 0x20) {
+<a href='../S/77.html#L144'>KMC_STS</a>           144 bsp/drv/dev/input/psaux.c 	if ((bus_read_8(KMC_STS) &amp; 0x21) != 0x21)
+<a href='../S/77.html#L152'>KMC_STS</a>           152 bsp/drv/dev/input/psaux.c 		if ((bus_read_8(KMC_STS) &amp; 0x20) == 0x20) {
+</pre>
+</body>
+</html>

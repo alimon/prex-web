@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>refcnt</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/305.html#L46'>refcnt</a>             46 sys/include/device.h 	int		refcnt;		/* reference count */
+<a href='../S/316.html#L44'>refcnt</a>             44 sys/include/sync.h 	int		refcnt;		/* reference count */
+<a href='../S/323.html#L71'>refcnt</a>             71 sys/include/vm.h 	int		refcnt;		/* reference count */
+<a href='../S/327.html#L164'>refcnt</a>            164 sys/kern/device.c 	dev-&gt;refcnt = 1;
+<a href='../S/327.html#L256'>refcnt</a>            256 sys/kern/device.c 	dev-&gt;refcnt++;
+<a href='../S/327.html#L271'>refcnt</a>            271 sys/kern/device.c 	if (--dev-&gt;refcnt &gt; 0) {
+<a href='../S/343.html#L466'>refcnt</a>            466 sys/mem/vm.c   	map-&gt;refcnt = 1;
+<a href='../S/343.html#L487'>refcnt</a>            487 sys/mem/vm.c   	if (--map-&gt;refcnt &gt; 0)
+<a href='../S/343.html#L665'>refcnt</a>            665 sys/mem/vm.c   	map-&gt;refcnt++;
+<a href='../S/344.html#L377'>refcnt</a>            377 sys/mem/vm_nommu.c 	map-&gt;refcnt = 1;
+<a href='../S/344.html#L393'>refcnt</a>            393 sys/mem/vm_nommu.c 	if (--map-&gt;refcnt &gt; 0)
+<a href='../S/344.html#L442'>refcnt</a>            442 sys/mem/vm_nommu.c 	map-&gt;refcnt++;
+<a href='../S/347.html#L109'>refcnt</a>            109 sys/sync/sem.c 		s-&gt;refcnt = 1;
+<a href='../S/347.html#L278'>refcnt</a>            278 sys/sync/sem.c 	s-&gt;refcnt++;
+<a href='../S/347.html#L290'>refcnt</a>            290 sys/sync/sem.c 	if (--s-&gt;refcnt &gt; 0)
+</pre>
+</body>
+</html>

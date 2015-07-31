@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cmp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/276.html#L79'>cmp</a>                79 include/sys/time.h #define	timercmp(tvp, uvp, cmp)						\
+<a href='../S/276.html#L81'>cmp</a>                81 include/sys/time.h 	    ((tvp)-&gt;tv_usec cmp (uvp)-&gt;tv_usec) :			\
+<a href='../S/276.html#L82'>cmp</a>                82 include/sys/time.h 	    ((tvp)-&gt;tv_sec cmp (uvp)-&gt;tv_sec))
+<a href='../S/575.html#L83'>cmp</a>                83 usr/lib/libc/stdlib/qsort.c med3(a, b, c, cmp)
+<a href='../S/575.html#L85'>cmp</a>                85 usr/lib/libc/stdlib/qsort.c 	int (*cmp)(const void *, const void *);
+<a href='../S/575.html#L87'>cmp</a>                87 usr/lib/libc/stdlib/qsort.c 	return cmp(a, b) &lt; 0 ?
+<a href='../S/575.html#L88'>cmp</a>                88 usr/lib/libc/stdlib/qsort.c 	       (cmp(b, c) &lt; 0 ? b : (cmp(a, c) &lt; 0 ? c : a ))
+<a href='../S/575.html#L89'>cmp</a>                89 usr/lib/libc/stdlib/qsort.c               :(cmp(b, c) &gt; 0 ? b : (cmp(a, c) &lt; 0 ? a : c ));
+<a href='../S/575.html#L93'>cmp</a>                93 usr/lib/libc/stdlib/qsort.c qsort(a, n, es, cmp)
+<a href='../S/575.html#L96'>cmp</a>                96 usr/lib/libc/stdlib/qsort.c 	int (*cmp)(const void *, const void *);
+<a href='../S/575.html#L105'>cmp</a>               105 usr/lib/libc/stdlib/qsort.c 			for (pl = pm; pl &gt; (char *) a &amp;&amp; cmp(pl - es, pl) &gt; 0;
+<a href='../S/575.html#L116'>cmp</a>               116 usr/lib/libc/stdlib/qsort.c 			pl = med3(pl, pl + d, pl + 2 * d, cmp);
+<a href='../S/575.html#L117'>cmp</a>               117 usr/lib/libc/stdlib/qsort.c 			pm = med3(pm - d, pm, pm + d, cmp);
+<a href='../S/575.html#L118'>cmp</a>               118 usr/lib/libc/stdlib/qsort.c 			pn = med3(pn - 2 * d, pn - d, pn, cmp);
+<a href='../S/575.html#L120'>cmp</a>               120 usr/lib/libc/stdlib/qsort.c 		pm = med3(pl, pm, pn, cmp);
+<a href='../S/575.html#L127'>cmp</a>               127 usr/lib/libc/stdlib/qsort.c 		while (pb &lt;= pc &amp;&amp; (r = cmp(pb, a)) &lt;= 0) {
+<a href='../S/575.html#L135'>cmp</a>               135 usr/lib/libc/stdlib/qsort.c 		while (pb &lt;= pc &amp;&amp; (r = cmp(pc, a)) &gt;= 0) {
+<a href='../S/575.html#L152'>cmp</a>               152 usr/lib/libc/stdlib/qsort.c 			for (pl = pm; pl &gt; (char *) a &amp;&amp; cmp(pl - es, pl) &gt; 0;
+<a href='../S/575.html#L163'>cmp</a>               163 usr/lib/libc/stdlib/qsort.c 		qsort(a, r / es, es, cmp);
+</pre>
+</body>
+</html>

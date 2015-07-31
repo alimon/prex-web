@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sys/Makefile</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1078.html'>sys</a>/Makefile</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='340.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' /># Rules to compile kernel
+<a id='L2' name='L2' />
+<a id='L3' name='L3' />include $(SRCDIR)/mk/own.mk
+<a id='L4' name='L4' />
+<a id='L5' name='L5' />TARGET:=        prex
+<a id='L6' name='L6' />
+<a id='L7' name='L7' />#MAP:=          prex.map
+<a id='L8' name='L8' />#DISASM:=       prex.lst
+<a id='L9' name='L9' />#SYMBOL:=       prex.sym
+<a id='L10' name='L10' />
+<a id='L11' name='L11' />_KERNEL_:=      1
+<a id='L12' name='L12' />DEFS+=          KERNEL
+<a id='L13' name='L13' />
+<a id='L14' name='L14' />SRCS+=          kern/main.c \
+<a id='L15' name='L15' />                kern/sched.c \
+<a id='L16' name='L16' />                kern/task.c \
+<a id='L17' name='L17' />                kern/thread.c \
+<a id='L18' name='L18' />                kern/timer.c \
+<a id='L19' name='L19' />                kern/sysent.c \
+<a id='L20' name='L20' />                kern/irq.c \
+<a id='L21' name='L21' />                kern/device.c \
+<a id='L22' name='L22' />                kern/exception.c \
+<a id='L23' name='L23' />                kern/system.c \
+<a id='L24' name='L24' />                mem/kmem.c \
+<a id='L25' name='L25' />                mem/page.c \
+<a id='L26' name='L26' />                ipc/msg.c \
+<a id='L27' name='L27' />                ipc/object.c \
+<a id='L28' name='L28' />                sync/cond.c \
+<a id='L29' name='L29' />                sync/mutex.c \
+<a id='L30' name='L30' />                sync/sem.c \
+<a id='L31' name='L31' />                lib/queue.c \
+<a id='L32' name='L32' />                lib/string.c \
+<a id='L33' name='L33' />                lib/vsprintf.c
+<a id='L34' name='L34' />
+<a id='L35' name='L35' />ifeq ($(CONFIG_MMU),y)
+<a id='L36' name='L36' />SRCS+=          mem/vm.c
+<a id='L37' name='L37' />else
+<a id='L38' name='L38' />SRCS+=          mem/vm_nommu.c
+<a id='L39' name='L39' />endif
+<a id='L40' name='L40' />
+<a id='L41' name='L41' />ifeq ($(DEBUG),1)
+<a id='L42' name='L42' />SRCS+=          kern/debug.c
+<a id='L43' name='L43' />endif
+<a id='L44' name='L44' />
+<a id='L45' name='L45' />HAL:=           $(SRCDIR)/bsp/hal/hal.o
+<a id='L46' name='L46' />LIBSDIR+=       $(SRCDIR)/conf
+<a id='L47' name='L47' />INCSDIR+=       $(CURDIR)/include $(SRCDIR)/bsp/hal/$(ARCH)/include
+<a id='L48' name='L48' />ifndef LDSCRIPT
+<a id='L49' name='L49' />LDSCRIPT:=      $(SRCDIR)/bsp/hal/$(ARCH)/arch/kern.ld
+<a id='L50' name='L50' />endif
+<a id='L51' name='L51' />
+<a id='L52' name='L52' />include $(SRCDIR)/mk/common.mk
+<a id='L53' name='L53' />
+<a id='L54' name='L54' />$(TARGET): $(OBJS) $(HAL) $(LDSCRIPT)
+<a id='L55' name='L55' />        $(call echo-file,LD     ,$@)
+<a id='L56' name='L56' />        $(LD) $(LDFLAGS) $(OUTPUT_OPTION) $(HAL) $(OBJS) $(PLATFORM_LIBS)
+<a id='L57' name='L57' />        $(ASMGEN)
+<a id='L58' name='L58' />        $(SYMGEN)
+<a id='L59' name='L59' />        $(STRIP) -s $@
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='340.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

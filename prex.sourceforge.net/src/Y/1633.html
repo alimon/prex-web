@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>policy</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L234'>policy</a>            234 bsp/drv/dev/base/kd.c 			       pol[ti.policy], ti.priority, ti.basepri,
+<a href='../S/63.html#L54'>policy</a>             54 bsp/drv/dev/base/pm.c 	int		policy;		/* power management policy */
+<a href='../S/63.html#L134'>policy</a>            134 bsp/drv/dev/base/pm.c 	int policy, state, event;
+<a href='../S/63.html#L173'>policy</a>            173 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;policy, arg, sizeof(int)))
+<a href='../S/63.html#L175'>policy</a>            175 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: get policy %d\n", sc-&gt;policy));
+<a href='../S/63.html#L179'>policy</a>            179 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;policy, sizeof(int)))
+<a href='../S/63.html#L181'>policy</a>            181 bsp/drv/dev/base/pm.c 		if (policy != PM_POWERSAVE &amp;&amp; policy != PM_PERFORMANCE)
+<a href='../S/63.html#L184'>policy</a>            184 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set policy %d\n", policy));
+<a href='../S/63.html#L186'>policy</a>            186 bsp/drv/dev/base/pm.c 		if (policy == sc-&gt;policy) {
+<a href='../S/63.html#L191'>policy</a>            191 bsp/drv/dev/base/pm.c 		device_broadcast(DEVCTL_PM_CHGPOLICY, &amp;policy, 1);
+<a href='../S/63.html#L193'>policy</a>            193 bsp/drv/dev/base/pm.c 		sc-&gt;policy = policy;
+<a href='../S/63.html#L194'>policy</a>            194 bsp/drv/dev/base/pm.c 		if (policy == PM_POWERSAVE)
+<a href='../S/63.html#L254'>policy</a>            254 bsp/drv/dev/base/pm.c 	if (sc-&gt;policy != PM_POWERSAVE)
+<a href='../S/63.html#L511'>policy</a>            511 bsp/drv/dev/base/pm.c 	sc-&gt;policy = DEFAULT_POWER_POLICY;
+<a href='../S/63.html#L524'>policy</a>            524 bsp/drv/dev/base/pm.c 		 (sc-&gt;policy == PM_POWERSAVE) ? "power save" : "performance"));
+<a href='../S/69.html#L328'>policy</a>            328 bsp/drv/dev/cpufreq/cpufreq.c 	int policy;
+<a href='../S/69.html#L338'>policy</a>            338 bsp/drv/dev/cpufreq/cpufreq.c 		policy = *(int *)arg;
+<a href='../S/69.html#L339'>policy</a>            339 bsp/drv/dev/cpufreq/cpufreq.c 		DPRINTF(("cpufreq: policy=%d\n", policy));
+<a href='../S/69.html#L340'>policy</a>            340 bsp/drv/dev/cpufreq/cpufreq.c 		if (policy == PM_POWERSAVE)
+<a href='../S/69.html#L354'>policy</a>            354 bsp/drv/dev/cpufreq/cpufreq.c 	int policy;
+<a href='../S/69.html#L366'>policy</a>            366 bsp/drv/dev/cpufreq/cpufreq.c 	policy = DEFAULT_POWER_POLICY;
+<a href='../S/69.html#L367'>policy</a>            367 bsp/drv/dev/cpufreq/cpufreq.c 	if (policy == PM_POWERSAVE)
+<a href='../S/267.html#L105'>policy</a>            105 include/sys/prex.h int	thread_getpolicy(thread_t t, int *policy);
+<a href='../S/267.html#L106'>policy</a>            106 include/sys/prex.h int	thread_setpolicy(thread_t t, int policy);
+<a href='../S/272.html#L86'>policy</a>             86 include/sys/sysinfo.h 	int		policy;		/* scheduling policy */
+<a href='../S/319.html#L51'>policy</a>             51 sys/include/thread.h 	int		policy;		/* scheduling policy */
+<a href='../S/331.html#L454'>policy</a>            454 sys/kern/sched.c 		if (curthread-&gt;policy == SCHED_RR) {
+<a href='../S/331.html#L471'>policy</a>            471 sys/kern/sched.c sched_start(thread_t t, int pri, int policy)
+<a href='../S/331.html#L475'>policy</a>            475 sys/kern/sched.c 	t-&gt;policy = policy;
+<a href='../S/331.html#L478'>policy</a>            478 sys/kern/sched.c 	if (t-&gt;policy == SCHED_RR)
+<a href='../S/331.html#L617'>policy</a>            617 sys/kern/sched.c 	return t-&gt;policy;
+<a href='../S/331.html#L624'>policy</a>            624 sys/kern/sched.c sched_setpolicy(thread_t t, int policy)
+<a href='../S/331.html#L628'>policy</a>            628 sys/kern/sched.c 	switch (policy) {
+<a href='../S/331.html#L632'>policy</a>            632 sys/kern/sched.c 		t-&gt;policy = policy;
+<a href='../S/335.html#L301'>policy</a>            301 sys/kern/thread.c 	int pri, policy;
+<a href='../S/335.html#L368'>policy</a>            368 sys/kern/thread.c 		policy = sched_getpolicy(t);
+<a href='../S/335.html#L369'>policy</a>            369 sys/kern/thread.c 		if (copyout(&amp;policy, param, sizeof(policy)))
+<a href='../S/335.html#L374'>policy</a>            374 sys/kern/thread.c 		if (copyin(param, &amp;policy, sizeof(policy))) {
+<a href='../S/335.html#L378'>policy</a>            378 sys/kern/thread.c 		error = sched_setpolicy(t, policy);
+<a href='../S/335.html#L496'>policy</a>            496 sys/kern/thread.c 			info-&gt;policy = t-&gt;policy;
+<a href='../S/404.html#L137'>policy</a>            137 usr/bin/ps/ps.c 				       pol[ti.policy],
+<a href='../S/803.html#L35'>policy</a>             35 usr/lib/prex/syscalls/thread_getpolicy.c thread_getpolicy(thread_t t, int *policy)
+<a href='../S/803.html#L38'>policy</a>             38 usr/lib/prex/syscalls/thread_getpolicy.c 	return thread_schedparam(t, 2, policy);
+<a href='../S/809.html#L35'>policy</a>             35 usr/lib/prex/syscalls/thread_setpolicy.c thread_setpolicy(thread_t t, int policy)
+<a href='../S/809.html#L38'>policy</a>             38 usr/lib/prex/syscalls/thread_setpolicy.c 	return thread_schedparam(t, 3, &amp;policy);
+<a href='../S/870.html#L168'>policy</a>            168 usr/sbin/pmctrl/pmctrl.c 	int policy;
+<a href='../S/870.html#L173'>policy</a>            173 usr/sbin/pmctrl/pmctrl.c 	policy = m.data[0];
+<a href='../S/870.html#L175'>policy</a>            175 usr/sbin/pmctrl/pmctrl.c 	       policy == PM_PERFORMANCE ? "high performance" : "power save");
+<a href='../S/916.html#L124'>policy</a>            124 usr/server/pow/pow.c 	int policy;
+<a href='../S/916.html#L126'>policy</a>            126 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_GET_POLICY, &amp;policy);
+<a href='../S/916.html#L127'>policy</a>            127 usr/server/pow/pow.c 	msg-&gt;data[0] = policy;
+<a href='../S/916.html#L134'>policy</a>            134 usr/server/pow/pow.c 	int policy;
+<a href='../S/916.html#L136'>policy</a>            136 usr/server/pow/pow.c 	policy = msg-&gt;data[0];
+<a href='../S/916.html#L137'>policy</a>            137 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_SET_POLICY, &amp;policy);
+</pre>
+</body>
+</html>

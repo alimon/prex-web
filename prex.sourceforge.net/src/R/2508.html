@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sem_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L144'>sem_t</a>             144 include/sys/prex.h int	sem_init(sem_t *sp, u_int value);
+<a href='../S/267.html#L145'>sem_t</a>             145 include/sys/prex.h int	sem_destroy(sem_t *sp);
+<a href='../S/267.html#L146'>sem_t</a>             146 include/sys/prex.h int	sem_wait(sem_t *sp, u_long timeout);
+<a href='../S/267.html#L147'>sem_t</a>             147 include/sys/prex.h int	sem_trywait(sem_t *sp);
+<a href='../S/267.html#L148'>sem_t</a>             148 include/sys/prex.h int	sem_post(sem_t *sp);
+<a href='../S/267.html#L149'>sem_t</a>             149 include/sys/prex.h int	sem_getvalue(sem_t *sp, u_int *value);
+<a href='../S/277.html#L73'>sem_t</a>              73 include/sys/types.h #define SEM_NULL	   ((sem_t)0)
+<a href='../S/316.html#L73'>sem_t</a>              73 sys/include/sync.h int	 sem_init(sem_t *, u_int);
+<a href='../S/316.html#L74'>sem_t</a>              74 sys/include/sync.h int	 sem_destroy(sem_t *);
+<a href='../S/316.html#L75'>sem_t</a>              75 sys/include/sync.h int	 sem_wait(sem_t *, u_long);
+<a href='../S/316.html#L76'>sem_t</a>              76 sys/include/sync.h int	 sem_trywait(sem_t *);
+<a href='../S/316.html#L77'>sem_t</a>              77 sys/include/sync.h int	 sem_post(sem_t *);
+<a href='../S/316.html#L78'>sem_t</a>              78 sys/include/sync.h int	 sem_getvalue(sem_t *, u_int *);
+<a href='../S/347.html#L42'>sem_t</a>              42 sys/sync/sem.c static int	sem_valid(sem_t);
+<a href='../S/347.html#L43'>sem_t</a>              43 sys/sync/sem.c static void	sem_release(sem_t);
+<a href='../S/347.html#L44'>sem_t</a>              44 sys/sync/sem.c static void	sem_reference(sem_t);
+<a href='../S/347.html#L45'>sem_t</a>              45 sys/sync/sem.c static int	sem_copyin(sem_t *, sem_t *);
+<a href='../S/347.html#L59'>sem_t</a>              59 sys/sync/sem.c sem_init(sem_t *sp, u_int value)
+<a href='../S/347.html#L62'>sem_t</a>              62 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L127'>sem_t</a>             127 sys/sync/sem.c sem_destroy(sem_t *sp)
+<a href='../S/347.html#L129'>sem_t</a>             129 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L162'>sem_t</a>             162 sys/sync/sem.c sem_wait(sem_t *sp, u_long timeout)
+<a href='../S/347.html#L164'>sem_t</a>             164 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L203'>sem_t</a>             203 sys/sync/sem.c sem_trywait(sem_t *sp)
+<a href='../S/347.html#L205'>sem_t</a>             205 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L229'>sem_t</a>             229 sys/sync/sem.c sem_post(sem_t *sp)
+<a href='../S/347.html#L231'>sem_t</a>             231 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L254'>sem_t</a>             254 sys/sync/sem.c sem_getvalue(sem_t *sp, u_int *value)
+<a href='../S/347.html#L256'>sem_t</a>             256 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L275'>sem_t</a>             275 sys/sync/sem.c sem_reference(sem_t s)
+<a href='../S/347.html#L286'>sem_t</a>             286 sys/sync/sem.c sem_release(sem_t s)
+<a href='../S/347.html#L288'>sem_t</a>             288 sys/sync/sem.c 	sem_t *sp;
+<a href='../S/347.html#L309'>sem_t</a>             309 sys/sync/sem.c 	sem_t s;
+<a href='../S/347.html#L319'>sem_t</a>             319 sys/sync/sem.c sem_valid(sem_t s)
+<a href='../S/347.html#L321'>sem_t</a>             321 sys/sync/sem.c 	sem_t tmp;
+<a href='../S/347.html#L336'>sem_t</a>             336 sys/sync/sem.c sem_copyin(sem_t *usp, sem_t *ksp)
+<a href='../S/347.html#L338'>sem_t</a>             338 sys/sync/sem.c 	sem_t s;
+<a href='../S/787.html#L33'>sem_t</a>              33 usr/lib/prex/syscalls/sem_wait.c extern int _sem_wait(sem_t *sem, unsigned long timeout);
+<a href='../S/787.html#L39'>sem_t</a>              39 usr/lib/prex/syscalls/sem_wait.c sem_wait(sem_t *sem, unsigned long msec)
+<a href='../S/843.html#L37'>sem_t</a>              37 usr/sample/sem/sem.c static sem_t sem;
+<a href='../S/906.html#L78'>sem_t</a>              78 usr/server/fs/vfs/vfs_bio.c static sem_t free_sem;
+<a href='../S/988.html#L40'>sem_t</a>              40 usr/test/sem/sem.c 	sem_t sem;
+</pre>
+</body>
+</html>

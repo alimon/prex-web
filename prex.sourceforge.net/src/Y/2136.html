@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>text</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L52'>text</a>               52 bsp/boot/common/bootinfo.c 	       m-&gt;text, m-&gt;data, m-&gt;textsz,
+<a href='../S/13.html#L138'>text</a>              138 bsp/boot/common/elf.c 			m-&gt;text = phdr-&gt;p_vaddr;
+<a href='../S/13.html#L146'>text</a>              146 bsp/boot/common/elf.c 			load_base = phys_base + (m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L302'>text</a>              302 bsp/boot/common/elf.c 				m-&gt;text = (vaddr_t)ptokv(load_base);
+<a href='../S/13.html#L350'>text</a>              350 bsp/boot/common/elf.c 	m-&gt;textsz = (size_t)(m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L356'>text</a>              356 bsp/boot/common/elf.c 	ELFDBG(("module load_base=%lx text=%lx\n", load_base, m-&gt;text));
+<a href='../S/13.html#L357'>text</a>              357 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - kvtop(m-&gt;text));
+<a href='../S/207.html#L41'>text</a>               41 include/arm/asm.h 	.text; _ALIGN_TEXT; .globl x; .type x,_ASM_TYPE_FUNCTION; x:
+<a href='../S/235.html#L39'>text</a>               39 include/ppc/asm.h 	.text; .align 2; .globl x; .type x,@function; x:
+<a href='../S/247.html#L65'>text</a>               65 include/sys/bootinfo.h 	vaddr_t		text;		/* text address */
+<a href='../S/281.html#L40'>text</a>               40 include/x86/asm.h 	.text; _ALIGN_TEXT; .globl x; .type x,@function; x:
+<a href='../S/343.html#L677'>text</a>              677 sys/mem/vm.c   	void *text, *data;
+<a href='../S/343.html#L689'>text</a>              689 sys/mem/vm.c   	text = (void *)mod-&gt;text;
+<a href='../S/343.html#L695'>text</a>              695 sys/mem/vm.c   	error = do_allocate(map, &amp;text, mod-&gt;textsz, 0);
+<a href='../S/343.html#L698'>text</a>              698 sys/mem/vm.c   	memcpy(text, src, mod-&gt;textsz);
+<a href='../S/343.html#L699'>text</a>              699 sys/mem/vm.c   	error = do_attribute(map, text, PROT_READ);
+<a href='../S/343.html#L711'>text</a>              711 sys/mem/vm.c   			src = src + (mod-&gt;data - mod-&gt;text);
+<a href='../S/344.html#L465'>text</a>              465 sys/mem/vm_nommu.c 	base = mod-&gt;text;
+</pre>
+</body>
+</html>

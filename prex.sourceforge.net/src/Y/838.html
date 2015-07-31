@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fat</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L177'>fat</a>               177 usr/server/fs/fatfs/fatfs.h #define FAT12(fat)	((fat)-&gt;fat_type == 12)
+<a href='../S/888.html#L178'>fat</a>               178 usr/server/fs/fatfs/fatfs.h #define FAT16(fat)	((fat)-&gt;fat_type == 16)
+<a href='../S/888.html#L180'>fat</a>               180 usr/server/fs/fatfs/fatfs.h #define IS_EOFCL(fat, cl) \
+<a href='../S/888.html#L181'>fat</a>               181 usr/server/fs/fatfs/fatfs.h 	(((cl) &amp; EOF_MASK) == ((fat)-&gt;fat_mask &amp; EOF_MASK))
+<a href='../S/888.html#L195'>fat</a>               195 usr/server/fs/fatfs/fatfs.h #define cl_to_sec(fat, cl) \
+<a href='../S/888.html#L196'>fat</a>               196 usr/server/fs/fatfs/fatfs.h             (fat-&gt;data_start + (cl - 2) * fat-&gt;sec_per_cl)
+</pre>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/include/stdlib.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1118.html'>include</a>/stdlib.h</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='442.html#L48'>[^]</a><a href='442.html#L53'>[v]</a>[top]<a href='442.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/443.html' title='Multiple included from 141 places.'>INCLUDED FROM</a></h2>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='442.html#L48' title='Defined at 48.'>div_t</a></li>
+<li><a href='442.html#L53' title='Defined at 53.'>ldiv_t</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1990, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> *</em>
+<a id='L29' name='L29' />  29 <em class='comment'> *      @(#)stdlib.h    8.5 (Berkeley) 5/19/95</em>
+<a id='L30' name='L30' />  30 <em class='comment'> */</em>
+<a id='L31' name='L31' />  31 
+<a id='L32' name='L32' />  32 <em class='sharp'>#ifndef</em> <a href='442.html#L33' title='Defined at 33 in usr/include/stdlib.h.'>_STDLIB_H_</a>
+<a id='L33' name='L33' />  33 <em class='sharp'>#define</em> <a href='442.html#L32' title='Refered from 32 in usr/include/stdlib.h.'>_STDLIB_H_</a>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../D/2165.html' title='Multiple defined in 6 places.'>_SIZE_T</a>)
+<a id='L36' name='L36' />  36 <em class='sharp'>#define</em> <a href='../R/1306.html' title='Multiple refered from 6 places.'>_SIZE_T</a>
+<a id='L37' name='L37' />  37 <strong class='reserved'>typedef</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>    <a href='../R/2572.html' title='Multiple refered from 460 places.'>size_t</a>;         <em class='comment'>/* size of something in bytes */</em>
+<a id='L38' name='L38' />  38 <em class='sharp'>#endif</em>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../D/2223.html' title='Multiple defined in 2 places.'>_WCHAR_T</a>)
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/1364.html' title='Multiple refered from 2 places.'>_WCHAR_T</a>
+<a id='L42' name='L42' />  42 <strong class='reserved'>typedef</strong> <strong class='reserved'>int</strong>             <a href='../R/2929.html' title='Multiple refered from 4 places.'>wchar_t</a>;
+<a id='L43' name='L43' />  43 <em class='sharp'>#endif</em>
+<a id='L44' name='L44' />  44 
+<a id='L45' name='L45' />  45 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L46' name='L46' />  46         <strong class='reserved'>int</strong> <a href='../Y/1685.html' title='Multiple used in 4 places.'>quot</a>;               <em class='comment'>/* quotient */</em>
+<a id='L47' name='L47' />  47         <strong class='reserved'>int</strong> <a href='../Y/1739.html' title='Multiple used in 5 places.'>rem</a>;                <em class='comment'>/* remainder */</em>
+<a id='L48' name='L48' />  48 <em class='brace'>}</em> <a href='../R/1690.html' title='Multiple refered from 3 places.'>div_t</a>;
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L51' name='L51' />  51         <strong class='reserved'>long</strong> <a href='../Y/1685.html' title='Multiple used in 4 places.'>quot</a>;              <em class='comment'>/* quotient */</em>
+<a id='L52' name='L52' />  52         <strong class='reserved'>long</strong> <a href='../Y/1739.html' title='Multiple used in 5 places.'>rem</a>;               <em class='comment'>/* remainder */</em>
+<a id='L53' name='L53' />  53 <em class='brace'>}</em> <a href='442.html#L84' title='Refered from 84 in usr/include/stdlib.h.'>ldiv_t</a>;
+<a id='L54' name='L54' />  54 
+<a id='L55' name='L55' />  55 <em class='sharp'>#ifndef</em> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> <a href='../R/660.html' title='Multiple refered from 755 places.'>NULL</a>    0
+<a id='L57' name='L57' />  57 <em class='sharp'>#endif</em>
+<a id='L58' name='L58' />  58 
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> EXIT_FAILURE    1
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> EXIT_SUCCESS    0
+<a id='L61' name='L61' />  61 
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> <a href='576.html#L38' title='Refered from 38 in usr/lib/libc/stdlib/rand.c.'>RAND_MAX</a>        0x7fffffff
+<a id='L63' name='L63' />  63 
+<a id='L64' name='L64' />  64 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> <a href='../Y/279.html' title='Multiple used in 2 places.'>__mb_cur_max</a>;
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> MB_CUR_MAX      <a href='../Y/279.html' title='Multiple used in 2 places.'>__mb_cur_max</a>
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L68' name='L68' />  68 
+<a id='L69' name='L69' />  69 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L70' name='L70' />  70 <strong class='reserved'>void</strong>     <a href='560.html#L36' title='Defined at 36 in usr/lib/libc/stdlib/abort.c.'>abort</a>(<strong class='reserved'>void</strong>) <a href='../Y/281.html' title='Multiple used in 7 places.'>__noreturn</a>;
+<a id='L71' name='L71' />  71 <strong class='reserved'>int</strong>      <a href='442.html#L71' title='Used at 71 in usr/include/stdlib.h.'>abs</a>(<strong class='reserved'>int</strong>);
+<a id='L72' name='L72' />  72 <strong class='reserved'>int</strong>      <a href='442.html#L72' title='Used at 72 in usr/include/stdlib.h.'>atexit</a>(<strong class='reserved'>void</strong> (*)(<strong class='reserved'>void</strong>));
+<a id='L73' name='L73' />  73 <strong class='reserved'>double</strong>   <a href='442.html#L73' title='Used at 73 in usr/include/stdlib.h.'>atof</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L74' name='L74' />  74 <strong class='reserved'>int</strong>      <a href='442.html#L74' title='Used at 74 in usr/include/stdlib.h.'>atoi</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L75' name='L75' />  75 <strong class='reserved'>long</strong>     <a href='442.html#L75' title='Used at 75 in usr/include/stdlib.h.'>atol</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L76' name='L76' />  76 <strong class='reserved'>void</strong>    *<a href='442.html#L76' title='Used at 76 in usr/include/stdlib.h.'>bsearch</a>(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>,
+<a id='L77' name='L77' />  77             <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <strong class='reserved'>int</strong> (*)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *));
+<a id='L78' name='L78' />  78 <strong class='reserved'>void</strong>    *<a href='442.html#L78' title='Used at 78 in usr/include/stdlib.h.'>calloc</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L79' name='L79' />  79 <a href='442.html#L48' title='Defined at 48 in usr/include/stdlib.h.'>div_t</a>    <a href='442.html#L79' title='Used at 79 in usr/include/stdlib.h.'>div</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>int</strong>);
+<a id='L80' name='L80' />  80 <strong class='reserved'>void</strong>     <a href='442.html#L80' title='Used at 80 in usr/include/stdlib.h.'>exit</a>(<strong class='reserved'>int</strong>) <a href='../Y/281.html' title='Multiple used in 7 places.'>__noreturn</a>;
+<a id='L81' name='L81' />  81 <strong class='reserved'>void</strong>     <a href='../Y/913.html' title='Multiple used in 3 places.'>free</a>(<strong class='reserved'>void</strong> *);
+<a id='L82' name='L82' />  82 <strong class='reserved'>char</strong>    *<a href='442.html#L82' title='Used at 82 in usr/include/stdlib.h.'>getenv</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L83' name='L83' />  83 <strong class='reserved'>long</strong>     <a href='442.html#L83' title='Used at 83 in usr/include/stdlib.h.'>labs</a>(<strong class='reserved'>long</strong>);
+<a id='L84' name='L84' />  84 <a href='442.html#L53' title='Defined at 53 in usr/include/stdlib.h.'>ldiv_t</a>   <a href='442.html#L84' title='Used at 84 in usr/include/stdlib.h.'>ldiv</a>(<strong class='reserved'>long</strong>, <strong class='reserved'>long</strong>);
+<a id='L85' name='L85' />  85 <strong class='reserved'>void</strong>     <a href='442.html#L85' title='Used at 85 in usr/include/stdlib.h.'>mstat</a>(<strong class='reserved'>void</strong>);
+<a id='L86' name='L86' />  86 <strong class='reserved'>void</strong>    *<a href='442.html#L86' title='Used at 86 in usr/include/stdlib.h.'>malloc</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L87' name='L87' />  87 <strong class='reserved'>void</strong>     <a href='442.html#L87' title='Used at 87 in usr/include/stdlib.h.'>qsort</a>(<strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>,
+<a id='L88' name='L88' />  88             <strong class='reserved'>int</strong> (*)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *));
+<a id='L89' name='L89' />  89 <strong class='reserved'>int</strong>      <a href='442.html#L89' title='Used at 89 in usr/include/stdlib.h.'>rand</a>(<strong class='reserved'>void</strong>);
+<a id='L90' name='L90' />  90 <strong class='reserved'>void</strong>    *<a href='442.html#L90' title='Used at 90 in usr/include/stdlib.h.'>realloc</a>(<strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L91' name='L91' />  91 <strong class='reserved'>void</strong>     <a href='442.html#L91' title='Used at 91 in usr/include/stdlib.h.'>srand</a>(<strong class='reserved'>unsigned</strong>);
+<a id='L92' name='L92' />  92 <strong class='reserved'>double</strong>   <a href='../Y/2036.html' title='Multiple used in 2 places.'>strtod</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **);
+<a id='L93' name='L93' />  93 <strong class='reserved'>long</strong>     <a href='442.html#L93' title='Used at 93 in usr/include/stdlib.h.'>strtol</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **, <strong class='reserved'>int</strong>);
+<a id='L94' name='L94' />  94 <strong class='reserved'>unsigned</strong> <strong class='reserved'>long</strong>
+<a id='L95' name='L95' />  95          <a href='442.html#L95' title='Used at 95 in usr/include/stdlib.h.'>strtoul</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **, <strong class='reserved'>int</strong>);
+<a id='L96' name='L96' />  96 <strong class='reserved'>int</strong>      <a href='442.html#L96' title='Used at 96 in usr/include/stdlib.h.'>system</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L97' name='L97' />  97 
+<a id='L98' name='L98' />  98 <em class='comment'>/* These are currently just stubs. */</em>
+<a id='L99' name='L99' />  99 <strong class='reserved'>int</strong>      <a href='442.html#L99' title='Used at 99 in usr/include/stdlib.h.'>mblen</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L100' name='L100' /> 100 <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>   <a href='442.html#L100' title='Used at 100 in usr/include/stdlib.h.'>mbstowcs</a>(<a href='../D/3864.html' title='Multiple defined in 2 places.'>wchar_t</a> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L101' name='L101' /> 101 <strong class='reserved'>int</strong>      <a href='442.html#L101' title='Used at 101 in usr/include/stdlib.h.'>wctomb</a>(<strong class='reserved'>char</strong> *, <a href='../D/3864.html' title='Multiple defined in 2 places.'>wchar_t</a>);
+<a id='L102' name='L102' /> 102 <strong class='reserved'>int</strong>      <a href='442.html#L102' title='Used at 102 in usr/include/stdlib.h.'>mbtowc</a>(<a href='../D/3864.html' title='Multiple defined in 2 places.'>wchar_t</a> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L103' name='L103' /> 103 <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>   <a href='442.html#L103' title='Used at 103 in usr/include/stdlib.h.'>wcstombs</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <a href='../D/3864.html' title='Multiple defined in 2 places.'>wchar_t</a> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L104' name='L104' /> 104 
+<a id='L105' name='L105' /> 105 <em class='sharp'>#ifndef</em> <a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>
+<a id='L106' name='L106' /> 106 <strong class='reserved'>int</strong>      <a href='442.html#L106' title='Used at 106 in usr/include/stdlib.h.'>putenv</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L107' name='L107' /> 107 <strong class='reserved'>int</strong>      <a href='442.html#L107' title='Used at 107 in usr/include/stdlib.h.'>setenv</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>int</strong>);
+<a id='L108' name='L108' /> 108 <em class='sharp'>#endif</em>
+<a id='L109' name='L109' /> 109 
+<a id='L110' name='L110' /> 110 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../Y/243.html' title='Multiple used in 10 places.'>_ANSI_SOURCE</a>) &amp;&amp; !<strong class='reserved'>defined</strong>(<a href='../Y/248.html' title='Multiple used in 17 places.'>_POSIX_SOURCE</a>)
+<a id='L111' name='L111' /> 111 <em class='sharp'>#define</em> <a href='../Y/354.html' title='Multiple used in 5 places.'>alloca</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) <a href='442.html#L111' title='Used at 111 in usr/include/stdlib.h.'>__builtin_alloca</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)   <em class='comment'>/* built-in for gcc */</em>
+<a id='L112' name='L112' /> 112 
+<a id='L113' name='L113' /> 113                                         <em class='comment'>/* getcap(3) functions */</em>
+<a id='L114' name='L114' /> 114 <strong class='reserved'>char</strong>    *<a href='442.html#L114' title='Used at 114 in usr/include/stdlib.h.'>getbsize</a>(<strong class='reserved'>int</strong> *, <strong class='reserved'>long</strong> *);
+<a id='L115' name='L115' /> 115 <strong class='reserved'>char</strong>    *<a href='442.html#L115' title='Used at 115 in usr/include/stdlib.h.'>cgetcap</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>int</strong>);
+<a id='L116' name='L116' /> 116 <strong class='reserved'>int</strong>      <a href='442.html#L116' title='Used at 116 in usr/include/stdlib.h.'>cgetclose</a>(<strong class='reserved'>void</strong>);
+<a id='L117' name='L117' /> 117 <strong class='reserved'>int</strong>      <a href='442.html#L117' title='Used at 117 in usr/include/stdlib.h.'>cgetent</a>(<strong class='reserved'>char</strong> **, <strong class='reserved'>char</strong> **, <strong class='reserved'>char</strong> *);
+<a id='L118' name='L118' /> 118 <strong class='reserved'>int</strong>      <a href='442.html#L118' title='Used at 118 in usr/include/stdlib.h.'>cgetfirst</a>(<strong class='reserved'>char</strong> **, <strong class='reserved'>char</strong> **);
+<a id='L119' name='L119' /> 119 <strong class='reserved'>int</strong>      <a href='442.html#L119' title='Used at 119 in usr/include/stdlib.h.'>cgetmatch</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *);
+<a id='L120' name='L120' /> 120 <strong class='reserved'>int</strong>      <a href='442.html#L120' title='Used at 120 in usr/include/stdlib.h.'>cgetnext</a>(<strong class='reserved'>char</strong> **, <strong class='reserved'>char</strong> **);
+<a id='L121' name='L121' /> 121 <strong class='reserved'>int</strong>      <a href='442.html#L121' title='Used at 121 in usr/include/stdlib.h.'>cgetnum</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>long</strong> *);
+<a id='L122' name='L122' /> 122 <strong class='reserved'>int</strong>      <a href='442.html#L122' title='Used at 122 in usr/include/stdlib.h.'>cgetset</a>(<strong class='reserved'>char</strong> *);
+<a id='L123' name='L123' /> 123 <strong class='reserved'>int</strong>      <a href='442.html#L123' title='Used at 123 in usr/include/stdlib.h.'>cgetstr</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **);
+<a id='L124' name='L124' /> 124 <strong class='reserved'>int</strong>      <a href='442.html#L124' title='Used at 124 in usr/include/stdlib.h.'>cgetustr</a>(<strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **);
+<a id='L125' name='L125' /> 125 
+<a id='L126' name='L126' /> 126 <strong class='reserved'>int</strong>      <a href='442.html#L126' title='Used at 126 in usr/include/stdlib.h.'>daemon</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>int</strong>);
+<a id='L127' name='L127' /> 127 <strong class='reserved'>char</strong>    *<a href='442.html#L127' title='Used at 127 in usr/include/stdlib.h.'>devname</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>int</strong>);
+<a id='L128' name='L128' /> 128 <strong class='reserved'>int</strong>      <a href='442.html#L128' title='Used at 128 in usr/include/stdlib.h.'>getloadavg</a>(<strong class='reserved'>double</strong> [], <strong class='reserved'>int</strong>);
+<a id='L129' name='L129' /> 129 
+<a id='L130' name='L130' /> 130 <strong class='reserved'>char</strong>    *<a href='442.html#L130' title='Used at 130 in usr/include/stdlib.h.'>group_from_gid</a>(<strong class='reserved'>unsigned</strong> <strong class='reserved'>long</strong>, <strong class='reserved'>int</strong>);
+<a id='L131' name='L131' /> 131 <strong class='reserved'>int</strong>      <a href='442.html#L131' title='Used at 131 in usr/include/stdlib.h.'>heapsort</a>(<strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>,
+<a id='L132' name='L132' /> 132             <strong class='reserved'>int</strong> (*)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *));
+<a id='L133' name='L133' /> 133 <strong class='reserved'>char</strong>    *<a href='442.html#L133' title='Used at 133 in usr/include/stdlib.h.'>initstate</a>(<strong class='reserved'>unsigned</strong> <strong class='reserved'>long</strong>, <strong class='reserved'>char</strong> *, <strong class='reserved'>long</strong>);
+<a id='L134' name='L134' /> 134 <strong class='reserved'>int</strong>      <a href='442.html#L134' title='Used at 134 in usr/include/stdlib.h.'>mergesort</a>(<strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>,
+<a id='L135' name='L135' /> 135             <strong class='reserved'>int</strong> (*)(<strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *, <strong class='reserved'>const</strong> <strong class='reserved'>void</strong> *));
+<a id='L136' name='L136' /> 136 <strong class='reserved'>int</strong>      <a href='442.html#L136' title='Used at 136 in usr/include/stdlib.h.'>radixsort</a>(<strong class='reserved'>const</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> **, <strong class='reserved'>int</strong>, <strong class='reserved'>const</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> *,
+<a id='L137' name='L137' /> 137             <strong class='reserved'>unsigned</strong>);
+<a id='L138' name='L138' /> 138 <strong class='reserved'>int</strong>      <a href='442.html#L138' title='Used at 138 in usr/include/stdlib.h.'>sradixsort</a>(<strong class='reserved'>const</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> **, <strong class='reserved'>int</strong>, <strong class='reserved'>const</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> *,
+<a id='L139' name='L139' /> 139             <strong class='reserved'>unsigned</strong>);
+<a id='L140' name='L140' /> 140 <strong class='reserved'>long</strong>     <a href='442.html#L140' title='Used at 140 in usr/include/stdlib.h.'>random</a>(<strong class='reserved'>void</strong>);
+<a id='L141' name='L141' /> 141 <strong class='reserved'>char</strong>    *<a href='442.html#L141' title='Used at 141 in usr/include/stdlib.h.'>realpath</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> <a href='442.html#L141' title='Used at 141 in usr/include/stdlib.h.'>resolved_path</a>[]);
+<a id='L142' name='L142' /> 142 <strong class='reserved'>char</strong>    *<a href='442.html#L142' title='Used at 142 in usr/include/stdlib.h.'>setstate</a>(<strong class='reserved'>char</strong> *);
+<a id='L143' name='L143' /> 143 <strong class='reserved'>void</strong>     <a href='442.html#L143' title='Used at 143 in usr/include/stdlib.h.'>srandom</a>(<strong class='reserved'>unsigned</strong> <strong class='reserved'>long</strong>);
+<a id='L144' name='L144' /> 144 <strong class='reserved'>char</strong>    *<a href='442.html#L144' title='Used at 144 in usr/include/stdlib.h.'>user_from_uid</a>(<strong class='reserved'>unsigned</strong> <strong class='reserved'>long</strong>, <strong class='reserved'>int</strong>);
+<a id='L145' name='L145' /> 145 <em class='sharp'>#ifndef</em> <a href='442.html#L145' title='Used at 145 in usr/include/stdlib.h.'>__STRICT_ANSI__</a>
+<a id='L146' name='L146' /> 146 <strong class='reserved'>long</strong> <strong class='reserved'>long</strong>
+<a id='L147' name='L147' /> 147          <a href='442.html#L147' title='Used at 147 in usr/include/stdlib.h.'>strtoq</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **, <strong class='reserved'>int</strong>);
+<a id='L148' name='L148' /> 148 <strong class='reserved'>unsigned</strong> <strong class='reserved'>long</strong> <strong class='reserved'>long</strong>
+<a id='L149' name='L149' /> 149          <a href='442.html#L149' title='Used at 149 in usr/include/stdlib.h.'>strtouq</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>char</strong> **, <strong class='reserved'>int</strong>);
+<a id='L150' name='L150' /> 150 <em class='sharp'>#endif</em>
+<a id='L151' name='L151' /> 151 <strong class='reserved'>void</strong>     <a href='442.html#L151' title='Used at 151 in usr/include/stdlib.h.'>unsetenv</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L152' name='L152' /> 152 <em class='sharp'>#endif</em>
+<a id='L153' name='L153' /> 153 
+<a id='L154' name='L154' /> 154 <strong class='reserved'>void</strong>    *<a href='442.html#L154' title='Used at 154 in usr/include/stdlib.h.'>malloc_r</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L155' name='L155' /> 155 <strong class='reserved'>void</strong>     <a href='442.html#L155' title='Used at 155 in usr/include/stdlib.h.'>free_r</a>(<strong class='reserved'>void</strong> *);
+<a id='L156' name='L156' /> 156 
+<a id='L157' name='L157' /> 157 <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *<a href='442.html#L157' title='Used at 157 in usr/include/stdlib.h.'>getprogname</a>(<strong class='reserved'>void</strong>);
+<a id='L158' name='L158' /> 158 
+<a id='L159' name='L159' /> 159 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L160' name='L160' /> 160 
+<a id='L161' name='L161' /> 161 <em class='sharp'>#endif</em> <em class='comment'>/* _STDLIB_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='442.html#L48'>[^]</a><a href='442.html#L53'>[v]</a><a href='442.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

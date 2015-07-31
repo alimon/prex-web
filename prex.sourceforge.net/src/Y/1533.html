@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>p_task</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/917.html#L294'>p_task</a>            294 usr/server/proc/main.c 	p-&gt;p_task = newtask;
+<a href='../S/917.html#L464'>p_task</a>            464 usr/server/proc/main.c 			stat[p-&gt;p_stat], p-&gt;p_task);
+<a href='../S/917.html#L509'>p_task</a>            509 usr/server/proc/main.c 	p-&gt;p_task = task_self();
+<a href='../S/919.html#L100'>p_task</a>            100 usr/server/proc/proc.h 	task_t		p_task;		/* task id */
+<a href='../S/920.html#L94'>p_task</a>             94 usr/server/proc/proc_exit.c 		error = task_terminate(curproc-&gt;p_task);
+<a href='../S/920.html#L102'>p_task</a>            102 usr/server/proc/proc_exit.c 	exception_raise(curproc-&gt;p_parent-&gt;p_task, SIGCHLD);
+<a href='../S/920.html#L126'>p_task</a>            126 usr/server/proc/proc_exit.c 	exception_raise(curproc-&gt;p_parent-&gt;p_task, SIGCHLD);
+<a href='../S/921.html#L105'>p_task</a>            105 usr/server/proc/proc_fork.c 	p-&gt;p_task = task;
+<a href='../S/921.html#L187'>p_task</a>            187 usr/server/proc/proc_fork.c 	if (vm_allocate(p-&gt;p_task, &amp;stack, DFLSTKSZ, 1) != 0) {
+<a href='../S/921.html#L209'>p_task</a>            209 usr/server/proc/proc_fork.c 	vm_free(p-&gt;p_task, p-&gt;p_stacksaved);
+<a href='../S/921.html#L215'>p_task</a>            215 usr/server/proc/proc_fork.c 	task_resume(p-&gt;p_task);
+<a href='../S/922.html#L103'>p_task</a>            103 usr/server/proc/proc_hash.c 		if (p-&gt;p_task == task)
+<a href='../S/922.html#L119'>p_task</a>            119 usr/server/proc/proc_hash.c 	list_insert(&amp;task_table[IDHASH(p-&gt;p_task)], &amp;p-&gt;p_task_link);
+<a href='../S/924.html#L51'>p_task</a>             51 usr/server/proc/proc_sig.c 	if (task_chkcap(curproc-&gt;p_task, CAP_KILL) == 0)
+<a href='../S/924.html#L77'>p_task</a>             77 usr/server/proc/proc_sig.c 	DPRINTF(("proc: sendsig task=%x\n", p-&gt;p_task));
+<a href='../S/924.html#L78'>p_task</a>             78 usr/server/proc/proc_sig.c 	return exception_raise(p-&gt;p_task, sig);
+</pre>
+</body>
+</html>

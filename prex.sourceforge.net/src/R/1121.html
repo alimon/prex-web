@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>USER_CS</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/173.html#L108'>USER_CS</a>           108 bsp/hal/x86/arch/context.c 		u-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/173.html#L197'>USER_CS</a>           197 bsp/hal/x86/arch/context.c 	cur-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/174.html#L137'>USER_CS</a>           137 bsp/hal/x86/arch/cpu.c 	gdt_set(USER_CS / 8, 0, 0xffffffff, ST_USER | ST_CODE_R, SIZE_32);
+<a href='../S/174.html#L204'>USER_CS</a>           204 bsp/hal/x86/arch/cpu.c 	tss.cs = (uint32_t)USER_CS | 3;
+<a href='../S/174.html#L205'>USER_CS</a>           205 bsp/hal/x86/arch/cpu.c 	tss.ds = tss.es = tss.ss = tss.fs = tss.gs = (uint32_t)USER_CS | 3;
+</pre>
+</body>
+</html>

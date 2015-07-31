@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>trap_no</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/132.html#L75'>trap_no</a>            75 bsp/hal/arm/arch/trap.c 	u_long trap_no = regs-&gt;r0;
+<a href='../S/132.html#L78'>trap_no</a>            78 bsp/hal/arm/arch/trap.c 	    trap_no == TRAP_DATA_ABORT &amp;&amp;
+<a href='../S/132.html#L89'>trap_no</a>            89 bsp/hal/arm/arch/trap.c 	printf("Trap %x: %s\n", (u_int)trap_no, trap_name[trap_no]);
+<a href='../S/132.html#L90'>trap_no</a>            90 bsp/hal/arm/arch/trap.c 	if (trap_no == TRAP_DATA_ABORT)
+<a href='../S/132.html#L92'>trap_no</a>            92 bsp/hal/arm/arch/trap.c 	else if (trap_no == TRAP_PREFETCH_ABORT)
+<a href='../S/132.html#L102'>trap_no</a>           102 bsp/hal/arm/arch/trap.c 	exception_mark(exception_map[trap_no]);
+<a href='../S/159.html#L100'>trap_no</a>           100 bsp/hal/ppc/arch/trap.c 	uint32_t trap_no = regs-&gt;trap_no;
+<a href='../S/159.html#L104'>trap_no</a>           104 bsp/hal/ppc/arch/trap.c 	printf("Trap %x: %s\n", trap_no, trap_name[trap_no]);
+<a href='../S/159.html#L113'>trap_no</a>           113 bsp/hal/ppc/arch/trap.c 	exception_mark(exception_map[trap_no]);
+<a href='../S/161.html#L52'>trap_no</a>            52 bsp/hal/ppc/include/context.h 	uint32_t	trap_no;	/* trap number */
+<a href='../S/169.html#L181'>trap_no</a>           181 bsp/hal/ppc/prep/interrupt.c 	if (regs-&gt;trap_no == TRAP_DECREMENTER) {
+<a href='../S/179.html#L107'>trap_no</a>           107 bsp/hal/x86/arch/trap.c 	u_long trap_no = regs-&gt;trap_no;
+<a href='../S/179.html#L109'>trap_no</a>           109 bsp/hal/x86/arch/trap.c 	if (trap_no &gt; 18)
+<a href='../S/179.html#L111'>trap_no</a>           111 bsp/hal/x86/arch/trap.c 	else if (trap_no == 2)
+<a href='../S/179.html#L119'>trap_no</a>           119 bsp/hal/x86/arch/trap.c 	if (trap_no == 14 &amp;&amp; regs-&gt;cs == KERNEL_CS &amp;&amp;
+<a href='../S/179.html#L130'>trap_no</a>           130 bsp/hal/x86/arch/trap.c 	printf("Trap %x: %s\n", (u_int)trap_no, trap_name[trap_no]);
+<a href='../S/179.html#L131'>trap_no</a>           131 bsp/hal/x86/arch/trap.c 	if (trap_no == 14)
+<a href='../S/179.html#L145'>trap_no</a>           145 bsp/hal/x86/arch/trap.c 	exception_mark(exception_map[trap_no]);
+<a href='../S/180.html#L55'>trap_no</a>            55 bsp/hal/x86/include/context.h 	uint32_t	trap_no;	/* +36 (24) --- h/w trap frame --- */
+<a href='../S/188.html#L158'>trap_no</a>           158 bsp/hal/x86/pc/interrupt.c 	int vector = (int)regs-&gt;trap_no;
+</pre>
+</body>
+</html>

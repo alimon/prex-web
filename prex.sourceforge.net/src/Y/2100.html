@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_rawq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L210'>t_rawq</a>            210 bsp/drv/dev/base/tty.c 		while (tty_getc(&amp;tp-&gt;t_rawq) != -1)
+<a href='../S/64.html#L325'>t_rawq</a>            325 bsp/drv/dev/base/tty.c 			if (!ttyq_empty(&amp;tp-&gt;t_rawq))
+<a href='../S/64.html#L326'>t_rawq</a>            326 bsp/drv/dev/base/tty.c 				tty_rubout(tty_unputc(&amp;tp-&gt;t_rawq), tp);
+<a href='../S/64.html#L331'>t_rawq</a>            331 bsp/drv/dev/base/tty.c 			while (!ttyq_empty(&amp;tp-&gt;t_rawq))
+<a href='../S/64.html#L332'>t_rawq</a>            332 bsp/drv/dev/base/tty.c 				tty_rubout(tty_unputc(&amp;tp-&gt;t_rawq), tp);
+<a href='../S/64.html#L362'>t_rawq</a>            362 bsp/drv/dev/base/tty.c 	if (ttyq_full(&amp;tp-&gt;t_rawq)) {
+<a href='../S/64.html#L366'>t_rawq</a>            366 bsp/drv/dev/base/tty.c 	tty_putc(c, &amp;tp-&gt;t_rawq);
+<a href='../S/64.html#L370'>t_rawq</a>            370 bsp/drv/dev/base/tty.c 			tty_catq(&amp;tp-&gt;t_rawq, &amp;tp-&gt;t_canq);
+<a href='../S/64.html#L466'>t_rawq</a>            466 bsp/drv/dev/base/tty.c 	qp = (lflag &amp; ICANON) ? &amp;tp-&gt;t_canq : &amp;tp-&gt;t_rawq;
+<a href='../S/64.html#L595'>t_rawq</a>            595 bsp/drv/dev/base/tty.c 		qp = (tp-&gt;t_lflag &amp; ICANON) ? &amp;tp-&gt;t_canq : &amp;tp-&gt;t_rawq;
+<a href='../S/102.html#L58'>t_rawq</a>             58 bsp/drv/include/tty.h 	struct tty_queue t_rawq;	/* raw input queue */
+</pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>trv</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/530.html#L62'>trv</a>                62 usr/lib/libc/stdio/mktemp.c 	char *start, *trv;
+<a href='../S/530.html#L67'>trv</a>                67 usr/lib/libc/stdio/mktemp.c 	for (trv = path; *trv; ++trv);		/* extra X's get set to 0's */
+<a href='../S/530.html#L68'>trv</a>                68 usr/lib/libc/stdio/mktemp.c 	while (*--trv == 'X') {
+<a href='../S/530.html#L69'>trv</a>                69 usr/lib/libc/stdio/mktemp.c 		*trv = (pid % 10) + '0';
+<a href='../S/530.html#L77'>trv</a>                77 usr/lib/libc/stdio/mktemp.c 	for (start = trv + 1;; --trv) {
+<a href='../S/530.html#L78'>trv</a>                78 usr/lib/libc/stdio/mktemp.c 		if (trv &lt;= path)
+<a href='../S/530.html#L80'>trv</a>                80 usr/lib/libc/stdio/mktemp.c 		if (*trv == '/') {
+<a href='../S/530.html#L81'>trv</a>                81 usr/lib/libc/stdio/mktemp.c 			*trv = '\0';
+<a href='../S/530.html#L88'>trv</a>                88 usr/lib/libc/stdio/mktemp.c 			*trv = '/';
+<a href='../S/530.html#L105'>trv</a>               105 usr/lib/libc/stdio/mktemp.c 		for (trv = start;;) {
+<a href='../S/530.html#L106'>trv</a>               106 usr/lib/libc/stdio/mktemp.c 			if (!*trv)
+<a href='../S/530.html#L108'>trv</a>               108 usr/lib/libc/stdio/mktemp.c 			if (*trv == 'z')
+<a href='../S/530.html#L109'>trv</a>               109 usr/lib/libc/stdio/mktemp.c 				*trv++ = 'a';
+<a href='../S/530.html#L111'>trv</a>               111 usr/lib/libc/stdio/mktemp.c 				if (isdigit((unsigned char)*trv))
+<a href='../S/530.html#L112'>trv</a>               112 usr/lib/libc/stdio/mktemp.c 					*trv = 'a';
+<a href='../S/530.html#L114'>trv</a>               114 usr/lib/libc/stdio/mktemp.c 					++*trv;
+</pre>
+</body>
+</html>

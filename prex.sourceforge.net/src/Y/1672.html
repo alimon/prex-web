@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pte</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L114'>pte</a>               114 bsp/hal/arm/arch/mmu.c 	pte_t pte;
+<a href='../S/131.html#L154'>pte</a>               154 bsp/hal/arm/arch/mmu.c 			pte = vtopte(pgd, va);
+<a href='../S/131.html#L162'>pte</a>               162 bsp/hal/arm/arch/mmu.c 			pte = (pte_t)ptokv(pg);
+<a href='../S/131.html#L163'>pte</a>               163 bsp/hal/arm/arch/mmu.c 			memset(pte, 0, L2TBL_SIZE);
+<a href='../S/131.html#L166'>pte</a>               166 bsp/hal/arm/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/131.html#L213'>pte</a>               213 bsp/hal/arm/arch/mmu.c 	pte_t pte;
+<a href='../S/131.html#L219'>pte</a>               219 bsp/hal/arm/arch/mmu.c 		pte = (pte_t)pgd[i];
+<a href='../S/131.html#L220'>pte</a>               220 bsp/hal/arm/arch/mmu.c 		if (pte != 0)
+<a href='../S/131.html#L221'>pte</a>               221 bsp/hal/arm/arch/mmu.c 			page_free(((paddr_t)pte &amp; PTE_ADDRESS),
+<a href='../S/131.html#L252'>pte</a>               252 bsp/hal/arm/arch/mmu.c 	pte_t pte;
+<a href='../S/131.html#L263'>pte</a>               263 bsp/hal/arm/arch/mmu.c 		pte = vtopte(pgd, pg);
+<a href='../S/131.html#L264'>pte</a>               264 bsp/hal/arm/arch/mmu.c 		if (!page_present(pte, pg))
+<a href='../S/131.html#L269'>pte</a>               269 bsp/hal/arm/arch/mmu.c 	pte = vtopte(pgd, start);
+<a href='../S/131.html#L270'>pte</a>               270 bsp/hal/arm/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/131.html#L280'>pte</a>               280 bsp/hal/arm/arch/mmu.c 	pte_t pte = (pte_t)BOOT_PTE1;
+<a href='../S/131.html#L282'>pte</a>               282 bsp/hal/arm/arch/mmu.c 	memset(pte, 0, L2TBL_SIZE);
+<a href='../S/131.html#L283'>pte</a>               283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/131.html#L284'>pte</a>               284 bsp/hal/arm/arch/mmu.c 	pte[PAGE_TABLE(virt)] = (uint32_t)phys | PTE_PRESENT | PTE_SYSTEM;
+<a href='../S/144.html#L67'>pte</a>                67 bsp/hal/arm/include/mmu.h #define page_present(pte, virt) (pte[PAGE_TABLE(virt)] &amp; PTE_PRESENT)
+<a href='../S/144.html#L72'>pte</a>                72 bsp/hal/arm/include/mmu.h #define ptetopg(pte, virt) \
+<a href='../S/144.html#L73'>pte</a>                73 bsp/hal/arm/include/mmu.h             ((pte)[PAGE_TABLE(virt)] &amp; PTE_ADDRESS)
+<a href='../S/166.html#L37'>pte</a>                37 bsp/hal/ppc/include/mmu.h struct pte {
+<a href='../S/166.html#L42'>pte</a>                42 bsp/hal/ppc/include/mmu.h typedef struct pte	*pte_t;		/* page table entry */
+<a href='../S/166.html#L68'>pte</a>                68 bsp/hal/ppc/include/mmu.h #define page_present(pte, virt)
+<a href='../S/166.html#L72'>pte</a>                72 bsp/hal/ppc/include/mmu.h #define ptetopg(pte, virt)
+<a href='../S/178.html#L86'>pte</a>                86 bsp/hal/x86/arch/mmu.c 	pte_t pte;
+<a href='../S/178.html#L126'>pte</a>               126 bsp/hal/x86/arch/mmu.c 			pte = vtopte(pgd, va);
+<a href='../S/178.html#L134'>pte</a>               134 bsp/hal/x86/arch/mmu.c 			pte = (pte_t)ptokv(pg);
+<a href='../S/178.html#L135'>pte</a>               135 bsp/hal/x86/arch/mmu.c 			memset(pte, 0, PAGE_SIZE);
+<a href='../S/178.html#L138'>pte</a>               138 bsp/hal/x86/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/178.html#L183'>pte</a>               183 bsp/hal/x86/arch/mmu.c 	pte_t pte;
+<a href='../S/178.html#L189'>pte</a>               189 bsp/hal/x86/arch/mmu.c 		pte = (pte_t)pgd[i];
+<a href='../S/178.html#L190'>pte</a>               190 bsp/hal/x86/arch/mmu.c 		if (pte != 0)
+<a href='../S/178.html#L191'>pte</a>               191 bsp/hal/x86/arch/mmu.c 			page_free((paddr_t)((paddr_t)pte &amp; PTE_ADDRESS),
+<a href='../S/178.html#L222'>pte</a>               222 bsp/hal/x86/arch/mmu.c 	pte_t pte;
+<a href='../S/178.html#L233'>pte</a>               233 bsp/hal/x86/arch/mmu.c 		pte = vtopte(pgd, pg);
+<a href='../S/178.html#L234'>pte</a>               234 bsp/hal/x86/arch/mmu.c 		if (!page_present(pte, pg))
+<a href='../S/178.html#L239'>pte</a>               239 bsp/hal/x86/arch/mmu.c 	pte = vtopte(pgd, start);
+<a href='../S/178.html#L240'>pte</a>               240 bsp/hal/x86/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/184.html#L72'>pte</a>                72 bsp/hal/x86/include/mmu.h #define page_present(pte, virt) (pte[PAGE_TABLE(virt)] &amp; PTE_PRESENT)
+<a href='../S/184.html#L77'>pte</a>                77 bsp/hal/x86/include/mmu.h #define ptetopg(pte, virt) \
+<a href='../S/184.html#L78'>pte</a>                78 bsp/hal/x86/include/mmu.h             ((pte)[PAGE_TABLE(virt)] &amp; PTE_ADDRESS)
+</pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>maxpri</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/331.html#L96'>maxpri</a>             96 sys/kern/sched.c static int		maxpri;		/* highest priority in runq */
+<a href='../S/331.html#L122'>maxpri</a>            122 sys/kern/sched.c 	if (t-&gt;priority &lt; maxpri) {
+<a href='../S/331.html#L123'>maxpri</a>            123 sys/kern/sched.c 		maxpri = t-&gt;priority;
+<a href='../S/331.html#L137'>maxpri</a>            137 sys/kern/sched.c 	if (t-&gt;priority &lt; maxpri)
+<a href='../S/331.html#L138'>maxpri</a>            138 sys/kern/sched.c 		maxpri = t-&gt;priority;
+<a href='../S/331.html#L151'>maxpri</a>            151 sys/kern/sched.c 	q = dequeue(&amp;runq[maxpri]);
+<a href='../S/331.html#L153'>maxpri</a>            153 sys/kern/sched.c 	if (queue_empty(&amp;runq[maxpri]))
+<a href='../S/331.html#L154'>maxpri</a>            154 sys/kern/sched.c 		maxpri = runq_getbest();
+<a href='../S/331.html#L167'>maxpri</a>            167 sys/kern/sched.c 	maxpri = runq_getbest();
+<a href='../S/331.html#L224'>maxpri</a>            224 sys/kern/sched.c 		if (prev-&gt;priority &gt; maxpri)
+<a href='../S/331.html#L592'>maxpri</a>            592 sys/kern/sched.c 		maxpri = runq_getbest();
+<a href='../S/331.html#L593'>maxpri</a>            593 sys/kern/sched.c 		if (pri != maxpri)
+<a href='../S/331.html#L725'>maxpri</a>            725 sys/kern/sched.c 	maxpri = PRI_IDLE;
+<a href='../S/346.html#L471'>maxpri</a>            471 sys/sync/mutex.c 	int maxpri;
+<a href='../S/346.html#L479'>maxpri</a>            479 sys/sync/mutex.c 	maxpri = t-&gt;basepri;
+<a href='../S/346.html#L489'>maxpri</a>            489 sys/sync/mutex.c 		if (m-&gt;priority &lt; maxpri)
+<a href='../S/346.html#L490'>maxpri</a>            490 sys/sync/mutex.c 			maxpri = m-&gt;priority;
+<a href='../S/346.html#L493'>maxpri</a>            493 sys/sync/mutex.c 	sched_setpri(t, t-&gt;basepri, maxpri);
+</pre>
+</body>
+</html>

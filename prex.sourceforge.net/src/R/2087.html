@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>kvtop</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L42'>kvtop</a>              42 bsp/boot/common/bootinfo.c struct bootinfo *const bootinfo = (struct bootinfo *)kvtop(BOOTINFO);
+<a href='../S/13.html#L357'>kvtop</a>             357 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - kvtop(m-&gt;text));
+<a href='../S/14.html#L76'>kvtop</a>              76 bsp/boot/common/load.c 	magic = (char *)kvtop(CONFIG_BOOTIMG_BASE);
+<a href='../S/15.html#L88'>kvtop</a>              88 bsp/boot/common/main.c 	entry = (entry_t)kvtop(bootinfo-&gt;kernel.entry);
+<a href='../S/72.html#L199'>kvtop</a>             199 bsp/drv/dev/dma/i8237.c 	paddr = kvtop(addr);
+<a href='../S/131.html#L225'>kvtop</a>             225 bsp/hal/arm/arch/mmu.c 	page_free(kvtop(pgd), L1TBL_SIZE);
+<a href='../S/131.html#L238'>kvtop</a>             238 bsp/hal/arm/arch/mmu.c 	paddr_t phys = kvtop(pgd);
+<a href='../S/131.html#L283'>kvtop</a>             283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/149.html#L174'>kvtop</a>             174 bsp/hal/arm/integrator/machdep.c 	page_reserve(kvtop(SYSPAGE), SYSPAGESZ);
+<a href='../S/171.html#L152'>kvtop</a>             152 bsp/hal/ppc/prep/machdep.c 	page_reserve(kvtop(SYSPAGE), SYSPAGESZ);
+<a href='../S/178.html#L195'>kvtop</a>             195 bsp/hal/x86/arch/mmu.c 	page_free(kvtop(pgd), PAGE_SIZE);
+<a href='../S/178.html#L208'>kvtop</a>             208 bsp/hal/x86/arch/mmu.c 	uint32_t phys = (uint32_t)kvtop(pgd);
+<a href='../S/189.html#L157'>kvtop</a>             157 bsp/hal/x86/pc/machdep.c 	page_reserve(kvtop(SYSPAGE), SYSPAGESZ);
+<a href='../S/341.html#L304'>kvtop</a>             304 sys/mem/kmem.c 		page_free(kvtop(pg), PAGE_SIZE);
+<a href='../S/342.html#L118'>kvtop</a>             118 sys/mem/page.c 	return kvtop(blk);
+</pre>
+</body>
+</html>

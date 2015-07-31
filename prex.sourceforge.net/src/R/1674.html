@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>device_write</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L129'>device_write</a>      129 include/sys/prex.h int	device_write(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/305.html#L54'>device_write</a>       54 sys/include/device.h int	 device_write(device_t, void *, size_t *, int);
+<a href='../S/332.html#L120'>device_write</a>      120 sys/kern/sysent.c 	/* 37 */ SYSENT(4, device_write),
+<a href='../S/652.html#L67'>device_write</a>       67 usr/lib/libsa/_stdio.c 	device_write(__console_dev, buf, &amp;len, 0);
+<a href='../S/886.html#L175'>device_write</a>      175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/893.html#L122'>device_write</a>      122 usr/server/fs/fatfs/fatfs_vnops.c 	return device_write(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/906.html#L273'>device_write</a>      273 usr/server/fs/vfs/vfs_bio.c 	error = device_write((device_t)bp-&gt;b_dev, bp-&gt;b_data, &amp;size,
+<a href='../S/932.html#L54'>device_write</a>       54 usr/test/console/console.c 	device_write(console_dev, buf, &amp;len, 0);
+<a href='../S/932.html#L61'>device_write</a>       61 usr/test/console/console.c 		device_write(console_dev, buf, &amp;len, 0);
+<a href='../S/932.html#L69'>device_write</a>       69 usr/test/console/console.c 	error = device_write(console_dev, 0, &amp;len, 0);
+<a href='../S/950.html#L114'>device_write</a>      114 usr/test/fdd/fdd.c 	error = device_write(fdd, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L118'>device_write</a>      118 usr/test/ramdisk/ramdisk.c 	error = device_write(ramdev, disk_buf, &amp;size, sector);
+</pre>
+</body>
+</html>

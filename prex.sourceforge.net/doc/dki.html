@@ -1,0 +1,846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Prex Driver-Kernel Interface</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="keywords" content="Prex, embedded, real-time, operating system, RTOS, open source, free">
+  <meta name="author" content="Kohsuke Ohtani">
+  <link rel="stylesheet" type="text/css" href="../default.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../print.css" media="print">
+</head>
+<body>
+
+<table id="content" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../index.html">
+            <img alt="Prex logo" src="../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div class="info"><span>
+        <a href="../index.html">Prex Home</a> >
+        <a href="index.html">Document Index</a> >
+        Driver-Kernel Interface
+      </span></div></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div id="doc">
+
+
+      <h1>Prex Driver-Kernel Interface</h1>
+
+<i>For Prex version 0.9.0, 2009/11/10</i><br>
+<br>
+
+<h3>Table of Contents</h3>
+<ul>
+  <li><a href="dki.html#intro">Introduction</a></li>
+</ul>
+<ul>
+  <li><a href="dki.html#gen">General Information</a>
+  <ul>
+    <li><a href="dki.html#gen">Header File</a></li>
+    <li><a href="dki.html#gen">Data Types</a></li>
+    <li><a href="dki.html#gen">Calls from ISR</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#data">Driver Data Structure</a>
+  <ul>
+    <li><a href="dki.html#data">Boot Information</a></li>
+    <li><a href="dki.html#data">Device Operations</a></li>
+    <li><a href="dki.html#data">Driver Object</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#dev">Device Object</a>
+  <ul>
+    <li><a href="dki.html#dev">device_create</a></li>
+    <li><a href="dki.html#dev">device_destroy</a></li>
+    <li><a href="dki.html#dev">device_lookup</a></li>
+    <li><a href="dki.html#dev">device_control</a></li>
+    <li><a href="dki.html#dev">device_broadcast</a></li>
+    <li><a href="dki.html#dev">device_private</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#kmem">Kernel Memory</a>
+  <ul>
+    <li><a href="dki.html#kmem">kmem_alloc</a></li>
+    <li><a href="dki.html#kmem">kmem_free</a></li>
+    <li><a href="dki.html#kmem">kmem_map</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#umem">User Memory</a>
+  <ul>
+    <li><a href="dki.html#umem">copyin</a></li>
+    <li><a href="dki.html#umem">copyout</a></li>
+    <li><a href="dki.html#umem">copyinstr</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#page">Physical Page</a>
+  <ul>
+    <li><a href="dki.html#page">page_alloc</a></li>
+    <li><a href="dki.html#page">page_free</a></li>
+    <li><a href="dki.html#page">page_reserve</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#int">Interrupt</a>
+  <ul>
+    <li><a href="dki.html#int">irq_attach</a></li>
+    <li><a href="dki.html#int">irq_detach</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#spl">Spl</a>
+  <ul>
+    <li><a href="dki.html#spl">spl0</a></li>
+    <li><a href="dki.html#spl">splhigh</a></li>
+    <li><a href="dki.html#spl">splx</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#sched">Scheduler</a>
+  <ul>
+    <li><a href="dki.html#sched">sched_lock</a></li>
+    <li><a href="dki.html#sched">sched_unlock</a></li>
+    <li><a href="dki.html#sched">sched_tsleep</a></li>
+    <li><a href="dki.html#sched">sched_wakeup</a></li>
+    <li><a href="dki.html#sched">sched_dpc</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#timer">Timer</a>
+  <ul>
+    <li><a href="dki.html#timer">timer_callout</a></li>
+    <li><a href="dki.html#timer">timer_stop</a></li>
+    <li><a href="dki.html#timer">timer_delay</a></li>
+    <li><a href="dki.html#timer">timer_ticks</a></li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li><a href="dki.html#misc">Miscellaneous</a>
+  <ul>
+    <li><a href="dki.html#misc">task_capable</a></li>
+    <li><a href="dki.html#misc">exception_post</a></li>
+    <li><a href="dki.html#misc">machine_bootinfo</a></li>
+    <li><a href="dki.html#misc">machine_powerdown</a></li>
+    <li><a href="dki.html#misc">sysinfo</a></li>
+    <li><a href="dki.html#misc">panic</a></li>
+    <li><a href="dki.html#misc">printf</a></li>
+    <li><a href="dki.html#misc">dbgctl</a></li>
+  </ul>
+  </li>
+</ul>
+<br>
+
+<h2 id="intro">Introduction</h2>
+<p>
+The Prex kernel provides the minimum service for the device drivers.
+Since the driver module is separated from the kernel module, the drivers
+can not access other kernel functions beyond this interface.
+This mechanism helps to isolate the kernel from the driver codes.
+</p>
+<p>
+This document describes the Driver-Kernel Interface (DKI) that can be
+used by device drivers.
+</p>
+
+<h2 id="gen">General Information</h2>
+
+
+<h3 id="hf">Header File</h3>
+<p>
+The Prex driver header file provides
+common driver services in the kernel. A device driver must
+include this header file to use the driver-kernel interface.
+</p>
+<pre>
+#include &lt;driver.h&gt;
+</pre>
+
+
+<h3>Data Types</h3>
+<p>
+The following data types are defined by kernel.
+</p>
+
+<table border="1" width="60%" cellspacing="0">
+<caption>Table 1. Data Types</caption>
+<tbody>
+<tr>
+  <th>Data type</th>
+  <th>Description</th>
+</tr>
+
+<tr>
+  <td>device_t</td>
+  <td>Used to identify the device object.</td>
+</tr>
+<tr>
+  <td>irq_t</td>
+  <td>Used to identify the interrupt object.</td>
+</tr>
+<tr>
+  <td>task_t</td>
+  <td>Used to identify the task.</td>
+</tr>
+<tr>
+  <td>thread_t</td>
+  <td>Used to identify the thread.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Calls from ISR</h3>
+<p>
+The driver-kernel service is limited at interrupt level
+because the kernel does not synchronize all data accesses
+for interrupt level access.
+So, the device driver can use only the following functions
+from the interrupt service routine.
+</p>
+<ul>
+  <li>spl0()</li>
+  <li>splhigh()</li>
+  <li>splx()</li>
+  <li>sched_wakeup()</li>
+  <li>sched_stat()</li>
+  <li>timer_callout()</li>
+  <li>timer_stop()</li>
+  <li>timer_ticks()</li>
+  <li>sched_lock()</li>
+  <li>sched_unlock()</li>
+  <li>sched_tsleep()</li>
+  <li>sched_wakeup()</li>
+  <li>sched_dpc()</li>
+  <li>exception_post()</li>
+  <li>printf()</li>
+  <li>panic()</li>
+  <li>machine_reset()</li>
+</ul>
+
+<h2 id="data">Driver Data Structure</h2>
+
+<h3>Boot Information</h3>
+
+<p>
+The boot infomation keeps various system informations
+and they are filled by the boot loader.
+</p>
+
+<p>
+ The format of the boot information is as follows:
+</p>
+<pre>
+struct bootinfo
+{
+        struct vidinfo  video;
+        struct physmem  ram[NMEMS];     /* physical ram table */
+        int             nr_rams;        /* number of ram blocks */
+        struct physmem  bootdisk;       /* boot disk in memory */
+        int             nr_tasks;       /* number of boot tasks */
+        struct module   kernel;         /* kernel image */
+        struct module   driver;         /* driver image */
+        struct module   tasks[1];       /* boot tasks image */
+};
+</pre>
+
+
+<h3>Device Operations</h3>
+
+<p>
+Each device instance has its associated device operations
+defined by devops structure.
+</p>
+
+<p>
+The definition of device operations is as follows:
+</p>
+
+<pre>
+struct devops {
+        int (*open)     (device_t dev, int mode);
+        int (*close)    (device_t dev);
+        int (*read)     (device_t dev, char *buf, size_t *nbyte, int blkno);
+        int (*write)    (device_t dev, char *buf, size_t *nbyte, int blkno);
+        int (*ioctl)    (device_t dev, u_long cmd, void *arg);
+        int (*devctl)   (device_t dev, u_long cmd, void *arg);
+};
+</pre>
+
+
+<h3>Driver Object</h3>
+
+<p>
+Each driver must define its own driver object to identify it.
+</p>
+<p>
+The definition of drver object is as follows:
+</p>
+<pre>
+struct driver {
+        const char      *name;          /* name of device driver */
+        struct devops   *devops;        /* device operations */
+        size_t          devsz;          /* size of private data */
+        int             flags;          /* state of driver */
+        int (*probe)    (struct driver *self);
+        int (*init)     (struct driver *self);
+        int (*unload)   (struct driver *self);
+};
+</pre>
+
+
+<h2 id="dev">Device Object</h2>
+<p>
+The device object is created by the driver to communicate to the
+application. Usually, the driver creates a device object for an existing
+physical device. And, it can also be used to handle logical or virtual devices.
+</p>
+
+<pre>
+device_t device_create(struct driver *drv, const char *name, int flags);
+int      device_destroy(device_t dev);
+device_t device_lookup(const char *name);
+int      device_control(device_t dev, u_long cmd, void *arg);
+int      device_broadcast(u_long event, void *arg, int force);
+void    *device_private(device_t dev);
+</pre>
+
+<dl>
+<dt>device_create()</dt>
+<dd>
+Creates device object with the specified name in <i>name</i>.
+The <i>drv</i> argument points to the driver object.
+This function returns the ID of the created device object on success, or
+0 on failure.
+<p>
+The <i>flags</i> argument is the combination of the following device flags.
+</p>
+<pre>
+#define D_CHR           0x00000001      /* character device */
+#define D_BLK           0x00000002      /* block device */
+#define D_REM           0x00000004      /* removable device */
+#define D_PROT          0x00000008      /* protected device */
+#define D_TTY           0x00000010      /* tty device */
+</pre>
+</dd>
+</dl>
+
+<dl>
+<dt>device_destroy()</dt>
+<dd>
+Deletes the device object specified in <i>dev</i>.
+This function returns ENODEV if the specified device object does not exist.
+</dd>
+</dl>
+
+<dl>
+<dt>device_lookup()</dt>
+<dd>
+Look up the device object by the device name.
+This function returns the device object, or NULL if the specified device object does not exist.
+</dd>
+</dl>
+
+<dl>
+<dt>device_control()</dt>
+<dd>
+Control method to the device object.
+</dd>
+</dl>
+
+<dl>
+<dt>device_broadcast()</dt>
+<dd>
+Broadcasts the message specified by <i>event</i> to all device objects.
+If <i>force</i> is true, a kernel will ignore the value returned by
+each driver, and continue event notification.
+If <i>force</i> is false and any driver returns any error for the event,
+a kernel stops the event notification. In this case, this function
+returns an error code which is returned by that driver.
+</dd>
+</dl>
+
+<dl>
+<dt>device_private()</dt>
+<dd>
+Get the private buffer of the specified device object.
+</dd>
+</dl>
+
+
+<h2 id="kmem">Kernel Memory</h2>
+The kernel provides the following memory allocation services for drivers.
+Please note that it can not allocate lager buffer than one page.
+If the driver needs larger buffer, it should use page_alloc()
+ instead of kmem_alloc().
+<pre>
+void *kmem_alloc(size_t size);
+void  kmem_free(void *ptr);
+void *kmem_map(void *addr, size_t size);
+</pre>
+
+<dl>
+<dt>kmem_alloc()</dt>
+<dd>
+Allocates the kernel buffer for the specified <i>size</i> bytes.
+It returns the pointer to the allocated buffer on success, or NULL on failure.
+</dd>
+</dl>
+
+<dl>
+<dt>kmem_free()</dt>
+<dd>
+Frees the allocated kernel buffer pointed by <i>ptr</i>.
+</dd>
+</dl>
+
+<dl>
+<dt>kmem_map()</dt>
+<dd>
+Maps the specified virtual address <i>addr</i> to the kernel address.
+It returns the pointer mapped in the kernel memory on success, or NULL if
+there is no mapped memory.
+</dd>
+</dl>
+
+<h2 id="umem">User Memory</h2>
+<p>
+Since an access to user memory may cause a page fault, the user
+buffer manipulation is handled by the kernel core code.
+The driver should not access the user buffer directly. Instead, 
+it should use the following kernel services.
+</p>
+<pre>
+int copyin(const void *uaddr, void *kaddr, size_t len);
+int copyout(const void *kaddr, void *uaddr, size_t len);
+int copyinstr(const char *uaddr, void *kaddr, size_t len);
+</pre>
+
+<dl>
+<dt>copyin()</dt>
+<dd>
+Copies the data from the user buffer to the kernel area.
+Returns 0 on success, or EFAULT on failure.
+</dd>
+</dl>
+
+<dl>
+<dt>copyout()</dt>
+<dd>
+Copies the data from the kernel buffer to the user area.
+Returns 0 on success, or EFAULT on failure.
+</dd>
+</dl>
+
+<dl>
+<dt>copyinstr()</dt>
+<dd>
+Copies the string data from the user buffer to the kernel area.
+Returns 0 on success, or EFAULT on page fault, or ENAMETOOLONG.
+</dd>
+</dl>
+
+<h2 id="page">Physical Page</h2>
+<pre>
+paddr_t page_alloc(psize_t size);
+void    page_free(paddr_t addr, psize_t size);
+int     page_reserve(paddr_t addr, psize_t size);
+</pre>
+
+<dl>
+<dt>page_alloc()</dt>
+<dd>
+Allocates continuous pages for the specified <i>size</i> bytes.
+This function returns the physical address of the allocated pages, or
+returns NULL on failure. The kernel does not zero-fill this new page.
+The requested size is automatically round up to the page boundary.
+</dd>
+</dl>
+
+<dl>
+<dt>page_free()</dt>
+<dd>
+Frees allocated page block. The caller must provide the size information
+in <i>size</i> argument that was specified for page_alloc().
+</dd>
+</dl>
+
+<dl>
+<dt>page_reserve()</dt>
+<dd>
+Reserves pages in the specified address.
+This function returns 0 on success, or -1 on failure.
+</dd>
+</dl>
+
+
+<h2 id="spl">Spl</h2>
+<p>
+The spl() function familly controls the interrupt priority level of CPU.
+</p>
+
+<pre>
+int  splhigh(void);
+int  spl0(void);
+void splx(int level);
+</pre>
+
+<dl>
+<dt>splhigh()</dt>
+<dd>
+Block all interrupt. Returns previous interrupt state.
+</dd>
+</dl>
+
+<dl>
+<dt>spl0()</dt>
+<dd>
+Unblock all interrupts. Returns previous interrupt state.
+</dd>
+</dl>
+
+<dl>
+<dt>splx()</dt>
+<dd>
+Restore the interrupt state.
+</dd>
+</dl>
+
+
+
+
+<h2 id="int">Interrupt</h2>
+
+<pre>
+irq_t irq_attach(int irqno, int prio, int shared, int (*isr)(void *), void (*ist)(void *), void *data);
+void  irq_detach(irq_t handle);
+</pre>
+
+<dl>
+<dt>irq_attach()</dt>
+<dd>
+Attaches to the <i>ISR</i> (interrupt service request) and <i>ist</i>
+(interrupt service thread) to the interrupt vector specified in <i>irqno</i>.
+The argument <i>prio</i> is the logical interrupt priority level.
+If <i>shared</i> argument is true, the kernel allows the other irq owner
+to attach to the same irq vector.
+</dd>
+</dl>
+
+<dl>
+<dt>irq_detach()</dt>
+<dd>
+Detaches the interrupt from the IRQ specified by <i>handle</i>.
+</dd>
+</dl>
+
+<p>
+The following table shows the logical interrupt priority level for various device types.
+The priority value 0 is lowest priority for interrupt processing.
+</p>
+
+<table border="1" width="50%" cellspacing="0">
+<caption>Table 2. Interrupt Priorities</caption>
+<tbody>
+<tr>
+  <th>Priority</th>
+  <th>Name</th>
+  <th>Device Class</th>
+</tr>
+<tr>
+  <td>0</td>
+  <td>IPL_NONE</td>
+  <td>Nothing (lowest)</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>IPL_COMM</td>
+  <td>Serial, parallel</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>IPL_BLOCK</td>
+  <td>FDD, IDE</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>IPL_NET</td>
+  <td>Network</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>IPL_DISPLAY</td>
+  <td>Screen</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>IPL_INPUT</td>
+  <td>Keyboard, mouse</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>IPL_AUDIO</td>
+  <td>Audio</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>IPL_BUS</td>
+  <td>USB, PcCard</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>IPL_RTC</td>
+  <td>RTC alarm</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>IPL_PROFILE</td>
+  <td>Profiling timer</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>IPL_CLOCK</td>
+  <td>System clock timer</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td>IPL_HIGH</td>
+  <td>Everything</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2 id="sched">Scheduler</h2>
+<p>
+The thread can sleep/wakeup for the specific event. The event works as
+the queue of the sleeping threads.
+</p>
+
+<pre>
+void sched_lock(void);
+void sched_unlock(void);
+int  sched_tsleep(struct event *evt, u_long timeout);
+void sched_wakeup(struct event *evt);
+void sched_dpc(struct dpc *dpc, void (*func)(void *), void *arg);
+</pre>
+
+<dl>
+<dt>sched_lock()</dt>
+<dd>
+Disables the thread switch, and increments the scheduling lock count.
+This is used to synchronize the thread execution to protect 
+global resources. Since the scheduling lock count can be nested, 
+the caller must call the sched_unlock() routine the same number of
+lock count.
+</dd>
+</dl>
+
+<dl>
+<dt>sched_unlock()</dt>
+<dd>
+Decrements the scheduling lock count. If the scheduling lock count becomes 0, 
+the thread switch is enabled again.
+</dd>
+</dl>
+
+<dl>
+<dt>sched_tsleep()</dt>
+<dd>
+Sleep the current thread until specified event occurs.
+The caller can specify <i>timeout</i> value in msec.
+If the <i>timeout</i> value is 0, the timeout timer does not work.
+<p>
+The definition of the event for sleep/wakeup is as follows:
+</p>
+<pre>
+struct event {
+        struct queue    sleepq;         /* Queue for waiting thread */
+        char            *name;          /* Event name */
+};
+</pre>
+</dd>
+</dl>
+
+<dl>
+<dt>sched_wakeup()</dt>
+<dd>
+Wakes up all threads that are waiting for the specified event.
+</dd>
+</dl>
+
+<dl>
+<dt>sched_dpc()</dt>
+<dd>
+Programs DPC (Deferred Procedure Call).
+<p>
+The definition of the DPC object is as follows:
+</p>
+<pre>
+struct dpc {
+        void    *_data[5];
+};
+</pre>
+</dd>
+</dl>
+
+<h2 id="timer">Timer</h2>
+<pre>
+void   timer_callout(timer_t *tmr, void (*func)(u_long), u_long arg, u_long msec);
+void   timer_stop(timer_t *tmr);
+u_long timer_delay(u_long msec);
+u_long timer_ticks(void);
+</pre>
+
+
+<dl>
+<dt>timer_callout()</dt>
+<dd>
+Requests a call out timer. The specified <i>func</i> routine will be
+called with <i>arg</i> argument after <i>msec</i>. The caller must
+allocate the memory for the timer structure for <i>tmr</i>.
+</dd>
+</dl>
+
+<dl>
+<dt>timer_stop()</dt>
+<dd>
+Stops a running timer.
+</dd>
+</dl>
+
+<dl>
+<dt>timer_delay()</dt>
+<dd>
+Delays thread execution.
+</dd>
+</dl>
+
+
+<dl>
+<dt>timer_ticks()</dt>
+<dd>
+Returns current timer count (ticks since bootup).
+</dd>
+</dl>
+
+
+
+<h2 id="misc">Miscellaneous</h2>
+<pre>
+int   task_capable(cap_t cap);
+int   exception_post(task_t task, int excno);
+void  machine_bootinfo(struct bootinfo **pbi);
+void  machine_powerdown(int state);
+void  sysinfo(int type, void *buf);
+void  panic(const char *fmt, ...);
+void  printf(const char *fmt, ...);
+void  dbgctl(int cmd, void *data);
+</pre>
+
+<dl>
+<dt>task_capable()</dt>
+<dd>
+Check if the current task has the specified capability.
+</dd>
+</dl>
+
+<dl>
+<dt>exception_post()</dt>
+<dd>
+Posts an exception for the specific task.
+</dd>
+</dl>
+
+<dl>
+<dt>machine_bootinfo()</dt>
+<dd>
+Returns the pointer to the system boot infomation structure.
+
+</dd>
+</dl>
+
+<dl>
+<dt>machine_powerdown()</dt>
+<dd>
+Set the system power.
+</dd>
+</dl>
+
+<dl>
+<dt>sysinfo()</dt>
+<dd>
+Attaches to the external output routine for the printf().
+</dd>
+</dl>
+
+<dl>
+<dt>panic()</dt>
+<dd>
+Stops the system for the fatal error.
+</dd>
+</dl>
+
+<dl>
+<dt>printf()</dt>
+<dd>
+Prints the driver message to the output device.
+The message is enabled only with debugging kernel.
+</dd>
+</dl>
+
+<dl>
+<dt>dbgctl()</dt>
+<dd>
+Control kernel debug featrure.
+</dd>
+</dl>
+
+
+
+
+</div>
+
+<div id="footer">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+</div>
+
+</body>
+</html>

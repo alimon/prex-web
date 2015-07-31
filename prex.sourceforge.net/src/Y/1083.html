@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>io_buf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L168'>io_buf</a>            168 usr/server/fs/fatfs/fatfs.h 	char	*io_buf;	/* local data buffer */
+<a href='../S/892.html#L153'>io_buf</a>            153 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;io_buf = malloc(fmp-&gt;sec_per_cl * SEC_SIZE);
+<a href='../S/892.html#L154'>io_buf</a>            154 usr/server/fs/fatfs/fatfs_vfsops.c 	if (fmp-&gt;io_buf == NULL)
+<a href='../S/892.html#L173'>io_buf</a>            173 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;io_buf);
+<a href='../S/892.html#L190'>io_buf</a>            190 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;io_buf);
+<a href='../S/893.html#L108'>io_buf</a>            108 usr/server/fs/fatfs/fatfs_vnops.c 	return device_read(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L122'>io_buf</a>            122 usr/server/fs/fatfs/fatfs_vnops.c 	return device_write(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L211'>io_buf</a>            211 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(buf, fmp-&gt;io_buf + buf_pos, nr_copy);
+<a href='../S/893.html#L301'>io_buf</a>            301 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(fmp-&gt;io_buf + buf_pos, buf, nr_copy);
+<a href='../S/893.html#L527'>io_buf</a>            527 usr/server/fs/fatfs/fatfs_vnops.c 			de2 = (struct fat_dirent *)fmp-&gt;io_buf;
+<a href='../S/893.html#L587'>io_buf</a>            587 usr/server/fs/fatfs/fatfs_vnops.c 	memset(fmp-&gt;io_buf, 0, fmp-&gt;cluster_size);
+<a href='../S/893.html#L589'>io_buf</a>            589 usr/server/fs/fatfs/fatfs_vnops.c 	de = (struct fat_dirent *)fmp-&gt;io_buf;
+</pre>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>signo</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/413.html#L90'>signo</a>              90 usr/bin/sh/sh.c 	int signo = WTERMSIG(s);
+<a href='../S/413.html#L92'>signo</a>              92 usr/bin/sh/sh.c 	signo &amp;= 0x7f;
+<a href='../S/413.html#L93'>signo</a>              93 usr/bin/sh/sh.c 	if (signo &lt; NSIG &amp;&amp; sys_siglist[signo])
+<a href='../S/413.html#L94'>signo</a>              94 usr/bin/sh/sh.c 		error(" %d: %s", pid, sys_siglist[signo]);
+<a href='../S/413.html#L96'>signo</a>              96 usr/bin/sh/sh.c 		error(" %d: Signal %d", pid, signo);
+<a href='../S/413.html#L98'>signo</a>              98 usr/bin/sh/sh.c 	retval = signo + 0200;
+<a href='../S/438.html#L66'>signo</a>              66 usr/include/signal.h #define	sigaddset(set, signo)	(*(set) |= 1 &lt;&lt; ((signo) - 1), 0)
+<a href='../S/438.html#L67'>signo</a>              67 usr/include/signal.h #define	sigdelset(set, signo)	(*(set) &amp;= ~(1 &lt;&lt; ((signo) - 1)), 0)
+<a href='../S/438.html#L70'>signo</a>              70 usr/include/signal.h #define	sigismember(set, signo)	((*(set) &amp; (1 &lt;&lt; ((signo) - 1))) != 0)
+<a href='../S/733.html#L37'>signo</a>              37 usr/lib/posix/process/__process.c void __process_exit(int status, int signo);
+<a href='../S/733.html#L54'>signo</a>              54 usr/lib/posix/process/__process.c __process_exit(int status, int signo)
+<a href='../S/733.html#L61'>signo</a>              61 usr/lib/posix/process/__process.c 		m.data[0] = signo ? signo : ((status &amp; 0xff) &lt;&lt; 8);
+<a href='../S/732.html#L46'>signo</a>              46 usr/lib/posix/process/_exit.c 	int signo;
+<a href='../S/732.html#L48'>signo</a>              48 usr/lib/posix/process/_exit.c 	__exception_exit(&amp;signo);
+<a href='../S/732.html#L50'>signo</a>              50 usr/lib/posix/process/_exit.c 	__process_exit(status, signo);
+<a href='../S/743.html#L180'>signo</a>             180 usr/lib/posix/signal/__exception.c __exception_exit(int *signo)
+<a href='../S/743.html#L188'>signo</a>             188 usr/lib/posix/signal/__exception.c 	*signo = __sig_exit;
+<a href='../S/737.html#L34'>signo</a>              34 usr/lib/posix/signal/sigcompat.c sigvec(signo, sv, osv)
+<a href='../S/737.html#L35'>signo</a>              35 usr/lib/posix/signal/sigcompat.c 	int signo;
+<a href='../S/737.html#L42'>signo</a>              42 usr/lib/posix/signal/sigcompat.c 	ret = sigaction(signo, (struct sigaction *)sv, (struct sigaction *)osv);
+<a href='../S/852.html#L280'>signo</a>             280 usr/sample/tetris/tetris.c onintr(int signo)
+</pre>
+</body>
+</html>

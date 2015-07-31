@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>list_insert</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/325.html#L126'>list_insert</a>       126 sys/ipc/object.c 	list_insert(&amp;curtask-&gt;objects, &amp;obj-&gt;task_link);
+<a href='../S/325.html#L128'>list_insert</a>       128 sys/ipc/object.c 	list_insert(&amp;object_list, &amp;obj-&gt;link);
+<a href='../S/334.html#L145'>list_insert</a>       145 sys/kern/task.c 	list_insert(&amp;task_list, &amp;task-&gt;link);
+<a href='../S/334.html#L545'>list_insert</a>       545 sys/kern/task.c 	list_insert(&amp;task_list, &amp;kernel_task.link);
+<a href='../S/335.html#L428'>list_insert</a>       428 sys/kern/thread.c 	list_insert(&amp;thread_list, &amp;t-&gt;link);
+<a href='../S/335.html#L429'>list_insert</a>       429 sys/kern/thread.c 	list_insert(&amp;task-&gt;threads, &amp;t-&gt;task_link);
+<a href='../S/335.html#L596'>list_insert</a>       596 sys/kern/thread.c 	list_insert(&amp;thread_list, &amp;idle_thread.link);
+<a href='../S/335.html#L597'>list_insert</a>       597 sys/kern/thread.c 	list_insert(&amp;kernel_task.threads, &amp;idle_thread.task_link);
+<a href='../S/336.html#L90'>list_insert</a>        90 sys/kern/timer.c 	list_insert(list_prev(n), &amp;tmr-&gt;link);
+<a href='../S/336.html#L423'>list_insert</a>       423 sys/kern/timer.c 			list_insert(&amp;expire_list, &amp;tmr-&gt;link);
+<a href='../S/341.html#L239'>list_insert</a>       239 sys/mem/kmem.c 		list_insert(&amp;free_blocks[BLKNDX(newblk)], &amp;newblk-&gt;link);
+<a href='../S/341.html#L289'>list_insert</a>       289 sys/mem/kmem.c 	list_insert(&amp;free_blocks[BLKNDX(blk)], &amp;blk-&gt;link);
+<a href='../S/345.html#L71'>list_insert</a>        71 sys/sync/cond.c 	list_insert(&amp;self-&gt;conds, &amp;c-&gt;task_link);
+<a href='../S/346.html#L116'>list_insert</a>       116 sys/sync/mutex.c 	list_insert(&amp;self-&gt;mutexes, &amp;m-&gt;task_link);
+<a href='../S/346.html#L231'>list_insert</a>       231 sys/sync/mutex.c 		list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L261'>list_insert</a>       261 sys/sync/mutex.c 			list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L342'>list_insert</a>       342 sys/sync/mutex.c 			list_insert(&amp;holder-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/347.html#L112'>list_insert</a>       112 sys/sync/sem.c 		list_insert(&amp;self-&gt;sems, &amp;s-&gt;task_link);
+<a href='../S/896.html#L390'>list_insert</a>       390 usr/server/fs/fifofs/fifo_vnops.c 	list_insert(&amp;fifo_head, &amp;np-&gt;fn_link);
+<a href='../S/906.html#L88'>list_insert</a>        88 usr/server/fs/vfs/vfs_bio.c 	list_insert(&amp;free_list, &amp;bp-&gt;b_link);
+<a href='../S/906.html#L99'>list_insert</a>        99 usr/server/fs/vfs/vfs_bio.c 	list_insert(list_prev(&amp;free_list), &amp;bp-&gt;b_link);
+<a href='../S/906.html#L379'>list_insert</a>       379 usr/server/fs/vfs/vfs_bio.c 		list_insert(&amp;free_list, &amp;bp-&gt;b_link);
+<a href='../S/909.html#L193'>list_insert</a>       193 usr/server/fs/vfs/vfs_mount.c 	list_insert(&amp;mount_list, &amp;mp-&gt;m_link);
+<a href='../S/912.html#L115'>list_insert</a>       115 usr/server/fs/vfs/vfs_task.c 	list_insert(&amp;task_table[TASKHASH(task)], &amp;t-&gt;t_link);
+<a href='../S/912.html#L146'>list_insert</a>       146 usr/server/fs/vfs/vfs_task.c 	list_insert(&amp;task_table[TASKHASH(task)], &amp;t-&gt;t_link);
+<a href='../S/913.html#L199'>list_insert</a>       199 usr/server/fs/vfs/vfs_vnode.c 	list_insert(&amp;vnode_table[vn_hash(mp, path)], &amp;vp-&gt;v_link);
+<a href='../S/917.html#L515'>list_insert</a>       515 usr/server/proc/main.c 	list_insert(&amp;pg-&gt;pg_members, &amp;p-&gt;p_pgrp_link);
+<a href='../S/920.html#L80'>list_insert</a>        80 usr/server/proc/proc_exit.c 		list_insert(&amp;initproc.p_children, &amp;child-&gt;p_sibling);
+<a href='../S/921.html#L111'>list_insert</a>       111 usr/server/proc/proc_fork.c 	list_insert(&amp;curproc-&gt;p_children, &amp;p-&gt;p_sibling);
+<a href='../S/921.html#L112'>list_insert</a>       112 usr/server/proc/proc_fork.c 	list_insert(&amp;pg-&gt;pg_members, &amp;p-&gt;p_pgrp_link);
+<a href='../S/921.html#L113'>list_insert</a>       113 usr/server/proc/proc_fork.c 	list_insert(&amp;allproc, &amp;p-&gt;p_link);
+<a href='../S/922.html#L118'>list_insert</a>       118 usr/server/proc/proc_hash.c 	list_insert(&amp;pid_table[IDHASH(p-&gt;p_pid)], &amp;p-&gt;p_pid_link);
+<a href='../S/922.html#L119'>list_insert</a>       119 usr/server/proc/proc_hash.c 	list_insert(&amp;task_table[IDHASH(p-&gt;p_task)], &amp;p-&gt;p_task_link);
+<a href='../S/922.html#L141'>list_insert</a>       141 usr/server/proc/proc_hash.c 	list_insert(&amp;pgid_table[IDHASH(pgrp-&gt;pg_pgid)], &amp;pgrp-&gt;pg_link);
+<a href='../S/923.html#L142'>list_insert</a>       142 usr/server/proc/proc_pid.c 	list_insert(&amp;pgrp-&gt;pg_members, &amp;p-&gt;p_pgrp_link);
+</pre>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Prex Screenshots</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="keywords" content="Prex, embedded, real-time, operating system, RTOS, open source, free">
+  <meta name="author" content="Kohsuke Ohtani">
+  <link rel="stylesheet" type="text/css" href="default.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="print.css" media="print">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+
+<table id="content" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="index.html">
+            <img alt="Prex logo" src="img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="right"><div class="info"><span>
+          <a href="about.html">About Us</a> |
+          <a href="contact.html">Contact Us</a>
+      </span></div></td>
+    </tr>
+
+    <tr>
+      <td id="side_menu" valign="top">
+      <div class="menu_title"><span>Navigation</span></div>
+      <div class="menu_navi">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="doc/index.html">Documentation</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="screen.html">Screenshots</a></li>
+          <li><a href="devel.html">Development</a></li>
+          <li><a href="src/index.html">Browse Source</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="links.html">Links</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+
+      <div class="menu_title"><span>Screenshot Index</span></div>
+      <div class="menu_body">
+        <ul>
+          <li><a href="screen.html#S15">System Call Trace</a></li>
+          <li><a href="screen.html#S14">ARM Integrator Port!</a></li>
+          <li><a href="screen.html#S13">Serial Console</a></li>
+          <li><a href="screen.html#S12">POSIX Support</a></li>
+          <li><a href="screen.html#S11">File System</a></li>
+          <li><a href="screen.html#S10">dmesg</a></li>
+          <li><a href="screen.html#S9">Deadlock Detection</a></li>
+          <li><a href="screen.html#S8">GBA On-Screen Keyboard</a></li>
+          <li><a href="screen.html#S7">Hello World, again</a></li>
+          <li><a href="screen.html#S6">MMU vs NOMMU</a></li>
+          <li><a href="screen.html#S5">CPU Voltage Monitor</a></li>
+          <li><a href="screen.html#S4">Kernel Monitor</a></li>
+          <li><a href="screen.html#S3">Page Fault</a></li>
+          <li><a href="screen.html#S2">Kernel Dump</a></li>
+          <li><a href="screen.html#S1">Hello World</a></li>
+
+
+        </ul>
+      </div>
+
+
+
+      </td>
+      <td id="main" style="vertical-align: top;">
+
+      <h1>Screenshots</h1>
+Click on the images to enlarge.<br>
+
+
+
+<h2 id="S15">System Call Trace <span>(Prex 0.9.0)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/ktrace.png">
+<img src="screenshots/ktrace_small.png" border="1" alt="systrace"
+style="width: 242px; height: 190px;"></a>
+    </td>
+    <td valign="top">
+The ktrace utility enables system call trace logging for
+the specified program.
+    </td>
+  </tr>
+</table>
+
+
+
+<h2 id="S14">ARM Integrator Port! <span>(Prex 0.8.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/arm-integrator.png">
+<img src="screenshots/arm-integrator_small.png" border="1" alt="arm-integrator"
+style="width: 246px; height: 165px;"></a>
+    </td>
+    <td valign="top">
+Prex supports ARM Integrator/CP board with MMU.
+Need to press Ctrl-Alt-3 to show the serial console.
+    </td>
+  </tr>
+</table>
+
+
+
+<h2 id="S13">Serial Console <span>(Prex 0.8.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/terminal.png">
+<img src="screenshots/terminal_small.png" border="1" alt="serial console"
+style="width: 148px; height: 195px;"></a>
+    </td>
+    <td valign="top">
+<b>Terminal Connection:</b><br>
+
+Connect to a serial console from Linux via "minicom".
+    </td>
+  </tr>
+</table>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr>
+    <td width="260px">
+<a href="screenshots/tetris.png">
+<img src="screenshots/tetris_small.png" border="1" alt="tetris"
+style="width: 246px; height: 162px;"></a>
+    </td>
+    <td valign="top">
+<b>Tetris:</b><br>
+
+Tetris game playing via serial console.
+    </td>
+  </tr>
+</table>
+
+
+
+<h2 id="S12">POSIX Support <span>(Prex 0.7.0)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/process.png">
+<img src="screenshots/process_small.png" border="1" alt="process"
+style="width: 250px; height: 172px;"></a>
+    </td>
+    <td valign="top">
+<b>Process Emulation:</b><br>
+The process server manages processes related data
+such like pid or process state.
+    </td>
+  </tr>
+</table>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr>
+    <td width="260px">
+<a href="screenshots/cmdbox.png">
+<img src="screenshots/cmdbox_small.png" border="1" alt="CmdBox"
+style="width: 250px; height: 172px;"></a>
+    </td>
+    <td valign="top">
+<b>CmdBox:</b><br>
+CmdBox (command box) is a small binary that includes tiny versions
+of many Unix utilities.<br>
+    </td>
+  </tr>
+</table>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/exec.png">
+<img src="screenshots/exec_small.png" border="1" alt="loading"
+style="width: 246px; height: 192px;"></a>
+    </td>
+    <td valign="top">
+<b>Program Loading:</b><br>
+Exec server handles dynamic loading of an ELF program.
+    </td>
+  </tr>
+</table>
+
+
+
+<h2 id="S11">File System <span>(Prex 0.5.0)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/fileio.png">
+<img src="screenshots/fileio_small.png" border="1" alt="filesystem"
+style="width: 250px; height: 149px;"></a>
+    </td>
+    <td valign="top">
+fs server includes VFS framework, buffer cache and mount function.
+It supports devfs, ramfs, arfs.<br>
+The file i/o test program is reading a LICENSE file from the
+/boot directory mounted as arfs (archive fs).
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S10">dmesg <span>(Prex 0.4.3)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/dmesg.png">
+<img src="screenshots/dmesg_small.png" border="1" alt="dmesg"
+style="width: 250px; height: 149px;"></a>
+    </td>
+    <td valign="top">
+dmesg (for "diagnostic message") is a command to print the message buffer of the kernel.
+    </td>
+  </tr>
+</table>
+
+
+
+<h2 id="S9">Deadlock Detection <span>(Prex 0.3.0)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/deadlock.png">
+<img src="screenshots/deadlock_small.png" border="1" alt="deadlock"
+style="width: 250px; height: 173px;"></a>
+    </td>
+    <td valign="top">
+Prex kernel has the feature of deadlock detection.
+The following senario is tried with the test program.<br>
+<ol>
+<li>Thread-2 locks mutex-A.</li>
+<li>Thread-1 locks mutex-B.</li>
+<li>Thread-1 locks mutex-A.</li>
+<li>Thread-2 locks mutex-B.</li>
+</ol>
+The deadlock occurs at 4) because mutex-B has been already locked by
+thread-1 and thread-1 is waiting for thread-2 (mutex-A).
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S8">GBA On-Screen Keyboard <span>(Prex 0.2.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/gba2_large.png">
+<img src="screenshots/gba2.png" border="1" alt="gba2"
+style="width: 248px; height: 206px;"></a>
+    </td>
+    <td valign="top">
+The keyboard emulation driver has been made for Game Boy Advance.
+You can show/hide this pop-up keyboard at any time.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a href="screenshots/gba3_large.png">
+<img src="screenshots/gba3.png" border="1" alt="gba2"
+style="width: 248px; height: 206px;"></a>
+    <td valign="top">
+CapsLock is supported.
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S7">Hello World, again <span>(Prex 0.2.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/gba_large.jpg">
+<img src="screenshots/gba.jpg" border="1" alt="gba"
+style="width: 144px; height: 192px;"></a>
+    </td>
+    <td valign="top">
+Prex has been ported to Game Boy Advance (ARM7TDMI).
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a href="screenshots/gba1_large.png">
+<img src="screenshots/gba1.png" border="1" alt="gba1"
+style="width: 248px; height: 206px;"></a>
+    </td>
+    <td valign="top">
+Hello-world running on GBA emulator.
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S6">MMU vs NOMMU <span>(Prex 0.2.0)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/mmu.png">
+<img src="screenshots/mmu_small.png" border="1" alt="MMU"
+style="width: 250px; height: 179px;"></a>
+    </td>
+    <td valign="top">
+<b>MMU Kernel (i386-pc):</b>
+<br>
+An application can work on MMU and NOMMU platforms without changing its
+source code.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a href="screenshots/nommu.png">
+<img src="screenshots/nommu_small.png" border="1" alt="NOMMU"
+style="width: 250px; height: 179px;"></a>
+    <td valign="top">
+<b>NOMMU Kernel (i386-nommu):</b>
+<br>
+The NOMMU Kernel allocates the memory with 1:1 physical page mapping.
+    </td>
+  </tr>
+</table>
+
+<h2 id="S5">CPU Voltage Monitor <span>(Prex 0.1.2)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/dvs1.png">
+<img src="screenshots/dvs1_small.png" border="1" alt="DVS Busy"
+style="width: 250px; height: 169px;"></a>
+    </td>
+    <td valign="top">
+Voltage Monitor checks the CPU speed and voltage state once per 10msec.
+Voltage Monitor and DVS demonstration program are running simultaneously
+in this screenshot.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a href="screenshots/dvs2.png">
+<img src="screenshots/dvs2_small.png" border="1" alt="DVS Idle"
+style="width: 250px; height: 169px;"></a>
+    <td valign="top">
+DVS demo program will periodically change the CPU load.
+In this time, DVS driver will automatically adjust
+the CPU speed for the current CPU load.
+You can find that the voltage is set to the lowest level
+during the processor idle time.
+<br><br>
+<i>Note: Since Bochs does not emulate Enhanced Speed Step (EST), the special
+hack for EST was added in the i386 processor driver.</i>
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S4">Kernel Monitor <span>(Prex 0.1.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/kmon.png">
+<img src="screenshots/kmon_small.png" border="1" alt="kernel monitor"
+style="width: 250px; height: 169px;"></a>
+    </td>
+    <td valign="top">
+Initial version of kernel monitor. Only few commands are available.
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S3">Page Fault <span>(Prex 0.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/fault.png">
+<img src="screenshots/fault_small.png" border="1" alt="fault"
+style="width: 250px; height: 169px;"></a>
+    </td>
+    <td valign="top">
+The task named "fault" is a test program which just reads data
+from null-pointer.
+Since this task does not register an exception handler, the kernel
+terminates it immediately after detecting the page fault.
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S2">Kernel Dump <span>(Prex 0.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/dump.png">
+<img src="screenshots/dump_small.png" border="1" alt="dump"
+style="width: 250px; height: 169px;"></a>
+    </td>
+    <td valign="top">
+Some Fn keys are mapped to display kernel stastics when
+the kernel is built with debugging flag.
+This screenshot shows thread, task, timer, irq and device state.
+You can find that an idle thread (priority=255) is using processor in
+almost all time.
+    </td>
+  </tr>
+</table>
+
+
+<h2 id="S1">Hello World <span>(Prex 0.1)</span></h2>
+
+<table class="box" width="100%" border="0" cellspacing="0" cellpadding="15">
+  <tr style="background:#f0f0f0;">
+    <td width="260px">
+<a href="screenshots/hello.png">
+<img src="screenshots/hello_small.png" border="1" alt="hello"
+style="width: 250px; height: 169px;"></a>
+    </td>
+    <td valign="top">
+The boot screen of i386-pc.
+The system execute only hello-world program after boot.
+<br clear="left">
+    </td>
+  </tr>
+</table>
+
+
+
+    </tr>
+    <tr>
+      <td id="footer" colspan="2">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2008 Kohsuke Ohtani
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

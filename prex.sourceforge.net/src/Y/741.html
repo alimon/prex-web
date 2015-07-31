@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ehdr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L55'>ehdr</a>               55 bsp/boot/common/elf.c 	Elf32_Ehdr *ehdr;
+<a href='../S/13.html#L60'>ehdr</a>               60 bsp/boot/common/elf.c 	ehdr = (Elf32_Ehdr *)img;
+<a href='../S/13.html#L63'>ehdr</a>               63 bsp/boot/common/elf.c 	if ((ehdr-&gt;e_ident[EI_MAG0] != ELFMAG0) ||
+<a href='../S/13.html#L64'>ehdr</a>               64 bsp/boot/common/elf.c 	    (ehdr-&gt;e_ident[EI_MAG1] != ELFMAG1) ||
+<a href='../S/13.html#L65'>ehdr</a>               65 bsp/boot/common/elf.c 	    (ehdr-&gt;e_ident[EI_MAG2] != ELFMAG2) ||
+<a href='../S/13.html#L66'>ehdr</a>               66 bsp/boot/common/elf.c 	    (ehdr-&gt;e_ident[EI_MAG3] != ELFMAG3)) {
+<a href='../S/13.html#L71'>ehdr</a>               71 bsp/boot/common/elf.c 	phdr = (Elf32_Phdr *)((paddr_t)ehdr + ehdr-&gt;e_ehsize);
+<a href='../S/13.html#L92'>ehdr</a>               92 bsp/boot/common/elf.c 	switch (ehdr-&gt;e_type) {
+<a href='../S/13.html#L112'>ehdr</a>              112 bsp/boot/common/elf.c 	Elf32_Ehdr *ehdr;
+<a href='../S/13.html#L118'>ehdr</a>              118 bsp/boot/common/elf.c 	ehdr = (Elf32_Ehdr *)img;
+<a href='../S/13.html#L119'>ehdr</a>              119 bsp/boot/common/elf.c 	phdr = (Elf32_Phdr *)((paddr_t)ehdr + ehdr-&gt;e_phoff);
+<a href='../S/13.html#L124'>ehdr</a>              124 bsp/boot/common/elf.c 	for (i = 0; i &lt; (int)ehdr-&gt;e_phnum; i++, phdr++) {
+<a href='../S/13.html#L169'>ehdr</a>              169 bsp/boot/common/elf.c 	m-&gt;entry = ehdr-&gt;e_entry;
+<a href='../S/13.html#L277'>ehdr</a>              277 bsp/boot/common/elf.c 	Elf32_Ehdr *ehdr;
+<a href='../S/13.html#L283'>ehdr</a>              283 bsp/boot/common/elf.c 	ehdr = (Elf32_Ehdr *)img;
+<a href='../S/13.html#L284'>ehdr</a>              284 bsp/boot/common/elf.c 	shdr = (Elf32_Shdr *)((paddr_t)ehdr + ehdr-&gt;e_shoff);
+<a href='../S/13.html#L290'>ehdr</a>              290 bsp/boot/common/elf.c 	for (i = 0; i &lt; (int)ehdr-&gt;e_shnum; i++, shdr++) {
+<a href='../S/13.html#L358'>ehdr</a>              358 bsp/boot/common/elf.c 	m-&gt;entry = (vaddr_t)ptokv(ehdr-&gt;e_entry + m-&gt;phys);
+<a href='../S/13.html#L362'>ehdr</a>              362 bsp/boot/common/elf.c 	shdr = (Elf32_Shdr *)((paddr_t)ehdr + ehdr-&gt;e_shoff);
+<a href='../S/13.html#L363'>ehdr</a>              363 bsp/boot/common/elf.c 	for (i = 0; i &lt; (int)ehdr-&gt;e_shnum; i++, shdr++) {
+<a href='../S/254.html#L101'>ehdr</a>              101 include/sys/elf.h #define IS_ELF(ehdr) ((ehdr).e_ident[EI_MAG0] == ELFMAG0 &amp;&amp; \
+<a href='../S/254.html#L102'>ehdr</a>              102 include/sys/elf.h                       (ehdr).e_ident[EI_MAG1] == ELFMAG1 &amp;&amp; \
+<a href='../S/254.html#L103'>ehdr</a>              103 include/sys/elf.h                       (ehdr).e_ident[EI_MAG2] == ELFMAG2 &amp;&amp; \
+<a href='../S/254.html#L104'>ehdr</a>              104 include/sys/elf.h                       (ehdr).e_ident[EI_MAG3] == ELFMAG3)
+<a href='../S/876.html#L59'>ehdr</a>               59 usr/server/exec/exec_elf.c load_exec(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L66'>ehdr</a>               66 usr/server/exec/exec_elf.c 	phdr = (Elf32_Phdr *)((u_long)ehdr + ehdr-&gt;e_phoff);
+<a href='../S/876.html#L70'>ehdr</a>               70 usr/server/exec/exec_elf.c 	for (i = 0; i &lt; (int)ehdr-&gt;e_phnum; i++, phdr++) {
+<a href='../S/876.html#L100'>ehdr</a>              100 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)ehdr-&gt;e_entry;
+<a href='../S/876.html#L195'>ehdr</a>              195 usr/server/exec/exec_elf.c load_reloc(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L206'>ehdr</a>              206 usr/server/exec/exec_elf.c 	shdr_size = ehdr-&gt;e_shentsize * ehdr-&gt;e_shnum;
+<a href='../S/876.html#L212'>ehdr</a>              212 usr/server/exec/exec_elf.c 	if (lseek(fd, ehdr-&gt;e_shoff, SEEK_SET) &lt; 0) {
+<a href='../S/876.html#L224'>ehdr</a>              224 usr/server/exec/exec_elf.c 	for (i = 0; i &lt; ehdr-&gt;e_shnum; i++, shdr++) {
+<a href='../S/876.html#L247'>ehdr</a>              247 usr/server/exec/exec_elf.c 	for (i = 0; i &lt; ehdr-&gt;e_shnum; i++, shdr++) {
+<a href='../S/876.html#L297'>ehdr</a>              297 usr/server/exec/exec_elf.c 	for (i = 0; i &lt; ehdr-&gt;e_shnum; i++, shdr++) {
+<a href='../S/876.html#L306'>ehdr</a>              306 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)((u_long)mapped + ehdr-&gt;e_entry);
+<a href='../S/876.html#L311'>ehdr</a>              311 usr/server/exec/exec_elf.c 	for (i = 0; i &lt; ehdr-&gt;e_shnum; i++, shdr++) {
+<a href='../S/876.html#L366'>ehdr</a>              366 usr/server/exec/exec_elf.c 	Elf32_Ehdr *ehdr;
+<a href='../S/876.html#L369'>ehdr</a>              369 usr/server/exec/exec_elf.c 	ehdr = (Elf32_Ehdr *)exec-&gt;header;
+<a href='../S/876.html#L371'>ehdr</a>              371 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG0],
+<a href='../S/876.html#L372'>ehdr</a>              372 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG1],
+<a href='../S/876.html#L373'>ehdr</a>              373 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG2],
+<a href='../S/876.html#L374'>ehdr</a>              374 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG3]));
+<a href='../S/876.html#L376'>ehdr</a>              376 usr/server/exec/exec_elf.c 	if ((ehdr-&gt;e_ident[EI_MAG0] != ELFMAG0) ||
+<a href='../S/876.html#L377'>ehdr</a>              377 usr/server/exec/exec_elf.c 	    (ehdr-&gt;e_ident[EI_MAG1] != ELFMAG1) ||
+<a href='../S/876.html#L378'>ehdr</a>              378 usr/server/exec/exec_elf.c 	    (ehdr-&gt;e_ident[EI_MAG2] != ELFMAG2) ||
+<a href='../S/876.html#L379'>ehdr</a>              379 usr/server/exec/exec_elf.c 	    (ehdr-&gt;e_ident[EI_MAG3] != ELFMAG3))
+<a href='../S/876.html#L383'>ehdr</a>              383 usr/server/exec/exec_elf.c 	if (ehdr-&gt;e_type != ET_EXEC)
+<a href='../S/876.html#L386'>ehdr</a>              386 usr/server/exec/exec_elf.c 	if (ehdr-&gt;e_type != ET_REL)
+</pre>
+</body>
+</html>

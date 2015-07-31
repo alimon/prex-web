@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fatfsmount</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L156'>fatfsmount</a>        156 usr/server/fs/fatfs/fatfs.h struct fatfsmount {
+<a href='../S/888.html#L199'>fatfsmount</a>        199 usr/server/fs/fatfs/fatfs.h int	 fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next);
+<a href='../S/888.html#L200'>fatfsmount</a>        200 usr/server/fs/fatfs/fatfs.h int	 fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next);
+<a href='../S/888.html#L201'>fatfsmount</a>        201 usr/server/fs/fatfs/fatfs.h int	 fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free);
+<a href='../S/888.html#L202'>fatfsmount</a>        202 usr/server/fs/fatfs/fatfs.h int	 fat_free_clusters(struct fatfsmount *fmp, u_long start);
+<a href='../S/888.html#L203'>fatfsmount</a>        203 usr/server/fs/fatfs/fatfs.h int	 fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/888.html#L205'>fatfsmount</a>        205 usr/server/fs/fatfs/fatfs.h int	 fat_expand_file(struct fatfsmount *fmp, u_long cl, int size);
+<a href='../S/888.html#L206'>fatfsmount</a>        206 usr/server/fs/fatfs/fatfs.h int	 fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl);
+<a href='../S/888.html#L217'>fatfsmount</a>        217 usr/server/fs/fatfs/fatfs.h int	 fatfs_put_node(struct fatfsmount *fmp, struct fatfs_node *node);
+<a href='../S/889.html#L44'>fatfsmount</a>         44 usr/server/fs/fatfs/fatfs_fat.c read_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L87'>fatfsmount</a>         87 usr/server/fs/fatfs/fatfs_fat.c write_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L128'>fatfsmount</a>        128 usr/server/fs/fatfs/fatfs_fat.c fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next)
+<a href='../S/889.html#L167'>fatfsmount</a>        167 usr/server/fs/fatfs/fatfs_fat.c fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next)
+<a href='../S/889.html#L212'>fatfsmount</a>        212 usr/server/fs/fatfs/fatfs_fat.c fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free)
+<a href='../S/889.html#L244'>fatfsmount</a>        244 usr/server/fs/fatfs/fatfs_fat.c fat_free_clusters(struct fatfsmount *fmp, u_long start)
+<a href='../S/889.html#L278'>fatfsmount</a>        278 usr/server/fs/fatfs/fatfs_fat.c fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L308'>fatfsmount</a>        308 usr/server/fs/fatfs/fatfs_fat.c fat_expand_file(struct fatfsmount *fmp, u_long cl, int size)
+<a href='../S/889.html#L349'>fatfsmount</a>        349 usr/server/fs/fatfs/fatfs_fat.c fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl)
+<a href='../S/890.html#L45'>fatfsmount</a>         45 usr/server/fs/fatfs/fatfs_node.c fat_read_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L61'>fatfsmount</a>         61 usr/server/fs/fatfs/fatfs_node.c fat_write_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L80'>fatfsmount</a>         80 usr/server/fs/fatfs/fatfs_node.c fat_lookup_dirent(struct fatfsmount *fmp, u_long sec, char *name,
+<a href='../S/890.html#L123'>fatfsmount</a>        123 usr/server/fs/fatfs/fatfs_node.c 	struct fatfsmount *fmp;
+<a href='../S/890.html#L136'>fatfsmount</a>        136 usr/server/fs/fatfs/fatfs_node.c 	fmp = (struct fatfsmount *)dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/890.html#L175'>fatfsmount</a>        175 usr/server/fs/fatfs/fatfs_node.c fat_get_dirent(struct fatfsmount *fmp, u_long sec, int target, int *index,
+<a href='../S/890.html#L216'>fatfsmount</a>        216 usr/server/fs/fatfs/fatfs_node.c 	struct fatfsmount *fmp;
+<a href='../S/890.html#L220'>fatfsmount</a>        220 usr/server/fs/fatfs/fatfs_node.c 	fmp = (struct fatfsmount *)dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/890.html#L260'>fatfsmount</a>        260 usr/server/fs/fatfs/fatfs_node.c fat_add_dirent(struct fatfsmount *fmp, u_long sec, struct fatfs_node *np)
+<a href='../S/890.html#L294'>fatfsmount</a>        294 usr/server/fs/fatfs/fatfs_node.c 	struct fatfsmount *fmp;
+<a href='../S/890.html#L299'>fatfsmount</a>        299 usr/server/fs/fatfs/fatfs_node.c 	fmp = (struct fatfsmount *)dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/890.html#L355'>fatfsmount</a>        355 usr/server/fs/fatfs/fatfs_node.c fatfs_put_node(struct fatfsmount *fmp, struct fatfs_node *np)
+<a href='../S/892.html#L70'>fatfsmount</a>         70 usr/server/fs/fatfs/fatfs_vfsops.c fat_read_bpb(struct fatfsmount *fmp)
+<a href='../S/892.html#L138'>fatfsmount</a>        138 usr/server/fs/fatfs/fatfs_vfsops.c 	struct fatfsmount *fmp;
+<a href='../S/892.html#L144'>fatfsmount</a>        144 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp = malloc(sizeof(struct fatfsmount));
+<a href='../S/892.html#L185'>fatfsmount</a>        185 usr/server/fs/fatfs/fatfs_vfsops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L101'>fatfsmount</a>        101 usr/server/fs/fatfs/fatfs_vnops.c fat_read_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L115'>fatfsmount</a>        115 usr/server/fs/fatfs/fatfs_vnops.c fat_write_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L132'>fatfsmount</a>        132 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L167'>fatfsmount</a>        167 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L238'>fatfsmount</a>        238 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L341'>fatfsmount</a>        341 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L378'>fatfsmount</a>        378 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L419'>fatfsmount</a>        419 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L460'>fatfsmount</a>        460 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L555'>fatfsmount</a>        555 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L619'>fatfsmount</a>        619 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L680'>fatfsmount</a>        680 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+</pre>
+</body>
+</html>

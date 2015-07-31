@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>info</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L197'>info</a>              197 bsp/drv/dev/base/kd.c 	struct meminfo info;
+<a href='../S/60.html#L200'>info</a>              200 bsp/drv/dev/base/kd.c 	sysinfo(INFO_MEMORY, &amp;info);
+<a href='../S/60.html#L203'>info</a>              203 bsp/drv/dev/base/kd.c 	printf(" Used     :%8ld KB\n", (info.total - info.free) / 1024);
+<a href='../S/60.html#L204'>info</a>              204 bsp/drv/dev/base/kd.c 	printf(" Free     :%8ld KB\n", info.free / 1024);
+<a href='../S/60.html#L205'>info</a>              205 bsp/drv/dev/base/kd.c 	printf(" Total    :%8ld KB\n", info.total / 1024);
+<a href='../S/60.html#L206'>info</a>              206 bsp/drv/dev/base/kd.c 	printf(" Bootdisk :%8ld KB\n", info.bootdisk / 1024);
+<a href='../S/69.html#L214'>info</a>              214 bsp/drv/dev/cpufreq/cpufreq.c 	struct timerinfo info;
+<a href='../S/69.html#L221'>info</a>              221 bsp/drv/dev/cpufreq/cpufreq.c 	sysinfo(INFO_TIMER, &amp;info);
+<a href='../S/69.html#L222'>info</a>              222 bsp/drv/dev/cpufreq/cpufreq.c 	idle_cycles = info.idleticks - last_idleticks;
+<a href='../S/69.html#L223'>info</a>              223 bsp/drv/dev/cpufreq/cpufreq.c 	run_cycles = info.cputicks - last_cputicks - idle_cycles;
+<a href='../S/69.html#L242'>info</a>              242 bsp/drv/dev/cpufreq/cpufreq.c 	last_cputicks = info.cputicks;
+<a href='../S/69.html#L243'>info</a>              243 bsp/drv/dev/cpufreq/cpufreq.c 	last_idleticks = info.idleticks;
+<a href='../S/69.html#L254'>info</a>              254 bsp/drv/dev/cpufreq/cpufreq.c 	struct timerinfo info;
+<a href='../S/69.html#L267'>info</a>              267 bsp/drv/dev/cpufreq/cpufreq.c 	sysinfo(INFO_TIMER, &amp;info);
+<a href='../S/69.html#L268'>info</a>              268 bsp/drv/dev/cpufreq/cpufreq.c 	last_cputicks = info.cputicks;
+<a href='../S/69.html#L269'>info</a>              269 bsp/drv/dev/cpufreq/cpufreq.c 	last_idleticks = info.idleticks;
+<a href='../S/69.html#L306'>info</a>              306 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreqinfo info;
+<a href='../S/69.html#L313'>info</a>              313 bsp/drv/dev/cpufreq/cpufreq.c 		sc-&gt;ops-&gt;getinfo(&amp;info);
+<a href='../S/69.html#L314'>info</a>              314 bsp/drv/dev/cpufreq/cpufreq.c 		if (copyout(&amp;info, arg, sizeof(info)))
+<a href='../S/70.html#L439'>info</a>              439 bsp/drv/dev/cpufreq/est.c est_getinfo(struct cpufreqinfo *info)
+<a href='../S/70.html#L442'>info</a>              442 bsp/drv/dev/cpufreq/est.c 	info-&gt;maxfreq = maxfreq;
+<a href='../S/70.html#L443'>info</a>              443 bsp/drv/dev/cpufreq/est.c 	info-&gt;maxvolts = maxvolts;
+<a href='../S/70.html#L444'>info</a>              444 bsp/drv/dev/cpufreq/est.c 	info-&gt;freq = curfreq;
+<a href='../S/70.html#L445'>info</a>              445 bsp/drv/dev/cpufreq/est.c 	info-&gt;volts = curvolts;
+<a href='../S/93.html#L39'>info</a>               39 bsp/drv/include/cpufreq.h 	void	(*getinfo)(struct cpufreqinfo *info);
+<a href='../S/327.html#L517'>info</a>              517 sys/kern/device.c device_info(struct devinfo *info)
+<a href='../S/327.html#L519'>info</a>              519 sys/kern/device.c 	u_long target = info-&gt;cookie;
+<a href='../S/327.html#L527'>info</a>              527 sys/kern/device.c 			info-&gt;cookie = i;
+<a href='../S/327.html#L528'>info</a>              528 sys/kern/device.c 			info-&gt;id = dev;
+<a href='../S/327.html#L529'>info</a>              529 sys/kern/device.c 			info-&gt;flags = dev-&gt;flags;
+<a href='../S/327.html#L530'>info</a>              530 sys/kern/device.c 			strlcpy(info-&gt;name, dev-&gt;name, MAXDEVNAME);
+<a href='../S/329.html#L225'>info</a>              225 sys/kern/irq.c irq_info(struct irqinfo *info)
+<a href='../S/329.html#L227'>info</a>              227 sys/kern/irq.c 	int vec = info-&gt;cookie;
+<a href='../S/329.html#L242'>info</a>              242 sys/kern/irq.c 	info-&gt;vector = irq-&gt;vector;
+<a href='../S/329.html#L243'>info</a>              243 sys/kern/irq.c 	info-&gt;count = irq-&gt;count;
+<a href='../S/329.html#L244'>info</a>              244 sys/kern/irq.c 	info-&gt;priority = irq-&gt;priority;
+<a href='../S/329.html#L245'>info</a>              245 sys/kern/irq.c 	info-&gt;istreq = irq-&gt;istreq;
+<a href='../S/329.html#L246'>info</a>              246 sys/kern/irq.c 	info-&gt;thread = irq-&gt;thread;
+<a href='../S/329.html#L247'>info</a>              247 sys/kern/irq.c 	info-&gt;cookie = vec + 1;
+<a href='../S/334.html#L439'>info</a>              439 sys/kern/task.c task_info(struct taskinfo *info)
+<a href='../S/334.html#L441'>info</a>              441 sys/kern/task.c 	u_long target = info-&gt;cookie;
+<a href='../S/334.html#L451'>info</a>              451 sys/kern/task.c 			info-&gt;cookie = i;
+<a href='../S/334.html#L452'>info</a>              452 sys/kern/task.c 			info-&gt;id = task;
+<a href='../S/334.html#L453'>info</a>              453 sys/kern/task.c 			info-&gt;flags = task-&gt;flags;
+<a href='../S/334.html#L454'>info</a>              454 sys/kern/task.c 			info-&gt;suscnt = task-&gt;suscnt;
+<a href='../S/334.html#L455'>info</a>              455 sys/kern/task.c 			info-&gt;capability = task-&gt;capability;
+<a href='../S/334.html#L456'>info</a>              456 sys/kern/task.c 			info-&gt;vmsize = task-&gt;map-&gt;total;
+<a href='../S/334.html#L457'>info</a>              457 sys/kern/task.c 			info-&gt;nthreads = task-&gt;nthreads;
+<a href='../S/334.html#L458'>info</a>              458 sys/kern/task.c 			info-&gt;active = (task == curtask) ? 1 : 0;
+<a href='../S/334.html#L459'>info</a>              459 sys/kern/task.c 			strlcpy(info-&gt;taskname, task-&gt;name, MAXTASKNAME);
+<a href='../S/335.html#L481'>info</a>              481 sys/kern/thread.c thread_info(struct threadinfo *info)
+<a href='../S/335.html#L483'>info</a>              483 sys/kern/thread.c 	u_long target = info-&gt;cookie;
+<a href='../S/335.html#L493'>info</a>              493 sys/kern/thread.c 			info-&gt;cookie = i;
+<a href='../S/335.html#L494'>info</a>              494 sys/kern/thread.c 			info-&gt;id = t;
+<a href='../S/335.html#L495'>info</a>              495 sys/kern/thread.c 			info-&gt;state = t-&gt;state;
+<a href='../S/335.html#L496'>info</a>              496 sys/kern/thread.c 			info-&gt;policy = t-&gt;policy;
+<a href='../S/335.html#L497'>info</a>              497 sys/kern/thread.c 			info-&gt;priority = t-&gt;priority;
+<a href='../S/335.html#L498'>info</a>              498 sys/kern/thread.c 			info-&gt;basepri = t-&gt;basepri;
+<a href='../S/335.html#L499'>info</a>              499 sys/kern/thread.c 			info-&gt;time = t-&gt;time;
+<a href='../S/335.html#L500'>info</a>              500 sys/kern/thread.c 			info-&gt;suscnt = t-&gt;suscnt;
+<a href='../S/335.html#L501'>info</a>              501 sys/kern/thread.c 			info-&gt;task = t-&gt;task;
+<a href='../S/335.html#L502'>info</a>              502 sys/kern/thread.c 			info-&gt;active = (t == curthread) ? 1 : 0;
+<a href='../S/335.html#L503'>info</a>              503 sys/kern/thread.c 			strlcpy(info-&gt;taskname, t-&gt;task-&gt;name, MAXTASKNAME);
+<a href='../S/335.html#L504'>info</a>              504 sys/kern/thread.c 			strlcpy(info-&gt;slpevt, t-&gt;slpevt ?
+<a href='../S/336.html#L447'>info</a>              447 sys/kern/timer.c timer_info(struct timerinfo *info)
+<a href='../S/336.html#L450'>info</a>              450 sys/kern/timer.c 	info-&gt;hz = HZ;
+<a href='../S/336.html#L451'>info</a>              451 sys/kern/timer.c 	info-&gt;cputicks = lbolt;
+<a href='../S/336.html#L452'>info</a>              452 sys/kern/timer.c 	info-&gt;idleticks = idle_ticks;
+<a href='../S/342.html#L239'>info</a>              239 sys/mem/page.c page_info(struct meminfo *info)
+<a href='../S/342.html#L242'>info</a>              242 sys/mem/page.c 	info-&gt;total = total_size;
+<a href='../S/342.html#L243'>info</a>              243 sys/mem/page.c 	info-&gt;free = total_size - used_size;
+<a href='../S/342.html#L244'>info</a>              244 sys/mem/page.c 	info-&gt;bootdisk = bootdisk_size;
+<a href='../S/342.html#L250'>info</a>              250 sys/mem/page.c 	info-&gt;free -= bootdisk_size;
+<a href='../S/343.html#L740'>info</a>              740 sys/mem/vm.c   vm_info(struct vminfo *info)
+<a href='../S/343.html#L742'>info</a>              742 sys/mem/vm.c   	u_long target = info-&gt;cookie;
+<a href='../S/343.html#L743'>info</a>              743 sys/mem/vm.c   	task_t task = info-&gt;task;
+<a href='../S/343.html#L758'>info</a>              758 sys/mem/vm.c   			info-&gt;cookie = i;
+<a href='../S/343.html#L759'>info</a>              759 sys/mem/vm.c   			info-&gt;virt = seg-&gt;addr;
+<a href='../S/343.html#L760'>info</a>              760 sys/mem/vm.c   			info-&gt;size = seg-&gt;size;
+<a href='../S/343.html#L761'>info</a>              761 sys/mem/vm.c   			info-&gt;flags = seg-&gt;flags;
+<a href='../S/343.html#L762'>info</a>              762 sys/mem/vm.c   			info-&gt;phys = seg-&gt;phys;
+<a href='../S/344.html#L500'>info</a>              500 sys/mem/vm_nommu.c vm_info(struct vminfo *info)
+<a href='../S/344.html#L502'>info</a>              502 sys/mem/vm_nommu.c 	u_long target = info-&gt;cookie;
+<a href='../S/344.html#L503'>info</a>              503 sys/mem/vm_nommu.c 	task_t task = info-&gt;task;
+<a href='../S/344.html#L518'>info</a>              518 sys/mem/vm_nommu.c 			info-&gt;cookie = i;
+<a href='../S/344.html#L519'>info</a>              519 sys/mem/vm_nommu.c 			info-&gt;virt = seg-&gt;addr;
+<a href='../S/344.html#L520'>info</a>              520 sys/mem/vm_nommu.c 			info-&gt;size = seg-&gt;size;
+<a href='../S/344.html#L521'>info</a>              521 sys/mem/vm_nommu.c 			info-&gt;flags = seg-&gt;flags;
+<a href='../S/344.html#L522'>info</a>              522 sys/mem/vm_nommu.c 			info-&gt;phys = seg-&gt;phys;
+<a href='../S/382.html#L45'>info</a>               45 usr/bin/free/free.c 	struct meminfo info;
+<a href='../S/382.html#L47'>info</a>               47 usr/bin/free/free.c 	sys_info(INFO_MEMORY, &amp;info);
+<a href='../S/382.html#L50'>info</a>               50 usr/bin/free/free.c 	printf("Mem: %10d %10d %10d %10d\n", (u_int)info.total,
+<a href='../S/382.html#L51'>info</a>               51 usr/bin/free/free.c 	       (u_int)(info.total - info.free), (u_int)info.free,
+<a href='../S/382.html#L52'>info</a>               52 usr/bin/free/free.c 	       (u_int)info.bootdisk);
+<a href='../S/411.html#L118'>info</a>              118 usr/bin/sh/cmds.c 	struct meminfo info;
+<a href='../S/411.html#L120'>info</a>              120 usr/bin/sh/cmds.c 	sys_info(INFO_MEMORY, &amp;info);
+<a href='../S/411.html#L123'>info</a>              123 usr/bin/sh/cmds.c 	printf("mem = %d\n", (u_int)info.total);
+<a href='../S/701.html#L39'>info</a>               39 usr/lib/posix/gen/uname.c 	struct kerninfo info;
+<a href='../S/701.html#L41'>info</a>               41 usr/lib/posix/gen/uname.c 	sys_info(INFO_KERNEL, &amp;info);
+<a href='../S/701.html#L42'>info</a>               42 usr/lib/posix/gen/uname.c 	memcpy(uts, &amp;info, sizeof(*uts));
+<a href='../S/827.html#L86'>info</a>               86 usr/sample/alarm/alarm.c 	struct timerinfo info;
+<a href='../S/827.html#L91'>info</a>               91 usr/sample/alarm/alarm.c 	sys_info(INFO_TIMER, &amp;info);
+<a href='../S/827.html#L92'>info</a>               92 usr/sample/alarm/alarm.c 	if (info.hz == 0)
+<a href='../S/827.html#L94'>info</a>               94 usr/sample/alarm/alarm.c 	hz = info.hz;
+<a href='../S/831.html#L59'>info</a>               59 usr/sample/bench/bench.c 	struct timerinfo info;
+<a href='../S/831.html#L67'>info</a>               67 usr/sample/bench/bench.c 	sys_info(INFO_TIMER, &amp;info);
+<a href='../S/831.html#L68'>info</a>               68 usr/sample/bench/bench.c 	if (info.hz == 0)
+<a href='../S/831.html#L107'>info</a>              107 usr/sample/bench/bench.c 	       (int)((end - start) * 1000 / info.hz),
+<a href='../S/886.html#L195'>info</a>              195 usr/server/fs/devfs/devfs_vnops.c 	struct devinfo info;
+<a href='../S/886.html#L205'>info</a>              205 usr/server/fs/devfs/devfs_vnops.c 	info.cookie = 0;
+<a href='../S/886.html#L207'>info</a>              207 usr/server/fs/devfs/devfs_vnops.c 		error = sys_info(INFO_DEVICE, &amp;info);
+<a href='../S/886.html#L210'>info</a>              210 usr/server/fs/devfs/devfs_vnops.c 		if (!strncmp(info.name, name, MAXDEVNAME))
+<a href='../S/886.html#L214'>info</a>              214 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_type = (info.flags &amp; D_CHR) ? VCHR : VBLK;
+<a href='../S/886.html#L215'>info</a>              215 usr/server/fs/devfs/devfs_vnops.c 	if (info.flags &amp; D_TTY)
+<a href='../S/886.html#L218'>info</a>              218 usr/server/fs/devfs/devfs_vnops.c 	if (info.flags &amp; D_PROT)
+<a href='../S/886.html#L231'>info</a>              231 usr/server/fs/devfs/devfs_vnops.c 	struct devinfo info;
+<a href='../S/886.html#L238'>info</a>              238 usr/server/fs/devfs/devfs_vnops.c 	info.cookie = 0;
+<a href='../S/886.html#L240'>info</a>              240 usr/server/fs/devfs/devfs_vnops.c 		error = sys_info(INFO_DEVICE, &amp;info);
+<a href='../S/886.html#L246'>info</a>              246 usr/server/fs/devfs/devfs_vnops.c 	if (info.flags &amp; D_CHR)
+<a href='../S/886.html#L248'>info</a>              248 usr/server/fs/devfs/devfs_vnops.c 	else if (info.flags &amp; D_BLK)
+<a href='../S/886.html#L250'>info</a>              250 usr/server/fs/devfs/devfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, info.name, sizeof(dir-&gt;d_name));
+<a href='../S/966.html#L83'>info</a>               83 usr/test/kmon/cmd.c 	struct kerninfo info;
+<a href='../S/966.html#L85'>info</a>               85 usr/test/kmon/cmd.c 	sys_info(INFO_KERNEL, &amp;info);
+<a href='../S/966.html#L89'>info</a>               89 usr/test/kmon/cmd.c 	       info.sysname, info.version, info.machine);
+<a href='../S/966.html#L95'>info</a>               95 usr/test/kmon/cmd.c 	struct meminfo info;
+<a href='../S/966.html#L97'>info</a>               97 usr/test/kmon/cmd.c 	sys_info(INFO_MEMORY, &amp;info);
+<a href='../S/966.html#L101'>info</a>              101 usr/test/kmon/cmd.c 	       (u_int)((info.total - info.free) / 1024));
+<a href='../S/966.html#L102'>info</a>              102 usr/test/kmon/cmd.c 	printf(" Free     : %8d KB\n", (u_int)(info.free / 1024));
+<a href='../S/966.html#L103'>info</a>              103 usr/test/kmon/cmd.c 	printf(" Total    : %8d KB\n", (u_int)(info.total / 1024));
+<a href='../S/966.html#L104'>info</a>              104 usr/test/kmon/cmd.c 	printf(" Bootdisk : %8d KB\n", (u_int)(info.bootdisk / 1024));
+</pre>
+</body>
+</html>

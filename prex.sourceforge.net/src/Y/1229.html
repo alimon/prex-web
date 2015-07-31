@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>m</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L47'>m</a>                  47 bsp/boot/common/bootinfo.c print_module(struct module *m)
+<a href='../S/12.html#L51'>m</a>                  51 bsp/boot/common/bootinfo.c 	       m-&gt;entry, m-&gt;phys, m-&gt;size,
+<a href='../S/12.html#L52'>m</a>                  52 bsp/boot/common/bootinfo.c 	       m-&gt;text, m-&gt;data, m-&gt;textsz,
+<a href='../S/12.html#L53'>m</a>                  53 bsp/boot/common/bootinfo.c 	       m-&gt;datasz, m-&gt;bsssz, m-&gt;name);
+<a href='../S/12.html#L61'>m</a>                  61 bsp/boot/common/bootinfo.c 	struct module *m;
+<a href='../S/12.html#L86'>m</a>                  86 bsp/boot/common/bootinfo.c 	m = (struct module *)&amp;bi-&gt;tasks[0];
+<a href='../S/12.html#L87'>m</a>                  87 bsp/boot/common/bootinfo.c 	for (i = 0; i &lt; bi-&gt;nr_tasks; i++, m++)
+<a href='../S/12.html#L88'>m</a>                  88 bsp/boot/common/bootinfo.c 		print_module(m);
+<a href='../S/13.html#L53'>m</a>                  53 bsp/boot/common/elf.c load_elf(char *img, struct module *m)
+<a href='../S/13.html#L94'>m</a>                  94 bsp/boot/common/elf.c 		if (load_executable(img, m) != 0)
+<a href='../S/13.html#L98'>m</a>                  98 bsp/boot/common/elf.c 		if (load_relocatable(img, m) != 0)
+<a href='../S/13.html#L110'>m</a>                 110 bsp/boot/common/elf.c load_executable(char *img, struct module *m)
+<a href='../S/13.html#L120'>m</a>                 120 bsp/boot/common/elf.c 	m-&gt;phys = load_base;
+<a href='../S/13.html#L138'>m</a>                 138 bsp/boot/common/elf.c 			m-&gt;text = phdr-&gt;p_vaddr;
+<a href='../S/13.html#L139'>m</a>                 139 bsp/boot/common/elf.c 			m-&gt;textsz = (size_t)phdr-&gt;p_memsz;
+<a href='../S/13.html#L142'>m</a>                 142 bsp/boot/common/elf.c 			m-&gt;data = phdr-&gt;p_vaddr;
+<a href='../S/13.html#L143'>m</a>                 143 bsp/boot/common/elf.c 			m-&gt;datasz = (size_t)phdr-&gt;p_filesz;
+<a href='../S/13.html#L144'>m</a>                 144 bsp/boot/common/elf.c 			m-&gt;bsssz =
+<a href='../S/13.html#L146'>m</a>                 146 bsp/boot/common/elf.c 			load_base = phys_base + (m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L155'>m</a>                 155 bsp/boot/common/elf.c 			if (m-&gt;bsssz &gt; 0) {
+<a href='../S/13.html#L157'>m</a>                 157 bsp/boot/common/elf.c 				memset((char *)load_base + m-&gt;datasz,
+<a href='../S/13.html#L158'>m</a>                 158 bsp/boot/common/elf.c 				       0, m-&gt;bsssz);
+<a href='../S/13.html#L164'>m</a>                 164 bsp/boot/common/elf.c 	if (m-&gt;data == 0)
+<a href='../S/13.html#L165'>m</a>                 165 bsp/boot/common/elf.c 		load_base = phys_base + m-&gt;textsz;
+<a href='../S/13.html#L168'>m</a>                 168 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - m-&gt;phys);
+<a href='../S/13.html#L169'>m</a>                 169 bsp/boot/common/elf.c 	m-&gt;entry = ehdr-&gt;e_entry;
+<a href='../S/13.html#L170'>m</a>                 170 bsp/boot/common/elf.c 	ELFDBG(("module size=%x entry=%lx\n", m-&gt;size, m-&gt;entry));
+<a href='../S/13.html#L172'>m</a>                 172 bsp/boot/common/elf.c 	if (m-&gt;size == 0)
+<a href='../S/13.html#L275'>m</a>                 275 bsp/boot/common/elf.c load_relocatable(char *img, struct module *m)
+<a href='../S/13.html#L286'>m</a>                 286 bsp/boot/common/elf.c 	m-&gt;phys = load_base;
+<a href='../S/13.html#L302'>m</a>                 302 bsp/boot/common/elf.c 				m-&gt;text = (vaddr_t)ptokv(load_base);
+<a href='../S/13.html#L306'>m</a>                 306 bsp/boot/common/elf.c 				if (m-&gt;data == 0) {
+<a href='../S/13.html#L307'>m</a>                 307 bsp/boot/common/elf.c 					m-&gt;data = (vaddr_t)ptokv(load_base +
+<a href='../S/13.html#L327'>m</a>                 327 bsp/boot/common/elf.c 			m-&gt;bsssz = (size_t)shdr-&gt;sh_size;
+<a href='../S/13.html#L350'>m</a>                 350 bsp/boot/common/elf.c 	m-&gt;textsz = (size_t)(m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L351'>m</a>                 351 bsp/boot/common/elf.c 	m-&gt;datasz = (size_t)((char *)ptokv(bss_base) - m-&gt;data);
+<a href='../S/13.html#L353'>m</a>                 353 bsp/boot/common/elf.c 	load_base = bss_base + m-&gt;bsssz;
+<a href='../S/13.html#L356'>m</a>                 356 bsp/boot/common/elf.c 	ELFDBG(("module load_base=%lx text=%lx\n", load_base, m-&gt;text));
+<a href='../S/13.html#L357'>m</a>                 357 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - kvtop(m-&gt;text));
+<a href='../S/13.html#L358'>m</a>                 358 bsp/boot/common/elf.c 	m-&gt;entry = (vaddr_t)ptokv(ehdr-&gt;e_entry + m-&gt;phys);
+<a href='../S/13.html#L359'>m</a>                 359 bsp/boot/common/elf.c 	ELFDBG(("module size=%x entry=%lx\n", m-&gt;size, m-&gt;entry));
+<a href='../S/13.html#L366'>m</a>                 366 bsp/boot/common/elf.c 				DPRINTF(("Relocation error: module=%s\n", m-&gt;name));
+<a href='../S/14.html#L61'>m</a>                  61 bsp/boot/common/load.c 	struct module *m;
+<a href='../S/14.html#L102'>m</a>                 102 bsp/boot/common/load.c 	m = (struct module *)&amp;bi-&gt;tasks[0];
+<a href='../S/14.html#L124'>m</a>                 124 bsp/boot/common/load.c 		if (load_module((struct ar_hdr *)hdr, m))
+<a href='../S/14.html#L127'>m</a>                 127 bsp/boot/common/load.c 		m++;
+<a href='../S/14.html#L151'>m</a>                 151 bsp/boot/common/load.c load_module(struct ar_hdr *hdr, struct module *m)
+<a href='../S/14.html#L159'>m</a>                 159 bsp/boot/common/load.c 	strlcpy(m-&gt;name, hdr-&gt;ar_name, sizeof(m-&gt;name));
+<a href='../S/14.html#L160'>m</a>                 160 bsp/boot/common/load.c 	c = m-&gt;name;
+<a href='../S/14.html#L166'>m</a>                 166 bsp/boot/common/load.c 		 (paddr_t)hdr, (paddr_t)m, m-&gt;name));
+<a href='../S/14.html#L168'>m</a>                 168 bsp/boot/common/load.c 	if (load_elf((char *)hdr + sizeof(struct ar_hdr), m))
+<a href='../S/270.html#L174'>m</a>                 174 include/sys/signal.h #define sigmask(m)	(1 &lt;&lt; ((m)-1))
+<a href='../S/271.html#L92'>m</a>                  92 include/sys/stat.h #define	S_ISDIR(m)	((m &amp; 0170000) == 0040000)	/* directory */
+<a href='../S/271.html#L93'>m</a>                  93 include/sys/stat.h #define	S_ISCHR(m)	((m &amp; 0170000) == 0020000)	/* char special */
+<a href='../S/271.html#L94'>m</a>                  94 include/sys/stat.h #define	S_ISBLK(m)	((m &amp; 0170000) == 0060000)	/* block special */
+<a href='../S/271.html#L95'>m</a>                  95 include/sys/stat.h #define	S_ISREG(m)	((m &amp; 0170000) == 0100000)	/* regular file */
+<a href='../S/271.html#L96'>m</a>                  96 include/sys/stat.h #define	S_ISFIFO(m)	((m &amp; 0170000) == 0010000 || \
+<a href='../S/271.html#L97'>m</a>                  97 include/sys/stat.h 			 (m &amp; 0170000) == 0140000)	/* fifo or socket */
+<a href='../S/271.html#L98'>m</a>                  98 include/sys/stat.h #define	S_ISLNK(m)	((m &amp; 0170000) == 0120000)	/* symbolic link */
+<a href='../S/271.html#L99'>m</a>                  99 include/sys/stat.h #define	S_ISSOCK(m)	((m &amp; 0170000) == 0010000 || \
+<a href='../S/271.html#L100'>m</a>                 100 include/sys/stat.h 			 (m &amp; 0170000) == 0140000)	/* fifo or socket */
+<a href='../S/271.html#L101'>m</a>                 101 include/sys/stat.h #define	S_ISWHT(m)	((m &amp; 0170000) == 0160000)	/* whiteout */
+<a href='../S/346.html#L97'>m</a>                  97 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L102'>m</a>                 102 sys/sync/mutex.c 	if ((m = kmem_alloc(sizeof(struct mutex))) == NULL)
+<a href='../S/346.html#L105'>m</a>                 105 sys/sync/mutex.c 	event_init(&amp;m-&gt;event, "mutex");
+<a href='../S/346.html#L106'>m</a>                 106 sys/sync/mutex.c 	m-&gt;owner = self;
+<a href='../S/346.html#L107'>m</a>                 107 sys/sync/mutex.c 	m-&gt;holder = NULL;
+<a href='../S/346.html#L108'>m</a>                 108 sys/sync/mutex.c 	m-&gt;priority = MINPRI;
+<a href='../S/346.html#L110'>m</a>                 110 sys/sync/mutex.c 	if (copyout(&amp;m, mp, sizeof(m))) {
+<a href='../S/346.html#L111'>m</a>                 111 sys/sync/mutex.c 		kmem_free(m);
+<a href='../S/346.html#L116'>m</a>                 116 sys/sync/mutex.c 	list_insert(&amp;self-&gt;mutexes, &amp;m-&gt;task_link);
+<a href='../S/346.html#L126'>m</a>                 126 sys/sync/mutex.c mutex_deallocate(mutex_t m)
+<a href='../S/346.html#L129'>m</a>                 129 sys/sync/mutex.c 	m-&gt;owner-&gt;nsyncs--;
+<a href='../S/346.html#L130'>m</a>                 130 sys/sync/mutex.c 	list_remove(&amp;m-&gt;task_link);
+<a href='../S/346.html#L131'>m</a>                 131 sys/sync/mutex.c 	kmem_free(m);
+<a href='../S/346.html#L141'>m</a>                 141 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L144'>m</a>                 144 sys/sync/mutex.c 	if (copyin(mp, &amp;m, sizeof(mp))) {
+<a href='../S/346.html#L148'>m</a>                 148 sys/sync/mutex.c 	if (!mutex_valid(m)) {
+<a href='../S/346.html#L152'>m</a>                 152 sys/sync/mutex.c 	if (m-&gt;holder || event_waiting(&amp;m-&gt;event)) {
+<a href='../S/346.html#L156'>m</a>                 156 sys/sync/mutex.c 	mutex_deallocate(m);
+<a href='../S/346.html#L167'>m</a>                 167 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L170'>m</a>                 170 sys/sync/mutex.c 		m = list_entry(list_first(&amp;task-&gt;mutexes),
+<a href='../S/346.html#L172'>m</a>                 172 sys/sync/mutex.c 		mutex_deallocate(m);
+<a href='../S/346.html#L189'>m</a>                 189 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L193'>m</a>                 193 sys/sync/mutex.c 	if ((error = mutex_copyin(mp, &amp;m)) != 0) {
+<a href='../S/346.html#L198'>m</a>                 198 sys/sync/mutex.c 	if (m-&gt;holder == curthread) {
+<a href='../S/346.html#L202'>m</a>                 202 sys/sync/mutex.c 		m-&gt;locks++;
+<a href='../S/346.html#L203'>m</a>                 203 sys/sync/mutex.c 		ASSERT(m-&gt;locks != 0);
+<a href='../S/346.html#L210'>m</a>                 210 sys/sync/mutex.c 		if (m-&gt;holder == NULL)
+<a href='../S/346.html#L211'>m</a>                 211 sys/sync/mutex.c 			m-&gt;priority = curthread-&gt;priority;
+<a href='../S/346.html#L216'>m</a>                 216 sys/sync/mutex.c 			curthread-&gt;mutex_waiting = m;
+<a href='../S/346.html#L222'>m</a>                 222 sys/sync/mutex.c 			rc = sched_sleep(&amp;m-&gt;event);
+<a href='../S/346.html#L229'>m</a>                 229 sys/sync/mutex.c 		m-&gt;locks = 1;
+<a href='../S/346.html#L230'>m</a>                 230 sys/sync/mutex.c 		m-&gt;holder = curthread;
+<a href='../S/346.html#L231'>m</a>                 231 sys/sync/mutex.c 		list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L243'>m</a>                 243 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L247'>m</a>                 247 sys/sync/mutex.c 	if ((error = mutex_copyin(mp, &amp;m)) != 0) {
+<a href='../S/346.html#L252'>m</a>                 252 sys/sync/mutex.c 	if (m-&gt;holder == curthread) {
+<a href='../S/346.html#L253'>m</a>                 253 sys/sync/mutex.c 		m-&gt;locks++;
+<a href='../S/346.html#L254'>m</a>                 254 sys/sync/mutex.c 		ASSERT(m-&gt;locks != 0);
+<a href='../S/346.html#L256'>m</a>                 256 sys/sync/mutex.c 		if (m-&gt;holder != NULL)
+<a href='../S/346.html#L259'>m</a>                 259 sys/sync/mutex.c 			m-&gt;locks = 1;
+<a href='../S/346.html#L260'>m</a>                 260 sys/sync/mutex.c 			m-&gt;holder = curthread;
+<a href='../S/346.html#L261'>m</a>                 261 sys/sync/mutex.c 			list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L275'>m</a>                 275 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L279'>m</a>                 279 sys/sync/mutex.c 	if ((error = mutex_copyin(mp, &amp;m)) != 0) {
+<a href='../S/346.html#L284'>m</a>                 284 sys/sync/mutex.c 	if (m-&gt;holder != curthread || m-&gt;locks &lt;= 0) {
+<a href='../S/346.html#L288'>m</a>                 288 sys/sync/mutex.c 	if (--m-&gt;locks == 0) {
+<a href='../S/346.html#L289'>m</a>                 289 sys/sync/mutex.c 		list_remove(&amp;m-&gt;link);
+<a href='../S/346.html#L295'>m</a>                 295 sys/sync/mutex.c 		m-&gt;holder = sched_wakeone(&amp;m-&gt;event);
+<a href='../S/346.html#L296'>m</a>                 296 sys/sync/mutex.c 		if (m-&gt;holder)
+<a href='../S/346.html#L297'>m</a>                 297 sys/sync/mutex.c 			m-&gt;holder-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L299'>m</a>                 299 sys/sync/mutex.c 		m-&gt;priority = m-&gt;holder ? m-&gt;holder-&gt;priority : MINPRI;
+<a href='../S/346.html#L319'>m</a>                 319 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L330'>m</a>                 330 sys/sync/mutex.c 		m = list_entry(list_first(head), struct mutex, link);
+<a href='../S/346.html#L331'>m</a>                 331 sys/sync/mutex.c 		m-&gt;locks = 0;
+<a href='../S/346.html#L332'>m</a>                 332 sys/sync/mutex.c 		list_remove(&amp;m-&gt;link);
+<a href='../S/346.html#L338'>m</a>                 338 sys/sync/mutex.c 		holder = sched_wakeone(&amp;m-&gt;event);
+<a href='../S/346.html#L341'>m</a>                 341 sys/sync/mutex.c 			m-&gt;locks = 1;
+<a href='../S/346.html#L342'>m</a>                 342 sys/sync/mutex.c 			list_insert(&amp;holder-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L344'>m</a>                 344 sys/sync/mutex.c 		m-&gt;holder = holder;
+<a href='../S/346.html#L364'>m</a>                 364 sys/sync/mutex.c mutex_valid(mutex_t m)
+<a href='../S/346.html#L372'>m</a>                 372 sys/sync/mutex.c 		if (tmp == m)
+<a href='../S/346.html#L385'>m</a>                 385 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L388'>m</a>                 388 sys/sync/mutex.c 	if (copyin(ump, &amp;m, sizeof(ump)))
+<a href='../S/346.html#L391'>m</a>                 391 sys/sync/mutex.c 	if (m == MUTEX_INITIALIZER) {
+<a href='../S/346.html#L398'>m</a>                 398 sys/sync/mutex.c 		copyin(ump, &amp;m, sizeof(ump));
+<a href='../S/346.html#L400'>m</a>                 400 sys/sync/mutex.c 		if (!mutex_valid(m))
+<a href='../S/346.html#L403'>m</a>                 403 sys/sync/mutex.c 	*kmp = m;
+<a href='../S/346.html#L420'>m</a>                 420 sys/sync/mutex.c 	mutex_t m = waiter-&gt;mutex_waiting;
+<a href='../S/346.html#L425'>m</a>                 425 sys/sync/mutex.c 		holder = m-&gt;holder;
+<a href='../S/346.html#L433'>m</a>                 433 sys/sync/mutex.c 				 (long)m, (long)holder, (long)waiter));
+<a href='../S/346.html#L443'>m</a>                 443 sys/sync/mutex.c 			m-&gt;priority = waiter-&gt;priority;
+<a href='../S/346.html#L449'>m</a>                 449 sys/sync/mutex.c 		m = (mutex_t)holder-&gt;mutex_waiting;
+<a href='../S/346.html#L456'>m</a>                 456 sys/sync/mutex.c 	} while (m != NULL);
+<a href='../S/346.html#L473'>m</a>                 473 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L488'>m</a>                 488 sys/sync/mutex.c 		m = list_entry(n, struct mutex, link);
+<a href='../S/346.html#L489'>m</a>                 489 sys/sync/mutex.c 		if (m-&gt;priority &lt; maxpri)
+<a href='../S/346.html#L490'>m</a>                 490 sys/sync/mutex.c 			maxpri = m-&gt;priority;
+<a href='../S/404.html#L57'>m</a>                  57 usr/bin/ps/ps.c 	static struct msg m;
+<a href='../S/404.html#L61'>m</a>                  61 usr/bin/ps/ps.c 		m.hdr.code = PS_PSTAT;
+<a href='../S/404.html#L62'>m</a>                  62 usr/bin/ps/ps.c 		m.data[0] = (int)task;
+<a href='../S/404.html#L63'>m</a>                  63 usr/bin/ps/ps.c 		rc = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/404.html#L66'>m</a>                  66 usr/bin/ps/ps.c 	if (rc || m.hdr.status) {
+<a href='../S/404.html#L73'>m</a>                  73 usr/bin/ps/ps.c 	pi-&gt;pid = m.data[0];
+<a href='../S/404.html#L74'>m</a>                  74 usr/bin/ps/ps.c 	pi-&gt;ppid = m.data[1];
+<a href='../S/404.html#L75'>m</a>                  75 usr/bin/ps/ps.c 	pi-&gt;stat = m.data[2];
+<a href='../S/507.html#L46'>m</a>                  46 usr/lib/libc/stdio/flags.c 	int ret, m, o;
+<a href='../S/507.html#L52'>m</a>                  52 usr/lib/libc/stdio/flags.c 		m = O_RDONLY;
+<a href='../S/507.html#L58'>m</a>                  58 usr/lib/libc/stdio/flags.c 		m = O_WRONLY;
+<a href='../S/507.html#L64'>m</a>                  64 usr/lib/libc/stdio/flags.c 		m = O_WRONLY;
+<a href='../S/507.html#L76'>m</a>                  76 usr/lib/libc/stdio/flags.c 		m = O_RDWR;
+<a href='../S/507.html#L78'>m</a>                  78 usr/lib/libc/stdio/flags.c 	*optr = m | o;
+<a href='../S/696.html#L61'>m</a>                  61 usr/lib/posix/file/__file.c 	struct msg m;
+<a href='../S/696.html#L65'>m</a>                  65 usr/lib/posix/file/__file.c 		m.hdr.code = FS_EXIT;
+<a href='../S/696.html#L66'>m</a>                  66 usr/lib/posix/file/__file.c 		msg_send(__fs_obj, &amp;m, sizeof(m));
+<a href='../S/696.html#L77'>m</a>                  77 usr/lib/posix/file/__file.c 	struct msg m;
+<a href='../S/696.html#L82'>m</a>                  82 usr/lib/posix/file/__file.c 	m.hdr.code = FS_REGISTER;
+<a href='../S/696.html#L83'>m</a>                  83 usr/lib/posix/file/__file.c 	msg_send(__fs_obj, &amp;m, sizeof(m));
+<a href='../S/657.html#L38'>m</a>                  38 usr/lib/posix/file/access.c 	struct path_msg m;
+<a href='../S/657.html#L40'>m</a>                  40 usr/lib/posix/file/access.c 	m.hdr.code = FS_ACCESS;
+<a href='../S/657.html#L41'>m</a>                  41 usr/lib/posix/file/access.c 	m.data[0] = mode;
+<a href='../S/657.html#L42'>m</a>                  42 usr/lib/posix/file/access.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/657.html#L43'>m</a>                  43 usr/lib/posix/file/access.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/658.html#L41'>m</a>                  41 usr/lib/posix/file/chdir.c 	struct path_msg m;
+<a href='../S/658.html#L47'>m</a>                  47 usr/lib/posix/file/chdir.c 	m.hdr.code = FS_CHDIR;
+<a href='../S/658.html#L48'>m</a>                  48 usr/lib/posix/file/chdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/658.html#L49'>m</a>                  49 usr/lib/posix/file/chdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/661.html#L38'>m</a>                  38 usr/lib/posix/file/close.c 	struct msg m;
+<a href='../S/661.html#L40'>m</a>                  40 usr/lib/posix/file/close.c 	m.hdr.code = FS_CLOSE;
+<a href='../S/661.html#L41'>m</a>                  41 usr/lib/posix/file/close.c 	m.data[0] = fd;
+<a href='../S/661.html#L42'>m</a>                  42 usr/lib/posix/file/close.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/662.html#L41'>m</a>                  41 usr/lib/posix/file/closedir.c 	struct msg m;
+<a href='../S/662.html#L43'>m</a>                  43 usr/lib/posix/file/closedir.c 	m.hdr.code = FS_CLOSEDIR;
+<a href='../S/662.html#L44'>m</a>                  44 usr/lib/posix/file/closedir.c 	m.data[0] = dir-&gt;dd_fd;
+<a href='../S/662.html#L45'>m</a>                  45 usr/lib/posix/file/closedir.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/664.html#L38'>m</a>                  38 usr/lib/posix/file/dup.c 	struct msg m;
+<a href='../S/664.html#L40'>m</a>                  40 usr/lib/posix/file/dup.c 	m.hdr.code = FS_DUP;
+<a href='../S/664.html#L41'>m</a>                  41 usr/lib/posix/file/dup.c 	m.data[0] = oldfd;
+<a href='../S/664.html#L42'>m</a>                  42 usr/lib/posix/file/dup.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/664.html#L44'>m</a>                  44 usr/lib/posix/file/dup.c 	return m.data[0];
+<a href='../S/665.html#L40'>m</a>                  40 usr/lib/posix/file/dup2.c 	struct msg m;
+<a href='../S/665.html#L42'>m</a>                  42 usr/lib/posix/file/dup2.c 	m.hdr.code = FS_DUP2;
+<a href='../S/665.html#L43'>m</a>                  43 usr/lib/posix/file/dup2.c 	m.data[0] = oldfd;
+<a href='../S/665.html#L44'>m</a>                  44 usr/lib/posix/file/dup2.c 	m.data[1] = newfd;
+<a href='../S/665.html#L45'>m</a>                  45 usr/lib/posix/file/dup2.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/665.html#L47'>m</a>                  47 usr/lib/posix/file/dup2.c 	return m.data[0];
+<a href='../S/666.html#L40'>m</a>                  40 usr/lib/posix/file/fchdir.c 	struct msg m;
+<a href='../S/666.html#L42'>m</a>                  42 usr/lib/posix/file/fchdir.c 	m.hdr.code = FS_FCHDIR;
+<a href='../S/666.html#L43'>m</a>                  43 usr/lib/posix/file/fchdir.c 	m.data[0] = fd;
+<a href='../S/666.html#L44'>m</a>                  44 usr/lib/posix/file/fchdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/667.html#L41'>m</a>                  41 usr/lib/posix/file/fcntl.c 	struct fcntl_msg m;
+<a href='../S/667.html#L49'>m</a>                  49 usr/lib/posix/file/fcntl.c 	m.hdr.code = FS_FCNTL;
+<a href='../S/667.html#L50'>m</a>                  50 usr/lib/posix/file/fcntl.c 	m.fd = fd;
+<a href='../S/667.html#L51'>m</a>                  51 usr/lib/posix/file/fcntl.c 	m.cmd = cmd;
+<a href='../S/667.html#L53'>m</a>                  53 usr/lib/posix/file/fcntl.c 		memcpy(&amp;m.lock, (char *)arg, sizeof(struct flock));
+<a href='../S/667.html#L55'>m</a>                  55 usr/lib/posix/file/fcntl.c 		m.arg = arg;
+<a href='../S/667.html#L57'>m</a>                  57 usr/lib/posix/file/fcntl.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/667.html#L59'>m</a>                  59 usr/lib/posix/file/fcntl.c 	return m.arg;
+<a href='../S/668.html#L41'>m</a>                  41 usr/lib/posix/file/fstat.c 	struct stat_msg m;
+<a href='../S/668.html#L43'>m</a>                  43 usr/lib/posix/file/fstat.c 	m.hdr.code = FS_FSTAT;
+<a href='../S/668.html#L44'>m</a>                  44 usr/lib/posix/file/fstat.c 	m.fd = fd;
+<a href='../S/668.html#L45'>m</a>                  45 usr/lib/posix/file/fstat.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/668.html#L47'>m</a>                  47 usr/lib/posix/file/fstat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/669.html#L38'>m</a>                  38 usr/lib/posix/file/fsync.c 	struct msg m;
+<a href='../S/669.html#L40'>m</a>                  40 usr/lib/posix/file/fsync.c 	m.hdr.code = FS_FSYNC;
+<a href='../S/669.html#L41'>m</a>                  41 usr/lib/posix/file/fsync.c 	m.data[0] = fd;
+<a href='../S/669.html#L42'>m</a>                  42 usr/lib/posix/file/fsync.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/670.html#L38'>m</a>                  38 usr/lib/posix/file/ftruncate.c 	struct msg m;
+<a href='../S/670.html#L40'>m</a>                  40 usr/lib/posix/file/ftruncate.c 	m.hdr.code = FS_FTRUNCATE;
+<a href='../S/670.html#L41'>m</a>                  41 usr/lib/posix/file/ftruncate.c 	m.data[0] = fd;
+<a href='../S/670.html#L42'>m</a>                  42 usr/lib/posix/file/ftruncate.c 	m.data[1] = length;
+<a href='../S/670.html#L43'>m</a>                  43 usr/lib/posix/file/ftruncate.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/671.html#L41'>m</a>                  41 usr/lib/posix/file/getcwd.c 	struct path_msg m;
+<a href='../S/671.html#L47'>m</a>                  47 usr/lib/posix/file/getcwd.c 	m.hdr.code = FS_GETCWD;
+<a href='../S/671.html#L48'>m</a>                  48 usr/lib/posix/file/getcwd.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/671.html#L50'>m</a>                  50 usr/lib/posix/file/getcwd.c 	strlcpy(buf, m.path, PATH_MAX);
+<a href='../S/672.html#L42'>m</a>                  42 usr/lib/posix/file/ioctl.c 	struct ioctl_msg m;
+<a href='../S/672.html#L75'>m</a>                  75 usr/lib/posix/file/ioctl.c 			*((int *)m.buf) = (int)argp;
+<a href='../S/672.html#L77'>m</a>                  77 usr/lib/posix/file/ioctl.c 			memcpy(&amp;m.buf, argp, size);
+<a href='../S/672.html#L80'>m</a>                  80 usr/lib/posix/file/ioctl.c 	m.hdr.code = FS_IOCTL;
+<a href='../S/672.html#L81'>m</a>                  81 usr/lib/posix/file/ioctl.c 	m.fd = fd;
+<a href='../S/672.html#L82'>m</a>                  82 usr/lib/posix/file/ioctl.c 	m.request = cmd;
+<a href='../S/672.html#L83'>m</a>                  83 usr/lib/posix/file/ioctl.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/672.html#L91'>m</a>                  91 usr/lib/posix/file/ioctl.c 			retval = *((int *)m.buf);
+<a href='../S/672.html#L93'>m</a>                  93 usr/lib/posix/file/ioctl.c 			memcpy(argp, &amp;m.buf, size);
+<a href='../S/673.html#L38'>m</a>                  38 usr/lib/posix/file/isatty.c 	struct msg m;
+<a href='../S/673.html#L40'>m</a>                  40 usr/lib/posix/file/isatty.c 	m.hdr.code = FS_ISATTY;
+<a href='../S/673.html#L41'>m</a>                  41 usr/lib/posix/file/isatty.c 	m.data[0] = fd;
+<a href='../S/673.html#L42'>m</a>                  42 usr/lib/posix/file/isatty.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/673.html#L44'>m</a>                  44 usr/lib/posix/file/isatty.c 	return m.data[0];
+<a href='../S/674.html#L41'>m</a>                  41 usr/lib/posix/file/link.c 	struct path_msg m;
+<a href='../S/674.html#L52'>m</a>                  52 usr/lib/posix/file/link.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/674.html#L53'>m</a>                  53 usr/lib/posix/file/link.c 	strlcpy(m.path2, newpath, PATH_MAX);
+<a href='../S/674.html#L55'>m</a>                  55 usr/lib/posix/file/link.c 	m.hdr.code = FS_LINK;
+<a href='../S/674.html#L56'>m</a>                  56 usr/lib/posix/file/link.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/675.html#L41'>m</a>                  41 usr/lib/posix/file/lseek.c 	struct msg m;
+<a href='../S/675.html#L43'>m</a>                  43 usr/lib/posix/file/lseek.c 	m.hdr.code = FS_LSEEK;
+<a href='../S/675.html#L44'>m</a>                  44 usr/lib/posix/file/lseek.c 	m.data[0] = fd;
+<a href='../S/675.html#L45'>m</a>                  45 usr/lib/posix/file/lseek.c 	m.data[1] = (int)offset;
+<a href='../S/675.html#L46'>m</a>                  46 usr/lib/posix/file/lseek.c 	m.data[2] = whence;
+<a href='../S/675.html#L47'>m</a>                  47 usr/lib/posix/file/lseek.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/675.html#L49'>m</a>                  49 usr/lib/posix/file/lseek.c 	return (off_t)m.data[0];
+<a href='../S/678.html#L42'>m</a>                  42 usr/lib/posix/file/mkdir.c 	struct open_msg m;
+<a href='../S/678.html#L44'>m</a>                  44 usr/lib/posix/file/mkdir.c 	m.hdr.code = FS_MKDIR;
+<a href='../S/678.html#L45'>m</a>                  45 usr/lib/posix/file/mkdir.c 	m.flags = 0;
+<a href='../S/678.html#L46'>m</a>                  46 usr/lib/posix/file/mkdir.c 	m.mode = mode;
+<a href='../S/678.html#L47'>m</a>                  47 usr/lib/posix/file/mkdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/678.html#L48'>m</a>                  48 usr/lib/posix/file/mkdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/679.html#L42'>m</a>                  42 usr/lib/posix/file/mknod.c 	struct open_msg m;
+<a href='../S/679.html#L44'>m</a>                  44 usr/lib/posix/file/mknod.c 	m.hdr.code = FS_MKNOD;
+<a href='../S/679.html#L45'>m</a>                  45 usr/lib/posix/file/mknod.c 	m.flags = 0;
+<a href='../S/679.html#L46'>m</a>                  46 usr/lib/posix/file/mknod.c 	m.mode = mode;
+<a href='../S/679.html#L47'>m</a>                  47 usr/lib/posix/file/mknod.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/679.html#L48'>m</a>                  48 usr/lib/posix/file/mknod.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/680.html#L42'>m</a>                  42 usr/lib/posix/file/mount.c 	struct mount_msg m;
+<a href='../S/680.html#L44'>m</a>                  44 usr/lib/posix/file/mount.c 	strlcpy(m.dev, (char *)dev, PATH_MAX);
+<a href='../S/680.html#L45'>m</a>                  45 usr/lib/posix/file/mount.c 	strlcpy(m.dir, (char *)dir, PATH_MAX);
+<a href='../S/680.html#L46'>m</a>                  46 usr/lib/posix/file/mount.c 	strlcpy(m.fs, (char *)fs, 16);
+<a href='../S/680.html#L48'>m</a>                  48 usr/lib/posix/file/mount.c 		strlcpy(m.data, (char *)data, 64);
+<a href='../S/680.html#L49'>m</a>                  49 usr/lib/posix/file/mount.c 	m.flags = flags;
+<a href='../S/680.html#L50'>m</a>                  50 usr/lib/posix/file/mount.c 	m.hdr.code = FS_MOUNT;
+<a href='../S/680.html#L51'>m</a>                  51 usr/lib/posix/file/mount.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/681.html#L42'>m</a>                  42 usr/lib/posix/file/open.c 	struct open_msg m;
+<a href='../S/681.html#L50'>m</a>                  50 usr/lib/posix/file/open.c 	m.hdr.code = FS_OPEN;
+<a href='../S/681.html#L51'>m</a>                  51 usr/lib/posix/file/open.c 	m.flags = flags;
+<a href='../S/681.html#L52'>m</a>                  52 usr/lib/posix/file/open.c 	m.mode = mode;
+<a href='../S/681.html#L53'>m</a>                  53 usr/lib/posix/file/open.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/681.html#L54'>m</a>                  54 usr/lib/posix/file/open.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/681.html#L56'>m</a>                  56 usr/lib/posix/file/open.c 	return m.fd;
+<a href='../S/682.html#L43'>m</a>                  43 usr/lib/posix/file/opendir.c 	struct open_msg m;
+<a href='../S/682.html#L49'>m</a>                  49 usr/lib/posix/file/opendir.c 	m.hdr.code = FS_OPENDIR;
+<a href='../S/682.html#L50'>m</a>                  50 usr/lib/posix/file/opendir.c 	strlcpy(m.path, (char *)name, PATH_MAX);
+<a href='../S/682.html#L51'>m</a>                  51 usr/lib/posix/file/opendir.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/682.html#L53'>m</a>                  53 usr/lib/posix/file/opendir.c 	dir-&gt;dd_fd = m.fd;
+<a href='../S/683.html#L38'>m</a>                  38 usr/lib/posix/file/pipe.c 	struct msg m;
+<a href='../S/683.html#L40'>m</a>                  40 usr/lib/posix/file/pipe.c 	m.hdr.code = FS_PIPE;
+<a href='../S/683.html#L41'>m</a>                  41 usr/lib/posix/file/pipe.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/683.html#L43'>m</a>                  43 usr/lib/posix/file/pipe.c 	fd[0] = m.data[0];
+<a href='../S/683.html#L44'>m</a>                  44 usr/lib/posix/file/pipe.c 	fd[1] = m.data[1];
+<a href='../S/684.html#L40'>m</a>                  40 usr/lib/posix/file/read.c 	struct io_msg m;
+<a href='../S/684.html#L42'>m</a>                  42 usr/lib/posix/file/read.c 	m.hdr.code = FS_READ;
+<a href='../S/684.html#L43'>m</a>                  43 usr/lib/posix/file/read.c 	m.fd = fd;
+<a href='../S/684.html#L44'>m</a>                  44 usr/lib/posix/file/read.c 	m.buf = buf;
+<a href='../S/684.html#L45'>m</a>                  45 usr/lib/posix/file/read.c 	m.size = len;
+<a href='../S/684.html#L46'>m</a>                  46 usr/lib/posix/file/read.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/684.html#L48'>m</a>                  48 usr/lib/posix/file/read.c 	return (int)m.size;
+<a href='../S/685.html#L42'>m</a>                  42 usr/lib/posix/file/readdir.c 	struct dir_msg m;
+<a href='../S/685.html#L45'>m</a>                  45 usr/lib/posix/file/readdir.c 	m.hdr.code = FS_READDIR;
+<a href='../S/685.html#L46'>m</a>                  46 usr/lib/posix/file/readdir.c 	m.fd = dir-&gt;dd_fd;
+<a href='../S/685.html#L47'>m</a>                  47 usr/lib/posix/file/readdir.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/685.html#L49'>m</a>                  49 usr/lib/posix/file/readdir.c 	memcpy(entry, &amp;m.dirent, sizeof(struct dirent));
+<a href='../S/686.html#L41'>m</a>                  41 usr/lib/posix/file/rename.c 	struct path_msg m;
+<a href='../S/686.html#L52'>m</a>                  52 usr/lib/posix/file/rename.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/686.html#L53'>m</a>                  53 usr/lib/posix/file/rename.c 	strlcpy(m.path2, newpath, PATH_MAX);
+<a href='../S/686.html#L54'>m</a>                  54 usr/lib/posix/file/rename.c 	m.hdr.code = FS_RENAME;
+<a href='../S/686.html#L55'>m</a>                  55 usr/lib/posix/file/rename.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/687.html#L41'>m</a>                  41 usr/lib/posix/file/rewinddir.c 	struct msg m;
+<a href='../S/687.html#L43'>m</a>                  43 usr/lib/posix/file/rewinddir.c 	m.hdr.code = FS_REWINDDIR;
+<a href='../S/687.html#L44'>m</a>                  44 usr/lib/posix/file/rewinddir.c 	m.data[0] = dir-&gt;dd_fd;
+<a href='../S/687.html#L45'>m</a>                  45 usr/lib/posix/file/rewinddir.c 	__posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/688.html#L41'>m</a>                  41 usr/lib/posix/file/rmdir.c 	struct path_msg m;
+<a href='../S/688.html#L51'>m</a>                  51 usr/lib/posix/file/rmdir.c 	m.hdr.code = FS_RMDIR;
+<a href='../S/688.html#L52'>m</a>                  52 usr/lib/posix/file/rmdir.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/688.html#L53'>m</a>                  53 usr/lib/posix/file/rmdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/689.html#L42'>m</a>                  42 usr/lib/posix/file/stat.c 	struct stat_msg m;
+<a href='../S/689.html#L44'>m</a>                  44 usr/lib/posix/file/stat.c 	m.hdr.code = FS_STAT;
+<a href='../S/689.html#L45'>m</a>                  45 usr/lib/posix/file/stat.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/689.html#L46'>m</a>                  46 usr/lib/posix/file/stat.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/689.html#L48'>m</a>                  48 usr/lib/posix/file/stat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/690.html#L40'>m</a>                  40 usr/lib/posix/file/sync.c 	struct msg m;
+<a href='../S/690.html#L42'>m</a>                  42 usr/lib/posix/file/sync.c 	m.hdr.code = FS_SYNC;
+<a href='../S/690.html#L43'>m</a>                  43 usr/lib/posix/file/sync.c 	__posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/691.html#L40'>m</a>                  40 usr/lib/posix/file/truncate.c 	struct path_msg m;
+<a href='../S/691.html#L42'>m</a>                  42 usr/lib/posix/file/truncate.c 	m.hdr.code = FS_TRUNCATE;
+<a href='../S/691.html#L43'>m</a>                  43 usr/lib/posix/file/truncate.c 	m.data[0] = length;
+<a href='../S/691.html#L44'>m</a>                  44 usr/lib/posix/file/truncate.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/691.html#L45'>m</a>                  45 usr/lib/posix/file/truncate.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/693.html#L42'>m</a>                  42 usr/lib/posix/file/umount.c 	struct path_msg m;
+<a href='../S/693.html#L44'>m</a>                  44 usr/lib/posix/file/umount.c 	m.hdr.code = FS_UMOUNT;
+<a href='../S/693.html#L45'>m</a>                  45 usr/lib/posix/file/umount.c 	strlcpy(m.path, (char *)dir, PATH_MAX);
+<a href='../S/693.html#L46'>m</a>                  46 usr/lib/posix/file/umount.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/694.html#L41'>m</a>                  41 usr/lib/posix/file/unlink.c 	struct path_msg m;
+<a href='../S/694.html#L47'>m</a>                  47 usr/lib/posix/file/unlink.c 	m.hdr.code = FS_UNLINK;
+<a href='../S/694.html#L48'>m</a>                  48 usr/lib/posix/file/unlink.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/694.html#L49'>m</a>                  49 usr/lib/posix/file/unlink.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/695.html#L39'>m</a>                  39 usr/lib/posix/file/write.c 	struct io_msg m;
+<a href='../S/695.html#L41'>m</a>                  41 usr/lib/posix/file/write.c 	m.hdr.code = FS_WRITE;
+<a href='../S/695.html#L42'>m</a>                  42 usr/lib/posix/file/write.c 	m.fd = fd;
+<a href='../S/695.html#L43'>m</a>                  43 usr/lib/posix/file/write.c 	m.buf = buf;
+<a href='../S/695.html#L44'>m</a>                  44 usr/lib/posix/file/write.c 	m.size = len;
+<a href='../S/695.html#L45'>m</a>                  45 usr/lib/posix/file/write.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/695.html#L47'>m</a>                  47 usr/lib/posix/file/write.c 	return (int)m.size;
+<a href='../S/733.html#L56'>m</a>                  56 usr/lib/posix/process/__process.c 	struct msg m;
+<a href='../S/733.html#L60'>m</a>                  60 usr/lib/posix/process/__process.c 		m.hdr.code = PS_EXIT;
+<a href='../S/733.html#L61'>m</a>                  61 usr/lib/posix/process/__process.c 		m.data[0] = signo ? signo : ((status &amp; 0xff) &lt;&lt; 8);
+<a href='../S/733.html#L62'>m</a>                  62 usr/lib/posix/process/__process.c 		msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/705.html#L85'>m</a>                  85 usr/lib/posix/process/fork.c 	struct msg m;
+<a href='../S/705.html#L109'>m</a>                 109 usr/lib/posix/process/fork.c 		m.hdr.code = PS_FORK;
+<a href='../S/705.html#L110'>m</a>                 110 usr/lib/posix/process/fork.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/705.html#L111'>m</a>                 111 usr/lib/posix/process/fork.c 		m.data[1] = 0;			/* fork type */
+<a href='../S/705.html#L112'>m</a>                 112 usr/lib/posix/process/fork.c 		if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/705.html#L114'>m</a>                 114 usr/lib/posix/process/fork.c 		pid = m.data[0];
+<a href='../S/705.html#L119'>m</a>                 119 usr/lib/posix/process/fork.c 		m.hdr.code = FS_FORK;
+<a href='../S/705.html#L120'>m</a>                 120 usr/lib/posix/process/fork.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/705.html#L121'>m</a>                 121 usr/lib/posix/process/fork.c 		if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/706.html#L87'>m</a>                  87 usr/lib/posix/process/fork_nommu.c 	struct msg m;
+<a href='../S/706.html#L110'>m</a>                 110 usr/lib/posix/process/fork_nommu.c 		m.hdr.code = FS_FORK;
+<a href='../S/706.html#L111'>m</a>                 111 usr/lib/posix/process/fork_nommu.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L112'>m</a>                 112 usr/lib/posix/process/fork_nommu.c 		if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/706.html#L118'>m</a>                 118 usr/lib/posix/process/fork_nommu.c 		m.hdr.code = PS_FORK;
+<a href='../S/706.html#L119'>m</a>                 119 usr/lib/posix/process/fork_nommu.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L120'>m</a>                 120 usr/lib/posix/process/fork_nommu.c 		m.data[1] = 1;			/* fork type */
+<a href='../S/706.html#L121'>m</a>                 121 usr/lib/posix/process/fork_nommu.c 		if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/706.html#L123'>m</a>                 123 usr/lib/posix/process/fork_nommu.c 		__child_pid = m.data[0];
+<a href='../S/710.html#L41'>m</a>                  41 usr/lib/posix/process/getpgid.c 	struct msg m;
+<a href='../S/710.html#L43'>m</a>                  43 usr/lib/posix/process/getpgid.c 	m.hdr.code = PS_GETPGID;
+<a href='../S/710.html#L44'>m</a>                  44 usr/lib/posix/process/getpgid.c 	m.data[0] = pid;
+<a href='../S/710.html#L45'>m</a>                  45 usr/lib/posix/process/getpgid.c 	if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1))
+<a href='../S/710.html#L48'>m</a>                  48 usr/lib/posix/process/getpgid.c 	return m.data[0];
+<a href='../S/712.html#L42'>m</a>                  42 usr/lib/posix/process/getpid.c 	struct msg m;
+<a href='../S/712.html#L44'>m</a>                  44 usr/lib/posix/process/getpid.c 	m.hdr.code = PS_GETPID;
+<a href='../S/712.html#L45'>m</a>                  45 usr/lib/posix/process/getpid.c 	__posix_call(__proc_obj, &amp;m, sizeof(m), 1);
+<a href='../S/712.html#L49'>m</a>                  49 usr/lib/posix/process/getpid.c 	return m.data[0];
+<a href='../S/713.html#L42'>m</a>                  42 usr/lib/posix/process/getppid.c 	struct msg m;
+<a href='../S/713.html#L44'>m</a>                  44 usr/lib/posix/process/getppid.c 	m.hdr.code = PS_GETPPID;
+<a href='../S/713.html#L45'>m</a>                  45 usr/lib/posix/process/getppid.c 	__posix_call(__proc_obj, &amp;m, sizeof(m), 1);
+<a href='../S/713.html#L50'>m</a>                  50 usr/lib/posix/process/getppid.c 	return m.data[0];
+<a href='../S/715.html#L41'>m</a>                  41 usr/lib/posix/process/getsid.c 	struct msg m;
+<a href='../S/715.html#L43'>m</a>                  43 usr/lib/posix/process/getsid.c 	m.hdr.code = PS_GETSID;
+<a href='../S/715.html#L44'>m</a>                  44 usr/lib/posix/process/getsid.c 	m.data[0] = pid;
+<a href='../S/715.html#L45'>m</a>                  45 usr/lib/posix/process/getsid.c 	if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1))
+<a href='../S/715.html#L47'>m</a>                  47 usr/lib/posix/process/getsid.c 	return m.data[0];
+<a href='../S/717.html#L43'>m</a>                  43 usr/lib/posix/process/kill.c 	struct msg m;
+<a href='../S/717.html#L49'>m</a>                  49 usr/lib/posix/process/kill.c 	m.hdr.code = PS_KILL;
+<a href='../S/717.html#L50'>m</a>                  50 usr/lib/posix/process/kill.c 	m.data[0] = pid;
+<a href='../S/717.html#L51'>m</a>                  51 usr/lib/posix/process/kill.c 	m.data[1] = sig;
+<a href='../S/717.html#L52'>m</a>                  52 usr/lib/posix/process/kill.c 	error = msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/717.html#L59'>m</a>                  59 usr/lib/posix/process/kill.c 	if (m.hdr.status) {
+<a href='../S/717.html#L60'>m</a>                  60 usr/lib/posix/process/kill.c 		errno = m.hdr.status;
+<a href='../S/724.html#L42'>m</a>                  42 usr/lib/posix/process/setpgid.c 	struct msg m;
+<a href='../S/724.html#L44'>m</a>                  44 usr/lib/posix/process/setpgid.c 	m.hdr.code = PS_SETPGID;
+<a href='../S/724.html#L45'>m</a>                  45 usr/lib/posix/process/setpgid.c 	m.data[0] = pid;
+<a href='../S/724.html#L46'>m</a>                  46 usr/lib/posix/process/setpgid.c 	m.data[1] = pgid;
+<a href='../S/724.html#L47'>m</a>                  47 usr/lib/posix/process/setpgid.c 	return __posix_call(__proc_obj, &amp;m, sizeof(m), 1);
+<a href='../S/727.html#L42'>m</a>                  42 usr/lib/posix/process/setsid.c 	struct msg m;
+<a href='../S/727.html#L44'>m</a>                  44 usr/lib/posix/process/setsid.c 	m.hdr.code = PS_SETSID;
+<a href='../S/727.html#L45'>m</a>                  45 usr/lib/posix/process/setsid.c 	if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1))
+<a href='../S/727.html#L47'>m</a>                  47 usr/lib/posix/process/setsid.c 	return m.data[0];
+<a href='../S/731.html#L48'>m</a>                  48 usr/lib/posix/process/waitpid.c 	struct msg m;
+<a href='../S/731.html#L59'>m</a>                  59 usr/lib/posix/process/waitpid.c 		m.hdr.code = PS_WAITPID;
+<a href='../S/731.html#L60'>m</a>                  60 usr/lib/posix/process/waitpid.c 		m.data[0] = pid;
+<a href='../S/731.html#L61'>m</a>                  61 usr/lib/posix/process/waitpid.c 		m.data[1] = options;
+<a href='../S/731.html#L62'>m</a>                  62 usr/lib/posix/process/waitpid.c 		error = msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/731.html#L66'>m</a>                  66 usr/lib/posix/process/waitpid.c 		if (m.hdr.status) {
+<a href='../S/731.html#L67'>m</a>                  67 usr/lib/posix/process/waitpid.c 			errno = m.hdr.status;
+<a href='../S/731.html#L70'>m</a>                  70 usr/lib/posix/process/waitpid.c 		child = m.data[0];
+<a href='../S/731.html#L83'>m</a>                  83 usr/lib/posix/process/waitpid.c 		*status = m.data[1];
+<a href='../S/856.html#L53'>m</a>                  53 usr/sbin/debug/debug.c 	struct msg m;
+<a href='../S/856.html#L62'>m</a>                  62 usr/sbin/debug/debug.c 	m.hdr.code = STD_DEBUG;
+<a href='../S/856.html#L63'>m</a>                  63 usr/sbin/debug/debug.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/864.html#L46'>m</a>                  46 usr/sbin/ktrace/ktrace.c 	struct msg m;
+<a href='../S/864.html#L61'>m</a>                  61 usr/sbin/ktrace/ktrace.c 	m.hdr.code = PS_TRACE;
+<a href='../S/864.html#L62'>m</a>                  62 usr/sbin/ktrace/ktrace.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/870.html#L122'>m</a>                 122 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L127'>m</a>                 127 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/870.html#L128'>m</a>                 128 usr/sbin/pmctrl/pmctrl.c 	m.data[0] = PWR_OFF;
+<a href='../S/870.html#L129'>m</a>                 129 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L137'>m</a>                 137 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L142'>m</a>                 142 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/870.html#L143'>m</a>                 143 usr/sbin/pmctrl/pmctrl.c 	m.data[0] = PWR_REBOOT;
+<a href='../S/870.html#L144'>m</a>                 144 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L152'>m</a>                 152 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L157'>m</a>                 157 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/870.html#L158'>m</a>                 158 usr/sbin/pmctrl/pmctrl.c 	m.data[0] = PWR_SUSPEND;
+<a href='../S/870.html#L159'>m</a>                 159 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L167'>m</a>                 167 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L171'>m</a>                 171 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_GET_POLICY;
+<a href='../S/870.html#L172'>m</a>                 172 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L173'>m</a>                 173 usr/sbin/pmctrl/pmctrl.c 	policy = m.data[0];
+<a href='../S/870.html#L177'>m</a>                 177 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_GET_SUSTMR;
+<a href='../S/870.html#L178'>m</a>                 178 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L179'>m</a>                 179 usr/sbin/pmctrl/pmctrl.c 	timeout = m.data[0];
+<a href='../S/870.html#L182'>m</a>                 182 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_GET_DIMTMR;
+<a href='../S/870.html#L183'>m</a>                 183 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L184'>m</a>                 184 usr/sbin/pmctrl/pmctrl.c 	timeout = m.data[0];
+<a href='../S/870.html#L191'>m</a>                 191 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L199'>m</a>                 199 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = PM_PERFORMANCE;
+<a href='../S/870.html#L201'>m</a>                 201 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = PM_POWERSAVE;
+<a href='../S/870.html#L206'>m</a>                 206 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POLICY;
+<a href='../S/870.html#L207'>m</a>                 207 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L213'>m</a>                 213 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L221'>m</a>                 221 usr/sbin/pmctrl/pmctrl.c 		m.hdr.code = POW_SET_SUSTMR;
+<a href='../S/870.html#L222'>m</a>                 222 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = timeout;
+<a href='../S/870.html#L223'>m</a>                 223 usr/sbin/pmctrl/pmctrl.c 		msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L230'>m</a>                 230 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L238'>m</a>                 238 usr/sbin/pmctrl/pmctrl.c 		m.hdr.code = POW_SET_DIMTMR;
+<a href='../S/870.html#L239'>m</a>                 239 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = timeout;
+<a href='../S/870.html#L240'>m</a>                 240 usr/sbin/pmctrl/pmctrl.c 		msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/871.html#L112'>m</a>                 112 usr/server/boot/boot.c 	struct msg m;
+<a href='../S/871.html#L115'>m</a>                 115 usr/server/boot/boot.c 	m.hdr.code = STD_BOOT;
+<a href='../S/871.html#L116'>m</a>                 116 usr/server/boot/boot.c 	error = msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/871.html#L270'>m</a>                 270 usr/server/boot/boot.c 	struct msg m;
+<a href='../S/871.html#L304'>m</a>                 304 usr/server/boot/boot.c 	m.hdr.code = PS_SETINIT;
+<a href='../S/871.html#L305'>m</a>                 305 usr/server/boot/boot.c 	msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/877.html#L414'>m</a>                 414 usr/server/exec/exec_execve.c 	struct msg m;
+<a href='../S/877.html#L426'>m</a>                 426 usr/server/exec/exec_execve.c 		m.hdr.code = FS_EXEC;
+<a href='../S/877.html#L427'>m</a>                 427 usr/server/exec/exec_execve.c 		m.data[0] = (int)org_task;
+<a href='../S/877.html#L428'>m</a>                 428 usr/server/exec/exec_execve.c 		m.data[1] = (int)new_task;
+<a href='../S/877.html#L429'>m</a>                 429 usr/server/exec/exec_execve.c 		error = msg_send(fsobj, &amp;m, sizeof(m));
+<a href='../S/877.html#L434'>m</a>                 434 usr/server/exec/exec_execve.c 		m.hdr.code = PS_EXEC;
+<a href='../S/877.html#L435'>m</a>                 435 usr/server/exec/exec_execve.c 		m.data[0] = (int)org_task;
+<a href='../S/877.html#L436'>m</a>                 436 usr/server/exec/exec_execve.c 		m.data[1] = (int)new_task;
+<a href='../S/877.html#L437'>m</a>                 437 usr/server/exec/exec_execve.c 		m.data[2] = (int)stack;
+<a href='../S/877.html#L438'>m</a>                 438 usr/server/exec/exec_execve.c 		error = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/879.html#L81'>m</a>                  81 usr/server/exec/main.c 	struct msg m;
+<a href='../S/879.html#L89'>m</a>                  89 usr/server/exec/main.c 	m.hdr.code = PS_REGISTER;
+<a href='../S/879.html#L90'>m</a>                  90 usr/server/exec/main.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/881.html#L52'>m</a>                  52 usr/server/fs/arfs/arfs.h #define mutex_init(m)		do {} while (0)
+<a href='../S/881.html#L53'>m</a>                  53 usr/server/fs/arfs/arfs.h #define mutex_destroy(m)	do {} while (0)
+<a href='../S/881.html#L54'>m</a>                  54 usr/server/fs/arfs/arfs.h #define mutex_lock(m)		do {} while (0)
+<a href='../S/881.html#L55'>m</a>                  55 usr/server/fs/arfs/arfs.h #define mutex_unlock(m)		do {} while (0)
+<a href='../S/881.html#L56'>m</a>                  56 usr/server/fs/arfs/arfs.h #define mutex_trylock(m)	do {} while (0)
+<a href='../S/885.html#L52'>m</a>                  52 usr/server/fs/devfs/devfs.h #define mutex_init(m)		do {} while (0)
+<a href='../S/885.html#L53'>m</a>                  53 usr/server/fs/devfs/devfs.h #define mutex_destroy(m)	do {} while (0)
+<a href='../S/885.html#L54'>m</a>                  54 usr/server/fs/devfs/devfs.h #define mutex_lock(m)		do {} while (0)
+<a href='../S/885.html#L55'>m</a>                  55 usr/server/fs/devfs/devfs.h #define mutex_unlock(m)		do {} while (0)
+<a href='../S/885.html#L56'>m</a>                  56 usr/server/fs/devfs/devfs.h #define mutex_trylock(m)	do {} while (0)
+<a href='../S/888.html#L57'>m</a>                  57 usr/server/fs/fatfs/fatfs.h #define mutex_init(m)		do {} while (0)
+<a href='../S/888.html#L58'>m</a>                  58 usr/server/fs/fatfs/fatfs.h #define mutex_destroy(m)	do {} while (0)
+<a href='../S/888.html#L59'>m</a>                  59 usr/server/fs/fatfs/fatfs.h #define mutex_lock(m)		do {} while (0)
+<a href='../S/888.html#L60'>m</a>                  60 usr/server/fs/fatfs/fatfs.h #define mutex_unlock(m)		do {} while (0)
+<a href='../S/888.html#L61'>m</a>                  61 usr/server/fs/fatfs/fatfs.h #define mutex_trylock(m)	do {} while (0)
+<a href='../S/895.html#L52'>m</a>                  52 usr/server/fs/fifofs/fifo.h #define mutex_init(m)		do {} while (0)
+<a href='../S/895.html#L53'>m</a>                  53 usr/server/fs/fifofs/fifo.h #define mutex_destroy(m)	do {} while (0)
+<a href='../S/895.html#L54'>m</a>                  54 usr/server/fs/fifofs/fifo.h #define mutex_lock(m)		do {} while (0)
+<a href='../S/895.html#L55'>m</a>                  55 usr/server/fs/fifofs/fifo.h #define mutex_unlock(m)		do {} while (0)
+<a href='../S/895.html#L56'>m</a>                  56 usr/server/fs/fifofs/fifo.h #define mutex_trylock(m)	do {} while (0)
+<a href='../S/900.html#L51'>m</a>                  51 usr/server/fs/ramfs/ramfs.h #define mutex_init(m)		do {} while (0)
+<a href='../S/900.html#L52'>m</a>                  52 usr/server/fs/ramfs/ramfs.h #define mutex_destroy(m)	do {} while (0)
+<a href='../S/900.html#L53'>m</a>                  53 usr/server/fs/ramfs/ramfs.h #define mutex_lock(m)		do {} while (0)
+<a href='../S/900.html#L54'>m</a>                  54 usr/server/fs/ramfs/ramfs.h #define mutex_unlock(m)		do {} while (0)
+<a href='../S/900.html#L55'>m</a>                  55 usr/server/fs/ramfs/ramfs.h #define mutex_trylock(m)	do {} while (0)
+<a href='../S/903.html#L852'>m</a>                 852 usr/server/fs/vfs/main.c 	struct msg m;
+<a href='../S/903.html#L873'>m</a>                 873 usr/server/fs/vfs/main.c 	m.hdr.code = PS_REGISTER;
+<a href='../S/903.html#L874'>m</a>                 874 usr/server/fs/vfs/main.c 	msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/905.html#L71'>m</a>                  71 usr/server/fs/vfs/vfs.h #define mutex_init(m)		do {} while (0)
+<a href='../S/905.html#L72'>m</a>                  72 usr/server/fs/vfs/vfs.h #define mutex_destroy(m)	do {} while (0)
+<a href='../S/905.html#L73'>m</a>                  73 usr/server/fs/vfs/vfs.h #define mutex_lock(m)		do {} while (0)
+<a href='../S/905.html#L74'>m</a>                  74 usr/server/fs/vfs/vfs.h #define mutex_unlock(m)		do {} while (0)
+<a href='../S/905.html#L75'>m</a>                  75 usr/server/fs/vfs/vfs.h #define mutex_trylock(m)	do {} while (0)
+<a href='../S/909.html#L314'>m</a>                 314 usr/server/fs/vfs/vfs_mount.c 	mount_t m, tmp;
+<a href='../S/909.html#L323'>m</a>                 323 usr/server/fs/vfs/vfs_mount.c 	m = NULL;
+<a href='../S/909.html#L330'>m</a>                 330 usr/server/fs/vfs/vfs_mount.c 			m = tmp;
+<a href='../S/909.html#L334'>m</a>                 334 usr/server/fs/vfs/vfs_mount.c 	if (m == NULL)
+<a href='../S/909.html#L339'>m</a>                 339 usr/server/fs/vfs/vfs_mount.c 	*mp = m;
+<a href='../S/916.html#L326'>m</a>                 326 usr/server/pow/pow.c 	struct msg m;
+<a href='../S/916.html#L334'>m</a>                 334 usr/server/pow/pow.c 	m.hdr.code = PS_REGISTER;
+<a href='../S/916.html#L335'>m</a>                 335 usr/server/pow/pow.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/916.html#L368'>m</a>                 368 usr/server/pow/pow.c 	struct msg m;
+<a href='../S/916.html#L377'>m</a>                 377 usr/server/pow/pow.c 	m.hdr.code = STD_SHUTDOWN;
+<a href='../S/916.html#L378'>m</a>                 378 usr/server/pow/pow.c 	error = msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/917.html#L409'>m</a>                 409 usr/server/proc/main.c 	struct bind_msg m;
+<a href='../S/917.html#L423'>m</a>                 423 usr/server/proc/main.c 	m.hdr.code = EXEC_BINDCAP;
+<a href='../S/917.html#L424'>m</a>                 424 usr/server/proc/main.c 	strlcpy(m.path, "/boot/proc", sizeof(m.path));
+<a href='../S/917.html#L425'>m</a>                 425 usr/server/proc/main.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/954.html#L90'>m</a>                  90 usr/test/fileio/fileio.c 	struct msg m;
+<a href='../S/954.html#L93'>m</a>                  93 usr/test/fileio/fileio.c 	m.hdr.code = 0x300;
+<a href='../S/954.html#L94'>m</a>                  94 usr/test/fileio/fileio.c 	msg_send(fsobj, &amp;m, sizeof(m));
+<a href='../S/990.html#L95'>m</a>                  95 usr/test/shutdown/shutdown.c 	struct msg m;
+<a href='../S/990.html#L101'>m</a>                 101 usr/test/shutdown/shutdown.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/990.html#L102'>m</a>                 102 usr/test/shutdown/shutdown.c 	m.data[0] = reboot ? PWR_REBOOT : PWR_OFF;
+<a href='../S/990.html#L103'>m</a>                 103 usr/test/shutdown/shutdown.c 	error = msg_send(powobj, &amp;m, sizeof(m));
+</pre>
+</body>
+</html>

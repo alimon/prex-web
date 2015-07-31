@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sect_base</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L279'>sect_base</a>         279 bsp/boot/common/elf.c 	paddr_t sect_base, bss_base;
+<a href='../S/13.html#L318'>sect_base</a>         318 bsp/boot/common/elf.c 			sect_base = load_base + shdr-&gt;sh_addr;
+<a href='../S/13.html#L319'>sect_base</a>         319 bsp/boot/common/elf.c 			memcpy((char *)sect_base, img + shdr-&gt;sh_offset,
+<a href='../S/13.html#L322'>sect_base</a>         322 bsp/boot/common/elf.c 				 sect_base, (int)shdr-&gt;sh_size));
+<a href='../S/13.html#L324'>sect_base</a>         324 bsp/boot/common/elf.c 			sect_addr[i] = (char *)sect_base;
+<a href='../S/13.html#L328'>sect_base</a>         328 bsp/boot/common/elf.c 			sect_base = load_base + shdr-&gt;sh_addr;
+<a href='../S/13.html#L329'>sect_base</a>         329 bsp/boot/common/elf.c 			bss_base = sect_base;
+<a href='../S/13.html#L334'>sect_base</a>         334 bsp/boot/common/elf.c 			sect_addr[i] = (char *)sect_base;
+</pre>
+</body>
+</html>

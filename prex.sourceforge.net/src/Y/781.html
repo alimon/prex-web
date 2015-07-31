@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>esp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/173.html#L78'>esp</a>                78 bsp/hal/x86/arch/context.c 		k-&gt;esp = (uint32_t)ctx-&gt;uregs - sizeof(uint32_t);
+<a href='../S/173.html#L93'>esp</a>                93 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(k-&gt;esp + sizeof(uint32_t) * 2);
+<a href='../S/173.html#L100'>esp</a>               100 bsp/hal/x86/arch/context.c 		u-&gt;esp = (uint32_t)val;
+<a href='../S/173.html#L118'>esp</a>               118 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(u-&gt;esp + sizeof(uint32_t));
+<a href='../S/173.html#L174'>esp</a>               174 bsp/hal/x86/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;esp - sizeof(*sav));
+<a href='../S/173.html#L181'>esp</a>               181 bsp/hal/x86/arch/context.c 	cur-&gt;esp = (uint32_t)sav - (sizeof(uint32_t) * 2);
+<a href='../S/179.html#L153'>esp</a>               153 bsp/hal/x86/arch/trap.c 	uint32_t ss, esp, *fp;
+<a href='../S/179.html#L163'>esp</a>               163 bsp/hal/x86/arch/trap.c 		esp = r-&gt;esp;
+<a href='../S/179.html#L166'>esp</a>               166 bsp/hal/x86/arch/trap.c 		esp = (uint32_t)r;
+<a href='../S/179.html#L172'>esp</a>               172 bsp/hal/x86/arch/trap.c 	       r-&gt;eip, esp, r-&gt;ebp, r-&gt;eflags);
+<a href='../S/180.html#L60'>esp</a>                60 bsp/hal/x86/include/context.h 	uint32_t	esp;		/* +56 (38) */
+<a href='../S/180.html#L73'>esp</a>                73 bsp/hal/x86/include/context.h 	uint32_t	esp;		/* +20 (14) */
+<a href='../S/181.html#L181'>esp</a>               181 bsp/hal/x86/include/cpu.h 	uint32_t esp, ebp, esi, edi;
+</pre>
+</body>
+</html>

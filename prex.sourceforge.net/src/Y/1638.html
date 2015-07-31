@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pos_y</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/54.html#L91'>pos_y</a>              91 bsp/drv/arm/gba/swkbd.c 	u_int		pos_y;		/* cursor y position */
+<a href='../S/54.html#L194'>pos_y</a>             194 bsp/drv/arm/gba/swkbd.c 	ki = (struct _key_info *)&amp;key_info[sc-&gt;pos_y][sc-&gt;pos_x];
+<a href='../S/54.html#L196'>pos_y</a>             196 bsp/drv/arm/gba/swkbd.c 	y = sc-&gt;pos_y * 8 + 11;
+<a href='../S/54.html#L228'>pos_y</a>             228 bsp/drv/arm/gba/swkbd.c 	ki = (struct _key_info *)&amp;key_info[sc-&gt;pos_y][sc-&gt;pos_x];
+<a href='../S/54.html#L325'>pos_y</a>             325 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_y == 4 &amp;&amp; sc-&gt;pos_x &gt;=4 &amp;&amp; sc-&gt;pos_x &lt;= 8)
+<a href='../S/54.html#L332'>pos_y</a>             332 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_x &lt; max_x[sc-&gt;pos_y]) {
+<a href='../S/54.html#L333'>pos_y</a>             333 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_y == 4 &amp;&amp; sc-&gt;pos_x &gt; 3 &amp;&amp; sc-&gt;pos_x &lt;= 7)
+<a href='../S/54.html#L340'>pos_y</a>             340 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_y &gt; 0 ) {
+<a href='../S/54.html#L341'>pos_y</a>             341 bsp/drv/arm/gba/swkbd.c 			sc-&gt;pos_y--;
+<a href='../S/54.html#L343'>pos_y</a>             343 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_x &gt; max_x[sc-&gt;pos_y])
+<a href='../S/54.html#L344'>pos_y</a>             344 bsp/drv/arm/gba/swkbd.c 				sc-&gt;pos_x = max_x[sc-&gt;pos_y];
+<a href='../S/54.html#L348'>pos_y</a>             348 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_y &lt; 4) {
+<a href='../S/54.html#L349'>pos_y</a>             349 bsp/drv/arm/gba/swkbd.c 			sc-&gt;pos_y++;
+<a href='../S/54.html#L351'>pos_y</a>             351 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_x &gt; max_x[sc-&gt;pos_y])
+<a href='../S/54.html#L352'>pos_y</a>             352 bsp/drv/arm/gba/swkbd.c 				sc-&gt;pos_x = max_x[sc-&gt;pos_y];
+<a href='../S/134.html#L58'>pos_y</a>              58 bsp/hal/arm/gba/diag.c static int pos_y;
+<a href='../S/134.html#L76'>pos_y</a>              76 bsp/hal/arm/gba/diag.c 	pos_y++;
+<a href='../S/134.html#L77'>pos_y</a>              77 bsp/hal/arm/gba/diag.c 	if (pos_y &gt;= SCR_ROWS) {
+<a href='../S/134.html#L78'>pos_y</a>              78 bsp/hal/arm/gba/diag.c 		pos_y = SCR_ROWS - 1;
+<a href='../S/134.html#L100'>pos_y</a>             100 bsp/hal/arm/gba/diag.c 	vram[pos_y * VSCR_COLS + pos_x] = c;
+<a href='../S/134.html#L104'>pos_y</a>             104 bsp/hal/arm/gba/diag.c 		pos_y++;
+<a href='../S/134.html#L105'>pos_y</a>             105 bsp/hal/arm/gba/diag.c 		if (pos_y &gt;= SCR_ROWS) {
+<a href='../S/134.html#L106'>pos_y</a>             106 bsp/hal/arm/gba/diag.c 			pos_y = SCR_ROWS - 1;
+<a href='../S/187.html#L47'>pos_y</a>              47 bsp/hal/x86/pc/diag.c static int	pos_y;
+<a href='../S/187.html#L64'>pos_y</a>              64 bsp/hal/x86/pc/diag.c 	int pos = pos_y * screen_x + pos_x;
+<a href='../S/187.html#L78'>pos_y</a>              78 bsp/hal/x86/pc/diag.c 	pos_y++;
+<a href='../S/187.html#L79'>pos_y</a>              79 bsp/hal/x86/pc/diag.c 	if (pos_y &gt;= screen_y) {
+<a href='../S/187.html#L80'>pos_y</a>              80 bsp/hal/x86/pc/diag.c 		pos_y = screen_y - 1;
+<a href='../S/187.html#L102'>pos_y</a>             102 bsp/hal/x86/pc/diag.c 	vram[pos_y * screen_x + pos_x] = c | VID_ATTR;
+<a href='../S/187.html#L106'>pos_y</a>             106 bsp/hal/x86/pc/diag.c 		pos_y++;
+<a href='../S/187.html#L107'>pos_y</a>             107 bsp/hal/x86/pc/diag.c 		if (pos_y &gt;= screen_y) {
+<a href='../S/187.html#L108'>pos_y</a>             108 bsp/hal/x86/pc/diag.c 			pos_y = screen_y - 1;
+<a href='../S/187.html#L133'>pos_y</a>             133 bsp/hal/x86/pc/diag.c 	pos_y = 0;
+</pre>
+</body>
+</html>

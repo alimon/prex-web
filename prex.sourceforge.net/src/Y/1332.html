@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mutexes</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/318.html#L56'>mutexes</a>            56 sys/include/task.h 	struct list	mutexes;	/* mutexes owned by this task */
+<a href='../S/319.html#L64'>mutexes</a>            64 sys/include/thread.h 	struct list 	mutexes;	/* mutexes locked by this thread */
+<a href='../S/334.html#L142'>mutexes</a>           142 sys/kern/task.c 	list_init(&amp;task-&gt;mutexes);
+<a href='../S/334.html#L541'>mutexes</a>           541 sys/kern/task.c 	list_init(&amp;kernel_task.mutexes);
+<a href='../S/335.html#L427'>mutexes</a>           427 sys/kern/thread.c 	list_init(&amp;t-&gt;mutexes);
+<a href='../S/335.html#L594'>mutexes</a>           594 sys/kern/thread.c 	list_init(&amp;idle_thread.mutexes);
+<a href='../S/346.html#L116'>mutexes</a>           116 sys/sync/mutex.c 	list_insert(&amp;self-&gt;mutexes, &amp;m-&gt;task_link);
+<a href='../S/346.html#L169'>mutexes</a>           169 sys/sync/mutex.c 	while (!list_empty(&amp;task-&gt;mutexes)) {
+<a href='../S/346.html#L170'>mutexes</a>           170 sys/sync/mutex.c 		m = list_entry(list_first(&amp;task-&gt;mutexes),
+<a href='../S/346.html#L231'>mutexes</a>           231 sys/sync/mutex.c 		list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L261'>mutexes</a>           261 sys/sync/mutex.c 			list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L325'>mutexes</a>           325 sys/sync/mutex.c 	head = &amp;t-&gt;mutexes;
+<a href='../S/346.html#L342'>mutexes</a>           342 sys/sync/mutex.c 			list_insert(&amp;holder-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L369'>mutexes</a>           369 sys/sync/mutex.c 	head = &amp;curtask-&gt;mutexes;
+<a href='../S/346.html#L486'>mutexes</a>           486 sys/sync/mutex.c 	head = &amp;t-&gt;mutexes;
+</pre>
+</body>
+</html>

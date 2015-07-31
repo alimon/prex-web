@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>strlcpy</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/14.html#L159'>strlcpy</a>           159 bsp/boot/common/load.c 	strlcpy(m-&gt;name, hdr-&gt;ar_name, sizeof(m-&gt;name));
+<a href='../S/20.html#L64'>strlcpy</a>            64 bsp/boot/include/boot.h size_t	 strlcpy(char *, const char *, size_t);
+<a href='../S/20.html#L66'>strlcpy</a>            66 bsp/boot/include/boot.h size_t	 strlcpy(char *, const char *, size_t);
+<a href='../S/60.html#L286'>strlcpy</a>           286 bsp/drv/dev/base/kd.c 				strlcpy(flags, "-----", sizeof(flags));
+<a href='../S/60.html#L347'>strlcpy</a>           347 bsp/drv/dev/base/kd.c 			strlcpy(flags, "-----", sizeof(flags));
+<a href='../S/70.html#L539'>strlcpy</a>           539 bsp/drv/dev/cpufreq/est.c 		strlcpy(brand_str,
+<a href='../S/94.html#L92'>strlcpy</a>            92 bsp/drv/include/ddi.h size_t	 strlcpy(char *dest, const char *src, size_t count);
+<a href='../S/155.html#L100'>strlcpy</a>           100 bsp/hal/ppc/arch/cpu.c 		strlcpy(kaddr, uaddr, len);
+<a href='../S/313.html#L38'>strlcpy</a>            38 sys/include/libkern.h size_t	 strlcpy(char *, const char *, size_t);
+<a href='../S/325.html#L121'>strlcpy</a>           121 sys/ipc/object.c 		strlcpy(obj-&gt;name, str, MAXOBJNAME);
+<a href='../S/327.html#L160'>strlcpy</a>           160 sys/kern/device.c 	strlcpy(dev-&gt;name, name, len + 1);
+<a href='../S/327.html#L530'>strlcpy</a>           530 sys/kern/device.c 			strlcpy(info-&gt;name, dev-&gt;name, MAXDEVNAME);
+<a href='../S/334.html#L139'>strlcpy</a>           139 sys/kern/task.c 	strlcpy(task-&gt;name, "*noname", MAXTASKNAME);
+<a href='../S/334.html#L321'>strlcpy</a>           321 sys/kern/task.c 		strlcpy(task-&gt;name, name, MAXTASKNAME);
+<a href='../S/334.html#L328'>strlcpy</a>           328 sys/kern/task.c 		strlcpy(task-&gt;name, str, MAXTASKNAME);
+<a href='../S/334.html#L459'>strlcpy</a>           459 sys/kern/task.c 			strlcpy(info-&gt;taskname, task-&gt;name, MAXTASKNAME);
+<a href='../S/334.html#L536'>strlcpy</a>           536 sys/kern/task.c 	strlcpy(kernel_task.name, "kernel", MAXTASKNAME);
+<a href='../S/335.html#L503'>strlcpy</a>           503 sys/kern/thread.c 			strlcpy(info-&gt;taskname, t-&gt;task-&gt;name, MAXTASKNAME);
+<a href='../S/335.html#L504'>strlcpy</a>           504 sys/kern/thread.c 			strlcpy(info-&gt;slpevt, t-&gt;slpevt ?
+<a href='../S/374.html#L140'>strlcpy</a>           140 usr/bin/cp/cp.c 		strlcpy(path, to, sizeof(path));
+<a href='../S/390.html#L280'>strlcpy</a>           280 usr/bin/ls/ls.c 			strlcpy(buf, path, sizeof(buf));
+<a href='../S/398.html#L71'>strlcpy</a>            71 usr/bin/mv/mv.c 		strlcpy(path, dest, sizeof(path));
+<a href='../S/443.html#L88'>strlcpy</a>            88 usr/include/string.h size_t	 strlcpy(char *, const char *, size_t);
+<a href='../S/655.html#L103'>strlcpy</a>           103 usr/lib/posix/exec/execve.c 	strlcpy(msg.path, path, PATH_MAX);
+<a href='../S/657.html#L42'>strlcpy</a>            42 usr/lib/posix/file/access.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/658.html#L48'>strlcpy</a>            48 usr/lib/posix/file/chdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/671.html#L50'>strlcpy</a>            50 usr/lib/posix/file/getcwd.c 	strlcpy(buf, m.path, PATH_MAX);
+<a href='../S/674.html#L52'>strlcpy</a>            52 usr/lib/posix/file/link.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/674.html#L53'>strlcpy</a>            53 usr/lib/posix/file/link.c 	strlcpy(m.path2, newpath, PATH_MAX);
+<a href='../S/678.html#L47'>strlcpy</a>            47 usr/lib/posix/file/mkdir.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/679.html#L47'>strlcpy</a>            47 usr/lib/posix/file/mknod.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/680.html#L44'>strlcpy</a>            44 usr/lib/posix/file/mount.c 	strlcpy(m.dev, (char *)dev, PATH_MAX);
+<a href='../S/680.html#L45'>strlcpy</a>            45 usr/lib/posix/file/mount.c 	strlcpy(m.dir, (char *)dir, PATH_MAX);
+<a href='../S/680.html#L46'>strlcpy</a>            46 usr/lib/posix/file/mount.c 	strlcpy(m.fs, (char *)fs, 16);
+<a href='../S/680.html#L48'>strlcpy</a>            48 usr/lib/posix/file/mount.c 		strlcpy(m.data, (char *)data, 64);
+<a href='../S/681.html#L53'>strlcpy</a>            53 usr/lib/posix/file/open.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/682.html#L50'>strlcpy</a>            50 usr/lib/posix/file/opendir.c 	strlcpy(m.path, (char *)name, PATH_MAX);
+<a href='../S/686.html#L52'>strlcpy</a>            52 usr/lib/posix/file/rename.c 	strlcpy(m.path, oldpath, PATH_MAX);
+<a href='../S/686.html#L53'>strlcpy</a>            53 usr/lib/posix/file/rename.c 	strlcpy(m.path2, newpath, PATH_MAX);
+<a href='../S/688.html#L52'>strlcpy</a>            52 usr/lib/posix/file/rmdir.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/689.html#L45'>strlcpy</a>            45 usr/lib/posix/file/stat.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/691.html#L44'>strlcpy</a>            44 usr/lib/posix/file/truncate.c 	strlcpy(m.path, (char *)path, PATH_MAX);
+<a href='../S/693.html#L45'>strlcpy</a>            45 usr/lib/posix/file/umount.c 	strlcpy(m.path, (char *)dir, PATH_MAX);
+<a href='../S/694.html#L48'>strlcpy</a>            48 usr/lib/posix/file/unlink.c 	strlcpy(m.path, path, PATH_MAX);
+<a href='../S/862.html#L123'>strlcpy</a>           123 usr/sbin/install/install.c 	strlcpy(path, to, sizeof(path));
+<a href='../S/866.html#L139'>strlcpy</a>           139 usr/sbin/lock/lock.c 		strlcpy(buf, p, sizeof(buf));
+<a href='../S/871.html#L222'>strlcpy</a>           222 usr/server/boot/boot.c 	strlcpy(msg.cwd, "/", sizeof(msg.cwd));
+<a href='../S/871.html#L223'>strlcpy</a>           223 usr/server/boot/boot.c 	strlcpy(msg.path, "/boot/init", sizeof(msg.path));
+<a href='../S/871.html#L297'>strlcpy</a>           297 usr/server/boot/boot.c 	strlcpy(bm.path, "/boot/boot", sizeof(bm.path));
+<a href='../S/877.html#L251'>strlcpy</a>           251 usr/server/exec/exec_execve.c 		strlcpy(full, cwd, PATH_MAX);
+<a href='../S/877.html#L346'>strlcpy</a>           346 usr/server/exec/exec_execve.c 	strlcpy((char *)sp, path, PATH_MAX);
+<a href='../S/877.html#L361'>strlcpy</a>           361 usr/server/exec/exec_execve.c 		strlcpy((char *)sp, xarg2, len + 1);
+<a href='../S/877.html#L368'>strlcpy</a>           368 usr/server/exec/exec_execve.c 		strlcpy((char *)sp, xarg1, len + 1);
+<a href='../S/878.html#L89'>strlcpy</a>            89 usr/server/exec/exec_script.c 		strlcpy(interp, "/boot/cmdbox", sizeof(interp));
+<a href='../S/878.html#L90'>strlcpy</a>            90 usr/server/exec/exec_script.c 		strlcpy(intarg, "sh", sizeof(intarg));
+<a href='../S/878.html#L94'>strlcpy</a>            94 usr/server/exec/exec_script.c 		strlcpy(interp, name, sizeof(interp));
+<a href='../S/878.html#L98'>strlcpy</a>            98 usr/server/exec/exec_script.c 	strlcpy(script, exec-&gt;path, sizeof(script));
+<a href='../S/883.html#L328'>strlcpy</a>           328 usr/server/fs/arfs/arfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, (char *)&amp;hdr-&gt;ar_name,
+<a href='../S/886.html#L250'>strlcpy</a>           250 usr/server/fs/devfs/devfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, info.name, sizeof(dir-&gt;d_name));
+<a href='../S/896.html#L379'>strlcpy</a>           379 usr/server/fs/fifofs/fifo_vnops.c 	strlcpy(np-&gt;fn_name, name, len);
+<a href='../S/896.html#L434'>strlcpy</a>           434 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, ".", sizeof(dir-&gt;d_name));
+<a href='../S/896.html#L437'>strlcpy</a>           437 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, "..", sizeof(dir-&gt;d_name));
+<a href='../S/896.html#L453'>strlcpy</a>           453 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, np-&gt;fn_name,
+<a href='../S/902.html#L114'>strlcpy</a>           114 usr/server/fs/ramfs/ramfs_vnops.c 	strlcpy(np-&gt;rn_name, name, np-&gt;rn_namelen + 1);
+<a href='../S/902.html#L189'>strlcpy</a>           189 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy(np-&gt;rn_name, name, sizeof(np-&gt;rn_name));
+<a href='../S/902.html#L195'>strlcpy</a>           195 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy(tmp, name, len + 1);
+<a href='../S/902.html#L461'>strlcpy</a>           461 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, ".", sizeof(dir-&gt;d_name));
+<a href='../S/902.html#L464'>strlcpy</a>           464 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, "..", sizeof(dir-&gt;d_name));
+<a href='../S/902.html#L484'>strlcpy</a>           484 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, np-&gt;rn_name,
+<a href='../S/903.html#L446'>strlcpy</a>           446 usr/server/fs/vfs/main.c 	strlcpy(t-&gt;t_cwd, path, sizeof(t-&gt;t_cwd));
+<a href='../S/903.html#L506'>strlcpy</a>           506 usr/server/fs/vfs/main.c 	strlcpy(msg-&gt;path, t-&gt;t_cwd, sizeof(msg-&gt;path));
+<a href='../S/903.html#L656'>strlcpy</a>           656 usr/server/fs/vfs/main.c 	strlcpy(newtask-&gt;t_cwd, t-&gt;t_cwd, sizeof(newtask-&gt;t_cwd));
+<a href='../S/903.html#L865'>strlcpy</a>           865 usr/server/fs/vfs/main.c 	strlcpy(bm.path, "/boot/fs", sizeof(bm.path));
+<a href='../S/908.html#L68'>strlcpy</a>            68 usr/server/fs/vfs/vfs_lookup.c 	strlcpy(node, "/", sizeof(node));
+<a href='../S/908.html#L163'>strlcpy</a>           163 usr/server/fs/vfs/vfs_lookup.c 	strlcpy(buf, path, sizeof(buf));
+<a href='../S/909.html#L141'>strlcpy</a>           141 usr/server/fs/vfs/vfs_mount.c 	strlcpy(mp-&gt;m_path, dir, sizeof(mp-&gt;m_path));
+<a href='../S/911.html#L754'>strlcpy</a>           754 usr/server/fs/vfs/vfs_syscalls.c 	strlcpy(cwd, dvp-&gt;v_path, PATH_MAX);
+<a href='../S/912.html#L111'>strlcpy</a>           111 usr/server/fs/vfs/vfs_task.c 	strlcpy(t-&gt;t_cwd, "/", sizeof(t-&gt;t_cwd));
+<a href='../S/912.html#L243'>strlcpy</a>           243 usr/server/fs/vfs/vfs_task.c 		strlcpy(full, cwd, PATH_MAX);
+<a href='../S/913.html#L181'>strlcpy</a>           181 usr/server/fs/vfs/vfs_vnode.c 	strlcpy(vp-&gt;v_path, path, len);
+<a href='../S/916.html#L418'>strlcpy</a>           418 usr/server/pow/pow.c 	strlcpy(bm.path, "/boot/pow", sizeof(bm.path));
+<a href='../S/917.html#L424'>strlcpy</a>           424 usr/server/proc/main.c 	strlcpy(m.path, "/boot/proc", sizeof(m.path));
+</pre>
+</body>
+</html>

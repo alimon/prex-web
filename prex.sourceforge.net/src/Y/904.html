@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>format</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/376.html#L45'>format</a>             45 usr/bin/date/date.c 	char format[] = "%a %b %e %H:%M:%S %Y";
+<a href='../S/376.html#L51'>format</a>             51 usr/bin/date/date.c 	strftime(buf, sizeof(buf), format, localtime(&amp;tval));
+<a href='../S/642.html#L59'>format</a>             59 usr/lib/libc/time/strftime.c strftime(s, maxsize, format, t)
+<a href='../S/642.html#L62'>format</a>             62 usr/lib/libc/time/strftime.c 	const char *format;
+<a href='../S/642.html#L69'>format</a>             69 usr/lib/libc/time/strftime.c 	if (_fmt(format, t)) {
+<a href='../S/642.html#L77'>format</a>             77 usr/lib/libc/time/strftime.c _fmt(format, t)
+<a href='../S/642.html#L78'>format</a>             78 usr/lib/libc/time/strftime.c 	const char *format;
+<a href='../S/642.html#L81'>format</a>             81 usr/lib/libc/time/strftime.c 	for (; *format; ++format) {
+<a href='../S/642.html#L82'>format</a>             82 usr/lib/libc/time/strftime.c 		if (*format == '%')
+<a href='../S/642.html#L83'>format</a>             83 usr/lib/libc/time/strftime.c 			switch(*++format) {
+<a href='../S/642.html#L85'>format</a>             85 usr/lib/libc/time/strftime.c 				--format;
+<a href='../S/642.html#L240'>format</a>            240 usr/lib/libc/time/strftime.c 		*pt++ = *format;
+</pre>
+</body>
+</html>

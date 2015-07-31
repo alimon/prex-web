@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>seg_create</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/343.html#L58'>seg_create</a>         58 sys/mem/vm.c   static struct seg *seg_create(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L885'>seg_create</a>        885 sys/mem/vm.c   				if (seg_create(seg,
+<a href='../S/343.html#L964'>seg_create</a>        964 sys/mem/vm.c   		seg = seg_create(prev, addr, prev-&gt;size - diff);
+<a href='../S/343.html#L973'>seg_create</a>        973 sys/mem/vm.c   		next = seg_create(seg, seg-&gt;addr + size, seg-&gt;size - size);
+<a href='../S/344.html#L52'>seg_create</a>         52 sys/mem/vm_nommu.c static struct seg *seg_create(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L353'>seg_create</a>        353 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;curmap-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L474'>seg_create</a>        474 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L632'>seg_create</a>        632 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L676'>seg_create</a>        676 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+</pre>
+</body>
+</html>

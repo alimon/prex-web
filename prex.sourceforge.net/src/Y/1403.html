@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>nr_copy</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L121'>nr_copy</a>           121 bsp/hal/x86/arch/cpu.c 	gate-&gt;nr_copy = 0;
+<a href='../S/181.html#L116'>nr_copy</a>           116 bsp/hal/x86/include/cpu.h 	u_int nr_copy:8;	/* stack copy count */
+<a href='../S/883.html#L210'>nr_copy</a>           210 usr/server/fs/arfs/arfs_vnops.c 	size_t nr_read, nr_copy;
+<a href='../S/883.html#L241'>nr_copy</a>           241 usr/server/fs/arfs/arfs_vnops.c 		nr_copy = BSIZE;
+<a href='../S/883.html#L243'>nr_copy</a>           243 usr/server/fs/arfs/arfs_vnops.c 			nr_copy -= buf_pos;
+<a href='../S/883.html#L245'>nr_copy</a>           245 usr/server/fs/arfs/arfs_vnops.c 			nr_copy = size;
+<a href='../S/883.html#L246'>nr_copy</a>           246 usr/server/fs/arfs/arfs_vnops.c 		ASSERT(nr_copy &gt; 0);
+<a href='../S/883.html#L247'>nr_copy</a>           247 usr/server/fs/arfs/arfs_vnops.c 		memcpy(buf, bp-&gt;b_data + buf_pos, nr_copy);
+<a href='../S/883.html#L250'>nr_copy</a>           250 usr/server/fs/arfs/arfs_vnops.c 		file_pos += nr_copy;
+<a href='../S/883.html#L252'>nr_copy</a>           252 usr/server/fs/arfs/arfs_vnops.c 			 file_pos, nr_copy));
+<a href='../S/883.html#L254'>nr_copy</a>           254 usr/server/fs/arfs/arfs_vnops.c 		nr_read += nr_copy;
+<a href='../S/883.html#L255'>nr_copy</a>           255 usr/server/fs/arfs/arfs_vnops.c 		size -= nr_copy;
+<a href='../S/883.html#L258'>nr_copy</a>           258 usr/server/fs/arfs/arfs_vnops.c 		buf = (void *)((u_long)buf + nr_copy);
+<a href='../S/893.html#L168'>nr_copy</a>           168 usr/server/fs/fatfs/fatfs_vnops.c 	int nr_read, nr_copy, buf_pos, error;
+<a href='../S/893.html#L206'>nr_copy</a>           206 usr/server/fs/fatfs/fatfs_vnops.c 		nr_copy = fmp-&gt;cluster_size;
+<a href='../S/893.html#L208'>nr_copy</a>           208 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy -= buf_pos;
+<a href='../S/893.html#L210'>nr_copy</a>           210 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy = size;
+<a href='../S/893.html#L211'>nr_copy</a>           211 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(buf, fmp-&gt;io_buf + buf_pos, nr_copy);
+<a href='../S/893.html#L213'>nr_copy</a>           213 usr/server/fs/fatfs/fatfs_vnops.c 		file_pos += nr_copy;
+<a href='../S/893.html#L214'>nr_copy</a>           214 usr/server/fs/fatfs/fatfs_vnops.c 		nr_read += nr_copy;
+<a href='../S/893.html#L215'>nr_copy</a>           215 usr/server/fs/fatfs/fatfs_vnops.c 		size -= nr_copy;
+<a href='../S/893.html#L223'>nr_copy</a>           223 usr/server/fs/fatfs/fatfs_vnops.c 		buf = (void *)((u_long)buf + nr_copy);
+<a href='../S/893.html#L241'>nr_copy</a>           241 usr/server/fs/fatfs/fatfs_vnops.c 	int nr_copy, nr_write, buf_pos, i, cl_size, error;
+<a href='../S/893.html#L296'>nr_copy</a>           296 usr/server/fs/fatfs/fatfs_vnops.c 		nr_copy = fmp-&gt;cluster_size;
+<a href='../S/893.html#L298'>nr_copy</a>           298 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy -= buf_pos;
+<a href='../S/893.html#L300'>nr_copy</a>           300 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy = size;
+<a href='../S/893.html#L301'>nr_copy</a>           301 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(fmp-&gt;io_buf + buf_pos, buf, nr_copy);
+<a href='../S/893.html#L307'>nr_copy</a>           307 usr/server/fs/fatfs/fatfs_vnops.c 		file_pos += nr_copy;
+<a href='../S/893.html#L308'>nr_copy</a>           308 usr/server/fs/fatfs/fatfs_vnops.c 		nr_write += nr_copy;
+<a href='../S/893.html#L309'>nr_copy</a>           309 usr/server/fs/fatfs/fatfs_vnops.c 		size -= nr_copy;
+<a href='../S/893.html#L317'>nr_copy</a>           317 usr/server/fs/fatfs/fatfs_vnops.c 		buf = (void *)((u_long)buf + nr_copy);
+</pre>
+</body>
+</html>

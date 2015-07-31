@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>scan_start</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L201'>scan_start</a>        201 usr/server/fs/fatfs/fatfs.h int	 fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free);
+<a href='../S/889.html#L212'>scan_start</a>        212 usr/server/fs/fatfs/fatfs_fat.c fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free)
+<a href='../S/889.html#L217'>scan_start</a>        217 usr/server/fs/fatfs/fatfs_fat.c 	if (scan_start == 0)
+<a href='../S/889.html#L218'>scan_start</a>        218 usr/server/fs/fatfs/fatfs_fat.c 		scan_start = fmp-&gt;free_scan;
+<a href='../S/889.html#L220'>scan_start</a>        220 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_alloc_cluster: start=%d\n", scan_start));
+<a href='../S/889.html#L222'>scan_start</a>        222 usr/server/fs/fatfs/fatfs_fat.c 	cl = scan_start + 1;
+<a href='../S/889.html#L223'>scan_start</a>        223 usr/server/fs/fatfs/fatfs_fat.c 	while (cl != scan_start) {
+</pre>
+</body>
+</html>

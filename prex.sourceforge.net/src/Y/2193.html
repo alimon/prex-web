@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L61'>tp</a>                 61 bsp/drv/dev/base/tty.c static void tty_output(int c, struct tty *tp);
+<a href='../S/64.html#L151'>tp</a>                151 bsp/drv/dev/base/tty.c tty_rubout(int c, struct tty *tp)
+<a href='../S/64.html#L154'>tp</a>                154 bsp/drv/dev/base/tty.c 	if (!(tp-&gt;t_lflag &amp; ECHO))
+<a href='../S/64.html#L156'>tp</a>                156 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_lflag &amp; ECHOE) {
+<a href='../S/64.html#L157'>tp</a>                157 bsp/drv/dev/base/tty.c 		tty_output('\b', tp);
+<a href='../S/64.html#L158'>tp</a>                158 bsp/drv/dev/base/tty.c 		tty_output(' ', tp);
+<a href='../S/64.html#L159'>tp</a>                159 bsp/drv/dev/base/tty.c 		tty_output('\b', tp);
+<a href='../S/64.html#L161'>tp</a>                161 bsp/drv/dev/base/tty.c 		tty_output(tp-&gt;t_cc[VERASE], tp);
+<a href='../S/64.html#L168'>tp</a>                168 bsp/drv/dev/base/tty.c tty_echo(int c, struct tty *tp)
+<a href='../S/64.html#L171'>tp</a>                171 bsp/drv/dev/base/tty.c 	if (!(tp-&gt;t_lflag &amp; ECHO)) {
+<a href='../S/64.html#L172'>tp</a>                172 bsp/drv/dev/base/tty.c 		if (c == '\n' &amp;&amp; (tp-&gt;t_lflag &amp; ECHONL))
+<a href='../S/64.html#L173'>tp</a>                173 bsp/drv/dev/base/tty.c 			tty_output('\n', tp);
+<a href='../S/64.html#L177'>tp</a>                177 bsp/drv/dev/base/tty.c 		tty_output('^', tp);
+<a href='../S/64.html#L178'>tp</a>                178 bsp/drv/dev/base/tty.c 		tty_output(c + 'A' - 1, tp);
+<a href='../S/64.html#L180'>tp</a>                180 bsp/drv/dev/base/tty.c 		tty_output(c, tp);
+<a href='../S/64.html#L187'>tp</a>                187 bsp/drv/dev/base/tty.c tty_start(struct tty *tp)
+<a href='../S/64.html#L192'>tp</a>                192 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_state &amp; (TS_TTSTOP|TS_BUSY))
+<a href='../S/64.html#L194'>tp</a>                194 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_oproc)
+<a href='../S/64.html#L195'>tp</a>                195 bsp/drv/dev/base/tty.c 		(*tp-&gt;t_oproc)(tp);
+<a href='../S/64.html#L202'>tp</a>                202 bsp/drv/dev/base/tty.c tty_flush(struct tty *tp, int rw)
+<a href='../S/64.html#L208'>tp</a>                208 bsp/drv/dev/base/tty.c 		while (tty_getc(&amp;tp-&gt;t_canq) != -1)
+<a href='../S/64.html#L210'>tp</a>                210 bsp/drv/dev/base/tty.c 		while (tty_getc(&amp;tp-&gt;t_rawq) != -1)
+<a href='../S/64.html#L212'>tp</a>                212 bsp/drv/dev/base/tty.c 		sched_wakeup(&amp;tp-&gt;t_input);
+<a href='../S/64.html#L215'>tp</a>                215 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L216'>tp</a>                216 bsp/drv/dev/base/tty.c 		tty_start(tp);
+<a href='../S/64.html#L224'>tp</a>                224 bsp/drv/dev/base/tty.c tty_done(struct tty *tp)
+<a href='../S/64.html#L227'>tp</a>                227 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_outq.tq_count == 0)
+<a href='../S/64.html#L228'>tp</a>                228 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_BUSY;
+<a href='../S/64.html#L229'>tp</a>                229 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_state &amp; TS_ASLEEP) {
+<a href='../S/64.html#L230'>tp</a>                230 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_ASLEEP;
+<a href='../S/64.html#L231'>tp</a>                231 bsp/drv/dev/base/tty.c 		sched_wakeup(&amp;tp-&gt;t_output);
+<a href='../S/64.html#L239'>tp</a>                239 bsp/drv/dev/base/tty.c tty_wait(struct tty *tp)
+<a href='../S/64.html#L244'>tp</a>                244 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_outq.tq_count &gt; 0) &amp;&amp; tp-&gt;t_oproc) {
+<a href='../S/64.html#L245'>tp</a>                245 bsp/drv/dev/base/tty.c 		tp-&gt;t_state |= TS_BUSY;
+<a href='../S/64.html#L247'>tp</a>                247 bsp/drv/dev/base/tty.c 			(*tp-&gt;t_oproc)(tp);
+<a href='../S/64.html#L248'>tp</a>                248 bsp/drv/dev/base/tty.c 			if ((tp-&gt;t_state &amp; TS_BUSY) == 0)
+<a href='../S/64.html#L250'>tp</a>                250 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_ASLEEP;
+<a href='../S/64.html#L251'>tp</a>                251 bsp/drv/dev/base/tty.c 			sched_sleep(&amp;tp-&gt;t_output);
+<a href='../S/64.html#L262'>tp</a>                262 bsp/drv/dev/base/tty.c 	struct tty *tp = arg;
+<a href='../S/64.html#L264'>tp</a>                264 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_signal sig=%d\n", tp-&gt;t_signo));
+<a href='../S/64.html#L265'>tp</a>                265 bsp/drv/dev/base/tty.c 	exception_post(tp-&gt;t_sigtask, tp-&gt;t_signo);
+<a href='../S/64.html#L274'>tp</a>                274 bsp/drv/dev/base/tty.c tty_input(int c, struct tty *tp)
+<a href='../S/64.html#L285'>tp</a>                285 bsp/drv/dev/base/tty.c 	lflag = tp-&gt;t_lflag;
+<a href='../S/64.html#L286'>tp</a>                286 bsp/drv/dev/base/tty.c 	iflag = tp-&gt;t_iflag;
+<a href='../S/64.html#L287'>tp</a>                287 bsp/drv/dev/base/tty.c 	cc = tp-&gt;t_cc;
+<a href='../S/64.html#L292'>tp</a>                292 bsp/drv/dev/base/tty.c 		tty_flush(tp, FREAD | FWRITE);
+<a href='../S/64.html#L309'>tp</a>                309 bsp/drv/dev/base/tty.c 			if (!(tp-&gt;t_state &amp; TS_TTSTOP)) {
+<a href='../S/64.html#L310'>tp</a>                310 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_TTSTOP;
+<a href='../S/64.html#L325'>tp</a>                325 bsp/drv/dev/base/tty.c 			if (!ttyq_empty(&amp;tp-&gt;t_rawq))
+<a href='../S/64.html#L326'>tp</a>                326 bsp/drv/dev/base/tty.c 				tty_rubout(tty_unputc(&amp;tp-&gt;t_rawq), tp);
+<a href='../S/64.html#L331'>tp</a>                331 bsp/drv/dev/base/tty.c 			while (!ttyq_empty(&amp;tp-&gt;t_rawq))
+<a href='../S/64.html#L332'>tp</a>                332 bsp/drv/dev/base/tty.c 				tty_rubout(tty_unputc(&amp;tp-&gt;t_rawq), tp);
+<a href='../S/64.html#L340'>tp</a>                340 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_ISIG;
+<a href='../S/64.html#L341'>tp</a>                341 bsp/drv/dev/base/tty.c 				tty_flush(tp, FREAD | FWRITE);
+<a href='../S/64.html#L343'>tp</a>                343 bsp/drv/dev/base/tty.c 			tty_echo(c, tp);
+<a href='../S/64.html#L350'>tp</a>                350 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_ISIG;
+<a href='../S/64.html#L351'>tp</a>                351 bsp/drv/dev/base/tty.c 				tty_flush(tp, FREAD | FWRITE);
+<a href='../S/64.html#L353'>tp</a>                353 bsp/drv/dev/base/tty.c 			tty_echo(c, tp);
+<a href='../S/64.html#L362'>tp</a>                362 bsp/drv/dev/base/tty.c 	if (ttyq_full(&amp;tp-&gt;t_rawq)) {
+<a href='../S/64.html#L363'>tp</a>                363 bsp/drv/dev/base/tty.c 		tty_flush(tp, FREAD | FWRITE);
+<a href='../S/64.html#L366'>tp</a>                366 bsp/drv/dev/base/tty.c 	tty_putc(c, &amp;tp-&gt;t_rawq);
+<a href='../S/64.html#L370'>tp</a>                370 bsp/drv/dev/base/tty.c 			tty_catq(&amp;tp-&gt;t_rawq, &amp;tp-&gt;t_canq);
+<a href='../S/64.html#L371'>tp</a>                371 bsp/drv/dev/base/tty.c 			sched_wakeup(&amp;tp-&gt;t_input);
+<a href='../S/64.html#L374'>tp</a>                374 bsp/drv/dev/base/tty.c 		sched_wakeup(&amp;tp-&gt;t_input);
+<a href='../S/64.html#L377'>tp</a>                377 bsp/drv/dev/base/tty.c 		tty_echo(c, tp);
+<a href='../S/64.html#L382'>tp</a>                382 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_state &amp; TS_TTSTOP) &amp;&amp; (iflag &amp; IXANY) == 0 &amp;&amp;
+<a href='../S/64.html#L386'>tp</a>                386 bsp/drv/dev/base/tty.c 	tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L389'>tp</a>                389 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_sigtask) {
+<a href='../S/64.html#L390'>tp</a>                390 bsp/drv/dev/base/tty.c 			tp-&gt;t_signo = sig;
+<a href='../S/64.html#L391'>tp</a>                391 bsp/drv/dev/base/tty.c 			sched_dpc(&amp;tp-&gt;t_dpc, &amp;tty_signal, tp);
+<a href='../S/64.html#L394'>tp</a>                394 bsp/drv/dev/base/tty.c 	tty_start(tp);
+<a href='../S/64.html#L402'>tp</a>                402 bsp/drv/dev/base/tty.c tty_output(int c, struct tty *tp)
+<a href='../S/64.html#L406'>tp</a>                406 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_lflag &amp; ICANON) == 0) {
+<a href='../S/64.html#L407'>tp</a>                407 bsp/drv/dev/base/tty.c 		tty_putc(c, &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L411'>tp</a>                411 bsp/drv/dev/base/tty.c 	if (c == '\t' &amp;&amp; (tp-&gt;t_oflag &amp; OXTABS)) {
+<a href='../S/64.html#L412'>tp</a>                412 bsp/drv/dev/base/tty.c 		i = 8 - (tp-&gt;t_column &amp; 7);
+<a href='../S/64.html#L413'>tp</a>                413 bsp/drv/dev/base/tty.c 		tp-&gt;t_column += i;
+<a href='../S/64.html#L415'>tp</a>                415 bsp/drv/dev/base/tty.c 			tty_putc(' ', &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L420'>tp</a>                420 bsp/drv/dev/base/tty.c 	if (c == '\n' &amp;&amp; (tp-&gt;t_oflag &amp; ONLCR))
+<a href='../S/64.html#L421'>tp</a>                421 bsp/drv/dev/base/tty.c 		tty_putc('\r', &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L423'>tp</a>                423 bsp/drv/dev/base/tty.c 	tty_putc(c, &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L425'>tp</a>                425 bsp/drv/dev/base/tty.c 	col = tp-&gt;t_column;
+<a href='../S/64.html#L445'>tp</a>                445 bsp/drv/dev/base/tty.c 	tp-&gt;t_column = col;
+<a href='../S/64.html#L453'>tp</a>                453 bsp/drv/dev/base/tty.c tty_read(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L464'>tp</a>                464 bsp/drv/dev/base/tty.c 	lflag = tp-&gt;t_lflag;
+<a href='../S/64.html#L465'>tp</a>                465 bsp/drv/dev/base/tty.c 	cc = tp-&gt;t_cc;
+<a href='../S/64.html#L466'>tp</a>                466 bsp/drv/dev/base/tty.c 	qp = (lflag &amp; ICANON) ? &amp;tp-&gt;t_canq : &amp;tp-&gt;t_rawq;
+<a href='../S/64.html#L470'>tp</a>                470 bsp/drv/dev/base/tty.c 		rc = sched_sleep(&amp;tp-&gt;t_input);
+<a href='../S/64.html#L471'>tp</a>                471 bsp/drv/dev/base/tty.c 		if (rc == SLP_INTR || tp-&gt;t_state &amp; TS_ISIG) {
+<a href='../S/64.html#L472'>tp</a>                472 bsp/drv/dev/base/tty.c 			tp-&gt;t_state &amp;= ~TS_ISIG;
+<a href='../S/64.html#L497'>tp</a>                497 bsp/drv/dev/base/tty.c tty_write(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L506'>tp</a>                506 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_outq.tq_count &gt; TTYQ_HIWAT) {
+<a href='../S/64.html#L507'>tp</a>                507 bsp/drv/dev/base/tty.c 			tty_start(tp);
+<a href='../S/64.html#L508'>tp</a>                508 bsp/drv/dev/base/tty.c 			if (tp-&gt;t_outq.tq_count &lt;= TTYQ_HIWAT)
+<a href='../S/64.html#L510'>tp</a>                510 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_ASLEEP;
+<a href='../S/64.html#L511'>tp</a>                511 bsp/drv/dev/base/tty.c 			sched_sleep(&amp;tp-&gt;t_output);
+<a href='../S/64.html#L516'>tp</a>                516 bsp/drv/dev/base/tty.c 		tty_output((int)c, tp);
+<a href='../S/64.html#L521'>tp</a>                521 bsp/drv/dev/base/tty.c 	tty_start(tp);
+<a href='../S/64.html#L530'>tp</a>                530 bsp/drv/dev/base/tty.c tty_ioctl(struct tty *tp, u_long cmd, void *data)
+<a href='../S/64.html#L537'>tp</a>                537 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_termios, data,
+<a href='../S/64.html#L543'>tp</a>                543 bsp/drv/dev/base/tty.c 		tty_wait(tp);
+<a href='../S/64.html#L545'>tp</a>                545 bsp/drv/dev/base/tty.c 			tty_flush(tp, FREAD);
+<a href='../S/64.html#L548'>tp</a>                548 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_termios,
+<a href='../S/64.html#L553'>tp</a>                553 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_pgid, sizeof(pid_t)))
+<a href='../S/64.html#L557'>tp</a>                557 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_pgid, data, sizeof(pid_t)))
+<a href='../S/64.html#L567'>tp</a>                567 bsp/drv/dev/base/tty.c 		tty_flush(tp, flags);
+<a href='../S/64.html#L570'>tp</a>                570 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_state &amp; TS_TTSTOP) {
+<a href='../S/64.html#L571'>tp</a>                571 bsp/drv/dev/base/tty.c 			tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L572'>tp</a>                572 bsp/drv/dev/base/tty.c 			tty_start(tp);
+<a href='../S/64.html#L576'>tp</a>                576 bsp/drv/dev/base/tty.c 		if (!(tp-&gt;t_state &amp; TS_TTSTOP)) {
+<a href='../S/64.html#L577'>tp</a>                577 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_TTSTOP;
+<a href='../S/64.html#L581'>tp</a>                581 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_winsize, data,
+<a href='../S/64.html#L586'>tp</a>                586 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_winsize,
+<a href='../S/64.html#L591'>tp</a>                591 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_sigtask, sizeof(task_t)))
+<a href='../S/64.html#L595'>tp</a>                595 bsp/drv/dev/base/tty.c 		qp = (tp-&gt;t_lflag &amp; ICANON) ? &amp;tp-&gt;t_canq : &amp;tp-&gt;t_rawq;
+<a href='../S/64.html#L600'>tp</a>                600 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_outq.tq_count, data, sizeof(int)))
+<a href='../S/64.html#L611'>tp</a>                611 bsp/drv/dev/base/tty.c tty_attach(struct tty *tp)
+<a href='../S/64.html#L616'>tp</a>                616 bsp/drv/dev/base/tty.c 	memset(tp, 0, sizeof(struct tty));
+<a href='../S/64.html#L617'>tp</a>                617 bsp/drv/dev/base/tty.c 	memcpy(&amp;tp-&gt;t_termios.c_cc, ttydefchars, sizeof(ttydefchars));
+<a href='../S/64.html#L619'>tp</a>                619 bsp/drv/dev/base/tty.c 	event_init(&amp;tp-&gt;t_input, "TTY input");
+<a href='../S/64.html#L620'>tp</a>                620 bsp/drv/dev/base/tty.c 	event_init(&amp;tp-&gt;t_output, "TTY output");
+<a href='../S/64.html#L622'>tp</a>                622 bsp/drv/dev/base/tty.c 	tp-&gt;t_iflag = TTYDEF_IFLAG;
+<a href='../S/64.html#L623'>tp</a>                623 bsp/drv/dev/base/tty.c 	tp-&gt;t_oflag = TTYDEF_OFLAG;
+<a href='../S/64.html#L624'>tp</a>                624 bsp/drv/dev/base/tty.c 	tp-&gt;t_cflag = TTYDEF_CFLAG;
+<a href='../S/64.html#L625'>tp</a>                625 bsp/drv/dev/base/tty.c 	tp-&gt;t_lflag = TTYDEF_LFLAG;
+<a href='../S/64.html#L626'>tp</a>                626 bsp/drv/dev/base/tty.c 	tp-&gt;t_ispeed = TTYDEF_SPEED;
+<a href='../S/64.html#L627'>tp</a>                627 bsp/drv/dev/base/tty.c 	tp-&gt;t_ospeed = TTYDEF_SPEED;
+<a href='../S/64.html#L630'>tp</a>                630 bsp/drv/dev/base/tty.c 	tp-&gt;t_winsize.ws_row = (u_short)bi-&gt;video.text_y;
+<a href='../S/64.html#L631'>tp</a>                631 bsp/drv/dev/base/tty.c 	tp-&gt;t_winsize.ws_col = (u_short)bi-&gt;video.text_x;
+<a href='../S/65.html#L402'>tp</a>                402 bsp/drv/dev/base/wscons.c wscons_start(struct tty *tp)
+<a href='../S/65.html#L407'>tp</a>                407 bsp/drv/dev/base/wscons.c 	while ((c = tty_getc(&amp;tp-&gt;t_outq)) &gt;= 0)
+<a href='../S/65.html#L411'>tp</a>                411 bsp/drv/dev/base/wscons.c 	tty_done(tp);
+<a href='../S/89.html#L122'>tp</a>                122 bsp/drv/dev/serial/serial.c serial_start(struct tty *tp)
+<a href='../S/89.html#L124'>tp</a>                124 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(tp-&gt;t_dev);
+<a href='../S/89.html#L128'>tp</a>                128 bsp/drv/dev/serial/serial.c 	while ((c = tty_getc(&amp;tp-&gt;t_outq)) &gt;= 0)
+<a href='../S/267.html#L96'>tp</a>                 96 include/sys/prex.h int	thread_create(task_t task, thread_t *tp);
+<a href='../S/335.html#L65'>tp</a>                 65 sys/kern/thread.c thread_create(task_t task, thread_t *tp)
+<a href='../S/335.html#L91'>tp</a>                 91 sys/kern/thread.c 		if (copyout(&amp;t, tp, sizeof(t))) {
+<a href='../S/335.html#L115'>tp</a>                115 sys/kern/thread.c 		*tp = t;
+<a href='../S/335.html#L117'>tp</a>                117 sys/kern/thread.c 		copyout(&amp;t, tp, sizeof(t));
+<a href='../S/587.html#L42'>tp</a>                 42 usr/lib/libc/string/memccpy.c 		unsigned char *tp = t;
+<a href='../S/587.html#L45'>tp</a>                 45 usr/lib/libc/string/memccpy.c 			if ((*tp++ = *fp++) == c)
+<a href='../S/618.html#L40'>tp</a>                 40 usr/lib/libc/string/swab.c 	char *tp;
+<a href='../S/618.html#L44'>tp</a>                 44 usr/lib/libc/string/swab.c 	tp = (char *)to;
+<a href='../S/618.html#L45'>tp</a>                 45 usr/lib/libc/string/swab.c #define	STEP	temp = *fp++,*tp++ = *fp++,*tp++ = temp
+<a href='../S/928.html#L53'>tp</a>                 53 usr/test/attack/attack.c 	thread_t *tp	= (thread_t *)random();
+<a href='../S/928.html#L95'>tp</a>                 95 usr/test/attack/attack.c 	thread_create(self, tp);
+</pre>
+</body>
+</html>

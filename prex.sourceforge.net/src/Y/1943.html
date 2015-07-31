@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sig</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L278'>sig</a>               278 bsp/drv/dev/base/tty.c 	int sig = -1;
+<a href='../S/64.html#L344'>sig</a>               344 bsp/drv/dev/base/tty.c 			sig = (c == cc[VINTR]) ? SIGINT : SIGQUIT;
+<a href='../S/64.html#L354'>sig</a>               354 bsp/drv/dev/base/tty.c 			sig = SIGTSTP;
+<a href='../S/64.html#L388'>sig</a>               388 bsp/drv/dev/base/tty.c 	if (sig != -1) {
+<a href='../S/64.html#L390'>sig</a>               390 bsp/drv/dev/base/tty.c 			tp-&gt;t_signo = sig;
+<a href='../S/280.html#L62'>sig</a>                62 include/sys/wait.h #define	W_EXITCODE(ret, sig)	((ret) &lt;&lt; 8 | (sig))
+<a href='../S/280.html#L63'>sig</a>                63 include/sys/wait.h #define	W_STOPCODE(sig)		((sig) &lt;&lt; 8 | _WSTOPPED)
+<a href='../S/388.html#L127'>sig</a>               127 usr/bin/kill/kill.c signame_to_signum(sig)
+<a href='../S/388.html#L128'>sig</a>               128 usr/bin/kill/kill.c 	char *sig;
+<a href='../S/388.html#L132'>sig</a>               132 usr/bin/kill/kill.c 	if (!strncasecmp(sig, "sig", 3))
+<a href='../S/388.html#L133'>sig</a>               133 usr/bin/kill/kill.c 		sig += 3;
+<a href='../S/388.html#L135'>sig</a>               135 usr/bin/kill/kill.c 		if (!strcasecmp(sys_signame[n], sig))
+<a href='../S/717.html#L41'>sig</a>                41 usr/lib/posix/process/kill.c kill(pid_t pid, int sig)
+<a href='../S/717.html#L51'>sig</a>                51 usr/lib/posix/process/kill.c 	m.data[1] = sig;
+<a href='../S/718.html#L35'>sig</a>                35 usr/lib/posix/process/killpg.c killpg(pid_t pgid, int sig)
+<a href='../S/718.html#L38'>sig</a>                38 usr/lib/posix/process/killpg.c 	return kill(-pgid, sig);
+<a href='../S/731.html#L50'>sig</a>                50 usr/lib/posix/process/waitpid.c 	int sig, error;
+<a href='../S/731.html#L74'>sig</a>                74 usr/lib/posix/process/waitpid.c 		error = exception_wait(&amp;sig);
+<a href='../S/743.html#L59'>sig</a>                59 usr/lib/posix/signal/__exception.c 	int sig;
+<a href='../S/743.html#L65'>sig</a>                65 usr/lib/posix/signal/__exception.c 	sig = 1;
+<a href='../S/743.html#L69'>sig</a>                69 usr/lib/posix/signal/__exception.c 		action = __sig_act[sig];
+<a href='../S/743.html#L74'>sig</a>                74 usr/lib/posix/signal/__exception.c 		if (active &amp; sigmask(sig)) {
+<a href='../S/743.html#L83'>sig</a>                83 usr/lib/posix/signal/__exception.c 				switch (sig) {
+<a href='../S/743.html#L90'>sig</a>                90 usr/lib/posix/signal/__exception.c 					__sig_pending &amp;= ~sigmask(sig);
+<a href='../S/743.html#L92'>sig</a>                92 usr/lib/posix/signal/__exception.c 					__sig_exit = sig;
+<a href='../S/743.html#L99'>sig</a>                99 usr/lib/posix/signal/__exception.c 					si.si_signo = sig;
+<a href='../S/743.html#L102'>sig</a>               102 usr/lib/posix/signal/__exception.c 					action.sa_sigaction(sig, &amp;si, NULL);
+<a href='../S/743.html#L104'>sig</a>               104 usr/lib/posix/signal/__exception.c 					action.sa_handler(sig);
+<a href='../S/743.html#L108'>sig</a>               108 usr/lib/posix/signal/__exception.c 			__sig_pending &amp;= ~sigmask(sig);
+<a href='../S/743.html#L112'>sig</a>               112 usr/lib/posix/signal/__exception.c 			switch (sig) {
+<a href='../S/743.html#L124'>sig</a>               124 usr/lib/posix/signal/__exception.c 		if (++sig &gt;= NSIG)
+<a href='../S/743.html#L125'>sig</a>               125 usr/lib/posix/signal/__exception.c 			sig = 1;
+<a href='../S/735.html#L41'>sig</a>                41 usr/lib/posix/signal/pause.c 	int sig, wait;
+<a href='../S/735.html#L47'>sig</a>                47 usr/lib/posix/signal/pause.c 			exception_wait(&amp;sig);
+<a href='../S/735.html#L50'>sig</a>                50 usr/lib/posix/signal/pause.c 			if (!(__sig_mask &amp; sigmask(sig)) &amp;&amp;
+<a href='../S/735.html#L51'>sig</a>                51 usr/lib/posix/signal/pause.c 			    !(__sig_pending &amp; sigmask(sig)))
+<a href='../S/739.html#L35'>sig</a>                35 usr/lib/posix/signal/signal.c signal(int sig, sig_t handler)
+<a href='../S/739.html#L40'>sig</a>                40 usr/lib/posix/signal/signal.c 	if (sig &lt;= 0 || sig &gt;= NSIG || sig == SIGSTOP || sig == SIGKILL) {
+<a href='../S/739.html#L49'>sig</a>                49 usr/lib/posix/signal/signal.c 		act.sa_mask = sigmask(sig);
+<a href='../S/739.html#L51'>sig</a>                51 usr/lib/posix/signal/signal.c 	error = sigaction(sig, &amp;act, &amp;oact);
+<a href='../S/879.html#L152'>sig</a>               152 usr/server/exec/main.c exception_handler(int sig)
+<a href='../S/903.html#L966'>sig</a>               966 usr/server/fs/vfs/main.c exception_handler(int sig)
+<a href='../S/916.html#L207'>sig</a>               207 usr/server/pow/pow.c exception_handler(int sig)
+<a href='../S/916.html#L210'>sig</a>               210 usr/server/pow/pow.c 	if (sig == SIGPWR) {
+<a href='../S/916.html#L219'>sig</a>               219 usr/server/pow/pow.c 	int sig, event, state;
+<a href='../S/916.html#L227'>sig</a>               227 usr/server/pow/pow.c 		exception_wait(&amp;sig);
+<a href='../S/916.html#L228'>sig</a>               228 usr/server/pow/pow.c 		DPRINTF(("power_thread: sig=%d\n", sig));
+<a href='../S/916.html#L230'>sig</a>               230 usr/server/pow/pow.c 		if (sig == SIGPWR) {
+<a href='../S/917.html#L267'>sig</a>               267 usr/server/proc/main.c 	int sig;
+<a href='../S/917.html#L270'>sig</a>               270 usr/server/proc/main.c 	sig = msg-&gt;data[1];
+<a href='../S/917.html#L272'>sig</a>               272 usr/server/proc/main.c 	return sys_kill(pid, sig);
+<a href='../S/919.html#L143'>sig</a>               143 usr/server/proc/proc.h int	sys_kill(pid_t pid, int sig);
+<a href='../S/924.html#L60'>sig</a>                60 usr/server/proc/proc_sig.c sendsig(struct proc *p, int sig)
+<a href='../S/924.html#L74'>sig</a>                74 usr/server/proc/proc_sig.c 	if (p-&gt;p_pid == 1 &amp;&amp; sig != SIGCHLD)
+<a href='../S/924.html#L78'>sig</a>                78 usr/server/proc/proc_sig.c 	return exception_raise(p-&gt;p_task, sig);
+<a href='../S/924.html#L85'>sig</a>                85 usr/server/proc/proc_sig.c kill_one(pid_t pid, int sig)
+<a href='../S/924.html#L89'>sig</a>                89 usr/server/proc/proc_sig.c 	DPRINTF(("proc: killone pid=%d sig=%d\n", pid, sig));
+<a href='../S/924.html#L93'>sig</a>                93 usr/server/proc/proc_sig.c 	return sendsig(p, sig);
+<a href='../S/924.html#L100'>sig</a>               100 usr/server/proc/proc_sig.c kill_pg(pid_t pgid, int sig)
+<a href='../S/924.html#L107'>sig</a>               107 usr/server/proc/proc_sig.c 	DPRINTF(("proc: killpg pgid=%d sig=%d\n", pgid, sig));
+<a href='../S/924.html#L115'>sig</a>               115 usr/server/proc/proc_sig.c 		if ((error = sendsig(p, sig)) != 0)
+<a href='../S/924.html#L142'>sig</a>               142 usr/server/proc/proc_sig.c sys_kill(pid_t pid, int sig)
+<a href='../S/924.html#L148'>sig</a>               148 usr/server/proc/proc_sig.c 	DPRINTF(("proc: kill pid=%d sig=%d\n", pid, sig));
+<a href='../S/924.html#L150'>sig</a>               150 usr/server/proc/proc_sig.c 	switch (sig) {
+<a href='../S/924.html#L162'>sig</a>               162 usr/server/proc/proc_sig.c 		error = kill_one(pid, sig);
+<a href='../S/924.html#L184'>sig</a>               184 usr/server/proc/proc_sig.c 				error = kill_one(p-&gt;p_pid, sig);
+<a href='../S/924.html#L191'>sig</a>               191 usr/server/proc/proc_sig.c 		error = kill_pg(curproc-&gt;p_pgrp-&gt;pg_pgid, sig);
+<a href='../S/924.html#L196'>sig</a>               196 usr/server/proc/proc_sig.c 		error = kill_pg(-pid, sig);
+<a href='../S/925.html#L52'>sig</a>                52 usr/server/proc/proc_tty.c tty_signal(int sig)
+<a href='../S/925.html#L63'>sig</a>                63 usr/server/proc/proc_tty.c 	DPRINTF(("proc: tty_signal pgid=%d sig=%d\n", pgid, sig));
+<a href='../S/925.html#L64'>sig</a>                64 usr/server/proc/proc_tty.c 	kill_pg(pgid, sig);
+<a href='../S/925.html#L72'>sig</a>                72 usr/server/proc/proc_tty.c exception_handler(int sig)
+<a href='../S/925.html#L78'>sig</a>                78 usr/server/proc/proc_tty.c 	switch (sig) {
+<a href='../S/925.html#L88'>sig</a>                88 usr/server/proc/proc_tty.c 			tty_signal(sig);
+<a href='../S/992.html#L40'>sig</a>                40 usr/test/signal/signal.c static void gotsig(int sig);
+<a href='../S/992.html#L69'>sig</a>                69 usr/test/signal/signal.c gotsig(int sig)
+<a href='../S/992.html#L71'>sig</a>                71 usr/test/signal/signal.c 	printf("Got signal: %d\n", sig);
+</pre>
+</body>
+</html>

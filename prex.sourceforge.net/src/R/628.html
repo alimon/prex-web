@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>NBBY</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/264.html#L159'>NBBY</a>              159 include/sys/param.h #define	setbit(a,i)	((a)[(i)/NBBY] |= 1&lt;&lt;((i)%NBBY))
+<a href='../S/264.html#L160'>NBBY</a>              160 include/sys/param.h #define	clrbit(a,i)	((a)[(i)/NBBY] &amp;= ~(1&lt;&lt;((i)%NBBY)))
+<a href='../S/264.html#L161'>NBBY</a>              161 include/sys/param.h #define	isset(a,i)	((a)[(i)/NBBY] &amp; (1&lt;&lt;((i)%NBBY)))
+<a href='../S/264.html#L162'>NBBY</a>              162 include/sys/param.h #define	isclr(a,i)	(((a)[(i)/NBBY] &amp; (1&lt;&lt;((i)%NBBY))) == 0)
+<a href='../S/277.html#L116'>NBBY</a>              116 include/sys/types.h #define NFDBITS	(sizeof(fd_mask) * NBBY)	/* bits per mask */
+</pre>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>v_size</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L71'>v_size</a>             71 include/sys/vnode.h 	size_t		v_size;		/* file size */
+<a href='../S/883.html#L195'>v_size</a>            195 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_size = size;
+<a href='../S/883.html#L222'>v_size</a>            222 usr/server/fs/arfs/arfs_vnops.c 	if (file_pos &gt;= (off_t)vp-&gt;v_size) {
+<a href='../S/883.html#L227'>v_size</a>            227 usr/server/fs/arfs/arfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/883.html#L228'>v_size</a>            228 usr/server/fs/arfs/arfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/883.html#L277'>v_size</a>            277 usr/server/fs/arfs/arfs_vnops.c 	if (newoff &gt; (off_t)vp-&gt;v_size)
+<a href='../S/893.html#L156'>v_size</a>            156 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = de-&gt;size;
+<a href='../S/893.html#L183'>v_size</a>            183 usr/server/fs/fatfs/fatfs_vnops.c 	if (file_pos &gt;= vp-&gt;v_size)
+<a href='../S/893.html#L189'>v_size</a>            189 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/893.html#L190'>v_size</a>            190 usr/server/fs/fatfs/fatfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/893.html#L258'>v_size</a>            258 usr/server/fs/fatfs/fatfs_vnops.c 	end_pos = vp-&gt;v_size;
+<a href='../S/893.html#L276'>v_size</a>            276 usr/server/fs/fatfs/fatfs_vnops.c 		vp-&gt;v_size = end_pos;
+<a href='../S/893.html#L696'>v_size</a>            696 usr/server/fs/fatfs/fatfs_vnops.c 	} else if (length &gt; vp-&gt;v_size) {
+<a href='../S/893.html#L709'>v_size</a>            709 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = length;
+<a href='../S/896.html#L345'>v_size</a>            345 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_size = 0;
+<a href='../S/902.html#L232'>v_size</a>            232 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_size = np-&gt;rn_size;
+<a href='../S/902.html#L304'>v_size</a>            304 usr/server/fs/ramfs/ramfs_vnops.c 			memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L311'>v_size</a>            311 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_size = length;
+<a href='../S/902.html#L346'>v_size</a>            346 usr/server/fs/ramfs/ramfs_vnops.c 	if (off &gt;= (off_t)vp-&gt;v_size)
+<a href='../S/902.html#L349'>v_size</a>            349 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_size - off &lt; size)
+<a href='../S/902.html#L350'>v_size</a>            350 usr/server/fs/ramfs/ramfs_vnops.c 		size = vp-&gt;v_size - off;
+<a href='../S/902.html#L377'>v_size</a>            377 usr/server/fs/ramfs/ramfs_vnops.c 	end_pos = vp-&gt;v_size;
+<a href='../S/902.html#L395'>v_size</a>            395 usr/server/fs/ramfs/ramfs_vnops.c 				memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L402'>v_size</a>            402 usr/server/fs/ramfs/ramfs_vnops.c 		vp-&gt;v_size = end_pos;
+<a href='../S/911.html#L232'>v_size</a>            232 usr/server/fs/vfs/vfs_syscalls.c 		if (off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L233'>v_size</a>            233 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L236'>v_size</a>            236 usr/server/fs/vfs/vfs_syscalls.c 		if (fp-&gt;f_offset + off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L237'>v_size</a>            237 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L245'>v_size</a>            245 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L246'>v_size</a>            246 usr/server/fs/vfs/vfs_syscalls.c 		else if ((int)vp-&gt;v_size + off &lt; 0)
+<a href='../S/911.html#L249'>v_size</a>            249 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size + off;
+<a href='../S/913.html#L350'>v_size</a>            350 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_size = vp-&gt;v_size;
+<a href='../S/913.html#L379'>v_size</a>            379 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_blocks = vp-&gt;v_size / S_BLKSIZE;
+</pre>
+</body>
+</html>

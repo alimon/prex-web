@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>start</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L119'>start</a>             119 bsp/drv/arm/gba/lcd.c 	int i, start, end;
+<a href='../S/51.html#L121'>start</a>             121 bsp/drv/arm/gba/lcd.c 	start = row * VSCR_COLS;
+<a href='../S/51.html#L122'>start</a>             122 bsp/drv/arm/gba/lcd.c 	end = start + nrows * VSCR_COLS;
+<a href='../S/51.html#L124'>start</a>             124 bsp/drv/arm/gba/lcd.c 	for (i = start; i &lt; end; i++)
+<a href='../S/89.html#L199'>start</a>             199 bsp/drv/dev/serial/serial.c 	ops-&gt;start(port);
+<a href='../S/91.html#L172'>start</a>             172 bsp/drv/dev/video/vga.c 	int i, start, end;
+<a href='../S/91.html#L174'>start</a>             174 bsp/drv/dev/video/vga.c 	start = row * sc-&gt;cols;
+<a href='../S/91.html#L175'>start</a>             175 bsp/drv/dev/video/vga.c 	end = start + nrows * sc-&gt;cols;
+<a href='../S/91.html#L177'>start</a>             177 bsp/drv/dev/video/vga.c 	for (i = start; i &lt; end; i++)
+<a href='../S/101.html#L45'>start</a>              45 bsp/drv/include/serial.h 	void	(*start)(struct serial_port *port);
+<a href='../S/131.html#L253'>start</a>             253 bsp/hal/arm/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/131.html#L256'>start</a>             256 bsp/hal/arm/arch/mmu.c 	start = trunc_page(virt);
+<a href='../S/131.html#L260'>start</a>             260 bsp/hal/arm/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/131.html#L269'>start</a>             269 bsp/hal/arm/arch/mmu.c 	pte = vtopte(pgd, start);
+<a href='../S/131.html#L270'>start</a>             270 bsp/hal/arm/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/131.html#L271'>start</a>             271 bsp/hal/arm/arch/mmu.c 	return pa + (paddr_t)(virt - start);
+<a href='../S/178.html#L223'>start</a>             223 bsp/hal/x86/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/178.html#L226'>start</a>             226 bsp/hal/x86/arch/mmu.c 	start = trunc_page(va);
+<a href='../S/178.html#L230'>start</a>             230 bsp/hal/x86/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/178.html#L239'>start</a>             239 bsp/hal/x86/arch/mmu.c 	pte = vtopte(pgd, start);
+<a href='../S/178.html#L240'>start</a>             240 bsp/hal/x86/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/178.html#L241'>start</a>             241 bsp/hal/x86/arch/mmu.c 	return pa + (paddr_t)(va - start);
+<a href='../S/267.html#L123'>start</a>             123 include/sys/prex.h int	timer_periodic(thread_t t, u_long start, u_long period);
+<a href='../S/336.html#L240'>start</a>             240 sys/kern/timer.c timer_periodic(thread_t t, u_long start, u_long period)
+<a href='../S/336.html#L245'>start</a>             245 sys/kern/timer.c 	if (start != 0 &amp;&amp; period == 0)
+<a href='../S/336.html#L259'>start</a>             259 sys/kern/timer.c 	if (start == 0) {
+<a href='../S/336.html#L290'>start</a>             290 sys/kern/timer.c 		timer_add(tmr, mstohz(start));
+<a href='../S/342.html#L185'>start</a>             185 sys/mem/page.c 	vaddr_t start, end;
+<a href='../S/342.html#L191'>start</a>             191 sys/mem/page.c 	start = trunc_page((vaddr_t)ptokv(paddr));
+<a href='../S/342.html#L193'>start</a>             193 sys/mem/page.c 	size = end - start;
+<a href='../S/342.html#L203'>start</a>             203 sys/mem/page.c 		if ((vaddr_t)blk &lt;= start
+<a href='../S/342.html#L208'>start</a>             208 sys/mem/page.c 	if ((vaddr_t)blk == start &amp;&amp; blk-&gt;size == size) {
+<a href='../S/342.html#L228'>start</a>             228 sys/mem/page.c 		if ((vaddr_t)blk == start) {
+<a href='../S/342.html#L232'>start</a>             232 sys/mem/page.c 			blk-&gt;size = start - (vaddr_t)blk;
+<a href='../S/343.html#L122'>start</a>             122 sys/mem/vm.c   	vaddr_t start, end;
+<a href='../S/343.html#L138'>start</a>             138 sys/mem/vm.c   		start = trunc_page((vaddr_t)*addr);
+<a href='../S/343.html#L139'>start</a>             139 sys/mem/vm.c   		end = round_page(start + size);
+<a href='../S/343.html#L140'>start</a>             140 sys/mem/vm.c   		size = (size_t)(end - start);
+<a href='../S/343.html#L142'>start</a>             142 sys/mem/vm.c   		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/343.html#L390'>start</a>             390 sys/mem/vm.c   	vaddr_t start, end;
+<a href='../S/343.html#L406'>start</a>             406 sys/mem/vm.c   	start = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L408'>start</a>             408 sys/mem/vm.c   	size = (size_t)(end - start);
+<a href='../S/343.html#L409'>start</a>             409 sys/mem/vm.c   	offset = (size_t)((vaddr_t)addr - start);
+<a href='../S/343.html#L414'>start</a>             414 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/343.html#L435'>start</a>             435 sys/mem/vm.c   	pa = tgt-&gt;phys + (paddr_t)(start - tgt-&gt;addr);
+<a href='../S/344.html#L115'>start</a>             115 sys/mem/vm_nommu.c 	vaddr_t start, end;
+<a href='../S/344.html#L129'>start</a>             129 sys/mem/vm_nommu.c 		start = seg-&gt;addr;
+<a href='../S/344.html#L131'>start</a>             131 sys/mem/vm_nommu.c 		start = trunc_page((vaddr_t)*addr);
+<a href='../S/344.html#L132'>start</a>             132 sys/mem/vm_nommu.c 		end = round_page(start + size);
+<a href='../S/344.html#L133'>start</a>             133 sys/mem/vm_nommu.c 		size = (size_t)(end - start);
+<a href='../S/344.html#L135'>start</a>             135 sys/mem/vm_nommu.c 		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L141'>start</a>             141 sys/mem/vm_nommu.c 	memset((void *)start, 0, size);
+<a href='../S/344.html#L324'>start</a>             324 sys/mem/vm_nommu.c 	vaddr_t start, end;
+<a href='../S/344.html#L337'>start</a>             337 sys/mem/vm_nommu.c 	start = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L339'>start</a>             339 sys/mem/vm_nommu.c 	size = (size_t)(end - start);
+<a href='../S/344.html#L344'>start</a>             344 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/344.html#L353'>start</a>             353 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;curmap-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L457'>start</a>             457 sys/mem/vm_nommu.c 	vaddr_t base, start, end;
+<a href='../S/344.html#L470'>start</a>             470 sys/mem/vm_nommu.c 	start = trunc_page(base);
+<a href='../S/344.html#L471'>start</a>             471 sys/mem/vm_nommu.c 	end = round_page(start + size);
+<a href='../S/344.html#L472'>start</a>             472 sys/mem/vm_nommu.c 	size = (size_t)(end - start);
+<a href='../S/344.html#L474'>start</a>             474 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/530.html#L62'>start</a>              62 usr/lib/libc/stdio/mktemp.c 	char *start, *trv;
+<a href='../S/530.html#L77'>start</a>              77 usr/lib/libc/stdio/mktemp.c 	for (start = trv + 1;; --trv) {
+<a href='../S/530.html#L105'>start</a>             105 usr/lib/libc/stdio/mktemp.c 		for (trv = start;;) {
+<a href='../S/829.html#L50'>start</a>              50 usr/sample/balls/balls.c thread_run(void (*start)(void), char *stack)
+<a href='../S/829.html#L56'>start</a>              56 usr/sample/balls/balls.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/831.html#L62'>start</a>              62 usr/sample/bench/bench.c 	u_long start, end;
+<a href='../S/831.html#L80'>start</a>              80 usr/sample/bench/bench.c 	sys_time(&amp;start);
+<a href='../S/831.html#L107'>start</a>             107 usr/sample/bench/bench.c 	       (int)((end - start) * 1000 / info.hz),
+<a href='../S/831.html#L108'>start</a>             108 usr/sample/bench/bench.c 	       (int)(end - start));
+<a href='../S/841.html#L82'>start</a>              82 usr/sample/mutex/mutex.c thread_run(void (*start)(void), void *stack)
+<a href='../S/841.html#L89'>start</a>              89 usr/sample/mutex/mutex.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/843.html#L40'>start</a>              40 usr/sample/sem/sem.c thread_run(void (*start)(void), void *stack)
+<a href='../S/843.html#L47'>start</a>              47 usr/sample/sem/sem.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/855.html#L52'>start</a>              52 usr/sample/thread/thread.c thread_run(void (*start)(void), void *stack)
+<a href='../S/855.html#L59'>start</a>              59 usr/sample/thread/thread.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/888.html#L202'>start</a>             202 usr/server/fs/fatfs/fatfs.h int	 fat_free_clusters(struct fatfsmount *fmp, u_long start);
+<a href='../S/888.html#L203'>start</a>             203 usr/server/fs/fatfs/fatfs.h int	 fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L244'>start</a>             244 usr/server/fs/fatfs/fatfs_fat.c fat_free_clusters(struct fatfsmount *fmp, u_long start)
+<a href='../S/889.html#L249'>start</a>             249 usr/server/fs/fatfs/fatfs_fat.c 	cl = start;
+<a href='../S/889.html#L278'>start</a>             278 usr/server/fs/fatfs/fatfs_fat.c fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L284'>start</a>             284 usr/server/fs/fatfs/fatfs_fat.c 	if (start &gt; fmp-&gt;last_cluster)
+<a href='../S/889.html#L287'>start</a>             287 usr/server/fs/fatfs/fatfs_fat.c 	c = start;
+<a href='../S/906.html#L162'>start</a>             162 usr/server/fs/vfs/vfs_bio.c  start:
+<a href='../S/906.html#L175'>start</a>             175 usr/server/fs/vfs/vfs_bio.c 			goto start;
+<a href='../S/906.html#L184'>start</a>             184 usr/server/fs/vfs/vfs_bio.c 			goto start;
+<a href='../S/906.html#L349'>start</a>             349 usr/server/fs/vfs/vfs_bio.c  start:
+<a href='../S/906.html#L357'>start</a>             357 usr/server/fs/vfs/vfs_bio.c 			goto start;
+<a href='../S/938.html#L58'>start</a>              58 usr/test/deadlock/deadlock.c thread_run(void (*start)(void), void *stack)
+<a href='../S/938.html#L67'>start</a>              67 usr/test/deadlock/deadlock.c 	error = thread_load(t, start, stack);
+<a href='../S/960.html#L44'>start</a>              44 usr/test/ipc/ipc.c thread_run(void (*start)(void), void *stack)
+<a href='../S/960.html#L53'>start</a>              53 usr/test/ipc/ipc.c 	error = thread_load(t, start, stack);
+<a href='../S/962.html#L46'>start</a>              46 usr/test/ipc_mt/ipc_mt.c thread_run(void (*start)(void), void *stack)
+<a href='../S/962.html#L55'>start</a>              55 usr/test/ipc_mt/ipc_mt.c 	error = thread_load(t, start, stack);
+<a href='../S/1000.html#L40'>start</a>              40 usr/test/thread/thread.c thread_run(void (*start)(void), char *stack)
+<a href='../S/1000.html#L48'>start</a>              48 usr/test/thread/thread.c 	if ((error = thread_load(t, start, stack)) != 0)
+</pre>
+</body>
+</html>

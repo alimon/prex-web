@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pgrp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/633.html#L38'>pgrp</a>               38 usr/lib/libc/termios/tcsetpgrp.c tcsetpgrp(int fd, pid_t pgrp)
+<a href='../S/633.html#L42'>pgrp</a>               42 usr/lib/libc/termios/tcsetpgrp.c 	s = pgrp;
+<a href='../S/725.html#L34'>pgrp</a>               34 usr/lib/posix/process/setpgrp.c setpgrp(pid_t pid, pid_t pgrp)
+<a href='../S/917.html#L119'>pgrp</a>              119 usr/server/proc/main.c static struct pgrp pgrp0;	/* process group for first process */
+<a href='../S/917.html#L488'>pgrp</a>              488 usr/server/proc/main.c 	struct pgrp *pg;
+<a href='../S/919.html#L75'>pgrp</a>               75 usr/server/proc/proc.h struct pgrp {
+<a href='../S/919.html#L93'>pgrp</a>               93 usr/server/proc/proc.h 	struct pgrp 	*p_pgrp;	/* pointer to process group */
+<a href='../S/919.html#L148'>pgrp</a>              148 usr/server/proc/proc.h struct pgrp *pg_find(pid_t);
+<a href='../S/919.html#L152'>pgrp</a>              152 usr/server/proc/proc.h void	pg_add(struct pgrp *);
+<a href='../S/919.html#L153'>pgrp</a>              153 usr/server/proc/proc.h void	pg_remove(struct pgrp *);
+<a href='../S/921.html#L86'>pgrp</a>               86 usr/server/proc/proc_fork.c 	struct pgrp *pg;
+<a href='../S/922.html#L72'>pgrp</a>               72 usr/server/proc/proc_hash.c struct pgrp *
+<a href='../S/922.html#L76'>pgrp</a>               76 usr/server/proc/proc_hash.c 	struct pgrp *g = NULL;
+<a href='../S/922.html#L81'>pgrp</a>               81 usr/server/proc/proc_hash.c 		g = list_entry(n, struct pgrp, pg_link);
+<a href='../S/922.html#L138'>pgrp</a>              138 usr/server/proc/proc_hash.c pg_add(struct pgrp *pgrp)
+<a href='../S/922.html#L141'>pgrp</a>              141 usr/server/proc/proc_hash.c 	list_insert(&amp;pgid_table[IDHASH(pgrp-&gt;pg_pgid)], &amp;pgrp-&gt;pg_link);
+<a href='../S/922.html#L148'>pgrp</a>              148 usr/server/proc/proc_hash.c pg_remove(struct pgrp *pgrp)
+<a href='../S/922.html#L151'>pgrp</a>              151 usr/server/proc/proc_hash.c 	list_remove(&amp;pgrp-&gt;pg_link);
+<a href='../S/923.html#L122'>pgrp</a>              122 usr/server/proc/proc_pid.c 	struct pgrp *pgrp;
+<a href='../S/923.html#L125'>pgrp</a>              125 usr/server/proc/proc_pid.c 	if ((pgrp = pg_find(pgid)) == NULL) {
+<a href='../S/923.html#L130'>pgrp</a>              130 usr/server/proc/proc_pid.c 		if ((pgrp = malloc(sizeof(struct pgrp))) == NULL)
+<a href='../S/923.html#L132'>pgrp</a>              132 usr/server/proc/proc_pid.c 		memset(pgrp, 0, sizeof(*pgrp));
+<a href='../S/923.html#L133'>pgrp</a>              133 usr/server/proc/proc_pid.c 		list_init(&amp;pgrp-&gt;pg_members);
+<a href='../S/923.html#L134'>pgrp</a>              134 usr/server/proc/proc_pid.c 		pgrp-&gt;pg_pgid = pgid;
+<a href='../S/923.html#L135'>pgrp</a>              135 usr/server/proc/proc_pid.c 		pg_add(pgrp);
+<a href='../S/923.html#L142'>pgrp</a>              142 usr/server/proc/proc_pid.c 	list_insert(&amp;pgrp-&gt;pg_members, &amp;p-&gt;p_pgrp_link);
+<a href='../S/923.html#L143'>pgrp</a>              143 usr/server/proc/proc_pid.c 	pgrp-&gt;pg_session = curproc-&gt;p_pgrp-&gt;pg_session;
+<a href='../S/923.html#L144'>pgrp</a>              144 usr/server/proc/proc_pid.c 	p-&gt;p_pgrp = pgrp;
+<a href='../S/923.html#L154'>pgrp</a>              154 usr/server/proc/proc_pid.c 	struct pgrp *pgrp = p-&gt;p_pgrp;
+<a href='../S/923.html#L157'>pgrp</a>              157 usr/server/proc/proc_pid.c 	if (list_empty(&amp;pgrp-&gt;pg_members)) {
+<a href='../S/923.html#L161'>pgrp</a>              161 usr/server/proc/proc_pid.c 		pg_remove(pgrp);
+<a href='../S/923.html#L162'>pgrp</a>              162 usr/server/proc/proc_pid.c 		free(pgrp);
+<a href='../S/923.html#L205'>pgrp</a>              205 usr/server/proc/proc_pid.c 	struct pgrp *pgrp;
+<a href='../S/923.html#L226'>pgrp</a>              226 usr/server/proc/proc_pid.c 	pgrp = p-&gt;p_pgrp;
+<a href='../S/923.html#L234'>pgrp</a>              234 usr/server/proc/proc_pid.c 	pgrp-&gt;pg_session = sess;
+<a href='../S/924.html#L103'>pgrp</a>              103 usr/server/proc/proc_sig.c 	struct pgrp *pgrp;
+<a href='../S/924.html#L109'>pgrp</a>              109 usr/server/proc/proc_sig.c 	if ((pgrp = pg_find(pgid)) == NULL)
+<a href='../S/924.html#L112'>pgrp</a>              112 usr/server/proc/proc_sig.c 	head = &amp;pgrp-&gt;pg_members;
+<a href='../S/992.html#L46'>pgrp</a>               46 usr/test/signal/signal.c 	pid_t pgrp;
+<a href='../S/992.html#L54'>pgrp</a>               54 usr/test/signal/signal.c 	pgrp = getpgrp();
+<a href='../S/992.html#L55'>pgrp</a>               55 usr/test/signal/signal.c 	printf("tcsetpgrp=%x\n", pgrp);
+<a href='../S/992.html#L56'>pgrp</a>               56 usr/test/signal/signal.c 	tcsetpgrp(ttyfd, pgrp);
+</pre>
+</body>
+</html>

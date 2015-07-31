@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>new_speed</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/69.html#L177'>new_speed</a>         177 bsp/drv/dev/cpufreq/cpufreq.c 	u_int new_speed = cur_speed;
+<a href='../S/69.html#L188'>new_speed</a>         188 bsp/drv/dev/cpufreq/cpufreq.c 		new_speed = 100;
+<a href='../S/69.html#L190'>new_speed</a>         190 bsp/drv/dev/cpufreq/cpufreq.c 		new_speed = cur_speed + 20;
+<a href='../S/69.html#L192'>new_speed</a>         192 bsp/drv/dev/cpufreq/cpufreq.c 		new_speed = cur_speed - (60 - run_percent);
+<a href='../S/69.html#L194'>new_speed</a>         194 bsp/drv/dev/cpufreq/cpufreq.c 	if (new_speed &gt; max_speed)
+<a href='../S/69.html#L195'>new_speed</a>         195 bsp/drv/dev/cpufreq/cpufreq.c 		new_speed = max_speed;
+<a href='../S/69.html#L196'>new_speed</a>         196 bsp/drv/dev/cpufreq/cpufreq.c 	if (new_speed &lt; min_speed)
+<a href='../S/69.html#L197'>new_speed</a>         197 bsp/drv/dev/cpufreq/cpufreq.c 		new_speed = min_speed;
+<a href='../S/69.html#L200'>new_speed</a>         200 bsp/drv/dev/cpufreq/cpufreq.c 		 run_percent, next_excess, new_speed));
+<a href='../S/69.html#L204'>new_speed</a>         204 bsp/drv/dev/cpufreq/cpufreq.c 	return new_speed;
+<a href='../S/69.html#L215'>new_speed</a>         215 bsp/drv/dev/cpufreq/cpufreq.c 	int new_speed;
+<a href='../S/69.html#L236'>new_speed</a>         236 bsp/drv/dev/cpufreq/cpufreq.c 	new_speed = cpufreq_predict_cpu_speed(run_cycles, idle_cycles);
+<a href='../S/69.html#L237'>new_speed</a>         237 bsp/drv/dev/cpufreq/cpufreq.c 	if (new_speed != cur_speed) {
+<a href='../S/69.html#L238'>new_speed</a>         238 bsp/drv/dev/cpufreq/cpufreq.c 		sc-&gt;ops-&gt;setperf(new_speed);
+</pre>
+</body>
+</html>

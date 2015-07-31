@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>off</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L115'>off</a>               115 bsp/hal/x86/arch/cpu.c idt_set(int vec, trapfn_t off, u_int sel, int type)
+<a href='../S/174.html#L119'>off</a>               119 bsp/hal/x86/arch/cpu.c 	gate-&gt;offset_lo = (u_int)off &amp; 0xffff;
+<a href='../S/174.html#L123'>off</a>               123 bsp/hal/x86/arch/cpu.c 	gate-&gt;offset_hi = (u_int)off &gt;&gt; 16;
+<a href='../S/366.html#L98'>off</a>                98 usr/bin/cat/cat.c 	int nr, nw, off, wfd;
+<a href='../S/366.html#L105'>off</a>               105 usr/bin/cat/cat.c 		for (off = 0; nr; nr -= nw, off += nw)
+<a href='../S/366.html#L106'>off</a>               106 usr/bin/cat/cat.c 			if ((nw = write(wfd, stdbuf + off, (size_t)nr)) &lt; 0)
+<a href='../S/851.html#L82'>off</a>                82 usr/sample/tetris/shapes.c 	const int *o = shape-&gt;off;
+<a href='../S/851.html#L97'>off</a>                97 usr/sample/tetris/shapes.c 	const int *o = shape-&gt;off;
+<a href='../S/853.html#L136'>off</a>               136 usr/sample/tetris/tetris.h 	int	off[3];	/* offsets to other blots if center is at (0,0) */
+<a href='../S/883.html#L148'>off</a>               148 usr/server/fs/arfs/arfs_vnops.c 	off_t off;
+<a href='../S/883.html#L162'>off</a>               162 usr/server/fs/arfs/arfs_vnops.c 	off = SARMAG;	/* offset in archive image */
+<a href='../S/883.html#L169'>off</a>               169 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L186'>off</a>               186 usr/server/fs/arfs/arfs_vnops.c 		off += (sizeof(struct ar_hdr) + size);
+<a href='../S/883.html#L187'>off</a>               187 usr/server/fs/arfs/arfs_vnops.c 		off += (off % 2); /* Pad to even boundary */
+<a href='../S/883.html#L189'>off</a>               189 usr/server/fs/arfs/arfs_vnops.c 		blkno = (int)(off / BSIZE);
+<a href='../S/883.html#L197'>off</a>               197 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_data = (void *)(off + sizeof(struct ar_hdr));
+<a href='../S/883.html#L208'>off</a>               208 usr/server/fs/arfs/arfs_vnops.c 	off_t off, file_pos, buf_pos;
+<a href='../S/883.html#L231'>off</a>               231 usr/server/fs/arfs/arfs_vnops.c 	off = (off_t)vp-&gt;v_data;
+<a href='../S/883.html#L237'>off</a>               237 usr/server/fs/arfs/arfs_vnops.c 		blkno = (off + file_pos) / BSIZE;
+<a href='../S/883.html#L238'>off</a>               238 usr/server/fs/arfs/arfs_vnops.c 		buf_pos = (off + file_pos) % BSIZE;
+<a href='../S/883.html#L288'>off</a>               288 usr/server/fs/arfs/arfs_vnops.c 	off_t off;
+<a href='../S/883.html#L299'>off</a>               299 usr/server/fs/arfs/arfs_vnops.c 	off = SARMAG;	/* offset in archive image */
+<a href='../S/883.html#L305'>off</a>               305 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L317'>off</a>               317 usr/server/fs/arfs/arfs_vnops.c 		off += (sizeof(struct ar_hdr) + size);
+<a href='../S/883.html#L318'>off</a>               318 usr/server/fs/arfs/arfs_vnops.c 		off += (off % 2); /* Pad to even boundary */
+<a href='../S/883.html#L320'>off</a>               320 usr/server/fs/arfs/arfs_vnops.c 		blkno = off / BSIZE;
+<a href='../S/902.html#L337'>off</a>               337 usr/server/fs/ramfs/ramfs_vnops.c 	off_t off;
+<a href='../S/902.html#L345'>off</a>               345 usr/server/fs/ramfs/ramfs_vnops.c 	off = fp-&gt;f_offset;
+<a href='../S/902.html#L346'>off</a>               346 usr/server/fs/ramfs/ramfs_vnops.c 	if (off &gt;= (off_t)vp-&gt;v_size)
+<a href='../S/902.html#L349'>off</a>               349 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_size - off &lt; size)
+<a href='../S/902.html#L350'>off</a>               350 usr/server/fs/ramfs/ramfs_vnops.c 		size = vp-&gt;v_size - off;
+<a href='../S/902.html#L353'>off</a>               353 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(buf, np-&gt;rn_buf + off, size);
+<a href='../S/905.html#L98'>off</a>                98 usr/server/fs/vfs/vfs.h int	 sys_lseek(file_t fp, off_t off, int type, off_t * cur_off);
+<a href='../S/911.html#L219'>off</a>               219 usr/server/fs/vfs/vfs_syscalls.c sys_lseek(file_t fp, off_t off, int type, off_t *origin)
+<a href='../S/911.html#L224'>off</a>               224 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)off, type));
+<a href='../S/911.html#L230'>off</a>               230 usr/server/fs/vfs/vfs_syscalls.c 		if (off &lt; 0)
+<a href='../S/911.html#L231'>off</a>               231 usr/server/fs/vfs/vfs_syscalls.c 			off = 0;
+<a href='../S/911.html#L232'>off</a>               232 usr/server/fs/vfs/vfs_syscalls.c 		if (off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L233'>off</a>               233 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L236'>off</a>               236 usr/server/fs/vfs/vfs_syscalls.c 		if (fp-&gt;f_offset + off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L237'>off</a>               237 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L238'>off</a>               238 usr/server/fs/vfs/vfs_syscalls.c 		else if (fp-&gt;f_offset + off &lt; 0)
+<a href='../S/911.html#L239'>off</a>               239 usr/server/fs/vfs/vfs_syscalls.c 			off = 0;
+<a href='../S/911.html#L241'>off</a>               241 usr/server/fs/vfs/vfs_syscalls.c 			off = fp-&gt;f_offset + off;
+<a href='../S/911.html#L244'>off</a>               244 usr/server/fs/vfs/vfs_syscalls.c 		if (off &gt; 0)
+<a href='../S/911.html#L245'>off</a>               245 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L246'>off</a>               246 usr/server/fs/vfs/vfs_syscalls.c 		else if ((int)vp-&gt;v_size + off &lt; 0)
+<a href='../S/911.html#L247'>off</a>               247 usr/server/fs/vfs/vfs_syscalls.c 			off = 0;
+<a href='../S/911.html#L249'>off</a>               249 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size + off;
+<a href='../S/911.html#L256'>off</a>               256 usr/server/fs/vfs/vfs_syscalls.c 	if (VOP_SEEK(vp, fp, fp-&gt;f_offset, off) != 0) {
+<a href='../S/911.html#L260'>off</a>               260 usr/server/fs/vfs/vfs_syscalls.c 	*origin = off;
+<a href='../S/911.html#L261'>off</a>               261 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = off;
+</pre>
+</body>
+</html>

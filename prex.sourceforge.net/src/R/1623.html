@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>curtask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/132.html#L83'>curtask</a>            83 bsp/hal/arm/arch/trap.c 			 get_faultaddress(), curtask-&gt;name));
+<a href='../S/132.html#L122'>curtask</a>           122 bsp/hal/arm/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/159.html#L140'>curtask</a>           140 bsp/hal/ppc/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/179.html#L124'>curtask</a>           124 bsp/hal/x86/arch/trap.c 			 get_cr2(), curtask-&gt;name));
+<a href='../S/179.html#L178'>curtask</a>           178 bsp/hal/x86/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/324.html#L127'>curtask</a>           127 sys/ipc/msg.c  	hdr-&gt;task = curtask;
+<a href='../S/324.html#L203'>curtask</a>           203 sys/ipc/msg.c  	if (obj-&gt;owner != curtask) {
+<a href='../S/325.html#L100'>curtask</a>           100 sys/ipc/object.c 	if (curtask-&gt;nobjects &gt;= MAXOBJECTS) {
+<a href='../S/325.html#L123'>curtask</a>           123 sys/ipc/object.c 	obj-&gt;owner = curtask;
+<a href='../S/325.html#L126'>curtask</a>           126 sys/ipc/object.c 	list_insert(&amp;curtask-&gt;objects, &amp;obj-&gt;task_link);
+<a href='../S/325.html#L127'>curtask</a>           127 sys/ipc/object.c 	curtask-&gt;nobjects++;
+<a href='../S/325.html#L221'>curtask</a>           221 sys/ipc/object.c 	if (obj-&gt;owner != curtask) {
+<a href='../S/328.html#L99'>curtask</a>            99 sys/kern/exception.c 	task_t self = curtask;
+<a href='../S/328.html#L160'>curtask</a>           160 sys/kern/exception.c 	if (task != curtask &amp;&amp; !task_capable(CAP_KILL)) {
+<a href='../S/328.html#L245'>curtask</a>           245 sys/kern/exception.c 	if (curtask-&gt;handler == EXC_DFL)
+<a href='../S/328.html#L311'>curtask</a>           311 sys/kern/exception.c 	task_t self = curtask;
+<a href='../S/332.html#L183'>curtask</a>           183 sys/kern/sysent.c 	if (curtask-&gt;flags &amp; TF_TRACE) {
+<a href='../S/332.html#L186'>curtask</a>           186 sys/kern/sysent.c 			       curtask-&gt;name, id);
+<a href='../S/332.html#L192'>curtask</a>           192 sys/kern/sysent.c 		printf("%s: %s(", curtask-&gt;name, callp-&gt;sy_name);
+<a href='../S/332.html#L227'>curtask</a>           227 sys/kern/sysent.c 	if (curtask-&gt;flags &amp; TF_TRACE) {
+<a href='../S/332.html#L233'>curtask</a>           233 sys/kern/sysent.c 				curtask-&gt;name, callp-&gt;sy_name, retval);
+<a href='../S/333.html#L216'>curtask</a>           216 sys/kern/system.c 	printf(" task=%s thread=%lx\n", curtask-&gt;name, (long)curthread);
+<a href='../S/333.html#L221'>curtask</a>           221 sys/kern/system.c 	task_terminate(curtask);
+<a href='../S/334.html#L87'>curtask</a>            87 sys/kern/task.c 	if ((curtask-&gt;flags &amp; TF_SYSTEM) == 0) {
+<a href='../S/334.html#L148'>curtask</a>           148 sys/kern/task.c 	if (curtask-&gt;flags &amp; TF_SYSTEM)
+<a href='../S/334.html#L202'>curtask</a>           202 sys/kern/task.c 	if (task == curtask)
+<a href='../S/334.html#L268'>curtask</a>           268 sys/kern/task.c 	ASSERT(task != curtask);
+<a href='../S/334.html#L320'>curtask</a>           320 sys/kern/task.c 	if (curtask-&gt;flags &amp; TF_SYSTEM)
+<a href='../S/334.html#L373'>curtask</a>           373 sys/kern/task.c 			 curtask-&gt;name, task-&gt;name, cap));
+<a href='../S/334.html#L391'>curtask</a>           391 sys/kern/task.c 	if ((curtask-&gt;capability &amp; cap) == 0) {
+<a href='../S/334.html#L393'>curtask</a>           393 sys/kern/task.c 			 curtask-&gt;name, cap));
+<a href='../S/334.html#L394'>curtask</a>           394 sys/kern/task.c 		if (curtask-&gt;flags &amp; TF_AUDIT)
+<a href='../S/334.html#L430'>curtask</a>           430 sys/kern/task.c 		if (task == curtask || task-&gt;parent == curtask ||
+<a href='../S/334.html#L431'>curtask</a>           431 sys/kern/task.c 		    task == curtask-&gt;parent ||	/* XXX: fork on nommu */
+<a href='../S/334.html#L458'>curtask</a>           458 sys/kern/task.c 			info-&gt;active = (task == curtask) ? 1 : 0;
+<a href='../S/335.html#L89'>curtask</a>            89 sys/kern/thread.c 	if ((curtask-&gt;flags &amp; TF_SYSTEM) == 0) {
+<a href='../S/335.html#L114'>curtask</a>           114 sys/kern/thread.c 	if (curtask-&gt;flags &amp; TF_SYSTEM)
+<a href='../S/335.html#L317'>curtask</a>           317 sys/kern/thread.c 	if (!(t-&gt;task == curtask || t-&gt;task-&gt;parent == curtask) &amp;&amp;
+<a href='../S/336.html#L211'>curtask</a>           211 sys/kern/timer.c 	tmr = &amp;curtask-&gt;alarm;
+<a href='../S/336.html#L223'>curtask</a>           223 sys/kern/timer.c 		timer_callout(tmr, msec, &amp;alarm_expire, curtask);
+<a href='../S/336.html#L253'>curtask</a>           253 sys/kern/timer.c 	if (t-&gt;task != curtask) {
+<a href='../S/343.html#L96'>curtask</a>            96 sys/mem/vm.c   	if (task != curtask &amp;&amp; !task_capable(CAP_EXTMEM)) {
+<a href='../S/343.html#L191'>curtask</a>           191 sys/mem/vm.c   	if (task != curtask &amp;&amp; !task_capable(CAP_EXTMEM)) {
+<a href='../S/343.html#L260'>curtask</a>           260 sys/mem/vm.c   	if (task != curtask &amp;&amp; !task_capable(CAP_EXTMEM)) {
+<a href='../S/343.html#L366'>curtask</a>           366 sys/mem/vm.c   	if (target == curtask) {
+<a href='../S/343.html#L422'>curtask</a>           422 sys/mem/vm.c   	curmap = curtask-&gt;map;
+<a href='../S/343.html#L509'>curtask</a>           509 sys/mem/vm.c   	if (map == curtask-&gt;map) {
+<a href='../S/343.html#L736'>curtask</a>           736 sys/mem/vm.c   	return mmu_extract(curtask-&gt;map-&gt;pgd, addr, size);
+<a href='../S/344.html#L89'>curtask</a>            89 sys/mem/vm_nommu.c 	if (task != curtask &amp;&amp; !task_capable(CAP_EXTMEM)) {
+<a href='../S/344.html#L167'>curtask</a>           167 sys/mem/vm_nommu.c 	if (task != curtask &amp;&amp; !task_capable(CAP_EXTMEM)) {
+<a href='../S/344.html#L231'>curtask</a>           231 sys/mem/vm_nommu.c 	if (task != curtask &amp;&amp; !task_capable(CAP_EXTMEM)) {
+<a href='../S/344.html#L300'>curtask</a>           300 sys/mem/vm_nommu.c 	if (target == curtask) {
+<a href='../S/344.html#L352'>curtask</a>           352 sys/mem/vm_nommu.c 	curmap = curtask-&gt;map;
+<a href='../S/345.html#L54'>curtask</a>            54 sys/sync/cond.c 	task_t self = curtask;
+<a href='../S/345.html#L223'>curtask</a>           223 sys/sync/cond.c 	head = &amp;curtask-&gt;conds;
+<a href='../S/346.html#L96'>curtask</a>            96 sys/sync/mutex.c 	task_t self = curtask;
+<a href='../S/346.html#L369'>curtask</a>           369 sys/sync/mutex.c 	head = &amp;curtask-&gt;mutexes;
+<a href='../S/347.html#L61'>curtask</a>            61 sys/sync/sem.c 	task_t self = curtask;
+<a href='../S/347.html#L132'>curtask</a>           132 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s) || s-&gt;owner != curtask) {
+</pre>
+</body>
+</html>

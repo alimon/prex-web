@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>osv</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/737.html#L34'>osv</a>                34 usr/lib/posix/signal/sigcompat.c sigvec(signo, sv, osv)
+<a href='../S/737.html#L36'>osv</a>                36 usr/lib/posix/signal/sigcompat.c 	struct sigvec *sv, *osv;
+<a href='../S/737.html#L42'>osv</a>                42 usr/lib/posix/signal/sigcompat.c 	ret = sigaction(signo, (struct sigaction *)sv, (struct sigaction *)osv);
+<a href='../S/737.html#L43'>osv</a>                43 usr/lib/posix/signal/sigcompat.c 	if (ret == 0 &amp;&amp; osv)
+<a href='../S/737.html#L44'>osv</a>                44 usr/lib/posix/signal/sigcompat.c 		osv-&gt;sv_flags ^= SV_INTERRUPT;	/* !SA_INTERRUPT */
+</pre>
+</body>
+</html>

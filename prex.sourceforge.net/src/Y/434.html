@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>block_hdr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/341.html#L67'>block_hdr</a>          67 sys/mem/kmem.c struct block_hdr {
+<a href='../S/341.html#L71'>block_hdr</a>          71 sys/mem/kmem.c 	struct block_hdr *pg_next;	/* next block in same page */
+<a href='../S/341.html#L85'>block_hdr</a>          85 sys/mem/kmem.c 	struct block_hdr first_blk;	/* first block in this page */
+<a href='../S/341.html#L99'>block_hdr</a>          99 sys/mem/kmem.c #define BLKHDR_SIZE	(sizeof(struct block_hdr))
+<a href='../S/341.html#L149'>block_hdr</a>         149 sys/mem/kmem.c static struct block_hdr *
+<a href='../S/341.html#L163'>block_hdr</a>         163 sys/mem/kmem.c 	return list_entry(n, struct block_hdr, link);
+<a href='../S/341.html#L177'>block_hdr</a>         177 sys/mem/kmem.c 	struct block_hdr *blk, *newblk;
+<a href='../S/341.html#L236'>block_hdr</a>         236 sys/mem/kmem.c 		newblk = (struct block_hdr *)((vaddr_t)blk + size);
+<a href='../S/341.html#L271'>block_hdr</a>         271 sys/mem/kmem.c 	struct block_hdr *blk;
+<a href='../S/341.html#L280'>block_hdr</a>         280 sys/mem/kmem.c 	blk = (struct block_hdr *)((vaddr_t)ptr - BLKHDR_SIZE);
+</pre>
+</body>
+</html>

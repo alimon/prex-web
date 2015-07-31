@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/lib/posix/signal/siglist.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1119.html'>lib</a>/<a href='../files/1131.html'>posix</a>/<a href='../files/1136.html'>signal</a>/siglist.c</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='738.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1983, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='../I/214.html'>signal.h</a>&gt;
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *<strong class='reserved'>const</strong> <a href='../Y/2074.html' title='Multiple used in 5 places.'>sys_signame</a>[<a href='270.html#L40' title='Defined at 40 in include/sys/signal.h.'>NSIG</a>] = <em class='brace'>{</em>
+<a id='L34' name='L34' />  34         "Signal 0",
+<a id='L35' name='L35' />  35         "hup",                          <em class='comment'>/* SIGHUP */</em>
+<a id='L36' name='L36' />  36         "int",                          <em class='comment'>/* SIGINT */</em>
+<a id='L37' name='L37' />  37         "quit",                         <em class='comment'>/* SIGQUIT */</em>
+<a id='L38' name='L38' />  38         "ill",                          <em class='comment'>/* SIGILL */</em>
+<a id='L39' name='L39' />  39         "trap",                         <em class='comment'>/* SIGTRAP */</em>
+<a id='L40' name='L40' />  40         "abrt",                         <em class='comment'>/* SIGABRT */</em>
+<a id='L41' name='L41' />  41         "emt",                          <em class='comment'>/* SIGEMT */</em>
+<a id='L42' name='L42' />  42         "fpe",                          <em class='comment'>/* SIGFPE */</em>
+<a id='L43' name='L43' />  43         "kill",                         <em class='comment'>/* SIGKILL */</em>
+<a id='L44' name='L44' />  44         "bus",                          <em class='comment'>/* SIGBUS */</em>
+<a id='L45' name='L45' />  45         "segv",                         <em class='comment'>/* SIGSEGV */</em>
+<a id='L46' name='L46' />  46         "sys",                          <em class='comment'>/* SIGSYS */</em>
+<a id='L47' name='L47' />  47         "pipe",                         <em class='comment'>/* SIGPIPE */</em>
+<a id='L48' name='L48' />  48         "alrm",                         <em class='comment'>/* SIGALRM */</em>
+<a id='L49' name='L49' />  49         "term",                         <em class='comment'>/* SIGTERM */</em>
+<a id='L50' name='L50' />  50         "urg",                          <em class='comment'>/* SIGURG */</em>
+<a id='L51' name='L51' />  51         "stop",                         <em class='comment'>/* SIGSTOP */</em>
+<a id='L52' name='L52' />  52         "tstp",                         <em class='comment'>/* SIGTSTP */</em>
+<a id='L53' name='L53' />  53         "cont",                         <em class='comment'>/* SIGCONT */</em>
+<a id='L54' name='L54' />  54         "chld",                         <em class='comment'>/* SIGCHLD */</em>
+<a id='L55' name='L55' />  55         "ttin",                         <em class='comment'>/* SIGTTIN */</em>
+<a id='L56' name='L56' />  56         "ttou",                         <em class='comment'>/* SIGTTOU */</em>
+<a id='L57' name='L57' />  57         "io",                           <em class='comment'>/* SIGIO */</em>
+<a id='L58' name='L58' />  58         "xcpu",                         <em class='comment'>/* SIGXCPU */</em>
+<a id='L59' name='L59' />  59         "xfsz",                         <em class='comment'>/* SIGXFSZ */</em>
+<a id='L60' name='L60' />  60         "vtalrm",                       <em class='comment'>/* SIGVTALRM */</em>
+<a id='L61' name='L61' />  61         "prof",                         <em class='comment'>/* SIGPROF */</em>
+<a id='L62' name='L62' />  62         "winch",                        <em class='comment'>/* SIGWINCH */</em>
+<a id='L63' name='L63' />  63         "info",                         <em class='comment'>/* SIGINFO */</em>
+<a id='L64' name='L64' />  64         "usr1",                         <em class='comment'>/* SIGUSR1 */</em>
+<a id='L65' name='L65' />  65         "usr2",                         <em class='comment'>/* SIGUSR2 */</em>
+<a id='L66' name='L66' />  66 <em class='brace'>}</em>;
+<a id='L67' name='L67' />  67 
+<a id='L68' name='L68' />  68 <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *<strong class='reserved'>const</strong> <a href='../Y/2073.html' title='Multiple used in 5 places.'>sys_siglist</a>[<a href='270.html#L40' title='Defined at 40 in include/sys/signal.h.'>NSIG</a>] = <em class='brace'>{</em>
+<a id='L69' name='L69' />  69         "Signal 0",
+<a id='L70' name='L70' />  70         "Hangup",                       <em class='comment'>/* SIGHUP */</em>
+<a id='L71' name='L71' />  71         "Interrupt",                    <em class='comment'>/* SIGINT */</em>
+<a id='L72' name='L72' />  72         "Quit",                         <em class='comment'>/* SIGQUIT */</em>
+<a id='L73' name='L73' />  73         "Illegal instruction",          <em class='comment'>/* SIGILL */</em>
+<a id='L74' name='L74' />  74         "Trace/BPT trap",               <em class='comment'>/* SIGTRAP */</em>
+<a id='L75' name='L75' />  75         "Abort trap",                   <em class='comment'>/* SIGABRT */</em>
+<a id='L76' name='L76' />  76         "EMT trap",                     <em class='comment'>/* SIGEMT */</em>
+<a id='L77' name='L77' />  77         "Floating point exception",     <em class='comment'>/* SIGFPE */</em>
+<a id='L78' name='L78' />  78         "Killed",                       <em class='comment'>/* SIGKILL */</em>
+<a id='L79' name='L79' />  79         "Bus error",                    <em class='comment'>/* SIGBUS */</em>
+<a id='L80' name='L80' />  80         "Segmentation fault",           <em class='comment'>/* SIGSEGV */</em>
+<a id='L81' name='L81' />  81         "Bad system call",              <em class='comment'>/* SIGSYS */</em>
+<a id='L82' name='L82' />  82         "Broken pipe",                  <em class='comment'>/* SIGPIPE */</em>
+<a id='L83' name='L83' />  83         "Alarm clock",                  <em class='comment'>/* SIGALRM */</em>
+<a id='L84' name='L84' />  84         "Terminated",                   <em class='comment'>/* SIGTERM */</em>
+<a id='L85' name='L85' />  85         "Urgent I/O condition",         <em class='comment'>/* SIGURG */</em>
+<a id='L86' name='L86' />  86         "Suspended (signal)",           <em class='comment'>/* SIGSTOP */</em>
+<a id='L87' name='L87' />  87         "Suspended",                    <em class='comment'>/* SIGTSTP */</em>
+<a id='L88' name='L88' />  88         "Continued",                    <em class='comment'>/* SIGCONT */</em>
+<a id='L89' name='L89' />  89         "Child exited",                 <em class='comment'>/* SIGCHLD */</em>
+<a id='L90' name='L90' />  90         "Stopped (tty input)",          <em class='comment'>/* SIGTTIN */</em>
+<a id='L91' name='L91' />  91         "Stopped (tty output)",         <em class='comment'>/* SIGTTOU */</em>
+<a id='L92' name='L92' />  92         "I/O possible",                 <em class='comment'>/* SIGIO */</em>
+<a id='L93' name='L93' />  93         "Cputime limit exceeded",       <em class='comment'>/* SIGXCPU */</em>
+<a id='L94' name='L94' />  94         "Filesize limit exceeded",      <em class='comment'>/* SIGXFSZ */</em>
+<a id='L95' name='L95' />  95         "Virtual timer expired",        <em class='comment'>/* SIGVTALRM */</em>
+<a id='L96' name='L96' />  96         "Profiling timer expired",      <em class='comment'>/* SIGPROF */</em>
+<a id='L97' name='L97' />  97         "Window size changes",          <em class='comment'>/* SIGWINCH */</em>
+<a id='L98' name='L98' />  98         "Information request",          <em class='comment'>/* SIGINFO */</em>
+<a id='L99' name='L99' />  99         "User defined signal 1",        <em class='comment'>/* SIGUSR1 */</em>
+<a id='L100' name='L100' /> 100         "User defined signal 2"         <em class='comment'>/* SIGUSR2 */</em>
+<a id='L101' name='L101' /> 101 <em class='brace'>}</em>;
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='738.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

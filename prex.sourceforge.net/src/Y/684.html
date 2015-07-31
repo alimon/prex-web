@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dma</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L106'>dma</a>               106 bsp/drv/dev/block/fdd.c 	dma_t		dma;		/* DMA handle */
+<a href='../S/66.html#L226'>dma</a>               226 bsp/drv/dev/block/fdd.c 	dma_stop(sc-&gt;dma);
+<a href='../S/66.html#L316'>dma</a>               316 bsp/drv/dev/block/fdd.c 	dma_setup(sc-&gt;dma, irp-&gt;buf, io_size, read);
+<a href='../S/66.html#L398'>dma</a>               398 bsp/drv/dev/block/fdd.c 		dma_stop(sc-&gt;dma);
+<a href='../S/66.html#L700'>dma</a>               700 bsp/drv/dev/block/fdd.c 	sc-&gt;dma = dma_attach(FDC_DMA);
+<a href='../S/72.html#L102'>dma</a>               102 bsp/drv/dev/dma/i8237.c struct dma {
+<a href='../S/72.html#L131'>dma</a>               131 bsp/drv/dev/dma/i8237.c static struct dma dma_table[NR_DMAS];
+<a href='../S/72.html#L152'>dma</a>               152 bsp/drv/dev/dma/i8237.c 	struct dma *dma;
+<a href='../S/72.html#L160'>dma</a>               160 bsp/drv/dev/dma/i8237.c 	dma = &amp;dma_table[chan];
+<a href='../S/72.html#L161'>dma</a>               161 bsp/drv/dev/dma/i8237.c 	if (dma-&gt;in_use) {
+<a href='../S/72.html#L164'>dma</a>               164 bsp/drv/dev/dma/i8237.c 		dma-&gt;chan = chan;
+<a href='../S/72.html#L165'>dma</a>               165 bsp/drv/dev/dma/i8237.c 		dma-&gt;in_use = 1;
+<a href='../S/72.html#L167'>dma</a>               167 bsp/drv/dev/dma/i8237.c 	dma_stop((dma_t)dma);
+<a href='../S/72.html#L169'>dma</a>               169 bsp/drv/dev/dma/i8237.c 	return (dma_t)dma;
+<a href='../S/72.html#L178'>dma</a>               178 bsp/drv/dev/dma/i8237.c 	struct dma *dma = (struct dma *)handle;
+<a href='../S/72.html#L181'>dma</a>               181 bsp/drv/dev/dma/i8237.c 	ASSERT(dma-&gt;in_use);
+<a href='../S/72.html#L182'>dma</a>               182 bsp/drv/dev/dma/i8237.c 	DPRINTF(("DMA%d detached\n", dma-&gt;chan));
+<a href='../S/72.html#L185'>dma</a>               185 bsp/drv/dev/dma/i8237.c 	dma-&gt;in_use = 0;
+<a href='../S/72.html#L192'>dma</a>               192 bsp/drv/dev/dma/i8237.c 	struct dma *dma = (struct dma *)handle;
+<a href='../S/72.html#L206'>dma</a>               206 bsp/drv/dev/dma/i8237.c 	chan = (u_int)dma-&gt;chan;
+<a href='../S/72.html#L229'>dma</a>               229 bsp/drv/dev/dma/i8237.c 	struct dma *dma = (struct dma *)handle;
+<a href='../S/72.html#L236'>dma</a>               236 bsp/drv/dev/dma/i8237.c 	chan = (u_int)dma-&gt;chan;
+</pre>
+</body>
+</html>

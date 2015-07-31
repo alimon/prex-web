@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>list</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/70.html#L351'>list</a>              351 bsp/drv/dev/cpufreq/est.c 	const struct fqlist *list;
+<a href='../S/70.html#L464'>list</a>              464 bsp/drv/dev/cpufreq/est.c 		est_fqlist = &amp;cpu-&gt;list[7];
+<a href='../S/70.html#L486'>list</a>              486 bsp/drv/dev/cpufreq/est.c 			fql = &amp;cpu-&gt;list[j];
+<a href='../S/248.html#L41'>list</a>               41 include/sys/buf.h 	struct list	b_link;		/* link to block list */
+<a href='../S/262.html#L35'>list</a>               35 include/sys/list.h struct list {
+<a href='../S/262.html#L36'>list</a>               36 include/sys/list.h 	struct list	*next;
+<a href='../S/262.html#L37'>list</a>               37 include/sys/list.h 	struct list	*prev;
+<a href='../S/262.html#L40'>list</a>               40 include/sys/list.h typedef struct list *list_t;
+<a href='../S/263.html#L63'>list</a>               63 include/sys/mount.h 	struct list	m_link;		/* link to next mount point */
+<a href='../S/279.html#L64'>list</a>               64 include/sys/vnode.h 	struct list	v_link;		/* link for hash list */
+<a href='../S/309.html#L40'>list</a>               40 sys/include/ipc.h 	struct list	link;		/* linkage for all objects in system */
+<a href='../S/309.html#L42'>list</a>               42 sys/include/ipc.h 	struct list	task_link;	/* linkage on object list in task */
+<a href='../S/316.html#L40'>list</a>               40 sys/include/sync.h 	struct list	task_link;	/* linkage on semaphore list in task */
+<a href='../S/316.html#L48'>list</a>               48 sys/include/sync.h 	struct list	task_link;	/* linkage on mutex list in task */
+<a href='../S/316.html#L51'>list</a>               51 sys/include/sync.h 	struct list	link;		/* linkage on locked mutex list */
+<a href='../S/316.html#L58'>list</a>               58 sys/include/sync.h 	struct list	task_link;	/* linkage on cv list in task */
+<a href='../S/318.html#L45'>list</a>               45 sys/include/task.h 	struct list	link;		/* linkage on task list in system */
+<a href='../S/318.html#L54'>list</a>               54 sys/include/task.h 	struct list	threads;	/* list of threads */
+<a href='../S/318.html#L55'>list</a>               55 sys/include/task.h 	struct list	objects;	/* IPC objects owned by this task */
+<a href='../S/318.html#L56'>list</a>               56 sys/include/task.h 	struct list	mutexes;	/* mutexes owned by this task */
+<a href='../S/318.html#L57'>list</a>               57 sys/include/task.h 	struct list	conds;		/* cv owned by this task */
+<a href='../S/318.html#L58'>list</a>               58 sys/include/task.h 	struct list	sems;		/* semaphores owned by this task */
+<a href='../S/319.html#L46'>list</a>               46 sys/include/thread.h 	struct list	link;		/* linkage on all threads */
+<a href='../S/319.html#L47'>list</a>               47 sys/include/thread.h 	struct list 	task_link;	/* linkage on thread list in task */
+<a href='../S/319.html#L64'>list</a>               64 sys/include/thread.h 	struct list 	mutexes;	/* mutexes locked by this thread */
+<a href='../S/320.html#L43'>list</a>               43 sys/include/timer.h 	struct list	link;		/* linkage on timer chain */
+<a href='../S/325.html#L68'>list</a>               68 sys/ipc/object.c static struct list	object_list;	/* list of all objects */
+<a href='../S/334.html#L47'>list</a>               47 sys/kern/task.c static struct list	task_list;	/* list for all tasks */
+<a href='../S/335.html#L49'>list</a>               49 sys/kern/thread.c static struct list	thread_list;	/* list of all threads */
+<a href='../S/336.html#L49'>list</a>               49 sys/kern/timer.c static struct list	timer_list;	/* list of active timers */
+<a href='../S/336.html#L50'>list</a>               50 sys/kern/timer.c static struct list	expire_list;	/* list of expired timers */
+<a href='../S/341.html#L70'>list</a>               70 sys/mem/kmem.c 	struct list	 link;		/* link to the free list */
+<a href='../S/341.html#L138'>list</a>              138 sys/mem/kmem.c static struct list free_blocks[NR_BLOCK_LIST];
+<a href='../S/896.html#L54'>list</a>               54 usr/server/fs/fifofs/fifo_vnops.c 	struct list fn_link;
+<a href='../S/896.html#L103'>list</a>              103 usr/server/fs/fifofs/fifo_vnops.c static struct list fifo_head;
+<a href='../S/905.html#L82'>list</a>               82 usr/server/fs/vfs/vfs.h 	struct list t_link;		/* hash link */
+<a href='../S/906.html#L76'>list</a>               76 usr/server/fs/vfs/vfs_bio.c static struct list free_list = LIST_INIT(free_list);
+<a href='../S/909.html#L57'>list</a>               57 usr/server/fs/vfs/vfs_mount.c static struct list mount_list = LIST_INIT(mount_list);
+<a href='../S/912.html#L51'>list</a>               51 usr/server/fs/vfs/vfs_task.c static struct list task_table[TASK_MAXBUCKETS];
+<a href='../S/913.html#L68'>list</a>               68 usr/server/fs/vfs/vfs_vnode.c static struct list vnode_table[VNODE_BUCKETS];
+<a href='../S/917.html#L124'>list</a>              124 usr/server/proc/main.c struct list allproc;		/* list of all processes */
+<a href='../S/919.html#L76'>list</a>               76 usr/server/proc/proc.h 	struct list	pg_link;	/* link for pgid hash */
+<a href='../S/919.html#L77'>list</a>               77 usr/server/proc/proc.h 	struct list	pg_members;	/* list head of processes */
+<a href='../S/919.html#L86'>list</a>               86 usr/server/proc/proc.h 	struct list	p_link;		/* link for all processes */
+<a href='../S/919.html#L88'>list</a>               88 usr/server/proc/proc.h 	struct list 	p_children;	/* list head of child processes */
+<a href='../S/919.html#L89'>list</a>               89 usr/server/proc/proc.h 	struct list 	p_sibling;	/* link for sibling processes */
+<a href='../S/919.html#L90'>list</a>               90 usr/server/proc/proc.h 	struct list 	p_pid_link;	/* link for pid hash */
+<a href='../S/919.html#L91'>list</a>               91 usr/server/proc/proc.h 	struct list 	p_task_link;	/* link for task hash */
+<a href='../S/919.html#L92'>list</a>               92 usr/server/proc/proc.h 	struct list 	p_pgrp_link;	/* link for process group */
+<a href='../S/919.html#L117'>list</a>              117 usr/server/proc/proc.h extern struct list allproc;		/* list of all processes */
+<a href='../S/922.html#L45'>list</a>               45 usr/server/proc/proc_hash.c static struct list pid_table[ID_MAXBUCKETS];	/* mapping: pid  -&gt; proc */
+<a href='../S/922.html#L46'>list</a>               46 usr/server/proc/proc_hash.c static struct list task_table[ID_MAXBUCKETS];	/* mapping: task -&gt; proc */
+<a href='../S/922.html#L47'>list</a>               47 usr/server/proc/proc_hash.c static struct list pgid_table[ID_MAXBUCKETS];	/* mapping: pgid -&gt; pgrp */
+</pre>
+</body>
+</html>

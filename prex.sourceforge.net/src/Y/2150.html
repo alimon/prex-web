@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ti</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L144'>ti</a>                144 bsp/drv/dev/base/kd.c 	struct taskinfo ti;
+<a href='../S/60.html#L149'>ti</a>                149 bsp/drv/dev/base/kd.c 	ti.cookie = 0;
+<a href='../S/60.html#L151'>ti</a>                151 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_TASK, &amp;ti);
+<a href='../S/60.html#L152'>ti</a>                152 bsp/drv/dev/base/kd.c 		if (!rc &amp;&amp; !strncmp(ti.taskname, name, MAXTASKNAME)) {
+<a href='../S/60.html#L153'>ti</a>                153 bsp/drv/dev/base/kd.c 			task = ti.id;
+<a href='../S/60.html#L216'>ti</a>                216 bsp/drv/dev/base/kd.c 	struct threadinfo ti;
+<a href='../S/60.html#L226'>ti</a>                226 bsp/drv/dev/base/kd.c 	ti.cookie = 0;
+<a href='../S/60.html#L229'>ti</a>                229 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_THREAD, &amp;ti);
+<a href='../S/60.html#L232'>ti</a>                232 bsp/drv/dev/base/kd.c 			       ti.id, ti.taskname, state[ti.state],
+<a href='../S/60.html#L233'>ti</a>                233 bsp/drv/dev/base/kd.c 			       ti.active ? '*' : ' ',
+<a href='../S/60.html#L234'>ti</a>                234 bsp/drv/dev/base/kd.c 			       pol[ti.policy], ti.priority, ti.basepri,
+<a href='../S/60.html#L235'>ti</a>                235 bsp/drv/dev/base/kd.c 			       ti.time, ti.suscnt, ti.slpevt);
+<a href='../S/60.html#L245'>ti</a>                245 bsp/drv/dev/base/kd.c 	struct taskinfo ti;
+<a href='../S/60.html#L253'>ti</a>                253 bsp/drv/dev/base/kd.c 	ti.cookie = 0;
+<a href='../S/60.html#L256'>ti</a>                256 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_TASK, &amp;ti);
+<a href='../S/60.html#L259'>ti</a>                259 bsp/drv/dev/base/kd.c 			       ti.id, ti.active ? '*' : ' ', ti.taskname,
+<a href='../S/60.html#L260'>ti</a>                260 bsp/drv/dev/base/kd.c 			       ti.nthreads, ti.flags, ti.suscnt,
+<a href='../S/60.html#L261'>ti</a>                261 bsp/drv/dev/base/kd.c 			       ti.capability, ti.vmsize);
+<a href='../S/60.html#L308'>ti</a>                308 bsp/drv/dev/base/kd.c 	struct taskinfo ti;
+<a href='../S/60.html#L314'>ti</a>                314 bsp/drv/dev/base/kd.c 	ti.cookie = 0;
+<a href='../S/60.html#L317'>ti</a>                317 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_TASK, &amp;ti);
+<a href='../S/60.html#L319'>ti</a>                319 bsp/drv/dev/base/kd.c 			if (ti.vmsize != 0) {
+<a href='../S/60.html#L321'>ti</a>                321 bsp/drv/dev/base/kd.c 				       ti.id, ti.taskname, ti.vmsize / 1024);
+<a href='../S/60.html#L322'>ti</a>                322 bsp/drv/dev/base/kd.c 				kd_vm_region(ti.id);
+<a href='../S/404.html#L84'>ti</a>                 84 usr/bin/ps/ps.c 	static struct threadinfo ti;
+<a href='../S/404.html#L115'>ti</a>                115 usr/bin/ps/ps.c 	ti.cookie = 0;
+<a href='../S/404.html#L120'>ti</a>                120 usr/bin/ps/ps.c 		rc = sys_info(INFO_THREAD, &amp;ti);
+<a href='../S/404.html#L125'>ti</a>                125 usr/bin/ps/ps.c 			if (pstat(ti.task, &amp;pi) &amp;&amp; !(ps_flag &amp; PSFX))
+<a href='../S/404.html#L136'>ti</a>                136 usr/bin/ps/ps.c 				       ti.priority, stat[pi.stat-1],
+<a href='../S/404.html#L137'>ti</a>                137 usr/bin/ps/ps.c 				       pol[ti.policy],
+<a href='../S/404.html#L138'>ti</a>                138 usr/bin/ps/ps.c 				       ti.time, ti.slpevt, ti.taskname);
+<a href='../S/404.html#L147'>ti</a>                147 usr/bin/ps/ps.c 				printf(" %8d %-11s\n", ti.time, ti.taskname);
+</pre>
+</body>
+</html>

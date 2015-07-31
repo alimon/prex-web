@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>kmem_alloc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/96.html#L118'>kmem_alloc</a>        118 bsp/drv/include/dki.h void	*kmem_alloc(size_t);
+<a href='../S/312.html#L37'>kmem_alloc</a>         37 sys/include/kmem.h void	*kmem_alloc(size_t);
+<a href='../S/325.html#L116'>kmem_alloc</a>        116 sys/ipc/object.c 	if ((obj = kmem_alloc(sizeof(*obj))) == NULL) {
+<a href='../S/327.html#L77'>kmem_alloc</a>         77 sys/kern/device.c 	/*  3 */ DKIENT(kmem_alloc),
+<a href='../S/327.html#L152'>kmem_alloc</a>        152 sys/kern/device.c 	if ((dev = kmem_alloc(sizeof(*dev))) == NULL)
+<a href='../S/327.html#L156'>kmem_alloc</a>        156 sys/kern/device.c 		if ((private = kmem_alloc(drv-&gt;devsz)) == NULL)
+<a href='../S/329.html#L91'>kmem_alloc</a>         91 sys/kern/irq.c 	if ((irq = kmem_alloc(sizeof(*irq))) == NULL)
+<a href='../S/334.html#L104'>kmem_alloc</a>        104 sys/kern/task.c 	if ((task = kmem_alloc(sizeof(*task))) == NULL) {
+<a href='../S/335.html#L416'>kmem_alloc</a>        416 sys/kern/thread.c 	if ((t = kmem_alloc(sizeof(*t))) == NULL)
+<a href='../S/335.html#L419'>kmem_alloc</a>        419 sys/kern/thread.c 	if ((stack = kmem_alloc(KSTACKSZ)) == NULL) {
+<a href='../S/335.html#L583'>kmem_alloc</a>        583 sys/kern/thread.c 	if ((stack = kmem_alloc(KSTACKSZ)) == NULL)
+<a href='../S/336.html#L275'>kmem_alloc</a>        275 sys/kern/timer.c 			if ((tmr = kmem_alloc(sizeof(tmr))) == NULL) {
+<a href='../S/343.html#L463'>kmem_alloc</a>        463 sys/mem/vm.c   	if ((map = kmem_alloc(sizeof(*map))) == NULL)
+<a href='../S/343.html#L578'>kmem_alloc</a>        578 sys/mem/vm.c   			dest = kmem_alloc(sizeof(*dest));
+<a href='../S/343.html#L814'>kmem_alloc</a>        814 sys/mem/vm.c   	if ((seg = kmem_alloc(sizeof(*seg))) == NULL)
+<a href='../S/344.html#L374'>kmem_alloc</a>        374 sys/mem/vm_nommu.c 	if ((map = kmem_alloc(sizeof(*map))) == NULL)
+<a href='../S/344.html#L564'>kmem_alloc</a>        564 sys/mem/vm_nommu.c 	if ((seg = kmem_alloc(sizeof(*seg))) == NULL)
+<a href='../S/345.html#L60'>kmem_alloc</a>         60 sys/sync/cond.c 	if ((c = kmem_alloc(sizeof(struct cond))) == NULL)
+<a href='../S/346.html#L102'>kmem_alloc</a>        102 sys/sync/mutex.c 	if ((m = kmem_alloc(sizeof(struct mutex))) == NULL)
+<a href='../S/347.html#L98'>kmem_alloc</a>         98 sys/sync/sem.c 		if ((s = kmem_alloc(sizeof(struct sem))) == NULL) {
+</pre>
+</body>
+</html>

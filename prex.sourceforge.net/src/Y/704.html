@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>drv</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/327.html#L130'>drv</a>               130 sys/kern/device.c device_create(struct driver *drv, const char *name, int flags)
+<a href='../S/327.html#L136'>drv</a>               136 sys/kern/device.c 	ASSERT(drv != NULL);
+<a href='../S/327.html#L155'>drv</a>               155 sys/kern/device.c 	if (drv-&gt;devsz != 0) {
+<a href='../S/327.html#L156'>drv</a>               156 sys/kern/device.c 		if ((private = kmem_alloc(drv-&gt;devsz)) == NULL)
+<a href='../S/327.html#L158'>drv</a>               158 sys/kern/device.c 		memset(private, 0, drv-&gt;devsz);
+<a href='../S/327.html#L161'>drv</a>               161 sys/kern/device.c 	dev-&gt;driver = drv;
+</pre>
+</body>
+</html>

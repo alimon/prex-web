@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sustime</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/63.html#L59'>sustime</a>            59 bsp/drv/dev/base/pm.c 	u_long		sustime;	/* auto suspend time in sec */
+<a href='../S/63.html#L201'>sustime</a>           201 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;sustime, arg, sizeof(u_long)))
+<a href='../S/63.html#L206'>sustime</a>           206 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;sustime, sizeof(u_long)))
+<a href='../S/63.html#L208'>sustime</a>           208 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set sustmr=%d\n", sc-&gt;sustime));
+<a href='../S/63.html#L260'>sustime</a>           260 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime == 0 &amp;&amp; sc-&gt;dimtime == 0)
+<a href='../S/63.html#L263'>sustime</a>           263 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime != 0 || sc-&gt;dimtime != 0) {
+<a href='../S/63.html#L343'>sustime</a>           343 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime == 0)
+<a href='../S/63.html#L375'>sustime</a>           375 bsp/drv/dev/base/pm.c 	if (sc-&gt;sustime != 0 &amp;&amp; sc-&gt;idlecnt &gt;= sc-&gt;sustime) {
+<a href='../S/63.html#L384'>sustime</a>           384 bsp/drv/dev/base/pm.c 			if (sc-&gt;sustime != 0)
+<a href='../S/63.html#L514'>sustime</a>           514 bsp/drv/dev/base/pm.c 	sc-&gt;sustime = 0;
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tm_hour</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/445.html#L64'>tm_hour</a>            64 usr/include/time.h 	int	tm_hour;	/* hours since midnight [0-23] */
+<a href='../S/635.html#L39'>tm_hour</a>            39 usr/lib/libc/time/asctime_r.c 		timeptr-&gt;tm_mday, timeptr-&gt;tm_hour,
+<a href='../S/637.html#L74'>tm_hour</a>            74 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_hour = (t / 60 / 60) % 24;
+<a href='../S/641.html#L45'>tm_hour</a>            45 usr/lib/libc/time/mktime.c 	time = (((days * 24 + tmp-&gt;tm_hour) * 60) + tmp-&gt;tm_min) * 60
+<a href='../S/642.html#L133'>tm_hour</a>           133 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour, 2, '0'))
+<a href='../S/642.html#L137'>tm_hour</a>           137 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour % 12 ?
+<a href='../S/642.html#L138'>tm_hour</a>           138 usr/lib/libc/time/strftime.c 				    t-&gt;tm_hour % 12 : 12, 2, '0'))
+<a href='../S/642.html#L146'>tm_hour</a>           146 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour, 2, ' '))
+<a href='../S/642.html#L150'>tm_hour</a>           150 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour % 12 ?
+<a href='../S/642.html#L151'>tm_hour</a>           151 usr/lib/libc/time/strftime.c 				    t-&gt;tm_hour % 12 : 12, 2, ' '))
+<a href='../S/642.html#L167'>tm_hour</a>           167 usr/lib/libc/time/strftime.c 				if (!_add(t-&gt;tm_hour &gt;= 12 ? "PM" : "AM"))
+</pre>
+</body>
+</html>

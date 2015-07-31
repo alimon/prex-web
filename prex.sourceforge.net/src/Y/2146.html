@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>thread</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L391'>thread</a>            391 bsp/drv/dev/base/kd.c 			       ii.priority, (long)ii.thread);
+<a href='../S/272.html#L160'>thread</a>            160 include/sys/sysinfo.h 	thread_t	thread;		/* thread id of ist */
+<a href='../S/310.html#L47'>thread</a>             47 sys/include/irq.h 	thread_t	thread;		/* thread id of ist */
+<a href='../S/311.html#L59'>thread</a>             59 sys/include/kernel.h extern struct thread	*curthread;	/* pointer to the current thread */
+<a href='../S/319.html#L45'>thread</a>             45 sys/include/thread.h struct thread {
+<a href='../S/321.html#L40'>thread</a>             40 sys/include/types.h typedef struct thread	*thread_t;
+<a href='../S/324.html#L395'>thread</a>            395 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L403'>thread</a>            403 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L420'>thread</a>            420 sys/ipc/msg.c  	top = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L423'>thread</a>            423 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/328.html#L122'>thread</a>            122 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L199'>thread</a>            199 sys/kern/exception.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L213'>thread</a>            213 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/329.html#L105'>thread</a>            105 sys/kern/irq.c 		irq-&gt;thread = kthread_create(&amp;irq_thread, irq, ISTPRI(pri));
+<a href='../S/329.html#L106'>thread</a>            106 sys/kern/irq.c 		if (irq-&gt;thread == NULL)
+<a href='../S/329.html#L134'>thread</a>            134 sys/kern/irq.c 	if (irq-&gt;thread != NULL)
+<a href='../S/329.html#L135'>thread</a>            135 sys/kern/irq.c 		kthread_terminate(irq-&gt;thread);
+<a href='../S/329.html#L246'>thread</a>            246 sys/kern/irq.c 	info-&gt;thread = irq-&gt;thread;
+<a href='../S/331.html#L152'>thread</a>            152 sys/kern/sched.c 	t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L184'>thread</a>            184 sys/kern/sched.c 		t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L319'>thread</a>            319 sys/kern/sched.c 		t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L350'>thread</a>            350 sys/kern/sched.c 		top = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L352'>thread</a>            352 sys/kern/sched.c 			t = queue_entry(q, struct thread, sched_link);
+<a href='../S/334.html#L198'>thread</a>            198 sys/kern/task.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L248'>thread</a>            248 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L290'>thread</a>            290 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/335.html#L47'>thread</a>             47 sys/kern/thread.c static struct thread	idle_thread;	/* idle thread */
+<a href='../S/335.html#L218'>thread</a>            218 sys/kern/thread.c 		tmp = list_entry(n, struct thread, link);
+<a href='../S/335.html#L413'>thread</a>            413 sys/kern/thread.c 	struct thread *t;
+<a href='../S/335.html#L492'>thread</a>            492 sys/kern/thread.c 			t = list_entry(n, struct thread, link);
+<a href='../S/831.html#L48'>thread</a>             48 usr/sample/bench/bench.c static thread_t *thread;
+<a href='../S/831.html#L75'>thread</a>             75 usr/sample/bench/bench.c 	error = vm_allocate(task, (void **)&amp;thread,
+<a href='../S/831.html#L86'>thread</a>             86 usr/sample/bench/bench.c 		if (thread_create(task, &amp;thread[i]) != 0)
+<a href='../S/831.html#L89'>thread</a>             89 usr/sample/bench/bench.c 		if (thread_load(thread[i], null_thread, &amp;stack) != 0)
+<a href='../S/831.html#L92'>thread</a>             92 usr/sample/bench/bench.c 		if (thread_resume(thread[i]) != 0)
+<a href='../S/831.html#L100'>thread</a>            100 usr/sample/bench/bench.c 		thread_terminate(thread[i]);
+<a href='../S/831.html#L104'>thread</a>            104 usr/sample/bench/bench.c 	vm_free(task, thread);
+</pre>
+</body>
+</html>

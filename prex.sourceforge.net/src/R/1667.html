@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>device_open</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L126'>device_open</a>       126 include/sys/prex.h int	device_open(const char *name, int mode, device_t *dev);
+<a href='../S/305.html#L51'>device_open</a>        51 sys/include/device.h int	 device_open(const char *, int, device_t *);
+<a href='../S/332.html#L117'>device_open</a>       117 sys/kern/sysent.c 	/* 34 */ SYSENT(3, device_open),
+<a href='../S/652.html#L55'>device_open</a>        55 usr/lib/libsa/_stdio.c 	device_open("tty", 0, &amp;__console_dev);
+<a href='../S/829.html#L113'>device_open</a>       113 usr/sample/balls/balls.c 	device_open("tty", 0, &amp;cons);
+<a href='../S/833.html#L51'>device_open</a>        51 usr/sample/cpumon/cpumon.c 	if (device_open("cpufreq", 0, &amp;dev))
+<a href='../S/886.html#L133'>device_open</a>       133 usr/server/fs/devfs/devfs_vnops.c 	error = device_open(path, flags &amp; DO_RWMASK, &amp;dev);
+<a href='../S/909.html#L114'>device_open</a>       114 usr/server/fs/vfs/vfs_mount.c 		if ((error = device_open(dev + 5, DO_RDWR, &amp;device)) != 0)
+<a href='../S/916.html#L302'>device_open</a>       302 usr/server/pow/pow.c 	if (device_open("pm", 0, &amp;pmdev) != 0) {
+<a href='../S/925.html#L115'>device_open</a>       115 usr/server/proc/proc_tty.c 	if (device_open("tty", 0, &amp;ttydev) != 0) {
+<a href='../S/932.html#L46'>device_open</a>        46 usr/test/console/console.c 	error = device_open("console", 0, &amp;console_dev);
+<a href='../S/950.html#L49'>device_open</a>        49 usr/test/fdd/fdd.c 	error = device_open("fd0", 0, &amp;fdd);
+<a href='../S/950.html#L97'>device_open</a>        97 usr/test/fdd/fdd.c 	error = device_open("fd0", 0, &amp;fdd);
+<a href='../S/964.html#L45'>device_open</a>        45 usr/test/kbd/kbd.c 	error = device_open("tty", 0, &amp;tty_dev);
+<a href='../S/966.html#L137'>device_open</a>       137 usr/test/kmon/cmd.c 	if ((error = device_open("pm", 0, &amp;pm_dev)) == 0) {
+<a href='../S/966.html#L151'>device_open</a>       151 usr/test/kmon/cmd.c 	if ((error = device_open("pm", 0, &amp;pm_dev)) == 0) {
+<a href='../S/983.html#L51'>device_open</a>        51 usr/test/ramdisk/ramdisk.c 	error = device_open("ram0", 0, &amp;ramdev);
+<a href='../S/983.html#L99'>device_open</a>        99 usr/test/ramdisk/ramdisk.c 	error = device_open("ram0", 0, &amp;ramdev);
+<a href='../S/985.html#L50'>device_open</a>        50 usr/test/reset/reset.c 	if (device_open("pm", 0, &amp;pm_dev) != 0)
+<a href='../S/1002.html#L45'>device_open</a>        45 usr/test/time/time.c 	error = device_open("rtc", 0, &amp;rtc_dev);
+<a href='../S/1008.html#L64'>device_open</a>        64 usr/test/zero/zero.c 	error = device_open("zero", 0, &amp;zero_dev);
+</pre>
+</body>
+</html>

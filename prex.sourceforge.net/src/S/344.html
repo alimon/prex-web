@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sys/mem/vm_nommu.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1078.html'>sys</a>/<a href='../files/1083.html'>mem</a>/vm_nommu.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='344.html#L78'>[^]</a><a href='344.html#L666'>[v]</a>[top]<a href='344.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='344.html#L78' title='Defined at 78.'>vm_allocate</a></li>
+<li><a href='344.html#L112' title='Defined at 112.'>do_allocate</a></li>
+<li><a href='344.html#L158' title='Defined at 158.'>vm_free</a></li>
+<li><a href='344.html#L183' title='Defined at 183.'>do_free</a></li>
+<li><a href='344.html#L218' title='Defined at 218.'>vm_attribute</a></li>
+<li><a href='344.html#L247' title='Defined at 247.'>do_attribute</a></li>
+<li><a href='344.html#L291' title='Defined at 291.'>vm_map</a></li>
+<li><a href='344.html#L320' title='Defined at 320.'>do_map</a></li>
+<li><a href='344.html#L369' title='Defined at 369.'>vm_create</a></li>
+<li><a href='344.html#L389' title='Defined at 389.'>vm_terminate</a></li>
+<li><a href='344.html#L419' title='Defined at 419.'>vm_dup</a></li>
+<li><a href='344.html#L431' title='Defined at 431.'>vm_switch</a></li>
+<li><a href='344.html#L439' title='Defined at 439.'>vm_reference</a></li>
+<li><a href='344.html#L454' title='Defined at 454.'>vm_load</a></li>
+<li><a href='344.html#L493' title='Defined at 493.'>vm_translate</a></li>
+<li><a href='344.html#L500' title='Defined at 500.'>vm_info</a></li>
+<li><a href='344.html#L533' title='Defined at 533.'>vm_init</a></li>
+<li><a href='344.html#L544' title='Defined at 544.'>seg_init</a></li>
+<li><a href='344.html#L560' title='Defined at 560.'>seg_create</a></li>
+<li><a href='344.html#L585' title='Defined at 585.'>seg_delete</a></li>
+<li><a href='344.html#L605' title='Defined at 605.'>seg_lookup</a></li>
+<li><a href='344.html#L624' title='Defined at 624.'>seg_alloc</a></li>
+<li><a href='344.html#L643' title='Defined at 643.'>seg_free</a></li>
+<li><a href='344.html#L666' title='Defined at 666.'>seg_reserve</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * vm_nommu.c - virtual memory alloctor for no MMU systems</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='comment'>/*</em>
+<a id='L35' name='L35' />  35 <em class='comment'> * When the platform does not support memory management unit (MMU)</em>
+<a id='L36' name='L36' />  36 <em class='comment'> * all virtual memories are mapped to the physical memory. So, the</em>
+<a id='L37' name='L37' />  37 <em class='comment'> * memory space is shared among all tasks and kernel.</em>
+<a id='L38' name='L38' />  38 <em class='comment'> *</em>
+<a id='L39' name='L39' />  39 <em class='comment'> * Important: The lists of segments are not sorted by address.</em>
+<a id='L40' name='L40' />  40 <em class='comment'> */</em>
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42 <em class='sharp'>#include</em> &lt;<a href='311.html'>kernel.h</a>&gt;
+<a id='L43' name='L43' />  43 <em class='sharp'>#include</em> &lt;<a href='312.html'>kmem.h</a>&gt;
+<a id='L44' name='L44' />  44 <em class='sharp'>#include</em> &lt;<a href='319.html'>thread.h</a>&gt;
+<a id='L45' name='L45' />  45 <em class='sharp'>#include</em> &lt;<a href='314.html'>page.h</a>&gt;
+<a id='L46' name='L46' />  46 <em class='sharp'>#include</em> &lt;<a href='318.html'>task.h</a>&gt;
+<a id='L47' name='L47' />  47 <em class='sharp'>#include</em> &lt;<a href='315.html'>sched.h</a>&gt;
+<a id='L48' name='L48' />  48 <em class='sharp'>#include</em> &lt;<a href='323.html'>vm.h</a>&gt;
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50 <em class='comment'>/* forward declarations */</em>
+<a id='L51' name='L51' />  51 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>        <a href='../D/3403.html' title='Multiple defined in 2 places.'>seg_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *);
+<a id='L52' name='L52' />  52 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../D/3400.html' title='Multiple defined in 2 places.'>seg_create</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *, <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L53' name='L53' />  53 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>        <a href='../D/3401.html' title='Multiple defined in 2 places.'>seg_delete</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *, <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *);
+<a id='L54' name='L54' />  54 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../D/3404.html' title='Multiple defined in 2 places.'>seg_lookup</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *, <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L55' name='L55' />  55 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../D/3399.html' title='Multiple defined in 2 places.'>seg_alloc</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L56' name='L56' />  56 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>        <a href='../D/3402.html' title='Multiple defined in 2 places.'>seg_free</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *, <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *);
+<a id='L57' name='L57' />  57 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../D/3405.html' title='Multiple defined in 2 places.'>seg_reserve</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *, <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>);
+<a id='L58' name='L58' />  58 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>         <a href='../D/2572.html' title='Multiple defined in 2 places.'>do_allocate</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>, <strong class='reserved'>void</strong> **, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <strong class='reserved'>int</strong>);
+<a id='L59' name='L59' />  59 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>         <a href='../D/2576.html' title='Multiple defined in 2 places.'>do_free</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>, <strong class='reserved'>void</strong> *);
+<a id='L60' name='L60' />  60 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>         <a href='../D/2573.html' title='Multiple defined in 2 places.'>do_attribute</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>, <strong class='reserved'>void</strong> *, <strong class='reserved'>int</strong>);
+<a id='L61' name='L61' />  61 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>         <a href='../D/2578.html' title='Multiple defined in 2 places.'>do_map</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>, <strong class='reserved'>void</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>, <strong class='reserved'>void</strong> **);
+<a id='L62' name='L62' />  62 
+<a id='L63' name='L63' />  63 
+<a id='L64' name='L64' />  64 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/2334.html' title='Multiple used in 6 places.'>vm_map</a>    <a href='../Y/1136.html' title='Multiple used in 9 places.'>kernel_map</a>;     <em class='comment'>/* vm mapping for kernel */</em>
+<a id='L65' name='L65' />  65 
+<a id='L66' name='L66' />  66 <em class='comment'>/**</em>
+<a id='L67' name='L67' />  67 <em class='comment'> * vm_allocate - allocate zero-filled memory for specified address</em>
+<a id='L68' name='L68' />  68 <em class='comment'> *</em>
+<a id='L69' name='L69' />  69 <em class='comment'> * If "anywhere" argument is true, the "addr" argument will be</em>
+<a id='L70' name='L70' />  70 <em class='comment'> * ignored.  In this case, the address of free space will be</em>
+<a id='L71' name='L71' />  71 <em class='comment'> * found automatically.</em>
+<a id='L72' name='L72' />  72 <em class='comment'> *</em>
+<a id='L73' name='L73' />  73 <em class='comment'> * The allocated area has writable, user-access attribute by</em>
+<a id='L74' name='L74' />  74 <em class='comment'> * default.  The "addr" and "size" argument will be adjusted</em>
+<a id='L75' name='L75' />  75 <em class='comment'> * to page boundary.</em>
+<a id='L76' name='L76' />  76 <em class='comment'> */</em>
+<a id='L77' name='L77' />  77 <strong class='reserved'>int</strong>
+<a id='L78' name='L78' />  78 <a href='../R/2882.html' title='Multiple refered from 15 places.'>vm_allocate</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a> <a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>, <strong class='reserved'>void</strong> **<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <strong class='reserved'>int</strong> <a href='../Y/360.html' title='Multiple used in 11 places.'>anywhere</a>)
+<a id='L79' name='L79' />  79 <em class='brace'>{</em>
+<a id='L80' name='L80' />  80         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L81' name='L81' />  81         <strong class='reserved'>void</strong> *<a href='../Y/2250.html' title='Multiple used in 17 places.'>uaddr</a>;
+<a id='L82' name='L82' />  82 
+<a id='L83' name='L83' />  83         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L84' name='L84' />  84 
+<a id='L85' name='L85' />  85         <strong class='reserved'>if</strong> (!<a href='334.html#L405' title='Defined at 405 in sys/kern/task.c.'>task_valid</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>)) <em class='brace'>{</em>
+<a id='L86' name='L86' />  86                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L87' name='L87' />  87                 <strong class='reserved'>return</strong> <a href='256.html#L42' title='Defined at 42 in include/sys/errno.h.'>ESRCH</a>;
+<a id='L88' name='L88' />  88         <em class='brace'>}</em>
+<a id='L89' name='L89' />  89         <strong class='reserved'>if</strong> (<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a> != <a href='318.html#L64' title='Defined at 64 in sys/include/task.h.'>curtask</a> &amp;&amp; !<a href='334.html#L387' title='Defined at 387 in sys/kern/task.c.'>task_capable</a>(<a href='249.html#L47' title='Defined at 47 in include/sys/capability.h.'>CAP_EXTMEM</a>)) <em class='brace'>{</em>
+<a id='L90' name='L90' />  90                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L91' name='L91' />  91                 <strong class='reserved'>return</strong> <a href='256.html#L40' title='Defined at 40 in include/sys/errno.h.'>EPERM</a>;
+<a id='L92' name='L92' />  92         <em class='brace'>}</em>
+<a id='L93' name='L93' />  93         <strong class='reserved'>if</strong> (<a href='../D/2473.html' title='Multiple defined in 3 places.'>copyin</a>(<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, &amp;<a href='../Y/2250.html' title='Multiple used in 17 places.'>uaddr</a>, <strong class='reserved'>sizeof</strong>(*<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>))) <em class='brace'>{</em>
+<a id='L94' name='L94' />  94                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L95' name='L95' />  95                 <strong class='reserved'>return</strong> <a href='256.html#L54' title='Defined at 54 in include/sys/errno.h.'>EFAULT</a>;
+<a id='L96' name='L96' />  96         <em class='brace'>}</em>
+<a id='L97' name='L97' />  97         <strong class='reserved'>if</strong> (<a href='../Y/360.html' title='Multiple used in 11 places.'>anywhere</a> == 0 &amp;&amp; !<a href='../D/3774.html' title='Multiple defined in 2 places.'>user_area</a>(*<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)) <em class='brace'>{</em>
+<a id='L98' name='L98' />  98                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L99' name='L99' />  99                 <strong class='reserved'>return</strong> <a href='256.html#L53' title='Defined at 53 in include/sys/errno.h.'>EACCES</a>;
+<a id='L100' name='L100' /> 100         <em class='brace'>}</em>
+<a id='L101' name='L101' /> 101 
+<a id='L102' name='L102' /> 102         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='../D/2572.html' title='Multiple defined in 2 places.'>do_allocate</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>-&gt;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, &amp;<a href='../Y/2250.html' title='Multiple used in 17 places.'>uaddr</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <a href='../Y/360.html' title='Multiple used in 11 places.'>anywhere</a>);
+<a id='L103' name='L103' /> 103         <strong class='reserved'>if</strong> (!<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>) <em class='brace'>{</em>
+<a id='L104' name='L104' /> 104                 <strong class='reserved'>if</strong> (<a href='../D/2475.html' title='Multiple defined in 3 places.'>copyout</a>(&amp;<a href='../Y/2250.html' title='Multiple used in 17 places.'>uaddr</a>, <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/2250.html' title='Multiple used in 17 places.'>uaddr</a>)))
+<a id='L105' name='L105' /> 105                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='256.html#L54' title='Defined at 54 in include/sys/errno.h.'>EFAULT</a>;
+<a id='L106' name='L106' /> 106         <em class='brace'>}</em>
+<a id='L107' name='L107' /> 107         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L108' name='L108' /> 108         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L109' name='L109' /> 109 <em class='brace'>}</em>
+<a id='L110' name='L110' /> 110 
+<a id='L111' name='L111' /> 111 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L112' name='L112' /> 112 <a href='../R/1699.html' title='Multiple refered from 8 places.'>do_allocate</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <strong class='reserved'>void</strong> **<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <strong class='reserved'>int</strong> <a href='../Y/360.html' title='Multiple used in 11 places.'>anywhere</a>)
+<a id='L113' name='L113' /> 113 <em class='brace'>{</em>
+<a id='L114' name='L114' /> 114         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L115' name='L115' /> 115         <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/752.html' title='Multiple used in 44 places.'>end</a>;
+<a id='L116' name='L116' /> 116 
+<a id='L117' name='L117' /> 117         <strong class='reserved'>if</strong> (<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == 0)
+<a id='L118' name='L118' /> 118                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L119' name='L119' /> 119         <strong class='reserved'>if</strong> (<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/2189.html' title='Multiple used in 27 places.'>total</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt;= <a href='264.html#L62' title='Defined at 62 in include/sys/param.h.'>MAXMEM</a>)
+<a id='L120' name='L120' /> 120                 <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L121' name='L121' /> 121 
+<a id='L122' name='L122' /> 122         <em class='comment'>/*</em>
+<a id='L123' name='L123' /> 123 <em class='comment'>         * Allocate segment, and reserve pages for it.</em>
+<a id='L124' name='L124' /> 124 <em class='comment'>         */</em>
+<a id='L125' name='L125' /> 125         <strong class='reserved'>if</strong> (<a href='../Y/360.html' title='Multiple used in 11 places.'>anywhere</a>) <em class='brace'>{</em>
+<a id='L126' name='L126' /> 126                 <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='264.html#L144' title='Defined at 144 in include/sys/param.h.'>round_page</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L127' name='L127' /> 127                 <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3399.html' title='Multiple defined in 2 places.'>seg_alloc</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L128' name='L128' /> 128                         <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L129' name='L129' /> 129                 <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L130' name='L130' /> 130         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L131' name='L131' /> 131                 <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a> = <a href='264.html#L143' title='Defined at 143 in include/sys/param.h.'>trunc_page</a>((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)*<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>);
+<a id='L132' name='L132' /> 132                 <a href='../Y/752.html' title='Multiple used in 44 places.'>end</a> = <a href='264.html#L144' title='Defined at 144 in include/sys/param.h.'>round_page</a>(<a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L133' name='L133' /> 133                 <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>)(<a href='../Y/752.html' title='Multiple used in 44 places.'>end</a> - <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>);
+<a id='L134' name='L134' /> 134 
+<a id='L135' name='L135' /> 135                 <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3405.html' title='Multiple defined in 2 places.'>seg_reserve</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L136' name='L136' /> 136                         <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L137' name='L137' /> 137         <em class='brace'>}</em>
+<a id='L138' name='L138' /> 138         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='323.html#L53' title='Defined at 53 in sys/include/vm.h.'>SEG_READ</a> | <a href='323.html#L54' title='Defined at 54 in sys/include/vm.h.'>SEG_WRITE</a>;
+<a id='L139' name='L139' /> 139 
+<a id='L140' name='L140' /> 140         <em class='comment'>/* Zero fill */</em>
+<a id='L141' name='L141' /> 141         <a href='../D/3041.html' title='Multiple defined in 3 places.'>memset</a>((<strong class='reserved'>void</strong> *)<a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, 0, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L142' name='L142' /> 142         *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> = (<strong class='reserved'>void</strong> *)<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L143' name='L143' /> 143         <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/2189.html' title='Multiple used in 27 places.'>total</a> += <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L144' name='L144' /> 144         <strong class='reserved'>return</strong> 0;
+<a id='L145' name='L145' /> 145 <em class='brace'>}</em>
+<a id='L146' name='L146' /> 146 
+<a id='L147' name='L147' /> 147 <em class='comment'>/*</em>
+<a id='L148' name='L148' /> 148 <em class='comment'> * Deallocate memory segment for specified address.</em>
+<a id='L149' name='L149' /> 149 <em class='comment'> *</em>
+<a id='L150' name='L150' /> 150 <em class='comment'> * The "addr" argument points to a memory segment previously</em>
+<a id='L151' name='L151' /> 151 <em class='comment'> * allocated through a call to vm_allocate() or vm_map(). The</em>
+<a id='L152' name='L152' /> 152 <em class='comment'> * number of bytes freed is the number of bytes of the</em>
+<a id='L153' name='L153' /> 153 <em class='comment'> * allocated segment.  If one of the segment of previous and</em>
+<a id='L154' name='L154' /> 154 <em class='comment'> * next are free, it combines with them, and larger free</em>
+<a id='L155' name='L155' /> 155 <em class='comment'> * segment is created.</em>
+<a id='L156' name='L156' /> 156 <em class='comment'> */</em>
+<a id='L157' name='L157' /> 157 <strong class='reserved'>int</strong>
+<a id='L158' name='L158' /> 158 <a href='../R/2886.html' title='Multiple refered from 18 places.'>vm_free</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a> <a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>, <strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)
+<a id='L159' name='L159' /> 159 <em class='brace'>{</em>
+<a id='L160' name='L160' /> 160         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L161' name='L161' /> 161 
+<a id='L162' name='L162' /> 162         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L163' name='L163' /> 163         <strong class='reserved'>if</strong> (!<a href='334.html#L405' title='Defined at 405 in sys/kern/task.c.'>task_valid</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>)) <em class='brace'>{</em>
+<a id='L164' name='L164' /> 164                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L165' name='L165' /> 165                 <strong class='reserved'>return</strong> <a href='256.html#L42' title='Defined at 42 in include/sys/errno.h.'>ESRCH</a>;
+<a id='L166' name='L166' /> 166         <em class='brace'>}</em>
+<a id='L167' name='L167' /> 167         <strong class='reserved'>if</strong> (<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a> != <a href='318.html#L64' title='Defined at 64 in sys/include/task.h.'>curtask</a> &amp;&amp; !<a href='334.html#L387' title='Defined at 387 in sys/kern/task.c.'>task_capable</a>(<a href='249.html#L47' title='Defined at 47 in include/sys/capability.h.'>CAP_EXTMEM</a>)) <em class='brace'>{</em>
+<a id='L168' name='L168' /> 168                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L169' name='L169' /> 169                 <strong class='reserved'>return</strong> <a href='256.html#L40' title='Defined at 40 in include/sys/errno.h.'>EPERM</a>;
+<a id='L170' name='L170' /> 170         <em class='brace'>}</em>
+<a id='L171' name='L171' /> 171         <strong class='reserved'>if</strong> (!<a href='../D/3774.html' title='Multiple defined in 2 places.'>user_area</a>(<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)) <em class='brace'>{</em>
+<a id='L172' name='L172' /> 172                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L173' name='L173' /> 173                 <strong class='reserved'>return</strong> <a href='256.html#L54' title='Defined at 54 in include/sys/errno.h.'>EFAULT</a>;
+<a id='L174' name='L174' /> 174         <em class='brace'>}</em>
+<a id='L175' name='L175' /> 175 
+<a id='L176' name='L176' /> 176         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='../D/2576.html' title='Multiple defined in 2 places.'>do_free</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>-&gt;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>);
+<a id='L177' name='L177' /> 177 
+<a id='L178' name='L178' /> 178         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L179' name='L179' /> 179         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L180' name='L180' /> 180 <em class='brace'>}</em>
+<a id='L181' name='L181' /> 181 
+<a id='L182' name='L182' /> 182 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L183' name='L183' /> 183 <a href='../R/1703.html' title='Multiple refered from 4 places.'>do_free</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)
+<a id='L184' name='L184' /> 184 <em class='brace'>{</em>
+<a id='L185' name='L185' /> 185         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L186' name='L186' /> 186         <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a>;
+<a id='L187' name='L187' /> 187 
+<a id='L188' name='L188' /> 188         <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a> = <a href='264.html#L143' title='Defined at 143 in include/sys/param.h.'>trunc_page</a>((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>);
+<a id='L189' name='L189' /> 189 
+<a id='L190' name='L190' /> 190         <em class='comment'>/*</em>
+<a id='L191' name='L191' /> 191 <em class='comment'>         * Find the target segment.</em>
+<a id='L192' name='L192' /> 192 <em class='comment'>         */</em>
+<a id='L193' name='L193' /> 193         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3404.html' title='Multiple defined in 2 places.'>seg_lookup</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a>, 1);
+<a id='L194' name='L194' /> 194         <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a> || <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> != <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a> || (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>))
+<a id='L195' name='L195' /> 195                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;  <em class='comment'>/* not allocated */</em>
+<a id='L196' name='L196' /> 196 
+<a id='L197' name='L197' /> 197         <em class='comment'>/*</em>
+<a id='L198' name='L198' /> 198 <em class='comment'>         * Relinquish use of the page if it is not shared and mapped.</em>
+<a id='L199' name='L199' /> 199 <em class='comment'>         */</em>
+<a id='L200' name='L200' /> 200         <strong class='reserved'>if</strong> (!(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>) &amp;&amp; !(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L57' title='Defined at 57 in sys/include/vm.h.'>SEG_MAPPED</a>))
+<a id='L201' name='L201' /> 201                 <a href='342.html#L129' title='Defined at 129 in sys/mem/page.c.'>page_free</a>(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a>, <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L202' name='L202' /> 202 
+<a id='L203' name='L203' /> 203         <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/2189.html' title='Multiple used in 27 places.'>total</a> -= <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L204' name='L204' /> 204         <a href='../D/3402.html' title='Multiple defined in 2 places.'>seg_free</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>);
+<a id='L205' name='L205' /> 205 
+<a id='L206' name='L206' /> 206         <strong class='reserved'>return</strong> 0;
+<a id='L207' name='L207' /> 207 <em class='brace'>}</em>
+<a id='L208' name='L208' /> 208 
+<a id='L209' name='L209' /> 209 <em class='comment'>/*</em>
+<a id='L210' name='L210' /> 210 <em class='comment'> * Change attribute of specified virtual address.</em>
+<a id='L211' name='L211' /> 211 <em class='comment'> *</em>
+<a id='L212' name='L212' /> 212 <em class='comment'> * The "addr" argument points to a memory segment previously</em>
+<a id='L213' name='L213' /> 213 <em class='comment'> * allocated through a call to vm_allocate(). The attribute</em>
+<a id='L214' name='L214' /> 214 <em class='comment'> * type can be chosen a combination of PROT_READ, PROT_WRITE.</em>
+<a id='L215' name='L215' /> 215 <em class='comment'> * Note: PROT_EXEC is not supported, yet.</em>
+<a id='L216' name='L216' /> 216 <em class='comment'> */</em>
+<a id='L217' name='L217' /> 217 <strong class='reserved'>int</strong>
+<a id='L218' name='L218' /> 218 <a href='../R/2883.html' title='Multiple refered from 5 places.'>vm_attribute</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a> <a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>, <strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <strong class='reserved'>int</strong> <a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a>)
+<a id='L219' name='L219' /> 219 <em class='brace'>{</em>
+<a id='L220' name='L220' /> 220         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L221' name='L221' /> 221 
+<a id='L222' name='L222' /> 222         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L223' name='L223' /> 223         <strong class='reserved'>if</strong> (<a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a> == 0 || <a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a> &amp; ~(<a href='../D/1236.html' title='Multiple defined in 2 places.'>PROT_READ</a> | <a href='../D/1237.html' title='Multiple defined in 2 places.'>PROT_WRITE</a>)) <em class='brace'>{</em>
+<a id='L224' name='L224' /> 224                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L225' name='L225' /> 225                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L226' name='L226' /> 226         <em class='brace'>}</em>
+<a id='L227' name='L227' /> 227         <strong class='reserved'>if</strong> (!<a href='334.html#L405' title='Defined at 405 in sys/kern/task.c.'>task_valid</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>)) <em class='brace'>{</em>
+<a id='L228' name='L228' /> 228                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L229' name='L229' /> 229                 <strong class='reserved'>return</strong> <a href='256.html#L42' title='Defined at 42 in include/sys/errno.h.'>ESRCH</a>;
+<a id='L230' name='L230' /> 230         <em class='brace'>}</em>
+<a id='L231' name='L231' /> 231         <strong class='reserved'>if</strong> (<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a> != <a href='318.html#L64' title='Defined at 64 in sys/include/task.h.'>curtask</a> &amp;&amp; !<a href='334.html#L387' title='Defined at 387 in sys/kern/task.c.'>task_capable</a>(<a href='249.html#L47' title='Defined at 47 in include/sys/capability.h.'>CAP_EXTMEM</a>)) <em class='brace'>{</em>
+<a id='L232' name='L232' /> 232                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L233' name='L233' /> 233                 <strong class='reserved'>return</strong> <a href='256.html#L40' title='Defined at 40 in include/sys/errno.h.'>EPERM</a>;
+<a id='L234' name='L234' /> 234         <em class='brace'>}</em>
+<a id='L235' name='L235' /> 235         <strong class='reserved'>if</strong> (!<a href='../D/3774.html' title='Multiple defined in 2 places.'>user_area</a>(<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)) <em class='brace'>{</em>
+<a id='L236' name='L236' /> 236                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L237' name='L237' /> 237                 <strong class='reserved'>return</strong> <a href='256.html#L54' title='Defined at 54 in include/sys/errno.h.'>EFAULT</a>;
+<a id='L238' name='L238' /> 238         <em class='brace'>}</em>
+<a id='L239' name='L239' /> 239 
+<a id='L240' name='L240' /> 240         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='../D/2573.html' title='Multiple defined in 2 places.'>do_attribute</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>-&gt;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a>);
+<a id='L241' name='L241' /> 241 
+<a id='L242' name='L242' /> 242         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L243' name='L243' /> 243         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L244' name='L244' /> 244 <em class='brace'>}</em>
+<a id='L245' name='L245' /> 245 
+<a id='L246' name='L246' /> 246 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L247' name='L247' /> 247 <a href='../R/1700.html' title='Multiple refered from 5 places.'>do_attribute</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <strong class='reserved'>int</strong> <a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a>)
+<a id='L248' name='L248' /> 248 <em class='brace'>{</em>
+<a id='L249' name='L249' /> 249         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L250' name='L250' /> 250         <strong class='reserved'>int</strong> <a href='../Y/1356.html' title='Multiple used in 12 places.'>new_flags</a> = 0;
+<a id='L251' name='L251' /> 251         <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a>;
+<a id='L252' name='L252' /> 252 
+<a id='L253' name='L253' /> 253         <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a> = <a href='264.html#L143' title='Defined at 143 in include/sys/param.h.'>trunc_page</a>((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>);
+<a id='L254' name='L254' /> 254 
+<a id='L255' name='L255' /> 255         <em class='comment'>/*</em>
+<a id='L256' name='L256' /> 256 <em class='comment'>         * Find the target segment.</em>
+<a id='L257' name='L257' /> 257 <em class='comment'>         */</em>
+<a id='L258' name='L258' /> 258         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3404.html' title='Multiple defined in 2 places.'>seg_lookup</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a>, 1);
+<a id='L259' name='L259' /> 259         <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a> || <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> != <a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a> || (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>)) <em class='brace'>{</em>
+<a id='L260' name='L260' /> 260                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;  <em class='comment'>/* not allocated */</em>
+<a id='L261' name='L261' /> 261         <em class='brace'>}</em>
+<a id='L262' name='L262' /> 262         <em class='comment'>/*</em>
+<a id='L263' name='L263' /> 263 <em class='comment'>         * The attribute of the mapped or shared segment can not be changed.</em>
+<a id='L264' name='L264' /> 264 <em class='comment'>         */</em>
+<a id='L265' name='L265' /> 265         <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L57' title='Defined at 57 in sys/include/vm.h.'>SEG_MAPPED</a>) || (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>))
+<a id='L266' name='L266' /> 266                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L267' name='L267' /> 267 
+<a id='L268' name='L268' /> 268         <em class='comment'>/*</em>
+<a id='L269' name='L269' /> 269 <em class='comment'>         * Check new and old flag.</em>
+<a id='L270' name='L270' /> 270 <em class='comment'>         */</em>
+<a id='L271' name='L271' /> 271         <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L54' title='Defined at 54 in sys/include/vm.h.'>SEG_WRITE</a>) <em class='brace'>{</em>
+<a id='L272' name='L272' /> 272                 <strong class='reserved'>if</strong> (!(<a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a> &amp; <a href='../D/1237.html' title='Multiple defined in 2 places.'>PROT_WRITE</a>))
+<a id='L273' name='L273' /> 273                         <a href='../Y/1356.html' title='Multiple used in 12 places.'>new_flags</a> = <a href='323.html#L53' title='Defined at 53 in sys/include/vm.h.'>SEG_READ</a>;
+<a id='L274' name='L274' /> 274         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L275' name='L275' /> 275                 <strong class='reserved'>if</strong> (<a href='../Y/394.html' title='Multiple used in 50 places.'>attr</a> &amp; <a href='../D/1237.html' title='Multiple defined in 2 places.'>PROT_WRITE</a>)
+<a id='L276' name='L276' /> 276                         <a href='../Y/1356.html' title='Multiple used in 12 places.'>new_flags</a> = <a href='323.html#L53' title='Defined at 53 in sys/include/vm.h.'>SEG_READ</a> | <a href='323.html#L54' title='Defined at 54 in sys/include/vm.h.'>SEG_WRITE</a>;
+<a id='L277' name='L277' /> 277         <em class='brace'>}</em>
+<a id='L278' name='L278' /> 278         <strong class='reserved'>if</strong> (<a href='../Y/1356.html' title='Multiple used in 12 places.'>new_flags</a> == 0)
+<a id='L279' name='L279' /> 279                 <strong class='reserved'>return</strong> 0;       <em class='comment'>/* same attribute */</em>
+<a id='L280' name='L280' /> 280         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='../Y/1356.html' title='Multiple used in 12 places.'>new_flags</a>;
+<a id='L281' name='L281' /> 281         <strong class='reserved'>return</strong> 0;
+<a id='L282' name='L282' /> 282 <em class='brace'>}</em>
+<a id='L283' name='L283' /> 283 
+<a id='L284' name='L284' /> 284 <em class='comment'>/**</em>
+<a id='L285' name='L285' /> 285 <em class='comment'> * vm_map - map another task's memory to current task.</em>
+<a id='L286' name='L286' /> 286 <em class='comment'> *</em>
+<a id='L287' name='L287' /> 287 <em class='comment'> * Note: This routine does not support mapping to the specific</em>
+<a id='L288' name='L288' /> 288 <em class='comment'> * address.</em>
+<a id='L289' name='L289' /> 289 <em class='comment'> */</em>
+<a id='L290' name='L290' /> 290 <strong class='reserved'>int</strong>
+<a id='L291' name='L291' /> 291 <a href='../R/2890.html' title='Multiple refered from 9 places.'>vm_map</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a> <a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a>, <strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <strong class='reserved'>void</strong> **<a href='../Y/353.html' title='Multiple used in 5 places.'>alloc</a>)
+<a id='L292' name='L292' /> 292 <em class='brace'>{</em>
+<a id='L293' name='L293' /> 293         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L294' name='L294' /> 294 
+<a id='L295' name='L295' /> 295         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L296' name='L296' /> 296         <strong class='reserved'>if</strong> (!<a href='334.html#L405' title='Defined at 405 in sys/kern/task.c.'>task_valid</a>(<a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a>)) <em class='brace'>{</em>
+<a id='L297' name='L297' /> 297                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L298' name='L298' /> 298                 <strong class='reserved'>return</strong> <a href='256.html#L42' title='Defined at 42 in include/sys/errno.h.'>ESRCH</a>;
+<a id='L299' name='L299' /> 299         <em class='brace'>}</em>
+<a id='L300' name='L300' /> 300         <strong class='reserved'>if</strong> (<a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a> == <a href='318.html#L64' title='Defined at 64 in sys/include/task.h.'>curtask</a>) <em class='brace'>{</em>
+<a id='L301' name='L301' /> 301                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L302' name='L302' /> 302                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L303' name='L303' /> 303         <em class='brace'>}</em>
+<a id='L304' name='L304' /> 304         <strong class='reserved'>if</strong> (!<a href='334.html#L387' title='Defined at 387 in sys/kern/task.c.'>task_capable</a>(<a href='249.html#L47' title='Defined at 47 in include/sys/capability.h.'>CAP_EXTMEM</a>)) <em class='brace'>{</em>
+<a id='L305' name='L305' /> 305                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L306' name='L306' /> 306                 <strong class='reserved'>return</strong> <a href='256.html#L40' title='Defined at 40 in include/sys/errno.h.'>EPERM</a>;
+<a id='L307' name='L307' /> 307         <em class='brace'>}</em>
+<a id='L308' name='L308' /> 308         <strong class='reserved'>if</strong> (!<a href='../D/3774.html' title='Multiple defined in 2 places.'>user_area</a>(<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)) <em class='brace'>{</em>
+<a id='L309' name='L309' /> 309                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L310' name='L310' /> 310                 <strong class='reserved'>return</strong> <a href='256.html#L54' title='Defined at 54 in include/sys/errno.h.'>EFAULT</a>;
+<a id='L311' name='L311' /> 311         <em class='brace'>}</em>
+<a id='L312' name='L312' /> 312 
+<a id='L313' name='L313' /> 313         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='../D/2578.html' title='Multiple defined in 2 places.'>do_map</a>(<a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a>-&gt;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <a href='971.html#L42' title='Defined at 42 in usr/test/malloc/malloc.c.'>alloc</a>);
+<a id='L314' name='L314' /> 314 
+<a id='L315' name='L315' /> 315         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L316' name='L316' /> 316         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L317' name='L317' /> 317 <em class='brace'>}</em>
+<a id='L318' name='L318' /> 318 
+<a id='L319' name='L319' /> 319 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L320' name='L320' /> 320 <a href='../R/1705.html' title='Multiple refered from 4 places.'>do_map</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <strong class='reserved'>void</strong> **<a href='../Y/353.html' title='Multiple used in 5 places.'>alloc</a>)
+<a id='L321' name='L321' /> 321 <em class='brace'>{</em>
+<a id='L322' name='L322' /> 322         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>, *<a href='../Y/2140.html' title='Multiple used in 43 places.'>tgt</a>;
+<a id='L323' name='L323' /> 323         <a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/590.html' title='Multiple used in 10 places.'>curmap</a>;
+<a id='L324' name='L324' /> 324         <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/752.html' title='Multiple used in 44 places.'>end</a>;
+<a id='L325' name='L325' /> 325         <strong class='reserved'>void</strong> *<a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a>;
+<a id='L326' name='L326' /> 326 
+<a id='L327' name='L327' /> 327         <strong class='reserved'>if</strong> (<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == 0)
+<a id='L328' name='L328' /> 328                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L329' name='L329' /> 329         <strong class='reserved'>if</strong> (<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/2189.html' title='Multiple used in 27 places.'>total</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt;= <a href='264.html#L62' title='Defined at 62 in include/sys/param.h.'>MAXMEM</a>)
+<a id='L330' name='L330' /> 330                 <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L331' name='L331' /> 331 
+<a id='L332' name='L332' /> 332         <em class='comment'>/* check fault */</em>
+<a id='L333' name='L333' /> 333         <a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a> = <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L334' name='L334' /> 334         <strong class='reserved'>if</strong> (<a href='../D/2475.html' title='Multiple defined in 3 places.'>copyout</a>(&amp;<a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a>, <a href='971.html#L42' title='Defined at 42 in usr/test/malloc/malloc.c.'>alloc</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a>)))
+<a id='L335' name='L335' /> 335                 <strong class='reserved'>return</strong> <a href='256.html#L54' title='Defined at 54 in include/sys/errno.h.'>EFAULT</a>;
+<a id='L336' name='L336' /> 336 
+<a id='L337' name='L337' /> 337         <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a> = <a href='264.html#L143' title='Defined at 143 in include/sys/param.h.'>trunc_page</a>((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>);
+<a id='L338' name='L338' /> 338         <a href='../Y/752.html' title='Multiple used in 44 places.'>end</a> = <a href='264.html#L144' title='Defined at 144 in include/sys/param.h.'>round_page</a>((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L339' name='L339' /> 339         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>)(<a href='../Y/752.html' title='Multiple used in 44 places.'>end</a> - <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>);
+<a id='L340' name='L340' /> 340 
+<a id='L341' name='L341' /> 341         <em class='comment'>/*</em>
+<a id='L342' name='L342' /> 342 <em class='comment'>         * Find the segment that includes target address</em>
+<a id='L343' name='L343' /> 343 <em class='comment'>         */</em>
+<a id='L344' name='L344' /> 344         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3404.html' title='Multiple defined in 2 places.'>seg_lookup</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L345' name='L345' /> 345         <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a> || (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>))
+<a id='L346' name='L346' /> 346                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;  <em class='comment'>/* not allocated */</em>
+<a id='L347' name='L347' /> 347         <a href='../Y/2140.html' title='Multiple used in 43 places.'>tgt</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L348' name='L348' /> 348 
+<a id='L349' name='L349' /> 349         <em class='comment'>/*</em>
+<a id='L350' name='L350' /> 350 <em class='comment'>         * Create new segment to map</em>
+<a id='L351' name='L351' /> 351 <em class='comment'>         */</em>
+<a id='L352' name='L352' /> 352         <a href='../Y/590.html' title='Multiple used in 10 places.'>curmap</a> = <a href='318.html#L64' title='Defined at 64 in sys/include/task.h.'>curtask</a>-&gt;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>;
+<a id='L353' name='L353' /> 353         <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3400.html' title='Multiple defined in 2 places.'>seg_create</a>(&amp;<a href='../Y/590.html' title='Multiple used in 10 places.'>curmap</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L354' name='L354' /> 354                 <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L355' name='L355' /> 355         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='../Y/2140.html' title='Multiple used in 43 places.'>tgt</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> | <a href='323.html#L57' title='Defined at 57 in sys/include/vm.h.'>SEG_MAPPED</a>;
+<a id='L356' name='L356' /> 356 
+<a id='L357' name='L357' /> 357         <a href='../D/2475.html' title='Multiple defined in 3 places.'>copyout</a>(&amp;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='971.html#L42' title='Defined at 42 in usr/test/malloc/malloc.c.'>alloc</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>));
+<a id='L358' name='L358' /> 358 
+<a id='L359' name='L359' /> 359         <a href='../Y/590.html' title='Multiple used in 10 places.'>curmap</a>-&gt;<a href='../Y/2189.html' title='Multiple used in 27 places.'>total</a> += <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L360' name='L360' /> 360         <strong class='reserved'>return</strong> 0;
+<a id='L361' name='L361' /> 361 <em class='brace'>}</em>
+<a id='L362' name='L362' /> 362 
+<a id='L363' name='L363' /> 363 <em class='comment'>/*</em>
+<a id='L364' name='L364' /> 364 <em class='comment'> * Create new virtual memory space.</em>
+<a id='L365' name='L365' /> 365 <em class='comment'> * No memory is inherited.</em>
+<a id='L366' name='L366' /> 366 <em class='comment'> * Must be called with scheduler locked.</em>
+<a id='L367' name='L367' /> 367 <em class='comment'> */</em>
+<a id='L368' name='L368' /> 368 <a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>
+<a id='L369' name='L369' /> 369 <a href='../R/2884.html' title='Multiple refered from 3 places.'>vm_create</a>(<strong class='reserved'>void</strong>)
+<a id='L370' name='L370' /> 370 <em class='brace'>{</em>
+<a id='L371' name='L371' /> 371         <strong class='reserved'>struct</strong> <a href='../Y/2334.html' title='Multiple used in 6 places.'>vm_map</a> *<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>;
+<a id='L372' name='L372' /> 372 
+<a id='L373' name='L373' /> 373         <em class='comment'>/* Allocate new map structure */</em>
+<a id='L374' name='L374' /> 374         <strong class='reserved'>if</strong> ((<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a> = <a href='341.html#L175' title='Defined at 175 in sys/mem/kmem.c.'>kmem_alloc</a>(<strong class='reserved'>sizeof</strong>(*<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>))) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L375' name='L375' /> 375                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L376' name='L376' /> 376 
+<a id='L377' name='L377' /> 377         <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/1731.html' title='Multiple used in 15 places.'>refcnt</a> = 1;
+<a id='L378' name='L378' /> 378         <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/2189.html' title='Multiple used in 27 places.'>total</a> = 0;
+<a id='L379' name='L379' /> 379 
+<a id='L380' name='L380' /> 380         <a href='../D/3403.html' title='Multiple defined in 2 places.'>seg_init</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>);
+<a id='L381' name='L381' /> 381         <strong class='reserved'>return</strong> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>;
+<a id='L382' name='L382' /> 382 <em class='brace'>}</em>
+<a id='L383' name='L383' /> 383 
+<a id='L384' name='L384' /> 384 <em class='comment'>/*</em>
+<a id='L385' name='L385' /> 385 <em class='comment'> * Terminate specified virtual memory space.</em>
+<a id='L386' name='L386' /> 386 <em class='comment'> * This is called when task is terminated.</em>
+<a id='L387' name='L387' /> 387 <em class='comment'> */</em>
+<a id='L388' name='L388' /> 388 <strong class='reserved'>void</strong>
+<a id='L389' name='L389' /> 389 <a href='../R/2894.html' title='Multiple refered from 2 places.'>vm_terminate</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>)
+<a id='L390' name='L390' /> 390 <em class='brace'>{</em>
+<a id='L391' name='L391' /> 391         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>, *<a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a>;
+<a id='L392' name='L392' /> 392 
+<a id='L393' name='L393' /> 393         <strong class='reserved'>if</strong> (--<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/1731.html' title='Multiple used in 15 places.'>refcnt</a> &gt; 0)
+<a id='L394' name='L394' /> 394                 <strong class='reserved'>return</strong>;
+<a id='L395' name='L395' /> 395 
+<a id='L396' name='L396' /> 396         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L397' name='L397' /> 397         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = &amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>;
+<a id='L398' name='L398' /> 398         <strong class='reserved'>do</strong> <em class='brace'>{</em>
+<a id='L399' name='L399' /> 399                 <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> != <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>) <em class='brace'>{</em>
+<a id='L400' name='L400' /> 400                         <em class='comment'>/* Free segment if it is not shared and mapped */</em>
+<a id='L401' name='L401' /> 401                         <strong class='reserved'>if</strong> (!(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>) &amp;&amp;
+<a id='L402' name='L402' /> 402                             !(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L57' title='Defined at 57 in sys/include/vm.h.'>SEG_MAPPED</a>)) <em class='brace'>{</em>
+<a id='L403' name='L403' /> 403                                 <a href='342.html#L129' title='Defined at 129 in sys/mem/page.c.'>page_free</a>(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a>, <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L404' name='L404' /> 404                         <em class='brace'>}</em>
+<a id='L405' name='L405' /> 405                 <em class='brace'>}</em>
+<a id='L406' name='L406' /> 406                 <a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L407' name='L407' /> 407                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L408' name='L408' /> 408                 <a href='../D/3401.html' title='Multiple defined in 2 places.'>seg_delete</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a>);
+<a id='L409' name='L409' /> 409         <em class='brace'>}</em> <strong class='reserved'>while</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> != &amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>);
+<a id='L410' name='L410' /> 410 
+<a id='L411' name='L411' /> 411         <a href='341.html#L269' title='Defined at 269 in sys/mem/kmem.c.'>kmem_free</a>(<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>);
+<a id='L412' name='L412' /> 412         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L413' name='L413' /> 413 <em class='brace'>}</em>
+<a id='L414' name='L414' /> 414 
+<a id='L415' name='L415' /> 415 <em class='comment'>/*</em>
+<a id='L416' name='L416' /> 416 <em class='comment'> * Duplicate specified virtual memory space.</em>
+<a id='L417' name='L417' /> 417 <em class='comment'> */</em>
+<a id='L418' name='L418' /> 418 <a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>
+<a id='L419' name='L419' /> 419 <a href='../R/2885.html' title='Multiple refered from 2 places.'>vm_dup</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1492.html' title='Multiple used in 10 places.'>org_map</a>)
+<a id='L420' name='L420' /> 420 <em class='brace'>{</em>
+<a id='L421' name='L421' /> 421         <em class='comment'>/*</em>
+<a id='L422' name='L422' /> 422 <em class='comment'>         * This function is not supported with no MMU system.</em>
+<a id='L423' name='L423' /> 423 <em class='comment'>         */</em>
+<a id='L424' name='L424' /> 424         <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L425' name='L425' /> 425 <em class='brace'>}</em>
+<a id='L426' name='L426' /> 426 
+<a id='L427' name='L427' /> 427 <em class='comment'>/*</em>
+<a id='L428' name='L428' /> 428 <em class='comment'> * Switch VM mapping.</em>
+<a id='L429' name='L429' /> 429 <em class='comment'> */</em>
+<a id='L430' name='L430' /> 430 <strong class='reserved'>void</strong>
+<a id='L431' name='L431' /> 431 <a href='../R/2893.html' title='Multiple refered from 3 places.'>vm_switch</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>)
+<a id='L432' name='L432' /> 432 <em class='brace'>{</em>
+<a id='L433' name='L433' /> 433 <em class='brace'>}</em>
+<a id='L434' name='L434' /> 434 
+<a id='L435' name='L435' /> 435 <em class='comment'>/*</em>
+<a id='L436' name='L436' /> 436 <em class='comment'> * Increment reference count of VM mapping.</em>
+<a id='L437' name='L437' /> 437 <em class='comment'> */</em>
+<a id='L438' name='L438' /> 438 <strong class='reserved'>int</strong>
+<a id='L439' name='L439' /> 439 <a href='../R/2892.html' title='Multiple refered from 2 places.'>vm_reference</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>)
+<a id='L440' name='L440' /> 440 <em class='brace'>{</em>
+<a id='L441' name='L441' /> 441 
+<a id='L442' name='L442' /> 442         <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='../Y/1731.html' title='Multiple used in 15 places.'>refcnt</a>++;
+<a id='L443' name='L443' /> 443         <strong class='reserved'>return</strong> 0;
+<a id='L444' name='L444' /> 444 <em class='brace'>}</em>
+<a id='L445' name='L445' /> 445 
+<a id='L446' name='L446' /> 446 <em class='comment'>/*</em>
+<a id='L447' name='L447' /> 447 <em class='comment'> * Setup task image for boot task. (NOMMU version)</em>
+<a id='L448' name='L448' /> 448 <em class='comment'> * Return 0 on success, errno on failure.</em>
+<a id='L449' name='L449' /> 449 <em class='comment'> *</em>
+<a id='L450' name='L450' /> 450 <em class='comment'> * Note: We assume that the task images are already copied to</em>
+<a id='L451' name='L451' /> 451 <em class='comment'> * the proper address by a boot loader.</em>
+<a id='L452' name='L452' /> 452 <em class='comment'> */</em>
+<a id='L453' name='L453' /> 453 <strong class='reserved'>int</strong>
+<a id='L454' name='L454' /> 454 <a href='../R/2889.html' title='Multiple refered from 2 places.'>vm_load</a>(<a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <strong class='reserved'>struct</strong> <a href='../Y/1296.html' title='Multiple used in 22 places.'>module</a> *<a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>, <strong class='reserved'>void</strong> **<a href='../Y/2016.html' title='Multiple used in 92 places.'>stack</a>)
+<a id='L455' name='L455' /> 455 <em class='brace'>{</em>
+<a id='L456' name='L456' /> 456         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L457' name='L457' /> 457         <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/411.html' title='Multiple used in 111 places.'>base</a>, <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/752.html' title='Multiple used in 44 places.'>end</a>;
+<a id='L458' name='L458' /> 458         <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L459' name='L459' /> 459 
+<a id='L460' name='L460' /> 460         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("Loading task:\'%s\'\n", <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L461' name='L461' /> 461 
+<a id='L462' name='L462' /> 462         <em class='comment'>/*</em>
+<a id='L463' name='L463' /> 463 <em class='comment'>         * Reserve text &amp; data area</em>
+<a id='L464' name='L464' /> 464 <em class='comment'>         */</em>
+<a id='L465' name='L465' /> 465         <a href='../Y/411.html' title='Multiple used in 111 places.'>base</a> = <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/2136.html' title='Multiple used in 18 places.'>text</a>;
+<a id='L466' name='L466' /> 466         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/2139.html' title='Multiple used in 8 places.'>textsz</a> + <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/620.html' title='Multiple used in 11 places.'>datasz</a> + <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/456.html' title='Multiple used in 12 places.'>bsssz</a>;
+<a id='L467' name='L467' /> 467         <strong class='reserved'>if</strong> (<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == 0)
+<a id='L468' name='L468' /> 468                 <strong class='reserved'>return</strong> <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L469' name='L469' /> 469 
+<a id='L470' name='L470' /> 470         <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a> = <a href='264.html#L143' title='Defined at 143 in include/sys/param.h.'>trunc_page</a>(<a href='../Y/411.html' title='Multiple used in 111 places.'>base</a>);
+<a id='L471' name='L471' /> 471         <a href='../Y/752.html' title='Multiple used in 44 places.'>end</a> = <a href='264.html#L144' title='Defined at 144 in include/sys/param.h.'>round_page</a>(<a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L472' name='L472' /> 472         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>)(<a href='../Y/752.html' title='Multiple used in 44 places.'>end</a> - <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>);
+<a id='L473' name='L473' /> 473 
+<a id='L474' name='L474' /> 474         <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3400.html' title='Multiple defined in 2 places.'>seg_create</a>(&amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, <a href='../Y/2017.html' title='Multiple used in 97 places.'>start</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L475' name='L475' /> 475                 <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L476' name='L476' /> 476 
+<a id='L477' name='L477' /> 477         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='323.html#L53' title='Defined at 53 in sys/include/vm.h.'>SEG_READ</a> | <a href='323.html#L54' title='Defined at 54 in sys/include/vm.h.'>SEG_WRITE</a>;
+<a id='L478' name='L478' /> 478 
+<a id='L479' name='L479' /> 479         <strong class='reserved'>if</strong> (<a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/456.html' title='Multiple used in 12 places.'>bsssz</a> != 0)
+<a id='L480' name='L480' /> 480                 <a href='../D/3041.html' title='Multiple defined in 3 places.'>memset</a>((<strong class='reserved'>void</strong> *)(<a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a> + <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/620.html' title='Multiple used in 11 places.'>datasz</a>), 0, <a href='../Y/1293.html' title='Multiple used in 29 places.'>mod</a>-&gt;<a href='../Y/456.html' title='Multiple used in 12 places.'>bsssz</a>);
+<a id='L481' name='L481' /> 481 
+<a id='L482' name='L482' /> 482         <em class='comment'>/*</em>
+<a id='L483' name='L483' /> 483 <em class='comment'>         * Create stack</em>
+<a id='L484' name='L484' /> 484 <em class='comment'>         */</em>
+<a id='L485' name='L485' /> 485         <strong class='reserved'>return</strong> <a href='../D/2572.html' title='Multiple defined in 2 places.'>do_allocate</a>(<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>, <a href='../Y/2016.html' title='Multiple used in 92 places.'>stack</a>, <a href='264.html#L119' title='Defined at 119 in include/sys/param.h.'>DFLSTKSZ</a>, 1);
+<a id='L486' name='L486' /> 486 <em class='brace'>}</em>
+<a id='L487' name='L487' /> 487 
+<a id='L488' name='L488' /> 488 <em class='comment'>/*</em>
+<a id='L489' name='L489' /> 489 <em class='comment'> * Translate virtual address of current task to physical address.</em>
+<a id='L490' name='L490' /> 490 <em class='comment'> * Returns physical address on success, or NULL if no mapped memory.</em>
+<a id='L491' name='L491' /> 491 <em class='comment'> */</em>
+<a id='L492' name='L492' /> 492 <a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a>
+<a id='L493' name='L493' /> 493 <a href='../R/2895.html' title='Multiple refered from 2 places.'>vm_translate</a>(<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L494' name='L494' /> 494 <em class='brace'>{</em>
+<a id='L495' name='L495' /> 495 
+<a id='L496' name='L496' /> 496         <strong class='reserved'>return</strong> (<a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L497' name='L497' /> 497 <em class='brace'>}</em>
+<a id='L498' name='L498' /> 498 
+<a id='L499' name='L499' /> 499 <strong class='reserved'>int</strong>
+<a id='L500' name='L500' /> 500 <a href='../R/2887.html' title='Multiple refered from 2 places.'>vm_info</a>(<strong class='reserved'>struct</strong> <a href='../Y/2337.html' title='Multiple used in 6 places.'>vminfo</a> *<a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>)
+<a id='L501' name='L501' /> 501 <em class='brace'>{</em>
+<a id='L502' name='L502' /> 502         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a> <a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a> = <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/557.html' title='Multiple used in 27 places.'>cookie</a>;
+<a id='L503' name='L503' /> 503         <a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a> <a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a> = <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>;
+<a id='L504' name='L504' /> 504         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L505' name='L505' /> 505         <a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a> <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>;
+<a id='L506' name='L506' /> 506         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L507' name='L507' /> 507 
+<a id='L508' name='L508' /> 508         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L509' name='L509' /> 509         <strong class='reserved'>if</strong> (!<a href='334.html#L405' title='Defined at 405 in sys/kern/task.c.'>task_valid</a>(<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>)) <em class='brace'>{</em>
+<a id='L510' name='L510' /> 510                 <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L511' name='L511' /> 511                 <strong class='reserved'>return</strong> <a href='256.html#L42' title='Defined at 42 in include/sys/errno.h.'>ESRCH</a>;
+<a id='L512' name='L512' /> 512         <em class='brace'>}</em>
+<a id='L513' name='L513' /> 513         <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a> = <a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>-&gt;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>;
+<a id='L514' name='L514' /> 514         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = &amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>;
+<a id='L515' name='L515' /> 515         <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0;
+<a id='L516' name='L516' /> 516         <strong class='reserved'>do</strong> <em class='brace'>{</em>
+<a id='L517' name='L517' /> 517                 <strong class='reserved'>if</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++ == <a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a>) <em class='brace'>{</em>
+<a id='L518' name='L518' /> 518                         <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/557.html' title='Multiple used in 27 places.'>cookie</a> = <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L519' name='L519' /> 519                         <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/2333.html' title='Multiple used in 36 places.'>virt</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L520' name='L520' /> 520                         <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L521' name='L521' /> 521                         <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>;
+<a id='L522' name='L522' /> 522                         <a href='../Y/1045.html' title='Multiple used in 130 places.'>info</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a>;
+<a id='L523' name='L523' /> 523                         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L524' name='L524' /> 524                         <strong class='reserved'>return</strong> 0;
+<a id='L525' name='L525' /> 525                 <em class='brace'>}</em>
+<a id='L526' name='L526' /> 526                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L527' name='L527' /> 527         <em class='brace'>}</em> <strong class='reserved'>while</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> != &amp;<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>-&gt;<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>);
+<a id='L528' name='L528' /> 528         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L529' name='L529' /> 529         <strong class='reserved'>return</strong> <a href='256.html#L42' title='Defined at 42 in include/sys/errno.h.'>ESRCH</a>;
+<a id='L530' name='L530' /> 530 <em class='brace'>}</em>
+<a id='L531' name='L531' /> 531 
+<a id='L532' name='L532' /> 532 <strong class='reserved'>void</strong>
+<a id='L533' name='L533' /> 533 <a href='../R/2888.html' title='Multiple refered from 2 places.'>vm_init</a>(<strong class='reserved'>void</strong>)
+<a id='L534' name='L534' /> 534 <em class='brace'>{</em>
+<a id='L535' name='L535' /> 535 
+<a id='L536' name='L536' /> 536         <a href='../D/3403.html' title='Multiple defined in 2 places.'>seg_init</a>(&amp;<a href='../Y/1136.html' title='Multiple used in 9 places.'>kernel_map</a>.<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>);
+<a id='L537' name='L537' /> 537         <a href='../Y/1137.html' title='Multiple used in 18 places.'>kernel_task</a>.<a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a> = &amp;<a href='../Y/1136.html' title='Multiple used in 9 places.'>kernel_map</a>;
+<a id='L538' name='L538' /> 538 <em class='brace'>}</em>
+<a id='L539' name='L539' /> 539 
+<a id='L540' name='L540' /> 540 <em class='comment'>/*</em>
+<a id='L541' name='L541' /> 541 <em class='comment'> * Initialize segment.</em>
+<a id='L542' name='L542' /> 542 <em class='comment'> */</em>
+<a id='L543' name='L543' /> 543 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L544' name='L544' /> 544 <a href='../R/2497.html' title='Multiple refered from 6 places.'>seg_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>)
+<a id='L545' name='L545' /> 545 <em class='brace'>{</em>
+<a id='L546' name='L546' /> 546 
+<a id='L547' name='L547' /> 547         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L548' name='L548' /> 548         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L549' name='L549' /> 549         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> = 0;
+<a id='L550' name='L550' /> 550         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a> = 0;
+<a id='L551' name='L551' /> 551         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = 0;
+<a id='L552' name='L552' /> 552         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>;
+<a id='L553' name='L553' /> 553 <em class='brace'>}</em>
+<a id='L554' name='L554' /> 554 
+<a id='L555' name='L555' /> 555 <em class='comment'>/*</em>
+<a id='L556' name='L556' /> 556 <em class='comment'> * Create new free segment after the specified segment.</em>
+<a id='L557' name='L557' /> 557 <em class='comment'> * Returns segment on success, or NULL on failure.</em>
+<a id='L558' name='L558' /> 558 <em class='comment'> */</em>
+<a id='L559' name='L559' /> 559 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *
+<a id='L560' name='L560' /> 560 <a href='../R/2494.html' title='Multiple refered from 9 places.'>seg_create</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>, <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L561' name='L561' /> 561 <em class='brace'>{</em>
+<a id='L562' name='L562' /> 562         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L563' name='L563' /> 563 
+<a id='L564' name='L564' /> 564         <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='341.html#L175' title='Defined at 175 in sys/mem/kmem.c.'>kmem_alloc</a>(<strong class='reserved'>sizeof</strong>(*<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>))) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L565' name='L565' /> 565                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L566' name='L566' /> 566 
+<a id='L567' name='L567' /> 567         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> = <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L568' name='L568' /> 568         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L569' name='L569' /> 569         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a> = (<a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L570' name='L570' /> 570         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> = <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>;
+<a id='L571' name='L571' /> 571         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L572' name='L572' /> 572 
+<a id='L573' name='L573' /> 573         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L574' name='L574' /> 574         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L575' name='L575' /> 575         <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>-&gt;<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L576' name='L576' /> 576         <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L577' name='L577' /> 577 
+<a id='L578' name='L578' /> 578         <strong class='reserved'>return</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L579' name='L579' /> 579 <em class='brace'>}</em>
+<a id='L580' name='L580' /> 580 
+<a id='L581' name='L581' /> 581 <em class='comment'>/*</em>
+<a id='L582' name='L582' /> 582 <em class='comment'> * Delete specified segment.</em>
+<a id='L583' name='L583' /> 583 <em class='comment'> */</em>
+<a id='L584' name='L584' /> 584 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L585' name='L585' /> 585 <a href='../R/2495.html' title='Multiple refered from 4 places.'>seg_delete</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1010.html' title='Multiple used in 30 places.'>head</a>, <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>)
+<a id='L586' name='L586' /> 586 <em class='brace'>{</em>
+<a id='L587' name='L587' /> 587 
+<a id='L588' name='L588' /> 588         <em class='comment'>/*</em>
+<a id='L589' name='L589' /> 589 <em class='comment'>         * If it is shared segment, unlink from shared list.</em>
+<a id='L590' name='L590' /> 590 <em class='comment'>         */</em>
+<a id='L591' name='L591' /> 591         <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>) <em class='brace'>{</em>
+<a id='L592' name='L592' /> 592                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a>;
+<a id='L593' name='L593' /> 593                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a>;
+<a id='L594' name='L594' /> 594                 <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a> == <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a>)
+<a id='L595' name='L595' /> 595                         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp;= ~<a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>;
+<a id='L596' name='L596' /> 596         <em class='brace'>}</em>
+<a id='L597' name='L597' /> 597         <strong class='reserved'>if</strong> (<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a> != <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>)
+<a id='L598' name='L598' /> 598                 <a href='341.html#L269' title='Defined at 269 in sys/mem/kmem.c.'>kmem_free</a>(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>);
+<a id='L599' name='L599' /> 599 <em class='brace'>}</em>
+<a id='L600' name='L600' /> 600 
+<a id='L601' name='L601' /> 601 <em class='comment'>/*</em>
+<a id='L602' name='L602' /> 602 <em class='comment'> * Find the segment at the specified address.</em>
+<a id='L603' name='L603' /> 603 <em class='comment'> */</em>
+<a id='L604' name='L604' /> 604 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *
+<a id='L605' name='L605' /> 605 <a href='../R/2498.html' title='Multiple refered from 9 places.'>seg_lookup</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1010.html' title='Multiple used in 30 places.'>head</a>, <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L606' name='L606' /> 606 <em class='brace'>{</em>
+<a id='L607' name='L607' /> 607         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L608' name='L608' /> 608 
+<a id='L609' name='L609' /> 609         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>;
+<a id='L610' name='L610' /> 610         <strong class='reserved'>do</strong> <em class='brace'>{</em>
+<a id='L611' name='L611' /> 611                 <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> &lt;= <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> &amp;&amp;
+<a id='L612' name='L612' /> 612                     <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> + <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt;= <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>) <em class='brace'>{</em>
+<a id='L613' name='L613' /> 613                         <strong class='reserved'>return</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L614' name='L614' /> 614                 <em class='brace'>}</em>
+<a id='L615' name='L615' /> 615                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L616' name='L616' /> 616         <em class='brace'>}</em> <strong class='reserved'>while</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> != <a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>);
+<a id='L617' name='L617' /> 617         <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L618' name='L618' /> 618 <em class='brace'>}</em>
+<a id='L619' name='L619' /> 619 
+<a id='L620' name='L620' /> 620 <em class='comment'>/*</em>
+<a id='L621' name='L621' /> 621 <em class='comment'> * Allocate free segment for specified size.</em>
+<a id='L622' name='L622' /> 622 <em class='comment'> */</em>
+<a id='L623' name='L623' /> 623 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *
+<a id='L624' name='L624' /> 624 <a href='../R/2493.html' title='Multiple refered from 5 places.'>seg_alloc</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1010.html' title='Multiple used in 30 places.'>head</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L625' name='L625' /> 625 <em class='brace'>{</em>
+<a id='L626' name='L626' /> 626         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L627' name='L627' /> 627         <a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a> <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>;
+<a id='L628' name='L628' /> 628 
+<a id='L629' name='L629' /> 629         <strong class='reserved'>if</strong> ((<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> = <a href='342.html#L76' title='Defined at 76 in sys/mem/page.c.'>page_alloc</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == 0)
+<a id='L630' name='L630' /> 630                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L631' name='L631' /> 631 
+<a id='L632' name='L632' /> 632         <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3400.html' title='Multiple defined in 2 places.'>seg_create</a>(<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, (<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L633' name='L633' /> 633                 <a href='342.html#L129' title='Defined at 129 in sys/mem/page.c.'>page_free</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L634' name='L634' /> 634                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L635' name='L635' /> 635         <em class='brace'>}</em>
+<a id='L636' name='L636' /> 636         <strong class='reserved'>return</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L637' name='L637' /> 637 <em class='brace'>}</em>
+<a id='L638' name='L638' /> 638 
+<a id='L639' name='L639' /> 639 <em class='comment'>/*</em>
+<a id='L640' name='L640' /> 640 <em class='comment'> * Delete specified free segment.</em>
+<a id='L641' name='L641' /> 641 <em class='comment'> */</em>
+<a id='L642' name='L642' /> 642 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L643' name='L643' /> 643 <a href='../R/2496.html' title='Multiple refered from 7 places.'>seg_free</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1010.html' title='Multiple used in 30 places.'>head</a>, <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>)
+<a id='L644' name='L644' /> 644 <em class='brace'>{</em>
+<a id='L645' name='L645' /> 645         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> != <a href='323.html#L58' title='Defined at 58 in sys/include/vm.h.'>SEG_FREE</a>);
+<a id='L646' name='L646' /> 646 
+<a id='L647' name='L647' /> 647         <em class='comment'>/*</em>
+<a id='L648' name='L648' /> 648 <em class='comment'>         * If it is shared segment, unlink from shared list.</em>
+<a id='L649' name='L649' /> 649 <em class='comment'>         */</em>
+<a id='L650' name='L650' /> 650         <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>) <em class='brace'>{</em>
+<a id='L651' name='L651' /> 651                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a>;
+<a id='L652' name='L652' /> 652                 <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a>;
+<a id='L653' name='L653' /> 653                 <strong class='reserved'>if</strong> (<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a> == <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1922.html' title='Multiple used in 24 places.'>sh_next</a>)
+<a id='L654' name='L654' /> 654                         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1924.html' title='Multiple used in 28 places.'>sh_prev</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp;= ~<a href='323.html#L56' title='Defined at 56 in sys/include/vm.h.'>SEG_SHARED</a>;
+<a id='L655' name='L655' /> 655         <em class='brace'>}</em>
+<a id='L656' name='L656' /> 656         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L657' name='L657' /> 657         <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>-&gt;<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>-&gt;<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L658' name='L658' /> 658 
+<a id='L659' name='L659' /> 659         <a href='341.html#L269' title='Defined at 269 in sys/mem/kmem.c.'>kmem_free</a>(<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>);
+<a id='L660' name='L660' /> 660 <em class='brace'>}</em>
+<a id='L661' name='L661' /> 661 
+<a id='L662' name='L662' /> 662 <em class='comment'>/*</em>
+<a id='L663' name='L663' /> 663 <em class='comment'> * Reserve the segment at the specified address/size.</em>
+<a id='L664' name='L664' /> 664 <em class='comment'> */</em>
+<a id='L665' name='L665' /> 665 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *
+<a id='L666' name='L666' /> 666 <a href='../R/2499.html' title='Multiple refered from 4 places.'>seg_reserve</a>(<strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1010.html' title='Multiple used in 30 places.'>head</a>, <a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a> <a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L667' name='L667' /> 667 <em class='brace'>{</em>
+<a id='L668' name='L668' /> 668         <strong class='reserved'>struct</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> *<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L669' name='L669' /> 669         <a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a> <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>;
+<a id='L670' name='L670' /> 670 
+<a id='L671' name='L671' /> 671         <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> = (<a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>;
+<a id='L672' name='L672' /> 672 
+<a id='L673' name='L673' /> 673         <strong class='reserved'>if</strong> (<a href='342.html#L182' title='Defined at 182 in sys/mem/page.c.'>page_reserve</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>) != 0)
+<a id='L674' name='L674' /> 674                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L675' name='L675' /> 675 
+<a id='L676' name='L676' /> 676         <strong class='reserved'>if</strong> ((<a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a> = <a href='../D/3400.html' title='Multiple defined in 2 places.'>seg_create</a>(<a href='384.html#L98' title='Defined at 98 in usr/bin/head/head.c.'>head</a>, (<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L677' name='L677' /> 677                 <a href='342.html#L129' title='Defined at 129 in sys/mem/page.c.'>page_free</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L678' name='L678' /> 678                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L679' name='L679' /> 679         <em class='brace'>}</em>
+<a id='L680' name='L680' /> 680         <strong class='reserved'>return</strong> <a href='../Y/1876.html' title='Multiple used in 280 places.'>seg</a>;
+<a id='L681' name='L681' /> 681 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='344.html#L78'>[^]</a><a href='344.html#L666'>[v]</a><a href='344.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

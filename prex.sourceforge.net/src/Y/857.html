@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fdd</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/950.html#L42'>fdd</a>                42 usr/test/fdd/fdd.c 	device_t fdd;
+<a href='../S/950.html#L49'>fdd</a>                49 usr/test/fdd/fdd.c 	error = device_open("fd0", 0, &amp;fdd);
+<a href='../S/950.html#L58'>fdd</a>                58 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L61'>fdd</a>                61 usr/test/fdd/fdd.c 		device_close(fdd);
+<a href='../S/950.html#L81'>fdd</a>                81 usr/test/fdd/fdd.c 	error = device_close(fdd);
+<a href='../S/950.html#L91'>fdd</a>                91 usr/test/fdd/fdd.c 	device_t fdd;
+<a href='../S/950.html#L97'>fdd</a>                97 usr/test/fdd/fdd.c 	error = device_open("fd0", 0, &amp;fdd);
+<a href='../S/950.html#L105'>fdd</a>               105 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L108'>fdd</a>               108 usr/test/fdd/fdd.c 		device_close(fdd);
+<a href='../S/950.html#L114'>fdd</a>               114 usr/test/fdd/fdd.c 	error = device_write(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L117'>fdd</a>               117 usr/test/fdd/fdd.c 		device_close(fdd);
+<a href='../S/950.html#L122'>fdd</a>               122 usr/test/fdd/fdd.c 	error = device_close(fdd);
+</pre>
+</body>
+</html>

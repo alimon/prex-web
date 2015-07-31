@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sleepq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/96.html#L70'>sleepq</a>             70 bsp/drv/include/dki.h 	struct queue	sleepq;		/* queue for waiting thread */
+<a href='../S/96.html#L75'>sleepq</a>             75 bsp/drv/include/dki.h     do { list_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/306.html#L40'>sleepq</a>             40 sys/include/event.h 	struct queue	sleepq;		/* queue for waiting thread */
+<a href='../S/306.html#L46'>sleepq</a>             46 sys/include/event.h     do { queue_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/306.html#L48'>sleepq</a>             48 sys/include/event.h #define event_waiting(event)   (!queue_empty(&amp;(event)-&gt;sleepq))
+<a href='../S/331.html#L282'>sleepq</a>            282 sys/kern/sched.c 	enqueue(&amp;evt-&gt;sleepq, &amp;curthread-&gt;sched_link);
+<a href='../S/331.html#L317'>sleepq</a>            317 sys/kern/sched.c 	while (!queue_empty(&amp;evt-&gt;sleepq)) {
+<a href='../S/331.html#L318'>sleepq</a>            318 sys/kern/sched.c 		q = dequeue(&amp;evt-&gt;sleepq);
+<a href='../S/331.html#L343'>sleepq</a>            343 sys/kern/sched.c 	head = &amp;evt-&gt;sleepq;
+</pre>
+</body>
+</html>

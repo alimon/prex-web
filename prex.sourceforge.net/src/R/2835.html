@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>uint16_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/26.html#L60'>uint16_t</a>           60 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)val;
+<a href='../S/26.html#L64'>uint16_t</a>           64 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)(val &gt;&gt; 16);
+<a href='../S/26.html#L68'>uint16_t</a>           68 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)((val + 0x8000) &gt;&gt; 16);
+<a href='../S/50.html#L42'>uint16_t</a>           42 bsp/drv/arm/gba/keypad.c #define REG_KEYSTS	(*(volatile uint16_t *)0x4000130)
+<a href='../S/50.html#L43'>uint16_t</a>           43 bsp/drv/arm/gba/keypad.c #define REG_KEYCNT	(*(volatile uint16_t *)0x4000132)
+<a href='../S/50.html#L96'>uint16_t</a>           96 bsp/drv/arm/gba/keypad.c 	uint16_t sts;
+<a href='../S/51.html#L49'>uint16_t</a>           49 bsp/drv/arm/gba/lcd.c 	uint16_t	*vram;
+<a href='../S/51.html#L147'>uint16_t</a>          147 bsp/drv/arm/gba/lcd.c 	uint16_t *tile = CONSOLE_TILE;
+<a href='../S/51.html#L166'>uint16_t</a>          166 bsp/drv/arm/gba/lcd.c 	uint16_t *pal = BG_PALETTE;
+<a href='../S/52.html#L73'>uint16_t</a>           73 bsp/drv/arm/gba/lcd.h #define REG_DISPCNT	(*(volatile uint16_t *)0x4000000)
+<a href='../S/52.html#L74'>uint16_t</a>           74 bsp/drv/arm/gba/lcd.h #define REG_BG0CNT	(*(volatile uint16_t *)0x4000008)
+<a href='../S/52.html#L75'>uint16_t</a>           75 bsp/drv/arm/gba/lcd.h #define REG_BG1CNT	(*(volatile uint16_t *)0x400000A)
+<a href='../S/52.html#L76'>uint16_t</a>           76 bsp/drv/arm/gba/lcd.h #define REG_BG2CNT	(*(volatile uint16_t *)0x400000C)
+<a href='../S/52.html#L77'>uint16_t</a>           77 bsp/drv/arm/gba/lcd.h #define REG_BG3CNT	(*(volatile uint16_t *)0x400000E)
+<a href='../S/52.html#L79'>uint16_t</a>           79 bsp/drv/arm/gba/lcd.h #define BG_PALETTE	(uint16_t *)0x5000000
+<a href='../S/52.html#L81'>uint16_t</a>           81 bsp/drv/arm/gba/lcd.h #define CONSOLE_TILE	(uint16_t *)0x6000000
+<a href='../S/52.html#L82'>uint16_t</a>           82 bsp/drv/arm/gba/lcd.h #define CONSOLE_MAP	(uint16_t *)0x6008000
+<a href='../S/52.html#L84'>uint16_t</a>           84 bsp/drv/arm/gba/lcd.h #define KBD1_TILE	(uint16_t *)0x6004000
+<a href='../S/52.html#L85'>uint16_t</a>           85 bsp/drv/arm/gba/lcd.h #define KBD2_TILE	(uint16_t *)0x6006000
+<a href='../S/52.html#L86'>uint16_t</a>           86 bsp/drv/arm/gba/lcd.h #define KBD1_MAP	(uint16_t *)0x6009000
+<a href='../S/52.html#L87'>uint16_t</a>           87 bsp/drv/arm/gba/lcd.h #define KBD2_MAP	(uint16_t *)0x600A000
+<a href='../S/52.html#L89'>uint16_t</a>           89 bsp/drv/arm/gba/lcd.h #define OAM		(uint16_t *)0x7000000
+<a href='../S/52.html#L90'>uint16_t</a>           90 bsp/drv/arm/gba/lcd.h #define SPL_PALETTE	(uint16_t *)0x5000200
+<a href='../S/52.html#L91'>uint16_t</a>           91 bsp/drv/arm/gba/lcd.h #define CURSOR_DATA	(uint16_t *)0x6010000
+<a href='../S/54.html#L186'>uint16_t</a>          186 bsp/drv/arm/gba/swkbd.c 	uint16_t *oam = OAM;
+<a href='../S/54.html#L210'>uint16_t</a>          210 bsp/drv/arm/gba/swkbd.c 		oam[curcur * 4] = (uint16_t)((oam[curcur * 4] &amp; 0xff00) | 160);
+<a href='../S/54.html#L211'>uint16_t</a>          211 bsp/drv/arm/gba/swkbd.c 		oam[curcur * 4 + 1] = (uint16_t)((oam[curcur * 4 + 1] &amp; 0xfe00) | 240);
+<a href='../S/54.html#L214'>uint16_t</a>          214 bsp/drv/arm/gba/swkbd.c 	oam[newcur * 4] = (uint16_t)((oam[newcur * 4] &amp; 0xff00) | y);
+<a href='../S/54.html#L215'>uint16_t</a>          215 bsp/drv/arm/gba/swkbd.c 	oam[newcur * 4 + 1] = (uint16_t)((oam[newcur * 4 + 1] &amp; 0xfe00) | x);
+<a href='../S/54.html#L384'>uint16_t</a>          384 bsp/drv/arm/gba/swkbd.c 	uint16_t val1, val2;
+<a href='../S/54.html#L385'>uint16_t</a>          385 bsp/drv/arm/gba/swkbd.c 	uint16_t *pal = BG_PALETTE;
+<a href='../S/54.html#L386'>uint16_t</a>          386 bsp/drv/arm/gba/swkbd.c 	uint16_t *tile1 = KBD1_TILE;
+<a href='../S/54.html#L387'>uint16_t</a>          387 bsp/drv/arm/gba/swkbd.c 	uint16_t *tile2 = KBD2_TILE;
+<a href='../S/54.html#L388'>uint16_t</a>          388 bsp/drv/arm/gba/swkbd.c 	uint16_t *map1 = KBD1_MAP;
+<a href='../S/54.html#L389'>uint16_t</a>          389 bsp/drv/arm/gba/swkbd.c 	uint16_t *map2 = KBD2_MAP;
+<a href='../S/54.html#L415'>uint16_t</a>          415 bsp/drv/arm/gba/swkbd.c 			map1[row * 32 + col] = (uint16_t)i;
+<a href='../S/54.html#L416'>uint16_t</a>          416 bsp/drv/arm/gba/swkbd.c 			map2[row * 32 + col] = (uint16_t)(i + 127);
+<a href='../S/54.html#L439'>uint16_t</a>          439 bsp/drv/arm/gba/swkbd.c 	uint16_t val;
+<a href='../S/54.html#L440'>uint16_t</a>          440 bsp/drv/arm/gba/swkbd.c 	uint16_t *oam = OAM;
+<a href='../S/54.html#L441'>uint16_t</a>          441 bsp/drv/arm/gba/swkbd.c 	uint16_t *cur = CURSOR_DATA;
+<a href='../S/54.html#L442'>uint16_t</a>          442 bsp/drv/arm/gba/swkbd.c 	uint16_t *pal = SPL_PALETTE;
+<a href='../S/54.html#L465'>uint16_t</a>          465 bsp/drv/arm/gba/swkbd.c 		oam[0] = (uint16_t)(0x6000 + 160); /* 256 color, Horizontal */
+<a href='../S/54.html#L466'>uint16_t</a>          466 bsp/drv/arm/gba/swkbd.c 		oam[1] = (uint16_t)(0x8000 + 240); /* 32x16 */
+<a href='../S/54.html#L467'>uint16_t</a>          467 bsp/drv/arm/gba/swkbd.c 		oam[2] = (uint16_t)(i * 16); /* Tile number */
+<a href='../S/56.html#L41'>uint16_t</a>           41 bsp/drv/arm/include/busio.h #define bus_read_16(addr)	(*((volatile uint16_t *)(addr)))
+<a href='../S/56.html#L45'>uint16_t</a>           45 bsp/drv/arm/include/busio.h #define bus_write_16(addr, val)	(*((volatile uint16_t *)(addr)) = (val))
+<a href='../S/109.html#L24'>uint16_t</a>           24 bsp/drv/lib/endian.c uint16_t
+<a href='../S/109.html#L25'>uint16_t</a>           25 bsp/drv/lib/endian.c htons(uint16_t x)
+<a href='../S/109.html#L29'>uint16_t</a>           29 bsp/drv/lib/endian.c 	return (uint16_t)(s[0] &lt;&lt; 8 | s[1]);
+<a href='../S/109.html#L40'>uint16_t</a>           40 bsp/drv/lib/endian.c uint16_t
+<a href='../S/109.html#L41'>uint16_t</a>           41 bsp/drv/lib/endian.c ntohs(uint16_t x)
+<a href='../S/109.html#L45'>uint16_t</a>           45 bsp/drv/lib/endian.c 	return (uint16_t)(s[0] &lt;&lt; 8 | s[1]);
+<a href='../S/117.html#L44'>uint16_t</a>           44 bsp/drv/ppc/include/busio.h #define bus_read_16(addr)	(*((volatile uint16_t *)(IOBASE+addr)))
+<a href='../S/117.html#L48'>uint16_t</a>           48 bsp/drv/ppc/include/busio.h #define bus_write_16(addr, val)	(*((volatile uint16_t *)(IOBASE+addr)) = (val))
+<a href='../S/123.html#L42'>uint16_t</a>           42 bsp/drv/x86/include/busio.h void	 bus_write_16(int addr, uint16_t val);
+<a href='../S/123.html#L46'>uint16_t</a>           46 bsp/drv/x86/include/busio.h uint16_t bus_read_16(int addr);
+<a href='../S/133.html#L51'>uint16_t</a>           51 bsp/hal/arm/gba/clock.c #define TMR0_COUNT	(*(volatile uint16_t *)0x4000100)
+<a href='../S/133.html#L52'>uint16_t</a>           52 bsp/hal/arm/gba/clock.c #define TMR0_CTRL	(*(volatile uint16_t *)0x4000102)
+<a href='../S/133.html#L94'>uint16_t</a>           94 bsp/hal/arm/gba/clock.c 	TMR0_CTRL = (uint16_t)(TMR_IRQEN | TMR_64_CLOCK);
+<a href='../S/136.html#L49'>uint16_t</a>           49 bsp/hal/arm/gba/interrupt.c #define ICU_IE		(*(volatile uint16_t *)0x4000200)
+<a href='../S/136.html#L50'>uint16_t</a>           50 bsp/hal/arm/gba/interrupt.c #define ICU_IF		(*(volatile uint16_t *)0x4000202)
+<a href='../S/136.html#L51'>uint16_t</a>           51 bsp/hal/arm/gba/interrupt.c #define ICU_IME		(*(volatile uint16_t *)0x4000208)
+<a href='../S/136.html#L73'>uint16_t</a>           73 bsp/hal/arm/gba/interrupt.c static uint16_t mask_table[NIPLS];	/* Level -&gt; mask */
+<a href='../S/136.html#L89'>uint16_t</a>           89 bsp/hal/arm/gba/interrupt.c 	uint16_t unmask = (uint16_t)1 &lt;&lt; vector;
+<a href='../S/136.html#L111'>uint16_t</a>          111 bsp/hal/arm/gba/interrupt.c 	u_int mask = (uint16_t)~(1 &lt;&lt; vector);
+<a href='../S/136.html#L144'>uint16_t</a>          144 bsp/hal/arm/gba/interrupt.c 	ICU_IF = (uint16_t)(1 &lt;&lt; vector);
+<a href='../S/136.html#L165'>uint16_t</a>          165 bsp/hal/arm/gba/interrupt.c 	uint16_t bits;
+<a href='../S/136.html#L171'>uint16_t</a>          171 bsp/hal/arm/gba/interrupt.c 		if (bits &amp; (uint16_t)(1 &lt;&lt; vector))
+<a href='../S/148.html#L111'>uint16_t</a>          111 bsp/hal/arm/integrator/interrupt.c 	u_int mask = (uint16_t)~(1 &lt;&lt; vector);
+<a href='../S/174.html#L144'>uint16_t</a>          144 bsp/hal/x86/arch/cpu.c 	gdt_p.limit = (uint16_t)(sizeof(gdt) - 1);
+<a href='../S/174.html#L185'>uint16_t</a>          185 bsp/hal/x86/arch/cpu.c 	idt_p.limit = (uint16_t)(sizeof(idt) - 1);
+<a href='../S/181.html#L125'>uint16_t</a>          125 bsp/hal/x86/include/cpu.h 	uint16_t limit;
+<a href='../S/181.html#L184'>uint16_t</a>          184 bsp/hal/x86/include/cpu.h 	uint16_t dbg_trace;
+<a href='../S/181.html#L185'>uint16_t</a>          185 bsp/hal/x86/include/cpu.h 	uint16_t io_bitmap_offset;
+<a href='../S/253.html#L51'>uint16_t</a>           51 include/sys/dirent.h 	uint16_t d_reclen;		/* length of this record */
+<a href='../S/253.html#L52'>uint16_t</a>           52 include/sys/dirent.h 	uint16_t d_namlen;		/* length of string in d_name */
+<a href='../S/254.html#L46'>uint16_t</a>           46 include/sys/elf.h typedef uint16_t	Elf32_Half;	/* Unsigned medium integer */
+<a href='../S/255.html#L69'>uint16_t</a>           69 include/sys/endian.h uint16_t htons(uint16_t);
+<a href='../S/255.html#L71'>uint16_t</a>           71 include/sys/endian.h uint16_t ntohs(uint16_t);
+<a href='../S/354.html#L58'>uint16_t</a>           58 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = val;
+<a href='../S/354.html#L62'>uint16_t</a>           62 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = (val &gt;&gt; 16);
+<a href='../S/354.html#L66'>uint16_t</a>           66 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = (val + 0x8000) &gt;&gt; 16;
+<a href='../S/883.html#L330'>uint16_t</a>          330 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/886.html#L252'>uint16_t</a>          252 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/888.html#L90'>uint16_t</a>           90 usr/server/fs/fatfs/fatfs.h 	uint16_t	jmp_instruction;
+<a href='../S/888.html#L93'>uint16_t</a>           93 usr/server/fs/fatfs/fatfs.h 	uint16_t	bytes_per_sector;
+<a href='../S/888.html#L95'>uint16_t</a>           95 usr/server/fs/fatfs/fatfs.h 	uint16_t	reserved_sectors;
+<a href='../S/888.html#L97'>uint16_t</a>           97 usr/server/fs/fatfs/fatfs.h 	uint16_t	root_entries;
+<a href='../S/888.html#L98'>uint16_t</a>           98 usr/server/fs/fatfs/fatfs.h 	uint16_t	total_sectors;
+<a href='../S/888.html#L100'>uint16_t</a>          100 usr/server/fs/fatfs/fatfs.h 	uint16_t	sectors_per_fat;
+<a href='../S/888.html#L101'>uint16_t</a>          101 usr/server/fs/fatfs/fatfs.h 	uint16_t	sectors_per_track;
+<a href='../S/888.html#L102'>uint16_t</a>          102 usr/server/fs/fatfs/fatfs.h 	uint16_t	heads;
+<a href='../S/888.html#L120'>uint16_t</a>          120 usr/server/fs/fatfs/fatfs.h 	uint16_t	time;
+<a href='../S/888.html#L121'>uint16_t</a>          121 usr/server/fs/fatfs/fatfs.h 	uint16_t	date;
+<a href='../S/888.html#L122'>uint16_t</a>          122 usr/server/fs/fatfs/fatfs.h 	uint16_t	cluster;
+<a href='../S/889.html#L131'>uint16_t</a>          131 usr/server/fs/fatfs/fatfs_fat.c 	uint16_t val;
+<a href='../S/889.html#L146'>uint16_t</a>          146 usr/server/fs/fatfs/fatfs_fat.c 	val = *((uint16_t *)(fmp-&gt;fat_buf + offset));
+<a href='../S/889.html#L172'>uint16_t</a>          172 usr/server/fs/fatfs/fatfs_fat.c 	uint16_t val, tmp;
+<a href='../S/889.html#L186'>uint16_t</a>          186 usr/server/fs/fatfs/fatfs_fat.c 	val = (uint16_t)(next &amp; fmp-&gt;fat_mask);
+<a href='../S/889.html#L188'>uint16_t</a>          188 usr/server/fs/fatfs/fatfs_fat.c 		tmp = *((uint16_t *)(buf + offset));
+<a href='../S/889.html#L197'>uint16_t</a>          197 usr/server/fs/fatfs/fatfs_fat.c 	*((uint16_t *)(buf + offset)) = val;
+<a href='../S/896.html#L457'>uint16_t</a>          457 usr/server/fs/fifofs/fifo_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/902.html#L488'>uint16_t</a>          488 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+</pre>
+</body>
+</html>

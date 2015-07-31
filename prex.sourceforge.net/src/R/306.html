@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>FDG_SECTORS</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L276'>FDG_SECTORS</a>       276 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L277'>FDG_SECTORS</a>       277 bsp/drv/dev/block/fdd.c 	track = irp-&gt;blkno / (FDG_SECTORS * FDG_HEADS);
+<a href='../S/66.html#L305'>FDG_SECTORS</a>       305 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L306'>FDG_SECTORS</a>       306 bsp/drv/dev/block/fdd.c 	track = irp-&gt;blkno / (FDG_SECTORS * FDG_HEADS);
+<a href='../S/66.html#L307'>FDG_SECTORS</a>       307 bsp/drv/dev/block/fdd.c 	sect = irp-&gt;blkno % FDG_SECTORS + 1;
+<a href='../S/66.html#L325'>FDG_SECTORS</a>       325 bsp/drv/dev/block/fdd.c 	fdc_out(FDG_SECTORS);
+<a href='../S/66.html#L568'>FDG_SECTORS</a>       568 bsp/drv/dev/block/fdd.c 	if (blkno &gt; FDG_HEADS * FDG_TRACKS * FDG_SECTORS)
+<a href='../S/66.html#L579'>FDG_SECTORS</a>       579 bsp/drv/dev/block/fdd.c 		track = blkno / FDG_SECTORS;
+<a href='../S/66.html#L580'>FDG_SECTORS</a>       580 bsp/drv/dev/block/fdd.c 		sect = blkno % FDG_SECTORS;
+<a href='../S/66.html#L587'>FDG_SECTORS</a>       587 bsp/drv/dev/block/fdd.c 			error = fdd_rw(sc, IO_READ, sc-&gt;rbuf, FDG_SECTORS,
+<a href='../S/66.html#L588'>FDG_SECTORS</a>       588 bsp/drv/dev/block/fdd.c 				       track * FDG_SECTORS);
+<a href='../S/66.html#L624'>FDG_SECTORS</a>       624 bsp/drv/dev/block/fdd.c 	if (blkno &gt; FDG_HEADS * FDG_TRACKS * FDG_SECTORS)
+<a href='../S/66.html#L635'>FDG_SECTORS</a>       635 bsp/drv/dev/block/fdd.c 		track = blkno / FDG_SECTORS;
+<a href='../S/66.html#L636'>FDG_SECTORS</a>       636 bsp/drv/dev/block/fdd.c 		sect = blkno % FDG_SECTORS;
+</pre>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>consdev</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L69'>consdev</a>            69 bsp/drv/dev/base/cons.c static struct consdev *consdev;		/* console device info */
+<a href='../S/58.html#L75'>consdev</a>            75 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L76'>consdev</a>            76 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L77'>consdev</a>            77 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;open(dev, mode);
+<a href='../S/58.html#L84'>consdev</a>            84 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L85'>consdev</a>            85 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L86'>consdev</a>            86 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;close(dev);
+<a href='../S/58.html#L93'>consdev</a>            93 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L94'>consdev</a>            94 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L95'>consdev</a>            95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L102'>consdev</a>           102 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L103'>consdev</a>           103 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L104'>consdev</a>           104 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;write(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L111'>consdev</a>           111 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L112'>consdev</a>           112 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L113'>consdev</a>           113 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;ioctl(dev, cmd, arg);
+<a href='../S/58.html#L120'>consdev</a>           120 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L121'>consdev</a>           121 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L122'>consdev</a>           122 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;devctl(dev, cmd, arg);
+<a href='../S/58.html#L134'>consdev</a>           134 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L135'>consdev</a>           135 bsp/drv/dev/base/cons.c 	return consdev-&gt;cngetc(consdev-&gt;dev);
+<a href='../S/58.html#L147'>consdev</a>           147 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L148'>consdev</a>           148 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, on);
+<a href='../S/58.html#L158'>consdev</a>           158 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L160'>consdev</a>           160 bsp/drv/dev/base/cons.c 		consdev-&gt;cnputc(consdev-&gt;dev, c);
+<a href='../S/58.html#L162'>consdev</a>           162 bsp/drv/dev/base/cons.c 			consdev-&gt;cnputc(consdev-&gt;dev, '\r');
+<a href='../S/58.html#L170'>consdev</a>           170 bsp/drv/dev/base/cons.c 	ASSERT(consdev != NULL);
+<a href='../S/58.html#L172'>consdev</a>           172 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, 1);
+<a href='../S/58.html#L174'>consdev</a>           174 bsp/drv/dev/base/cons.c 		consdev-&gt;cnputc(consdev-&gt;dev, *str);
+<a href='../S/58.html#L176'>consdev</a>           176 bsp/drv/dev/base/cons.c 			consdev-&gt;cnputc(consdev-&gt;dev, '\r');
+<a href='../S/58.html#L179'>consdev</a>           179 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, 0);
+<a href='../S/58.html#L183'>consdev</a>           183 bsp/drv/dev/base/cons.c cons_attach(struct consdev *cdev, int diag)
+<a href='../S/58.html#L186'>consdev</a>           186 bsp/drv/dev/base/cons.c 	if (consdev != NULL)
+<a href='../S/58.html#L188'>consdev</a>           188 bsp/drv/dev/base/cons.c 	consdev = cdev;
+<a href='../S/58.html#L201'>consdev</a>           201 bsp/drv/dev/base/cons.c 	consdev = NULL;
+<a href='../S/65.html#L100'>consdev</a>           100 bsp/drv/dev/base/wscons.c static struct consdev wsconsdev = {
+<a href='../S/89.html#L85'>consdev</a>            85 bsp/drv/dev/serial/serial.c static struct consdev serial_consdev = {
+<a href='../S/92.html#L35'>consdev</a>            35 bsp/drv/include/cons.h struct consdev {
+<a href='../S/92.html#L48'>consdev</a>            48 bsp/drv/include/cons.h void	cons_attach(struct consdev *, int);
+</pre>
+</body>
+</html>

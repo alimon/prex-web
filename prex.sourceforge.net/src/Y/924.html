@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fs</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L205'>fs</a>                205 bsp/hal/x86/arch/cpu.c 	tss.ds = tss.es = tss.ss = tss.fs = tss.gs = (uint32_t)USER_CS | 3;
+<a href='../S/181.html#L182'>fs</a>                182 bsp/hal/x86/include/cpu.h 	uint32_t es, cs, ss, ds, fs, gs;
+<a href='../S/219.html#L92'>fs</a>                 92 include/ipc/fs.h 	char	fs[16];			/* file system name */
+<a href='../S/680.html#L39'>fs</a>                 39 usr/lib/posix/file/mount.c mount(const char *dev, const char *dir, const char *fs, int flags,
+<a href='../S/680.html#L46'>fs</a>                 46 usr/lib/posix/file/mount.c 	strlcpy(m.fs, (char *)fs, 16);
+<a href='../S/903.html#L98'>fs</a>                 98 usr/server/fs/vfs/main.c 		error = sys_mount(msg-&gt;dev, msg-&gt;dir, msg-&gt;fs, msg-&gt;flags,
+<a href='../S/903.html#L915'>fs</a>                915 usr/server/fs/vfs/main.c 	const struct vfssw *fs;
+<a href='../S/903.html#L928'>fs</a>                928 usr/server/fs/vfs/main.c 	for (fs = vfssw; fs-&gt;vs_name; fs++) {
+<a href='../S/903.html#L930'>fs</a>                930 usr/server/fs/vfs/main.c 				     fs-&gt;vs_name));
+<a href='../S/903.html#L931'>fs</a>                931 usr/server/fs/vfs/main.c 		fs-&gt;vs_init();
+<a href='../S/909.html#L77'>fs</a>                 77 usr/server/fs/vfs/vfs_mount.c 	const struct vfssw *fs;
+<a href='../S/909.html#L79'>fs</a>                 79 usr/server/fs/vfs/vfs_mount.c 	for (fs = vfssw; fs-&gt;vs_name; fs++) {
+<a href='../S/909.html#L80'>fs</a>                 80 usr/server/fs/vfs/vfs_mount.c 		if (!strncmp(name, fs-&gt;vs_name, FSMAXNAMES))
+<a href='../S/909.html#L83'>fs</a>                 83 usr/server/fs/vfs/vfs_mount.c 	if (!fs-&gt;vs_name)
+<a href='../S/909.html#L85'>fs</a>                 85 usr/server/fs/vfs/vfs_mount.c 	return fs;
+<a href='../S/909.html#L91'>fs</a>                 91 usr/server/fs/vfs/vfs_mount.c 	const struct vfssw *fs;
+<a href='../S/909.html#L106'>fs</a>                106 usr/server/fs/vfs/vfs_mount.c 	if (!(fs = fs_getfs(fsname)))
+<a href='../S/909.html#L138'>fs</a>                138 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_op = fs-&gt;vs_op;
+</pre>
+</body>
+</html>

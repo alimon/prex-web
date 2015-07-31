@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>priority</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L234'>priority</a>          234 bsp/drv/dev/base/kd.c 			       pol[ti.policy], ti.priority, ti.basepri,
+<a href='../S/60.html#L391'>priority</a>          391 bsp/drv/dev/base/kd.c 			       ii.priority, (long)ii.thread);
+<a href='../S/272.html#L87'>priority</a>           87 include/sys/sysinfo.h 	int		priority;	/* current priority */
+<a href='../S/272.html#L158'>priority</a>          158 include/sys/sysinfo.h 	int		priority;	/* interrupt priority */
+<a href='../S/310.html#L44'>priority</a>           44 sys/include/irq.h 	int		priority;	/* interrupt priority */
+<a href='../S/316.html#L53'>priority</a>           53 sys/include/sync.h 	int		priority;	/* highest priority in waiting threads */
+<a href='../S/319.html#L52'>priority</a>           52 sys/include/thread.h 	int		priority;	/* current priority */
+<a href='../S/324.html#L424'>priority</a>          424 sys/ipc/msg.c  		if (t-&gt;priority &lt; top-&gt;priority)
+<a href='../S/329.html#L96'>priority</a>           96 sys/kern/irq.c 	irq-&gt;priority = pri;
+<a href='../S/329.html#L244'>priority</a>          244 sys/kern/irq.c 	info-&gt;priority = irq-&gt;priority;
+<a href='../S/331.html#L121'>priority</a>          121 sys/kern/sched.c 	enqueue(&amp;runq[t-&gt;priority], &amp;t-&gt;sched_link);
+<a href='../S/331.html#L122'>priority</a>          122 sys/kern/sched.c 	if (t-&gt;priority &lt; maxpri) {
+<a href='../S/331.html#L123'>priority</a>          123 sys/kern/sched.c 		maxpri = t-&gt;priority;
+<a href='../S/331.html#L136'>priority</a>          136 sys/kern/sched.c 	queue_insert(&amp;runq[t-&gt;priority], &amp;t-&gt;sched_link);
+<a href='../S/331.html#L137'>priority</a>          137 sys/kern/sched.c 	if (t-&gt;priority &lt; maxpri)
+<a href='../S/331.html#L138'>priority</a>          138 sys/kern/sched.c 		maxpri = t-&gt;priority;
+<a href='../S/331.html#L224'>priority</a>          224 sys/kern/sched.c 		if (prev-&gt;priority &gt; maxpri)
+<a href='../S/331.html#L353'>priority</a>          353 sys/kern/sched.c 			if (t-&gt;priority &lt; top-&gt;priority)
+<a href='../S/331.html#L401'>priority</a>          401 sys/kern/sched.c 	if (!queue_empty(&amp;runq[curthread-&gt;priority]))
+<a href='../S/331.html#L476'>priority</a>          476 sys/kern/sched.c 	t-&gt;priority = pri;
+<a href='../S/331.html#L570'>priority</a>          570 sys/kern/sched.c 	return t-&gt;priority;
+<a href='../S/331.html#L591'>priority</a>          591 sys/kern/sched.c 		t-&gt;priority = pri;
+<a href='../S/331.html#L603'>priority</a>          603 sys/kern/sched.c 			t-&gt;priority = pri;
+<a href='../S/331.html#L606'>priority</a>          606 sys/kern/sched.c 			t-&gt;priority = pri;
+<a href='../S/334.html#L512'>priority</a>          512 sys/kern/task.c 		t-&gt;priority = PRI_REALTIME;
+<a href='../S/335.html#L360'>priority</a>          360 sys/kern/thread.c 		if (t-&gt;priority != t-&gt;basepri &amp;&amp; pri &gt; t-&gt;priority)
+<a href='../S/335.html#L361'>priority</a>          361 sys/kern/thread.c 			pri = t-&gt;priority;
+<a href='../S/335.html#L497'>priority</a>          497 sys/kern/thread.c 			info-&gt;priority = t-&gt;priority;
+<a href='../S/336.html#L400'>priority</a>          400 sys/kern/timer.c 	if (curthread-&gt;priority == PRI_IDLE)
+<a href='../S/346.html#L108'>priority</a>          108 sys/sync/mutex.c 	m-&gt;priority = MINPRI;
+<a href='../S/346.html#L211'>priority</a>          211 sys/sync/mutex.c 			m-&gt;priority = curthread-&gt;priority;
+<a href='../S/346.html#L299'>priority</a>          299 sys/sync/mutex.c 		m-&gt;priority = m-&gt;holder ? m-&gt;holder-&gt;priority : MINPRI;
+<a href='../S/346.html#L356'>priority</a>          356 sys/sync/mutex.c 	if (t-&gt;mutex_waiting &amp;&amp; pri &lt; t-&gt;priority)
+<a href='../S/346.html#L441'>priority</a>          441 sys/sync/mutex.c 		if (holder-&gt;priority &gt; waiter-&gt;priority) {
+<a href='../S/346.html#L442'>priority</a>          442 sys/sync/mutex.c 			sched_setpri(holder, holder-&gt;basepri, waiter-&gt;priority);
+<a href='../S/346.html#L443'>priority</a>          443 sys/sync/mutex.c 			m-&gt;priority = waiter-&gt;priority;
+<a href='../S/346.html#L476'>priority</a>          476 sys/sync/mutex.c 	if (t-&gt;priority == t-&gt;basepri)
+<a href='../S/346.html#L489'>priority</a>          489 sys/sync/mutex.c 		if (m-&gt;priority &lt; maxpri)
+<a href='../S/346.html#L490'>priority</a>          490 sys/sync/mutex.c 			maxpri = m-&gt;priority;
+<a href='../S/404.html#L136'>priority</a>          136 usr/bin/ps/ps.c 				       ti.priority, stat[pi.stat-1],
+</pre>
+</body>
+</html>

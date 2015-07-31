@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>LOGBUFSZ</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/326.html#L48'>LOGBUFSZ</a>           48 sys/kern/debug.c static char	log_buf[LOGBUFSZ];		/* log buffer */
+<a href='../S/326.html#L53'>LOGBUFSZ</a>           53 sys/kern/debug.c #define LOGINDEX(x)	((x) &amp; (LOGBUFSZ - 1))
+<a href='../S/326.html#L82'>LOGBUFSZ</a>           82 sys/kern/debug.c 		if (log_len &lt; LOGBUFSZ)
+<a href='../S/326.html#L85'>LOGBUFSZ</a>           85 sys/kern/debug.c 			log_head = log_tail - LOGBUFSZ;
+<a href='../S/326.html#L130'>LOGBUFSZ</a>          130 sys/kern/debug.c 	if (len &gt;= LOGBUFSZ) {
+<a href='../S/326.html#L139'>LOGBUFSZ</a>          139 sys/kern/debug.c 	for (cnt = 0; cnt &lt; LOGBUFSZ; cnt++) {
+<a href='../S/326.html#L169'>LOGBUFSZ</a>          169 sys/kern/debug.c 		size = LOGBUFSZ;
+</pre>
+</body>
+</html>

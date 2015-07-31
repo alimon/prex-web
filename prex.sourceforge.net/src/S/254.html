@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/sys/elf.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1070.html'>include</a>/<a href='../files/1075.html'>sys</a>/elf.h</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='254.html#L123'>[^]</a><a href='254.html#L391'>[v]</a>[top]<a href='254.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/209.html' title='Multiple included from 16 places.'>INCLUDED FROM</a></h2>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='254.html#L123' title='Defined at 123.'>Elf32_Ehdr</a></li>
+<li><a href='254.html#L180' title='Defined at 180.'>Elf32_Shdr</a></li>
+<li><a href='254.html#L249' title='Defined at 249.'>Elf32_Sym</a></li>
+<li><a href='254.html#L282' title='Defined at 282.'>Elf32_Rel</a></li>
+<li><a href='254.html#L290' title='Defined at 290.'>Elf32_Rela</a></li>
+<li><a href='254.html#L307' title='Defined at 307.'>Elf32_Phdr</a></li>
+<li><a href='254.html#L335' title='Defined at 335.'>Elf32_Dyn</a></li>
+<li><a href='254.html#L378' title='Defined at 378.'>Elf32_Note</a></li>
+<li><a href='254.html#L391' title='Defined at 391.'>Aux32Info</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1995, 1996 Erik Theisen.  All rights reserved.</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *</em>
+<a id='L4' name='L4' />   4 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * are met:</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L8' name='L8' />   8 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L10' name='L10' />  10 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L12' name='L12' />  12 <em class='comment'> * 3. The name of the author may not be used to endorse or promote products</em>
+<a id='L13' name='L13' />  13 <em class='comment'> *    derived from this software without specific prior written permission</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *</em>
+<a id='L15' name='L15' />  15 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR</em>
+<a id='L16' name='L16' />  16 <em class='comment'> * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</em>
+<a id='L25' name='L25' />  25 <em class='comment'> */</em>
+<a id='L26' name='L26' />  26 
+<a id='L27' name='L27' />  27 <em class='comment'>/*</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * This is the ELF ABI header file</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * formerly known as "elf_abi.h".</em>
+<a id='L30' name='L30' />  30 <em class='comment'> */</em>
+<a id='L31' name='L31' />  31 
+<a id='L32' name='L32' />  32 <em class='sharp'>#ifndef</em> <a href='254.html#L33' title='Defined at 33 in include/sys/elf.h.'>_SYS_ELF_H_</a>
+<a id='L33' name='L33' />  33 <em class='sharp'>#define</em> <a href='254.html#L32' title='Refered from 32 in include/sys/elf.h.'>_SYS_ELF_H_</a>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>machine/types.h</a>&gt;
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='../I/209.html'>machine/elf.h</a>&gt;
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <strong class='reserved'>typedef</strong> <a href='../D/3763.html' title='Multiple defined in 3 places.'>uint8_t</a> Elf_Byte;
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42 <strong class='reserved'>typedef</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>        <a href='../R/275.html' title='Multiple refered from 35 places.'>Elf32_Addr</a>;     <em class='comment'>/* Unsigned program address */</em>
+<a id='L43' name='L43' />  43 <strong class='reserved'>typedef</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>        <a href='../R/280.html' title='Multiple refered from 5 places.'>Elf32_Off</a>;      <em class='comment'>/* Unsigned file offset */</em>
+<a id='L44' name='L44' />  44 <strong class='reserved'>typedef</strong> <a href='../D/2890.html' title='Multiple defined in 3 places.'>int32_t</a>         <a href='../R/285.html' title='Multiple refered from 7 places.'>Elf32_Sword</a>;    <em class='comment'>/* Signed large integer */</em>
+<a id='L45' name='L45' />  45 <strong class='reserved'>typedef</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>        <a href='../R/287.html' title='Multiple refered from 25 places.'>Elf32_Word</a>;     <em class='comment'>/* Unsigned large integer */</em>
+<a id='L46' name='L46' />  46 <strong class='reserved'>typedef</strong> <a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a>        <a href='../R/278.html' title='Multiple refered from 9 places.'>Elf32_Half</a>;     <em class='comment'>/* Unsigned medium integer */</em>
+<a id='L47' name='L47' />  47 
+<a id='L48' name='L48' />  48 <em class='comment'>/* e_ident[] identification indexes */</em>
+<a id='L49' name='L49' />  49 <em class='sharp'>#define</em> <a href='../R/227.html' title='Multiple refered from 4 places.'>EI_MAG0</a>         0               <em class='comment'>/* file ID */</em>
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='../R/228.html' title='Multiple refered from 4 places.'>EI_MAG1</a>         1               <em class='comment'>/* file ID */</em>
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='../R/229.html' title='Multiple refered from 4 places.'>EI_MAG2</a>         2               <em class='comment'>/* file ID */</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/230.html' title='Multiple refered from 4 places.'>EI_MAG3</a>         3               <em class='comment'>/* file ID */</em>
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> EI_CLASS        4               <em class='comment'>/* file class */</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> EI_DATA         5               <em class='comment'>/* data encoding */</em>
+<a id='L55' name='L55' />  55 <em class='sharp'>#define</em> EI_VERSION      6               <em class='comment'>/* ELF header version */</em>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> EI_OSABI        7       <em class='comment'>/* Operating system / ABI identification */</em>
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> EI_ABIVERSION   8       <em class='comment'>/* ABI version */</em>
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> OLD_EI_BRAND    8       <em class='comment'>/* Start of architecture identification. */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> EI_PAD          9       <em class='comment'>/* Start of padding (per SVR4 ABI). */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> <a href='254.html#L108' title='Refered from 108 in include/sys/elf.h.'>EI_NIDENT</a>       16              <em class='comment'>/* Size of e_ident[] */</em>
+<a id='L61' name='L61' />  61 
+<a id='L62' name='L62' />  62 <em class='comment'>/* e_ident[] magic number */</em>
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> <a href='../R/241.html' title='Multiple refered from 3 places.'>ELFMAG0</a>         0x7f            <em class='comment'>/* e_ident[EI_MAG0] */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/242.html' title='Multiple refered from 3 places.'>ELFMAG1</a>         'E'             <em class='comment'>/* e_ident[EI_MAG1] */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> <a href='../R/243.html' title='Multiple refered from 3 places.'>ELFMAG2</a>         'L'             <em class='comment'>/* e_ident[EI_MAG2] */</em>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> <a href='../R/244.html' title='Multiple refered from 3 places.'>ELFMAG3</a>         'F'             <em class='comment'>/* e_ident[EI_MAG3] */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> ELFMAG          "\177ELF"       <em class='comment'>/* magic */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> SELFMAG         4               <em class='comment'>/* size of magic */</em>
+<a id='L69' name='L69' />  69 
+<a id='L70' name='L70' />  70 <em class='comment'>/* e_ident[] file class */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> ELFCLASSNONE    0               <em class='comment'>/* invalid */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <a href='254.html#L450' title='Refered from 450 in include/sys/elf.h.'>ELFCLASS32</a>      1               <em class='comment'>/* 32-bit objs */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#define</em> ELFCLASS64      2               <em class='comment'>/* 64-bit objs */</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#define</em> ELFCLASSNUM     3               <em class='comment'>/* number of classes */</em>
+<a id='L75' name='L75' />  75 
+<a id='L76' name='L76' />  76 <em class='comment'>/* e_ident[] data encoding */</em>
+<a id='L77' name='L77' />  77 <em class='sharp'>#define</em> ELFDATANONE     0               <em class='comment'>/* invalid */</em>
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> ELFDATA2LSB     1               <em class='comment'>/* Little-Endian */</em>
+<a id='L79' name='L79' />  79 <em class='sharp'>#define</em> ELFDATA2MSB     2               <em class='comment'>/* Big-Endian */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> ELFDATANUM      3               <em class='comment'>/* number of data encode defines */</em>
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82 <em class='comment'>/* e_ident[] OS ABI */</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> <a href='254.html#L84' title='Refered from 84 in include/sys/elf.h.'>ELFOSABI_SYSV</a>           0       <em class='comment'>/* UNIX System V ABI */</em>
+<a id='L84' name='L84' />  84 <em class='sharp'>#define</em> ELFOSABI_NONE           <a href='254.html#L83' title='Defined at 83 in include/sys/elf.h.'>ELFOSABI_SYSV</a>   <em class='comment'>/* symbol used in old spec */</em>
+<a id='L85' name='L85' />  85 <em class='sharp'>#define</em> ELFOSABI_HPUX           1       <em class='comment'>/* HP-UX operating system */</em>
+<a id='L86' name='L86' />  86 <em class='sharp'>#define</em> ELFOSABI_NETBSD         2       <em class='comment'>/* NetBSD */</em>
+<a id='L87' name='L87' />  87 <em class='sharp'>#define</em> ELFOSABI_LINUX          3       <em class='comment'>/* GNU/Linux */</em>
+<a id='L88' name='L88' />  88 <em class='sharp'>#define</em> ELFOSABI_HURD           4       <em class='comment'>/* GNU/Hurd */</em>
+<a id='L89' name='L89' />  89 <em class='sharp'>#define</em> ELFOSABI_86OPEN         5       <em class='comment'>/* 86Open common IA32 ABI */</em>
+<a id='L90' name='L90' />  90 <em class='sharp'>#define</em> ELFOSABI_SOLARIS        6       <em class='comment'>/* Solaris */</em>
+<a id='L91' name='L91' />  91 <em class='sharp'>#define</em> ELFOSABI_MONTEREY       7       <em class='comment'>/* Monterey */</em>
+<a id='L92' name='L92' />  92 <em class='sharp'>#define</em> ELFOSABI_IRIX           8       <em class='comment'>/* IRIX */</em>
+<a id='L93' name='L93' />  93 <em class='sharp'>#define</em> ELFOSABI_FREEBSD        9       <em class='comment'>/* FreeBSD */</em>
+<a id='L94' name='L94' />  94 <em class='sharp'>#define</em> ELFOSABI_TRU64          10      <em class='comment'>/* TRU64 UNIX */</em>
+<a id='L95' name='L95' />  95 <em class='sharp'>#define</em> ELFOSABI_MODESTO        11      <em class='comment'>/* Novell Modesto */</em>
+<a id='L96' name='L96' />  96 <em class='sharp'>#define</em> ELFOSABI_OPENBSD        12      <em class='comment'>/* OpenBSD */</em>
+<a id='L97' name='L97' />  97 <em class='sharp'>#define</em> ELFOSABI_ARM            97      <em class='comment'>/* ARM */</em>
+<a id='L98' name='L98' />  98 <em class='sharp'>#define</em> ELFOSABI_STANDALONE     255     <em class='comment'>/* Standalone (embedded) application */</em>
+<a id='L99' name='L99' />  99 
+<a id='L100' name='L100' /> 100 <em class='comment'>/* e_ident */</em>
+<a id='L101' name='L101' /> 101 <em class='sharp'>#define</em> IS_ELF(<a href='../Y/741.html' title='Multiple used in 48 places.'>ehdr</a>) ((<a href='../Y/741.html' title='Multiple used in 48 places.'>ehdr</a>).<a href='../Y/718.html' title='Multiple used in 17 places.'>e_ident</a>[<a href='254.html#L49' title='Defined at 49 in include/sys/elf.h.'>EI_MAG0</a>] == <a href='254.html#L63' title='Defined at 63 in include/sys/elf.h.'>ELFMAG0</a> &amp;&amp; \
+<a id='L102' name='L102' /> 102                       (<a href='../Y/741.html' title='Multiple used in 48 places.'>ehdr</a>).<a href='../Y/718.html' title='Multiple used in 17 places.'>e_ident</a>[<a href='254.html#L50' title='Defined at 50 in include/sys/elf.h.'>EI_MAG1</a>] == <a href='254.html#L64' title='Defined at 64 in include/sys/elf.h.'>ELFMAG1</a> &amp;&amp; \
+<a id='L103' name='L103' /> 103                       (<a href='../Y/741.html' title='Multiple used in 48 places.'>ehdr</a>).<a href='../Y/718.html' title='Multiple used in 17 places.'>e_ident</a>[<a href='254.html#L51' title='Defined at 51 in include/sys/elf.h.'>EI_MAG2</a>] == <a href='254.html#L65' title='Defined at 65 in include/sys/elf.h.'>ELFMAG2</a> &amp;&amp; \
+<a id='L104' name='L104' /> 104                       (<a href='../Y/741.html' title='Multiple used in 48 places.'>ehdr</a>).<a href='../Y/718.html' title='Multiple used in 17 places.'>e_ident</a>[<a href='254.html#L52' title='Defined at 52 in include/sys/elf.h.'>EI_MAG3</a>] == <a href='254.html#L66' title='Defined at 66 in include/sys/elf.h.'>ELFMAG3</a>)
+<a id='L105' name='L105' /> 105 
+<a id='L106' name='L106' /> 106 <em class='comment'>/* ELF Header */</em>
+<a id='L107' name='L107' /> 107 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <a href='254.html#L107' title='Used at 107 in include/sys/elf.h.'>elfhdr</a><em class='brace'>{</em>
+<a id='L108' name='L108' /> 108         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong>   <a href='../Y/718.html' title='Multiple used in 17 places.'>e_ident</a>[<a href='254.html#L60' title='Defined at 60 in include/sys/elf.h.'>EI_NIDENT</a>]; <em class='comment'>/* ELF Identification */</em>
+<a id='L109' name='L109' /> 109         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='../Y/727.html' title='Multiple used in 4 places.'>e_type</a>;         <em class='comment'>/* object file type */</em>
+<a id='L110' name='L110' /> 110         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='254.html#L110' title='Used at 110 in include/sys/elf.h.'>e_machine</a>;      <em class='comment'>/* machine */</em>
+<a id='L111' name='L111' /> 111         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='254.html#L111' title='Used at 111 in include/sys/elf.h.'>e_version</a>;      <em class='comment'>/* object file version */</em>
+<a id='L112' name='L112' /> 112         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/716.html' title='Multiple used in 5 places.'>e_entry</a>;        <em class='comment'>/* virtual entry point */</em>
+<a id='L113' name='L113' /> 113         <a href='254.html#L43' title='Defined at 43 in include/sys/elf.h.'>Elf32_Off</a>       <a href='../Y/722.html' title='Multiple used in 3 places.'>e_phoff</a>;        <em class='comment'>/* program header table offset */</em>
+<a id='L114' name='L114' /> 114         <a href='254.html#L43' title='Defined at 43 in include/sys/elf.h.'>Elf32_Off</a>       <a href='../Y/725.html' title='Multiple used in 4 places.'>e_shoff</a>;        <em class='comment'>/* section header table offset */</em>
+<a id='L115' name='L115' /> 115         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='254.html#L115' title='Used at 115 in include/sys/elf.h.'>e_flags</a>;        <em class='comment'>/* processor-specific flags */</em>
+<a id='L116' name='L116' /> 116         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='../Y/715.html' title='Multiple used in 2 places.'>e_ehsize</a>;       <em class='comment'>/* ELF header size */</em>
+<a id='L117' name='L117' /> 117         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='254.html#L117' title='Used at 117 in include/sys/elf.h.'>e_phentsize</a>;    <em class='comment'>/* program header entry size */</em>
+<a id='L118' name='L118' /> 118         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='../Y/721.html' title='Multiple used in 3 places.'>e_phnum</a>;        <em class='comment'>/* number of program header entries */</em>
+<a id='L119' name='L119' /> 119         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='../Y/723.html' title='Multiple used in 2 places.'>e_shentsize</a>;    <em class='comment'>/* section header entry size */</em>
+<a id='L120' name='L120' /> 120         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='../Y/724.html' title='Multiple used in 8 places.'>e_shnum</a>;        <em class='comment'>/* number of section header entries */</em>
+<a id='L121' name='L121' /> 121         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='254.html#L121' title='Used at 121 in include/sys/elf.h.'>e_shstrndx</a>;     <em class='comment'>/* section header table's "section</em>
+<a id='L122' name='L122' /> 122 <em class='comment'>                                           header string table" entry offset */</em>
+<a id='L123' name='L123' /> 123 <em class='brace'>}</em> <a href='../R/277.html' title='Multiple refered from 11 places.'>Elf32_Ehdr</a>;
+<a id='L124' name='L124' /> 124 
+<a id='L125' name='L125' /> 125 <em class='comment'>/* e_type */</em>
+<a id='L126' name='L126' /> 126 <em class='sharp'>#define</em> ET_NONE         0               <em class='comment'>/* No file type */</em>
+<a id='L127' name='L127' /> 127 <em class='sharp'>#define</em> <a href='../R/270.html' title='Multiple refered from 2 places.'>ET_REL</a>          1               <em class='comment'>/* relocatable file */</em>
+<a id='L128' name='L128' /> 128 <em class='sharp'>#define</em> <a href='../R/269.html' title='Multiple refered from 2 places.'>ET_EXEC</a>         2               <em class='comment'>/* executable file */</em>
+<a id='L129' name='L129' /> 129 <em class='sharp'>#define</em> ET_DYN          3               <em class='comment'>/* shared object file */</em>
+<a id='L130' name='L130' /> 130 <em class='sharp'>#define</em> ET_CORE         4               <em class='comment'>/* core file */</em>
+<a id='L131' name='L131' /> 131 <em class='sharp'>#define</em> ET_NUM          5               <em class='comment'>/* number of types */</em>
+<a id='L132' name='L132' /> 132 <em class='sharp'>#define</em> ET_LOPROC       0xff00          <em class='comment'>/* reserved range for processor */</em>
+<a id='L133' name='L133' /> 133 <em class='sharp'>#define</em> ET_HIPROC       0xffff          <em class='comment'>/*  specific e_type */</em>
+<a id='L134' name='L134' /> 134 
+<a id='L135' name='L135' /> 135 <em class='comment'>/* e_machine */</em>
+<a id='L136' name='L136' /> 136 <em class='sharp'>#define</em> EM_NONE         0               <em class='comment'>/* No Machine */</em>
+<a id='L137' name='L137' /> 137 <em class='sharp'>#define</em> EM_M32          1               <em class='comment'>/* AT&amp;T WE 32100 */</em>
+<a id='L138' name='L138' /> 138 <em class='sharp'>#define</em> EM_SPARC        2               <em class='comment'>/* SPARC */</em>
+<a id='L139' name='L139' /> 139 <em class='sharp'>#define</em> EM_386          3               <em class='comment'>/* Intel 80386 */</em>
+<a id='L140' name='L140' /> 140 <em class='sharp'>#define</em> EM_68K          4               <em class='comment'>/* Motorola 68000 */</em>
+<a id='L141' name='L141' /> 141 <em class='sharp'>#define</em> EM_88K          5               <em class='comment'>/* Motorola 88000 */</em>
+<a id='L142' name='L142' /> 142 <em class='sharp'>#define</em> EM_486          6               <em class='comment'>/* Intel 80486 - unused? */</em>
+<a id='L143' name='L143' /> 143 <em class='sharp'>#define</em> EM_860          7               <em class='comment'>/* Intel 80860 */</em>
+<a id='L144' name='L144' /> 144 <em class='sharp'>#define</em> EM_MIPS         8               <em class='comment'>/* MIPS R3000 Big-Endian only */</em>
+<a id='L145' name='L145' /> 145 <em class='comment'>/*</em>
+<a id='L146' name='L146' /> 146 <em class='comment'> * Don't know if EM_MIPS_RS4_BE,</em>
+<a id='L147' name='L147' /> 147 <em class='comment'> * EM_SPARC64, EM_PARISC,</em>
+<a id='L148' name='L148' /> 148 <em class='comment'> * or EM_PPC are ABI compliant</em>
+<a id='L149' name='L149' /> 149 <em class='comment'> */</em>
+<a id='L150' name='L150' /> 150 <em class='sharp'>#define</em> EM_MIPS_RS4_BE  10              <em class='comment'>/* MIPS R4000 Big-Endian */</em>
+<a id='L151' name='L151' /> 151 <em class='sharp'>#define</em> EM_SPARC64      11              <em class='comment'>/* SPARC v9 64-bit unoffical */</em>
+<a id='L152' name='L152' /> 152 <em class='sharp'>#define</em> EM_PARISC       15              <em class='comment'>/* HPPA */</em>
+<a id='L153' name='L153' /> 153 <em class='sharp'>#define</em> EM_SPARC32PLUS  18              <em class='comment'>/* Enhanced instruction set SPARC */</em>
+<a id='L154' name='L154' /> 154 <em class='sharp'>#define</em> EM_PPC          20              <em class='comment'>/* PowerPC */</em>
+<a id='L155' name='L155' /> 155 <em class='sharp'>#define</em> EM_ARM          40
+<a id='L156' name='L156' /> 156 <em class='sharp'>#define</em> EM_ALPHA        41              <em class='comment'>/* DEC ALPHA */</em>
+<a id='L157' name='L157' /> 157 <em class='sharp'>#define</em> EM_SPARCV9      43              <em class='comment'>/* SPARC version 9 */</em>
+<a id='L158' name='L158' /> 158 <em class='sharp'>#define</em> EM_ALPHA_EXP    0x9026          <em class='comment'>/* DEC ALPHA */</em>
+<a id='L159' name='L159' /> 159 <em class='sharp'>#define</em> EM_VAX          75              <em class='comment'>/* DEC VAX */</em>
+<a id='L160' name='L160' /> 160 <em class='sharp'>#define</em> EM_NUM          15              <em class='comment'>/* number of machine types */</em>
+<a id='L161' name='L161' /> 161 
+<a id='L162' name='L162' /> 162 <em class='comment'>/* Version */</em>
+<a id='L163' name='L163' /> 163 <em class='sharp'>#define</em> EV_NONE         0               <em class='comment'>/* Invalid */</em>
+<a id='L164' name='L164' /> 164 <em class='sharp'>#define</em> EV_CURRENT      1               <em class='comment'>/* Current */</em>
+<a id='L165' name='L165' /> 165 <em class='sharp'>#define</em> EV_NUM          2               <em class='comment'>/* number of versions */</em>
+<a id='L166' name='L166' /> 166 
+<a id='L167' name='L167' /> 167 <em class='comment'>/* Section Header */</em>
+<a id='L168' name='L168' /> 168 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L169' name='L169' /> 169         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='254.html#L169' title='Used at 169 in include/sys/elf.h.'>sh_name</a>;        <em class='comment'>/* name - index into section header</em>
+<a id='L170' name='L170' /> 170 <em class='comment'>                                           string table section */</em>
+<a id='L171' name='L171' /> 171         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1926.html' title='Multiple used in 18 places.'>sh_type</a>;        <em class='comment'>/* type */</em>
+<a id='L172' name='L172' /> 172         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1917.html' title='Multiple used in 4 places.'>sh_flags</a>;       <em class='comment'>/* flags */</em>
+<a id='L173' name='L173' /> 173         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/1914.html' title='Multiple used in 8 places.'>sh_addr</a>;        <em class='comment'>/* address */</em>
+<a id='L174' name='L174' /> 174         <a href='254.html#L43' title='Defined at 43 in include/sys/elf.h.'>Elf32_Off</a>       <a href='../Y/1923.html' title='Multiple used in 8 places.'>sh_offset</a>;      <em class='comment'>/* file offset */</em>
+<a id='L175' name='L175' /> 175         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1925.html' title='Multiple used in 12 places.'>sh_size</a>;        <em class='comment'>/* section size */</em>
+<a id='L176' name='L176' /> 176         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1919.html' title='Multiple used in 5 places.'>sh_link</a>;        <em class='comment'>/* section header table index link */</em>
+<a id='L177' name='L177' /> 177         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1918.html' title='Multiple used in 3 places.'>sh_info</a>;        <em class='comment'>/* extra information */</em>
+<a id='L178' name='L178' /> 178         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='254.html#L178' title='Used at 178 in include/sys/elf.h.'>sh_addralign</a>;   <em class='comment'>/* address alignment */</em>
+<a id='L179' name='L179' /> 179         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1916.html' title='Multiple used in 5 places.'>sh_entsize</a>;     <em class='comment'>/* section entry size */</em>
+<a id='L180' name='L180' /> 180 <em class='brace'>}</em> <a href='../R/284.html' title='Multiple refered from 9 places.'>Elf32_Shdr</a>;
+<a id='L181' name='L181' /> 181 
+<a id='L182' name='L182' /> 182 <em class='comment'>/* Special Section Indexes */</em>
+<a id='L183' name='L183' /> 183 <em class='sharp'>#define</em> SHN_UNDEF       0               <em class='comment'>/* undefined */</em>
+<a id='L184' name='L184' /> 184 <em class='sharp'>#define</em> SHN_LORESERVE   0xff00          <em class='comment'>/* lower bounds of reserved indexes */</em>
+<a id='L185' name='L185' /> 185 <em class='sharp'>#define</em> SHN_LOPROC      0xff00          <em class='comment'>/* reserved range for processor */</em>
+<a id='L186' name='L186' /> 186 <em class='sharp'>#define</em> SHN_HIPROC      0xff1f          <em class='comment'>/*   specific section indexes */</em>
+<a id='L187' name='L187' /> 187 <em class='sharp'>#define</em> SHN_ABS         0xfff1          <em class='comment'>/* absolute value */</em>
+<a id='L188' name='L188' /> 188 <em class='sharp'>#define</em> SHN_COMMON      0xfff2          <em class='comment'>/* common symbol */</em>
+<a id='L189' name='L189' /> 189 <em class='sharp'>#define</em> SHN_HIRESERVE   0xffff          <em class='comment'>/* upper bounds of reserved indexes */</em>
+<a id='L190' name='L190' /> 190 
+<a id='L191' name='L191' /> 191 <em class='comment'>/* sh_type */</em>
+<a id='L192' name='L192' /> 192 <em class='sharp'>#define</em> SHT_NULL        0               <em class='comment'>/* inactive */</em>
+<a id='L193' name='L193' /> 193 <em class='sharp'>#define</em> <a href='../R/896.html' title='Multiple refered from 2 places.'>SHT_PROGBITS</a>    1               <em class='comment'>/* program defined information */</em>
+<a id='L194' name='L194' /> 194 <em class='sharp'>#define</em> <a href='../R/900.html' title='Multiple refered from 3 places.'>SHT_SYMTAB</a>      2               <em class='comment'>/* symbol table section */</em>
+<a id='L195' name='L195' /> 195 <em class='sharp'>#define</em> <a href='13.html#L343' title='Refered from 343 in bsp/boot/common/elf.c.'>SHT_STRTAB</a>      3               <em class='comment'>/* string table section */</em>
+<a id='L196' name='L196' /> 196 <em class='sharp'>#define</em> <a href='../R/898.html' title='Multiple refered from 6 places.'>SHT_RELA</a>        4               <em class='comment'>/* relocation section with addends*/</em>
+<a id='L197' name='L197' /> 197 <em class='sharp'>#define</em> SHT_HASH        5               <em class='comment'>/* symbol hash table section */</em>
+<a id='L198' name='L198' /> 198 <em class='sharp'>#define</em> SHT_DYNAMIC     6               <em class='comment'>/* dynamic section */</em>
+<a id='L199' name='L199' /> 199 <em class='sharp'>#define</em> SHT_NOTE        7               <em class='comment'>/* note section */</em>
+<a id='L200' name='L200' /> 200 <em class='sharp'>#define</em> <a href='../R/895.html' title='Multiple refered from 3 places.'>SHT_NOBITS</a>      8               <em class='comment'>/* no space section */</em>
+<a id='L201' name='L201' /> 201 <em class='sharp'>#define</em> <a href='../R/897.html' title='Multiple refered from 6 places.'>SHT_REL</a>         9               <em class='comment'>/* relation section without addends */</em>
+<a id='L202' name='L202' /> 202 <em class='sharp'>#define</em> SHT_SHLIB       10              <em class='comment'>/* reserved - purpose unknown */</em>
+<a id='L203' name='L203' /> 203 <em class='sharp'>#define</em> SHT_DYNSYM      11              <em class='comment'>/* dynamic symbol table section */</em>
+<a id='L204' name='L204' /> 204 <em class='sharp'>#define</em> SHT_NUM         12              <em class='comment'>/* number of section types */</em>
+<a id='L205' name='L205' /> 205 <em class='sharp'>#define</em> SHT_LOPROC      0x70000000      <em class='comment'>/* reserved range for processor */</em>
+<a id='L206' name='L206' /> 206 <em class='sharp'>#define</em> SHT_HIPROC      0x7fffffff      <em class='comment'>/*  specific section header types */</em>
+<a id='L207' name='L207' /> 207 <em class='sharp'>#define</em> SHT_LOUSER      0x80000000      <em class='comment'>/* reserved range for application */</em>
+<a id='L208' name='L208' /> 208 <em class='sharp'>#define</em> SHT_HIUSER      0xffffffff      <em class='comment'>/*  specific indexes */</em>
+<a id='L209' name='L209' /> 209 
+<a id='L210' name='L210' /> 210 <em class='comment'>/* Section names */</em>
+<a id='L211' name='L211' /> 211 <em class='sharp'>#define</em> ELF_BSS         ".bss"          <em class='comment'>/* uninitialized data */</em>
+<a id='L212' name='L212' /> 212 <em class='sharp'>#define</em> ELF_DATA        ".data"         <em class='comment'>/* initialized data */</em>
+<a id='L213' name='L213' /> 213 <em class='sharp'>#define</em> ELF_DEBUG       ".debug"        <em class='comment'>/* debug */</em>
+<a id='L214' name='L214' /> 214 <em class='sharp'>#define</em> ELF_DYNAMIC     ".dynamic"      <em class='comment'>/* dynamic linking information */</em>
+<a id='L215' name='L215' /> 215 <em class='sharp'>#define</em> ELF_DYNSTR      ".dynstr"       <em class='comment'>/* dynamic string table */</em>
+<a id='L216' name='L216' /> 216 <em class='sharp'>#define</em> ELF_DYNSYM      ".dynsym"       <em class='comment'>/* dynamic symbol table */</em>
+<a id='L217' name='L217' /> 217 <em class='sharp'>#define</em> ELF_FINI        ".fini"         <em class='comment'>/* termination code */</em>
+<a id='L218' name='L218' /> 218 <em class='sharp'>#define</em> ELF_GOT         ".got"          <em class='comment'>/* global offset table */</em>
+<a id='L219' name='L219' /> 219 <em class='sharp'>#define</em> ELF_HASH        ".hash"         <em class='comment'>/* symbol hash table */</em>
+<a id='L220' name='L220' /> 220 <em class='sharp'>#define</em> ELF_INIT        ".init"         <em class='comment'>/* initialization code */</em>
+<a id='L221' name='L221' /> 221 <em class='sharp'>#define</em> ELF_REL_DATA    ".rel.data"     <em class='comment'>/* relocation data */</em>
+<a id='L222' name='L222' /> 222 <em class='sharp'>#define</em> ELF_REL_FINI    ".rel.fini"     <em class='comment'>/* relocation termination code */</em>
+<a id='L223' name='L223' /> 223 <em class='sharp'>#define</em> ELF_REL_INIT    ".rel.init"     <em class='comment'>/* relocation initialization code */</em>
+<a id='L224' name='L224' /> 224 <em class='sharp'>#define</em> ELF_REL_DYN     ".rel.dyn"      <em class='comment'>/* relocaltion dynamic link info */</em>
+<a id='L225' name='L225' /> 225 <em class='sharp'>#define</em> ELF_REL_RODATA  ".rel.rodata"   <em class='comment'>/* relocation read-only data */</em>
+<a id='L226' name='L226' /> 226 <em class='sharp'>#define</em> ELF_REL_TEXT    ".rel.text"     <em class='comment'>/* relocation code */</em>
+<a id='L227' name='L227' /> 227 <em class='sharp'>#define</em> ELF_RODATA      ".rodata"       <em class='comment'>/* read-only data */</em>
+<a id='L228' name='L228' /> 228 <em class='sharp'>#define</em> ELF_SHSTRTAB    ".shstrtab"     <em class='comment'>/* section header string table */</em>
+<a id='L229' name='L229' /> 229 <em class='sharp'>#define</em> ELF_STRTAB      ".strtab"       <em class='comment'>/* string table */</em>
+<a id='L230' name='L230' /> 230 <em class='sharp'>#define</em> ELF_SYMTAB      ".symtab"       <em class='comment'>/* symbol table */</em>
+<a id='L231' name='L231' /> 231 <em class='sharp'>#define</em> ELF_TEXT        ".text"         <em class='comment'>/* code */</em>
+<a id='L232' name='L232' /> 232 
+<a id='L233' name='L233' /> 233 
+<a id='L234' name='L234' /> 234 <em class='comment'>/* Section Attribute Flags - sh_flags */</em>
+<a id='L235' name='L235' /> 235 <em class='sharp'>#define</em> <a href='../R/892.html' title='Multiple refered from 4 places.'>SHF_WRITE</a>       0x1             <em class='comment'>/* Writable */</em>
+<a id='L236' name='L236' /> 236 <em class='sharp'>#define</em> <a href='../R/889.html' title='Multiple refered from 8 places.'>SHF_ALLOC</a>       0x2             <em class='comment'>/* occupies memory */</em>
+<a id='L237' name='L237' /> 237 <em class='sharp'>#define</em> <a href='../R/890.html' title='Multiple refered from 4 places.'>SHF_EXECINSTR</a>   0x4             <em class='comment'>/* executable */</em>
+<a id='L238' name='L238' /> 238 <em class='sharp'>#define</em> SHF_MASKPROC    0xf0000000      <em class='comment'>/* reserved bits for processor */</em>
+<a id='L239' name='L239' /> 239                                         <em class='comment'>/*  specific section attributes */</em>
+<a id='L240' name='L240' /> 240 
+<a id='L241' name='L241' /> 241 <em class='comment'>/* Symbol Table Entry */</em>
+<a id='L242' name='L242' /> 242 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <a href='254.html#L242' title='Used at 242 in include/sys/elf.h.'>elf32_sym</a> <em class='brace'>{</em>
+<a id='L243' name='L243' /> 243         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/2008.html' title='Multiple used in 3 places.'>st_name</a>;        <em class='comment'>/* name - index into string table */</em>
+<a id='L244' name='L244' /> 244         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/2015.html' title='Multiple used in 5 places.'>st_value</a>;       <em class='comment'>/* symbol value */</em>
+<a id='L245' name='L245' /> 245         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/2013.html' title='Multiple used in 5 places.'>st_size</a>;        <em class='comment'>/* symbol size */</em>
+<a id='L246' name='L246' /> 246         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong>   <a href='../Y/2004.html' title='Multiple used in 5 places.'>st_info</a>;        <em class='comment'>/* type and binding */</em>
+<a id='L247' name='L247' /> 247         <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong>   <a href='254.html#L247' title='Used at 247 in include/sys/elf.h.'>st_other</a>;       <em class='comment'>/* 0 - no defined meaning */</em>
+<a id='L248' name='L248' /> 248         <a href='254.html#L46' title='Defined at 46 in include/sys/elf.h.'>Elf32_Half</a>      <a href='../Y/2012.html' title='Multiple used in 9 places.'>st_shndx</a>;       <em class='comment'>/* section header index */</em>
+<a id='L249' name='L249' /> 249 <em class='brace'>}</em> <a href='../R/286.html' title='Multiple refered from 9 places.'>Elf32_Sym</a>;
+<a id='L250' name='L250' /> 250 
+<a id='L251' name='L251' /> 251 <em class='comment'>/* Symbol table index */</em>
+<a id='L252' name='L252' /> 252 <em class='sharp'>#define</em> <a href='../R/957.html' title='Multiple refered from 4 places.'>STN_UNDEF</a>       0               <em class='comment'>/* undefined */</em>
+<a id='L253' name='L253' /> 253 
+<a id='L254' name='L254' /> 254 <em class='comment'>/* Extract symbol info - st_info */</em>
+<a id='L255' name='L255' /> 255 <em class='sharp'>#define</em> <a href='../R/236.html' title='Multiple refered from 5 places.'>ELF32_ST_BIND</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)        ((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &gt;&gt; 4)
+<a id='L256' name='L256' /> 256 <em class='sharp'>#define</em> <a href='254.html#L453' title='Refered from 453 in include/sys/elf.h.'>ELF32_ST_TYPE</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)        (((<strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong>) <a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &amp; 0xf)
+<a id='L257' name='L257' /> 257 <em class='sharp'>#define</em> <a href='254.html#L454' title='Refered from 454 in include/sys/elf.h.'>ELF32_ST_INFO</a>(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>,<a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a>)      (((<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>) &lt;&lt; 4) + ((<a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a>) &amp; 0xf))
+<a id='L258' name='L258' /> 258 
+<a id='L259' name='L259' /> 259 <em class='comment'>/* Symbol Binding - ELF32_ST_BIND - st_info */</em>
+<a id='L260' name='L260' /> 260 <em class='sharp'>#define</em> STB_LOCAL       0               <em class='comment'>/* Local symbol */</em>
+<a id='L261' name='L261' /> 261 <em class='sharp'>#define</em> STB_GLOBAL      1               <em class='comment'>/* Global symbol */</em>
+<a id='L262' name='L262' /> 262 <em class='sharp'>#define</em> <a href='../R/948.html' title='Multiple refered from 4 places.'>STB_WEAK</a>        2               <em class='comment'>/* like global - lower precedence */</em>
+<a id='L263' name='L263' /> 263 <em class='sharp'>#define</em> STB_NUM         3               <em class='comment'>/* number of symbol bindings */</em>
+<a id='L264' name='L264' /> 264 <em class='sharp'>#define</em> STB_LOPROC      13              <em class='comment'>/* reserved range for processor */</em>
+<a id='L265' name='L265' /> 265 <em class='sharp'>#define</em> STB_HIPROC      15              <em class='comment'>/*  specific symbol bindings */</em>
+<a id='L266' name='L266' /> 266 
+<a id='L267' name='L267' /> 267 <em class='comment'>/* Symbol type - ELF32_ST_TYPE - st_info */</em>
+<a id='L268' name='L268' /> 268 <em class='sharp'>#define</em> STT_NOTYPE      0               <em class='comment'>/* not specified */</em>
+<a id='L269' name='L269' /> 269 <em class='sharp'>#define</em> STT_OBJECT      1               <em class='comment'>/* data object */</em>
+<a id='L270' name='L270' /> 270 <em class='sharp'>#define</em> STT_FUNC        2               <em class='comment'>/* function */</em>
+<a id='L271' name='L271' /> 271 <em class='sharp'>#define</em> STT_SECTION     3               <em class='comment'>/* section */</em>
+<a id='L272' name='L272' /> 272 <em class='sharp'>#define</em> STT_FILE        4               <em class='comment'>/* file */</em>
+<a id='L273' name='L273' /> 273 <em class='sharp'>#define</em> STT_NUM         5               <em class='comment'>/* number of symbol types */</em>
+<a id='L274' name='L274' /> 274 <em class='sharp'>#define</em> STT_LOPROC      13              <em class='comment'>/* reserved range for processor */</em>
+<a id='L275' name='L275' /> 275 <em class='sharp'>#define</em> STT_HIPROC      15              <em class='comment'>/*  specific symbol types */</em>
+<a id='L276' name='L276' /> 276 
+<a id='L277' name='L277' /> 277 <em class='comment'>/* Relocation entry with implicit addend */</em>
+<a id='L278' name='L278' /> 278 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong>
+<a id='L279' name='L279' /> 279 <em class='brace'>{</em>
+<a id='L280' name='L280' /> 280         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/1702.html' title='Multiple used in 8 places.'>r_offset</a>;       <em class='comment'>/* offset of relocation */</em>
+<a id='L281' name='L281' /> 281         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1701.html' title='Multiple used in 17 places.'>r_info</a>;         <em class='comment'>/* symbol table index and type */</em>
+<a id='L282' name='L282' /> 282 <em class='brace'>}</em> <a href='../R/282.html' title='Multiple refered from 3 places.'>Elf32_Rel</a>;
+<a id='L283' name='L283' /> 283 
+<a id='L284' name='L284' /> 284 <em class='comment'>/* Relocation entry with explicit addend */</em>
+<a id='L285' name='L285' /> 285 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong>
+<a id='L286' name='L286' /> 286 <em class='brace'>{</em>
+<a id='L287' name='L287' /> 287         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/1702.html' title='Multiple used in 8 places.'>r_offset</a>;       <em class='comment'>/* offset of relocation */</em>
+<a id='L288' name='L288' /> 288         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1701.html' title='Multiple used in 17 places.'>r_info</a>;         <em class='comment'>/* symbol table index and type */</em>
+<a id='L289' name='L289' /> 289         <a href='254.html#L44' title='Defined at 44 in include/sys/elf.h.'>Elf32_Sword</a>     <a href='../Y/1700.html' title='Multiple used in 3 places.'>r_addend</a>;
+<a id='L290' name='L290' /> 290 <em class='brace'>}</em> <a href='../R/283.html' title='Multiple refered from 3 places.'>Elf32_Rela</a>;
+<a id='L291' name='L291' /> 291 
+<a id='L292' name='L292' /> 292 <em class='comment'>/* Extract relocation info - r_info */</em>
+<a id='L293' name='L293' /> 293 <em class='sharp'>#define</em> <a href='../R/234.html' title='Multiple refered from 5 places.'>ELF32_R_SYM</a>(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)          ((<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>) &gt;&gt; 8)
+<a id='L294' name='L294' /> 294 <em class='sharp'>#define</em> <a href='../R/235.html' title='Multiple refered from 12 places.'>ELF32_R_TYPE</a>(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)         ((<strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong>) (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>))
+<a id='L295' name='L295' /> 295 <em class='sharp'>#define</em> <a href='254.html#L449' title='Refered from 449 in include/sys/elf.h.'>ELF32_R_INFO</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>,<a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a>)       (((<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>) &lt;&lt; 8) + (<strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong>)(<a href='../Y/2081.html' title='Multiple used in 688 places.'>t</a>))
+<a id='L296' name='L296' /> 296 
+<a id='L297' name='L297' /> 297 <em class='comment'>/* Program Header */</em>
+<a id='L298' name='L298' /> 298 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L299' name='L299' /> 299         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1535.html' title='Multiple used in 3 places.'>p_type</a>;         <em class='comment'>/* segment type */</em>
+<a id='L300' name='L300' /> 300         <a href='254.html#L43' title='Defined at 43 in include/sys/elf.h.'>Elf32_Off</a>       <a href='../Y/1522.html' title='Multiple used in 3 places.'>p_offset</a>;       <em class='comment'>/* segment offset */</em>
+<a id='L301' name='L301' /> 301         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/1536.html' title='Multiple used in 5 places.'>p_vaddr</a>;        <em class='comment'>/* virtual address of segment */</em>
+<a id='L302' name='L302' /> 302         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='../Y/1523.html' title='Multiple used in 3 places.'>p_paddr</a>;        <em class='comment'>/* physical address - ignored? */</em>
+<a id='L303' name='L303' /> 303         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1516.html' title='Multiple used in 8 places.'>p_filesz</a>;       <em class='comment'>/* number of bytes in file for seg. */</em>
+<a id='L304' name='L304' /> 304         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1521.html' title='Multiple used in 5 places.'>p_memsz</a>;        <em class='comment'>/* number of bytes in mem. for seg. */</em>
+<a id='L305' name='L305' /> 305         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1518.html' title='Multiple used in 5 places.'>p_flags</a>;        <em class='comment'>/* flags */</em>
+<a id='L306' name='L306' /> 306         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='../Y/1513.html' title='Multiple used in 2 places.'>p_align</a>;        <em class='comment'>/* memory alignment */</em>
+<a id='L307' name='L307' /> 307 <em class='brace'>}</em> <a href='../R/281.html' title='Multiple refered from 7 places.'>Elf32_Phdr</a>;
+<a id='L308' name='L308' /> 308 
+<a id='L309' name='L309' /> 309 <em class='comment'>/* Segment types - p_type */</em>
+<a id='L310' name='L310' /> 310 <em class='sharp'>#define</em> PT_NULL         0               <em class='comment'>/* unused */</em>
+<a id='L311' name='L311' /> 311 <em class='sharp'>#define</em> <a href='../R/793.html' title='Multiple refered from 2 places.'>PT_LOAD</a>         1               <em class='comment'>/* loadable segment */</em>
+<a id='L312' name='L312' /> 312 <em class='sharp'>#define</em> PT_DYNAMIC      2               <em class='comment'>/* dynamic linking section */</em>
+<a id='L313' name='L313' /> 313 <em class='sharp'>#define</em> PT_INTERP       3               <em class='comment'>/* the RTLD */</em>
+<a id='L314' name='L314' /> 314 <em class='sharp'>#define</em> PT_NOTE         4               <em class='comment'>/* auxiliary information */</em>
+<a id='L315' name='L315' /> 315 <em class='sharp'>#define</em> PT_SHLIB        5               <em class='comment'>/* reserved - purpose undefined */</em>
+<a id='L316' name='L316' /> 316 <em class='sharp'>#define</em> PT_PHDR         6               <em class='comment'>/* program header */</em>
+<a id='L317' name='L317' /> 317 <em class='sharp'>#define</em> PT_NUM          7               <em class='comment'>/* Number of segment types */</em>
+<a id='L318' name='L318' /> 318 <em class='sharp'>#define</em> PT_LOPROC       0x70000000      <em class='comment'>/* reserved range for processor */</em>
+<a id='L319' name='L319' /> 319 <em class='sharp'>#define</em> PT_HIPROC       0x7fffffff      <em class='comment'>/*  specific segment types */</em>
+<a id='L320' name='L320' /> 320 
+<a id='L321' name='L321' /> 321 <em class='comment'>/* Segment flags - p_flags */</em>
+<a id='L322' name='L322' /> 322 <em class='sharp'>#define</em> <a href='../R/694.html' title='Multiple refered from 3 places.'>PF_X</a>            0x1             <em class='comment'>/* Executable */</em>
+<a id='L323' name='L323' /> 323 <em class='sharp'>#define</em> PF_W            0x2             <em class='comment'>/* Writable */</em>
+<a id='L324' name='L324' /> 324 <em class='sharp'>#define</em> PF_R            0x4             <em class='comment'>/* Readable */</em>
+<a id='L325' name='L325' /> 325 <em class='sharp'>#define</em> PF_MASKPROC     0xf0000000      <em class='comment'>/* reserved bits for processor */</em>
+<a id='L326' name='L326' /> 326                                         <em class='comment'>/*  specific segment flags */</em>
+<a id='L327' name='L327' /> 327 
+<a id='L328' name='L328' /> 328 <em class='comment'>/* Dynamic structure */</em>
+<a id='L329' name='L329' /> 329 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L330' name='L330' /> 330         <a href='254.html#L44' title='Defined at 44 in include/sys/elf.h.'>Elf32_Sword</a>     <a href='254.html#L330' title='Used at 330 in include/sys/elf.h.'>d_tag</a>;          <em class='comment'>/* controls meaning of d_val */</em>
+<a id='L331' name='L331' /> 331         <strong class='reserved'>union</strong> <em class='brace'>{</em>
+<a id='L332' name='L332' /> 332                 <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='254.html#L332' title='Used at 332 in include/sys/elf.h.'>d_val</a>;  <em class='comment'>/* Multiple meanings - see d_tag */</em>
+<a id='L333' name='L333' /> 333                 <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>      <a href='254.html#L333' title='Used at 333 in include/sys/elf.h.'>d_ptr</a>;  <em class='comment'>/* program virtual address */</em>
+<a id='L334' name='L334' /> 334         <em class='brace'>}</em> <a href='254.html#L334' title='Used at 334 in include/sys/elf.h.'>d_un</a>;
+<a id='L335' name='L335' /> 335 <em class='brace'>}</em> <a href='254.html#L439' title='Refered from 439 in include/sys/elf.h.'>Elf32_Dyn</a>;
+<a id='L336' name='L336' /> 336 
+<a id='L337' name='L337' /> 337 <em class='comment'>/* Dynamic Array Tags - d_tag */</em>
+<a id='L338' name='L338' /> 338 <em class='sharp'>#define</em> DT_NULL         0               <em class='comment'>/* marks end of _DYNAMIC array */</em>
+<a id='L339' name='L339' /> 339 <em class='sharp'>#define</em> DT_NEEDED       1               <em class='comment'>/* string table offset of needed lib */</em>
+<a id='L340' name='L340' /> 340 <em class='sharp'>#define</em> DT_PLTRELSZ     2               <em class='comment'>/* size of relocation entries in PLT */</em>
+<a id='L341' name='L341' /> 341 <em class='sharp'>#define</em> DT_PLTGOT       3               <em class='comment'>/* address PLT/GOT */</em>
+<a id='L342' name='L342' /> 342 <em class='sharp'>#define</em> DT_HASH         4               <em class='comment'>/* address of symbol hash table */</em>
+<a id='L343' name='L343' /> 343 <em class='sharp'>#define</em> DT_STRTAB       5               <em class='comment'>/* address of string table */</em>
+<a id='L344' name='L344' /> 344 <em class='sharp'>#define</em> DT_SYMTAB       6               <em class='comment'>/* address of symbol table */</em>
+<a id='L345' name='L345' /> 345 <em class='sharp'>#define</em> DT_RELA         7               <em class='comment'>/* address of relocation table */</em>
+<a id='L346' name='L346' /> 346 <em class='sharp'>#define</em> DT_RELASZ       8               <em class='comment'>/* size of relocation table */</em>
+<a id='L347' name='L347' /> 347 <em class='sharp'>#define</em> DT_RELAENT      9               <em class='comment'>/* size of relocation entry */</em>
+<a id='L348' name='L348' /> 348 <em class='sharp'>#define</em> DT_STRSZ        10              <em class='comment'>/* size of string table */</em>
+<a id='L349' name='L349' /> 349 <em class='sharp'>#define</em> DT_SYMENT       11              <em class='comment'>/* size of symbol table entry */</em>
+<a id='L350' name='L350' /> 350 <em class='sharp'>#define</em> DT_INIT         12              <em class='comment'>/* address of initialization func. */</em>
+<a id='L351' name='L351' /> 351 <em class='sharp'>#define</em> DT_FINI         13              <em class='comment'>/* address of termination function */</em>
+<a id='L352' name='L352' /> 352 <em class='sharp'>#define</em> DT_SONAME       14              <em class='comment'>/* string table offset of shared obj */</em>
+<a id='L353' name='L353' /> 353 <em class='sharp'>#define</em> DT_RPATH        15              <em class='comment'>/* string table offset of library</em>
+<a id='L354' name='L354' /> 354 <em class='comment'>                                           search path */</em>
+<a id='L355' name='L355' /> 355 <em class='sharp'>#define</em> DT_SYMBOLIC     16              <em class='comment'>/* start sym search in shared obj. */</em>
+<a id='L356' name='L356' /> 356 <em class='sharp'>#define</em> DT_REL          17              <em class='comment'>/* address of rel. tbl. w addends */</em>
+<a id='L357' name='L357' /> 357 <em class='sharp'>#define</em> DT_RELSZ        18              <em class='comment'>/* size of DT_REL relocation table */</em>
+<a id='L358' name='L358' /> 358 <em class='sharp'>#define</em> DT_RELENT       19              <em class='comment'>/* size of DT_REL relocation entry */</em>
+<a id='L359' name='L359' /> 359 <em class='sharp'>#define</em> DT_PLTREL       20              <em class='comment'>/* PLT referenced relocation entry */</em>
+<a id='L360' name='L360' /> 360 <em class='sharp'>#define</em> DT_DEBUG        21              <em class='comment'>/* bugger */</em>
+<a id='L361' name='L361' /> 361 <em class='sharp'>#define</em> DT_TEXTREL      22              <em class='comment'>/* Allow rel. mod. to unwritable seg */</em>
+<a id='L362' name='L362' /> 362 <em class='sharp'>#define</em> DT_JMPREL       23              <em class='comment'>/* add. of PLT's relocation entries */</em>
+<a id='L363' name='L363' /> 363 <em class='sharp'>#define</em> DT_BIND_NOW     24              <em class='comment'>/* Bind now regardless of env setting */</em>
+<a id='L364' name='L364' /> 364 <em class='sharp'>#define</em> DT_NUM          25              <em class='comment'>/* Number used. */</em>
+<a id='L365' name='L365' /> 365 <em class='sharp'>#define</em> DT_LOPROC       0x70000000      <em class='comment'>/* reserved range for processor */</em>
+<a id='L366' name='L366' /> 366 <em class='sharp'>#define</em> DT_HIPROC       0x7fffffff      <em class='comment'>/*  specific dynamic array tags */</em>
+<a id='L367' name='L367' /> 367 
+<a id='L368' name='L368' /> 368 <em class='comment'>/* Standard ELF hashing function */</em>
+<a id='L369' name='L369' /> 369 <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong> elf_hash(<strong class='reserved'>const</strong> <strong class='reserved'>unsigned</strong> <strong class='reserved'>char</strong> *<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>);
+<a id='L370' name='L370' /> 370 
+<a id='L371' name='L371' /> 371 <em class='comment'>/*</em>
+<a id='L372' name='L372' /> 372 <em class='comment'> * Note Definitions</em>
+<a id='L373' name='L373' /> 373 <em class='comment'> */</em>
+<a id='L374' name='L374' /> 374 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L375' name='L375' /> 375         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a> <a href='254.html#L375' title='Used at 375 in include/sys/elf.h.'>namesz</a>;
+<a id='L376' name='L376' /> 376         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a> <a href='254.html#L376' title='Used at 376 in include/sys/elf.h.'>descsz</a>;
+<a id='L377' name='L377' /> 377         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a> <a href='../Y/2242.html' title='Multiple used in 98 places.'>type</a>;
+<a id='L378' name='L378' /> 378 <em class='brace'>}</em> <a href='254.html#L445' title='Refered from 445 in include/sys/elf.h.'>Elf32_Note</a>;
+<a id='L379' name='L379' /> 379 
+<a id='L380' name='L380' /> 380 <em class='comment'>/*</em>
+<a id='L381' name='L381' /> 381 <em class='comment'> * XXX - these _KERNEL items aren't part of the ABI!</em>
+<a id='L382' name='L382' /> 382 <em class='comment'> */</em>
+<a id='L383' name='L383' /> 383 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='254.html#L383' title='Used at 383 in include/sys/elf.h.'>_KERNEL</a>) || <strong class='reserved'>defined</strong>(<a href='254.html#L383' title='Used at 383 in include/sys/elf.h.'>_DYN_LOADER</a>)
+<a id='L384' name='L384' /> 384 
+<a id='L385' name='L385' /> 385 <em class='sharp'>#define</em> ELF32_NO_ADDR   ((<a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>) ~0)   <em class='comment'>/* Indicates addr. not yet filled in */</em>
+<a id='L386' name='L386' /> 386 <em class='sharp'>#define</em> ELF_AUX_ENTRIES 8               <em class='comment'>/* Size of aux array passed to loader */</em>
+<a id='L387' name='L387' /> 387 
+<a id='L388' name='L388' /> 388 <strong class='reserved'>typedef</strong> <strong class='reserved'>struct</strong> <em class='brace'>{</em>
+<a id='L389' name='L389' /> 389         <a href='254.html#L44' title='Defined at 44 in include/sys/elf.h.'>Elf32_Sword</a>     <a href='254.html#L389' title='Used at 389 in include/sys/elf.h.'>au_id</a>;                          <em class='comment'>/* 32-bit id */</em>
+<a id='L390' name='L390' /> 390         <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>      <a href='254.html#L390' title='Used at 390 in include/sys/elf.h.'>au_v</a>;                           <em class='comment'>/* 32-bit value */</em>
+<a id='L391' name='L391' /> 391 <em class='brace'>}</em> <a href='254.html#L456' title='Refered from 456 in include/sys/elf.h.'>Aux32Info</a>;
+<a id='L392' name='L392' /> 392 
+<a id='L393' name='L393' /> 393 <strong class='reserved'>enum</strong> <a href='254.html#L393' title='Used at 393 in include/sys/elf.h.'>AuxID</a> <em class='brace'>{</em>
+<a id='L394' name='L394' /> 394         <a href='254.html#L394' title='Used at 394 in include/sys/elf.h.'>AUX_null</a> = 0,
+<a id='L395' name='L395' /> 395         <a href='254.html#L395' title='Used at 395 in include/sys/elf.h.'>AUX_ignore</a> = 1,
+<a id='L396' name='L396' /> 396         <a href='254.html#L396' title='Used at 396 in include/sys/elf.h.'>AUX_execfd</a> = 2,
+<a id='L397' name='L397' /> 397         <a href='254.html#L397' title='Used at 397 in include/sys/elf.h.'>AUX_phdr</a> = 3,                   <em class='comment'>/* &amp;phdr[0] */</em>
+<a id='L398' name='L398' /> 398         <a href='254.html#L398' title='Used at 398 in include/sys/elf.h.'>AUX_phent</a> = 4,                  <em class='comment'>/* sizeof(phdr[0]) */</em>
+<a id='L399' name='L399' /> 399         <a href='254.html#L399' title='Used at 399 in include/sys/elf.h.'>AUX_phnum</a> = 5,                  <em class='comment'>/* # phdr entries */</em>
+<a id='L400' name='L400' /> 400         <a href='254.html#L400' title='Used at 400 in include/sys/elf.h.'>AUX_pagesz</a> = 6,                 <em class='comment'>/* PAGESIZE */</em>
+<a id='L401' name='L401' /> 401         <a href='254.html#L401' title='Used at 401 in include/sys/elf.h.'>AUX_base</a> = 7,                   <em class='comment'>/* ld.so base addr */</em>
+<a id='L402' name='L402' /> 402         <a href='254.html#L402' title='Used at 402 in include/sys/elf.h.'>AUX_flags</a> = 8,                  <em class='comment'>/* processor flags */</em>
+<a id='L403' name='L403' /> 403         <a href='254.html#L403' title='Used at 403 in include/sys/elf.h.'>AUX_entry</a> = 9,                  <em class='comment'>/* a.out entry */</em>
+<a id='L404' name='L404' /> 404         <a href='254.html#L404' title='Used at 404 in include/sys/elf.h.'>AUX_sun_uid</a> = 2000,             <em class='comment'>/* euid */</em>
+<a id='L405' name='L405' /> 405         <a href='254.html#L405' title='Used at 405 in include/sys/elf.h.'>AUX_sun_ruid</a> = 2001,            <em class='comment'>/* ruid */</em>
+<a id='L406' name='L406' /> 406         <a href='254.html#L406' title='Used at 406 in include/sys/elf.h.'>AUX_sun_gid</a> = 2002,             <em class='comment'>/* egid */</em>
+<a id='L407' name='L407' /> 407         <a href='254.html#L407' title='Used at 407 in include/sys/elf.h.'>AUX_sun_rgid</a> = 2003             <em class='comment'>/* rgid */</em>
+<a id='L408' name='L408' /> 408 <em class='brace'>}</em>;
+<a id='L409' name='L409' /> 409 
+<a id='L410' name='L410' /> 410 <strong class='reserved'>struct</strong> <a href='254.html#L410' title='Used at 410 in include/sys/elf.h.'>elf_args</a> <em class='brace'>{</em>
+<a id='L411' name='L411' /> 411         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>  <a href='254.html#L411' title='Used at 411 in include/sys/elf.h.'>arg_entry</a>;              <em class='comment'>/* program entry point */</em>
+<a id='L412' name='L412' /> 412         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>  <a href='254.html#L412' title='Used at 412 in include/sys/elf.h.'>arg_interp</a>;             <em class='comment'>/* Interpreter load address */</em>
+<a id='L413' name='L413' /> 413         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>  <a href='254.html#L413' title='Used at 413 in include/sys/elf.h.'>arg_phaddr</a>;             <em class='comment'>/* program header address */</em>
+<a id='L414' name='L414' /> 414         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>  <a href='254.html#L414' title='Used at 414 in include/sys/elf.h.'>arg_phentsize</a>;          <em class='comment'>/* Size of program header */</em>
+<a id='L415' name='L415' /> 415         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>  <a href='254.html#L415' title='Used at 415 in include/sys/elf.h.'>arg_phnum</a>;              <em class='comment'>/* Number of program headers */</em>
+<a id='L416' name='L416' /> 416         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a>  <a href='254.html#L416' title='Used at 416 in include/sys/elf.h.'>arg_os</a>;                 <em class='comment'>/* OS tag */</em>
+<a id='L417' name='L417' /> 417 <em class='brace'>}</em>;
+<a id='L418' name='L418' /> 418 
+<a id='L419' name='L419' /> 419 <em class='sharp'>#endif</em>
+<a id='L420' name='L420' /> 420 
+<a id='L421' name='L421' /> 421 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='254.html#L422' title='Defined at 422 in include/sys/elf.h.'>ELFSIZE</a>) &amp;&amp; <strong class='reserved'>defined</strong>(<a href='../Y/2.html' title='Multiple used in 2 places.'>ARCH_ELFSIZE</a>)
+<a id='L422' name='L422' /> 422 <em class='sharp'>#define</em> <a href='../R/246.html' title='Multiple refered from 6 places.'>ELFSIZE</a> <a href='../Y/2.html' title='Multiple used in 2 places.'>ARCH_ELFSIZE</a>
+<a id='L423' name='L423' /> 423 <em class='sharp'>#endif</em>
+<a id='L424' name='L424' /> 424 
+<a id='L425' name='L425' /> 425 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='254.html#L422' title='Defined at 422 in include/sys/elf.h.'>ELFSIZE</a>)
+<a id='L426' name='L426' /> 426 <em class='sharp'>#define</em> <a href='../R/122.html' title='Multiple refered from 4 places.'>CONCAT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)     <a href='250.html#L65' title='Defined at 65 in include/sys/cdefs.h.'>__CONCAT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)
+<a id='L427' name='L427' /> 427 <em class='sharp'>#define</em> ELFNAME(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)      <a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='254.html#L427' title='Used at 427 in include/sys/elf.h.'>elf</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='254.html#L422' title='Defined at 422 in include/sys/elf.h.'>ELFSIZE</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/242.html' title='Multiple used in 3 places.'>_</a>,<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)))
+<a id='L428' name='L428' /> 428 <em class='sharp'>#define</em> ELFNAME2(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)   <a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/311.html' title='Multiple used in 2 places.'>_elf</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='254.html#L422' title='Defined at 422 in include/sys/elf.h.'>ELFSIZE</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/242.html' title='Multiple used in 3 places.'>_</a>,<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>))))
+<a id='L429' name='L429' /> 429 <em class='sharp'>#define</em> ELFNAMEEND(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)   <a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/311.html' title='Multiple used in 2 places.'>_elf</a>,<a href='254.html#L422' title='Defined at 422 in include/sys/elf.h.'>ELFSIZE</a>))
+<a id='L430' name='L430' /> 430 <em class='sharp'>#define</em> ELFDEFNNAME(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)  <a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='254.html#L430' title='Used at 430 in include/sys/elf.h.'>ELF</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='254.html#L422' title='Defined at 422 in include/sys/elf.h.'>ELFSIZE</a>,<a href='254.html#L426' title='Defined at 426 in include/sys/elf.h.'>CONCAT</a>(<a href='../Y/242.html' title='Multiple used in 3 places.'>_</a>,<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)))
+<a id='L431' name='L431' /> 431 <em class='sharp'>#endif</em>
+<a id='L432' name='L432' /> 432 
+<a id='L433' name='L433' /> 433 <em class='sharp'>#define</em> Elf_Ehdr        <a href='254.html#L123' title='Defined at 123 in include/sys/elf.h.'>Elf32_Ehdr</a>
+<a id='L434' name='L434' /> 434 <em class='sharp'>#define</em> Elf_Phdr        <a href='254.html#L307' title='Defined at 307 in include/sys/elf.h.'>Elf32_Phdr</a>
+<a id='L435' name='L435' /> 435 <em class='sharp'>#define</em> Elf_Shdr        <a href='254.html#L180' title='Defined at 180 in include/sys/elf.h.'>Elf32_Shdr</a>
+<a id='L436' name='L436' /> 436 <em class='sharp'>#define</em> Elf_Sym         <a href='254.html#L249' title='Defined at 249 in include/sys/elf.h.'>Elf32_Sym</a>
+<a id='L437' name='L437' /> 437 <em class='sharp'>#define</em> Elf_Rel         <a href='254.html#L282' title='Defined at 282 in include/sys/elf.h.'>Elf32_Rel</a>
+<a id='L438' name='L438' /> 438 <em class='sharp'>#define</em> Elf_RelA        <a href='254.html#L290' title='Defined at 290 in include/sys/elf.h.'>Elf32_Rela</a>
+<a id='L439' name='L439' /> 439 <em class='sharp'>#define</em> Elf_Dyn         <a href='254.html#L335' title='Defined at 335 in include/sys/elf.h.'>Elf32_Dyn</a>
+<a id='L440' name='L440' /> 440 <em class='sharp'>#define</em> Elf_Word        <a href='254.html#L45' title='Defined at 45 in include/sys/elf.h.'>Elf32_Word</a>
+<a id='L441' name='L441' /> 441 <em class='sharp'>#define</em> Elf_Sword       <a href='254.html#L44' title='Defined at 44 in include/sys/elf.h.'>Elf32_Sword</a>
+<a id='L442' name='L442' /> 442 <em class='sharp'>#define</em> Elf_Addr        <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>
+<a id='L443' name='L443' /> 443 <em class='sharp'>#define</em> Elf_Off         <a href='254.html#L43' title='Defined at 43 in include/sys/elf.h.'>Elf32_Off</a>
+<a id='L444' name='L444' /> 444 <em class='sharp'>#define</em> Elf_Nhdr        <a href='254.html#L444' title='Used at 444 in include/sys/elf.h.'>Elf32_Nhdr</a>
+<a id='L445' name='L445' /> 445 <em class='sharp'>#define</em> Elf_Note        <a href='254.html#L378' title='Defined at 378 in include/sys/elf.h.'>Elf32_Note</a>
+<a id='L446' name='L446' /> 446 
+<a id='L447' name='L447' /> 447 <em class='sharp'>#define</em> ELF_R_SYM       <a href='254.html#L293' title='Defined at 293 in include/sys/elf.h.'>ELF32_R_SYM</a>
+<a id='L448' name='L448' /> 448 <em class='sharp'>#define</em> ELF_R_TYPE      <a href='254.html#L294' title='Defined at 294 in include/sys/elf.h.'>ELF32_R_TYPE</a>
+<a id='L449' name='L449' /> 449 <em class='sharp'>#define</em> ELF_R_INFO      <a href='254.html#L295' title='Defined at 295 in include/sys/elf.h.'>ELF32_R_INFO</a>
+<a id='L450' name='L450' /> 450 <em class='sharp'>#define</em> ELFCLASS        <a href='254.html#L72' title='Defined at 72 in include/sys/elf.h.'>ELFCLASS32</a>
+<a id='L451' name='L451' /> 451 
+<a id='L452' name='L452' /> 452 <em class='sharp'>#define</em> ELF_ST_BIND     <a href='254.html#L255' title='Defined at 255 in include/sys/elf.h.'>ELF32_ST_BIND</a>
+<a id='L453' name='L453' /> 453 <em class='sharp'>#define</em> ELF_ST_TYPE     <a href='254.html#L256' title='Defined at 256 in include/sys/elf.h.'>ELF32_ST_TYPE</a>
+<a id='L454' name='L454' /> 454 <em class='sharp'>#define</em> ELF_ST_INFO     <a href='254.html#L257' title='Defined at 257 in include/sys/elf.h.'>ELF32_ST_INFO</a>
+<a id='L455' name='L455' /> 455 
+<a id='L456' name='L456' /> 456 <em class='sharp'>#define</em> AuxInfo         <a href='254.html#L391' title='Defined at 391 in include/sys/elf.h.'>Aux32Info</a>
+<a id='L457' name='L457' /> 457 
+<a id='L458' name='L458' /> 458 <em class='sharp'>#define</em> ELF_TARG_VER    1       <em class='comment'>/* The ver for which this code is intended */</em>
+<a id='L459' name='L459' /> 459 
+<a id='L460' name='L460' /> 460 
+<a id='L461' name='L461' /> 461 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L462' name='L462' /> 462 <strong class='reserved'>int</strong> <a href='../D/3331.html' title='Multiple defined in 6 places.'>relocate_rel</a>(<a href='../Y/133.html' title='Multiple used in 10 places.'>Elf32_Rel</a> *, <a href='../Y/130.html' title='Multiple used in 16 places.'>Elf32_Addr</a>, <strong class='reserved'>char</strong> *);
+<a id='L463' name='L463' /> 463 <strong class='reserved'>int</strong> <a href='../D/3332.html' title='Multiple defined in 6 places.'>relocate_rela</a>(<a href='../Y/134.html' title='Multiple used in 10 places.'>Elf32_Rela</a> *, <a href='../Y/130.html' title='Multiple used in 16 places.'>Elf32_Addr</a>, <strong class='reserved'>char</strong> *);
+<a id='L464' name='L464' /> 464 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L465' name='L465' /> 465 
+<a id='L466' name='L466' /> 466 <em class='sharp'>#endif</em> <em class='comment'>/* _SYS_ELF_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='254.html#L123'>[^]</a><a href='254.html#L391'>[v]</a><a href='254.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fd2</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/940.html#L57'>fd2</a>                57 usr/test/dup/dup.c 	int orgfd, fd1, fd2, test = 0;
+<a href='../S/940.html#L73'>fd2</a>                73 usr/test/dup/dup.c 	if ((fd2 = dup2(fd1, fd1 + 1)) &lt; 0)
+<a href='../S/940.html#L79'>fd2</a>                79 usr/test/dup/dup.c 	if (fd2 != fd1 + 1)
+<a href='../S/940.html#L88'>fd2</a>                88 usr/test/dup/dup.c 	if (fcntl(fd2, F_GETFD) != 0)
+<a href='../S/940.html#L121'>fd2</a>               121 usr/test/dup/dup.c 	if ((fd2 = dup2(fd1, fd1)) &lt; 0)
+<a href='../S/940.html#L127'>fd2</a>               127 usr/test/dup/dup.c 	if (fd2 != fd1)
+<a href='../S/940.html#L137'>fd2</a>               137 usr/test/dup/dup.c 	if (fcntl(fd2, F_GETFD) == 0)
+<a href='../S/940.html#L144'>fd2</a>               144 usr/test/dup/dup.c 	if ((fd2 = fcntl(fd1, F_DUPFD, 0)) &lt; 0)
+<a href='../S/940.html#L151'>fd2</a>               151 usr/test/dup/dup.c         if (fcntl(fd2, F_GETFD) != 0)
+<a href='../S/940.html#L162'>fd2</a>               162 usr/test/dup/dup.c 	if ((fd2 = dup2(fd1, (int)(rlp.rlim_cur + 1))) &gt;= 0)
+<a href='../S/952.html#L47'>fd2</a>                47 usr/test/fifo/fifo.c 	int pid, fd1, fd2, len;
+<a href='../S/952.html#L84'>fd2</a>                84 usr/test/fifo/fifo.c 	fd2 = open("/mnt/fifo/test", O_WRONLY);
+<a href='../S/952.html#L85'>fd2</a>                85 usr/test/fifo/fifo.c 	if (fd2 == -1) {
+<a href='../S/952.html#L95'>fd2</a>                95 usr/test/fifo/fifo.c 		write(fd2, buf2, strlen(buf2));
+<a href='../S/952.html#L97'>fd2</a>                97 usr/test/fifo/fifo.c 	close(fd2);
+</pre>
+</body>
+</html>

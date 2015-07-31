@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>r</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/52.html#L94'>r</a>                  94 bsp/drv/arm/gba/lcd.h #define	RGB(r, g, b)	(((b) &lt;&lt; 10) + ((g) &lt;&lt; 5) + (r))
+<a href='../S/132.html#L108'>r</a>                 108 bsp/hal/arm/arch/trap.c trap_dump(struct cpu_regs *r)
+<a href='../S/132.html#L111'>r</a>                 111 bsp/hal/arm/arch/trap.c 	printf("Trap frame %x\n", r);
+<a href='../S/132.html#L113'>r</a>                 113 bsp/hal/arm/arch/trap.c 	       r-&gt;r0, r-&gt;r1, r-&gt;r2, r-&gt;r3, r-&gt;r4, r-&gt;r5);
+<a href='../S/132.html#L115'>r</a>                 115 bsp/hal/arm/arch/trap.c 	       r-&gt;r6, r-&gt;r7, r-&gt;r8, r-&gt;r9, r-&gt;r10, r-&gt;r11);
+<a href='../S/132.html#L117'>r</a>                 117 bsp/hal/arm/arch/trap.c 	       r-&gt;r12, r-&gt;sp, r-&gt;lr, r-&gt;pc, r-&gt;cpsr);
+<a href='../S/132.html#L120'>r</a>                 120 bsp/hal/arm/arch/trap.c 	       (r-&gt;cpsr &amp; PSR_INT_MASK) ? "disabled" : "enabled");
+<a href='../S/134.html#L54'>r</a>                  54 bsp/hal/arm/gba/diag.c #define	RGB(r, g, b)	(((b) &lt;&lt; 10) + ((g) &lt;&lt; 5) + (r))
+<a href='../S/159.html#L119'>r</a>                 119 bsp/hal/ppc/arch/trap.c trap_dump(struct cpu_regs *r)
+<a href='../S/159.html#L122'>r</a>                 122 bsp/hal/ppc/arch/trap.c 	printf("Trap frame %x\n", r);
+<a href='../S/159.html#L124'>r</a>                 124 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[0], r-&gt;gr[1], r-&gt;gr[2], r-&gt;gr[3], r-&gt;gr[4], r-&gt;gr[5]);
+<a href='../S/159.html#L126'>r</a>                 126 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[6], r-&gt;gr[7], r-&gt;gr[8], r-&gt;gr[9], r-&gt;gr[10], r-&gt;gr[11]);
+<a href='../S/159.html#L128'>r</a>                 128 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[12], r-&gt;gr[13], r-&gt;gr[14], r-&gt;gr[15], r-&gt;gr[16], r-&gt;gr[17]);
+<a href='../S/159.html#L130'>r</a>                 130 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[18], r-&gt;gr[19], r-&gt;gr[20], r-&gt;gr[21], r-&gt;gr[22], r-&gt;gr[23]);
+<a href='../S/159.html#L132'>r</a>                 132 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[24], r-&gt;gr[25], r-&gt;gr[26], r-&gt;gr[27], r-&gt;gr[28], r-&gt;gr[29]);
+<a href='../S/159.html#L134'>r</a>                 134 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[30], r-&gt;gr[31], r-&gt;lr, r-&gt;cr, r-&gt;xer, r-&gt;ctr);
+<a href='../S/159.html#L135'>r</a>                 135 bsp/hal/ppc/arch/trap.c 	printf(" srr0 %08x srr1 %08x\n", r-&gt;srr0, r-&gt;srr1);
+<a href='../S/159.html#L138'>r</a>                 138 bsp/hal/ppc/arch/trap.c 	       (r-&gt;srr1 &amp; MSR_EE) ? "enabled" : "disabled");
+<a href='../S/179.html#L151'>r</a>                 151 bsp/hal/x86/arch/trap.c trap_dump(struct cpu_regs *r)
+<a href='../S/179.html#L161'>r</a>                 161 bsp/hal/x86/arch/trap.c 	if (r-&gt;cs &amp; 3) {
+<a href='../S/179.html#L162'>r</a>                 162 bsp/hal/x86/arch/trap.c 		ss = r-&gt;ss;
+<a href='../S/179.html#L163'>r</a>                 163 bsp/hal/x86/arch/trap.c 		esp = r-&gt;esp;
+<a href='../S/179.html#L165'>r</a>                 165 bsp/hal/x86/arch/trap.c 		ss = r-&gt;ds;
+<a href='../S/179.html#L166'>r</a>                 166 bsp/hal/x86/arch/trap.c 		esp = (uint32_t)r;
+<a href='../S/179.html#L168'>r</a>                 168 bsp/hal/x86/arch/trap.c 	printf("Trap frame %08lx error %x\n", (long)r, r-&gt;err_code);
+<a href='../S/179.html#L170'>r</a>                 170 bsp/hal/x86/arch/trap.c 	       r-&gt;eax, r-&gt;ebx, r-&gt;ecx, r-&gt;edx, r-&gt;esi, r-&gt;edi);
+<a href='../S/179.html#L172'>r</a>                 172 bsp/hal/x86/arch/trap.c 	       r-&gt;eip, esp, r-&gt;ebp, r-&gt;eflags);
+<a href='../S/179.html#L174'>r</a>                 174 bsp/hal/x86/arch/trap.c 	       r-&gt;cs, ss, r-&gt;ds, r-&gt;es, tss_get());
+<a href='../S/179.html#L180'>r</a>                 180 bsp/hal/x86/arch/trap.c 	if (r-&gt;cs == KERNEL_CS) {
+<a href='../S/179.html#L182'>r</a>                 182 bsp/hal/x86/arch/trap.c 		fp = (uint32_t *)r-&gt;ebp;
+<a href='../S/374.html#L59'>r</a>                  59 usr/bin/cp/cp.c 	int r, ch, checkch, i, iflag = 0;
+<a href='../S/374.html#L80'>r</a>                  80 usr/bin/cp/cp.c 	r = stat(target, &amp;to_stat);
+<a href='../S/374.html#L81'>r</a>                  81 usr/bin/cp/cp.c 	if (r == -1 &amp;&amp; errno != ENOENT)
+<a href='../S/374.html#L83'>r</a>                  83 usr/bin/cp/cp.c 	if (r == -1 || !S_ISDIR(to_stat.st_mode)) {
+<a href='../S/374.html#L98'>r</a>                  98 usr/bin/cp/cp.c 		if (r != -1 &amp;&amp; iflag) {
+<a href='../S/374.html#L106'>r</a>                 106 usr/bin/cp/cp.c 		r = copy(argv[0], target, 0);
+<a href='../S/374.html#L111'>r</a>                 111 usr/bin/cp/cp.c 		r = 0;
+<a href='../S/374.html#L113'>r</a>                 113 usr/bin/cp/cp.c 			r = copy(argv[i], target, 1);
+<a href='../S/374.html#L116'>r</a>                 116 usr/bin/cp/cp.c 	exit(r);
+<a href='../S/421.html#L423'>r</a>                 423 usr/bin/test/test.c 	long r;
+<a href='../S/421.html#L426'>r</a>                 426 usr/bin/test/test.c 	r = strtol(s, &amp;p, 10);
+<a href='../S/421.html#L437'>r</a>                 437 usr/bin/test/test.c 	return (int) r;
+<a href='../S/474.html#L42'>r</a>                  42 usr/lib/libc/gen/execl.c 	int r;
+<a href='../S/474.html#L44'>r</a>                  44 usr/lib/libc/gen/execl.c 	r = execve(name, (char **) &amp;arg, environ);
+<a href='../S/474.html#L45'>r</a>                  45 usr/lib/libc/gen/execl.c 	return (r);
+<a href='../S/474.html#L64'>r</a>                  64 usr/lib/libc/gen/execl.c 	r = execve(name, argv, environ);
+<a href='../S/474.html#L65'>r</a>                  65 usr/lib/libc/gen/execl.c 	return (r);
+<a href='../S/477.html#L40'>r</a>                  40 usr/lib/libc/gen/execv.c 	int r;
+<a href='../S/477.html#L42'>r</a>                  42 usr/lib/libc/gen/execv.c 	r = execve(name, argv, environ);
+<a href='../S/477.html#L43'>r</a>                  43 usr/lib/libc/gen/execv.c 	return (r);
+<a href='../S/497.html#L42'>r</a>                  42 usr/lib/libc/stdio/fclose.c 	int r;
+<a href='../S/497.html#L48'>r</a>                  48 usr/lib/libc/stdio/fclose.c 	r = fp-&gt;_flags &amp; __SWR ? __sflush(fp) : 0;
+<a href='../S/497.html#L50'>r</a>                  50 usr/lib/libc/stdio/fclose.c 		r = EOF;
+<a href='../S/497.html#L57'>r</a>                  57 usr/lib/libc/stdio/fclose.c 	return (r);
+<a href='../S/512.html#L44'>r</a>                  44 usr/lib/libc/stdio/fputs.c 	int c, r = 0;
+<a href='../S/512.html#L47'>r</a>                  47 usr/lib/libc/stdio/fputs.c 		r = putc(c, fp);
+<a href='../S/512.html#L48'>r</a>                  48 usr/lib/libc/stdio/fputs.c 	return(r);
+<a href='../S/513.html#L45'>r</a>                  45 usr/lib/libc/stdio/fread.c 	int r;
+<a href='../S/513.html#L59'>r</a>                  59 usr/lib/libc/stdio/fread.c 	while (resid &gt; (size_t)(r = fp-&gt;_r)) {
+<a href='../S/513.html#L60'>r</a>                  60 usr/lib/libc/stdio/fread.c 		(void)memcpy((void *)p, (void *)fp-&gt;_p, (size_t)r);
+<a href='../S/513.html#L61'>r</a>                  61 usr/lib/libc/stdio/fread.c 		fp-&gt;_p += r;
+<a href='../S/513.html#L63'>r</a>                  63 usr/lib/libc/stdio/fread.c 		p += r;
+<a href='../S/513.html#L64'>r</a>                  64 usr/lib/libc/stdio/fread.c 		resid -= r;
+<a href='../S/553.html#L313'>r</a>                 313 usr/lib/libc/stdio/vfscanf.c 				size_t r = fread((void *)va_arg(ap, char *), 1,
+<a href='../S/553.html#L316'>r</a>                 316 usr/lib/libc/stdio/vfscanf.c 				if (r == 0)
+<a href='../S/553.html#L318'>r</a>                 318 usr/lib/libc/stdio/vfscanf.c 				nread += r;
+<a href='../S/568.html#L39'>r</a>                  39 usr/lib/libc/stdlib/div.c 	div_t r;
+<a href='../S/568.html#L41'>r</a>                  41 usr/lib/libc/stdlib/div.c 	r.quot = num / denom;
+<a href='../S/568.html#L42'>r</a>                  42 usr/lib/libc/stdlib/div.c 	r.rem = num % denom;
+<a href='../S/568.html#L66'>r</a>                  66 usr/lib/libc/stdlib/div.c 	if (num &gt;= 0 &amp;&amp; r.rem &lt; 0) {
+<a href='../S/568.html#L67'>r</a>                  67 usr/lib/libc/stdlib/div.c 		r.quot++;
+<a href='../S/568.html#L68'>r</a>                  68 usr/lib/libc/stdlib/div.c 		r.rem -= denom;
+<a href='../S/568.html#L70'>r</a>                  70 usr/lib/libc/stdlib/div.c 	return (r);
+<a href='../S/575.html#L99'>r</a>                  99 usr/lib/libc/stdlib/qsort.c 	int d, r, swaptype, swap_cnt;
+<a href='../S/575.html#L127'>r</a>                 127 usr/lib/libc/stdlib/qsort.c 		while (pb &lt;= pc &amp;&amp; (r = cmp(pb, a)) &lt;= 0) {
+<a href='../S/575.html#L128'>r</a>                 128 usr/lib/libc/stdlib/qsort.c 			if (r == 0) {
+<a href='../S/575.html#L135'>r</a>                 135 usr/lib/libc/stdlib/qsort.c 		while (pb &lt;= pc &amp;&amp; (r = cmp(pc, a)) &gt;= 0) {
+<a href='../S/575.html#L136'>r</a>                 136 usr/lib/libc/stdlib/qsort.c 			if (r == 0) {
+<a href='../S/575.html#L158'>r</a>                 158 usr/lib/libc/stdlib/qsort.c 	r = min(pa - (char *) a, pb - pa);
+<a href='../S/575.html#L159'>r</a>                 159 usr/lib/libc/stdlib/qsort.c 	vecswap(a, pb - r, r);
+<a href='../S/575.html#L160'>r</a>                 160 usr/lib/libc/stdlib/qsort.c 	r = min(pd - pc, pn - pd - es);
+<a href='../S/575.html#L161'>r</a>                 161 usr/lib/libc/stdlib/qsort.c 	vecswap(pb, pn - r, r);
+<a href='../S/575.html#L162'>r</a>                 162 usr/lib/libc/stdlib/qsort.c 	if ((r = pb - pa) &gt; es)
+<a href='../S/575.html#L163'>r</a>                 163 usr/lib/libc/stdlib/qsort.c 		qsort(a, r / es, es, cmp);
+<a href='../S/575.html#L164'>r</a>                 164 usr/lib/libc/stdlib/qsort.c 	if ((r = pd - pc) &gt; es) {
+<a href='../S/575.html#L166'>r</a>                 166 usr/lib/libc/stdlib/qsort.c 		a = pn - r;
+<a href='../S/575.html#L167'>r</a>                 167 usr/lib/libc/stdlib/qsort.c 		n = r / es;
+<a href='../S/849.html#L65'>r</a>                  65 usr/sample/tetris/screen.c #define	moveto(r, c)	printf("\33[%d;%dH", r, c)
+<a href='../S/862.html#L65'>r</a>                  65 usr/sbin/install/install.c 	int r, ch, checkch, i;
+<a href='../S/862.html#L75'>r</a>                  75 usr/sbin/install/install.c 	r = stat(target, &amp;to_stat);
+<a href='../S/862.html#L76'>r</a>                  76 usr/sbin/install/install.c 	if (r == -1 &amp;&amp; errno != ENOENT)
+<a href='../S/862.html#L78'>r</a>                  78 usr/sbin/install/install.c 	if (r == -1 || !S_ISDIR(to_stat.st_mode)) {
+<a href='../S/862.html#L81'>r</a>                  81 usr/sbin/install/install.c 		r = 0;
+<a href='../S/862.html#L96'>r</a>                  96 usr/sbin/install/install.c 			r = copy(src, target);
+<a href='../S/862.html#L97'>r</a>                  97 usr/sbin/install/install.c 			if (r)
+<a href='../S/862.html#L101'>r</a>                 101 usr/sbin/install/install.c 	exit(r);
+</pre>
+</body>
+</html>

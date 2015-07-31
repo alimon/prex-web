@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/478.html#L51'>bp</a>                 51 usr/lib/libc/gen/execvp.c 	const char *bp, *path, *p;
+<a href='../S/478.html#L60'>bp</a>                 60 usr/lib/libc/gen/execvp.c 		bp = name;
+<a href='../S/478.html#L64'>bp</a>                 64 usr/lib/libc/gen/execvp.c 	bp = buf;
+<a href='../S/478.html#L97'>bp</a>                 97 usr/lib/libc/gen/execvp.c retry:		(void)execve(bp, argv, environ);
+<a href='../S/478.html#L111'>bp</a>                111 usr/lib/libc/gen/execvp.c 			memp[1] = bp;
+<a href='../S/849.html#L155'>bp</a>                155 usr/sample/tetris/screen.c 	cell *bp, *sp;
+<a href='../S/849.html#L168'>bp</a>                168 usr/sample/tetris/screen.c 	bp = &amp;board[D_FIRST * B_COLS];
+<a href='../S/849.html#L172'>bp</a>                172 usr/sample/tetris/screen.c 		for (i = 0; i &lt; B_COLS; bp++, sp++, i++) {
+<a href='../S/849.html#L173'>bp</a>                173 usr/sample/tetris/screen.c 			if (*sp == (so = *bp))
+<a href='../S/849.html#L197'>bp</a>                197 usr/sample/tetris/screen.c 			if (i &gt; STOP || sp[1] != bp[1] || so != bp[1])
+<a href='../S/849.html#L199'>bp</a>                199 usr/sample/tetris/screen.c 			if (sp[2] != bp[2])
+<a href='../S/849.html#L201'>bp</a>                201 usr/sample/tetris/screen.c 			else if (i &lt; STOP &amp;&amp; so == bp[2] &amp;&amp; sp[3] != bp[3]) {
+<a href='../S/883.html#L120'>bp</a>                120 usr/server/fs/arfs/arfs_vnops.c 	struct buf *bp;
+<a href='../S/883.html#L126'>bp</a>                126 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L128'>bp</a>                128 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L129'>bp</a>                129 usr/server/fs/arfs/arfs_vnops.c 	brelse(bp);
+<a href='../S/883.html#L131'>bp</a>                131 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno + 1, &amp;bp)) != 0)
+<a href='../S/883.html#L133'>bp</a>                133 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf + BSIZE, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L134'>bp</a>                134 usr/server/fs/arfs/arfs_vnops.c 	brelse(bp);
+<a href='../S/883.html#L212'>bp</a>                212 usr/server/fs/arfs/arfs_vnops.c 	struct buf *bp;
+<a href='../S/883.html#L239'>bp</a>                239 usr/server/fs/arfs/arfs_vnops.c 		if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L247'>bp</a>                247 usr/server/fs/arfs/arfs_vnops.c 		memcpy(buf, bp-&gt;b_data + buf_pos, nr_copy);
+<a href='../S/883.html#L248'>bp</a>                248 usr/server/fs/arfs/arfs_vnops.c 		brelse(bp);
+<a href='../S/889.html#L49'>bp</a>                 49 usr/server/fs/fatfs/fatfs_fat.c 	struct buf *bp;
+<a href='../S/889.html#L67'>bp</a>                 67 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/889.html#L69'>bp</a>                 69 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L70'>bp</a>                 70 usr/server/fs/fatfs/fatfs_fat.c 	brelse(bp);
+<a href='../S/889.html#L76'>bp</a>                 76 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec + 1, &amp;bp)) != 0)
+<a href='../S/889.html#L78'>bp</a>                 78 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf + SEC_SIZE, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L79'>bp</a>                 79 usr/server/fs/fatfs/fatfs_fat.c 	brelse(bp);
+<a href='../S/889.html#L92'>bp</a>                 92 usr/server/fs/fatfs/fatfs_fat.c 	struct buf *bp;
+<a href='../S/889.html#L106'>bp</a>                106 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/889.html#L107'>bp</a>                107 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf, SEC_SIZE);
+<a href='../S/889.html#L108'>bp</a>                108 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bwrite(bp)) != 0)
+<a href='../S/889.html#L115'>bp</a>                115 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec + 1);
+<a href='../S/889.html#L116'>bp</a>                116 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf + SEC_SIZE, SEC_SIZE);
+<a href='../S/889.html#L117'>bp</a>                117 usr/server/fs/fatfs/fatfs_fat.c 	error = bwrite(bp);
+<a href='../S/890.html#L47'>bp</a>                 47 usr/server/fs/fatfs/fatfs_node.c 	struct buf *bp;
+<a href='../S/890.html#L50'>bp</a>                 50 usr/server/fs/fatfs/fatfs_node.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/890.html#L52'>bp</a>                 52 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/890.html#L53'>bp</a>                 53 usr/server/fs/fatfs/fatfs_node.c 	brelse(bp);
+<a href='../S/890.html#L63'>bp</a>                 63 usr/server/fs/fatfs/fatfs_node.c 	struct buf *bp;
+<a href='../S/890.html#L65'>bp</a>                 65 usr/server/fs/fatfs/fatfs_node.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/890.html#L66'>bp</a>                 66 usr/server/fs/fatfs/fatfs_node.c 	memcpy(bp-&gt;b_data, fmp-&gt;dir_buf, SEC_SIZE);
+<a href='../S/890.html#L67'>bp</a>                 67 usr/server/fs/fatfs/fatfs_node.c 	return bwrite(bp);
+<a href='../S/906.html#L85'>bp</a>                 85 usr/server/fs/vfs/vfs_bio.c bio_insert_head(struct buf *bp)
+<a href='../S/906.html#L88'>bp</a>                 88 usr/server/fs/vfs/vfs_bio.c 	list_insert(&amp;free_list, &amp;bp-&gt;b_link);
+<a href='../S/906.html#L96'>bp</a>                 96 usr/server/fs/vfs/vfs_bio.c bio_insert_tail(struct buf *bp)
+<a href='../S/906.html#L99'>bp</a>                 99 usr/server/fs/vfs/vfs_bio.c 	list_insert(list_prev(&amp;free_list), &amp;bp-&gt;b_link);
+<a href='../S/906.html#L107'>bp</a>                107 usr/server/fs/vfs/vfs_bio.c bio_remove(struct buf *bp)
+<a href='../S/906.html#L112'>bp</a>                112 usr/server/fs/vfs/vfs_bio.c 	list_remove(&amp;bp-&gt;b_link);
+<a href='../S/906.html#L121'>bp</a>                121 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L125'>bp</a>                125 usr/server/fs/vfs/vfs_bio.c 	bp = list_entry(list_first(&amp;free_list), struct buf, b_link);
+<a href='../S/906.html#L126'>bp</a>                126 usr/server/fs/vfs/vfs_bio.c 	list_remove(&amp;bp-&gt;b_link);
+<a href='../S/906.html#L127'>bp</a>                127 usr/server/fs/vfs/vfs_bio.c 	return bp;
+<a href='../S/906.html#L136'>bp</a>                136 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L140'>bp</a>                140 usr/server/fs/vfs/vfs_bio.c 		bp = &amp;buf_table[i];
+<a href='../S/906.html#L141'>bp</a>                141 usr/server/fs/vfs/vfs_bio.c 		if (bp-&gt;b_blkno == blkno &amp;&amp; bp-&gt;b_dev == dev &amp;&amp;
+<a href='../S/906.html#L142'>bp</a>                142 usr/server/fs/vfs/vfs_bio.c 		    !ISSET(bp-&gt;b_flags, B_INVAL))
+<a href='../S/906.html#L143'>bp</a>                143 usr/server/fs/vfs/vfs_bio.c 			return bp;
+<a href='../S/906.html#L159'>bp</a>                159 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L164'>bp</a>                164 usr/server/fs/vfs/vfs_bio.c 	bp = incore(dev, blkno);
+<a href='../S/906.html#L165'>bp</a>                165 usr/server/fs/vfs/vfs_bio.c 	if (bp != NULL) {
+<a href='../S/906.html#L167'>bp</a>                167 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_BUSY)) {
+<a href='../S/906.html#L172'>bp</a>                172 usr/server/fs/vfs/vfs_bio.c 			mutex_lock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L173'>bp</a>                173 usr/server/fs/vfs/vfs_bio.c 			mutex_unlock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L177'>bp</a>                177 usr/server/fs/vfs/vfs_bio.c 		bio_remove(bp);
+<a href='../S/906.html#L178'>bp</a>                178 usr/server/fs/vfs/vfs_bio.c 		SET(bp-&gt;b_flags, B_BUSY);
+<a href='../S/906.html#L180'>bp</a>                180 usr/server/fs/vfs/vfs_bio.c 		bp = bio_remove_head();
+<a href='../S/906.html#L181'>bp</a>                181 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_DELWRI)) {
+<a href='../S/906.html#L183'>bp</a>                183 usr/server/fs/vfs/vfs_bio.c 			bwrite(bp);
+<a href='../S/906.html#L186'>bp</a>                186 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_flags = B_BUSY;
+<a href='../S/906.html#L187'>bp</a>                187 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_dev = dev;
+<a href='../S/906.html#L188'>bp</a>                188 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_blkno = blkno;
+<a href='../S/906.html#L190'>bp</a>                190 usr/server/fs/vfs/vfs_bio.c 	mutex_lock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L192'>bp</a>                192 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("getblk: done bp=%x\n", bp));
+<a href='../S/906.html#L193'>bp</a>                193 usr/server/fs/vfs/vfs_bio.c 	return bp;
+<a href='../S/906.html#L200'>bp</a>                200 usr/server/fs/vfs/vfs_bio.c brelse(struct buf *bp)
+<a href='../S/906.html#L202'>bp</a>                202 usr/server/fs/vfs/vfs_bio.c 	ASSERT(ISSET(bp-&gt;b_flags, B_BUSY));
+<a href='../S/906.html#L204'>bp</a>                204 usr/server/fs/vfs/vfs_bio.c 				bp, bp-&gt;b_dev, bp-&gt;b_blkno));
+<a href='../S/906.html#L207'>bp</a>                207 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, B_BUSY);
+<a href='../S/906.html#L208'>bp</a>                208 usr/server/fs/vfs/vfs_bio.c 	mutex_unlock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L209'>bp</a>                209 usr/server/fs/vfs/vfs_bio.c 	if (ISSET(bp-&gt;b_flags, B_INVAL))
+<a href='../S/906.html#L210'>bp</a>                210 usr/server/fs/vfs/vfs_bio.c 		bio_insert_head(bp);
+<a href='../S/906.html#L212'>bp</a>                212 usr/server/fs/vfs/vfs_bio.c 		bio_insert_tail(bp);
+<a href='../S/906.html#L228'>bp</a>                228 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L233'>bp</a>                233 usr/server/fs/vfs/vfs_bio.c 	bp = getblk(dev, blkno);
+<a href='../S/906.html#L235'>bp</a>                235 usr/server/fs/vfs/vfs_bio.c 	if (!ISSET(bp-&gt;b_flags, (B_DONE | B_DELWRI))) {
+<a href='../S/906.html#L237'>bp</a>                237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+<a href='../S/906.html#L240'>bp</a>                240 usr/server/fs/vfs/vfs_bio.c 			brelse(bp);
+<a href='../S/906.html#L244'>bp</a>                244 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, B_INVAL);
+<a href='../S/906.html#L245'>bp</a>                245 usr/server/fs/vfs/vfs_bio.c 	SET(bp-&gt;b_flags, (B_READ | B_DONE));
+<a href='../S/906.html#L246'>bp</a>                246 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bread: done bp=%x\n\n", bp));
+<a href='../S/906.html#L247'>bp</a>                247 usr/server/fs/vfs/vfs_bio.c 	*bpp = bp;
+<a href='../S/906.html#L259'>bp</a>                259 usr/server/fs/vfs/vfs_bio.c bwrite(struct buf *bp)
+<a href='../S/906.html#L264'>bp</a>                264 usr/server/fs/vfs/vfs_bio.c 	ASSERT(ISSET(bp-&gt;b_flags, B_BUSY));
+<a href='../S/906.html#L265'>bp</a>                265 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bwrite: dev=%x blkno=%d\n", bp-&gt;b_dev,
+<a href='../S/906.html#L266'>bp</a>                266 usr/server/fs/vfs/vfs_bio.c 			    bp-&gt;b_blkno));
+<a href='../S/906.html#L269'>bp</a>                269 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, (B_READ | B_DONE | B_DELWRI));
+<a href='../S/906.html#L273'>bp</a>                273 usr/server/fs/vfs/vfs_bio.c 	error = device_write((device_t)bp-&gt;b_dev, bp-&gt;b_data, &amp;size,
+<a href='../S/906.html#L274'>bp</a>                274 usr/server/fs/vfs/vfs_bio.c 			   bp-&gt;b_blkno);
+<a href='../S/906.html#L278'>bp</a>                278 usr/server/fs/vfs/vfs_bio.c 	SET(bp-&gt;b_flags, B_DONE);
+<a href='../S/906.html#L280'>bp</a>                280 usr/server/fs/vfs/vfs_bio.c 	brelse(bp);
+<a href='../S/906.html#L292'>bp</a>                292 usr/server/fs/vfs/vfs_bio.c bdwrite(struct buf *bp)
+<a href='../S/906.html#L296'>bp</a>                296 usr/server/fs/vfs/vfs_bio.c 	SET(bp-&gt;b_flags, B_DELWRI);
+<a href='../S/906.html#L297'>bp</a>                297 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, B_DONE);
+<a href='../S/906.html#L299'>bp</a>                299 usr/server/fs/vfs/vfs_bio.c 	brelse(bp);
+<a href='../S/906.html#L306'>bp</a>                306 usr/server/fs/vfs/vfs_bio.c bflush(struct buf *bp)
+<a href='../S/906.html#L310'>bp</a>                310 usr/server/fs/vfs/vfs_bio.c 	if (ISSET(bp-&gt;b_flags, B_DELWRI))
+<a href='../S/906.html#L311'>bp</a>                311 usr/server/fs/vfs/vfs_bio.c 		bwrite(bp);
+<a href='../S/906.html#L322'>bp</a>                322 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L327'>bp</a>                327 usr/server/fs/vfs/vfs_bio.c 		bp = &amp;buf_table[i];
+<a href='../S/906.html#L328'>bp</a>                328 usr/server/fs/vfs/vfs_bio.c 		if (bp-&gt;b_dev == dev) {
+<a href='../S/906.html#L329'>bp</a>                329 usr/server/fs/vfs/vfs_bio.c 			if (ISSET(bp-&gt;b_flags, B_DELWRI))
+<a href='../S/906.html#L330'>bp</a>                330 usr/server/fs/vfs/vfs_bio.c 				bwrite(bp);
+<a href='../S/906.html#L331'>bp</a>                331 usr/server/fs/vfs/vfs_bio.c 			else if (ISSET(bp-&gt;b_flags, B_BUSY))
+<a href='../S/906.html#L332'>bp</a>                332 usr/server/fs/vfs/vfs_bio.c 				brelse(bp);
+<a href='../S/906.html#L333'>bp</a>                333 usr/server/fs/vfs/vfs_bio.c 			bp-&gt;b_flags = B_INVAL;
+<a href='../S/906.html#L346'>bp</a>                346 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L352'>bp</a>                352 usr/server/fs/vfs/vfs_bio.c 		bp = &amp;buf_table[i];
+<a href='../S/906.html#L353'>bp</a>                353 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_BUSY)) {
+<a href='../S/906.html#L355'>bp</a>                355 usr/server/fs/vfs/vfs_bio.c 			mutex_lock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L356'>bp</a>                356 usr/server/fs/vfs/vfs_bio.c 			mutex_unlock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L359'>bp</a>                359 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_DELWRI))
+<a href='../S/906.html#L360'>bp</a>                360 usr/server/fs/vfs/vfs_bio.c 			bwrite(bp);
+<a href='../S/906.html#L371'>bp</a>                371 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L375'>bp</a>                375 usr/server/fs/vfs/vfs_bio.c 		bp = &amp;buf_table[i];
+<a href='../S/906.html#L376'>bp</a>                376 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_flags = B_INVAL;
+<a href='../S/906.html#L377'>bp</a>                377 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_data = buffers[i];
+<a href='../S/906.html#L378'>bp</a>                378 usr/server/fs/vfs/vfs_bio.c 		mutex_init(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L379'>bp</a>                379 usr/server/fs/vfs/vfs_bio.c 		list_insert(&amp;free_list, &amp;bp-&gt;b_link);
+</pre>
+</body>
+</html>

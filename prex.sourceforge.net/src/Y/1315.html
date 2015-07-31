@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>msg</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/15.html#L101'>msg</a>               101 bsp/boot/common/main.c panic(const char *msg)
+<a href='../S/15.html#L104'>msg</a>               104 bsp/boot/common/main.c 	DPRINTF(("Panic: %s\n", msg));
+<a href='../S/220.html#L61'>msg</a>                61 include/ipc/ipc.h struct msg {
+<a href='../S/267.html#L117'>msg</a>               117 include/sys/prex.h int	msg_send(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L118'>msg</a>               118 include/sys/prex.h int	msg_receive(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L119'>msg</a>               119 include/sys/prex.h int	msg_reply(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L151'>msg</a>               151 include/sys/prex.h int	sys_log(const char *msg);
+<a href='../S/267.html#L152'>msg</a>               152 include/sys/prex.h void	sys_panic(const char *msg);
+<a href='../S/324.html#L81'>msg</a>                81 sys/ipc/msg.c  msg_send(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L88'>msg</a>                88 sys/ipc/msg.c  	if (!user_area(msg))
+<a href='../S/324.html#L115'>msg</a>               115 sys/ipc/msg.c  	if ((kmsg = kmem_map(msg, size)) == NULL) {
+<a href='../S/324.html#L188'>msg</a>               188 sys/ipc/msg.c  msg_receive(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L194'>msg</a>               194 sys/ipc/msg.c  	if (!user_area(msg))
+<a href='../S/324.html#L264'>msg</a>               264 sys/ipc/msg.c  		if (copyout(t-&gt;msgaddr, msg, len)) {
+<a href='../S/324.html#L288'>msg</a>               288 sys/ipc/msg.c  msg_reply(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L293'>msg</a>               293 sys/ipc/msg.c  	if (!user_area(msg))
+<a href='../S/324.html#L317'>msg</a>               317 sys/ipc/msg.c  		if (copyin(msg, t-&gt;msgaddr, len)) {
+<a href='../S/326.html#L108'>msg</a>               108 sys/kern/debug.c panic(const char *msg)
+<a href='../S/326.html#L111'>msg</a>               111 sys/kern/debug.c 	printf("Kernel panic: %s\n", msg);
+<a href='../S/404.html#L57'>msg</a>                57 usr/bin/ps/ps.c 	static struct msg m;
+<a href='../S/413.html#L69'>msg</a>                69 usr/bin/sh/sh.c error(const char *msg, ...)
+<a href='../S/413.html#L73'>msg</a>                73 usr/bin/sh/sh.c 	va_start(ap, msg);
+<a href='../S/413.html#L74'>msg</a>                74 usr/bin/sh/sh.c 	if (msg != NULL) {
+<a href='../S/413.html#L75'>msg</a>                75 usr/bin/sh/sh.c 		vfprintf(stderr, msg, ap);
+<a href='../S/421.html#L164'>msg</a>               164 usr/bin/test/test.c error(const char *msg, ...)
+<a href='../S/421.html#L168'>msg</a>               168 usr/bin/test/test.c 	va_start(ap, msg);
+<a href='../S/421.html#L169'>msg</a>               169 usr/bin/test/test.c 	verrx(2, msg, ap);
+<a href='../S/421.html#L198'>msg</a>               198 usr/bin/test/test.c syntax(const char *op, const char *msg)
+<a href='../S/421.html#L202'>msg</a>               202 usr/bin/test/test.c 		error("%s: %s", op, msg);
+<a href='../S/421.html#L204'>msg</a>               204 usr/bin/test/test.c 		error("%s", msg);
+<a href='../S/655.html#L53'>msg</a>                53 usr/lib/posix/exec/execve.c 	struct exec_msg msg;
+<a href='../S/655.html#L87'>msg</a>                87 usr/lib/posix/exec/execve.c 	dest = msg.buf;
+<a href='../S/655.html#L98'>msg</a>                98 usr/lib/posix/exec/execve.c 	msg.hdr.code = EXEC_EXECVE;
+<a href='../S/655.html#L99'>msg</a>                99 usr/lib/posix/exec/execve.c 	msg.argc = argc;
+<a href='../S/655.html#L100'>msg</a>               100 usr/lib/posix/exec/execve.c 	msg.envc = envc;
+<a href='../S/655.html#L101'>msg</a>               101 usr/lib/posix/exec/execve.c 	msg.bufsz = bufsz;
+<a href='../S/655.html#L102'>msg</a>               102 usr/lib/posix/exec/execve.c 	getcwd(msg.cwd, PATH_MAX);
+<a href='../S/655.html#L103'>msg</a>               103 usr/lib/posix/exec/execve.c 	strlcpy(msg.path, path, PATH_MAX);
+<a href='../S/655.html#L105'>msg</a>               105 usr/lib/posix/exec/execve.c 		error = msg_send(execobj, &amp;msg, sizeof(msg));
+<a href='../S/655.html#L114'>msg</a>               114 usr/lib/posix/exec/execve.c 	else if (msg.hdr.status)
+<a href='../S/655.html#L115'>msg</a>               115 usr/lib/posix/exec/execve.c 		errno = msg.hdr.status;
+<a href='../S/696.html#L61'>msg</a>                61 usr/lib/posix/file/__file.c 	struct msg m;
+<a href='../S/696.html#L77'>msg</a>                77 usr/lib/posix/file/__file.c 	struct msg m;
+<a href='../S/661.html#L38'>msg</a>                38 usr/lib/posix/file/close.c 	struct msg m;
+<a href='../S/662.html#L41'>msg</a>                41 usr/lib/posix/file/closedir.c 	struct msg m;
+<a href='../S/664.html#L38'>msg</a>                38 usr/lib/posix/file/dup.c 	struct msg m;
+<a href='../S/665.html#L40'>msg</a>                40 usr/lib/posix/file/dup2.c 	struct msg m;
+<a href='../S/666.html#L40'>msg</a>                40 usr/lib/posix/file/fchdir.c 	struct msg m;
+<a href='../S/669.html#L38'>msg</a>                38 usr/lib/posix/file/fsync.c 	struct msg m;
+<a href='../S/670.html#L38'>msg</a>                38 usr/lib/posix/file/ftruncate.c 	struct msg m;
+<a href='../S/673.html#L38'>msg</a>                38 usr/lib/posix/file/isatty.c 	struct msg m;
+<a href='../S/675.html#L41'>msg</a>                41 usr/lib/posix/file/lseek.c 	struct msg m;
+<a href='../S/683.html#L38'>msg</a>                38 usr/lib/posix/file/pipe.c 	struct msg m;
+<a href='../S/687.html#L41'>msg</a>                41 usr/lib/posix/file/rewinddir.c 	struct msg m;
+<a href='../S/690.html#L40'>msg</a>                40 usr/lib/posix/file/sync.c 	struct msg m;
+<a href='../S/702.html#L43'>msg</a>                43 usr/lib/posix/gen/__posix_call.c __posix_call(object_t obj, void *msg, size_t size, int restart)
+<a href='../S/702.html#L53'>msg</a>                53 usr/lib/posix/gen/__posix_call.c 		error = msg_send(obj, msg, size);
+<a href='../S/702.html#L59'>msg</a>                59 usr/lib/posix/gen/__posix_call.c 	} else if (((struct msg_header *)msg)-&gt;status) {
+<a href='../S/702.html#L60'>msg</a>                60 usr/lib/posix/gen/__posix_call.c 		errno = ((struct msg_header *)msg)-&gt;status;
+<a href='../S/733.html#L56'>msg</a>                56 usr/lib/posix/process/__process.c 	struct msg m;
+<a href='../S/705.html#L85'>msg</a>                85 usr/lib/posix/process/fork.c 	struct msg m;
+<a href='../S/706.html#L87'>msg</a>                87 usr/lib/posix/process/fork_nommu.c 	struct msg m;
+<a href='../S/710.html#L41'>msg</a>                41 usr/lib/posix/process/getpgid.c 	struct msg m;
+<a href='../S/712.html#L42'>msg</a>                42 usr/lib/posix/process/getpid.c 	struct msg m;
+<a href='../S/713.html#L42'>msg</a>                42 usr/lib/posix/process/getppid.c 	struct msg m;
+<a href='../S/715.html#L41'>msg</a>                41 usr/lib/posix/process/getsid.c 	struct msg m;
+<a href='../S/717.html#L43'>msg</a>                43 usr/lib/posix/process/kill.c 	struct msg m;
+<a href='../S/724.html#L42'>msg</a>                42 usr/lib/posix/process/setpgid.c 	struct msg m;
+<a href='../S/727.html#L42'>msg</a>                42 usr/lib/posix/process/setsid.c 	struct msg m;
+<a href='../S/731.html#L48'>msg</a>                48 usr/lib/posix/process/waitpid.c 	struct msg m;
+<a href='../S/837.html#L83'>msg</a>                83 usr/sample/ipc/ipc.c 	struct chat_msg msg;
+<a href='../S/837.html#L86'>msg</a>                86 usr/sample/ipc/ipc.c 	strcpy(msg.str, str);
+<a href='../S/837.html#L87'>msg</a>                87 usr/sample/ipc/ipc.c 	msg_send(obj, &amp;msg, sizeof(msg));
+<a href='../S/837.html#L88'>msg</a>                88 usr/sample/ipc/ipc.c 	printf("client: Received \"%s\"\n", msg.str);
+<a href='../S/837.html#L130'>msg</a>               130 usr/sample/ipc/ipc.c 	struct chat_msg msg;
+<a href='../S/837.html#L160'>msg</a>               160 usr/sample/ipc/ipc.c 		error = msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/837.html#L166'>msg</a>               166 usr/sample/ipc/ipc.c 		printf("server: Received \"%s\"\n", msg.str);
+<a href='../S/837.html#L167'>msg</a>               167 usr/sample/ipc/ipc.c 		if (!strcmp(msg.str, "Exit"))
+<a href='../S/837.html#L170'>msg</a>               170 usr/sample/ipc/ipc.c 		if (!strcmp(msg.str, "Hello!"))
+<a href='../S/837.html#L171'>msg</a>               171 usr/sample/ipc/ipc.c 			strcpy(msg.str, "Hi.");
+<a href='../S/837.html#L172'>msg</a>               172 usr/sample/ipc/ipc.c 		else if (!strcmp(msg.str, "Bye!"))
+<a href='../S/837.html#L173'>msg</a>               173 usr/sample/ipc/ipc.c 			strcpy(msg.str, "Bye.");
+<a href='../S/837.html#L175'>msg</a>               175 usr/sample/ipc/ipc.c 			strcpy(msg.str, "OK.");
+<a href='../S/837.html#L180'>msg</a>               180 usr/sample/ipc/ipc.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/852.html#L224'>msg</a>               224 usr/sample/tetris/tetris.c 			static char msg[] =
+<a href='../S/852.html#L231'>msg</a>               231 usr/sample/tetris/tetris.c 				scr_msg(msg, 1);
+<a href='../S/852.html#L234'>msg</a>               234 usr/sample/tetris/tetris.c 			scr_msg(msg, 0);
+<a href='../S/856.html#L53'>msg</a>                53 usr/sbin/debug/debug.c 	struct msg m;
+<a href='../S/864.html#L46'>msg</a>                46 usr/sbin/ktrace/ktrace.c 	struct msg m;
+<a href='../S/870.html#L122'>msg</a>               122 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L137'>msg</a>               137 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L152'>msg</a>               152 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L167'>msg</a>               167 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L191'>msg</a>               191 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L213'>msg</a>               213 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/870.html#L230'>msg</a>               230 usr/sbin/pmctrl/pmctrl.c 	struct msg m;
+<a href='../S/871.html#L112'>msg</a>               112 usr/server/boot/boot.c 	struct msg m;
+<a href='../S/871.html#L183'>msg</a>               183 usr/server/boot/boot.c 	struct exec_msg msg;
+<a href='../S/871.html#L209'>msg</a>               209 usr/server/boot/boot.c 	dest = msg.buf;
+<a href='../S/871.html#L218'>msg</a>               218 usr/server/boot/boot.c 	msg.hdr.code = EXEC_EXECVE;
+<a href='../S/871.html#L219'>msg</a>               219 usr/server/boot/boot.c 	msg.argc = argc;
+<a href='../S/871.html#L220'>msg</a>               220 usr/server/boot/boot.c 	msg.envc = envc;
+<a href='../S/871.html#L221'>msg</a>               221 usr/server/boot/boot.c 	msg.bufsz = bufsz;
+<a href='../S/871.html#L222'>msg</a>               222 usr/server/boot/boot.c 	strlcpy(msg.cwd, "/", sizeof(msg.cwd));
+<a href='../S/871.html#L223'>msg</a>               223 usr/server/boot/boot.c 	strlcpy(msg.path, "/boot/init", sizeof(msg.path));
+<a href='../S/871.html#L226'>msg</a>               226 usr/server/boot/boot.c 		error = msg_send(execobj, &amp;msg, sizeof(msg));
+<a href='../S/871.html#L270'>msg</a>               270 usr/server/boot/boot.c 	struct msg m;
+<a href='../S/874.html#L74'>msg</a>                74 usr/server/exec/exec_cap.c exec_bindcap(struct bind_msg *msg)
+<a href='../S/874.html#L79'>msg</a>                79 usr/server/exec/exec_cap.c 	task = msg-&gt;hdr.task;
+<a href='../S/874.html#L81'>msg</a>                81 usr/server/exec/exec_cap.c 	if (msg-&gt;path == NULL)
+<a href='../S/874.html#L94'>msg</a>                94 usr/server/exec/exec_cap.c 	bind_cap(msg-&gt;path, task);
+<a href='../S/877.html#L72'>msg</a>                72 usr/server/exec/exec_execve.c exec_execve(struct exec_msg *msg)
+<a href='../S/877.html#L83'>msg</a>                83 usr/server/exec/exec_execve.c 	DPRINTF(("exec_execve: path=%s task=%x\n", msg-&gt;path, msg-&gt;hdr.task));
+<a href='../S/877.html#L85'>msg</a>                85 usr/server/exec/exec_execve.c 	old_task = msg-&gt;hdr.task;
+<a href='../S/877.html#L90'>msg</a>                90 usr/server/exec/exec_execve.c 	if ((error = conv_path(msg-&gt;cwd, msg-&gt;path, path)) != 0) {
+<a href='../S/877.html#L183'>msg</a>               183 usr/server/exec/exec_execve.c 	if ((error = build_args(new_task, stack, exec.path, msg,
+<a href='../S/877.html#L314'>msg</a>               314 usr/server/exec/exec_execve.c build_args(task_t task, void *stack, char *path, struct exec_msg *msg,
+<a href='../S/877.html#L324'>msg</a>               324 usr/server/exec/exec_execve.c 	argc = msg-&gt;argc;
+<a href='../S/877.html#L325'>msg</a>               325 usr/server/exec/exec_execve.c 	envc = msg-&gt;envc;
+<a href='../S/877.html#L350'>msg</a>               350 usr/server/exec/exec_execve.c 	sp -= msg-&gt;bufsz;
+<a href='../S/877.html#L352'>msg</a>               352 usr/server/exec/exec_execve.c 	memcpy((char *)sp, (char *)&amp;msg-&gt;buf, msg-&gt;bufsz);
+<a href='../S/877.html#L414'>msg</a>               414 usr/server/exec/exec_execve.c 	struct msg m;
+<a href='../S/879.html#L54'>msg</a>                54 usr/server/exec/main.c static int exec_null(struct msg *);
+<a href='../S/879.html#L55'>msg</a>                55 usr/server/exec/main.c static int exec_debug(struct msg *);
+<a href='../S/879.html#L56'>msg</a>                56 usr/server/exec/main.c static int exec_boot(struct msg *);
+<a href='../S/879.html#L57'>msg</a>                57 usr/server/exec/main.c static int exec_shutdown(struct msg *);
+<a href='../S/879.html#L64'>msg</a>                64 usr/server/exec/main.c 	int	(*func)(struct msg *);
+<a href='../S/879.html#L67'>msg</a>                67 usr/server/exec/main.c #define MSGMAP(code, fn) {code, (int (*)(struct msg *))fn}
+<a href='../S/879.html#L81'>msg</a>                81 usr/server/exec/main.c 	struct msg m;
+<a href='../S/879.html#L94'>msg</a>                94 usr/server/exec/main.c exec_null(struct msg *msg)
+<a href='../S/879.html#L101'>msg</a>               101 usr/server/exec/main.c exec_boot(struct msg *msg)
+<a href='../S/879.html#L105'>msg</a>               105 usr/server/exec/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/879.html#L118'>msg</a>               118 usr/server/exec/main.c exec_debug(struct msg *msg)
+<a href='../S/879.html#L128'>msg</a>               128 usr/server/exec/main.c exec_shutdown(struct msg *msg)
+<a href='../S/879.html#L165'>msg</a>               165 usr/server/exec/main.c 	struct msg *msg;
+<a href='../S/879.html#L196'>msg</a>               196 usr/server/exec/main.c 	msg = malloc(MAX_EXECMSG);
+<a href='../S/879.html#L197'>msg</a>               197 usr/server/exec/main.c 	ASSERT(msg);
+<a href='../S/879.html#L206'>msg</a>               206 usr/server/exec/main.c 		error = msg_receive(obj, msg, MAX_EXECMSG);
+<a href='../S/879.html#L213'>msg</a>               213 usr/server/exec/main.c 			if (map-&gt;code == msg-&gt;hdr.code) {
+<a href='../S/879.html#L214'>msg</a>               214 usr/server/exec/main.c 				error = (*map-&gt;func)(msg);
+<a href='../S/879.html#L222'>msg</a>               222 usr/server/exec/main.c 				 error, msg-&gt;hdr.code));
+<a href='../S/879.html#L232'>msg</a>               232 usr/server/exec/main.c 		msg-&gt;hdr.status = error;
+<a href='../S/879.html#L233'>msg</a>               233 usr/server/exec/main.c 		error = msg_reply(obj, msg, MAX_EXECMSG);
+<a href='../S/903.html#L80'>msg</a>                80 usr/server/fs/vfs/main.c 	int	(*func)(struct task *, struct msg *);
+<a href='../S/903.html#L83'>msg</a>                83 usr/server/fs/vfs/main.c #define MSGMAP(code, fn) {code, (int (*)(struct task *, struct msg *))fn}
+<a href='../S/903.html#L89'>msg</a>                89 usr/server/fs/vfs/main.c fs_mount(struct task *t, struct mount_msg *msg)
+<a href='../S/903.html#L98'>msg</a>                98 usr/server/fs/vfs/main.c 		error = sys_mount(msg-&gt;dev, msg-&gt;dir, msg-&gt;fs, msg-&gt;flags,
+<a href='../S/903.html#L99'>msg</a>                99 usr/server/fs/vfs/main.c 				(void *)msg-&gt;data);
+<a href='../S/903.html#L109'>msg</a>               109 usr/server/fs/vfs/main.c fs_umount(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L116'>msg</a>               116 usr/server/fs/vfs/main.c 	return sys_umount(msg-&gt;path);
+<a href='../S/903.html#L120'>msg</a>               120 usr/server/fs/vfs/main.c fs_sync(struct task *t, struct msg *msg)
+<a href='../S/903.html#L127'>msg</a>               127 usr/server/fs/vfs/main.c fs_open(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L139'>msg</a>               139 usr/server/fs/vfs/main.c 	switch (msg-&gt;flags &amp; O_ACCMODE) {
+<a href='../S/903.html#L150'>msg</a>               150 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L153'>msg</a>               153 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, msg-&gt;flags, msg-&gt;mode, &amp;fp)) != 0)
+<a href='../S/903.html#L158'>msg</a>               158 usr/server/fs/vfs/main.c 	msg-&gt;fd = fd;
+<a href='../S/903.html#L163'>msg</a>               163 usr/server/fs/vfs/main.c fs_close(struct task *t, struct msg *msg)
+<a href='../S/903.html#L168'>msg</a>               168 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L185'>msg</a>               185 usr/server/fs/vfs/main.c fs_mknod(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L190'>msg</a>               190 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L193'>msg</a>               193 usr/server/fs/vfs/main.c 	return sys_mknod(path, msg-&gt;mode);
+<a href='../S/903.html#L197'>msg</a>               197 usr/server/fs/vfs/main.c fs_lseek(struct task *t, struct msg *msg)
+<a href='../S/903.html#L203'>msg</a>               203 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L205'>msg</a>               205 usr/server/fs/vfs/main.c 	offset = (off_t)msg-&gt;data[1];
+<a href='../S/903.html#L206'>msg</a>               206 usr/server/fs/vfs/main.c 	type = msg-&gt;data[2];
+<a href='../S/903.html#L209'>msg</a>               209 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = (int)org;
+<a href='../S/903.html#L214'>msg</a>               214 usr/server/fs/vfs/main.c fs_read(struct task *t, struct io_msg *msg)
+<a href='../S/903.html#L221'>msg</a>               221 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L223'>msg</a>               223 usr/server/fs/vfs/main.c 	size = msg-&gt;size;
+<a href='../S/903.html#L224'>msg</a>               224 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L228'>msg</a>               228 usr/server/fs/vfs/main.c 	msg-&gt;size = bytes;
+<a href='../S/903.html#L234'>msg</a>               234 usr/server/fs/vfs/main.c fs_write(struct task *t, struct io_msg *msg)
+<a href='../S/903.html#L241'>msg</a>               241 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L243'>msg</a>               243 usr/server/fs/vfs/main.c 	size = msg-&gt;size;
+<a href='../S/903.html#L244'>msg</a>               244 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L248'>msg</a>               248 usr/server/fs/vfs/main.c 	msg-&gt;size = bytes;
+<a href='../S/903.html#L254'>msg</a>               254 usr/server/fs/vfs/main.c fs_ioctl(struct task *t, struct ioctl_msg *msg)
+<a href='../S/903.html#L258'>msg</a>               258 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L261'>msg</a>               261 usr/server/fs/vfs/main.c 	return sys_ioctl(fp, msg-&gt;request, msg-&gt;buf);
+<a href='../S/903.html#L265'>msg</a>               265 usr/server/fs/vfs/main.c fs_fsync(struct task *t, struct msg *msg)
+<a href='../S/903.html#L269'>msg</a>               269 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L276'>msg</a>               276 usr/server/fs/vfs/main.c fs_fstat(struct task *t, struct stat_msg *msg)
+<a href='../S/903.html#L282'>msg</a>               282 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L285'>msg</a>               285 usr/server/fs/vfs/main.c 	st = &amp;msg-&gt;st;
+<a href='../S/903.html#L291'>msg</a>               291 usr/server/fs/vfs/main.c fs_opendir(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L302'>msg</a>               302 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, path)) != 0)
+<a href='../S/903.html#L308'>msg</a>               308 usr/server/fs/vfs/main.c 	msg-&gt;fd = fd;
+<a href='../S/903.html#L313'>msg</a>               313 usr/server/fs/vfs/main.c fs_closedir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L318'>msg</a>               318 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L332'>msg</a>               332 usr/server/fs/vfs/main.c fs_readdir(struct task *t, struct dir_msg *msg)
+<a href='../S/903.html#L336'>msg</a>               336 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L339'>msg</a>               339 usr/server/fs/vfs/main.c 	return sys_readdir(fp, &amp;msg-&gt;dirent);
+<a href='../S/903.html#L343'>msg</a>               343 usr/server/fs/vfs/main.c fs_rewinddir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L347'>msg</a>               347 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L354'>msg</a>               354 usr/server/fs/vfs/main.c fs_seekdir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L359'>msg</a>               359 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L361'>msg</a>               361 usr/server/fs/vfs/main.c 	loc = msg-&gt;data[1];
+<a href='../S/903.html#L367'>msg</a>               367 usr/server/fs/vfs/main.c fs_telldir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L373'>msg</a>               373 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L375'>msg</a>               375 usr/server/fs/vfs/main.c 	loc = msg-&gt;data[1];
+<a href='../S/903.html#L379'>msg</a>               379 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = loc;
+<a href='../S/903.html#L384'>msg</a>               384 usr/server/fs/vfs/main.c fs_mkdir(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L389'>msg</a>               389 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L392'>msg</a>               392 usr/server/fs/vfs/main.c 	return sys_mkdir(path, msg-&gt;mode);
+<a href='../S/903.html#L396'>msg</a>               396 usr/server/fs/vfs/main.c fs_rmdir(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L401'>msg</a>               401 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L403'>msg</a>               403 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L410'>msg</a>               410 usr/server/fs/vfs/main.c fs_rename(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L416'>msg</a>               416 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL || msg-&gt;path2 == NULL)
+<a href='../S/903.html#L419'>msg</a>               419 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, src)) != 0)
+<a href='../S/903.html#L422'>msg</a>               422 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path2, VWRITE, dest)) != 0)
+<a href='../S/903.html#L429'>msg</a>               429 usr/server/fs/vfs/main.c fs_chdir(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L435'>msg</a>               435 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L437'>msg</a>               437 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, path)) != 0)
+<a href='../S/903.html#L451'>msg</a>               451 usr/server/fs/vfs/main.c fs_fchdir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L456'>msg</a>               456 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L467'>msg</a>               467 usr/server/fs/vfs/main.c fs_link(struct task *t, struct msg *msg)
+<a href='../S/903.html#L474'>msg</a>               474 usr/server/fs/vfs/main.c fs_unlink(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L479'>msg</a>               479 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L481'>msg</a>               481 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L488'>msg</a>               488 usr/server/fs/vfs/main.c fs_stat(struct task *t, struct stat_msg *msg)
+<a href='../S/903.html#L494'>msg</a>               494 usr/server/fs/vfs/main.c 	error = task_conv(t, msg-&gt;path, 0, path);
+<a href='../S/903.html#L496'>msg</a>               496 usr/server/fs/vfs/main.c 		st = &amp;msg-&gt;st;
+<a href='../S/903.html#L503'>msg</a>               503 usr/server/fs/vfs/main.c fs_getcwd(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L506'>msg</a>               506 usr/server/fs/vfs/main.c 	strlcpy(msg-&gt;path, t-&gt;t_cwd, sizeof(msg-&gt;path));
+<a href='../S/903.html#L514'>msg</a>               514 usr/server/fs/vfs/main.c fs_dup(struct task *t, struct msg *msg)
+<a href='../S/903.html#L519'>msg</a>               519 usr/server/fs/vfs/main.c 	old_fd = msg-&gt;data[0];
+<a href='../S/903.html#L533'>msg</a>               533 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = new_fd;
+<a href='../S/903.html#L541'>msg</a>               541 usr/server/fs/vfs/main.c fs_dup2(struct task *t, struct msg *msg)
+<a href='../S/903.html#L547'>msg</a>               547 usr/server/fs/vfs/main.c 	old_fd = msg-&gt;data[0];
+<a href='../S/903.html#L548'>msg</a>               548 usr/server/fs/vfs/main.c 	new_fd = msg-&gt;data[1];
+<a href='../S/903.html#L565'>msg</a>               565 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = new_fd;
+<a href='../S/903.html#L573'>msg</a>               573 usr/server/fs/vfs/main.c fs_fcntl(struct task *t, struct fcntl_msg *msg)
+<a href='../S/903.html#L578'>msg</a>               578 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L581'>msg</a>               581 usr/server/fs/vfs/main.c 	arg = msg-&gt;arg;
+<a href='../S/903.html#L582'>msg</a>               582 usr/server/fs/vfs/main.c 	switch (msg-&gt;cmd) {
+<a href='../S/903.html#L594'>msg</a>               594 usr/server/fs/vfs/main.c 		msg-&gt;arg = new_fd;
+<a href='../S/903.html#L597'>msg</a>               597 usr/server/fs/vfs/main.c 		msg-&gt;arg = fp-&gt;f_flags &amp; FD_CLOEXEC;
+<a href='../S/903.html#L601'>msg</a>               601 usr/server/fs/vfs/main.c 			(msg-&gt;arg &amp; FD_CLOEXEC);
+<a href='../S/903.html#L602'>msg</a>               602 usr/server/fs/vfs/main.c 		msg-&gt;arg = 0;
+<a href='../S/903.html#L606'>msg</a>               606 usr/server/fs/vfs/main.c 		msg-&gt;arg = -1;
+<a href='../S/903.html#L609'>msg</a>               609 usr/server/fs/vfs/main.c 		msg-&gt;arg = -1;
+<a href='../S/903.html#L619'>msg</a>               619 usr/server/fs/vfs/main.c fs_access(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L624'>msg</a>               624 usr/server/fs/vfs/main.c 	mode = msg-&gt;data[0];
+<a href='../S/903.html#L631'>msg</a>               631 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L641'>msg</a>               641 usr/server/fs/vfs/main.c fs_fork(struct task *t, struct msg *msg)
+<a href='../S/903.html#L649'>msg</a>               649 usr/server/fs/vfs/main.c 	if ((error = task_alloc((task_t)msg-&gt;data[0], &amp;newtask)) != 0)
+<a href='../S/903.html#L685'>msg</a>               685 usr/server/fs/vfs/main.c fs_exec(struct task *t, struct msg *msg)
+<a href='../S/903.html#L692'>msg</a>               692 usr/server/fs/vfs/main.c 	old_id = (task_t)msg-&gt;data[0];
+<a href='../S/903.html#L693'>msg</a>               693 usr/server/fs/vfs/main.c 	new_id = (task_t)msg-&gt;data[1];
+<a href='../S/903.html#L721'>msg</a>               721 usr/server/fs/vfs/main.c fs_exit(struct task *t, struct msg *msg)
+<a href='../S/903.html#L747'>msg</a>               747 usr/server/fs/vfs/main.c fs_register(struct task *t, struct msg *msg)
+<a href='../S/903.html#L754'>msg</a>               754 usr/server/fs/vfs/main.c 	error = task_alloc(msg-&gt;hdr.task, &amp;tmp);
+<a href='../S/903.html#L759'>msg</a>               759 usr/server/fs/vfs/main.c fs_pipe(struct task *t, struct msg *msg)
+<a href='../S/903.html#L789'>msg</a>               789 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = rfd;
+<a href='../S/903.html#L790'>msg</a>               790 usr/server/fs/vfs/main.c 	msg-&gt;data[1] = wfd;
+<a href='../S/903.html#L805'>msg</a>               805 usr/server/fs/vfs/main.c fs_isatty(struct task *t, struct msg *msg)
+<a href='../S/903.html#L810'>msg</a>               810 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L815'>msg</a>               815 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = istty;
+<a href='../S/903.html#L820'>msg</a>               820 usr/server/fs/vfs/main.c fs_truncate(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L825'>msg</a>               825 usr/server/fs/vfs/main.c 	if (msg-&gt;path == NULL)
+<a href='../S/903.html#L827'>msg</a>               827 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L830'>msg</a>               830 usr/server/fs/vfs/main.c 	return sys_truncate(path, msg-&gt;data[0]);
+<a href='../S/903.html#L834'>msg</a>               834 usr/server/fs/vfs/main.c fs_ftruncate(struct task *t, struct msg *msg)
+<a href='../S/903.html#L838'>msg</a>               838 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L841'>msg</a>               841 usr/server/fs/vfs/main.c 	return sys_ftruncate(fp, msg-&gt;data[1]);
+<a href='../S/903.html#L848'>msg</a>               848 usr/server/fs/vfs/main.c fs_boot(struct task *t, struct msg *msg)
+<a href='../S/903.html#L852'>msg</a>               852 usr/server/fs/vfs/main.c 	struct msg m;
+<a href='../S/903.html#L855'>msg</a>               855 usr/server/fs/vfs/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/903.html#L883'>msg</a>               883 usr/server/fs/vfs/main.c fs_shutdown(struct task *t, struct msg *msg)
+<a href='../S/903.html#L901'>msg</a>               901 usr/server/fs/vfs/main.c fs_debug(struct task *t, struct msg *msg)
+<a href='../S/903.html#L916'>msg</a>               916 usr/server/fs/vfs/main.c 	struct msg msg;
+<a href='../S/903.html#L937'>msg</a>               937 usr/server/fs/vfs/main.c 	msg.hdr.task = task_self();
+<a href='../S/903.html#L938'>msg</a>               938 usr/server/fs/vfs/main.c 	fs_register(NULL, &amp;msg);
+<a href='../S/903.html#L1029'>msg</a>              1029 usr/server/fs/vfs/main.c 	struct msg *msg;
+<a href='../S/903.html#L1034'>msg</a>              1034 usr/server/fs/vfs/main.c 	msg = malloc(MAX_FSMSG);
+<a href='../S/903.html#L1043'>msg</a>              1043 usr/server/fs/vfs/main.c 		if ((error = msg_receive(fsobj, msg, MAX_FSMSG)) != 0)
+<a href='../S/903.html#L1049'>msg</a>              1049 usr/server/fs/vfs/main.c 			if (map-&gt;code == msg-&gt;hdr.code) {
+<a href='../S/903.html#L1054'>msg</a>              1054 usr/server/fs/vfs/main.c 					error = fs_boot(NULL, msg);
+<a href='../S/903.html#L1058'>msg</a>              1058 usr/server/fs/vfs/main.c 					error = fs_register(NULL, msg);
+<a href='../S/903.html#L1063'>msg</a>              1063 usr/server/fs/vfs/main.c 				t = task_lookup(msg-&gt;hdr.task);
+<a href='../S/903.html#L1068'>msg</a>              1068 usr/server/fs/vfs/main.c 				error = (*map-&gt;func)(t, msg);
+<a href='../S/903.html#L1078'>msg</a>              1078 usr/server/fs/vfs/main.c 				msg-&gt;hdr.task, map-&gt;code, error);
+<a href='../S/903.html#L1083'>msg</a>              1083 usr/server/fs/vfs/main.c 		msg-&gt;hdr.status = error;
+<a href='../S/903.html#L1084'>msg</a>              1084 usr/server/fs/vfs/main.c 		msg_reply(fsobj, msg, MAX_FSMSG);
+<a href='../S/916.html#L67'>msg</a>                67 usr/server/pow/pow.c static int pow_noop(struct msg *);
+<a href='../S/916.html#L68'>msg</a>                68 usr/server/pow/pow.c static int pow_set_power(struct msg *);
+<a href='../S/916.html#L69'>msg</a>                69 usr/server/pow/pow.c static int pow_get_policy(struct msg *);
+<a href='../S/916.html#L70'>msg</a>                70 usr/server/pow/pow.c static int pow_set_policy(struct msg *);
+<a href='../S/916.html#L71'>msg</a>                71 usr/server/pow/pow.c static int pow_get_sustmr(struct msg *);
+<a href='../S/916.html#L72'>msg</a>                72 usr/server/pow/pow.c static int pow_set_sustmr(struct msg *);
+<a href='../S/916.html#L73'>msg</a>                73 usr/server/pow/pow.c static int pow_get_dimtmr(struct msg *);
+<a href='../S/916.html#L74'>msg</a>                74 usr/server/pow/pow.c static int pow_set_dimtmr(struct msg *);
+<a href='../S/916.html#L75'>msg</a>                75 usr/server/pow/pow.c static int pow_battery_lvl(struct msg *);
+<a href='../S/916.html#L76'>msg</a>                76 usr/server/pow/pow.c static int pow_debug(struct msg *);
+<a href='../S/916.html#L86'>msg</a>                86 usr/server/pow/pow.c 	int	(*func)(struct msg *);
+<a href='../S/916.html#L106'>msg</a>               106 usr/server/pow/pow.c pow_noop(struct msg *msg)
+<a href='../S/916.html#L112'>msg</a>               112 usr/server/pow/pow.c pow_set_power(struct msg *msg)
+<a href='../S/916.html#L116'>msg</a>               116 usr/server/pow/pow.c 	state = msg-&gt;data[0];
+<a href='../S/916.html#L122'>msg</a>               122 usr/server/pow/pow.c pow_get_policy(struct msg *msg)
+<a href='../S/916.html#L127'>msg</a>               127 usr/server/pow/pow.c 	msg-&gt;data[0] = policy;
+<a href='../S/916.html#L132'>msg</a>               132 usr/server/pow/pow.c pow_set_policy(struct msg *msg)
+<a href='../S/916.html#L136'>msg</a>               136 usr/server/pow/pow.c 	policy = msg-&gt;data[0];
+<a href='../S/916.html#L142'>msg</a>               142 usr/server/pow/pow.c pow_get_sustmr(struct msg *msg)
+<a href='../S/916.html#L147'>msg</a>               147 usr/server/pow/pow.c 	msg-&gt;data[0] = timeout;
+<a href='../S/916.html#L152'>msg</a>               152 usr/server/pow/pow.c pow_set_sustmr(struct msg *msg)
+<a href='../S/916.html#L156'>msg</a>               156 usr/server/pow/pow.c 	timeout = msg-&gt;data[0];
+<a href='../S/916.html#L162'>msg</a>               162 usr/server/pow/pow.c pow_get_dimtmr(struct msg *msg)
+<a href='../S/916.html#L167'>msg</a>               167 usr/server/pow/pow.c 	msg-&gt;data[0] = timeout;
+<a href='../S/916.html#L172'>msg</a>               172 usr/server/pow/pow.c pow_set_dimtmr(struct msg *msg)
+<a href='../S/916.html#L176'>msg</a>               176 usr/server/pow/pow.c 	timeout = msg-&gt;data[0];
+<a href='../S/916.html#L182'>msg</a>               182 usr/server/pow/pow.c pow_battery_lvl(struct msg *msg)
+<a href='../S/916.html#L326'>msg</a>               326 usr/server/pow/pow.c 	struct msg m;
+<a href='../S/916.html#L368'>msg</a>               368 usr/server/pow/pow.c 	struct msg m;
+<a href='../S/916.html#L384'>msg</a>               384 usr/server/pow/pow.c pow_debug(struct msg *msg)
+<a href='../S/916.html#L395'>msg</a>               395 usr/server/pow/pow.c 	static struct msg msg;
+<a href='../S/916.html#L445'>msg</a>               445 usr/server/pow/pow.c 		error = msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/916.html#L450'>msg</a>               450 usr/server/pow/pow.c 			 msg.hdr.code, msg.hdr.task));
+<a href='../S/916.html#L454'>msg</a>               454 usr/server/pow/pow.c 		if (task_chkcap(msg.hdr.task, CAP_POWERMGMT) != 0) {
+<a href='../S/916.html#L461'>msg</a>               461 usr/server/pow/pow.c 				if (map-&gt;code == msg.hdr.code) {
+<a href='../S/916.html#L462'>msg</a>               462 usr/server/pow/pow.c 					error = (*map-&gt;func)(&amp;msg);
+<a href='../S/916.html#L471'>msg</a>               471 usr/server/pow/pow.c 		msg.hdr.status = error;
+<a href='../S/916.html#L472'>msg</a>               472 usr/server/pow/pow.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/917.html#L66'>msg</a>                66 usr/server/proc/main.c static int proc_getpid(struct msg *);
+<a href='../S/917.html#L67'>msg</a>                67 usr/server/proc/main.c static int proc_getppid(struct msg *);
+<a href='../S/917.html#L68'>msg</a>                68 usr/server/proc/main.c static int proc_getpgid(struct msg *);
+<a href='../S/917.html#L69'>msg</a>                69 usr/server/proc/main.c static int proc_setpgid(struct msg *);
+<a href='../S/917.html#L70'>msg</a>                70 usr/server/proc/main.c static int proc_getsid(struct msg *);
+<a href='../S/917.html#L71'>msg</a>                71 usr/server/proc/main.c static int proc_setsid(struct msg *);
+<a href='../S/917.html#L72'>msg</a>                72 usr/server/proc/main.c static int proc_fork(struct msg *);
+<a href='../S/917.html#L73'>msg</a>                73 usr/server/proc/main.c static int proc_exit(struct msg *);
+<a href='../S/917.html#L74'>msg</a>                74 usr/server/proc/main.c static int proc_stop(struct msg *);
+<a href='../S/917.html#L75'>msg</a>                75 usr/server/proc/main.c static int proc_waitpid(struct msg *);
+<a href='../S/917.html#L76'>msg</a>                76 usr/server/proc/main.c static int proc_kill(struct msg *);
+<a href='../S/917.html#L77'>msg</a>                77 usr/server/proc/main.c static int proc_exec(struct msg *);
+<a href='../S/917.html#L78'>msg</a>                78 usr/server/proc/main.c static int proc_pstat(struct msg *);
+<a href='../S/917.html#L79'>msg</a>                79 usr/server/proc/main.c static int proc_register(struct msg *);
+<a href='../S/917.html#L80'>msg</a>                80 usr/server/proc/main.c static int proc_setinit(struct msg *);
+<a href='../S/917.html#L81'>msg</a>                81 usr/server/proc/main.c static int proc_trace(struct msg *);
+<a href='../S/917.html#L82'>msg</a>                82 usr/server/proc/main.c static int proc_boot(struct msg *);
+<a href='../S/917.html#L83'>msg</a>                83 usr/server/proc/main.c static int proc_shutdown(struct msg *);
+<a href='../S/917.html#L84'>msg</a>                84 usr/server/proc/main.c static int proc_noop(struct msg *);
+<a href='../S/917.html#L85'>msg</a>                85 usr/server/proc/main.c static int proc_debug(struct msg *);
+<a href='../S/917.html#L92'>msg</a>                92 usr/server/proc/main.c 	int	(*func)(struct msg *);
+<a href='../S/917.html#L127'>msg</a>               127 usr/server/proc/main.c proc_getpid(struct msg *msg)
+<a href='../S/917.html#L133'>msg</a>               133 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pid;
+<a href='../S/917.html#L138'>msg</a>               138 usr/server/proc/main.c proc_getppid(struct msg *msg)
+<a href='../S/917.html#L144'>msg</a>               144 usr/server/proc/main.c 	msg-&gt;data[0] = (int)ppid;
+<a href='../S/917.html#L149'>msg</a>               149 usr/server/proc/main.c proc_getpgid(struct msg *msg)
+<a href='../S/917.html#L154'>msg</a>               154 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L160'>msg</a>               160 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pgid;
+<a href='../S/917.html#L165'>msg</a>               165 usr/server/proc/main.c proc_setpgid(struct msg *msg)
+<a href='../S/917.html#L169'>msg</a>               169 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L170'>msg</a>               170 usr/server/proc/main.c 	pgid = (pid_t)msg-&gt;data[1];
+<a href='../S/917.html#L176'>msg</a>               176 usr/server/proc/main.c proc_getsid(struct msg *msg)
+<a href='../S/917.html#L181'>msg</a>               181 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L187'>msg</a>               187 usr/server/proc/main.c 	msg-&gt;data[0] = (int)sid;
+<a href='../S/917.html#L192'>msg</a>               192 usr/server/proc/main.c proc_setsid(struct msg *msg)
+<a href='../S/917.html#L201'>msg</a>               201 usr/server/proc/main.c 	msg-&gt;data[0] = (int)sid;
+<a href='../S/917.html#L206'>msg</a>               206 usr/server/proc/main.c proc_fork(struct msg *msg)
+<a href='../S/917.html#L213'>msg</a>               213 usr/server/proc/main.c 	child = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L214'>msg</a>               214 usr/server/proc/main.c 	vfork = msg-&gt;data[1];
+<a href='../S/917.html#L220'>msg</a>               220 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pid;
+<a href='../S/917.html#L225'>msg</a>               225 usr/server/proc/main.c proc_exit(struct msg *msg)
+<a href='../S/917.html#L229'>msg</a>               229 usr/server/proc/main.c 	exitcode = msg-&gt;data[0];
+<a href='../S/917.html#L235'>msg</a>               235 usr/server/proc/main.c proc_stop(struct msg *msg)
+<a href='../S/917.html#L239'>msg</a>               239 usr/server/proc/main.c 	exitcode = msg-&gt;data[0];
+<a href='../S/917.html#L245'>msg</a>               245 usr/server/proc/main.c proc_waitpid(struct msg *msg)
+<a href='../S/917.html#L250'>msg</a>               250 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L251'>msg</a>               251 usr/server/proc/main.c 	options = msg-&gt;data[1];
+<a href='../S/917.html#L257'>msg</a>               257 usr/server/proc/main.c 	msg-&gt;data[0] = pid_child;
+<a href='../S/917.html#L258'>msg</a>               258 usr/server/proc/main.c 	msg-&gt;data[1] = status;
+<a href='../S/917.html#L264'>msg</a>               264 usr/server/proc/main.c proc_kill(struct msg *msg)
+<a href='../S/917.html#L269'>msg</a>               269 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L270'>msg</a>               270 usr/server/proc/main.c 	sig = msg-&gt;data[1];
+<a href='../S/917.html#L281'>msg</a>               281 usr/server/proc/main.c proc_exec(struct msg *msg)
+<a href='../S/917.html#L288'>msg</a>               288 usr/server/proc/main.c 	orgtask = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L289'>msg</a>               289 usr/server/proc/main.c 	newtask = (task_t)msg-&gt;data[1];
+<a href='../S/917.html#L297'>msg</a>               297 usr/server/proc/main.c 	p-&gt;p_stackbase = (void *)msg-&gt;data[2];
+<a href='../S/917.html#L315'>msg</a>               315 usr/server/proc/main.c proc_pstat(struct msg *msg)
+<a href='../S/917.html#L320'>msg</a>               320 usr/server/proc/main.c 	DPRINTF(("proc: pstat task=%x\n", msg-&gt;data[0]));
+<a href='../S/917.html#L322'>msg</a>               322 usr/server/proc/main.c 	task = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L326'>msg</a>               326 usr/server/proc/main.c 	msg-&gt;data[0] = (int)p-&gt;p_pid;
+<a href='../S/917.html#L327'>msg</a>               327 usr/server/proc/main.c 	msg-&gt;data[2] = (int)p-&gt;p_stat;
+<a href='../S/917.html#L329'>msg</a>               329 usr/server/proc/main.c 		msg-&gt;data[1] = (int)0;
+<a href='../S/917.html#L331'>msg</a>               331 usr/server/proc/main.c 		msg-&gt;data[1] = (int)p-&gt;p_parent-&gt;p_pid;
+<a href='../S/917.html#L339'>msg</a>               339 usr/server/proc/main.c proc_setinit(struct msg *msg)
+<a href='../S/917.html#L342'>msg</a>               342 usr/server/proc/main.c 	DPRINTF(("proc: setinit task=%x\n", msg-&gt;hdr.task));
+<a href='../S/917.html#L345'>msg</a>               345 usr/server/proc/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/917.html#L352'>msg</a>               352 usr/server/proc/main.c 	newproc(&amp;initproc, 1, msg-&gt;hdr.task);
+<a href='../S/917.html#L361'>msg</a>               361 usr/server/proc/main.c proc_trace(struct msg *msg)
+<a href='../S/917.html#L363'>msg</a>               363 usr/server/proc/main.c 	task_t task = msg-&gt;hdr.task;
+<a href='../S/917.html#L380'>msg</a>               380 usr/server/proc/main.c proc_register(struct msg *msg)
+<a href='../S/917.html#L384'>msg</a>               384 usr/server/proc/main.c 	DPRINTF(("proc: register task=%x\n", msg-&gt;hdr.task));
+<a href='../S/917.html#L387'>msg</a>               387 usr/server/proc/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/917.html#L395'>msg</a>               395 usr/server/proc/main.c 	if (newproc(p, 0, msg-&gt;hdr.task))
+<a href='../S/917.html#L406'>msg</a>               406 usr/server/proc/main.c proc_boot(struct msg *msg)
+<a href='../S/917.html#L414'>msg</a>               414 usr/server/proc/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/917.html#L431'>msg</a>               431 usr/server/proc/main.c proc_shutdown(struct msg *msg)
+<a href='../S/917.html#L439'>msg</a>               439 usr/server/proc/main.c proc_noop(struct msg *msg)
+<a href='../S/917.html#L446'>msg</a>               446 usr/server/proc/main.c proc_debug(struct msg *msg)
+<a href='../S/917.html#L524'>msg</a>               524 usr/server/proc/main.c 	static struct msg msg;
+<a href='../S/917.html#L551'>msg</a>               551 usr/server/proc/main.c 		error = msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/917.html#L556'>msg</a>               556 usr/server/proc/main.c 			 msg.hdr.code, msg.hdr.task));
+<a href='../S/917.html#L561'>msg</a>               561 usr/server/proc/main.c 			if (map-&gt;code == msg.hdr.code) {
+<a href='../S/917.html#L564'>msg</a>               564 usr/server/proc/main.c 				curproc = task_to_proc(msg.hdr.task);
+<a href='../S/917.html#L565'>msg</a>               565 usr/server/proc/main.c 				error = (*map-&gt;func)(&amp;msg);
+<a href='../S/917.html#L573'>msg</a>               573 usr/server/proc/main.c 		msg.hdr.status = error;
+<a href='../S/917.html#L574'>msg</a>               574 usr/server/proc/main.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/928.html#L47'>msg</a>                47 usr/test/attack/attack.c 	void *msg	= (void *)random();
+<a href='../S/928.html#L67'>msg</a>                67 usr/test/attack/attack.c 	msg_send(0, msg, size);
+<a href='../S/928.html#L69'>msg</a>                69 usr/test/attack/attack.c 	msg_send(obj, msg, 0);
+<a href='../S/928.html#L70'>msg</a>                70 usr/test/attack/attack.c 	msg_send(0, msg, 0);
+<a href='../S/928.html#L72'>msg</a>                72 usr/test/attack/attack.c 	msg_send(obj, msg, size);
+<a href='../S/928.html#L74'>msg</a>                74 usr/test/attack/attack.c 	msg_receive(0, msg, size);
+<a href='../S/928.html#L76'>msg</a>                76 usr/test/attack/attack.c 	msg_receive(obj, msg, 0);
+<a href='../S/928.html#L77'>msg</a>                77 usr/test/attack/attack.c 	msg_receive(0, msg, 0);
+<a href='../S/928.html#L79'>msg</a>                79 usr/test/attack/attack.c 	msg_receive(obj, msg, size);
+<a href='../S/928.html#L81'>msg</a>                81 usr/test/attack/attack.c 	msg_reply(0, msg, size);
+<a href='../S/928.html#L83'>msg</a>                83 usr/test/attack/attack.c 	msg_reply(obj, msg, 0);
+<a href='../S/928.html#L84'>msg</a>                84 usr/test/attack/attack.c 	msg_reply(0, msg, 0);
+<a href='../S/928.html#L86'>msg</a>                86 usr/test/attack/attack.c 	msg_reply(obj, msg, size);
+<a href='../S/954.html#L90'>msg</a>                90 usr/test/fileio/fileio.c 	struct msg m;
+<a href='../S/960.html#L70'>msg</a>                70 usr/test/ipc/ipc.c 	struct msg msg;
+<a href='../S/960.html#L102'>msg</a>               102 usr/test/ipc/ipc.c 	msg_send(o2, &amp;msg, sizeof(msg));
+<a href='../S/960.html#L112'>msg</a>               112 usr/test/ipc/ipc.c 	struct msg msg;
+<a href='../S/960.html#L143'>msg</a>               143 usr/test/ipc/ipc.c 	error = msg_receive(o3, &amp;msg, sizeof(msg));
+<a href='../S/960.html#L152'>msg</a>               152 usr/test/ipc/ipc.c 	error = msg_receive(o1, &amp;msg, sizeof(msg));
+<a href='../S/960.html#L157'>msg</a>               157 usr/test/ipc/ipc.c 		msg_reply(o1, &amp;msg, sizeof(msg));
+<a href='../S/960.html#L164'>msg</a>               164 usr/test/ipc/ipc.c 	error = msg_receive(o2, &amp;msg, sizeof(msg));
+<a href='../S/960.html#L169'>msg</a>               169 usr/test/ipc/ipc.c 		msg_reply(o2, &amp;msg, sizeof(msg));
+<a href='../S/962.html#L73'>msg</a>                73 usr/test/ipc_mt/ipc_mt.c 	struct msg msg;
+<a href='../S/962.html#L91'>msg</a>                91 usr/test/ipc_mt/ipc_mt.c 		msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/962.html#L100'>msg</a>               100 usr/test/ipc_mt/ipc_mt.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/990.html#L95'>msg</a>                95 usr/test/shutdown/shutdown.c 	struct msg m;
+</pre>
+</body>
+</html>

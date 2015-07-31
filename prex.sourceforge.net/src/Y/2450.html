@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>year</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/83.html#L120'>year</a>              120 bsp/drv/dev/rtc/mc146818.c 	cy.year = mc_read(RTC_YEAR);
+<a href='../S/83.html#L128'>year</a>              128 bsp/drv/dev/rtc/mc146818.c 		cy.year = FROMBCD(cy.year);
+<a href='../S/83.html#L130'>year</a>              130 bsp/drv/dev/rtc/mc146818.c 	if (cy.year &lt; 80)
+<a href='../S/83.html#L131'>year</a>              131 bsp/drv/dev/rtc/mc146818.c 		cy.year += 2000;
+<a href='../S/83.html#L133'>year</a>              133 bsp/drv/dev/rtc/mc146818.c 		cy.year += 1900;
+<a href='../S/83.html#L136'>year</a>              136 bsp/drv/dev/rtc/mc146818.c 		cy.year, cy.mon, cy.day, cy.hour, cy.min, cy.sec);
+<a href='../S/85.html#L90'>year</a>               90 bsp/drv/dev/rtc/rtc.c leapyear(u_int year)
+<a href='../S/85.html#L94'>year</a>               94 bsp/drv/dev/rtc/rtc.c 	if ((year &amp; 3) == 0) {
+<a href='../S/85.html#L96'>year</a>               96 bsp/drv/dev/rtc/rtc.c 		if ((year % 100) == 0) {
+<a href='../S/85.html#L98'>year</a>               98 bsp/drv/dev/rtc/rtc.c 			if ((year % 400) == 0)
+<a href='../S/85.html#L109'>year</a>              109 bsp/drv/dev/rtc/rtc.c 	u_int i, year, days;
+<a href='../S/85.html#L111'>year</a>              111 bsp/drv/dev/rtc/rtc.c 	year = dt-&gt;year;
+<a href='../S/85.html#L118'>year</a>              118 bsp/drv/dev/rtc/rtc.c 	for (i = POSIX_BASE_YEAR; i &lt; year; i++)
+<a href='../S/85.html#L120'>year</a>              120 bsp/drv/dev/rtc/rtc.c 	if (leapyear(year) &amp;&amp; dt-&gt;mon &gt; FEBRUARY)
+<a href='../S/85.html#L157'>year</a>              157 bsp/drv/dev/rtc/rtc.c 	dt-&gt;year = (u_short)i;
+<a href='../S/100.html#L51'>year</a>               51 bsp/drv/include/rtc.h         u_short		year;
+<a href='../S/637.html#L37'>year</a>               37 usr/lib/libc/time/gmtime_r.c is_leap(int year)
+<a href='../S/637.html#L39'>year</a>               39 usr/lib/libc/time/gmtime_r.c 	return (isleap(year) ? 1 : 0);
+<a href='../S/637.html#L46'>year</a>               46 usr/lib/libc/time/gmtime_r.c 	int days, year, mon;
+<a href='../S/637.html#L52'>year</a>               52 usr/lib/libc/time/gmtime_r.c 	for (year = 1970, i = DAYSPERNYEAR + is_leap(year);
+<a href='../S/637.html#L54'>year</a>               54 usr/lib/libc/time/gmtime_r.c 	     year++, i = DAYSPERNYEAR + is_leap(year))
+<a href='../S/637.html#L57'>year</a>               57 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_year = year - 1900;
+<a href='../S/637.html#L62'>year</a>               62 usr/lib/libc/time/gmtime_r.c 		if (mon == 1 &amp;&amp; is_leap(year))
+<a href='../S/641.html#L36'>year</a>               36 usr/lib/libc/time/mktime.c 	unsigned int days, year;
+<a href='../S/641.html#L40'>year</a>               40 usr/lib/libc/time/mktime.c 	for (year = 1970; year &lt; (unsigned int)(1900 + tmp-&gt;tm_year); year++)
+<a href='../S/641.html#L41'>year</a>               41 usr/lib/libc/time/mktime.c 		days += DAYSPERNYEAR + (isleap(year) ? 1 : 0);
+</pre>
+</body>
+</html>

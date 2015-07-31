@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>handler</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L83'>handler</a>            83 include/sys/prex.h int	exception_setup(void (*handler)(int));
+<a href='../S/318.html#L53'>handler</a>            53 sys/include/task.h 	void		(*handler)(int); /* pointer to exception handler */
+<a href='../S/328.html#L97'>handler</a>            97 sys/kern/exception.c exception_setup(void (*handler)(int))
+<a href='../S/328.html#L104'>handler</a>           104 sys/kern/exception.c 	if (handler != EXC_DFL &amp;&amp; !user_area(handler))
+<a href='../S/328.html#L106'>handler</a>           106 sys/kern/exception.c 	if (handler == NULL)
+<a href='../S/328.html#L110'>handler</a>           110 sys/kern/exception.c 	if (self-&gt;handler != EXC_DFL &amp;&amp; handler == EXC_DFL) {
+<a href='../S/328.html#L137'>handler</a>           137 sys/kern/exception.c 	self-&gt;handler = handler;
+<a href='../S/328.html#L185'>handler</a>           185 sys/kern/exception.c 	if ((task-&gt;handler == EXC_DFL) ||
+<a href='../S/328.html#L245'>handler</a>           245 sys/kern/exception.c 	if (curtask-&gt;handler == EXC_DFL)
+<a href='../S/328.html#L312'>handler</a>           312 sys/kern/exception.c 	void (*handler)(int);
+<a href='../S/328.html#L331'>handler</a>           331 sys/kern/exception.c 		handler = self-&gt;handler;
+<a href='../S/328.html#L332'>handler</a>           332 sys/kern/exception.c 		if (handler == EXC_DFL) {
+<a href='../S/328.html#L347'>handler</a>           347 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UENTRY, (register_t)handler);
+<a href='../S/334.html#L135'>handler</a>           135 sys/kern/task.c 	task-&gt;handler = parent-&gt;handler;
+<a href='../S/334.html#L182'>handler</a>           182 sys/kern/task.c 	task-&gt;handler = EXC_DFL;
+<a href='../S/739.html#L35'>handler</a>            35 usr/lib/posix/signal/signal.c signal(int sig, sig_t handler)
+<a href='../S/739.html#L45'>handler</a>            45 usr/lib/posix/signal/signal.c 	act.sa_handler = handler;
+<a href='../S/739.html#L48'>handler</a>            48 usr/lib/posix/signal/signal.c 	if (handler != SIG_IGN &amp;&amp; handler != SIG_DFL)
+</pre>
+</body>
+</html>

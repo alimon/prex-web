@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/sample/tetris/screen.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1142.html'>sample</a>/<a href='../files/1152.html'>tetris</a>/screen.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='849.html#L71'>[^]</a><a href='849.html#L215'>[v]</a>[top]<a href='849.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='849.html#L71' title='Defined at 71.'>scr_init</a></li>
+<li><a href='849.html#L79' title='Defined at 79.'>scr_set</a></li>
+<li><a href='849.html#L110' title='Defined at 110.'>scr_end</a></li>
+<li><a href='849.html#L122' title='Defined at 122.'>stop</a></li>
+<li><a href='849.html#L135' title='Defined at 135.'>scr_clear</a></li>
+<li><a href='849.html#L153' title='Defined at 153.'>scr_update</a></li>
+<li><a href='849.html#L215' title='Defined at 215.'>scr_msg</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1992, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * This code is derived from software contributed to Berkeley by</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * Chris Torek and Darren F. Provine.</em>
+<a id='L7' name='L7' />   7 <em class='comment'> *</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * are met:</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L18' name='L18' />  18 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L31' name='L31' />  31 <em class='comment'> *</em>
+<a id='L32' name='L32' />  32 <em class='comment'> *      @(#)screen.c    8.1 (Berkeley) 5/31/93</em>
+<a id='L33' name='L33' />  33 <em class='comment'> */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='comment'>/* Modified for Prex by Kohsuke Ohtani. */</em>
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='comment'>/*</em>
+<a id='L38' name='L38' />  38 <em class='comment'> * Tetris screen control.</em>
+<a id='L39' name='L39' />  39 <em class='comment'> */</em>
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='sharp'>#include</em> &lt;<a href='../I/276.html'>sys/termios.h</a>&gt;
+<a id='L42' name='L42' />  42 <em class='sharp'>#include</em> &lt;<a href='259.html'>sys/ioctl.h</a>&gt;
+<a id='L43' name='L43' />  43 
+<a id='L44' name='L44' />  44 <em class='sharp'>#include</em> &lt;<a href='../I/213.html'>setjmp.h</a>&gt;
+<a id='L45' name='L45' />  45 <em class='sharp'>#include</em> &lt;<a href='../I/214.html'>signal.h</a>&gt;
+<a id='L46' name='L46' />  46 <em class='sharp'>#include</em> &lt;<a href='441.html'>stdio.h</a>&gt;
+<a id='L47' name='L47' />  47 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L48' name='L48' />  48 <em class='sharp'>#include</em> &lt;<a href='443.html'>string.h</a>&gt;
+<a id='L49' name='L49' />  49 <em class='sharp'>#include</em> &lt;<a href='447.html'>unistd.h</a>&gt;
+<a id='L50' name='L50' />  50 
+<a id='L51' name='L51' />  51 <em class='sharp'>#include</em> "<a href='850.html'>screen.h</a>"
+<a id='L52' name='L52' />  52 <em class='sharp'>#include</em> "<a href='853.html'>tetris.h</a>"
+<a id='L53' name='L53' />  53 
+<a id='L54' name='L54' />  54 <strong class='reserved'>static</strong> <a href='853.html#L81' title='Defined at 81 in usr/sample/tetris/tetris.h.'>cell</a> <a href='../Y/594.html' title='Multiple used in 4 places.'>curscreen</a>[<a href='853.html#L79' title='Defined at 79 in usr/sample/tetris/tetris.h.'>B_SIZE</a>];  <em class='comment'>/* 1 =&gt; standout (or otherwise marked) */</em>
+<a id='L55' name='L55' />  55 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='../Y/593.html' title='Multiple used in 4 places.'>curscore</a>;
+<a id='L56' name='L56' />  56 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='264.html#L161' title='Defined at 161 in include/sys/param.h.'>isset</a>;               <em class='comment'>/* true =&gt; terminal is in game mode */</em>
+<a id='L57' name='L57' />  57 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/2129.html' title='Multiple used in 29 places.'>termios</a> <a href='../Y/1467.html' title='Multiple used in 4 places.'>oldtt</a>;
+<a id='L58' name='L58' />  58 
+<a id='L59' name='L59' />  59 <em class='comment'>/*</em>
+<a id='L60' name='L60' />  60 <em class='comment'> * putstr() is for unpadded strings (either as in termcap(5) or</em>
+<a id='L61' name='L61' />  61 <em class='comment'> * simply literal strings); putpad() is for padded strings with</em>
+<a id='L62' name='L62' />  62 <em class='comment'> * count=1.  (See screen.h for putpad().)</em>
+<a id='L63' name='L63' />  63 <em class='comment'> */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/2366.html' title='Multiple refered from 2 places.'>putstr</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>)       <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("%s", <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>)
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> <a href='../R/2167.html' title='Multiple refered from 4 places.'>moveto</a>(<a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>)    <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("\33[%d;%dH", <a href='../Y/1686.html' title='Multiple used in 96 places.'>r</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>)
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67 <em class='comment'>/*</em>
+<a id='L68' name='L68' />  68 <em class='comment'> * Set up from termcap.</em>
+<a id='L69' name='L69' />  69 <em class='comment'> */</em>
+<a id='L70' name='L70' />  70 <strong class='reserved'>void</strong>
+<a id='L71' name='L71' />  71 <a href='../R/2478.html' title='Multiple refered from 2 places.'>scr_init</a>()
+<a id='L72' name='L72' />  72 <em class='brace'>{</em>
+<a id='L73' name='L73' />  73 <em class='brace'>}</em>
+<a id='L74' name='L74' />  74 
+<a id='L75' name='L75' />  75 <em class='comment'>/*</em>
+<a id='L76' name='L76' />  76 <em class='comment'> * Set up screen mode.</em>
+<a id='L77' name='L77' />  77 <em class='comment'> */</em>
+<a id='L78' name='L78' />  78 <strong class='reserved'>void</strong>
+<a id='L79' name='L79' />  79 <a href='../R/2480.html' title='Multiple refered from 2 places.'>scr_set</a>(<strong class='reserved'>void</strong>)
+<a id='L80' name='L80' />  80 <em class='brace'>{</em>
+<a id='L81' name='L81' />  81         <strong class='reserved'>struct</strong> <a href='../Y/2424.html' title='Multiple used in 11 places.'>winsize</a> <a href='../Y/2429.html' title='Multiple used in 18 places.'>ws</a>;
+<a id='L82' name='L82' />  82         <strong class='reserved'>struct</strong> <a href='../Y/2129.html' title='Multiple used in 29 places.'>termios</a> <a href='../Y/1373.html' title='Multiple used in 5 places.'>newtt</a>;
+<a id='L83' name='L83' />  83 
+<a id='L84' name='L84' />  84         <a href='../Y/216.html' title='Multiple used in 8 places.'>Rows</a> = 0, <a href='../Y/91.html' title='Multiple used in 8 places.'>Cols</a> = 0;
+<a id='L85' name='L85' />  85         <strong class='reserved'>if</strong> (<a href='672.html#L40' title='Defined at 40 in usr/lib/posix/file/ioctl.c.'>ioctl</a>(0, <a href='275.html#L271' title='Defined at 271 in include/sys/termios.h.'>TIOCGWINSZ</a>, &amp;<a href='../Y/2429.html' title='Multiple used in 18 places.'>ws</a>) == 0) <em class='brace'>{</em>
+<a id='L86' name='L86' />  86                 <a href='../Y/216.html' title='Multiple used in 8 places.'>Rows</a> = (<strong class='reserved'>int</strong>)<a href='../Y/2429.html' title='Multiple used in 18 places.'>ws</a>.<a href='../Y/2431.html' title='Multiple used in 5 places.'>ws_row</a>;
+<a id='L87' name='L87' />  87                 <a href='../Y/91.html' title='Multiple used in 8 places.'>Cols</a> = (<strong class='reserved'>int</strong>)<a href='../Y/2429.html' title='Multiple used in 18 places.'>ws</a>.<a href='../Y/2430.html' title='Multiple used in 7 places.'>ws_col</a>;
+<a id='L88' name='L88' />  88         <em class='brace'>}</em>
+<a id='L89' name='L89' />  89         <strong class='reserved'>if</strong> (<a href='../Y/216.html' title='Multiple used in 8 places.'>Rows</a> == 0)
+<a id='L90' name='L90' />  90                 <a href='../Y/216.html' title='Multiple used in 8 places.'>Rows</a> = 25;
+<a id='L91' name='L91' />  91         <strong class='reserved'>if</strong> (<a href='../Y/91.html' title='Multiple used in 8 places.'>Cols</a> == 0)
+<a id='L92' name='L92' />  92                 <a href='../Y/91.html' title='Multiple used in 8 places.'>Cols</a> = 80;
+<a id='L93' name='L93' />  93 
+<a id='L94' name='L94' />  94         <strong class='reserved'>if</strong> (<a href='629.html#L36' title='Defined at 36 in usr/lib/libc/termios/tcgetattr.c.'>tcgetattr</a>(0, &amp;<a href='../Y/1467.html' title='Multiple used in 4 places.'>oldtt</a>) &lt; 0)
+<a id='L95' name='L95' />  95                 <a href='../D/3510.html' title='Multiple defined in 2 places.'>stop</a>("tcgetattr() fails");
+<a id='L96' name='L96' />  96         <a href='../Y/1373.html' title='Multiple used in 5 places.'>newtt</a> = <a href='../Y/1467.html' title='Multiple used in 4 places.'>oldtt</a>;
+<a id='L97' name='L97' />  97         <a href='../Y/1373.html' title='Multiple used in 5 places.'>newtt</a>.<a href='../Y/476.html' title='Multiple used in 7 places.'>c_lflag</a> &amp;= ~(<a href='275.html#L135' title='Defined at 135 in include/sys/termios.h.'>ICANON</a>|<a href='275.html#L128' title='Defined at 128 in include/sys/termios.h.'>ECHO</a>);
+<a id='L98' name='L98' />  98         <a href='../Y/1373.html' title='Multiple used in 5 places.'>newtt</a>.<a href='../Y/477.html' title='Multiple used in 4 places.'>c_oflag</a> &amp;= ~<a href='275.html#L92' title='Defined at 92 in include/sys/termios.h.'>OXTABS</a>;
+<a id='L99' name='L99' />  99         <strong class='reserved'>if</strong> (<a href='632.html#L39' title='Defined at 39 in usr/lib/libc/termios/tcsetattr.c.'>tcsetattr</a>(0, <a href='275.html#L167' title='Defined at 167 in include/sys/termios.h.'>TCSADRAIN</a>, &amp;<a href='../Y/1373.html' title='Multiple used in 5 places.'>newtt</a>) &lt; 0)
+<a id='L100' name='L100' /> 100                 <a href='../D/3510.html' title='Multiple defined in 2 places.'>stop</a>("tcsetattr() fails");
+<a id='L101' name='L101' /> 101 
+<a id='L102' name='L102' /> 102         <a href='264.html#L161' title='Defined at 161 in include/sys/param.h.'>isset</a> = 1;
+<a id='L103' name='L103' /> 103         <a href='849.html#L135' title='Defined at 135 in usr/sample/tetris/screen.c.'>scr_clear</a>();
+<a id='L104' name='L104' /> 104 <em class='brace'>}</em>
+<a id='L105' name='L105' /> 105 
+<a id='L106' name='L106' /> 106 <em class='comment'>/*</em>
+<a id='L107' name='L107' /> 107 <em class='comment'> * End screen mode.</em>
+<a id='L108' name='L108' /> 108 <em class='comment'> */</em>
+<a id='L109' name='L109' /> 109 <strong class='reserved'>void</strong>
+<a id='L110' name='L110' /> 110 <a href='../R/2477.html' title='Multiple refered from 4 places.'>scr_end</a>(<strong class='reserved'>void</strong>)
+<a id='L111' name='L111' /> 111 <em class='brace'>{</em>
+<a id='L112' name='L112' /> 112 
+<a id='L113' name='L113' /> 113         <a href='849.html#L65' title='Defined at 65 in usr/sample/tetris/screen.c.'>moveto</a>(<a href='../Y/216.html' title='Multiple used in 8 places.'>Rows</a> - 1, 0);
+<a id='L114' name='L114' /> 114 
+<a id='L115' name='L115' /> 115         <em class='comment'>/* exit screen mode */</em>
+<a id='L116' name='L116' /> 116         (<strong class='reserved'>void</strong>) <a href='501.html#L39' title='Defined at 39 in usr/lib/libc/stdio/fflush.c.'>fflush</a>(<a href='441.html#L177' title='Defined at 177 in usr/include/stdio.h.'>stdout</a>);
+<a id='L117' name='L117' /> 117         (<strong class='reserved'>void</strong>) <a href='632.html#L39' title='Defined at 39 in usr/lib/libc/termios/tcsetattr.c.'>tcsetattr</a>(0, <a href='275.html#L167' title='Defined at 167 in include/sys/termios.h.'>TCSADRAIN</a>, &amp;<a href='../Y/1467.html' title='Multiple used in 4 places.'>oldtt</a>);
+<a id='L118' name='L118' /> 118         <a href='264.html#L161' title='Defined at 161 in include/sys/param.h.'>isset</a> = 0;
+<a id='L119' name='L119' /> 119 <em class='brace'>}</em>
+<a id='L120' name='L120' /> 120 
+<a id='L121' name='L121' /> 121 <strong class='reserved'>void</strong>
+<a id='L122' name='L122' /> 122 <a href='../R/2594.html' title='Multiple refered from 7 places.'>stop</a>(<strong class='reserved'>char</strong> *<a href='../Y/2422.html' title='Multiple used in 2 places.'>why</a>)
+<a id='L123' name='L123' /> 123 <em class='brace'>{</em>
+<a id='L124' name='L124' /> 124 
+<a id='L125' name='L125' /> 125         <strong class='reserved'>if</strong> (<a href='264.html#L161' title='Defined at 161 in include/sys/param.h.'>isset</a>)
+<a id='L126' name='L126' /> 126                 <a href='849.html#L110' title='Defined at 110 in usr/sample/tetris/screen.c.'>scr_end</a>();
+<a id='L127' name='L127' /> 127         (<strong class='reserved'>void</strong>) <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "aborting: %s\n", <a href='../Y/2422.html' title='Multiple used in 2 places.'>why</a>);
+<a id='L128' name='L128' /> 128         <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L129' name='L129' /> 129 <em class='brace'>}</em>
+<a id='L130' name='L130' /> 130 
+<a id='L131' name='L131' /> 131 <em class='comment'>/*</em>
+<a id='L132' name='L132' /> 132 <em class='comment'> * Clear the screen, forgetting the current contents in the process.</em>
+<a id='L133' name='L133' /> 133 <em class='comment'> */</em>
+<a id='L134' name='L134' /> 134 <strong class='reserved'>void</strong>
+<a id='L135' name='L135' /> 135 <a href='../R/2476.html' title='Multiple refered from 5 places.'>scr_clear</a>(<strong class='reserved'>void</strong>)
+<a id='L136' name='L136' /> 136 <em class='brace'>{</em>
+<a id='L137' name='L137' /> 137 
+<a id='L138' name='L138' /> 138         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("\33[2J");
+<a id='L139' name='L139' /> 139         <a href='../Y/593.html' title='Multiple used in 4 places.'>curscore</a> = -1;
+<a id='L140' name='L140' /> 140         <a href='592.html#L43' title='Defined at 43 in usr/lib/libc/string/memset.c.'>bzero</a>((<strong class='reserved'>char</strong> *)<a href='../Y/594.html' title='Multiple used in 4 places.'>curscreen</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/594.html' title='Multiple used in 4 places.'>curscreen</a>));
+<a id='L141' name='L141' /> 141 <em class='brace'>}</em>
+<a id='L142' name='L142' /> 142 
+<a id='L143' name='L143' /> 143 <em class='sharp'>#if</em> !<a href='../Y/256.html' title='Multiple used in 6 places.'>__GNUC__</a>
+<a id='L144' name='L144' /> 144 <strong class='reserved'>typedef</strong> <strong class='reserved'>int</strong> <a href='849.html#L156' title='Refered from 156 in usr/sample/tetris/screen.c.'>regcell</a>;    <em class='comment'>/* pcc is bad at `register char', etc */</em>
+<a id='L145' name='L145' /> 145 <em class='sharp'>#else</em>
+<a id='L146' name='L146' /> 146 <strong class='reserved'>typedef</strong> <a href='853.html#L81' title='Defined at 81 in usr/sample/tetris/tetris.h.'>cell</a> <a href='849.html#L156' title='Refered from 156 in usr/sample/tetris/screen.c.'>regcell</a>;
+<a id='L147' name='L147' /> 147 <em class='sharp'>#endif</em>
+<a id='L148' name='L148' /> 148 
+<a id='L149' name='L149' /> 149 <em class='comment'>/*</em>
+<a id='L150' name='L150' /> 150 <em class='comment'> * Update the screen.</em>
+<a id='L151' name='L151' /> 151 <em class='comment'> */</em>
+<a id='L152' name='L152' /> 152 <strong class='reserved'>void</strong>
+<a id='L153' name='L153' /> 153 <a href='../R/2481.html' title='Multiple refered from 5 places.'>scr_update</a>(<strong class='reserved'>void</strong>)
+<a id='L154' name='L154' /> 154 <em class='brace'>{</em>
+<a id='L155' name='L155' /> 155         <a href='853.html#L81' title='Defined at 81 in usr/sample/tetris/tetris.h.'>cell</a> *<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>, *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>;
+<a id='L156' name='L156' /> 156         <a href='../D/3328.html' title='Multiple defined in 2 places.'>regcell</a> <a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a>, <a href='../Y/586.html' title='Multiple used in 5 places.'>cur_so</a> = 0;
+<a id='L157' name='L157' /> 157         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>, <a href='../Y/495.html' title='Multiple used in 4 places.'>ccol</a>, <a href='../Y/1115.html' title='Multiple used in 39 places.'>j</a>;
+<a id='L158' name='L158' /> 158 
+<a id='L159' name='L159' /> 159         <em class='comment'>/* always leave cursor after last displayed point */</em>
+<a id='L160' name='L160' /> 160         <a href='../Y/594.html' title='Multiple used in 4 places.'>curscreen</a>[<a href='../D/349.html' title='Multiple defined in 2 places.'>D_LAST</a> * <a href='../D/92.html' title='Multiple defined in 2 places.'>B_COLS</a> - 1] = -1;
+<a id='L161' name='L161' /> 161 
+<a id='L162' name='L162' /> 162         <strong class='reserved'>if</strong> (<a href='../Y/1860.html' title='Multiple used in 8 places.'>score</a> != <a href='../Y/593.html' title='Multiple used in 4 places.'>curscore</a>) <em class='brace'>{</em>
+<a id='L163' name='L163' /> 163                 <a href='849.html#L65' title='Defined at 65 in usr/sample/tetris/screen.c.'>moveto</a>(0, 0);
+<a id='L164' name='L164' /> 164                 <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("%d", <a href='../Y/1860.html' title='Multiple used in 8 places.'>score</a>);
+<a id='L165' name='L165' /> 165                 <a href='../Y/593.html' title='Multiple used in 4 places.'>curscore</a> = <a href='../Y/1860.html' title='Multiple used in 8 places.'>score</a>;
+<a id='L166' name='L166' /> 166         <em class='brace'>}</em>
+<a id='L167' name='L167' /> 167 
+<a id='L168' name='L168' /> 168         <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a> = &amp;<a href='../Y/438.html' title='Multiple used in 13 places.'>board</a>[<a href='../D/348.html' title='Multiple defined in 2 places.'>D_FIRST</a> * <a href='../D/92.html' title='Multiple defined in 2 places.'>B_COLS</a>];
+<a id='L169' name='L169' /> 169         <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a> = &amp;<a href='../Y/594.html' title='Multiple used in 4 places.'>curscreen</a>[<a href='../D/348.html' title='Multiple defined in 2 places.'>D_FIRST</a> * <a href='../D/92.html' title='Multiple defined in 2 places.'>B_COLS</a>];
+<a id='L170' name='L170' /> 170         <strong class='reserved'>for</strong> (<a href='../Y/1115.html' title='Multiple used in 39 places.'>j</a> = <a href='../D/348.html' title='Multiple defined in 2 places.'>D_FIRST</a>; <a href='../Y/1115.html' title='Multiple used in 39 places.'>j</a> &lt; <a href='../D/349.html' title='Multiple defined in 2 places.'>D_LAST</a>; <a href='../Y/1115.html' title='Multiple used in 39 places.'>j</a>++) <em class='brace'>{</em>
+<a id='L171' name='L171' /> 171                 <a href='../Y/495.html' title='Multiple used in 4 places.'>ccol</a> = -1;
+<a id='L172' name='L172' /> 172                 <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../D/92.html' title='Multiple defined in 2 places.'>B_COLS</a>; <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>++, <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>++, <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L173' name='L173' /> 173                         <strong class='reserved'>if</strong> (*<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a> == (<a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a> = *<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>))
+<a id='L174' name='L174' /> 174                                 <strong class='reserved'>continue</strong>;
+<a id='L175' name='L175' /> 175                         *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a> = <a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a>;
+<a id='L176' name='L176' /> 176                         <strong class='reserved'>if</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> != <a href='../Y/495.html' title='Multiple used in 4 places.'>ccol</a>) <em class='brace'>{</em>
+<a id='L177' name='L177' /> 177                                 <strong class='reserved'>if</strong> (<a href='../Y/586.html' title='Multiple used in 5 places.'>cur_so</a>) <em class='brace'>{</em>
+<a id='L178' name='L178' /> 178                                         <a href='../Y/586.html' title='Multiple used in 5 places.'>cur_so</a> = 0;
+<a id='L179' name='L179' /> 179                                 <em class='brace'>}</em>
+<a id='L180' name='L180' /> 180                                 <a href='849.html#L65' title='Defined at 65 in usr/sample/tetris/screen.c.'>moveto</a>(<a href='853.html#L90' title='Defined at 90 in usr/sample/tetris/tetris.h.'>RTOD</a>(<a href='../Y/1115.html' title='Multiple used in 39 places.'>j</a>), <a href='853.html#L91' title='Defined at 91 in usr/sample/tetris/tetris.h.'>CTOD</a>(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>));
+<a id='L181' name='L181' /> 181                         <em class='brace'>}</em>
+<a id='L182' name='L182' /> 182                         <strong class='reserved'>if</strong> (<a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a> != <a href='../Y/586.html' title='Multiple used in 5 places.'>cur_so</a>) <em class='brace'>{</em>
+<a id='L183' name='L183' /> 183                                 <a href='../Y/586.html' title='Multiple used in 5 places.'>cur_so</a> = <a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a>;
+<a id='L184' name='L184' /> 184                         <em class='brace'>}</em>
+<a id='L185' name='L185' /> 185                         <a href='849.html#L64' title='Defined at 64 in usr/sample/tetris/screen.c.'>putstr</a>(<a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a> ? "XX" : "  ");
+<a id='L186' name='L186' /> 186 
+<a id='L187' name='L187' /> 187                         <a href='../Y/495.html' title='Multiple used in 4 places.'>ccol</a> = <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> + 1;
+<a id='L188' name='L188' /> 188                         <em class='comment'>/*</em>
+<a id='L189' name='L189' /> 189 <em class='comment'>                         * Look ahead a bit, to avoid extra motion if</em>
+<a id='L190' name='L190' /> 190 <em class='comment'>                         * we will be redrawing the cell after the next.</em>
+<a id='L191' name='L191' /> 191 <em class='comment'>                         * Motion probably takes four or more characters,</em>
+<a id='L192' name='L192' /> 192 <em class='comment'>                         * so we save even if we rewrite two cells</em>
+<a id='L193' name='L193' /> 193 <em class='comment'>                         * `unnecessarily'.  Skip it all, though, if</em>
+<a id='L194' name='L194' /> 194 <em class='comment'>                         * the next cell is a different color.</em>
+<a id='L195' name='L195' /> 195 <em class='comment'>                         */</em>
+<a id='L196' name='L196' /> 196 <em class='sharp'>#define</em> <a href='../R/958.html' title='Multiple refered from 2 places.'>STOP</a> (<a href='../D/92.html' title='Multiple defined in 2 places.'>B_COLS</a> - 3)
+<a id='L197' name='L197' /> 197                         <strong class='reserved'>if</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &gt; <a href='849.html#L196' title='Defined at 196 in usr/sample/tetris/screen.c.'>STOP</a> || <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>[1] != <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>[1] || <a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a> != <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>[1])
+<a id='L198' name='L198' /> 198                                 <strong class='reserved'>continue</strong>;
+<a id='L199' name='L199' /> 199                         <strong class='reserved'>if</strong> (<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>[2] != <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>[2])
+<a id='L200' name='L200' /> 200                                 <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>[1] = -1;
+<a id='L201' name='L201' /> 201                         <strong class='reserved'>else</strong> <strong class='reserved'>if</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='849.html#L196' title='Defined at 196 in usr/sample/tetris/screen.c.'>STOP</a> &amp;&amp; <a href='../Y/1969.html' title='Multiple used in 8 places.'>so</a> == <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>[2] &amp;&amp; <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>[3] != <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>[3]) <em class='brace'>{</em>
+<a id='L202' name='L202' /> 202                                 <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>[2] = -1;
+<a id='L203' name='L203' /> 203                                 <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>[1] = -1;
+<a id='L204' name='L204' /> 204                         <em class='brace'>}</em>
+<a id='L205' name='L205' /> 205                 <em class='brace'>}</em>
+<a id='L206' name='L206' /> 206         <em class='brace'>}</em>
+<a id='L207' name='L207' /> 207         (<strong class='reserved'>void</strong>) <a href='501.html#L39' title='Defined at 39 in usr/lib/libc/stdio/fflush.c.'>fflush</a>(<a href='441.html#L177' title='Defined at 177 in usr/include/stdio.h.'>stdout</a>);
+<a id='L208' name='L208' /> 208 <em class='brace'>}</em>
+<a id='L209' name='L209' /> 209 
+<a id='L210' name='L210' /> 210 <em class='comment'>/*</em>
+<a id='L211' name='L211' /> 211 <em class='comment'> * Write a message (set!=0), or clear the same message (set==0).</em>
+<a id='L212' name='L212' /> 212 <em class='comment'> * (We need its length in case we have to overwrite with blanks.)</em>
+<a id='L213' name='L213' /> 213 <em class='comment'> */</em>
+<a id='L214' name='L214' /> 214 <strong class='reserved'>void</strong>
+<a id='L215' name='L215' /> 215 <a href='../R/2479.html' title='Multiple refered from 6 places.'>scr_msg</a>(<strong class='reserved'>char</strong> *<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>, <strong class='reserved'>int</strong> <a href='../Y/1898.html' title='Multiple used in 17 places.'>set</a>)
+<a id='L216' name='L216' /> 216 <em class='brace'>{</em>
+<a id='L217' name='L217' /> 217 
+<a id='L218' name='L218' /> 218         <strong class='reserved'>int</strong> <a href='../Y/1159.html' title='Multiple used in 7 places.'>l</a> = (<strong class='reserved'>int</strong>)<a href='605.html#L34' title='Defined at 34 in usr/lib/libc/string/strlen.c.'>strlen</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>);
+<a id='L219' name='L219' /> 219 
+<a id='L220' name='L220' /> 220         <a href='849.html#L65' title='Defined at 65 in usr/sample/tetris/screen.c.'>moveto</a>(<a href='../Y/216.html' title='Multiple used in 8 places.'>Rows</a> - 2, ((<a href='../Y/91.html' title='Multiple used in 8 places.'>Cols</a> - <a href='../Y/1159.html' title='Multiple used in 7 places.'>l</a>) &gt;&gt; 1) - 1);
+<a id='L221' name='L221' /> 221         <strong class='reserved'>if</strong> (<a href='../Y/1898.html' title='Multiple used in 17 places.'>set</a>)
+<a id='L222' name='L222' /> 222                 <a href='849.html#L64' title='Defined at 64 in usr/sample/tetris/screen.c.'>putstr</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>);
+<a id='L223' name='L223' /> 223         <strong class='reserved'>else</strong>
+<a id='L224' name='L224' /> 224                 <strong class='reserved'>while</strong> (--<a href='../Y/1159.html' title='Multiple used in 7 places.'>l</a> &gt;= 0)
+<a id='L225' name='L225' /> 225                         (<strong class='reserved'>void</strong>) <a href='../D/3263.html' title='Multiple defined in 3 places.'>putchar</a>(' ');
+<a id='L226' name='L226' /> 226 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='849.html#L71'>[^]</a><a href='849.html#L215'>[v]</a><a href='849.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ops</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/65.html#L450'>ops</a>               450 bsp/drv/dev/base/wscons.c wscons_attach_video(struct wscons_video_ops *ops, void *aux)
+<a href='../S/65.html#L455'>ops</a>               455 bsp/drv/dev/base/wscons.c 	sc-&gt;vid_ops = ops;
+<a href='../S/65.html#L457'>ops</a>               457 bsp/drv/dev/base/wscons.c 	ops-&gt;get_cursor(aux, &amp;sc-&gt;col, &amp;sc-&gt;row);
+<a href='../S/65.html#L467'>ops</a>               467 bsp/drv/dev/base/wscons.c wscons_attach_kbd(struct wscons_kbd_ops *ops, void *aux)
+<a href='../S/65.html#L471'>ops</a>               471 bsp/drv/dev/base/wscons.c 	sc-&gt;kbd_ops = ops;
+<a href='../S/69.html#L71'>ops</a>                71 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_ops *ops;	/* low level h/w operations */
+<a href='../S/69.html#L238'>ops</a>               238 bsp/drv/dev/cpufreq/cpufreq.c 		sc-&gt;ops-&gt;setperf(new_speed);
+<a href='../S/69.html#L239'>ops</a>               239 bsp/drv/dev/cpufreq/cpufreq.c 		cur_speed = sc-&gt;ops-&gt;getperf();
+<a href='../S/69.html#L256'>ops</a>               256 bsp/drv/dev/cpufreq/cpufreq.c 	ASSERT(sc-&gt;ops != NULL);
+<a href='../S/69.html#L273'>ops</a>               273 bsp/drv/dev/cpufreq/cpufreq.c 	cur_speed = sc-&gt;ops-&gt;getperf();
+<a href='../S/69.html#L298'>ops</a>               298 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;ops-&gt;setperf(100);
+<a href='../S/69.html#L308'>ops</a>               308 bsp/drv/dev/cpufreq/cpufreq.c 	if (sc-&gt;ops == NULL)
+<a href='../S/69.html#L313'>ops</a>               313 bsp/drv/dev/cpufreq/cpufreq.c 		sc-&gt;ops-&gt;getinfo(&amp;info);
+<a href='../S/69.html#L332'>ops</a>               332 bsp/drv/dev/cpufreq/cpufreq.c 	if (sc-&gt;ops == NULL)
+<a href='../S/69.html#L350'>ops</a>               350 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_attach(struct cpufreq_ops *ops)
+<a href='../S/69.html#L356'>ops</a>               356 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: attach ops=%x\n", ops));
+<a href='../S/69.html#L363'>ops</a>               363 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;ops = ops;
+<a href='../S/85.html#L57'>ops</a>                57 bsp/drv/dev/rtc/rtc.c 	struct rtc_ops	*ops;		/* rtc operations */
+<a href='../S/85.html#L211'>ops</a>               211 bsp/drv/dev/rtc/rtc.c rtc_attach(struct rtc_ops *ops, void *aux)
+<a href='../S/85.html#L221'>ops</a>               221 bsp/drv/dev/rtc/rtc.c 	sc-&gt;ops = ops;
+<a href='../S/85.html#L225'>ops</a>               225 bsp/drv/dev/rtc/rtc.c 	ops-&gt;gettime(aux, &amp;tv);
+<a href='../S/89.html#L52'>ops</a>                52 bsp/drv/dev/serial/serial.c 	struct serial_ops  *ops;	/* h/w operation */
+<a href='../S/89.html#L129'>ops</a>               129 bsp/drv/dev/serial/serial.c 		sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L158'>ops</a>               158 bsp/drv/dev/serial/serial.c 	return sc-&gt;ops-&gt;rcv_char(port);
+<a href='../S/89.html#L167'>ops</a>               167 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L176'>ops</a>               176 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;set_poll(port, on);
+<a href='../S/89.html#L180'>ops</a>               180 bsp/drv/dev/serial/serial.c serial_attach(struct serial_ops *ops, struct serial_port *port)
+<a href='../S/89.html#L190'>ops</a>               190 bsp/drv/dev/serial/serial.c 	sc-&gt;ops = ops;
+<a href='../S/89.html#L199'>ops</a>               199 bsp/drv/dev/serial/serial.c 	ops-&gt;start(port);
+<a href='../S/100.html#L77'>ops</a>                77 bsp/drv/include/rtc.h void	rtc_attach(struct rtc_ops *ops, void *aux);
+<a href='../S/327.html#L301'>ops</a>               301 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L322'>ops</a>               322 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L323'>ops</a>               323 sys/kern/device.c 	ASSERT(ops-&gt;open != NULL);
+<a href='../S/327.html#L324'>ops</a>               324 sys/kern/device.c 	error = (*ops-&gt;open)(dev, mode);
+<a href='../S/327.html#L341'>ops</a>               341 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L347'>ops</a>               347 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L348'>ops</a>               348 sys/kern/device.c 	ASSERT(ops-&gt;close != NULL);
+<a href='../S/327.html#L349'>ops</a>               349 sys/kern/device.c 	error = (*ops-&gt;close)(dev);
+<a href='../S/327.html#L364'>ops</a>               364 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L379'>ops</a>               379 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L380'>ops</a>               380 sys/kern/device.c 	ASSERT(ops-&gt;read != NULL);
+<a href='../S/327.html#L381'>ops</a>               381 sys/kern/device.c 	error = (*ops-&gt;read)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L397'>ops</a>               397 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L412'>ops</a>               412 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L413'>ops</a>               413 sys/kern/device.c 	ASSERT(ops-&gt;write != NULL);
+<a href='../S/327.html#L414'>ops</a>               414 sys/kern/device.c 	error = (*ops-&gt;write)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L432'>ops</a>               432 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L438'>ops</a>               438 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L439'>ops</a>               439 sys/kern/device.c 	ASSERT(ops-&gt;ioctl != NULL);
+<a href='../S/327.html#L440'>ops</a>               440 sys/kern/device.c 	error = (*ops-&gt;ioctl)(dev, cmd, arg);
+<a href='../S/327.html#L453'>ops</a>               453 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L459'>ops</a>               459 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L460'>ops</a>               460 sys/kern/device.c 	ASSERT(ops-&gt;devctl != NULL);
+<a href='../S/327.html#L461'>ops</a>               461 sys/kern/device.c 	error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/327.html#L483'>ops</a>               483 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L492'>ops</a>               492 sys/kern/device.c 		ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L493'>ops</a>               493 sys/kern/device.c 		if (ops == NULL)
+<a href='../S/327.html#L496'>ops</a>               496 sys/kern/device.c 		ASSERT(ops-&gt;devctl != NULL);
+<a href='../S/327.html#L497'>ops</a>               497 sys/kern/device.c 		error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/421.html#L101'>ops</a>               101 usr/bin/test/test.c } const ops [] = {
+<a href='../S/421.html#L378'>ops</a>               378 usr/bin/test/test.c 	op = ops;
+<a href='../S/421.html#L404'>ops</a>               404 usr/bin/test/test.c 	op = ops;
+</pre>
+</body>
+</html>

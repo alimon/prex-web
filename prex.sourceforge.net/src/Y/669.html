@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dimtime</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/63.html#L58'>dimtime</a>            58 bsp/drv/dev/base/pm.c 	u_long		dimtime;	/* auto dim (lcd off) time in sec */
+<a href='../S/63.html#L213'>dimtime</a>           213 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;dimtime, arg, sizeof(u_long)))
+<a href='../S/63.html#L218'>dimtime</a>           218 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;dimtime, sizeof(u_long)))
+<a href='../S/63.html#L220'>dimtime</a>           220 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set dimtmr=%d\n", sc-&gt;dimtime));
+<a href='../S/63.html#L260'>dimtime</a>           260 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime == 0 &amp;&amp; sc-&gt;dimtime == 0)
+<a href='../S/63.html#L263'>dimtime</a>           263 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime != 0 || sc-&gt;dimtime != 0) {
+<a href='../S/63.html#L382'>dimtime</a>           382 bsp/drv/dev/base/pm.c 		if (sc-&gt;dimtime != 0 &amp;&amp; sc-&gt;idlecnt &gt;= sc-&gt;dimtime) {
+<a href='../S/63.html#L513'>dimtime</a>           513 bsp/drv/dev/base/pm.c 	sc-&gt;dimtime = 0;
+</pre>
+</body>
+</html>

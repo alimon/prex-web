@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>SEC_SIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L133'>SEC_SIZE</a>          133 usr/server/fs/fatfs/fatfs.h #define DIR_PER_SEC     (SEC_SIZE / sizeof(struct fat_dirent))
+<a href='../S/889.html#L53'>SEC_SIZE</a>           53 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 2) / SEC_SIZE;
+<a href='../S/889.html#L55'>SEC_SIZE</a>           55 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 3 / 2) / SEC_SIZE;
+<a href='../S/889.html#L61'>SEC_SIZE</a>           61 usr/server/fs/fatfs/fatfs_fat.c 		if ((cl * 3 / 2) % SEC_SIZE == SEC_SIZE - 1)
+<a href='../S/889.html#L69'>SEC_SIZE</a>           69 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L78'>SEC_SIZE</a>           78 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf + SEC_SIZE, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L96'>SEC_SIZE</a>           96 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 2) / SEC_SIZE;
+<a href='../S/889.html#L98'>SEC_SIZE</a>           98 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 3 / 2) / SEC_SIZE;
+<a href='../S/889.html#L100'>SEC_SIZE</a>          100 usr/server/fs/fatfs/fatfs_fat.c 		if ((cl * 3 / 2) % SEC_SIZE == SEC_SIZE - 1)
+<a href='../S/889.html#L107'>SEC_SIZE</a>          107 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf, SEC_SIZE);
+<a href='../S/889.html#L116'>SEC_SIZE</a>          116 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf + SEC_SIZE, SEC_SIZE);
+<a href='../S/889.html#L141'>SEC_SIZE</a>          141 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 2) % SEC_SIZE;
+<a href='../S/889.html#L143'>SEC_SIZE</a>          143 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 3 / 2) % SEC_SIZE;
+<a href='../S/889.html#L181'>SEC_SIZE</a>          181 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 2) % SEC_SIZE;
+<a href='../S/889.html#L183'>SEC_SIZE</a>          183 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 3 / 2) % SEC_SIZE;
+<a href='../S/890.html#L52'>SEC_SIZE</a>           52 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/890.html#L66'>SEC_SIZE</a>           66 usr/server/fs/fatfs/fatfs_node.c 	memcpy(bp-&gt;b_data, fmp-&gt;dir_buf, SEC_SIZE);
+<a href='../S/890.html#L333'>SEC_SIZE</a>          333 usr/server/fs/fatfs/fatfs_node.c 		memset(fmp-&gt;dir_buf, 0, SEC_SIZE);
+<a href='../S/892.html#L76'>SEC_SIZE</a>           76 usr/server/fs/fatfs/fatfs_vfsops.c 	bpb = malloc(SEC_SIZE);
+<a href='../S/892.html#L81'>SEC_SIZE</a>           81 usr/server/fs/fatfs/fatfs_vfsops.c 	size = SEC_SIZE;
+<a href='../S/892.html#L87'>SEC_SIZE</a>           87 usr/server/fs/fatfs/fatfs_vfsops.c 	if (bpb-&gt;bytes_per_sector != SEC_SIZE) {
+<a href='../S/892.html#L100'>SEC_SIZE</a>          100 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;cluster_size = bpb-&gt;sectors_per_cluster * SEC_SIZE;
+<a href='../S/892.html#L153'>SEC_SIZE</a>          153 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;io_buf = malloc(fmp-&gt;sec_per_cl * SEC_SIZE);
+<a href='../S/892.html#L157'>SEC_SIZE</a>          157 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;fat_buf = malloc(SEC_SIZE * 2);
+<a href='../S/892.html#L161'>SEC_SIZE</a>          161 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;dir_buf = malloc(SEC_SIZE);
+<a href='../S/893.html#L107'>SEC_SIZE</a>          107 usr/server/fs/fatfs/fatfs_vnops.c 	size = fmp-&gt;sec_per_cl * SEC_SIZE;
+<a href='../S/893.html#L121'>SEC_SIZE</a>          121 usr/server/fs/fatfs/fatfs_vnops.c 	size = fmp-&gt;sec_per_cl * SEC_SIZE;
+</pre>
+</body>
+</html>

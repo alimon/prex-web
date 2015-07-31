@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dest</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/19.html#L60'>dest</a>               60 bsp/boot/common/string.c strlcpy(char *dest, const char *src, size_t count)
+<a href='../S/19.html#L62'>dest</a>               62 bsp/boot/common/string.c 	char *d = dest;
+<a href='../S/19.html#L99'>dest</a>               99 bsp/boot/common/string.c memcpy(void *dest, const void *src, size_t count)
+<a href='../S/19.html#L101'>dest</a>              101 bsp/boot/common/string.c 	char *tmp = (char *)dest, *s = (char *)src;
+<a href='../S/19.html#L105'>dest</a>              105 bsp/boot/common/string.c 	return dest;
+<a href='../S/19.html#L109'>dest</a>              109 bsp/boot/common/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/19.html#L111'>dest</a>              111 bsp/boot/common/string.c 	char *p = (char *)dest;
+<a href='../S/19.html#L115'>dest</a>              115 bsp/boot/common/string.c 	return dest;
+<a href='../S/94.html#L90'>dest</a>               90 bsp/drv/include/ddi.h char	*strncpy(char *dest, const char *src, size_t count);
+<a href='../S/94.html#L92'>dest</a>               92 bsp/drv/include/ddi.h size_t	 strlcpy(char *dest, const char *src, size_t count);
+<a href='../S/94.html#L94'>dest</a>               94 bsp/drv/include/ddi.h void	 *memcpy(void *dest, const void *src, size_t count);
+<a href='../S/94.html#L95'>dest</a>               95 bsp/drv/include/ddi.h void	 *memset(void *dest, int ch, size_t count);
+<a href='../S/113.html#L62'>dest</a>               62 bsp/drv/lib/string.c strncpy(char *dest, const char *src, size_t count)
+<a href='../S/113.html#L64'>dest</a>               64 bsp/drv/lib/string.c 	char *tmp = dest;
+<a href='../S/113.html#L66'>dest</a>               66 bsp/drv/lib/string.c 	while (count-- &amp;&amp; (*dest++ = *src++) != '\0');
+<a href='../S/113.html#L85'>dest</a>               85 bsp/drv/lib/string.c strlcpy(char *dest, const char *src, size_t count)
+<a href='../S/113.html#L89'>dest</a>               89 bsp/drv/lib/string.c 	while (count-- &amp;&amp; (*dest++ = *src++) != '\0');
+<a href='../S/113.html#L92'>dest</a>               92 bsp/drv/lib/string.c 		*dest = '\0';
+<a href='../S/113.html#L99'>dest</a>               99 bsp/drv/lib/string.c memcpy(void *dest, const void *src, size_t count)
+<a href='../S/113.html#L101'>dest</a>              101 bsp/drv/lib/string.c 	char *tmp = (char *)dest, *s = (char *)src;
+<a href='../S/113.html#L107'>dest</a>              107 bsp/drv/lib/string.c 	return dest;
+<a href='../S/113.html#L111'>dest</a>              111 bsp/drv/lib/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/113.html#L113'>dest</a>              113 bsp/drv/lib/string.c 	char *p = (char *)dest;
+<a href='../S/113.html#L119'>dest</a>              119 bsp/drv/lib/string.c 	return dest;
+<a href='../S/214.html#L49'>dest</a>               49 include/arm/stdarg.h #define	va_copy(dest, src)	__builtin_va_copy((dest), (src))
+<a href='../S/214.html#L65'>dest</a>               65 include/arm/stdarg.h #define	va_copy(dest, src)	((dest) = (src))
+<a href='../S/242.html#L49'>dest</a>               49 include/ppc/stdarg.h #define	va_copy(dest, src)	__builtin_va_copy((dest), (src))
+<a href='../S/242.html#L65'>dest</a>               65 include/ppc/stdarg.h #define	va_copy(dest, src)	((dest) = (src))
+<a href='../S/288.html#L49'>dest</a>               49 include/x86/stdarg.h #define	va_copy(dest, src)	__builtin_va_copy((dest), (src))
+<a href='../S/288.html#L65'>dest</a>               65 include/x86/stdarg.h #define	va_copy(dest, src)	((dest) = (src))
+<a href='../S/338.html#L41'>dest</a>               41 sys/lib/string.c strlcpy(char *dest, const char *src, size_t count)
+<a href='../S/338.html#L43'>dest</a>               43 sys/lib/string.c 	char *d = dest;
+<a href='../S/338.html#L90'>dest</a>               90 sys/lib/string.c memcpy(void *dest, const void *src, size_t count)
+<a href='../S/338.html#L92'>dest</a>               92 sys/lib/string.c 	char *tmp = (char *)dest, *s = (char *)src;
+<a href='../S/338.html#L99'>dest</a>               99 sys/lib/string.c 	return dest;
+<a href='../S/338.html#L103'>dest</a>              103 sys/lib/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/338.html#L105'>dest</a>              105 sys/lib/string.c 	char *p = (char *)dest;
+<a href='../S/338.html#L112'>dest</a>              112 sys/lib/string.c 	return dest;
+<a href='../S/343.html#L548'>dest</a>              548 sys/mem/vm.c   	struct seg *tmp, *src, *dest;
+<a href='../S/343.html#L575'>dest</a>              575 sys/mem/vm.c   			dest = tmp;
+<a href='../S/343.html#L578'>dest</a>              578 sys/mem/vm.c   			dest = kmem_alloc(sizeof(*dest));
+<a href='../S/343.html#L579'>dest</a>              579 sys/mem/vm.c   			if (dest == NULL)
+<a href='../S/343.html#L582'>dest</a>              582 sys/mem/vm.c   			*dest = *src;	/* memcpy */
+<a href='../S/343.html#L584'>dest</a>              584 sys/mem/vm.c   			dest-&gt;prev = tmp;
+<a href='../S/343.html#L585'>dest</a>              585 sys/mem/vm.c   			dest-&gt;next = tmp-&gt;next;
+<a href='../S/343.html#L586'>dest</a>              586 sys/mem/vm.c   			tmp-&gt;next-&gt;prev = dest;
+<a href='../S/343.html#L587'>dest</a>              587 sys/mem/vm.c   			tmp-&gt;next = dest;
+<a href='../S/343.html#L588'>dest</a>              588 sys/mem/vm.c   			tmp = dest;
+<a href='../S/343.html#L598'>dest</a>              598 sys/mem/vm.c   				dest-&gt;flags |= SEG_SHARED;
+<a href='../S/343.html#L601'>dest</a>              601 sys/mem/vm.c   			if (!(dest-&gt;flags &amp; SEG_SHARED)) {
+<a href='../S/343.html#L603'>dest</a>              603 sys/mem/vm.c   				dest-&gt;phys = page_alloc(src-&gt;size);
+<a href='../S/343.html#L604'>dest</a>              604 sys/mem/vm.c   				if (dest-&gt;phys == 0)
+<a href='../S/343.html#L608'>dest</a>              608 sys/mem/vm.c   				memcpy(ptokv(dest-&gt;phys), ptokv(src-&gt;phys),
+<a href='../S/343.html#L612'>dest</a>              612 sys/mem/vm.c   			if (dest-&gt;flags &amp; SEG_WRITE)
+<a href='../S/343.html#L617'>dest</a>              617 sys/mem/vm.c   			if (mmu_map(new_map-&gt;pgd, dest-&gt;phys, dest-&gt;addr,
+<a href='../S/343.html#L618'>dest</a>              618 sys/mem/vm.c   				    dest-&gt;size, map_type))
+<a href='../S/343.html#L627'>dest</a>              627 sys/mem/vm.c   	dest = &amp;new_map-&gt;head;
+<a href='../S/343.html#L630'>dest</a>              630 sys/mem/vm.c   		if (dest-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L632'>dest</a>              632 sys/mem/vm.c   			dest-&gt;sh_prev = src;
+<a href='../S/343.html#L633'>dest</a>              633 sys/mem/vm.c   			dest-&gt;sh_next = src-&gt;sh_next;
+<a href='../S/343.html#L634'>dest</a>              634 sys/mem/vm.c   			src-&gt;sh_next-&gt;sh_prev = dest;
+<a href='../S/343.html#L635'>dest</a>              635 sys/mem/vm.c   			src-&gt;sh_next = dest;
+<a href='../S/343.html#L637'>dest</a>              637 sys/mem/vm.c   		dest = dest-&gt;next;
+<a href='../S/398.html#L47'>dest</a>               47 usr/bin/mv/mv.c 	char *src, *dest, *p;
+<a href='../S/398.html#L56'>dest</a>               56 usr/bin/mv/mv.c 	dest = argv[2];
+<a href='../S/398.html#L67'>dest</a>               67 usr/bin/mv/mv.c 	rc = stat(dest, &amp;st2);
+<a href='../S/398.html#L71'>dest</a>               71 usr/bin/mv/mv.c 		strlcpy(path, dest, sizeof(path));
+<a href='../S/398.html#L72'>dest</a>               72 usr/bin/mv/mv.c 		if (strcmp(dest, "/"))
+<a href='../S/398.html#L75'>dest</a>               75 usr/bin/mv/mv.c 		dest = path;
+<a href='../S/398.html#L77'>dest</a>               77 usr/bin/mv/mv.c 	if (rename(src, dest) &lt; 0)
+<a href='../S/655.html#L56'>dest</a>               56 usr/lib/posix/exec/execve.c 	char *dest, *src;
+<a href='../S/655.html#L87'>dest</a>               87 usr/lib/posix/exec/execve.c 	dest = msg.buf;
+<a href='../S/655.html#L90'>dest</a>               90 usr/lib/posix/exec/execve.c 		while ((*dest++ = *src++) != 0);
+<a href='../S/655.html#L94'>dest</a>               94 usr/lib/posix/exec/execve.c 		while ((*dest++ = *src++) != 0);
+<a href='../S/871.html#L186'>dest</a>              186 usr/server/boot/boot.c 	char *dest;
+<a href='../S/871.html#L209'>dest</a>              209 usr/server/boot/boot.c 	dest = msg.buf;
+<a href='../S/871.html#L212'>dest</a>              212 usr/server/boot/boot.c 		while ((*dest++ = *src++) != 0);
+<a href='../S/871.html#L216'>dest</a>              216 usr/server/boot/boot.c 		while ((*dest++ = *src++) != 0);
+<a href='../S/871.html#L238'>dest</a>              238 usr/server/boot/boot.c copy_file(char *src, char *dest)
+<a href='../S/871.html#L250'>dest</a>              250 usr/server/boot/boot.c 	if ((fnew = creat(dest, mode)) == -1) {
+<a href='../S/903.html#L413'>dest</a>              413 usr/server/fs/vfs/main.c 	char dest[PATH_MAX];
+<a href='../S/903.html#L422'>dest</a>              422 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path2, VWRITE, dest)) != 0)
+<a href='../S/903.html#L425'>dest</a>              425 usr/server/fs/vfs/main.c 	return sys_rename(src, dest);
+<a href='../S/905.html#L115'>dest</a>              115 usr/server/fs/vfs/vfs.h int	 sys_rename(char *src, char *dest);
+<a href='../S/911.html#L567'>dest</a>              567 usr/server/fs/vfs/vfs_syscalls.c sys_rename(char *src, char *dest)
+<a href='../S/911.html#L575'>dest</a>              575 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_rename: src=%s dest=%s\n", src, dest));
+<a href='../S/911.html#L583'>dest</a>              583 usr/server/fs/vfs/vfs_syscalls.c 	if (!strncmp(src, dest, PATH_MAX))
+<a href='../S/911.html#L587'>dest</a>              587 usr/server/fs/vfs/vfs_syscalls.c 	len = strlen(dest);
+<a href='../S/911.html#L588'>dest</a>              588 usr/server/fs/vfs/vfs_syscalls.c 	if (!strncmp(src, dest, len)) {
+<a href='../S/911.html#L598'>dest</a>              598 usr/server/fs/vfs/vfs_syscalls.c 	error = namei(dest, &amp;vp2);
+<a href='../S/911.html#L608'>dest</a>              608 usr/server/fs/vfs/vfs_syscalls.c 		if (vp2-&gt;v_type == VDIR &amp;&amp; check_dir_empty(dest)) {
+<a href='../S/911.html#L619'>dest</a>              619 usr/server/fs/vfs/vfs_syscalls.c 	dname = strrchr(dest, '/');
+<a href='../S/911.html#L624'>dest</a>              624 usr/server/fs/vfs/vfs_syscalls.c 	if (dname == dest)
+<a href='../S/911.html#L625'>dest</a>              625 usr/server/fs/vfs/vfs_syscalls.c 		dest = root;
+<a href='../S/911.html#L633'>dest</a>              633 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(dest, &amp;dvp2)) != 0)
+</pre>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>event</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/63.html#L134'>event</a>             134 bsp/drv/dev/base/pm.c 	int policy, state, event;
+<a href='../S/63.html#L149'>event</a>             149 bsp/drv/dev/base/pm.c 		event = sc-&gt;lastevt;
+<a href='../S/63.html#L151'>event</a>             151 bsp/drv/dev/base/pm.c 		if (copyout(&amp;event, arg, sizeof(int)))
+<a href='../S/63.html#L153'>event</a>             153 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: query event=%d\n", event));
+<a href='../S/63.html#L425'>event</a>             425 bsp/drv/dev/base/pm.c pm_notify(int event)
+<a href='../S/63.html#L430'>event</a>             430 bsp/drv/dev/base/pm.c 	if (event == PME_USER_ACTIVITY) {
+<a href='../S/63.html#L443'>event</a>             443 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: notify %d\n", event));
+<a href='../S/63.html#L449'>event</a>             449 bsp/drv/dev/base/pm.c 		switch (event) {
+<a href='../S/63.html#L458'>event</a>             458 bsp/drv/dev/base/pm.c 			sc-&gt;lastevt = event;
+<a href='../S/63.html#L459'>event</a>             459 bsp/drv/dev/base/pm.c 			DPRINTF(("pm: post %d\n", event));
+<a href='../S/63.html#L472'>event</a>             472 bsp/drv/dev/base/pm.c 		switch (event) {
+<a href='../S/94.html#L62'>event</a>              62 bsp/drv/include/ddi.h 	struct event iocomp;	/* I/O completion event */
+<a href='../S/96.html#L69'>event</a>              69 bsp/drv/include/dki.h struct event {
+<a href='../S/96.html#L74'>event</a>              74 bsp/drv/include/dki.h #define event_init(event, evt_name) \
+<a href='../S/96.html#L75'>event</a>              75 bsp/drv/include/dki.h     do { list_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/96.html#L140'>event</a>             140 bsp/drv/include/dki.h int	 sched_tsleep(struct event *, u_long);
+<a href='../S/96.html#L141'>event</a>             141 bsp/drv/include/dki.h void	 sched_wakeup(struct event *);
+<a href='../S/96.html#L143'>event</a>             143 bsp/drv/include/dki.h #define	 sched_sleep(event)  sched_tsleep((event), 0)
+<a href='../S/99.html#L38'>event</a>              38 bsp/drv/include/pm.h void	pm_notify(int event);
+<a href='../S/102.html#L63'>event</a>              63 bsp/drv/include/tty.h 	struct event	t_input;	/* event for input data ready */
+<a href='../S/102.html#L64'>event</a>              64 bsp/drv/include/tty.h 	struct event	t_output;	/* event for output completion */
+<a href='../S/306.html#L39'>event</a>              39 sys/include/event.h struct event {
+<a href='../S/306.html#L45'>event</a>              45 sys/include/event.h #define event_init(event, evt_name) \
+<a href='../S/306.html#L46'>event</a>              46 sys/include/event.h     do { queue_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/306.html#L48'>event</a>              48 sys/include/event.h #define event_waiting(event)   (!queue_empty(&amp;(event)-&gt;sleepq))
+<a href='../S/310.html#L48'>event</a>              48 sys/include/irq.h 	struct event	istevt;		/* event for ist */
+<a href='../S/315.html#L67'>event</a>              67 sys/include/sched.h int	 sched_tsleep(struct event *, u_long);
+<a href='../S/315.html#L68'>event</a>              68 sys/include/sched.h void	 sched_wakeup(struct event *);
+<a href='../S/315.html#L69'>event</a>              69 sys/include/sched.h thread_t sched_wakeone(struct event *);
+<a href='../S/316.html#L42'>event</a>              42 sys/include/sync.h 	struct event	event;		/* event */
+<a href='../S/316.html#L50'>event</a>              50 sys/include/sync.h 	struct event	event;		/* event */
+<a href='../S/316.html#L60'>event</a>              60 sys/include/sync.h 	struct event	event;		/* event */
+<a href='../S/319.html#L59'>event</a>              59 sys/include/thread.h 	struct event	*slpevt;	/* event we are waiting on */
+<a href='../S/320.html#L49'>event</a>              49 sys/include/timer.h 	struct event	event;		/* event for this timer */
+<a href='../S/324.html#L71'>event</a>              71 sys/ipc/msg.c  static struct event ipc_event;		/* event for IPC operation */
+<a href='../S/328.html#L82'>event</a>              82 sys/kern/exception.c static struct event	exception_event;
+<a href='../S/331.html#L95'>event</a>              95 sys/kern/sched.c static struct event	dpc_event;	/* event for DPC */
+<a href='../S/331.html#L268'>event</a>             268 sys/kern/sched.c sched_tsleep(struct event *evt, u_long msec)
+<a href='../S/331.html#L307'>event</a>             307 sys/kern/sched.c sched_wakeup(struct event *evt)
+<a href='../S/331.html#L335'>event</a>             335 sys/kern/sched.c sched_wakeone(struct event *evt)
+<a href='../S/336.html#L47'>event</a>              47 sys/kern/timer.c static struct event	timer_event;	/* event to wakeup a timer thread */
+<a href='../S/336.html#L48'>event</a>              48 sys/kern/timer.c static struct event	delay_event;	/* event for the thread delay */
+<a href='../S/336.html#L280'>event</a>             280 sys/kern/timer.c 			event_init(&amp;tmr-&gt;event, "periodic");
+<a href='../S/336.html#L319'>event</a>             319 sys/kern/timer.c 		rc = sched_sleep(&amp;tmr-&gt;event);
+<a href='../S/336.html#L418'>event</a>             418 sys/kern/timer.c 			sched_wakeup(&amp;tmr-&gt;event);
+<a href='../S/345.html#L63'>event</a>              63 sys/sync/cond.c 	event_init(&amp;c-&gt;event, "condvar");
+<a href='../S/345.html#L102'>event</a>             102 sys/sync/cond.c 	if (event_waiting(&amp;c-&gt;event)) {
+<a href='../S/345.html#L165'>event</a>             165 sys/sync/cond.c 	rc = sched_sleep(&amp;c-&gt;event);
+<a href='../S/345.html#L191'>event</a>             191 sys/sync/cond.c 	sched_wakeone(&amp;c-&gt;event);
+<a href='../S/345.html#L209'>event</a>             209 sys/sync/cond.c 	sched_wakeup(&amp;c-&gt;event);
+<a href='../S/346.html#L105'>event</a>             105 sys/sync/mutex.c 	event_init(&amp;m-&gt;event, "mutex");
+<a href='../S/346.html#L152'>event</a>             152 sys/sync/mutex.c 	if (m-&gt;holder || event_waiting(&amp;m-&gt;event)) {
+<a href='../S/346.html#L222'>event</a>             222 sys/sync/mutex.c 			rc = sched_sleep(&amp;m-&gt;event);
+<a href='../S/346.html#L295'>event</a>             295 sys/sync/mutex.c 		m-&gt;holder = sched_wakeone(&amp;m-&gt;event);
+<a href='../S/346.html#L338'>event</a>             338 sys/sync/mutex.c 		holder = sched_wakeone(&amp;m-&gt;event);
+<a href='../S/347.html#L88'>event</a>              88 sys/sync/sem.c 		if (event_waiting(&amp;s-&gt;event)) {
+<a href='../S/347.html#L107'>event</a>             107 sys/sync/sem.c 		event_init(&amp;s-&gt;event, "semaphore");
+<a href='../S/347.html#L136'>event</a>             136 sys/sync/sem.c 	if (event_waiting(&amp;s-&gt;event) || s-&gt;value == 0) {
+<a href='../S/347.html#L175'>event</a>             175 sys/sync/sem.c 		rc = sched_tsleep(&amp;s-&gt;event, timeout);
+<a href='../S/347.html#L244'>event</a>             244 sys/sync/sem.c 		sched_wakeone(&amp;s-&gt;event);
+<a href='../S/916.html#L219'>event</a>             219 usr/server/pow/pow.c 	int sig, event, state;
+<a href='../S/916.html#L234'>event</a>             234 usr/server/pow/pow.c 			device_ioctl(pmdev, PMIOC_QUERY_EVENT, &amp;event);
+<a href='../S/916.html#L235'>event</a>             235 usr/server/pow/pow.c 			DPRINTF(("power_thread: event=%d\n", event));
+<a href='../S/916.html#L241'>event</a>             241 usr/server/pow/pow.c 			switch (event) {
+</pre>
+</body>
+</html>

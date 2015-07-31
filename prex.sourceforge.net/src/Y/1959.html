@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>size</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/8.html#L52'>size</a>               52 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].size = 0x40000;
+<a href='../S/11.html#L52'>size</a>               52 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].size = 0x400000;
+<a href='../S/12.html#L51'>size</a>               51 bsp/boot/common/bootinfo.c 	       m-&gt;entry, m-&gt;phys, m-&gt;size,
+<a href='../S/12.html#L72'>size</a>               72 bsp/boot/common/bootinfo.c 			       bi-&gt;ram[i].size,
+<a href='../S/12.html#L79'>size</a>               79 bsp/boot/common/bootinfo.c 	       bi-&gt;bootdisk.size);
+<a href='../S/13.html#L168'>size</a>              168 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - m-&gt;phys);
+<a href='../S/13.html#L170'>size</a>              170 bsp/boot/common/elf.c 	ELFDBG(("module size=%x entry=%lx\n", m-&gt;size, m-&gt;entry));
+<a href='../S/13.html#L172'>size</a>              172 bsp/boot/common/elf.c 	if (m-&gt;size == 0)
+<a href='../S/13.html#L357'>size</a>              357 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - kvtop(m-&gt;text));
+<a href='../S/13.html#L359'>size</a>              359 bsp/boot/common/elf.c 	ELFDBG(("module size=%x entry=%lx\n", m-&gt;size, m-&gt;entry));
+<a href='../S/14.html#L141'>size</a>              141 bsp/boot/common/load.c 	bi-&gt;ram[i].size = (size_t)(load_base - load_start);
+<a href='../S/14.html#L182'>size</a>              182 bsp/boot/common/load.c 	size_t size;
+<a href='../S/14.html#L191'>size</a>              191 bsp/boot/common/load.c 	size = (size_t)atol((char *)&amp;hdr-&gt;ar_size);
+<a href='../S/14.html#L192'>size</a>              192 bsp/boot/common/load.c 	size += size % 2;	/* even alignment */
+<a href='../S/14.html#L193'>size</a>              193 bsp/boot/common/load.c 	if (size == 0) {
+<a href='../S/14.html#L199'>size</a>              199 bsp/boot/common/load.c 	bi-&gt;bootdisk.size = size;
+<a href='../S/14.html#L207'>size</a>              207 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].size = size;
+<a href='../S/14.html#L212'>size</a>              212 bsp/boot/common/load.c 		 bi-&gt;bootdisk.base, bi-&gt;bootdisk.size));
+<a href='../S/32.html#L52'>size</a>               52 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].size = 0x9000000;
+<a href='../S/42.html#L65'>size</a>               65 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].size = (size_t)((1024 + hi_mem) * 1024);
+<a href='../S/42.html#L74'>size</a>               74 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].size = (size_t)((1024 - lo_mem) * 1024);
+<a href='../S/60.html#L299'>size</a>              299 bsp/drv/dev/base/kd.c 				       vi.size, flags);
+<a href='../S/60.html#L446'>size</a>              446 bsp/drv/dev/base/kd.c 	static int size = 4;
+<a href='../S/60.html#L496'>size</a>              496 bsp/drv/dev/base/kd.c 			size = 1;
+<a href='../S/60.html#L500'>size</a>              500 bsp/drv/dev/base/kd.c 			size = 1;
+<a href='../S/60.html#L504'>size</a>              504 bsp/drv/dev/base/kd.c 			size = 2;
+<a href='../S/60.html#L509'>size</a>              509 bsp/drv/dev/base/kd.c 			size = 4;
+<a href='../S/60.html#L512'>size</a>              512 bsp/drv/dev/base/kd.c 		addr += size;
+<a href='../S/60.html#L513'>size</a>              513 bsp/drv/dev/base/kd.c 		kp += size;
+<a href='../S/60.html#L514'>size</a>              514 bsp/drv/dev/base/kd.c 		cnt += size;
+<a href='../S/60.html#L523'>size</a>              523 bsp/drv/dev/base/kd.c 	int size = 4;
+<a href='../S/60.html#L542'>size</a>              542 bsp/drv/dev/base/kd.c 			size = 1;
+<a href='../S/60.html#L545'>size</a>              545 bsp/drv/dev/base/kd.c 			size = 2;
+<a href='../S/60.html#L548'>size</a>              548 bsp/drv/dev/base/kd.c 			size = 4;
+<a href='../S/60.html#L564'>size</a>              564 bsp/drv/dev/base/kd.c 	if ((kp = kmem_map((void *)addr, (size_t)size)) == NULL)
+<a href='../S/60.html#L568'>size</a>              568 bsp/drv/dev/base/kd.c 	for (i = 0; i &lt; size; i++) {
+<a href='../S/60.html#L570'>size</a>              570 bsp/drv/dev/base/kd.c 	for (i = size; i-- &gt; 0;) {
+<a href='../S/68.html#L50'>size</a>               50 bsp/drv/dev/block/ramdisk.c 	size_t		size;		/* image size */
+<a href='../S/68.html#L89'>size</a>               89 bsp/drv/dev/block/ramdisk.c 	if (offset &gt; (int)sc-&gt;size) {
+<a href='../S/68.html#L94'>size</a>               94 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_read &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L95'>size</a>               95 bsp/drv/dev/block/ramdisk.c 		nr_read = sc-&gt;size - offset;
+<a href='../S/68.html#L120'>size</a>              120 bsp/drv/dev/block/ramdisk.c 	if (offset &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L123'>size</a>              123 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_write &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L124'>size</a>              124 bsp/drv/dev/block/ramdisk.c 		nr_write = sc-&gt;size - offset;
+<a href='../S/68.html#L144'>size</a>              144 bsp/drv/dev/block/ramdisk.c 	if (phys-&gt;size == 0) {
+<a href='../S/68.html#L169'>size</a>              169 bsp/drv/dev/block/ramdisk.c 	sc-&gt;size = (size_t)phys-&gt;size;
+<a href='../S/68.html#L173'>size</a>              173 bsp/drv/dev/block/ramdisk.c 	       (u_int)sc-&gt;addr, sc-&gt;size/1024);
+<a href='../S/72.html#L250'>size</a>              250 bsp/drv/dev/dma/i8237.c dma_alloc(size_t size)
+<a href='../S/72.html#L254'>size</a>              254 bsp/drv/dev/dma/i8237.c 	if (size &gt; DMA_MAX)
+<a href='../S/72.html#L262'>size</a>              262 bsp/drv/dev/dma/i8237.c 	size = round_page(size);
+<a href='../S/72.html#L263'>size</a>              263 bsp/drv/dev/dma/i8237.c 	tmp = page_alloc((size_t)(DMA_MAX + size));
+<a href='../S/72.html#L268'>size</a>              268 bsp/drv/dev/dma/i8237.c 	page_free(tmp, (size_t)(DMA_MAX + size));
+<a href='../S/72.html#L274'>size</a>              274 bsp/drv/dev/dma/i8237.c 	page_reserve(base, size);
+<a href='../S/94.html#L87'>size</a>               87 bsp/drv/include/ddi.h void	*dma_alloc(size_t size);
+<a href='../S/131.html#L111'>size</a>              111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L119'>size</a>              119 bsp/hal/arm/arch/mmu.c 	size = trunc_page(size);
+<a href='../S/131.html#L151'>size</a>              151 bsp/hal/arm/arch/mmu.c 	while (size &gt; 0) {
+<a href='../S/131.html#L171'>size</a>              171 bsp/hal/arm/arch/mmu.c 		size -= PAGE_SIZE;
+<a href='../S/131.html#L250'>size</a>              250 bsp/hal/arm/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t virt, size_t size)
+<a href='../S/131.html#L257'>size</a>              257 bsp/hal/arm/arch/mmu.c 	end = trunc_page(virt + size - 1);
+<a href='../S/131.html#L317'>size</a>              317 bsp/hal/arm/arch/mmu.c 			    map-&gt;size, map_type))
+<a href='../S/174.html#L94'>size</a>               94 bsp/hal/x86/arch/cpu.c gdt_set(int vec, void *base, size_t limit, int type, u_int size)
+<a href='../S/174.html#L100'>size</a>              100 bsp/hal/x86/arch/cpu.c 		size |= SIZE_4K;
+<a href='../S/174.html#L108'>size</a>              108 bsp/hal/x86/arch/cpu.c 	seg-&gt;size = size;
+<a href='../S/178.html#L82'>size</a>               82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L91'>size</a>               91 bsp/hal/x86/arch/mmu.c 	size = trunc_page(size);
+<a href='../S/178.html#L123'>size</a>              123 bsp/hal/x86/arch/mmu.c 	while (size &gt; 0) {
+<a href='../S/178.html#L143'>size</a>              143 bsp/hal/x86/arch/mmu.c 		size -= PAGE_SIZE;
+<a href='../S/178.html#L220'>size</a>              220 bsp/hal/x86/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t va, size_t size)
+<a href='../S/178.html#L227'>size</a>              227 bsp/hal/x86/arch/mmu.c 	end = trunc_page(va + size - 1);
+<a href='../S/178.html#L278'>size</a>              278 bsp/hal/x86/arch/mmu.c 			    (size_t)map-&gt;size, map_type))
+<a href='../S/181.html#L106'>size</a>              106 bsp/hal/x86/include/cpu.h 	u_int size:4;		/* size */
+<a href='../S/189.html#L164'>size</a>              164 bsp/hal/x86/pc/machdep.c 	mmumap_table[0].size = bi-&gt;ram[0].size;
+<a href='../S/219.html#L115'>size</a>              115 include/ipc/fs.h 	size_t	size;			/* read/write size */
+<a href='../S/247.html#L63'>size</a>               63 include/sys/bootinfo.h 	size_t		size;		/* size of image */
+<a href='../S/247.html#L78'>size</a>               78 include/sys/bootinfo.h 	psize_t		size;		/* size in bytes */
+<a href='../S/267.html#L108'>size</a>              108 include/sys/prex.h int	vm_allocate(task_t task, void **addr, size_t size, int anywhere);
+<a href='../S/267.html#L111'>size</a>              111 include/sys/prex.h int	vm_map(task_t target, void  *addr, size_t size, void **alloc);
+<a href='../S/267.html#L117'>size</a>              117 include/sys/prex.h int	msg_send(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L118'>size</a>              118 include/sys/prex.h int	msg_receive(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L119'>size</a>              119 include/sys/prex.h int	msg_reply(object_t obj, void *msg, size_t size);
+<a href='../S/272.html#L119'>size</a>              119 include/sys/sysinfo.h 	size_t		size;		/* size */
+<a href='../S/308.html#L66'>size</a>               66 sys/include/hal.h 	psize_t		size;		/* size */
+<a href='../S/323.html#L47'>size</a>               47 sys/include/vm.h 	size_t		size;		/* size */
+<a href='../S/324.html#L81'>size</a>               81 sys/ipc/msg.c  msg_send(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L91'>size</a>               91 sys/ipc/msg.c  	if (size &lt; sizeof(struct msg_header))
+<a href='../S/324.html#L115'>size</a>              115 sys/ipc/msg.c  	if ((kmsg = kmem_map(msg, size)) == NULL) {
+<a href='../S/324.html#L120'>size</a>              120 sys/ipc/msg.c  	curthread-&gt;msgsize = size;
+<a href='../S/324.html#L188'>size</a>              188 sys/ipc/msg.c  msg_receive(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L262'>size</a>              262 sys/ipc/msg.c  	len = MIN(size, t-&gt;msgsize);
+<a href='../S/324.html#L288'>size</a>              288 sys/ipc/msg.c  msg_reply(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L315'>size</a>              315 sys/ipc/msg.c  	len = MIN(size, t-&gt;msgsize);
+<a href='../S/326.html#L162'>size</a>              162 sys/kern/debug.c 	size_t size;
+<a href='../S/326.html#L169'>size</a>              169 sys/kern/debug.c 		size = LOGBUFSZ;
+<a href='../S/326.html#L170'>size</a>              170 sys/kern/debug.c 		error = copyout(&amp;size, data, sizeof(size));
+<a href='../S/341.html#L69'>size</a>               69 sys/mem/kmem.c 	u_short		 size;		/* size of this block */
+<a href='../S/341.html#L111'>size</a>              111 sys/mem/kmem.c #define BLKNDX(b)	((u_int)((b)-&gt;size) &gt;&gt; 4)
+<a href='../S/341.html#L150'>size</a>              150 sys/mem/kmem.c block_find(size_t size)
+<a href='../S/341.html#L155'>size</a>              155 sys/mem/kmem.c 	for (i = (int)((u_int)size &gt;&gt; 4); i &lt; NR_BLOCK_LIST; i++) {
+<a href='../S/341.html#L175'>size</a>              175 sys/mem/kmem.c kmem_alloc(size_t size)
+<a href='../S/341.html#L182'>size</a>              182 sys/mem/kmem.c 	ASSERT(size != 0);
+<a href='../S/341.html#L191'>size</a>              191 sys/mem/kmem.c 	size = ALLOC_SIZE(size + BLKHDR_SIZE);
+<a href='../S/341.html#L192'>size</a>              192 sys/mem/kmem.c 	if (size &gt; MAX_ALLOC_SIZE)
+<a href='../S/341.html#L195'>size</a>              195 sys/mem/kmem.c 	blk = block_find(size);
+<a href='../S/341.html#L219'>size</a>              219 sys/mem/kmem.c 		blk-&gt;size = MAX_BLOCK_SIZE;
+<a href='../S/341.html#L232'>size</a>              232 sys/mem/kmem.c 	if (blk-&gt;size - size &gt;= MIN_BLOCK_SIZE) {
+<a href='../S/341.html#L236'>size</a>              236 sys/mem/kmem.c 		newblk = (struct block_hdr *)((vaddr_t)blk + size);
+<a href='../S/341.html#L238'>size</a>              238 sys/mem/kmem.c 		newblk-&gt;size = (u_short)(blk-&gt;size - size);
+<a href='../S/341.html#L246'>size</a>              246 sys/mem/kmem.c 		blk-&gt;size = (u_short)size;
+<a href='../S/341.html#L314'>size</a>              314 sys/mem/kmem.c kmem_map(void *addr, size_t size)
+<a href='../S/341.html#L318'>size</a>              318 sys/mem/kmem.c 	pa = vm_translate((vaddr_t)addr, size);
+<a href='../S/342.html#L59'>size</a>               59 sys/mem/page.c 	vsize_t		size;		/* number of bytes of this block */
+<a href='../S/342.html#L79'>size</a>               79 sys/mem/page.c 	vsize_t size;
+<a href='../S/342.html#L88'>size</a>               88 sys/mem/page.c 	size = round_page(psize);
+<a href='../S/342.html#L97'>size</a>               97 sys/mem/page.c 	} while (blk-&gt;size &lt; size);
+<a href='../S/342.html#L105'>size</a>              105 sys/mem/page.c 	if (blk-&gt;size == size) {
+<a href='../S/342.html#L109'>size</a>              109 sys/mem/page.c 		tmp = (struct page *)((vaddr_t)blk + size);
+<a href='../S/342.html#L110'>size</a>              110 sys/mem/page.c 		tmp-&gt;size = blk-&gt;size - size;
+<a href='../S/342.html#L116'>size</a>              116 sys/mem/page.c 	used_size += (psize_t)size;
+<a href='../S/342.html#L132'>size</a>              132 sys/mem/page.c 	vsize_t size;
+<a href='../S/342.html#L138'>size</a>              138 sys/mem/page.c 	size = round_page(psize);
+<a href='../S/342.html#L152'>size</a>              152 sys/mem/page.c 	blk-&gt;size = size;
+<a href='../S/342.html#L163'>size</a>              163 sys/mem/page.c 	    ((vaddr_t)blk + blk-&gt;size) == (vaddr_t)blk-&gt;next) {
+<a href='../S/342.html#L164'>size</a>              164 sys/mem/page.c 		blk-&gt;size += blk-&gt;next-&gt;size;
+<a href='../S/342.html#L169'>size</a>              169 sys/mem/page.c 	    (vaddr_t)blk-&gt;prev + blk-&gt;prev-&gt;size == (vaddr_t)blk) {
+<a href='../S/342.html#L170'>size</a>              170 sys/mem/page.c 		blk-&gt;prev-&gt;size += blk-&gt;size;
+<a href='../S/342.html#L174'>size</a>              174 sys/mem/page.c 	used_size -= (psize_t)size;
+<a href='../S/342.html#L186'>size</a>              186 sys/mem/page.c 	vsize_t size;
+<a href='../S/342.html#L193'>size</a>              193 sys/mem/page.c 	size = end - start;
+<a href='../S/342.html#L204'>size</a>              204 sys/mem/page.c 		    &amp;&amp; end &lt;= (vaddr_t)blk + blk-&gt;size)
+<a href='../S/342.html#L208'>size</a>              208 sys/mem/page.c 	if ((vaddr_t)blk == start &amp;&amp; blk-&gt;size == size) {
+<a href='../S/342.html#L218'>size</a>              218 sys/mem/page.c 		if ((vaddr_t)blk + blk-&gt;size != end) {
+<a href='../S/342.html#L220'>size</a>              220 sys/mem/page.c 			tmp-&gt;size = (vaddr_t)blk + blk-&gt;size - end;
+<a href='../S/342.html#L224'>size</a>              224 sys/mem/page.c 			blk-&gt;size -= tmp-&gt;size;
+<a href='../S/342.html#L232'>size</a>              232 sys/mem/page.c 			blk-&gt;size = start - (vaddr_t)blk;
+<a href='../S/342.html#L234'>size</a>              234 sys/mem/page.c 	used_size += (psize_t)size;
+<a href='../S/342.html#L278'>size</a>              278 sys/mem/page.c 			page_free(ram-&gt;base, ram-&gt;size);
+<a href='../S/342.html#L279'>size</a>              279 sys/mem/page.c 			total_size += ram-&gt;size;
+<a href='../S/342.html#L289'>size</a>              289 sys/mem/page.c 			bootdisk_size += ram-&gt;size;
+<a href='../S/342.html#L292'>size</a>              292 sys/mem/page.c 			total_size -= ram-&gt;size;
+<a href='../S/342.html#L295'>size</a>              295 sys/mem/page.c 			if (page_reserve(ram-&gt;base, ram-&gt;size))
+<a href='../S/343.html#L85'>size</a>               85 sys/mem/vm.c   vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L109'>size</a>              109 sys/mem/vm.c   	error = do_allocate(task-&gt;map, &amp;uaddr, size, anywhere);
+<a href='../S/343.html#L119'>size</a>              119 sys/mem/vm.c   do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L125'>size</a>              125 sys/mem/vm.c   	if (size == 0)
+<a href='../S/343.html#L127'>size</a>              127 sys/mem/vm.c   	if (map-&gt;total + size &gt;= MAXMEM)
+<a href='../S/343.html#L134'>size</a>              134 sys/mem/vm.c   		size = round_page(size);
+<a href='../S/343.html#L135'>size</a>              135 sys/mem/vm.c   		if ((seg = seg_alloc(&amp;map-&gt;head, size)) == NULL)
+<a href='../S/343.html#L139'>size</a>              139 sys/mem/vm.c   		end = round_page(start + size);
+<a href='../S/343.html#L140'>size</a>              140 sys/mem/vm.c   		size = (size_t)(end - start);
+<a href='../S/343.html#L142'>size</a>              142 sys/mem/vm.c   		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/343.html#L150'>size</a>              150 sys/mem/vm.c   	if ((pa = page_alloc(size)) == 0)
+<a href='../S/343.html#L153'>size</a>              153 sys/mem/vm.c   	if (mmu_map(map-&gt;pgd, pa, seg-&gt;addr, size, PG_WRITE))
+<a href='../S/343.html#L159'>size</a>              159 sys/mem/vm.c   	memset(ptokv(pa), 0, seg-&gt;size);
+<a href='../S/343.html#L161'>size</a>              161 sys/mem/vm.c   	map-&gt;total += size;
+<a href='../S/343.html#L165'>size</a>              165 sys/mem/vm.c   	page_free(pa, size);
+<a href='../S/343.html#L224'>size</a>              224 sys/mem/vm.c   	mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,	seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L230'>size</a>              230 sys/mem/vm.c   		page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/343.html#L232'>size</a>              232 sys/mem/vm.c   	map-&gt;total -= seg-&gt;size;
+<a href='../S/343.html#L322'>size</a>              322 sys/mem/vm.c   		if ((new_pa = page_alloc(seg-&gt;size)) == 0)
+<a href='../S/343.html#L326'>size</a>              326 sys/mem/vm.c   		memcpy(ptokv(new_pa), ptokv(old_pa), seg-&gt;size);
+<a href='../S/343.html#L329'>size</a>              329 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, new_pa, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L331'>size</a>              331 sys/mem/vm.c   			page_free(new_pa, seg-&gt;size);
+<a href='../S/343.html#L343'>size</a>              343 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L357'>size</a>              357 sys/mem/vm.c   vm_map(task_t target, void *addr, size_t size, void **alloc)
+<a href='../S/343.html#L379'>size</a>              379 sys/mem/vm.c   	error = do_map(target-&gt;map, addr, size, alloc);
+<a href='../S/343.html#L386'>size</a>              386 sys/mem/vm.c   do_map(vm_map_t map, void *addr, size_t size, void **alloc)
+<a href='../S/343.html#L396'>size</a>              396 sys/mem/vm.c   	if (size == 0)
+<a href='../S/343.html#L398'>size</a>              398 sys/mem/vm.c   	if (map-&gt;total + size &gt;= MAXMEM)
+<a href='../S/343.html#L407'>size</a>              407 sys/mem/vm.c   	end = round_page((vaddr_t)addr + size);
+<a href='../S/343.html#L408'>size</a>              408 sys/mem/vm.c   	size = (size_t)(end - start);
+<a href='../S/343.html#L414'>size</a>              414 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/343.html#L423'>size</a>              423 sys/mem/vm.c   	if ((seg = seg_alloc(&amp;curmap-&gt;head, size)) == NULL)
+<a href='../S/343.html#L436'>size</a>              436 sys/mem/vm.c   	if (mmu_map(curmap-&gt;pgd, pa, cur-&gt;addr, size, map_type)) {
+<a href='../S/343.html#L447'>size</a>              447 sys/mem/vm.c   	curmap-&gt;total += size;
+<a href='../S/343.html#L496'>size</a>              496 sys/mem/vm.c   				seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L501'>size</a>              501 sys/mem/vm.c   				page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/343.html#L603'>size</a>              603 sys/mem/vm.c   				dest-&gt;phys = page_alloc(src-&gt;size);
+<a href='../S/343.html#L609'>size</a>              609 sys/mem/vm.c   				       src-&gt;size);
+<a href='../S/343.html#L618'>size</a>              618 sys/mem/vm.c   				    dest-&gt;size, map_type))
+<a href='../S/343.html#L724'>size</a>              724 sys/mem/vm.c   	page_free(mod-&gt;phys, mod-&gt;size);
+<a href='../S/343.html#L733'>size</a>              733 sys/mem/vm.c   vm_translate(vaddr_t addr, size_t size)
+<a href='../S/343.html#L736'>size</a>              736 sys/mem/vm.c   	return mmu_extract(curtask-&gt;map-&gt;pgd, addr, size);
+<a href='../S/343.html#L760'>size</a>              760 sys/mem/vm.c   			info-&gt;size = seg-&gt;size;
+<a href='../S/343.html#L801'>size</a>              801 sys/mem/vm.c   	seg-&gt;size = USERLIMIT - PAGE_SIZE;
+<a href='../S/343.html#L810'>size</a>              810 sys/mem/vm.c   seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/343.html#L818'>size</a>              818 sys/mem/vm.c   	seg-&gt;size = size;
+<a href='../S/343.html#L855'>size</a>              855 sys/mem/vm.c   seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L862'>size</a>              862 sys/mem/vm.c   		    seg-&gt;addr + seg-&gt;size &gt;= addr + size) {
+<a href='../S/343.html#L874'>size</a>              874 sys/mem/vm.c   seg_alloc(struct seg *head, size_t size)
+<a href='../S/343.html#L880'>size</a>              880 sys/mem/vm.c   		if ((seg-&gt;flags &amp; SEG_FREE) &amp;&amp; seg-&gt;size &gt;= size) {
+<a href='../S/343.html#L881'>size</a>              881 sys/mem/vm.c   			if (seg-&gt;size != size) {
+<a href='../S/343.html#L886'>size</a>              886 sys/mem/vm.c   					       seg-&gt;addr + size,
+<a href='../S/343.html#L887'>size</a>              887 sys/mem/vm.c   					       seg-&gt;size - size) == NULL)
+<a href='../S/343.html#L890'>size</a>              890 sys/mem/vm.c   			seg-&gt;size = size;
+<a href='../S/343.html#L926'>size</a>              926 sys/mem/vm.c   		seg-&gt;size += next-&gt;size;
+<a href='../S/343.html#L936'>size</a>              936 sys/mem/vm.c   		prev-&gt;size += seg-&gt;size;
+<a href='../S/343.html#L945'>size</a>              945 sys/mem/vm.c   seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L953'>size</a>              953 sys/mem/vm.c   	seg = seg_lookup(head, addr, size);
+<a href='../S/343.html#L964'>size</a>              964 sys/mem/vm.c   		seg = seg_create(prev, addr, prev-&gt;size - diff);
+<a href='../S/343.html#L967'>size</a>              967 sys/mem/vm.c   		prev-&gt;size = diff;
+<a href='../S/343.html#L972'>size</a>              972 sys/mem/vm.c   	if (seg-&gt;size != size) {
+<a href='../S/343.html#L973'>size</a>              973 sys/mem/vm.c   		next = seg_create(seg, seg-&gt;addr + size, seg-&gt;size - size);
+<a href='../S/343.html#L981'>size</a>              981 sys/mem/vm.c   		seg-&gt;size = size;
+<a href='../S/344.html#L78'>size</a>               78 sys/mem/vm_nommu.c vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L102'>size</a>              102 sys/mem/vm_nommu.c 	error = do_allocate(task-&gt;map, &amp;uaddr, size, anywhere);
+<a href='../S/344.html#L112'>size</a>              112 sys/mem/vm_nommu.c do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L117'>size</a>              117 sys/mem/vm_nommu.c 	if (size == 0)
+<a href='../S/344.html#L119'>size</a>              119 sys/mem/vm_nommu.c 	if (map-&gt;total + size &gt;= MAXMEM)
+<a href='../S/344.html#L126'>size</a>              126 sys/mem/vm_nommu.c 		size = round_page(size);
+<a href='../S/344.html#L127'>size</a>              127 sys/mem/vm_nommu.c 		if ((seg = seg_alloc(&amp;map-&gt;head, size)) == NULL)
+<a href='../S/344.html#L132'>size</a>              132 sys/mem/vm_nommu.c 		end = round_page(start + size);
+<a href='../S/344.html#L133'>size</a>              133 sys/mem/vm_nommu.c 		size = (size_t)(end - start);
+<a href='../S/344.html#L135'>size</a>              135 sys/mem/vm_nommu.c 		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L141'>size</a>              141 sys/mem/vm_nommu.c 	memset((void *)start, 0, size);
+<a href='../S/344.html#L143'>size</a>              143 sys/mem/vm_nommu.c 	map-&gt;total += size;
+<a href='../S/344.html#L201'>size</a>              201 sys/mem/vm_nommu.c 		page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/344.html#L203'>size</a>              203 sys/mem/vm_nommu.c 	map-&gt;total -= seg-&gt;size;
+<a href='../S/344.html#L291'>size</a>              291 sys/mem/vm_nommu.c vm_map(task_t target, void *addr, size_t size, void **alloc)
+<a href='../S/344.html#L313'>size</a>              313 sys/mem/vm_nommu.c 	error = do_map(target-&gt;map, addr, size, alloc);
+<a href='../S/344.html#L320'>size</a>              320 sys/mem/vm_nommu.c do_map(vm_map_t map, void *addr, size_t size, void **alloc)
+<a href='../S/344.html#L327'>size</a>              327 sys/mem/vm_nommu.c 	if (size == 0)
+<a href='../S/344.html#L329'>size</a>              329 sys/mem/vm_nommu.c 	if (map-&gt;total + size &gt;= MAXMEM)
+<a href='../S/344.html#L338'>size</a>              338 sys/mem/vm_nommu.c 	end = round_page((vaddr_t)addr + size);
+<a href='../S/344.html#L339'>size</a>              339 sys/mem/vm_nommu.c 	size = (size_t)(end - start);
+<a href='../S/344.html#L344'>size</a>              344 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/344.html#L353'>size</a>              353 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;curmap-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L359'>size</a>              359 sys/mem/vm_nommu.c 	curmap-&gt;total += size;
+<a href='../S/344.html#L403'>size</a>              403 sys/mem/vm_nommu.c 				page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/344.html#L458'>size</a>              458 sys/mem/vm_nommu.c 	size_t size;
+<a href='../S/344.html#L466'>size</a>              466 sys/mem/vm_nommu.c 	size = mod-&gt;textsz + mod-&gt;datasz + mod-&gt;bsssz;
+<a href='../S/344.html#L467'>size</a>              467 sys/mem/vm_nommu.c 	if (size == 0)
+<a href='../S/344.html#L471'>size</a>              471 sys/mem/vm_nommu.c 	end = round_page(start + size);
+<a href='../S/344.html#L472'>size</a>              472 sys/mem/vm_nommu.c 	size = (size_t)(end - start);
+<a href='../S/344.html#L474'>size</a>              474 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L493'>size</a>              493 sys/mem/vm_nommu.c vm_translate(vaddr_t addr, size_t size)
+<a href='../S/344.html#L520'>size</a>              520 sys/mem/vm_nommu.c 			info-&gt;size = seg-&gt;size;
+<a href='../S/344.html#L551'>size</a>              551 sys/mem/vm_nommu.c 	seg-&gt;size = 0;
+<a href='../S/344.html#L560'>size</a>              560 sys/mem/vm_nommu.c seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/344.html#L568'>size</a>              568 sys/mem/vm_nommu.c 	seg-&gt;size = size;
+<a href='../S/344.html#L605'>size</a>              605 sys/mem/vm_nommu.c seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L612'>size</a>              612 sys/mem/vm_nommu.c 		    seg-&gt;addr + seg-&gt;size &gt;= addr + size) {
+<a href='../S/344.html#L624'>size</a>              624 sys/mem/vm_nommu.c seg_alloc(struct seg *head, size_t size)
+<a href='../S/344.html#L629'>size</a>              629 sys/mem/vm_nommu.c 	if ((pa = page_alloc(size)) == 0)
+<a href='../S/344.html#L632'>size</a>              632 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L633'>size</a>              633 sys/mem/vm_nommu.c      		page_free(pa, size);
+<a href='../S/344.html#L666'>size</a>              666 sys/mem/vm_nommu.c seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L673'>size</a>              673 sys/mem/vm_nommu.c 	if (page_reserve(pa, size) != 0)
+<a href='../S/344.html#L676'>size</a>              676 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L677'>size</a>              677 sys/mem/vm_nommu.c      		page_free(pa, size);
+<a href='../S/378.html#L43'>size</a>               43 usr/bin/dmesg/dmesg.c 	size_t size;
+<a href='../S/378.html#L47'>size</a>               47 usr/bin/dmesg/dmesg.c 	if (sys_debug(DBGC_LOGSIZE, &amp;size) != 0) {
+<a href='../S/378.html#L51'>size</a>               51 usr/bin/dmesg/dmesg.c 	if (size == 0)
+<a href='../S/378.html#L53'>size</a>               53 usr/bin/dmesg/dmesg.c 	if ((buf = malloc(size)) == NULL)
+<a href='../S/378.html#L60'>size</a>               60 usr/bin/dmesg/dmesg.c 	for (i = 0; i &lt; (int)size; i++) {
+<a href='../S/513.html#L38'>size</a>               38 usr/lib/libc/stdio/fread.c fread(buf, size, count, fp)
+<a href='../S/513.html#L40'>size</a>               40 usr/lib/libc/stdio/fread.c 	size_t size, count;
+<a href='../S/513.html#L53'>size</a>               53 usr/lib/libc/stdio/fread.c 	if ((resid = count * size) == 0)
+<a href='../S/513.html#L67'>size</a>               67 usr/lib/libc/stdio/fread.c 			return ((total - resid) / size);
+<a href='../S/522.html#L41'>size</a>               41 usr/lib/libc/stdio/fwrite.c fwrite(buf, size, count, fp)
+<a href='../S/522.html#L43'>size</a>               43 usr/lib/libc/stdio/fwrite.c 	size_t size, count;
+<a href='../S/522.html#L47'>size</a>               47 usr/lib/libc/stdio/fwrite.c 	size_t len = count * size;
+<a href='../S/526.html#L40'>size</a>               40 usr/lib/libc/stdio/getw.c 	int size = sizeof(int);
+<a href='../S/526.html#L43'>size</a>               43 usr/lib/libc/stdio/getw.c 	while (size--)
+<a href='../S/528.html#L71'>size</a>               71 usr/lib/libc/stdio/makebuf.c 	size_t size;
+<a href='../S/528.html#L79'>size</a>               79 usr/lib/libc/stdio/makebuf.c 	flags = __swhatbuf(fp, &amp;size, &amp;couldbetty);
+<a href='../S/528.html#L80'>size</a>               80 usr/lib/libc/stdio/makebuf.c 	if ((p = malloc(size)) == NULL) {
+<a href='../S/528.html#L89'>size</a>               89 usr/lib/libc/stdio/makebuf.c 	fp-&gt;_bf._size = size;
+<a href='../S/536.html#L40'>size</a>               40 usr/lib/libc/stdio/putw.c 	int size = sizeof(int);
+<a href='../S/536.html#L43'>size</a>               43 usr/lib/libc/stdio/putw.c 	while (size--)
+<a href='../S/542.html#L36'>size</a>               36 usr/lib/libc/stdio/setbuffer.c setbuffer(fp, buf, size)
+<a href='../S/542.html#L39'>size</a>               39 usr/lib/libc/stdio/setbuffer.c 	int size;
+<a href='../S/542.html#L42'>size</a>               42 usr/lib/libc/stdio/setbuffer.c 	(void)setvbuf(fp, buf, buf ? _IOFBF : _IONBF, size);
+<a href='../S/543.html#L42'>size</a>               42 usr/lib/libc/stdio/setvbuf.c setvbuf(fp, buf, mode, size)
+<a href='../S/543.html#L46'>size</a>               46 usr/lib/libc/stdio/setvbuf.c 	size_t size;
+<a href='../S/543.html#L57'>size</a>               57 usr/lib/libc/stdio/setvbuf.c 		if ((mode != _IOFBF &amp;&amp; mode != _IOLBF) || (int)size &lt; 0)
+<a href='../S/543.html#L91'>size</a>               91 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_bf._size = size;
+<a href='../S/552.html#L201'>size</a>              201 usr/lib/libc/stdio/vfprintf.c 	int size;		/* size of converted field or string */
+<a href='../S/552.html#L367'>size</a>              367 usr/lib/libc/stdio/vfprintf.c 			size = 1;
+<a href='../S/552.html#L423'>size</a>              423 usr/lib/libc/stdio/vfprintf.c 					size = p - cp;
+<a href='../S/552.html#L424'>size</a>              424 usr/lib/libc/stdio/vfprintf.c 					if (size &gt; prec)
+<a href='../S/552.html#L425'>size</a>              425 usr/lib/libc/stdio/vfprintf.c 						size = prec;
+<a href='../S/552.html#L427'>size</a>              427 usr/lib/libc/stdio/vfprintf.c 					size = prec;
+<a href='../S/552.html#L429'>size</a>              429 usr/lib/libc/stdio/vfprintf.c 				size = strlen(cp);
+<a href='../S/552.html#L470'>size</a>              470 usr/lib/libc/stdio/vfprintf.c 			size = buf + BUF - cp;
+<a href='../S/552.html#L478'>size</a>              478 usr/lib/libc/stdio/vfprintf.c 			size = 1;
+<a href='../S/552.html#L497'>size</a>              497 usr/lib/libc/stdio/vfprintf.c 		fieldsz = size;
+<a href='../S/552.html#L525'>size</a>              525 usr/lib/libc/stdio/vfprintf.c 		PRINT(cp, size);
+<a href='../S/567.html#L34'>size</a>               34 usr/lib/libc/stdlib/calloc.c calloc(num, size)
+<a href='../S/567.html#L36'>size</a>               36 usr/lib/libc/stdlib/calloc.c 	size_t size;
+<a href='../S/567.html#L40'>size</a>               40 usr/lib/libc/stdlib/calloc.c 	size *= num;
+<a href='../S/567.html#L41'>size</a>               41 usr/lib/libc/stdlib/calloc.c 	if ((p = malloc(size)) != NULL)
+<a href='../S/567.html#L42'>size</a>               42 usr/lib/libc/stdlib/calloc.c 		bzero(p, size);
+<a href='../S/650.html#L92'>size</a>               92 usr/lib/libsa/vsprintf.c 	int width, base, sign, i, size;
+<a href='../S/650.html#L95'>size</a>               95 usr/lib/libsa/vsprintf.c 	size = 0;
+<a href='../S/650.html#L96'>size</a>               96 usr/lib/libsa/vsprintf.c 	for (p = buf; *fmt &amp;&amp; (size &lt; LINE_MAX); fmt++, size++) {
+<a href='../S/650.html#L127'>size</a>              127 usr/lib/libsa/vsprintf.c 				if (size++ &gt;= LINE_MAX)
+<a href='../S/671.html#L39'>size</a>               39 usr/lib/posix/file/getcwd.c getcwd(char *buf, size_t size)
+<a href='../S/671.html#L43'>size</a>               43 usr/lib/posix/file/getcwd.c 	if (size == 0 || buf == NULL) {
+<a href='../S/672.html#L45'>size</a>               45 usr/lib/posix/file/ioctl.c 	size_t size;
+<a href='../S/672.html#L55'>size</a>               55 usr/lib/posix/file/ioctl.c 	size = IOCPARM_LEN(cmd);
+<a href='../S/672.html#L56'>size</a>               56 usr/lib/posix/file/ioctl.c 	if (size &gt; IOCPARM_MAX) {
+<a href='../S/672.html#L77'>size</a>               77 usr/lib/posix/file/ioctl.c 			memcpy(&amp;m.buf, argp, size);
+<a href='../S/672.html#L93'>size</a>               93 usr/lib/posix/file/ioctl.c 			memcpy(argp, &amp;m.buf, size);
+<a href='../S/684.html#L45'>size</a>               45 usr/lib/posix/file/read.c 	m.size = len;
+<a href='../S/684.html#L48'>size</a>               48 usr/lib/posix/file/read.c 	return (int)m.size;
+<a href='../S/695.html#L44'>size</a>               44 usr/lib/posix/file/write.c 	m.size = len;
+<a href='../S/695.html#L47'>size</a>               47 usr/lib/posix/file/write.c 	return (int)m.size;
+<a href='../S/702.html#L43'>size</a>               43 usr/lib/posix/gen/__posix_call.c __posix_call(object_t obj, void *msg, size_t size, int restart)
+<a href='../S/702.html#L53'>size</a>               53 usr/lib/posix/gen/__posix_call.c 		error = msg_send(obj, msg, size);
+<a href='../S/752.html#L43'>size</a>               43 usr/lib/prex/malloc/malloc.c static struct header *more_core(size_t size);
+<a href='../S/752.html#L52'>size</a>               52 usr/lib/prex/malloc/malloc.c malloc(size_t size)
+<a href='../S/752.html#L56'>size</a>               56 usr/lib/prex/malloc/malloc.c 	if (size == 0)		/* sanity check */
+<a href='../S/752.html#L58'>size</a>               58 usr/lib/prex/malloc/malloc.c 	size = ROUNDUP(size + sizeof(struct header));
+<a href='../S/752.html#L65'>size</a>               65 usr/lib/prex/malloc/malloc.c 		free_list.size = 0;
+<a href='../S/752.html#L71'>size</a>               71 usr/lib/prex/malloc/malloc.c 		if (p-&gt;size &gt;= size) {	/* big enough */
+<a href='../S/752.html#L72'>size</a>               72 usr/lib/prex/malloc/malloc.c 			if (p-&gt;size == size)	/* exactly */
+<a href='../S/752.html#L75'>size</a>               75 usr/lib/prex/malloc/malloc.c 				p-&gt;size -= size;
+<a href='../S/752.html#L76'>size</a>               76 usr/lib/prex/malloc/malloc.c 				p = (struct header *)((char *)p + p-&gt;size);
+<a href='../S/752.html#L77'>size</a>               77 usr/lib/prex/malloc/malloc.c 				p-&gt;size = size;
+<a href='../S/752.html#L87'>size</a>               87 usr/lib/prex/malloc/malloc.c 			if ((p = more_core(size)) == NULL)
+<a href='../S/752.html#L105'>size</a>              105 usr/lib/prex/malloc/malloc.c static struct header *more_core(size_t size)
+<a href='../S/752.html#L109'>size</a>              109 usr/lib/prex/malloc/malloc.c 	size = round_page(size);
+<a href='../S/752.html#L110'>size</a>              110 usr/lib/prex/malloc/malloc.c 	if (vm_allocate(task_self(), (void *)&amp;p, size, 1))
+<a href='../S/752.html#L112'>size</a>              112 usr/lib/prex/malloc/malloc.c 	p-&gt;size = size;
+<a href='../S/752.html#L113'>size</a>              113 usr/lib/prex/malloc/malloc.c 	p-&gt;vm_size = size;
+<a href='../S/752.html#L146'>size</a>              146 usr/lib/prex/malloc/malloc.c 	    ((char *)p + p-&gt;size == (char *)prev-&gt;next)) {
+<a href='../S/752.html#L147'>size</a>              147 usr/lib/prex/malloc/malloc.c 		p-&gt;size += prev-&gt;next-&gt;size;
+<a href='../S/752.html#L153'>size</a>              153 usr/lib/prex/malloc/malloc.c 	    ((char *)prev + prev-&gt;size == (char *)p)) {
+<a href='../S/752.html#L154'>size</a>              154 usr/lib/prex/malloc/malloc.c 		prev-&gt;size += p-&gt;size;
+<a href='../S/752.html#L160'>size</a>              160 usr/lib/prex/malloc/malloc.c 	if (p-&gt;size == p-&gt;vm_size) {
+<a href='../S/752.html#L176'>size</a>              176 usr/lib/prex/malloc/malloc.c 		printf("mstat: addr=%x size=%d next=%x\n", p, p-&gt;size, p-&gt;next);
+<a href='../S/753.html#L47'>size</a>               47 usr/lib/prex/malloc/malloc.h #define ROUNDUP(size)   (((u_long)(size) + ALIGN_MASK) &amp; ~ALIGN_MASK)
+<a href='../S/753.html#L51'>size</a>               51 usr/lib/prex/malloc/malloc.h 	size_t size;
+<a href='../S/754.html#L41'>size</a>               41 usr/lib/prex/malloc/malloc_r.c malloc_r(size_t size)
+<a href='../S/754.html#L46'>size</a>               46 usr/lib/prex/malloc/malloc_r.c 	p = malloc(size);
+<a href='../S/755.html#L35'>size</a>               35 usr/lib/prex/malloc/realloc.c realloc(void *addr, size_t size)
+<a href='../S/755.html#L41'>size</a>               41 usr/lib/prex/malloc/realloc.c 		return malloc(size);
+<a href='../S/755.html#L48'>size</a>               48 usr/lib/prex/malloc/realloc.c 	old_size = old-&gt;size - sizeof(struct header);
+<a href='../S/755.html#L49'>size</a>               49 usr/lib/prex/malloc/realloc.c 	if ((p = malloc(size)) == NULL)
+<a href='../S/755.html#L51'>size</a>               51 usr/lib/prex/malloc/realloc.c 	if (old_size &lt;= size)
+<a href='../S/755.html#L54'>size</a>               54 usr/lib/prex/malloc/realloc.c 		memcpy(p, addr, size);
+<a href='../S/876.html#L63'>size</a>               63 usr/server/exec/exec_elf.c 	size_t size = 0;
+<a href='../S/876.html#L75'>size</a>               75 usr/server/exec/exec_elf.c 		size = phdr-&gt;p_memsz;
+<a href='../S/876.html#L76'>size</a>               76 usr/server/exec/exec_elf.c 		if (size == 0)
+<a href='../S/876.html#L79'>size</a>               79 usr/server/exec/exec_elf.c 		if (vm_allocate(task, &amp;addr, size, 0) != 0)
+<a href='../S/876.html#L82'>size</a>               82 usr/server/exec/exec_elf.c 		if (vm_map(task, (void *)phdr-&gt;p_vaddr, size, &amp;mapped) != 0)
+<a href='../S/882.html#L73'>size</a>               73 usr/server/fs/arfs/arfs_vfsops.c 	size_t size;
+<a href='../S/882.html#L83'>size</a>               83 usr/server/fs/arfs/arfs_vfsops.c 	size = BSIZE;
+<a href='../S/882.html#L84'>size</a>               84 usr/server/fs/arfs/arfs_vfsops.c 	error = device_read((device_t)mp-&gt;m_dev, buf, &amp;size, 0);
+<a href='../S/883.html#L149'>size</a>              149 usr/server/fs/arfs/arfs_vnops.c 	size_t size;
+<a href='../S/883.html#L174'>size</a>              174 usr/server/fs/arfs/arfs_vnops.c 		size = (size_t)atol((char *)&amp;hdr-&gt;ar_size);
+<a href='../S/883.html#L175'>size</a>              175 usr/server/fs/arfs/arfs_vnops.c 		if (size == 0)
+<a href='../S/883.html#L186'>size</a>              186 usr/server/fs/arfs/arfs_vnops.c 		off += (sizeof(struct ar_hdr) + size);
+<a href='../S/883.html#L195'>size</a>              195 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_size = size;
+<a href='../S/883.html#L206'>size</a>              206 usr/server/fs/arfs/arfs_vnops.c arfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/883.html#L214'>size</a>              214 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_read: start size=%d\n", size));
+<a href='../S/883.html#L227'>size</a>              227 usr/server/fs/arfs/arfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/883.html#L228'>size</a>              228 usr/server/fs/arfs/arfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/883.html#L235'>size</a>              235 usr/server/fs/arfs/arfs_vnops.c 			 file_pos, buf, size));
+<a href='../S/883.html#L244'>size</a>              244 usr/server/fs/arfs/arfs_vnops.c 		if (buf_pos + size &lt; BSIZE)
+<a href='../S/883.html#L245'>size</a>              245 usr/server/fs/arfs/arfs_vnops.c 			nr_copy = size;
+<a href='../S/883.html#L255'>size</a>              255 usr/server/fs/arfs/arfs_vnops.c 		size -= nr_copy;
+<a href='../S/883.html#L256'>size</a>              256 usr/server/fs/arfs/arfs_vnops.c 		if (size &lt;= 0)
+<a href='../S/883.html#L289'>size</a>              289 usr/server/fs/arfs/arfs_vnops.c 	size_t size;
+<a href='../S/883.html#L308'>size</a>              308 usr/server/fs/arfs/arfs_vnops.c 		size = (size_t)atol((char *)&amp;hdr-&gt;ar_size);
+<a href='../S/883.html#L309'>size</a>              309 usr/server/fs/arfs/arfs_vnops.c 		if (size == 0) {
+<a href='../S/883.html#L317'>size</a>              317 usr/server/fs/arfs/arfs_vnops.c 		off += (sizeof(struct ar_hdr) + size);
+<a href='../S/886.html#L156'>size</a>              156 usr/server/fs/devfs/devfs_vnops.c devfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L161'>size</a>              161 usr/server/fs/devfs/devfs_vnops.c 	len = size;
+<a href='../S/886.html#L169'>size</a>              169 usr/server/fs/devfs/devfs_vnops.c devfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L174'>size</a>              174 usr/server/fs/devfs/devfs_vnops.c 	len = size;
+<a href='../S/888.html#L123'>size</a>              123 usr/server/fs/fatfs/fatfs.h 	uint32_t	size;
+<a href='../S/888.html#L205'>size</a>              205 usr/server/fs/fatfs/fatfs.h int	 fat_expand_file(struct fatfsmount *fmp, u_long cl, int size);
+<a href='../S/889.html#L308'>size</a>              308 usr/server/fs/fatfs/fatfs_fat.c fat_expand_file(struct fatfsmount *fmp, u_long cl, int size)
+<a href='../S/889.html#L314'>size</a>              314 usr/server/fs/fatfs/fatfs_fat.c 	cl_len = size / fmp-&gt;cluster_size + 1;
+<a href='../S/889.html#L335'>size</a>              335 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_expand_file: new size=%d\n", size));
+<a href='../S/892.html#L73'>size</a>               73 usr/server/fs/fatfs/fatfs_vfsops.c 	size_t size;
+<a href='../S/892.html#L81'>size</a>               81 usr/server/fs/fatfs/fatfs_vfsops.c 	size = SEC_SIZE;
+<a href='../S/892.html#L82'>size</a>               82 usr/server/fs/fatfs/fatfs_vfsops.c 	error = device_read(fmp-&gt;dev, bpb, &amp;size, 0);
+<a href='../S/893.html#L104'>size</a>              104 usr/server/fs/fatfs/fatfs_vnops.c 	size_t size;
+<a href='../S/893.html#L107'>size</a>              107 usr/server/fs/fatfs/fatfs_vnops.c 	size = fmp-&gt;sec_per_cl * SEC_SIZE;
+<a href='../S/893.html#L108'>size</a>              108 usr/server/fs/fatfs/fatfs_vnops.c 	return device_read(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L118'>size</a>              118 usr/server/fs/fatfs/fatfs_vnops.c 	size_t size;
+<a href='../S/893.html#L121'>size</a>              121 usr/server/fs/fatfs/fatfs_vnops.c 	size = fmp-&gt;sec_per_cl * SEC_SIZE;
+<a href='../S/893.html#L122'>size</a>              122 usr/server/fs/fatfs/fatfs_vnops.c 	return device_write(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L156'>size</a>              156 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = de-&gt;size;
+<a href='../S/893.html#L165'>size</a>              165 usr/server/fs/fatfs/fatfs_vnops.c fatfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L189'>size</a>              189 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/893.html#L190'>size</a>              190 usr/server/fs/fatfs/fatfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/893.html#L209'>size</a>              209 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos + size &lt; fmp-&gt;cluster_size)
+<a href='../S/893.html#L210'>size</a>              210 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy = size;
+<a href='../S/893.html#L215'>size</a>              215 usr/server/fs/fatfs/fatfs_vnops.c 		size -= nr_copy;
+<a href='../S/893.html#L216'>size</a>              216 usr/server/fs/fatfs/fatfs_vnops.c 		if (size &lt;= 0)
+<a href='../S/893.html#L236'>size</a>              236 usr/server/fs/fatfs/fatfs_vnops.c fatfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L260'>size</a>              260 usr/server/fs/fatfs/fatfs_vnops.c 	if (file_pos + size &gt; end_pos) {
+<a href='../S/893.html#L262'>size</a>              262 usr/server/fs/fatfs/fatfs_vnops.c 		end_pos = file_pos + size;
+<a href='../S/893.html#L272'>size</a>              272 usr/server/fs/fatfs/fatfs_vnops.c 		de-&gt;size = end_pos;
+<a href='../S/893.html#L285'>size</a>              285 usr/server/fs/fatfs/fatfs_vnops.c 	cl_size = size / fmp-&gt;cluster_size + 1;
+<a href='../S/893.html#L299'>size</a>              299 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos + size &lt; fmp-&gt;cluster_size)
+<a href='../S/893.html#L300'>size</a>              300 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy = size;
+<a href='../S/893.html#L309'>size</a>              309 usr/server/fs/fatfs/fatfs_vnops.c 		size -= nr_copy;
+<a href='../S/893.html#L310'>size</a>              310 usr/server/fs/fatfs/fatfs_vnops.c 		if (size &lt;= 0)
+<a href='../S/893.html#L705'>size</a>              705 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;size = length;
+<a href='../S/896.html#L219'>size</a>              219 usr/server/fs/fifofs/fifo_vnops.c fifo_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L246'>size</a>              246 usr/server/fs/fifofs/fifo_vnops.c 	nbytes = (np-&gt;fn_size &lt; size) ? np-&gt;fn_size : size;
+<a href='../S/896.html#L264'>size</a>              264 usr/server/fs/fifofs/fifo_vnops.c fifo_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L285'>size</a>              285 usr/server/fs/fifofs/fifo_vnops.c 	nbytes = (nfree &lt; size) ? nfree : size;
+<a href='../S/896.html#L291'>size</a>              291 usr/server/fs/fifofs/fifo_vnops.c 	size -= nbytes;
+<a href='../S/896.html#L302'>size</a>              302 usr/server/fs/fifofs/fifo_vnops.c 	if (size &gt; 0)
+<a href='../S/902.html#L334'>size</a>              334 usr/server/fs/ramfs/ramfs_vnops.c ramfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L349'>size</a>              349 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_size - off &lt; size)
+<a href='../S/902.html#L350'>size</a>              350 usr/server/fs/ramfs/ramfs_vnops.c 		size = vp-&gt;v_size - off;
+<a href='../S/902.html#L353'>size</a>              353 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(buf, np-&gt;rn_buf + off, size);
+<a href='../S/902.html#L355'>size</a>              355 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset += size;
+<a href='../S/902.html#L356'>size</a>              356 usr/server/fs/ramfs/ramfs_vnops.c 	*result = size;
+<a href='../S/902.html#L361'>size</a>              361 usr/server/fs/ramfs/ramfs_vnops.c ramfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L379'>size</a>              379 usr/server/fs/ramfs/ramfs_vnops.c 	if (file_pos + size &gt; (size_t)end_pos) {
+<a href='../S/902.html#L381'>size</a>              381 usr/server/fs/ramfs/ramfs_vnops.c 		end_pos = file_pos + size;
+<a href='../S/902.html#L404'>size</a>              404 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(np-&gt;rn_buf + file_pos, buf, size);
+<a href='../S/902.html#L405'>size</a>              405 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset += size;
+<a href='../S/902.html#L406'>size</a>              406 usr/server/fs/ramfs/ramfs_vnops.c 	*result = size;
+<a href='../S/903.html#L218'>size</a>              218 usr/server/fs/vfs/main.c 	size_t size, bytes;
+<a href='../S/903.html#L223'>size</a>              223 usr/server/fs/vfs/main.c 	size = msg-&gt;size;
+<a href='../S/903.html#L224'>size</a>              224 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L227'>size</a>              227 usr/server/fs/vfs/main.c 	error = sys_read(fp, buf, size, &amp;bytes);
+<a href='../S/903.html#L228'>size</a>              228 usr/server/fs/vfs/main.c 	msg-&gt;size = bytes;
+<a href='../S/903.html#L238'>size</a>              238 usr/server/fs/vfs/main.c 	size_t size, bytes;
+<a href='../S/903.html#L243'>size</a>              243 usr/server/fs/vfs/main.c 	size = msg-&gt;size;
+<a href='../S/903.html#L244'>size</a>              244 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L247'>size</a>              247 usr/server/fs/vfs/main.c 	error = sys_write(fp, buf, size, &amp;bytes);
+<a href='../S/903.html#L248'>size</a>              248 usr/server/fs/vfs/main.c 	msg-&gt;size = bytes;
+<a href='../S/905.html#L96'>size</a>               96 usr/server/fs/vfs/vfs.h int	 sys_read(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L97'>size</a>               97 usr/server/fs/vfs/vfs.h int	 sys_write(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/906.html#L229'>size</a>              229 usr/server/fs/vfs/vfs_bio.c 	size_t size;
+<a href='../S/906.html#L236'>size</a>              236 usr/server/fs/vfs/vfs_bio.c 		size = BSIZE;
+<a href='../S/906.html#L237'>size</a>              237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+<a href='../S/906.html#L261'>size</a>              261 usr/server/fs/vfs/vfs_bio.c 	size_t size;
+<a href='../S/906.html#L272'>size</a>              272 usr/server/fs/vfs/vfs_bio.c 	size = BSIZE;
+<a href='../S/906.html#L273'>size</a>              273 usr/server/fs/vfs/vfs_bio.c 	error = device_write((device_t)bp-&gt;b_dev, bp-&gt;b_data, &amp;size,
+<a href='../S/911.html#L175'>size</a>              175 usr/server/fs/vfs/vfs_syscalls.c sys_read(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L181'>size</a>              181 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)buf, size));
+<a href='../S/911.html#L185'>size</a>              185 usr/server/fs/vfs/vfs_syscalls.c 	if (size == 0) {
+<a href='../S/911.html#L191'>size</a>              191 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READ(vp, fp, buf, size, count);
+<a href='../S/911.html#L197'>size</a>              197 usr/server/fs/vfs/vfs_syscalls.c sys_write(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L203'>size</a>              203 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)buf, size));
+<a href='../S/911.html#L207'>size</a>              207 usr/server/fs/vfs/vfs_syscalls.c 	if (size == 0) {
+<a href='../S/911.html#L213'>size</a>              213 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_WRITE(vp, fp, buf, size, count);
+<a href='../S/928.html#L48'>size</a>               48 usr/test/attack/attack.c 	size_t size	= (size_t)random();
+<a href='../S/928.html#L67'>size</a>               67 usr/test/attack/attack.c 	msg_send(0, msg, size);
+<a href='../S/928.html#L68'>size</a>               68 usr/test/attack/attack.c 	msg_send(obj, NULL, size);
+<a href='../S/928.html#L71'>size</a>               71 usr/test/attack/attack.c 	msg_send(0, NULL, size);
+<a href='../S/928.html#L72'>size</a>               72 usr/test/attack/attack.c 	msg_send(obj, msg, size);
+<a href='../S/928.html#L74'>size</a>               74 usr/test/attack/attack.c 	msg_receive(0, msg, size);
+<a href='../S/928.html#L75'>size</a>               75 usr/test/attack/attack.c 	msg_receive(obj, NULL, size);
+<a href='../S/928.html#L78'>size</a>               78 usr/test/attack/attack.c 	msg_receive(0, NULL, size);
+<a href='../S/928.html#L79'>size</a>               79 usr/test/attack/attack.c 	msg_receive(obj, msg, size);
+<a href='../S/928.html#L81'>size</a>               81 usr/test/attack/attack.c 	msg_reply(0, msg, size);
+<a href='../S/928.html#L82'>size</a>               82 usr/test/attack/attack.c 	msg_reply(obj, NULL, size);
+<a href='../S/928.html#L85'>size</a>               85 usr/test/attack/attack.c 	msg_reply(0, NULL, size);
+<a href='../S/928.html#L86'>size</a>               86 usr/test/attack/attack.c 	msg_reply(obj, msg, size);
+<a href='../S/928.html#L88'>size</a>               88 usr/test/attack/attack.c 	vm_allocate(self, addr, size, 1);
+<a href='../S/928.html#L89'>size</a>               89 usr/test/attack/attack.c 	vm_allocate(self, &amp;addr, size, 1);
+<a href='../S/928.html#L93'>size</a>               93 usr/test/attack/attack.c 	vm_map(self, addr, size, &amp;addr);
+<a href='../S/950.html#L43'>size</a>               43 usr/test/fdd/fdd.c 	size_t size;
+<a href='../S/950.html#L57'>size</a>               57 usr/test/fdd/fdd.c 	size = 512;
+<a href='../S/950.html#L58'>size</a>               58 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L92'>size</a>               92 usr/test/fdd/fdd.c 	size_t size;
+<a href='../S/950.html#L104'>size</a>              104 usr/test/fdd/fdd.c 	size = 512;
+<a href='../S/950.html#L105'>size</a>              105 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L113'>size</a>              113 usr/test/fdd/fdd.c 	size = 512;
+<a href='../S/950.html#L114'>size</a>              114 usr/test/fdd/fdd.c 	error = device_write(fdd, disk_buf, &amp;size, sector);
+<a href='../S/973.html#L45'>size</a>               45 usr/test/memleak/memleak.c 	size_t size;
+<a href='../S/973.html#L51'>size</a>               51 usr/test/memleak/memleak.c 	size = 1;
+<a href='../S/973.html#L53'>size</a>               53 usr/test/memleak/memleak.c 		printf("memleak: malloc %d bytes\n", size);
+<a href='../S/973.html#L54'>size</a>               54 usr/test/memleak/memleak.c 		p = malloc(size);
+<a href='../S/973.html#L59'>size</a>               59 usr/test/memleak/memleak.c 		size *= 2;
+<a href='../S/983.html#L45'>size</a>               45 usr/test/ramdisk/ramdisk.c 	size_t size;
+<a href='../S/983.html#L59'>size</a>               59 usr/test/ramdisk/ramdisk.c 	size = 512;
+<a href='../S/983.html#L60'>size</a>               60 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L94'>size</a>               94 usr/test/ramdisk/ramdisk.c 	size_t size;
+<a href='../S/983.html#L106'>size</a>              106 usr/test/ramdisk/ramdisk.c 	size = 512;
+<a href='../S/983.html#L107'>size</a>              107 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L117'>size</a>              117 usr/test/ramdisk/ramdisk.c 	size = 512;
+<a href='../S/983.html#L118'>size</a>              118 usr/test/ramdisk/ramdisk.c 	error = device_write(ramdev, disk_buf, &amp;size, sector);
+</pre>
+</body>
+</html>

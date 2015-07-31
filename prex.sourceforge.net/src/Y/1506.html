@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>outfp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/482.html#L44'>outfp</a>              44 usr/lib/libc/gen/getpass.c 	FILE *fp, *outfp;
+<a href='../S/482.html#L53'>outfp</a>              53 usr/lib/libc/gen/getpass.c 	if ((outfp = fp = fopen(_PATH_TTY, "w+")) == NULL) {
+<a href='../S/482.html#L54'>outfp</a>              54 usr/lib/libc/gen/getpass.c 		outfp = stderr;
+<a href='../S/482.html#L67'>outfp</a>              67 usr/lib/libc/gen/getpass.c 	(void)fputs(prompt, outfp);
+<a href='../S/482.html#L68'>outfp</a>              68 usr/lib/libc/gen/getpass.c 	rewind(outfp);			/* implied flush */
+<a href='../S/482.html#L74'>outfp</a>              74 usr/lib/libc/gen/getpass.c 	(void)write(fileno(outfp), "\n", 1);
+</pre>
+</body>
+</html>

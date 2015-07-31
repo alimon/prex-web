@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mutex_waiting</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/319.html#L65'>mutex_waiting</a>      65 sys/include/thread.h 	mutex_t 	mutex_waiting;	/* mutex pointer currently waiting */
+<a href='../S/346.html#L216'>mutex_waiting</a>     216 sys/sync/mutex.c 			curthread-&gt;mutex_waiting = m;
+<a href='../S/346.html#L218'>mutex_waiting</a>     218 sys/sync/mutex.c 				curthread-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L223'>mutex_waiting</a>     223 sys/sync/mutex.c 			curthread-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L297'>mutex_waiting</a>     297 sys/sync/mutex.c 			m-&gt;holder-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L340'>mutex_waiting</a>     340 sys/sync/mutex.c 			holder-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L356'>mutex_waiting</a>     356 sys/sync/mutex.c 	if (t-&gt;mutex_waiting &amp;&amp; pri &lt; t-&gt;priority)
+<a href='../S/346.html#L420'>mutex_waiting</a>     420 sys/sync/mutex.c 	mutex_t m = waiter-&gt;mutex_waiting;
+<a href='../S/346.html#L449'>mutex_waiting</a>     449 sys/sync/mutex.c 		m = (mutex_t)holder-&gt;mutex_waiting;
+</pre>
+</body>
+</html>

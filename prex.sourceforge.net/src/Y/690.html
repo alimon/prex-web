@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dnp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/902.html#L128'>dnp</a>               128 usr/server/fs/ramfs/ramfs_vnops.c ramfs_add_node(struct ramfs_node *dnp, char *name, int type)
+<a href='../S/902.html#L139'>dnp</a>               139 usr/server/fs/ramfs/ramfs_vnops.c 	if (dnp-&gt;rn_child == NULL) {
+<a href='../S/902.html#L140'>dnp</a>               140 usr/server/fs/ramfs/ramfs_vnops.c 		dnp-&gt;rn_child = np;
+<a href='../S/902.html#L142'>dnp</a>               142 usr/server/fs/ramfs/ramfs_vnops.c 		prev = dnp-&gt;rn_child;
+<a href='../S/902.html#L152'>dnp</a>               152 usr/server/fs/ramfs/ramfs_vnops.c ramfs_remove_node(struct ramfs_node *dnp, struct ramfs_node *np)
+<a href='../S/902.html#L156'>dnp</a>               156 usr/server/fs/ramfs/ramfs_vnops.c 	if (dnp-&gt;rn_child == NULL)
+<a href='../S/902.html#L162'>dnp</a>               162 usr/server/fs/ramfs/ramfs_vnops.c 	if (dnp-&gt;rn_child == np) {
+<a href='../S/902.html#L163'>dnp</a>               163 usr/server/fs/ramfs/ramfs_vnops.c 		dnp-&gt;rn_child = np-&gt;rn_next;
+<a href='../S/902.html#L165'>dnp</a>               165 usr/server/fs/ramfs/ramfs_vnops.c 		for (prev = dnp-&gt;rn_child; prev-&gt;rn_next != np;
+<a href='../S/902.html#L206'>dnp</a>               206 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *dnp;
+<a href='../S/902.html#L216'>dnp</a>               216 usr/server/fs/ramfs/ramfs_vnops.c 	dnp = dvp-&gt;v_data;
+<a href='../S/902.html#L218'>dnp</a>               218 usr/server/fs/ramfs/ramfs_vnops.c 	for (np = dnp-&gt;rn_child; np != NULL; np = np-&gt;rn_next) {
+<a href='../S/902.html#L454'>dnp</a>               454 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *dnp;
+<a href='../S/902.html#L466'>dnp</a>               466 usr/server/fs/ramfs/ramfs_vnops.c 		dnp = vp-&gt;v_data;
+<a href='../S/902.html#L467'>dnp</a>               467 usr/server/fs/ramfs/ramfs_vnops.c 		np = dnp-&gt;rn_child;
+</pre>
+</body>
+</html>

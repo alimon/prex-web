@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fd1</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/940.html#L57'>fd1</a>                57 usr/test/dup/dup.c 	int orgfd, fd1, fd2, test = 0;
+<a href='../S/940.html#L64'>fd1</a>                64 usr/test/dup/dup.c 	if ((fd1 = dup(orgfd)) &lt; 0)
+<a href='../S/940.html#L69'>fd1</a>                69 usr/test/dup/dup.c 	if (fcntl(fd1, F_SETFD, 1) != 0)
+<a href='../S/940.html#L73'>fd1</a>                73 usr/test/dup/dup.c 	if ((fd2 = dup2(fd1, fd1 + 1)) &lt; 0)
+<a href='../S/940.html#L79'>fd1</a>                79 usr/test/dup/dup.c 	if (fd2 != fd1 + 1)
+<a href='../S/940.html#L121'>fd1</a>               121 usr/test/dup/dup.c 	if ((fd2 = dup2(fd1, fd1)) &lt; 0)
+<a href='../S/940.html#L127'>fd1</a>               127 usr/test/dup/dup.c 	if (fd2 != fd1)
+<a href='../S/940.html#L144'>fd1</a>               144 usr/test/dup/dup.c 	if ((fd2 = fcntl(fd1, F_DUPFD, 0)) &lt; 0)
+<a href='../S/940.html#L162'>fd1</a>               162 usr/test/dup/dup.c 	if ((fd2 = dup2(fd1, (int)(rlp.rlim_cur + 1))) &gt;= 0)
+<a href='../S/952.html#L47'>fd1</a>                47 usr/test/fifo/fifo.c 	int pid, fd1, fd2, len;
+<a href='../S/952.html#L65'>fd1</a>                65 usr/test/fifo/fifo.c 		fd1 = open("/mnt/fifo/test", O_RDONLY);
+<a href='../S/952.html#L66'>fd1</a>                66 usr/test/fifo/fifo.c 		if (fd1 == -1) {
+<a href='../S/952.html#L72'>fd1</a>                72 usr/test/fifo/fifo.c 			len = read(fd1, buf1, sizeof(buf1) - 1);
+<a href='../S/952.html#L78'>fd1</a>                78 usr/test/fifo/fifo.c 		close(fd1);
+</pre>
+</body>
+</html>

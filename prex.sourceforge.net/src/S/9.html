@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/boot/arm/integrator/debug.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1010.html'>boot</a>/<a href='../files/1011.html'>arm</a>/<a href='../files/1014.html'>integrator</a>/debug.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='9.html#L79'>[^]</a><a href='9.html#L93'>[v]</a>[top]<a href='9.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='9.html#L79' title='Defined at 79.'>debug_putc</a></li>
+<li><a href='9.html#L93' title='Defined at 93.'>debug_init</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2008-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='264.html'>sys/param.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='20.html'>boot.h</a>&gt;
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#define</em> <a href='../R/1105.html' title='Multiple refered from 25 places.'>UART_BASE</a>       0x16000000
+<a id='L34' name='L34' />  34 <em class='sharp'>#define</em> <a href='../R/1106.html' title='Multiple refered from 4 places.'>UART_CLK</a>        14745600
+<a id='L35' name='L35' />  35 <em class='sharp'>#define</em> <a href='../R/28.html' title='Multiple refered from 8 places.'>BAUD_RATE</a>       115200
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='comment'>/* UART Registers */</em>
+<a id='L38' name='L38' />  38 <em class='sharp'>#define</em> <a href='../R/1108.html' title='Multiple refered from 5 places.'>UART_DR</a>         (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x00))
+<a id='L39' name='L39' />  39 <em class='sharp'>#define</em> UART_RSR        (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x04))
+<a id='L40' name='L40' />  40 <em class='sharp'>#define</em> UART_ECR        (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x04))
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/1110.html' title='Multiple refered from 6 places.'>UART_FR</a>         (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x18))
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='../R/1111.html' title='Multiple refered from 2 places.'>UART_IBRD</a>       (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x24))
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> <a href='../R/1109.html' title='Multiple refered from 2 places.'>UART_FBRD</a>       (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x28))
+<a id='L44' name='L44' />  44 <em class='sharp'>#define</em> <a href='../R/1115.html' title='Multiple refered from 2 places.'>UART_LCRH</a>       (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x2c))
+<a id='L45' name='L45' />  45 <em class='sharp'>#define</em> <a href='../R/1107.html' title='Multiple refered from 5 places.'>UART_CR</a>         (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x30))
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='../R/1113.html' title='Multiple refered from 4 places.'>UART_IMSC</a>       (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x38))
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> <a href='88.html#L159' title='Refered from 159 in bsp/drv/dev/serial/pl011.c.'>UART_MIS</a>        (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x40))
+<a id='L48' name='L48' />  48 <em class='sharp'>#define</em> <a href='../R/1112.html' title='Multiple refered from 4 places.'>UART_ICR</a>        (*(<strong class='reserved'>volatile</strong> <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> *)(<a href='../D/1920.html' title='Multiple defined in 3 places.'>UART_BASE</a> + 0x44))
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50 <em class='comment'>/* Flag register */</em>
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='../R/326.html' title='Multiple refered from 3 places.'>FR_RXFE</a>         0x10    <em class='comment'>/* Receive FIFO empty */</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/327.html' title='Multiple refered from 3 places.'>FR_TXFF</a>         0x20    <em class='comment'>/* Transmit FIFO full */</em>
+<a id='L53' name='L53' />  53 
+<a id='L54' name='L54' />  54 <em class='comment'>/* Masked interrupt status register */</em>
+<a id='L55' name='L55' />  55 <em class='sharp'>#define</em> <a href='88.html#L161' title='Refered from 161 in bsp/drv/dev/serial/pl011.c.'>MIS_RX</a>          0x10    <em class='comment'>/* Receive interrupt */</em>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> <a href='88.html#L175' title='Refered from 175 in bsp/drv/dev/serial/pl011.c.'>MIS_TX</a>          0x20    <em class='comment'>/* Transmit interrupt */</em>
+<a id='L57' name='L57' />  57 
+<a id='L58' name='L58' />  58 <em class='comment'>/* Interrupt clear register */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> <a href='88.html#L173' title='Refered from 173 in bsp/drv/dev/serial/pl011.c.'>ICR_RX</a>          0x10    <em class='comment'>/* Clear receive interrupt */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> <a href='88.html#L182' title='Refered from 182 in bsp/drv/dev/serial/pl011.c.'>ICR_TX</a>          0x20    <em class='comment'>/* Clear transmit interrupt */</em>
+<a id='L61' name='L61' />  61 
+<a id='L62' name='L62' />  62 <em class='comment'>/* Line control register (High) */</em>
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> <a href='../R/536.html' title='Multiple refered from 2 places.'>LCRH_WLEN8</a>      0x60    <em class='comment'>/* 8 bits */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/535.html' title='Multiple refered from 2 places.'>LCRH_FEN</a>        0x10    <em class='comment'>/* Enable FIFO */</em>
+<a id='L65' name='L65' />  65 
+<a id='L66' name='L66' />  66 <em class='comment'>/* Control register */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> <a href='../R/134.html' title='Multiple refered from 2 places.'>CR_UARTEN</a>       0x0001  <em class='comment'>/* UART enable */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> <a href='../R/133.html' title='Multiple refered from 2 places.'>CR_TXE</a>          0x0100  <em class='comment'>/* Transmit enable */</em>
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> <a href='../R/132.html' title='Multiple refered from 2 places.'>CR_RXE</a>          0x0200  <em class='comment'>/* Receive enable */</em>
+<a id='L70' name='L70' />  70 
+<a id='L71' name='L71' />  71 <em class='comment'>/* Interrupt mask set/clear register */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <a href='../R/414.html' title='Multiple refered from 2 places.'>IMSC_RX</a>         0x10    <em class='comment'>/* Receive interrupt mask */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#define</em> <a href='../R/415.html' title='Multiple refered from 2 places.'>IMSC_TX</a>         0x20    <em class='comment'>/* Transmit interrupt mask */</em>
+<a id='L74' name='L74' />  74 
+<a id='L75' name='L75' />  75 <em class='comment'>/*</em>
+<a id='L76' name='L76' />  76 <em class='comment'> * Print one chracter</em>
+<a id='L77' name='L77' />  77 <em class='comment'> */</em>
+<a id='L78' name='L78' />  78 <strong class='reserved'>void</strong>
+<a id='L79' name='L79' />  79 <a href='../R/1629.html' title='Multiple refered from 6 places.'>debug_putc</a>(<strong class='reserved'>int</strong> <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>)
+<a id='L80' name='L80' />  80 <em class='brace'>{</em>
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/93.html' title='Multiple used in 63 places.'>DEBUG</a>) &amp;&amp; <strong class='reserved'>defined</strong>(<a href='../Y/64.html' title='Multiple used in 9 places.'>CONFIG_DIAG_SERIAL</a>)
+<a id='L83' name='L83' />  83         <strong class='reserved'>while</strong> (<a href='../D/1926.html' title='Multiple defined in 3 places.'>UART_FR</a> &amp; <a href='../D/633.html' title='Multiple defined in 3 places.'>FR_TXFF</a>)
+<a id='L84' name='L84' />  84                 ;
+<a id='L85' name='L85' />  85         <a href='../D/1923.html' title='Multiple defined in 3 places.'>UART_DR</a> = <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>;
+<a id='L86' name='L86' />  86 <em class='sharp'>#endif</em>
+<a id='L87' name='L87' />  87 <em class='brace'>}</em>
+<a id='L88' name='L88' />  88 
+<a id='L89' name='L89' />  89 <em class='comment'>/*</em>
+<a id='L90' name='L90' />  90 <em class='comment'> * Initialize debug port.</em>
+<a id='L91' name='L91' />  91 <em class='comment'> */</em>
+<a id='L92' name='L92' />  92 <strong class='reserved'>void</strong>
+<a id='L93' name='L93' />  93 <a href='../R/1628.html' title='Multiple refered from 2 places.'>debug_init</a>(<strong class='reserved'>void</strong>)
+<a id='L94' name='L94' />  94 <em class='brace'>{</em>
+<a id='L95' name='L95' />  95 
+<a id='L96' name='L96' />  96 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/93.html' title='Multiple used in 63 places.'>DEBUG</a>) &amp;&amp; <strong class='reserved'>defined</strong>(<a href='../Y/64.html' title='Multiple used in 9 places.'>CONFIG_DIAG_SERIAL</a>)
+<a id='L97' name='L97' />  97         <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong> <a href='../Y/679.html' title='Multiple used in 6 places.'>divider</a>;
+<a id='L98' name='L98' />  98         <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong> <a href='../Y/1741.html' title='Multiple used in 8 places.'>remainder</a>;
+<a id='L99' name='L99' />  99         <strong class='reserved'>unsigned</strong> <strong class='reserved'>int</strong> <a href='../Y/912.html' title='Multiple used in 8 places.'>fraction</a>;
+<a id='L100' name='L100' /> 100 
+<a id='L101' name='L101' /> 101         <a href='../D/1922.html' title='Multiple defined in 2 places.'>UART_CR</a> = 0x0;          <em class='comment'>/* Disable everything */</em>
+<a id='L102' name='L102' /> 102         <a href='../D/1928.html' title='Multiple defined in 2 places.'>UART_ICR</a> = 0x07ff;      <em class='comment'>/* Clear all interrupt status */</em>
+<a id='L103' name='L103' /> 103 
+<a id='L104' name='L104' /> 104         <em class='comment'>/*</em>
+<a id='L105' name='L105' /> 105 <em class='comment'>         * Set baud rate:</em>
+<a id='L106' name='L106' /> 106 <em class='comment'>         * IBRD = UART_CLK / (16 * BAUD_RATE)</em>
+<a id='L107' name='L107' /> 107 <em class='comment'>         * FBRD = ROUND((64 * MOD(UART_CLK,(16 * BAUD_RATE))) / (16 * BAUD_RATE))</em>
+<a id='L108' name='L108' /> 108 <em class='comment'>         */</em>
+<a id='L109' name='L109' /> 109         <a href='../Y/679.html' title='Multiple used in 6 places.'>divider</a> = <a href='../D/1921.html' title='Multiple defined in 2 places.'>UART_CLK</a> / (16 * <a href='../D/54.html' title='Multiple defined in 2 places.'>BAUD_RATE</a>);
+<a id='L110' name='L110' /> 110         <a href='../Y/1741.html' title='Multiple used in 8 places.'>remainder</a> = <a href='../D/1921.html' title='Multiple defined in 2 places.'>UART_CLK</a> % (16 * <a href='../D/54.html' title='Multiple defined in 2 places.'>BAUD_RATE</a>);
+<a id='L111' name='L111' /> 111         <a href='../Y/912.html' title='Multiple used in 8 places.'>fraction</a> = (8 * <a href='../Y/1741.html' title='Multiple used in 8 places.'>remainder</a> / <a href='../D/54.html' title='Multiple defined in 2 places.'>BAUD_RATE</a>) &gt;&gt; 1;
+<a id='L112' name='L112' /> 112         <a href='../Y/912.html' title='Multiple used in 8 places.'>fraction</a> += (8 * <a href='../Y/1741.html' title='Multiple used in 8 places.'>remainder</a> / <a href='../D/54.html' title='Multiple defined in 2 places.'>BAUD_RATE</a>) &amp; 1;
+<a id='L113' name='L113' /> 113         <a href='../D/1927.html' title='Multiple defined in 2 places.'>UART_IBRD</a> = <a href='../Y/679.html' title='Multiple used in 6 places.'>divider</a>;
+<a id='L114' name='L114' /> 114         <a href='../D/1925.html' title='Multiple defined in 2 places.'>UART_FBRD</a> = <a href='../Y/912.html' title='Multiple used in 8 places.'>fraction</a>;
+<a id='L115' name='L115' /> 115 
+<a id='L116' name='L116' /> 116         <a href='../D/1931.html' title='Multiple defined in 2 places.'>UART_LCRH</a> = (<a href='../D/887.html' title='Multiple defined in 2 places.'>LCRH_WLEN8</a> | <a href='../D/886.html' title='Multiple defined in 2 places.'>LCRH_FEN</a>);    <em class='comment'>/* N, 8, 1, FIFO enable */</em>
+<a id='L117' name='L117' /> 117         <a href='../D/1922.html' title='Multiple defined in 2 places.'>UART_CR</a> = (<a href='../D/204.html' title='Multiple defined in 2 places.'>CR_RXE</a> | <a href='../D/205.html' title='Multiple defined in 2 places.'>CR_TXE</a> | <a href='../D/206.html' title='Multiple defined in 2 places.'>CR_UARTEN</a>);        <em class='comment'>/* Enable UART */</em>
+<a id='L118' name='L118' /> 118 <em class='sharp'>#endif</em>
+<a id='L119' name='L119' /> 119 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='9.html#L79'>[^]</a><a href='9.html#L93'>[v]</a><a href='9.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

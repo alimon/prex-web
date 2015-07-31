@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>stack</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L98'>stack</a>              98 include/sys/prex.h int	thread_load(thread_t t, void (*entry)(void), void *stack);
+<a href='../S/334.html#L479'>stack</a>             479 sys/kern/task.c 	void *stack, *sp;
+<a href='../S/334.html#L491'>stack</a>             491 sys/kern/task.c 		if ((error = vm_load(task-&gt;map, mod, &amp;stack)) != 0)
+<a href='../S/334.html#L508'>stack</a>             508 sys/kern/task.c 		sp = (char *)stack + DFLSTKSZ - (sizeof(int) * 3);
+<a href='../S/335.html#L167'>stack</a>             167 sys/kern/thread.c thread_load(thread_t t, void (*entry)(void), void *stack)
+<a href='../S/335.html#L173'>stack</a>             173 sys/kern/thread.c 	if (stack != NULL &amp;&amp; !user_area(stack))
+<a href='../S/335.html#L189'>stack</a>             189 sys/kern/thread.c 	if (stack != NULL)
+<a href='../S/335.html#L190'>stack</a>             190 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_USTACK, (register_t)stack);
+<a href='../S/335.html#L414'>stack</a>             414 sys/kern/thread.c 	void *stack;
+<a href='../S/335.html#L419'>stack</a>             419 sys/kern/thread.c 	if ((stack = kmem_alloc(KSTACKSZ)) == NULL) {
+<a href='../S/335.html#L425'>stack</a>             425 sys/kern/thread.c 	t-&gt;kstack = stack;
+<a href='../S/335.html#L578'>stack</a>             578 sys/kern/thread.c 	void *stack;
+<a href='../S/335.html#L583'>stack</a>             583 sys/kern/thread.c 	if ((stack = kmem_alloc(KSTACKSZ)) == NULL)
+<a href='../S/335.html#L586'>stack</a>             586 sys/kern/thread.c 	memset(stack, 0, KSTACKSZ);
+<a href='../S/335.html#L587'>stack</a>             587 sys/kern/thread.c 	sp = (vaddr_t)stack + KSTACKSZ;
+<a href='../S/335.html#L590'>stack</a>             590 sys/kern/thread.c 	idle_thread.kstack = stack;
+<a href='../S/343.html#L674'>stack</a>             674 sys/mem/vm.c   vm_load(vm_map_t map, struct module *mod, void **stack)
+<a href='../S/343.html#L718'>stack</a>             718 sys/mem/vm.c   	*stack = (void *)USRSTACK;
+<a href='../S/343.html#L719'>stack</a>             719 sys/mem/vm.c   	error = do_allocate(map, stack, DFLSTKSZ, 0);
+<a href='../S/344.html#L454'>stack</a>             454 sys/mem/vm_nommu.c vm_load(vm_map_t map, struct module *mod, void **stack)
+<a href='../S/344.html#L485'>stack</a>             485 sys/mem/vm_nommu.c 	return do_allocate(map, stack, DFLSTKSZ, 1);
+<a href='../S/829.html#L47'>stack</a>              47 usr/sample/balls/balls.c static char stack[NBALLS][STACKLEN];
+<a href='../S/829.html#L50'>stack</a>              50 usr/sample/balls/balls.c thread_run(void (*start)(void), char *stack)
+<a href='../S/829.html#L56'>stack</a>              56 usr/sample/balls/balls.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/829.html#L132'>stack</a>             132 usr/sample/balls/balls.c 		if (thread_run(move_ball, stack[i]+STACKLEN) == 0)
+<a href='../S/831.html#L61'>stack</a>              61 usr/sample/bench/bench.c 	char stack[16];
+<a href='../S/831.html#L89'>stack</a>              89 usr/sample/bench/bench.c 		if (thread_load(thread[i], null_thread, &amp;stack) != 0)
+<a href='../S/837.html#L48'>stack</a>              48 usr/sample/ipc/ipc.c static char stack[1024];
+<a href='../S/837.html#L54'>stack</a>              54 usr/sample/ipc/ipc.c start_client(void (*func)(void), char *stack)
+<a href='../S/837.html#L68'>stack</a>              68 usr/sample/ipc/ipc.c 	if (thread_load(t, func, stack) != 0)
+<a href='../S/837.html#L149'>stack</a>             149 usr/sample/ipc/ipc.c 	if (start_client(client_task, stack+1024) == 0)
+<a href='../S/841.html#L62'>stack</a>              62 usr/sample/mutex/mutex.c static char stack[3][1024];
+<a href='../S/841.html#L82'>stack</a>              82 usr/sample/mutex/mutex.c thread_run(void (*start)(void), void *stack)
+<a href='../S/841.html#L89'>stack</a>              89 usr/sample/mutex/mutex.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/841.html#L236'>stack</a>             236 usr/sample/mutex/mutex.c 	th_1 = thread_run(thread_1, stack[0]+1024);
+<a href='../S/841.html#L239'>stack</a>             239 usr/sample/mutex/mutex.c 	th_2 = thread_run(thread_2, stack[1]+1024);
+<a href='../S/841.html#L242'>stack</a>             242 usr/sample/mutex/mutex.c 	th_3 = thread_run(thread_3, stack[2]+1024);
+<a href='../S/843.html#L40'>stack</a>              40 usr/sample/sem/sem.c thread_run(void (*start)(void), void *stack)
+<a href='../S/843.html#L47'>stack</a>              47 usr/sample/sem/sem.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/843.html#L92'>stack</a>              92 usr/sample/sem/sem.c 	static char stack[10][1024];
+<a href='../S/843.html#L111'>stack</a>             111 usr/sample/sem/sem.c 		thread_run(new_thread, stack[i]+1024);
+<a href='../S/845.html#L46'>stack</a>              46 usr/sample/task/task.c 	char *stack;
+<a href='../S/845.html#L50'>stack</a>              50 usr/sample/task/task.c 	stack = malloc(1024);
+<a href='../S/845.html#L57'>stack</a>              57 usr/sample/task/task.c 	if (thread_load(t, func, stack + 1024) != 0)
+<a href='../S/855.html#L46'>stack</a>              46 usr/sample/thread/thread.c static char stack[3][1024];
+<a href='../S/855.html#L52'>stack</a>              52 usr/sample/thread/thread.c thread_run(void (*start)(void), void *stack)
+<a href='../S/855.html#L59'>stack</a>              59 usr/sample/thread/thread.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/855.html#L145'>stack</a>             145 usr/sample/thread/thread.c 	thread_run(thread_A, stack[0]+1024);
+<a href='../S/855.html#L146'>stack</a>             146 usr/sample/thread/thread.c 	thread_run(thread_B, stack[1]+1024);
+<a href='../S/855.html#L147'>stack</a>             147 usr/sample/thread/thread.c 	thread_run(thread_C, stack[2]+1024);
+<a href='../S/877.html#L78'>stack</a>              78 usr/server/exec/exec_execve.c 	void *stack, *sp;
+<a href='../S/877.html#L178'>stack</a>             178 usr/server/exec/exec_execve.c 	error = vm_allocate(new_task, &amp;stack, DFLSTKSZ, 1);
+<a href='../S/877.html#L183'>stack</a>             183 usr/server/exec/exec_execve.c 	if ((error = build_args(new_task, stack, exec.path, msg,
+<a href='../S/877.html#L200'>stack</a>             200 usr/server/exec/exec_execve.c 	notify_server(old_task, new_task, stack);
+<a href='../S/877.html#L216'>stack</a>             216 usr/server/exec/exec_execve.c 	vm_free(new_task, stack);
+<a href='../S/877.html#L314'>stack</a>             314 usr/server/exec/exec_execve.c build_args(task_t task, void *stack, char *path, struct exec_msg *msg,
+<a href='../S/877.html#L332'>stack</a>             332 usr/server/exec/exec_execve.c 	error = vm_map(task, stack, DFLSTKSZ, (void *)&amp;mapped);
+<a href='../S/877.html#L388'>stack</a>             388 usr/server/exec/exec_execve.c 	argv[0] = (char *)((u_long)stack + (u_long)file - mapped);
+<a href='../S/877.html#L391'>stack</a>             391 usr/server/exec/exec_execve.c 		argv[i] = (char *)((u_long)stack + (arg_top - mapped));
+<a href='../S/877.html#L397'>stack</a>             397 usr/server/exec/exec_execve.c 		envp[i] = (char *)((u_long)stack + (arg_top - mapped));
+<a href='../S/877.html#L402'>stack</a>             402 usr/server/exec/exec_execve.c 	*new_sp = (void *)((u_long)stack + (sp - mapped));
+<a href='../S/877.html#L412'>stack</a>             412 usr/server/exec/exec_execve.c notify_server(task_t org_task, task_t new_task, void *stack)
+<a href='../S/877.html#L437'>stack</a>             437 usr/server/exec/exec_execve.c 		m.data[2] = (int)stack;
+<a href='../S/903.html#L949'>stack</a>             949 usr/server/fs/vfs/main.c 	void *stack, *sp;
+<a href='../S/903.html#L955'>stack</a>             955 usr/server/fs/vfs/main.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/903.html#L958'>stack</a>             958 usr/server/fs/vfs/main.c 	sp = (void *)((u_long)stack + DFLSTKSZ - sizeof(u_long) * 3);
+<a href='../S/916.html#L270'>stack</a>             270 usr/server/pow/pow.c 	void *stack, *sp;
+<a href='../S/916.html#L276'>stack</a>             276 usr/server/pow/pow.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/916.html#L279'>stack</a>             279 usr/server/pow/pow.c 	sp = (void *)((u_long)stack + DFLSTKSZ - sizeof(u_long) * 3);
+<a href='../S/921.html#L180'>stack</a>             180 usr/server/proc/proc_fork.c 	void *stack;
+<a href='../S/921.html#L187'>stack</a>             187 usr/server/proc/proc_fork.c 	if (vm_allocate(p-&gt;p_task, &amp;stack, DFLSTKSZ, 1) != 0) {
+<a href='../S/921.html#L192'>stack</a>             192 usr/server/proc/proc_fork.c 	memcpy(stack, p-&gt;p_stackbase, DFLSTKSZ);
+<a href='../S/921.html#L193'>stack</a>             193 usr/server/proc/proc_fork.c 	p-&gt;p_stacksaved = stack;
+<a href='../S/938.html#L53'>stack</a>              53 usr/test/deadlock/deadlock.c static char stack[2][1024];
+<a href='../S/938.html#L58'>stack</a>              58 usr/test/deadlock/deadlock.c thread_run(void (*start)(void), void *stack)
+<a href='../S/938.html#L67'>stack</a>              67 usr/test/deadlock/deadlock.c 	error = thread_load(t, start, stack);
+<a href='../S/938.html#L161'>stack</a>             161 usr/test/deadlock/deadlock.c 	th_1 = thread_run(thread_1, stack[0]+1024);
+<a href='../S/938.html#L164'>stack</a>             164 usr/test/deadlock/deadlock.c 	th_2 = thread_run(thread_2, stack[1]+1024);
+<a href='../S/960.html#L38'>stack</a>              38 usr/test/ipc/ipc.c static char stack[1024];
+<a href='../S/960.html#L44'>stack</a>              44 usr/test/ipc/ipc.c thread_run(void (*start)(void), void *stack)
+<a href='../S/960.html#L53'>stack</a>              53 usr/test/ipc/ipc.c 	error = thread_load(t, start, stack);
+<a href='../S/960.html#L134'>stack</a>             134 usr/test/ipc/ipc.c 	error = thread_run(send_thread, stack + 1024);
+<a href='../S/962.html#L40'>stack</a>              40 usr/test/ipc_mt/ipc_mt.c static char stack[NR_THREADS][1024];
+<a href='../S/962.html#L46'>stack</a>              46 usr/test/ipc_mt/ipc_mt.c thread_run(void (*start)(void), void *stack)
+<a href='../S/962.html#L55'>stack</a>              55 usr/test/ipc_mt/ipc_mt.c 	error = thread_load(t, start, stack);
+<a href='../S/962.html#L125'>stack</a>             125 usr/test/ipc_mt/ipc_mt.c 		error = thread_run(receive_thread, stack[i] + 1024);
+<a href='../S/998.html#L40'>stack</a>              40 usr/test/task/task.c static char stack[NR_THREADS][1024];
+<a href='../S/998.html#L87'>stack</a>              87 usr/test/task/task.c 		error = thread_load(t, test_thread, stack[i]+1024);
+<a href='../S/1000.html#L37'>stack</a>              37 usr/test/thread/thread.c static char stack[1024];
+<a href='../S/1000.html#L40'>stack</a>              40 usr/test/thread/thread.c thread_run(void (*start)(void), char *stack)
+<a href='../S/1000.html#L48'>stack</a>              48 usr/test/thread/thread.c 	if ((error = thread_load(t, start, stack)) != 0)
+<a href='../S/1000.html#L79'>stack</a>              79 usr/test/thread/thread.c 	t = thread_run(test_thread, stack+1024);
+</pre>
+</body>
+</html>

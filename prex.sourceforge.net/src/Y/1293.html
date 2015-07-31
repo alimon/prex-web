@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mod</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/327.html#L545'>mod</a>               545 sys/kern/device.c 	struct module *mod;
+<a href='../S/327.html#L550'>mod</a>               550 sys/kern/device.c 	mod = &amp;bi-&gt;driver;
+<a href='../S/327.html#L551'>mod</a>               551 sys/kern/device.c 	if (mod == NULL) {
+<a href='../S/327.html#L555'>mod</a>               555 sys/kern/device.c 	entry = (void (*)(const dkifn_t *))mod-&gt;entry;
+<a href='../S/334.html#L475'>mod</a>               475 sys/kern/task.c 	struct module *mod;
+<a href='../S/334.html#L483'>mod</a>               483 sys/kern/task.c 	mod = &amp;bi-&gt;tasks[0];
+<a href='../S/334.html#L491'>mod</a>               491 sys/kern/task.c 		if ((error = vm_load(task-&gt;map, mod, &amp;stack)) != 0)
+<a href='../S/334.html#L493'>mod</a>               493 sys/kern/task.c 		task_setname(task, mod-&gt;name);
+<a href='../S/334.html#L509'>mod</a>               509 sys/kern/task.c 		error = thread_load(t, (void (*)(void))mod-&gt;entry, sp);
+<a href='../S/334.html#L516'>mod</a>               516 sys/kern/task.c 		mod++;
+<a href='../S/343.html#L674'>mod</a>               674 sys/mem/vm.c   vm_load(vm_map_t map, struct module *mod, void **stack)
+<a href='../S/343.html#L680'>mod</a>               680 sys/mem/vm.c   	DPRINTF(("Loading task: %s\n", mod-&gt;name));
+<a href='../S/343.html#L688'>mod</a>               688 sys/mem/vm.c   	src = ptokv(mod-&gt;phys);
+<a href='../S/343.html#L689'>mod</a>               689 sys/mem/vm.c   	text = (void *)mod-&gt;text;
+<a href='../S/343.html#L690'>mod</a>               690 sys/mem/vm.c   	data = (void *)mod-&gt;data;
+<a href='../S/343.html#L695'>mod</a>               695 sys/mem/vm.c   	error = do_allocate(map, &amp;text, mod-&gt;textsz, 0);
+<a href='../S/343.html#L698'>mod</a>               698 sys/mem/vm.c   	memcpy(text, src, mod-&gt;textsz);
+<a href='../S/343.html#L706'>mod</a>               706 sys/mem/vm.c   	if (mod-&gt;datasz + mod-&gt;bsssz != 0) {
+<a href='../S/343.html#L707'>mod</a>               707 sys/mem/vm.c   		error = do_allocate(map, &amp;data, mod-&gt;datasz + mod-&gt;bsssz, 0);
+<a href='../S/343.html#L710'>mod</a>               710 sys/mem/vm.c   		if (mod-&gt;datasz &gt; 0) {
+<a href='../S/343.html#L711'>mod</a>               711 sys/mem/vm.c   			src = src + (mod-&gt;data - mod-&gt;text);
+<a href='../S/343.html#L712'>mod</a>               712 sys/mem/vm.c   			memcpy(data, src, mod-&gt;datasz);
+<a href='../S/343.html#L724'>mod</a>               724 sys/mem/vm.c   	page_free(mod-&gt;phys, mod-&gt;size);
+<a href='../S/344.html#L454'>mod</a>               454 sys/mem/vm_nommu.c vm_load(vm_map_t map, struct module *mod, void **stack)
+<a href='../S/344.html#L460'>mod</a>               460 sys/mem/vm_nommu.c 	DPRINTF(("Loading task:\'%s\'\n", mod-&gt;name));
+<a href='../S/344.html#L465'>mod</a>               465 sys/mem/vm_nommu.c 	base = mod-&gt;text;
+<a href='../S/344.html#L466'>mod</a>               466 sys/mem/vm_nommu.c 	size = mod-&gt;textsz + mod-&gt;datasz + mod-&gt;bsssz;
+<a href='../S/344.html#L479'>mod</a>               479 sys/mem/vm_nommu.c 	if (mod-&gt;bsssz != 0)
+<a href='../S/344.html#L480'>mod</a>               480 sys/mem/vm_nommu.c 		memset((void *)(mod-&gt;data + mod-&gt;datasz), 0, mod-&gt;bsssz);
+</pre>
+</body>
+</html>

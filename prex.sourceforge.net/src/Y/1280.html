@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>memp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/478.html#L45'>memp</a>               45 usr/lib/libc/gen/execvp.c 	const char **memp;
+<a href='../S/478.html#L108'>memp</a>              108 usr/lib/libc/gen/execvp.c 			if ((memp = (const char **)(alloca((cnt + 2) * sizeof(*memp)))) == NULL)
+<a href='../S/478.html#L110'>memp</a>              110 usr/lib/libc/gen/execvp.c 			memp[0] = _PATH_BSHELL;
+<a href='../S/478.html#L111'>memp</a>              111 usr/lib/libc/gen/execvp.c 			memp[1] = bp;
+<a href='../S/478.html#L112'>memp</a>              112 usr/lib/libc/gen/execvp.c 			(void)memcpy(&amp;memp[2], &amp;argv[1], cnt * sizeof(*memp));
+<a href='../S/478.html#L113'>memp</a>              113 usr/lib/libc/gen/execvp.c 			(void)execve(_PATH_BSHELL, (char * const *)memp,
+</pre>
+</body>
+</html>

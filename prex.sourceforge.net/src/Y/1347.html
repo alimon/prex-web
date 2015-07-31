@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>nbyte</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L90'>nbyte</a>              90 bsp/drv/dev/base/cons.c cons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L95'>nbyte</a>              95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L99'>nbyte</a>              99 bsp/drv/dev/base/cons.c cons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L104'>nbyte</a>             104 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;write(dev, buf, nbyte, blkno);
+<a href='../S/64.html#L453'>nbyte</a>             453 bsp/drv/dev/base/tty.c tty_read(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L476'>nbyte</a>             476 bsp/drv/dev/base/tty.c 	while (count &lt; *nbyte) {
+<a href='../S/64.html#L489'>nbyte</a>             489 bsp/drv/dev/base/tty.c 	*nbyte = count;
+<a href='../S/64.html#L497'>nbyte</a>             497 bsp/drv/dev/base/tty.c tty_write(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L504'>nbyte</a>             504 bsp/drv/dev/base/tty.c 	remain = *nbyte;
+<a href='../S/64.html#L522'>nbyte</a>             522 bsp/drv/dev/base/tty.c 	*nbyte = count;
+<a href='../S/65.html#L117'>nbyte</a>             117 bsp/drv/dev/base/wscons.c wscons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L121'>nbyte</a>             121 bsp/drv/dev/base/wscons.c 	return tty_read(tty, buf, nbyte);
+<a href='../S/65.html#L125'>nbyte</a>             125 bsp/drv/dev/base/wscons.c wscons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L129'>nbyte</a>             129 bsp/drv/dev/base/wscons.c 	return tty_write(tty, buf, nbyte);
+<a href='../S/66.html#L558'>nbyte</a>             558 bsp/drv/dev/block/fdd.c fdd_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L565'>nbyte</a>             565 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_read: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L572'>nbyte</a>             572 bsp/drv/dev/block/fdd.c 	if ((kbuf = kmem_map(buf, *nbyte)) == NULL)
+<a href='../S/66.html#L575'>nbyte</a>             575 bsp/drv/dev/block/fdd.c 	nr_sect = *nbyte / SECTOR_SIZE;
+<a href='../S/66.html#L600'>nbyte</a>             600 bsp/drv/dev/block/fdd.c 	*nbyte = i * SECTOR_SIZE;
+<a href='../S/66.html#L614'>nbyte</a>             614 bsp/drv/dev/block/fdd.c fdd_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L621'>nbyte</a>             621 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_write: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L628'>nbyte</a>             628 bsp/drv/dev/block/fdd.c 	if ((kbuf = kmem_map(buf, *nbyte)) == NULL)
+<a href='../S/66.html#L631'>nbyte</a>             631 bsp/drv/dev/block/fdd.c 	nr_sect = *nbyte / SECTOR_SIZE;
+<a href='../S/66.html#L656'>nbyte</a>             656 bsp/drv/dev/block/fdd.c 	*nbyte = i * SECTOR_SIZE;
+<a href='../S/68.html#L78'>nbyte</a>              78 bsp/drv/dev/block/ramdisk.c ramdisk_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L86'>nbyte</a>              86 bsp/drv/dev/block/ramdisk.c 		 buf, *nbyte, blkno));
+<a href='../S/68.html#L93'>nbyte</a>              93 bsp/drv/dev/block/ramdisk.c 	nr_read = *nbyte;
+<a href='../S/68.html#L104'>nbyte</a>             104 bsp/drv/dev/block/ramdisk.c 	*nbyte = nr_read;
+<a href='../S/68.html#L109'>nbyte</a>             109 bsp/drv/dev/block/ramdisk.c ramdisk_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L117'>nbyte</a>             117 bsp/drv/dev/block/ramdisk.c 		 buf, *nbyte, blkno));
+<a href='../S/68.html#L122'>nbyte</a>             122 bsp/drv/dev/block/ramdisk.c 	nr_write = *nbyte;
+<a href='../S/68.html#L132'>nbyte</a>             132 bsp/drv/dev/block/ramdisk.c 	*nbyte = nr_write;
+<a href='../S/77.html#L194'>nbyte</a>             194 bsp/drv/dev/input/psaux.c psaux_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L63'>nbyte</a>              63 bsp/drv/dev/misc/null.c null_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L66'>nbyte</a>              66 bsp/drv/dev/misc/null.c 	*nbyte = 0;
+<a href='../S/79.html#L74'>nbyte</a>              74 bsp/drv/dev/misc/null.c null_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/80.html#L59'>nbyte</a>              59 bsp/drv/dev/misc/random.c random_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/80.html#L64'>nbyte</a>              64 bsp/drv/dev/misc/random.c 	*nbyte = 0;
+<a href='../S/81.html#L63'>nbyte</a>              63 bsp/drv/dev/misc/zero.c zero_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L68'>nbyte</a>              68 bsp/drv/dev/misc/zero.c 	if ((p = kmem_map(buf, *nbyte)) == NULL)
+<a href='../S/81.html#L71'>nbyte</a>              71 bsp/drv/dev/misc/zero.c 	memset(p, 0, *nbyte);
+<a href='../S/81.html#L79'>nbyte</a>              79 bsp/drv/dev/misc/zero.c zero_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L95'>nbyte</a>              95 bsp/drv/dev/serial/serial.c serial_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L99'>nbyte</a>              99 bsp/drv/dev/serial/serial.c 	return tty_read(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/89.html#L103'>nbyte</a>             103 bsp/drv/dev/serial/serial.c serial_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L107'>nbyte</a>             107 bsp/drv/dev/serial/serial.c 	return tty_write(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/267.html#L128'>nbyte</a>             128 include/sys/prex.h int	device_read(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L129'>nbyte</a>             129 include/sys/prex.h int	device_write(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/327.html#L362'>nbyte</a>             362 sys/kern/device.c device_read(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L374'>nbyte</a>             374 sys/kern/device.c 	if (copyin(nbyte, &amp;count, sizeof(count))) {
+<a href='../S/327.html#L383'>nbyte</a>             383 sys/kern/device.c 		error = copyout(&amp;count, nbyte, sizeof(count));
+<a href='../S/327.html#L395'>nbyte</a>             395 sys/kern/device.c device_write(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L407'>nbyte</a>             407 sys/kern/device.c 	if (copyin(nbyte, &amp;count, sizeof(count))) {
+<a href='../S/327.html#L416'>nbyte</a>             416 sys/kern/device.c 		error = copyout(&amp;count, nbyte, sizeof(count));
+</pre>
+</body>
+</html>

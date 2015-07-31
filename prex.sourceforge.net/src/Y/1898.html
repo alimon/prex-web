@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>set</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/438.html#L66'>set</a>                66 usr/include/signal.h #define	sigaddset(set, signo)	(*(set) |= 1 &lt;&lt; ((signo) - 1), 0)
+<a href='../S/438.html#L67'>set</a>                67 usr/include/signal.h #define	sigdelset(set, signo)	(*(set) &amp;= ~(1 &lt;&lt; ((signo) - 1)), 0)
+<a href='../S/438.html#L68'>set</a>                68 usr/include/signal.h #define	sigemptyset(set)	(*(set) = 0, 0)
+<a href='../S/438.html#L69'>set</a>                69 usr/include/signal.h #define	sigfillset(set)		(*(set) = ~(sigset_t)0, 0)
+<a href='../S/438.html#L70'>set</a>                70 usr/include/signal.h #define	sigismember(set, signo)	((*(set) &amp; (1 &lt;&lt; ((signo) - 1))) != 0)
+<a href='../S/549.html#L44'>set</a>                44 usr/lib/libc/stdio/tmpfile.c 	sigset_t set, oset;
+<a href='../S/549.html#L53'>set</a>                53 usr/lib/libc/stdio/tmpfile.c 	sigfillset(&amp;set);
+<a href='../S/549.html#L54'>set</a>                54 usr/lib/libc/stdio/tmpfile.c 	(void)sigprocmask(SIG_BLOCK, &amp;set, &amp;oset);
+<a href='../S/740.html#L37'>set</a>                37 usr/lib/posix/signal/sigpending.c sigpending(sigset_t *set)
+<a href='../S/740.html#L41'>set</a>                41 usr/lib/posix/signal/sigpending.c 	if (set == NULL) {
+<a href='../S/740.html#L49'>set</a>                49 usr/lib/posix/signal/sigpending.c 	*set = pending;
+<a href='../S/741.html#L37'>set</a>                37 usr/lib/posix/signal/sigprocmask.c sigprocmask(int how, const sigset_t *set, sigset_t *oldset)
+<a href='../S/741.html#L41'>set</a>                41 usr/lib/posix/signal/sigprocmask.c 	if (set != NULL)
+<a href='../S/741.html#L42'>set</a>                42 usr/lib/posix/signal/sigprocmask.c 		newset = *set;
+<a href='../S/741.html#L49'>set</a>                49 usr/lib/posix/signal/sigprocmask.c 	if (set != NULL) {
+<a href='../S/849.html#L215'>set</a>               215 usr/sample/tetris/screen.c scr_msg(char *s, int set)
+<a href='../S/849.html#L221'>set</a>               221 usr/sample/tetris/screen.c 	if (set)
+</pre>
+</body>
+</html>

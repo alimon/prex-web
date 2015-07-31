@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>args</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L607'>args</a>              607 bsp/drv/dev/base/kd.c 	static char *args[ARGMAX];
+<a href='../S/60.html#L624'>args</a>              624 bsp/drv/dev/base/kd.c 				args[argc++] = word;
+<a href='../S/60.html#L635'>args</a>              635 bsp/drv/dev/base/kd.c 		args[argc++] = word;
+<a href='../S/60.html#L636'>args</a>              636 bsp/drv/dev/base/kd.c 	args[argc] = NULL;
+<a href='../S/60.html#L639'>args</a>              639 bsp/drv/dev/base/kd.c 		if (kd_dispatch(argc, args))
+<a href='../S/326.html#L63'>args</a>               63 sys/kern/debug.c 	va_list args;
+<a href='../S/326.html#L68'>args</a>               68 sys/kern/debug.c 	va_start(args, fmt);
+<a href='../S/326.html#L69'>args</a>               69 sys/kern/debug.c 	vsprintf(db_msg, fmt, args);
+<a href='../S/326.html#L87'>args</a>               87 sys/kern/debug.c 	va_end(args);
+<a href='../S/339.html#L71'>args</a>               71 sys/lib/vsprintf.c vsprintf(char *buf, const char *fmt, va_list args)
+<a href='../S/339.html#L103'>args</a>              103 sys/lib/vsprintf.c 			*p++ = (char)va_arg(args, int);
+<a href='../S/339.html#L106'>args</a>              106 sys/lib/vsprintf.c 			str = va_arg(args, char *);
+<a href='../S/339.html#L127'>args</a>              127 sys/lib/vsprintf.c 		num = va_arg(args, long);
+<a href='../S/413.html#L201'>args</a>              201 usr/bin/sh/sh.c redirect(char **args, int *redir)
+<a href='../S/413.html#L207'>args</a>              207 usr/bin/sh/sh.c 	for (i = 0; args[i] != NULL; i++) {
+<a href='../S/413.html#L208'>args</a>              208 usr/bin/sh/sh.c 		p = args[i];
+<a href='../S/413.html#L225'>args</a>              225 usr/bin/sh/sh.c 		args[i] = (char *)-1;
+<a href='../S/413.html#L227'>args</a>              227 usr/bin/sh/sh.c 			file = args[++i];
+<a href='../S/413.html#L228'>args</a>              228 usr/bin/sh/sh.c 			args[i] = (char *)-1;
+<a href='../S/413.html#L252'>args</a>              252 usr/bin/sh/sh.c 	for (i = 0; args[i]; i++) {
+<a href='../S/413.html#L253'>args</a>              253 usr/bin/sh/sh.c 		if (args[i] != (char *)-1)
+<a href='../S/413.html#L254'>args</a>              254 usr/bin/sh/sh.c 			args[argc++] = args[i];
+<a href='../S/413.html#L256'>args</a>              256 usr/bin/sh/sh.c 	args[argc] = NULL;
+<a href='../S/413.html#L277'>args</a>              277 usr/bin/sh/sh.c 	static char *args[ARGMAX];
+<a href='../S/413.html#L296'>args</a>              296 usr/bin/sh/sh.c 				args[argc++] = word;
+<a href='../S/413.html#L310'>args</a>              310 usr/bin/sh/sh.c 		args[argc++] = word;
+<a href='../S/413.html#L311'>args</a>              311 usr/bin/sh/sh.c 	args[argc] = NULL;
+<a href='../S/413.html#L314'>args</a>              314 usr/bin/sh/sh.c 	if ((p = strchr(args[0], '=')) != NULL) {
+<a href='../S/413.html#L317'>args</a>              317 usr/bin/sh/sh.c 			unsetvar(args[0]);
+<a href='../S/413.html#L319'>args</a>              319 usr/bin/sh/sh.c 			setvar(args[0], p);
+<a href='../S/413.html#L323'>args</a>              323 usr/bin/sh/sh.c 	fn = findcmd(shell_cmds, args[0]);
+<a href='../S/413.html#L326'>args</a>              326 usr/bin/sh/sh.c 		if ((*fn)(argc, args) != 0)
+<a href='../S/413.html#L327'>args</a>              327 usr/bin/sh/sh.c 			error("%s: %s", args[0], strerror(errno));
+<a href='../S/413.html#L330'>args</a>              330 usr/bin/sh/sh.c 	argc = redirect(args, redir);
+<a href='../S/413.html#L334'>args</a>              334 usr/bin/sh/sh.c 	fn = findcmd(builtin_cmds, args[0]);
+<a href='../S/413.html#L339'>args</a>              339 usr/bin/sh/sh.c 	if (fn == NULL &amp;&amp; !strcmp(args[0], "sh")) {
+<a href='../S/413.html#L341'>args</a>              341 usr/bin/sh/sh.c 			args[i + 1] = args[i];
+<a href='../S/413.html#L342'>args</a>              342 usr/bin/sh/sh.c 		args[0] = cmdbox;
+<a href='../S/413.html#L345'>args</a>              345 usr/bin/sh/sh.c 	execute(argc, args, redir, flags, fn);
+<a href='../S/646.html#L43'>args</a>               43 usr/lib/libsa/printf.c 	va_list args;
+<a href='../S/646.html#L47'>args</a>               47 usr/lib/libsa/printf.c 	va_start(args, fmt);
+<a href='../S/646.html#L48'>args</a>               48 usr/lib/libsa/printf.c 	len = vsprintf(buf, fmt, args);
+<a href='../S/646.html#L50'>args</a>               50 usr/lib/libsa/printf.c 	va_end(args);
+<a href='../S/650.html#L87'>args</a>               87 usr/lib/libsa/vsprintf.c vsprintf(char *buf, const char *fmt, va_list args)
+<a href='../S/650.html#L119'>args</a>              119 usr/lib/libsa/vsprintf.c 			*p++ = (unsigned char)va_arg(args, int);
+<a href='../S/650.html#L122'>args</a>              122 usr/lib/libsa/vsprintf.c 			str = va_arg(args, char *);
+<a href='../S/650.html#L143'>args</a>              143 usr/lib/libsa/vsprintf.c 		num = va_arg(args, long);
+<a href='../S/650.html#L168'>args</a>              168 usr/lib/libsa/vsprintf.c 	va_list args;
+<a href='../S/650.html#L171'>args</a>              171 usr/lib/libsa/vsprintf.c 	va_start(args, fmt);
+<a href='../S/650.html#L172'>args</a>              172 usr/lib/libsa/vsprintf.c 	i = vsprintf(buf, fmt, args);
+<a href='../S/650.html#L173'>args</a>              173 usr/lib/libsa/vsprintf.c 	va_end(args);
+<a href='../S/667.html#L42'>args</a>               42 usr/lib/posix/file/fcntl.c 	va_list args;
+<a href='../S/667.html#L45'>args</a>               45 usr/lib/posix/file/fcntl.c 	va_start(args, cmd);
+<a href='../S/667.html#L46'>args</a>               46 usr/lib/posix/file/fcntl.c 	arg = va_arg(args, long);
+<a href='../S/667.html#L47'>args</a>               47 usr/lib/posix/file/fcntl.c 	va_end(args);
+<a href='../S/672.html#L44'>args</a>               44 usr/lib/posix/file/ioctl.c 	va_list args;
+<a href='../S/672.html#L48'>args</a>               48 usr/lib/posix/file/ioctl.c 	va_start(args, cmd);
+<a href='../S/672.html#L49'>args</a>               49 usr/lib/posix/file/ioctl.c 	argp = va_arg(args, char *);
+<a href='../S/672.html#L50'>args</a>               50 usr/lib/posix/file/ioctl.c 	va_end(args);
+<a href='../S/681.html#L43'>args</a>               43 usr/lib/posix/file/open.c 	va_list args;
+<a href='../S/681.html#L46'>args</a>               46 usr/lib/posix/file/open.c 	va_start(args, flags);
+<a href='../S/681.html#L47'>args</a>               47 usr/lib/posix/file/open.c 	mode = va_arg(args, int);
+<a href='../S/681.html#L48'>args</a>               48 usr/lib/posix/file/open.c 	va_end(args);
+<a href='../S/700.html#L36'>args</a>               36 usr/lib/posix/gen/syslog.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/700.html#L47'>args</a>               47 usr/lib/posix/gen/syslog.c 	va_list args;
+<a href='../S/700.html#L49'>args</a>               49 usr/lib/posix/gen/syslog.c 	va_start(args, fmt);
+<a href='../S/700.html#L50'>args</a>               50 usr/lib/posix/gen/syslog.c 	vsprintf(buf, fmt, args);
+<a href='../S/700.html#L52'>args</a>               52 usr/lib/posix/gen/syslog.c 	va_end(args);
+<a href='../S/747.html#L34'>args</a>               34 usr/lib/prex/gen/dprintf.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/747.html#L40'>args</a>               40 usr/lib/prex/gen/dprintf.c 	va_list args;
+<a href='../S/747.html#L42'>args</a>               42 usr/lib/prex/gen/dprintf.c 	va_start(args, fmt);
+<a href='../S/747.html#L43'>args</a>               43 usr/lib/prex/gen/dprintf.c 	vsprintf(buf, fmt, args);
+<a href='../S/747.html#L45'>args</a>               45 usr/lib/prex/gen/dprintf.c 	va_end(args);
+<a href='../S/749.html#L34'>args</a>               34 usr/lib/prex/gen/panic.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/749.html#L40'>args</a>               40 usr/lib/prex/gen/panic.c 	va_list args;
+<a href='../S/749.html#L42'>args</a>               42 usr/lib/prex/gen/panic.c 	va_start(args, fmt);
+<a href='../S/749.html#L43'>args</a>               43 usr/lib/prex/gen/panic.c 	vsprintf(buf, fmt, args);
+<a href='../S/749.html#L45'>args</a>               45 usr/lib/prex/gen/panic.c 	va_end(args);
+<a href='../S/967.html#L42'>args</a>               42 usr/test/kmon/kmon.c extern int dispatch_cmd(int argc, char **args);
+<a href='../S/967.html#L50'>args</a>               50 usr/test/kmon/kmon.c 	static char *args[ARGMAX];
+<a href='../S/967.html#L67'>args</a>               67 usr/test/kmon/kmon.c 				args[argc++] = word;
+<a href='../S/967.html#L78'>args</a>               78 usr/test/kmon/kmon.c 		args[argc++] = word;
+<a href='../S/967.html#L79'>args</a>               79 usr/test/kmon/kmon.c 	args[argc] = NULL;
+<a href='../S/967.html#L82'>args</a>               82 usr/test/kmon/kmon.c 		if (dispatch_cmd(argc, args))
+</pre>
+</body>
+</html>

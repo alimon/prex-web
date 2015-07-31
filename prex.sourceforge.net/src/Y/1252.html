@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mask_table</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/136.html#L73'>mask_table</a>         73 bsp/hal/arm/gba/interrupt.c static uint16_t mask_table[NIPLS];	/* Level -&gt; mask */
+<a href='../S/136.html#L78'>mask_table</a>         78 bsp/hal/arm/gba/interrupt.c #define update_mask()	ICU_IE = mask_table[irq_level]
+<a href='../S/136.html#L99'>mask_table</a>         99 bsp/hal/arm/gba/interrupt.c 		mask_table[i] |= unmask;
+<a href='../S/136.html#L115'>mask_table</a>        115 bsp/hal/arm/gba/interrupt.c 		mask_table[i] &amp;= mask;
+<a href='../S/136.html#L205'>mask_table</a>        205 bsp/hal/arm/gba/interrupt.c 		mask_table[i] = 0;
+<a href='../S/148.html#L66'>mask_table</a>         66 bsp/hal/arm/integrator/interrupt.c static uint32_t mask_table[NIPLS];	/* level -&gt; mask */
+<a href='../S/148.html#L74'>mask_table</a>         74 bsp/hal/arm/integrator/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/148.html#L99'>mask_table</a>         99 bsp/hal/arm/integrator/interrupt.c 		mask_table[i] |= unmask;
+<a href='../S/148.html#L115'>mask_table</a>        115 bsp/hal/arm/integrator/interrupt.c 		mask_table[i] &amp;= mask;
+<a href='../S/148.html#L185'>mask_table</a>        185 bsp/hal/arm/integrator/interrupt.c 		mask_table[i] = 0;
+<a href='../S/169.html#L68'>mask_table</a>         68 bsp/hal/ppc/prep/interrupt.c static u_int	mask_table[NIPLS];	/* Level -&gt; mask */
+<a href='../S/169.html#L76'>mask_table</a>         76 bsp/hal/ppc/prep/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/169.html#L100'>mask_table</a>        100 bsp/hal/ppc/prep/interrupt.c 		mask_table[i] &amp;= unmask;
+<a href='../S/169.html#L118'>mask_table</a>        118 bsp/hal/ppc/prep/interrupt.c 		mask_table[i] |= mask;
+<a href='../S/169.html#L221'>mask_table</a>        221 bsp/hal/ppc/prep/interrupt.c 		mask_table[i] = 0xfffb;
+<a href='../S/188.html#L66'>mask_table</a>         66 bsp/hal/x86/pc/interrupt.c static u_int	mask_table[NIPLS];	/* Level -&gt; mask */
+<a href='../S/188.html#L74'>mask_table</a>         74 bsp/hal/x86/pc/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/188.html#L98'>mask_table</a>         98 bsp/hal/x86/pc/interrupt.c 		mask_table[i] &amp;= unmask;
+<a href='../S/188.html#L116'>mask_table</a>        116 bsp/hal/x86/pc/interrupt.c 		mask_table[i] |= mask;
+<a href='../S/188.html#L198'>mask_table</a>        198 bsp/hal/x86/pc/interrupt.c 		mask_table[i] = 0xfffb;
+</pre>
+</body>
+</html>

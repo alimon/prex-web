@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>timep</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/636.html#L33'>timep</a>              33 usr/lib/libc/time/gmtime.c gmtime(const time_t *timep)
+<a href='../S/636.html#L37'>timep</a>              37 usr/lib/libc/time/gmtime.c 	return gmtime_r(timep, &amp;tm);
+<a href='../S/637.html#L43'>timep</a>              43 usr/lib/libc/time/gmtime_r.c gmtime_r(const time_t *timep, struct tm *tmp)
+<a href='../S/637.html#L49'>timep</a>              49 usr/lib/libc/time/gmtime_r.c 	t = *timep;
+<a href='../S/638.html#L33'>timep</a>              33 usr/lib/libc/time/localtime.c localtime(const time_t *timep)
+<a href='../S/638.html#L37'>timep</a>              37 usr/lib/libc/time/localtime.c 	return localtime_r(timep, &amp;tm);
+<a href='../S/639.html#L34'>timep</a>              34 usr/lib/libc/time/localtime_r.c localtime_r(const time_t* timep, struct tm* tmp)
+<a href='../S/639.html#L37'>timep</a>              37 usr/lib/libc/time/localtime_r.c 	return gmtime_r(timep, tmp);
+</pre>
+</body>
+</html>

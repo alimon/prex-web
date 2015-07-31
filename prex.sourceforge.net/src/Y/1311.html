@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L132'>mp</a>                132 include/sys/prex.h int	mutex_init(mutex_t *mp);
+<a href='../S/267.html#L133'>mp</a>                133 include/sys/prex.h int	mutex_destroy(mutex_t *mp);
+<a href='../S/267.html#L134'>mp</a>                134 include/sys/prex.h int	mutex_trylock(mutex_t *mp);
+<a href='../S/267.html#L135'>mp</a>                135 include/sys/prex.h int	mutex_lock(mutex_t *mp);
+<a href='../S/267.html#L136'>mp</a>                136 include/sys/prex.h int	mutex_unlock(mutex_t *mp);
+<a href='../S/267.html#L140'>mp</a>                140 include/sys/prex.h int	cond_wait(cond_t *cp, mutex_t *mp);
+<a href='../S/345.html#L137'>mp</a>                137 sys/sync/cond.c cond_wait(cond_t *cp, mutex_t *mp)
+<a href='../S/345.html#L159'>mp</a>                159 sys/sync/cond.c 	if ((error = mutex_unlock(mp)) != 0) {
+<a href='../S/345.html#L172'>mp</a>                172 sys/sync/cond.c 		error = mutex_lock(mp);
+<a href='../S/346.html#L94'>mp</a>                 94 sys/sync/mutex.c mutex_init(mutex_t *mp)
+<a href='../S/346.html#L110'>mp</a>                110 sys/sync/mutex.c 	if (copyout(&amp;m, mp, sizeof(m))) {
+<a href='../S/346.html#L139'>mp</a>                139 sys/sync/mutex.c mutex_destroy(mutex_t *mp)
+<a href='../S/346.html#L144'>mp</a>                144 sys/sync/mutex.c 	if (copyin(mp, &amp;m, sizeof(mp))) {
+<a href='../S/346.html#L187'>mp</a>                187 sys/sync/mutex.c mutex_lock(mutex_t *mp)
+<a href='../S/346.html#L193'>mp</a>                193 sys/sync/mutex.c 	if ((error = mutex_copyin(mp, &amp;m)) != 0) {
+<a href='../S/346.html#L241'>mp</a>                241 sys/sync/mutex.c mutex_trylock(mutex_t *mp)
+<a href='../S/346.html#L247'>mp</a>                247 sys/sync/mutex.c 	if ((error = mutex_copyin(mp, &amp;m)) != 0) {
+<a href='../S/346.html#L273'>mp</a>                273 sys/sync/mutex.c mutex_unlock(mutex_t *mp)
+<a href='../S/346.html#L279'>mp</a>                279 sys/sync/mutex.c 	if ((error = mutex_copyin(mp, &amp;m)) != 0) {
+<a href='../S/882.html#L49'>mp</a>                 49 usr/server/fs/arfs/arfs_vfsops.c static int arfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/882.html#L50'>mp</a>                 50 usr/server/fs/arfs/arfs_vfsops.c static int arfs_unmount	(mount_t mp);
+<a href='../S/882.html#L71'>mp</a>                 71 usr/server/fs/arfs/arfs_vfsops.c arfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/882.html#L84'>mp</a>                 84 usr/server/fs/arfs/arfs_vfsops.c 	error = device_read((device_t)mp-&gt;m_dev, buf, &amp;size, 0);
+<a href='../S/882.html#L98'>mp</a>                 98 usr/server/fs/arfs/arfs_vfsops.c 	mp-&gt;m_flags |= MNT_RDONLY;
+<a href='../S/882.html#L105'>mp</a>                105 usr/server/fs/arfs/arfs_vfsops.c arfs_unmount(mount_t mp)
+<a href='../S/883.html#L118'>mp</a>                118 usr/server/fs/arfs/arfs_vnops.c arfs_readblk(mount_t mp, int blkno)
+<a href='../S/883.html#L126'>mp</a>                126 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L131'>mp</a>                131 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno + 1, &amp;bp)) != 0)
+<a href='../S/883.html#L150'>mp</a>                150 usr/server/fs/arfs/arfs_vnops.c 	mount_t mp;
+<a href='../S/883.html#L160'>mp</a>                160 usr/server/fs/arfs/arfs_vnops.c 	mp = vp-&gt;v_mount;
+<a href='../S/883.html#L165'>mp</a>                165 usr/server/fs/arfs/arfs_vnops.c 		if (arfs_readblk(mp, blkno) != 0)
+<a href='../S/883.html#L211'>mp</a>                211 usr/server/fs/arfs/arfs_vnops.c 	mount_t mp;
+<a href='../S/883.html#L218'>mp</a>                218 usr/server/fs/arfs/arfs_vnops.c 	mp = vp-&gt;v_mount;
+<a href='../S/883.html#L239'>mp</a>                239 usr/server/fs/arfs/arfs_vnops.c 		if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L290'>mp</a>                290 usr/server/fs/arfs/arfs_vnops.c 	mount_t mp;
+<a href='../S/883.html#L297'>mp</a>                297 usr/server/fs/arfs/arfs_vnops.c 	mp = vp-&gt;v_mount;
+<a href='../S/883.html#L302'>mp</a>                302 usr/server/fs/arfs/arfs_vnops.c 		if ((error = arfs_readblk(mp, blkno)) != 0)
+<a href='../S/892.html#L47'>mp</a>                 47 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/892.html#L48'>mp</a>                 48 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_unmount(mount_t mp);
+<a href='../S/892.html#L50'>mp</a>                 50 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_vget	(mount_t mp, vnode_t vp);
+<a href='../S/892.html#L136'>mp</a>                136 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/892.html#L148'>mp</a>                148 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;dev = mp-&gt;m_dev;
+<a href='../S/892.html#L166'>mp</a>                166 usr/server/fs/fatfs/fatfs_vfsops.c 	mp-&gt;m_data = fmp;
+<a href='../S/892.html#L167'>mp</a>                167 usr/server/fs/fatfs/fatfs_vfsops.c 	vp = mp-&gt;m_root;
+<a href='../S/892.html#L183'>mp</a>                183 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_unmount(mount_t mp)
+<a href='../S/892.html#L187'>mp</a>                187 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp = mp-&gt;m_data;
+<a href='../S/892.html#L200'>mp</a>                200 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_vget(mount_t mp, vnode_t vp)
+<a href='../S/901.html#L39'>mp</a>                 39 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_mount(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/901.html#L40'>mp</a>                 40 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_unmount(mount_t mp);
+<a href='../S/901.html#L61'>mp</a>                 61 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/901.html#L71'>mp</a>                 71 usr/server/fs/ramfs/ramfs_vfsops.c 	mp-&gt;m_root-&gt;v_data = np;
+<a href='../S/901.html#L83'>mp</a>                 83 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_unmount(mount_t mp)
+<a href='../S/905.html#L147'>mp</a>                147 usr/server/fs/vfs/vfs.h int	 vfs_findroot(char *path, mount_t *mp, char **root);
+<a href='../S/905.html#L148'>mp</a>                148 usr/server/fs/vfs/vfs.h void	 vfs_busy(mount_t mp);
+<a href='../S/905.html#L149'>mp</a>                149 usr/server/fs/vfs/vfs.h void	 vfs_unbusy(mount_t mp);
+<a href='../S/908.html#L56'>mp</a>                 56 usr/server/fs/vfs/vfs_lookup.c 	mount_t mp;
+<a href='../S/908.html#L66'>mp</a>                 66 usr/server/fs/vfs/vfs_lookup.c 	if (vfs_findroot(path, &amp;mp, &amp;p))
+<a href='../S/908.html#L70'>mp</a>                 70 usr/server/fs/vfs/vfs_lookup.c 	vp = vn_lookup(mp, node);
+<a href='../S/908.html#L81'>mp</a>                 81 usr/server/fs/vfs/vfs_lookup.c 	if ((dvp = mp-&gt;m_root) == NULL)
+<a href='../S/908.html#L106'>mp</a>                106 usr/server/fs/vfs/vfs_lookup.c 		vp = vn_lookup(mp, node);
+<a href='../S/908.html#L108'>mp</a>                108 usr/server/fs/vfs/vfs_lookup.c 			vp = vget(mp, node);
+<a href='../S/909.html#L92'>mp</a>                 92 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L123'>mp</a>                123 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L124'>mp</a>                124 usr/server/fs/vfs/vfs_mount.c 		if (!strcmp(mp-&gt;m_path, dir) ||
+<a href='../S/909.html#L125'>mp</a>                125 usr/server/fs/vfs/vfs_mount.c 		    (device &amp;&amp; mp-&gt;m_dev == (dev_t)device)) {
+<a href='../S/909.html#L133'>mp</a>                133 usr/server/fs/vfs/vfs_mount.c 	if (!(mp = malloc(sizeof(struct mount)))) {
+<a href='../S/909.html#L137'>mp</a>                137 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_count = 0;
+<a href='../S/909.html#L138'>mp</a>                138 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_op = fs-&gt;vs_op;
+<a href='../S/909.html#L139'>mp</a>                139 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_flags = flags;
+<a href='../S/909.html#L140'>mp</a>                140 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_dev = (dev_t)device;
+<a href='../S/909.html#L141'>mp</a>                141 usr/server/fs/vfs/vfs_mount.c 	strlcpy(mp-&gt;m_path, dir, sizeof(mp-&gt;m_path));
+<a href='../S/909.html#L160'>mp</a>                160 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_covered = vp_covered;
+<a href='../S/909.html#L165'>mp</a>                165 usr/server/fs/vfs/vfs_mount.c 	if ((vp = vget(mp, "/")) == NULL) {
+<a href='../S/909.html#L172'>mp</a>                172 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_root = vp;
+<a href='../S/909.html#L177'>mp</a>                177 usr/server/fs/vfs/vfs_mount.c 	if ((error = VFS_MOUNT(mp, dev, flags, data)) != 0)
+<a href='../S/909.html#L180'>mp</a>                180 usr/server/fs/vfs/vfs_mount.c 	if (mp-&gt;m_flags &amp; MNT_RDONLY)
+<a href='../S/909.html#L193'>mp</a>                193 usr/server/fs/vfs/vfs_mount.c 	list_insert(&amp;mount_list, &amp;mp-&gt;m_link);
+<a href='../S/909.html#L203'>mp</a>                203 usr/server/fs/vfs/vfs_mount.c 	free(mp);
+<a href='../S/909.html#L214'>mp</a>                214 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L225'>mp</a>                225 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L226'>mp</a>                226 usr/server/fs/vfs/vfs_mount.c 		if (!strcmp(path, mp-&gt;m_path))
+<a href='../S/909.html#L236'>mp</a>                236 usr/server/fs/vfs/vfs_mount.c 	if (mp-&gt;m_covered == NULL) {
+<a href='../S/909.html#L240'>mp</a>                240 usr/server/fs/vfs/vfs_mount.c 	if ((error = VFS_UNMOUNT(mp)) != 0)
+<a href='../S/909.html#L242'>mp</a>                242 usr/server/fs/vfs/vfs_mount.c 	list_remove(&amp;mp-&gt;m_link);
+<a href='../S/909.html#L245'>mp</a>                245 usr/server/fs/vfs/vfs_mount.c 	vrele(mp-&gt;m_covered);
+<a href='../S/909.html#L248'>mp</a>                248 usr/server/fs/vfs/vfs_mount.c 	vflush(mp);
+<a href='../S/909.html#L251'>mp</a>                251 usr/server/fs/vfs/vfs_mount.c 	binval(mp-&gt;m_dev);
+<a href='../S/909.html#L253'>mp</a>                253 usr/server/fs/vfs/vfs_mount.c 	if (mp-&gt;m_dev)
+<a href='../S/909.html#L254'>mp</a>                254 usr/server/fs/vfs/vfs_mount.c 		device_close((device_t)mp-&gt;m_dev);
+<a href='../S/909.html#L255'>mp</a>                255 usr/server/fs/vfs/vfs_mount.c 	free(mp);
+<a href='../S/909.html#L264'>mp</a>                264 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L271'>mp</a>                271 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L272'>mp</a>                272 usr/server/fs/vfs/vfs_mount.c 		VFS_SYNC(mp);
+<a href='../S/909.html#L312'>mp</a>                312 usr/server/fs/vfs/vfs_mount.c vfs_findroot(char *path, mount_t *mp, char **root)
+<a href='../S/909.html#L339'>mp</a>                339 usr/server/fs/vfs/vfs_mount.c 	*mp = m;
+<a href='../S/909.html#L347'>mp</a>                347 usr/server/fs/vfs/vfs_mount.c vfs_busy(mount_t mp)
+<a href='../S/909.html#L351'>mp</a>                351 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_count++;
+<a href='../S/909.html#L360'>mp</a>                360 usr/server/fs/vfs/vfs_mount.c vfs_unbusy(mount_t mp)
+<a href='../S/909.html#L364'>mp</a>                364 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_count--;
+<a href='../S/909.html#L385'>mp</a>                385 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L394'>mp</a>                394 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L395'>mp</a>                395 usr/server/fs/vfs/vfs_mount.c 		dprintf("%8x %5d %s\n", mp-&gt;m_dev, mp-&gt;m_count, mp-&gt;m_path);
+<a href='../S/913.html#L89'>mp</a>                 89 usr/server/fs/vfs/vfs_vnode.c vn_hash(mount_t mp, char *path)
+<a href='../S/913.html#L97'>mp</a>                 97 usr/server/fs/vfs/vfs_vnode.c 	return (val ^ (u_int)mp) &amp; (VNODE_BUCKETS - 1);
+<a href='../S/913.html#L105'>mp</a>                105 usr/server/fs/vfs/vfs_vnode.c vn_lookup(mount_t mp, char *path)
+<a href='../S/913.html#L111'>mp</a>                111 usr/server/fs/vfs/vfs_vnode.c 	head = &amp;vnode_table[vn_hash(mp, path)];
+<a href='../S/913.html#L114'>mp</a>                114 usr/server/fs/vfs/vfs_vnode.c 		if (vp-&gt;v_mount == mp &amp;&amp;
+<a href='../S/913.html#L161'>mp</a>                161 usr/server/fs/vfs/vfs_vnode.c vget(mount_t mp, char *path)
+<a href='../S/913.html#L178'>mp</a>                178 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_mount = mp;
+<a href='../S/913.html#L180'>mp</a>                180 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_op = mp-&gt;m_op-&gt;vfs_vnops;
+<a href='../S/913.html#L188'>mp</a>                188 usr/server/fs/vfs/vfs_vnode.c 	if ((error = VFS_VGET(mp, vp)) != 0) {
+<a href='../S/913.html#L199'>mp</a>                199 usr/server/fs/vfs/vfs_vnode.c 	list_insert(&amp;vnode_table[vn_hash(mp, path)], &amp;vp-&gt;v_link);
+<a href='../S/913.html#L323'>mp</a>                323 usr/server/fs/vfs/vfs_vnode.c vflush(mount_t mp)
+<a href='../S/913.html#L334'>mp</a>                334 usr/server/fs/vfs/vfs_vnode.c 			if (vp-&gt;v_mount == mp) {
+<a href='../S/913.html#L428'>mp</a>                428 usr/server/fs/vfs/vfs_vnode.c 	mount_t mp;
+<a href='../S/913.html#L441'>mp</a>                441 usr/server/fs/vfs/vfs_vnode.c 			mp = vp-&gt;v_mount;
+<a href='../S/913.html#L444'>mp</a>                444 usr/server/fs/vfs/vfs_vnode.c 				(u_int)mp, type[vp-&gt;v_type], vp-&gt;v_refcnt,
+<a href='../S/913.html#L446'>mp</a>                446 usr/server/fs/vfs/vfs_vnode.c 				(strlen(mp-&gt;m_path) == 1) ? "\0" : mp-&gt;m_path,
+</pre>
+</body>
+</html>

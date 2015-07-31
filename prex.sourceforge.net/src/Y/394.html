@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>attr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L129'>attr</a>              129 bsp/drv/arm/gba/lcd.c lcd_set_attr(void *aux, int attr)
+<a href='../S/65.html#L63'>attr</a>               63 bsp/drv/dev/base/wscons.c 	int		attr;		/* current attribute */
+<a href='../S/65.html#L153'>attr</a>              153 bsp/drv/dev/base/wscons.c 	vops-&gt;set_attr(sc-&gt;vid_aux, sc-&gt;attr);
+<a href='../S/65.html#L307'>attr</a>              307 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = 0x0F;
+<a href='../S/65.html#L310'>attr</a>              310 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = 0x0F;
+<a href='../S/65.html#L315'>attr</a>              315 bsp/drv/dev/base/wscons.c 				sc-&gt;attr |= 0x80;
+<a href='../S/65.html#L320'>attr</a>              320 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = (sc-&gt;attr &amp; 0xf0) | color;
+<a href='../S/65.html#L325'>attr</a>              325 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = (sc-&gt;attr &amp; 0x0f) | (color &lt;&lt; 4);
+<a href='../S/65.html#L487'>attr</a>              487 bsp/drv/dev/base/wscons.c 	sc-&gt;attr = 0x0f;
+<a href='../S/91.html#L58'>attr</a>               58 bsp/drv/dev/video/vga.c 	int		attr;
+<a href='../S/91.html#L155'>attr</a>              155 bsp/drv/dev/video/vga.c 	sc-&gt;vram[row * sc-&gt;cols + col] = ch | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L178'>attr</a>              178 bsp/drv/dev/video/vga.c 		sc-&gt;vram[i] = ' ' | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L182'>attr</a>              182 bsp/drv/dev/video/vga.c vga_set_attr(void *aux, int attr)
+<a href='../S/91.html#L186'>attr</a>              186 bsp/drv/dev/video/vga.c 	sc-&gt;attr = attr;
+<a href='../S/91.html#L249'>attr</a>              249 bsp/drv/dev/video/vga.c 	sc-&gt;attr = 0x0f;
+<a href='../S/104.html#L43'>attr</a>               43 bsp/drv/include/wscons.h 	void	(*set_attr)  (void *aux, int attr);
+<a href='../S/343.html#L247'>attr</a>              247 sys/mem/vm.c   vm_attribute(task_t task, void *addr, int attr)
+<a href='../S/343.html#L252'>attr</a>              252 sys/mem/vm.c   	if (attr == 0 || attr &amp; ~(PROT_READ | PROT_WRITE)) {
+<a href='../S/343.html#L269'>attr</a>              269 sys/mem/vm.c   	error = do_attribute(task-&gt;map, addr, attr);
+<a href='../S/343.html#L276'>attr</a>              276 sys/mem/vm.c   do_attribute(vm_map_t map, void *addr, int attr)
+<a href='../S/343.html#L303'>attr</a>              303 sys/mem/vm.c   		if (!(attr &amp; PROT_WRITE))
+<a href='../S/343.html#L306'>attr</a>              306 sys/mem/vm.c   		if (attr &amp; PROT_WRITE)
+<a href='../S/344.html#L218'>attr</a>              218 sys/mem/vm_nommu.c vm_attribute(task_t task, void *addr, int attr)
+<a href='../S/344.html#L223'>attr</a>              223 sys/mem/vm_nommu.c 	if (attr == 0 || attr &amp; ~(PROT_READ | PROT_WRITE)) {
+<a href='../S/344.html#L240'>attr</a>              240 sys/mem/vm_nommu.c 	error = do_attribute(task-&gt;map, addr, attr);
+<a href='../S/344.html#L247'>attr</a>              247 sys/mem/vm_nommu.c do_attribute(vm_map_t map, void *addr, int attr)
+<a href='../S/344.html#L272'>attr</a>              272 sys/mem/vm_nommu.c 		if (!(attr &amp; PROT_WRITE))
+<a href='../S/344.html#L275'>attr</a>              275 sys/mem/vm_nommu.c 		if (attr &amp; PROT_WRITE)
+<a href='../S/888.html#L118'>attr</a>              118 usr/server/fs/fatfs/fatfs.h 	uint8_t		attr;
+<a href='../S/888.html#L146'>attr</a>              146 usr/server/fs/fatfs/fatfs.h #define IS_DIR(de)	(((de)-&gt;attr) &amp; FA_SUBDIR)
+<a href='../S/888.html#L147'>attr</a>              147 usr/server/fs/fatfs/fatfs.h #define IS_VOL(de)	(((de)-&gt;attr) &amp; FA_VOLID)
+<a href='../S/888.html#L212'>attr</a>              212 usr/server/fs/fatfs/fatfs.h void	 fat_mode_to_attr(mode_t mode, u_char *attr);
+<a href='../S/888.html#L213'>attr</a>              213 usr/server/fs/fatfs/fatfs.h void	 fat_attr_to_mode(u_char attr, mode_t *mode);
+<a href='../S/891.html#L158'>attr</a>              158 usr/server/fs/fatfs/fatfs_subr.c fat_mode_to_attr(mode_t mode, u_char *attr)
+<a href='../S/891.html#L161'>attr</a>              161 usr/server/fs/fatfs/fatfs_subr.c 	*attr = 0;
+<a href='../S/891.html#L163'>attr</a>              163 usr/server/fs/fatfs/fatfs_subr.c 		*attr |= FA_RDONLY;
+<a href='../S/891.html#L165'>attr</a>              165 usr/server/fs/fatfs/fatfs_subr.c 		*attr |= FA_HIDDEN;
+<a href='../S/891.html#L167'>attr</a>              167 usr/server/fs/fatfs/fatfs_subr.c 		*attr |= FA_SUBDIR;
+<a href='../S/891.html#L174'>attr</a>              174 usr/server/fs/fatfs/fatfs_subr.c fat_attr_to_mode(u_char attr, mode_t *mode)
+<a href='../S/891.html#L177'>attr</a>              177 usr/server/fs/fatfs/fatfs_subr.c 	if (attr &amp; FA_RDONLY)
+<a href='../S/891.html#L184'>attr</a>              184 usr/server/fs/fatfs/fatfs_subr.c 	if (attr &amp; FA_SUBDIR)
+<a href='../S/893.html#L154'>attr</a>              154 usr/server/fs/fatfs/fatfs_vnops.c 	fat_attr_to_mode(de-&gt;attr, &amp;vp-&gt;v_mode);
+<a href='../S/893.html#L355'>attr</a>              355 usr/server/fs/fatfs/fatfs_vnops.c 	if (de-&gt;attr &amp; FA_SUBDIR)
+<a href='../S/893.html#L357'>attr</a>              357 usr/server/fs/fatfs/fatfs_vnops.c 	else if (de-&gt;attr &amp; FA_DEVICE)
+<a href='../S/893.html#L406'>attr</a>              406 usr/server/fs/fatfs/fatfs_vnops.c 	fat_mode_to_attr(mode, &amp;de-&gt;attr);
+<a href='../S/893.html#L581'>attr</a>              581 usr/server/fs/fatfs/fatfs_vnops.c 	fat_mode_to_attr(mode, &amp;de-&gt;attr);
+<a href='../S/893.html#L591'>attr</a>              591 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;attr = FA_SUBDIR;
+<a href='../S/893.html#L597'>attr</a>              597 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;attr = FA_SUBDIR;
+<a href='../S/928.html#L51'>attr</a>               51 usr/test/attack/attack.c 	int attr	= random() &amp; 7;
+<a href='../S/928.html#L92'>attr</a>               92 usr/test/attack/attack.c 	vm_attribute(self, addr, attr);
+</pre>
+</body>
+</html>

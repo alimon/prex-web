@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>addr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/56.html#L40'>addr</a>               40 bsp/drv/arm/include/busio.h #define bus_read_8(addr)	(*((volatile uint8_t *)(addr)))
+<a href='../S/56.html#L41'>addr</a>               41 bsp/drv/arm/include/busio.h #define bus_read_16(addr)	(*((volatile uint16_t *)(addr)))
+<a href='../S/56.html#L42'>addr</a>               42 bsp/drv/arm/include/busio.h #define bus_read_32(addr)	(*((volatile uint32_t *)(addr)))
+<a href='../S/56.html#L44'>addr</a>               44 bsp/drv/arm/include/busio.h #define bus_write_8(addr, val)	(*((volatile uint8_t *)(addr)) = (val))
+<a href='../S/56.html#L45'>addr</a>               45 bsp/drv/arm/include/busio.h #define bus_write_16(addr, val)	(*((volatile uint16_t *)(addr)) = (val))
+<a href='../S/56.html#L46'>addr</a>               46 bsp/drv/arm/include/busio.h #define bus_write_32(addr, val)	(*((volatile uint32_t *)(addr)) = (val))
+<a href='../S/60.html#L445'>addr</a>              445 bsp/drv/dev/base/kd.c 	static vaddr_t addr;
+<a href='../S/60.html#L481'>addr</a>              481 bsp/drv/dev/base/kd.c 		addr = strtoul(p, NULL, 16);
+<a href='../S/60.html#L482'>addr</a>              482 bsp/drv/dev/base/kd.c 		if (addr == ULONG_MAX)
+<a href='../S/60.html#L486'>addr</a>              486 bsp/drv/dev/base/kd.c 	if ((kp = kmem_map((void *)addr, (size_t)len)) == NULL)
+<a href='../S/60.html#L491'>addr</a>              491 bsp/drv/dev/base/kd.c 			printf("\n%08lx: ", (long)addr);
+<a href='../S/60.html#L512'>addr</a>              512 bsp/drv/dev/base/kd.c 		addr += size;
+<a href='../S/60.html#L522'>addr</a>              522 bsp/drv/dev/base/kd.c 	vaddr_t addr;
+<a href='../S/60.html#L556'>addr</a>              556 bsp/drv/dev/base/kd.c 	addr = strtoul(pa, NULL, 16);
+<a href='../S/60.html#L557'>addr</a>              557 bsp/drv/dev/base/kd.c 	if (addr == ULONG_MAX)
+<a href='../S/60.html#L564'>addr</a>              564 bsp/drv/dev/base/kd.c 	if ((kp = kmem_map((void *)addr, (size_t)size)) == NULL)
+<a href='../S/60.html#L573'>addr</a>              573 bsp/drv/dev/base/kd.c 		*(char *)((char *)addr + i) = (char)(val &amp; 0xff);
+<a href='../S/68.html#L49'>addr</a>               49 bsp/drv/dev/block/ramdisk.c 	char		*addr;		/* base address of image */
+<a href='../S/68.html#L103'>addr</a>              103 bsp/drv/dev/block/ramdisk.c 	memcpy(kbuf, sc-&gt;addr + offset, nr_read);
+<a href='../S/68.html#L131'>addr</a>              131 bsp/drv/dev/block/ramdisk.c 	memcpy(sc-&gt;addr + offset, kbuf, nr_write);
+<a href='../S/68.html#L168'>addr</a>              168 bsp/drv/dev/block/ramdisk.c 	sc-&gt;addr = (char *)ptokv(phys-&gt;base);
+<a href='../S/68.html#L173'>addr</a>              173 bsp/drv/dev/block/ramdisk.c 	       (u_int)sc-&gt;addr, sc-&gt;size/1024);
+<a href='../S/72.html#L114'>addr</a>              114 bsp/drv/dev/dma/i8237.c 	int	addr;
+<a href='../S/72.html#L190'>addr</a>              190 bsp/drv/dev/dma/i8237.c dma_setup(dma_t handle, void *addr, u_long count, int read)
+<a href='../S/72.html#L199'>addr</a>              199 bsp/drv/dev/dma/i8237.c 	paddr = kvtop(addr);
+<a href='../S/72.html#L215'>addr</a>              215 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 0) &amp; 0xff));	/* Address low */
+<a href='../S/72.html#L216'>addr</a>              216 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 8) &amp; 0xff));	/* Address high */
+<a href='../S/94.html#L85'>addr</a>               85 bsp/drv/include/ddi.h void	 dma_setup(dma_t handle, void *addr, u_long count, int read);
+<a href='../S/117.html#L43'>addr</a>               43 bsp/drv/ppc/include/busio.h #define bus_read_8(addr)	(*((volatile uint8_t *)(IOBASE+addr)))
+<a href='../S/117.html#L44'>addr</a>               44 bsp/drv/ppc/include/busio.h #define bus_read_16(addr)	(*((volatile uint16_t *)(IOBASE+addr)))
+<a href='../S/117.html#L45'>addr</a>               45 bsp/drv/ppc/include/busio.h #define bus_read_32(addr)	(*((volatile uint32_t *)(IOBASE+addr)))
+<a href='../S/117.html#L47'>addr</a>               47 bsp/drv/ppc/include/busio.h #define bus_write_8(addr, val)	(*((volatile uint8_t *)(IOBASE+addr)) = (val))
+<a href='../S/117.html#L48'>addr</a>               48 bsp/drv/ppc/include/busio.h #define bus_write_16(addr, val)	(*((volatile uint16_t *)(IOBASE+addr)) = (val))
+<a href='../S/117.html#L49'>addr</a>               49 bsp/drv/ppc/include/busio.h #define bus_write_32(addr, val)	(*((volatile uint32_t *)(IOBASE+addr)) = (val))
+<a href='../S/123.html#L41'>addr</a>               41 bsp/drv/x86/include/busio.h void	 bus_write_8(int addr, uint8_t val);
+<a href='../S/123.html#L42'>addr</a>               42 bsp/drv/x86/include/busio.h void	 bus_write_16(int addr, uint16_t val);
+<a href='../S/123.html#L43'>addr</a>               43 bsp/drv/x86/include/busio.h void	 bus_write_32(int addr, uint32_t val);
+<a href='../S/123.html#L45'>addr</a>               45 bsp/drv/x86/include/busio.h uint8_t	 bus_read_8(int addr);
+<a href='../S/123.html#L46'>addr</a>               46 bsp/drv/x86/include/busio.h uint16_t bus_read_16(int addr);
+<a href='../S/123.html#L47'>addr</a>               47 bsp/drv/x86/include/busio.h uint32_t bus_read_32(int addr);
+<a href='../S/267.html#L108'>addr</a>              108 include/sys/prex.h int	vm_allocate(task_t task, void **addr, size_t size, int anywhere);
+<a href='../S/267.html#L109'>addr</a>              109 include/sys/prex.h int	vm_free(task_t task, void *addr);
+<a href='../S/267.html#L110'>addr</a>              110 include/sys/prex.h int	vm_attribute(task_t task, void *addr, int prot);
+<a href='../S/267.html#L111'>addr</a>              111 include/sys/prex.h int	vm_map(task_t target, void  *addr, size_t size, void **alloc);
+<a href='../S/323.html#L46'>addr</a>               46 sys/include/vm.h 	vaddr_t		addr;		/* base address */
+<a href='../S/341.html#L314'>addr</a>              314 sys/mem/kmem.c kmem_map(void *addr, size_t size)
+<a href='../S/341.html#L318'>addr</a>              318 sys/mem/kmem.c 	pa = vm_translate((vaddr_t)addr, size);
+<a href='../S/343.html#L85'>addr</a>               85 sys/mem/vm.c   vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L100'>addr</a>              100 sys/mem/vm.c   	if (copyin(addr, &amp;uaddr, sizeof(uaddr))) {
+<a href='../S/343.html#L104'>addr</a>              104 sys/mem/vm.c   	if (anywhere == 0 &amp;&amp; !user_area(*addr)) {
+<a href='../S/343.html#L111'>addr</a>              111 sys/mem/vm.c   		if (copyout(&amp;uaddr, addr, sizeof(uaddr)))
+<a href='../S/343.html#L119'>addr</a>              119 sys/mem/vm.c   do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L138'>addr</a>              138 sys/mem/vm.c   		start = trunc_page((vaddr_t)*addr);
+<a href='../S/343.html#L153'>addr</a>              153 sys/mem/vm.c   	if (mmu_map(map-&gt;pgd, pa, seg-&gt;addr, size, PG_WRITE))
+<a href='../S/343.html#L160'>addr</a>              160 sys/mem/vm.c   	*addr = (void *)seg-&gt;addr;
+<a href='../S/343.html#L182'>addr</a>              182 sys/mem/vm.c   vm_free(task_t task, void *addr)
+<a href='../S/343.html#L195'>addr</a>              195 sys/mem/vm.c   	if (!user_area(addr)) {
+<a href='../S/343.html#L200'>addr</a>              200 sys/mem/vm.c   	error = do_free(task-&gt;map, addr);
+<a href='../S/343.html#L207'>addr</a>              207 sys/mem/vm.c   do_free(vm_map_t map, void *addr)
+<a href='../S/343.html#L212'>addr</a>              212 sys/mem/vm.c   	va = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L218'>addr</a>              218 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L224'>addr</a>              224 sys/mem/vm.c   	mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,	seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L247'>addr</a>              247 sys/mem/vm.c   vm_attribute(task_t task, void *addr, int attr)
+<a href='../S/343.html#L264'>addr</a>              264 sys/mem/vm.c   	if (!user_area(addr)) {
+<a href='../S/343.html#L269'>addr</a>              269 sys/mem/vm.c   	error = do_attribute(task-&gt;map, addr, attr);
+<a href='../S/343.html#L276'>addr</a>              276 sys/mem/vm.c   do_attribute(vm_map_t map, void *addr, int attr)
+<a href='../S/343.html#L283'>addr</a>              283 sys/mem/vm.c   	va = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L289'>addr</a>              289 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L329'>addr</a>              329 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, new_pa, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L343'>addr</a>              343 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L357'>addr</a>              357 sys/mem/vm.c   vm_map(task_t target, void *addr, size_t size, void **alloc)
+<a href='../S/343.html#L374'>addr</a>              374 sys/mem/vm.c   	if (!user_area(addr)) {
+<a href='../S/343.html#L379'>addr</a>              379 sys/mem/vm.c   	error = do_map(target-&gt;map, addr, size, alloc);
+<a href='../S/343.html#L386'>addr</a>              386 sys/mem/vm.c   do_map(vm_map_t map, void *addr, size_t size, void **alloc)
+<a href='../S/343.html#L406'>addr</a>              406 sys/mem/vm.c   	start = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L407'>addr</a>              407 sys/mem/vm.c   	end = round_page((vaddr_t)addr + size);
+<a href='../S/343.html#L409'>addr</a>              409 sys/mem/vm.c   	offset = (size_t)((vaddr_t)addr - start);
+<a href='../S/343.html#L435'>addr</a>              435 sys/mem/vm.c   	pa = tgt-&gt;phys + (paddr_t)(start - tgt-&gt;addr);
+<a href='../S/343.html#L436'>addr</a>              436 sys/mem/vm.c   	if (mmu_map(curmap-&gt;pgd, pa, cur-&gt;addr, size, map_type)) {
+<a href='../S/343.html#L444'>addr</a>              444 sys/mem/vm.c   	tmp = (void *)(cur-&gt;addr + offset);
+<a href='../S/343.html#L495'>addr</a>              495 sys/mem/vm.c   			mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,
+<a href='../S/343.html#L617'>addr</a>              617 sys/mem/vm.c   			if (mmu_map(new_map-&gt;pgd, dest-&gt;phys, dest-&gt;addr,
+<a href='../S/343.html#L733'>addr</a>              733 sys/mem/vm.c   vm_translate(vaddr_t addr, size_t size)
+<a href='../S/343.html#L736'>addr</a>              736 sys/mem/vm.c   	return mmu_extract(curtask-&gt;map-&gt;pgd, addr, size);
+<a href='../S/343.html#L759'>addr</a>              759 sys/mem/vm.c   			info-&gt;virt = seg-&gt;addr;
+<a href='../S/343.html#L799'>addr</a>              799 sys/mem/vm.c   	seg-&gt;addr = PAGE_SIZE;
+<a href='../S/343.html#L810'>addr</a>              810 sys/mem/vm.c   seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/343.html#L817'>addr</a>              817 sys/mem/vm.c   	seg-&gt;addr = addr;
+<a href='../S/343.html#L855'>addr</a>              855 sys/mem/vm.c   seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L861'>addr</a>              861 sys/mem/vm.c   		if (seg-&gt;addr &lt;= addr &amp;&amp;
+<a href='../S/343.html#L862'>addr</a>              862 sys/mem/vm.c   		    seg-&gt;addr + seg-&gt;size &gt;= addr + size) {
+<a href='../S/343.html#L886'>addr</a>              886 sys/mem/vm.c   					       seg-&gt;addr + size,
+<a href='../S/343.html#L945'>addr</a>              945 sys/mem/vm.c   seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L953'>addr</a>              953 sys/mem/vm.c   	seg = seg_lookup(head, addr, size);
+<a href='../S/343.html#L961'>addr</a>              961 sys/mem/vm.c   	if (seg-&gt;addr != addr) {
+<a href='../S/343.html#L963'>addr</a>              963 sys/mem/vm.c   		diff = (size_t)(addr - seg-&gt;addr);
+<a href='../S/343.html#L964'>addr</a>              964 sys/mem/vm.c   		seg = seg_create(prev, addr, prev-&gt;size - diff);
+<a href='../S/343.html#L973'>addr</a>              973 sys/mem/vm.c   		next = seg_create(seg, seg-&gt;addr + size, seg-&gt;size - size);
+<a href='../S/344.html#L78'>addr</a>               78 sys/mem/vm_nommu.c vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L93'>addr</a>               93 sys/mem/vm_nommu.c 	if (copyin(addr, &amp;uaddr, sizeof(*addr))) {
+<a href='../S/344.html#L97'>addr</a>               97 sys/mem/vm_nommu.c 	if (anywhere == 0 &amp;&amp; !user_area(*addr)) {
+<a href='../S/344.html#L104'>addr</a>              104 sys/mem/vm_nommu.c 		if (copyout(&amp;uaddr, addr, sizeof(uaddr)))
+<a href='../S/344.html#L112'>addr</a>              112 sys/mem/vm_nommu.c do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L129'>addr</a>              129 sys/mem/vm_nommu.c 		start = seg-&gt;addr;
+<a href='../S/344.html#L131'>addr</a>              131 sys/mem/vm_nommu.c 		start = trunc_page((vaddr_t)*addr);
+<a href='../S/344.html#L142'>addr</a>              142 sys/mem/vm_nommu.c 	*addr = (void *)seg-&gt;addr;
+<a href='../S/344.html#L158'>addr</a>              158 sys/mem/vm_nommu.c vm_free(task_t task, void *addr)
+<a href='../S/344.html#L171'>addr</a>              171 sys/mem/vm_nommu.c 	if (!user_area(addr)) {
+<a href='../S/344.html#L176'>addr</a>              176 sys/mem/vm_nommu.c 	error = do_free(task-&gt;map, addr);
+<a href='../S/344.html#L183'>addr</a>              183 sys/mem/vm_nommu.c do_free(vm_map_t map, void *addr)
+<a href='../S/344.html#L188'>addr</a>              188 sys/mem/vm_nommu.c 	va = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L194'>addr</a>              194 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/344.html#L218'>addr</a>              218 sys/mem/vm_nommu.c vm_attribute(task_t task, void *addr, int attr)
+<a href='../S/344.html#L235'>addr</a>              235 sys/mem/vm_nommu.c 	if (!user_area(addr)) {
+<a href='../S/344.html#L240'>addr</a>              240 sys/mem/vm_nommu.c 	error = do_attribute(task-&gt;map, addr, attr);
+<a href='../S/344.html#L247'>addr</a>              247 sys/mem/vm_nommu.c do_attribute(vm_map_t map, void *addr, int attr)
+<a href='../S/344.html#L253'>addr</a>              253 sys/mem/vm_nommu.c 	va = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L259'>addr</a>              259 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/344.html#L291'>addr</a>              291 sys/mem/vm_nommu.c vm_map(task_t target, void *addr, size_t size, void **alloc)
+<a href='../S/344.html#L308'>addr</a>              308 sys/mem/vm_nommu.c 	if (!user_area(addr)) {
+<a href='../S/344.html#L313'>addr</a>              313 sys/mem/vm_nommu.c 	error = do_map(target-&gt;map, addr, size, alloc);
+<a href='../S/344.html#L320'>addr</a>              320 sys/mem/vm_nommu.c do_map(vm_map_t map, void *addr, size_t size, void **alloc)
+<a href='../S/344.html#L337'>addr</a>              337 sys/mem/vm_nommu.c 	start = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L338'>addr</a>              338 sys/mem/vm_nommu.c 	end = round_page((vaddr_t)addr + size);
+<a href='../S/344.html#L357'>addr</a>              357 sys/mem/vm_nommu.c 	copyout(&amp;addr, alloc, sizeof(addr));
+<a href='../S/344.html#L493'>addr</a>              493 sys/mem/vm_nommu.c vm_translate(vaddr_t addr, size_t size)
+<a href='../S/344.html#L496'>addr</a>              496 sys/mem/vm_nommu.c 	return (paddr_t)addr;
+<a href='../S/344.html#L519'>addr</a>              519 sys/mem/vm_nommu.c 			info-&gt;virt = seg-&gt;addr;
+<a href='../S/344.html#L549'>addr</a>              549 sys/mem/vm_nommu.c 	seg-&gt;addr = 0;
+<a href='../S/344.html#L560'>addr</a>              560 sys/mem/vm_nommu.c seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/344.html#L567'>addr</a>              567 sys/mem/vm_nommu.c 	seg-&gt;addr = addr;
+<a href='../S/344.html#L569'>addr</a>              569 sys/mem/vm_nommu.c 	seg-&gt;phys = (paddr_t)addr;
+<a href='../S/344.html#L605'>addr</a>              605 sys/mem/vm_nommu.c seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L611'>addr</a>              611 sys/mem/vm_nommu.c 		if (seg-&gt;addr &lt;= addr &amp;&amp;
+<a href='../S/344.html#L612'>addr</a>              612 sys/mem/vm_nommu.c 		    seg-&gt;addr + seg-&gt;size &gt;= addr + size) {
+<a href='../S/344.html#L666'>addr</a>              666 sys/mem/vm_nommu.c seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L671'>addr</a>              671 sys/mem/vm_nommu.c 	pa = (paddr_t)addr;
+<a href='../S/479.html#L942'>addr</a>              942 usr/lib/libc/gen/fts.c fts_padjust(FTS *sp, void *addr)
+<a href='../S/479.html#L948'>addr</a>              948 usr/lib/libc/gen/fts.c 	    (char *)addr + ((p)-&gt;fts_accpath - (p)-&gt;fts_path);		\
+<a href='../S/479.html#L949'>addr</a>              949 usr/lib/libc/gen/fts.c 	(p)-&gt;fts_path = addr;						\
+<a href='../S/752.html#L127'>addr</a>              127 usr/lib/prex/malloc/malloc.c free(void *addr)
+<a href='../S/752.html#L131'>addr</a>              131 usr/lib/prex/malloc/malloc.c 	if (addr == NULL)
+<a href='../S/752.html#L135'>addr</a>              135 usr/lib/prex/malloc/malloc.c 	p = (struct header *)addr - 1;
+<a href='../S/754.html#L52'>addr</a>               52 usr/lib/prex/malloc/malloc_r.c free_r(void *addr)
+<a href='../S/754.html#L55'>addr</a>               55 usr/lib/prex/malloc/malloc_r.c 	free(addr);
+<a href='../S/755.html#L35'>addr</a>               35 usr/lib/prex/malloc/realloc.c realloc(void *addr, size_t size)
+<a href='../S/755.html#L40'>addr</a>               40 usr/lib/prex/malloc/realloc.c 	if (addr == NULL)
+<a href='../S/755.html#L43'>addr</a>               43 usr/lib/prex/malloc/realloc.c 	old = (struct header *)addr - 1;
+<a href='../S/755.html#L52'>addr</a>               52 usr/lib/prex/malloc/realloc.c 		memcpy(p, addr, old_size);
+<a href='../S/755.html#L54'>addr</a>               54 usr/lib/prex/malloc/realloc.c 		memcpy(p, addr, size);
+<a href='../S/755.html#L55'>addr</a>               55 usr/lib/prex/malloc/realloc.c 	free(addr);
+<a href='../S/876.html#L62'>addr</a>               62 usr/server/exec/exec_elf.c 	void *addr, *mapped;
+<a href='../S/876.html#L74'>addr</a>               74 usr/server/exec/exec_elf.c 		addr = (void *)phdr-&gt;p_vaddr;
+<a href='../S/876.html#L79'>addr</a>               79 usr/server/exec/exec_elf.c 		if (vm_allocate(task, &amp;addr, size, 0) != 0)
+<a href='../S/876.html#L96'>addr</a>               96 usr/server/exec/exec_elf.c 			if (vm_attribute(task, addr, PROT_READ) != 0)
+<a href='../S/876.html#L199'>addr</a>              199 usr/server/exec/exec_elf.c 	void *base, *addr, *mapped;
+<a href='../S/876.html#L263'>addr</a>              263 usr/server/exec/exec_elf.c 			addr = (char *)((u_long)mapped + shdr-&gt;sh_addr);
+<a href='../S/876.html#L277'>addr</a>              277 usr/server/exec/exec_elf.c 			if ((addr = malloc(shdr-&gt;sh_size)) == NULL) {
+<a href='../S/876.html#L288'>addr</a>              288 usr/server/exec/exec_elf.c 		if (read(fd, addr, shdr-&gt;sh_size) &lt; 0) {
+<a href='../S/876.html#L292'>addr</a>              292 usr/server/exec/exec_elf.c 		sect_addr[i] = addr;
+<a href='../S/928.html#L50'>addr</a>               50 usr/test/attack/attack.c 	void *addr	= (void *)random();
+<a href='../S/928.html#L88'>addr</a>               88 usr/test/attack/attack.c 	vm_allocate(self, addr, size, 1);
+<a href='../S/928.html#L89'>addr</a>               89 usr/test/attack/attack.c 	vm_allocate(self, &amp;addr, size, 1);
+<a href='../S/928.html#L91'>addr</a>               91 usr/test/attack/attack.c 	vm_free(self, addr);
+<a href='../S/928.html#L92'>addr</a>               92 usr/test/attack/attack.c 	vm_attribute(self, addr, attr);
+<a href='../S/928.html#L93'>addr</a>               93 usr/test/attack/attack.c 	vm_map(self, addr, size, &amp;addr);
+</pre>
+</body>
+</html>

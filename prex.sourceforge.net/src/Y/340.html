@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ac</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/54.html#L226'>ac</a>                226 bsp/drv/arm/gba/swkbd.c 	u_char ac;
+<a href='../S/54.html#L229'>ac</a>                229 bsp/drv/arm/gba/swkbd.c 	ac = ki-&gt;normal;
+<a href='../S/54.html#L232'>ac</a>                232 bsp/drv/arm/gba/swkbd.c 	switch (ac) {
+<a href='../S/54.html#L250'>ac</a>                250 bsp/drv/arm/gba/swkbd.c 		if (ac &gt;= 'a' &amp;&amp; ac &lt;= 'z')
+<a href='../S/54.html#L251'>ac</a>                251 bsp/drv/arm/gba/swkbd.c 			ac = ac - 'a' + 0x01;
+<a href='../S/54.html#L252'>ac</a>                252 bsp/drv/arm/gba/swkbd.c 		else if (ac == '\\')
+<a href='../S/54.html#L253'>ac</a>                253 bsp/drv/arm/gba/swkbd.c 			ac = 0x1c;
+<a href='../S/54.html#L255'>ac</a>                255 bsp/drv/arm/gba/swkbd.c 			ac = 0;
+<a href='../S/54.html#L257'>ac</a>                257 bsp/drv/arm/gba/swkbd.c 		ac = ki-&gt;shifted;
+<a href='../S/54.html#L259'>ac</a>                259 bsp/drv/arm/gba/swkbd.c 	if (ac == 0)
+<a href='../S/54.html#L264'>ac</a>                264 bsp/drv/arm/gba/swkbd.c 		if (ac &gt;= 'A' &amp;&amp; ac &lt;= 'Z')
+<a href='../S/54.html#L265'>ac</a>                265 bsp/drv/arm/gba/swkbd.c 			ac += 'a' - 'A';
+<a href='../S/54.html#L266'>ac</a>                266 bsp/drv/arm/gba/swkbd.c 		else if (ac &gt;= 'a' &amp;&amp; ac &lt;= 'z')
+<a href='../S/54.html#L267'>ac</a>                267 bsp/drv/arm/gba/swkbd.c 			ac -= 'a' - 'A';
+<a href='../S/54.html#L272'>ac</a>                272 bsp/drv/arm/gba/swkbd.c 		ac |= 0x80;
+<a href='../S/54.html#L274'>ac</a>                274 bsp/drv/arm/gba/swkbd.c 	wscons_kbd_input(ac);
+</pre>
+</body>
+</html>

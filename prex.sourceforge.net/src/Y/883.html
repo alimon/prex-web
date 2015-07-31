@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fmp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L199'>fmp</a>               199 usr/server/fs/fatfs/fatfs.h int	 fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next);
+<a href='../S/888.html#L200'>fmp</a>               200 usr/server/fs/fatfs/fatfs.h int	 fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next);
+<a href='../S/888.html#L201'>fmp</a>               201 usr/server/fs/fatfs/fatfs.h int	 fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free);
+<a href='../S/888.html#L202'>fmp</a>               202 usr/server/fs/fatfs/fatfs.h int	 fat_free_clusters(struct fatfsmount *fmp, u_long start);
+<a href='../S/888.html#L203'>fmp</a>               203 usr/server/fs/fatfs/fatfs.h int	 fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/888.html#L205'>fmp</a>               205 usr/server/fs/fatfs/fatfs.h int	 fat_expand_file(struct fatfsmount *fmp, u_long cl, int size);
+<a href='../S/888.html#L206'>fmp</a>               206 usr/server/fs/fatfs/fatfs.h int	 fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl);
+<a href='../S/888.html#L217'>fmp</a>               217 usr/server/fs/fatfs/fatfs.h int	 fatfs_put_node(struct fatfsmount *fmp, struct fatfs_node *node);
+<a href='../S/889.html#L44'>fmp</a>                44 usr/server/fs/fatfs/fatfs_fat.c read_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L47'>fmp</a>                47 usr/server/fs/fatfs/fatfs_fat.c 	char *buf = fmp-&gt;fat_buf;
+<a href='../S/889.html#L52'>fmp</a>                52 usr/server/fs/fatfs/fatfs_fat.c 	if (FAT16(fmp))
+<a href='../S/889.html#L64'>fmp</a>                64 usr/server/fs/fatfs/fatfs_fat.c 	sec += fmp-&gt;fat_start;
+<a href='../S/889.html#L67'>fmp</a>                67 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/889.html#L72'>fmp</a>                72 usr/server/fs/fatfs/fatfs_fat.c 	if (!FAT12(fmp) || border == 0)
+<a href='../S/889.html#L76'>fmp</a>                76 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec + 1, &amp;bp)) != 0)
+<a href='../S/889.html#L87'>fmp</a>                87 usr/server/fs/fatfs/fatfs_fat.c write_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L90'>fmp</a>                90 usr/server/fs/fatfs/fatfs_fat.c 	char *buf = fmp-&gt;fat_buf;
+<a href='../S/889.html#L95'>fmp</a>                95 usr/server/fs/fatfs/fatfs_fat.c 	if (FAT16(fmp))
+<a href='../S/889.html#L103'>fmp</a>               103 usr/server/fs/fatfs/fatfs_fat.c 	sec += fmp-&gt;fat_start;
+<a href='../S/889.html#L106'>fmp</a>               106 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/889.html#L111'>fmp</a>               111 usr/server/fs/fatfs/fatfs_fat.c 	if (!FAT12(fmp) || border == 0)
+<a href='../S/889.html#L115'>fmp</a>               115 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec + 1);
+<a href='../S/889.html#L128'>fmp</a>               128 usr/server/fs/fatfs/fatfs_fat.c fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next)
+<a href='../S/889.html#L135'>fmp</a>               135 usr/server/fs/fatfs/fatfs_fat.c 	error = read_fat_entry(fmp, cl);
+<a href='../S/889.html#L140'>fmp</a>               140 usr/server/fs/fatfs/fatfs_fat.c 	if (FAT16(fmp))
+<a href='../S/889.html#L146'>fmp</a>               146 usr/server/fs/fatfs/fatfs_fat.c 	val = *((uint16_t *)(fmp-&gt;fat_buf + offset));
+<a href='../S/889.html#L149'>fmp</a>               149 usr/server/fs/fatfs/fatfs_fat.c 	if (FAT12(fmp)) {
+<a href='../S/889.html#L167'>fmp</a>               167 usr/server/fs/fatfs/fatfs_fat.c fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next)
+<a href='../S/889.html#L170'>fmp</a>               170 usr/server/fs/fatfs/fatfs_fat.c 	char *buf = fmp-&gt;fat_buf;
+<a href='../S/889.html#L175'>fmp</a>               175 usr/server/fs/fatfs/fatfs_fat.c 	error = read_fat_entry(fmp, cl);
+<a href='../S/889.html#L180'>fmp</a>               180 usr/server/fs/fatfs/fatfs_fat.c 	if (FAT16(fmp))
+<a href='../S/889.html#L186'>fmp</a>               186 usr/server/fs/fatfs/fatfs_fat.c 	val = (uint16_t)(next &amp; fmp-&gt;fat_mask);
+<a href='../S/889.html#L187'>fmp</a>               187 usr/server/fs/fatfs/fatfs_fat.c 	if (FAT12(fmp)) {
+<a href='../S/889.html#L200'>fmp</a>               200 usr/server/fs/fatfs/fatfs_fat.c 	error = write_fat_entry(fmp, cl);
+<a href='../S/889.html#L212'>fmp</a>               212 usr/server/fs/fatfs/fatfs_fat.c fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free)
+<a href='../S/889.html#L218'>fmp</a>               218 usr/server/fs/fatfs/fatfs_fat.c 		scan_start = fmp-&gt;free_scan;
+<a href='../S/889.html#L224'>fmp</a>               224 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L232'>fmp</a>               232 usr/server/fs/fatfs/fatfs_fat.c 		if (++cl &gt;= fmp-&gt;last_cluster)
+<a href='../S/889.html#L244'>fmp</a>               244 usr/server/fs/fatfs/fatfs_fat.c fat_free_clusters(struct fatfsmount *fmp, u_long start)
+<a href='../S/889.html#L253'>fmp</a>               253 usr/server/fs/fatfs/fatfs_fat.c 	while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/889.html#L254'>fmp</a>               254 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L257'>fmp</a>               257 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_set_cluster(fmp, cl, CL_FREE);
+<a href='../S/889.html#L263'>fmp</a>               263 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, cl, CL_FREE);
+<a href='../S/889.html#L278'>fmp</a>               278 usr/server/fs/fatfs/fatfs_fat.c fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L284'>fmp</a>               284 usr/server/fs/fatfs/fatfs_fat.c 	if (start &gt; fmp-&gt;last_cluster)
+<a href='../S/889.html#L288'>fmp</a>               288 usr/server/fs/fatfs/fatfs_fat.c 	target = offset / fmp-&gt;cluster_size;
+<a href='../S/889.html#L290'>fmp</a>               290 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, c, &amp;c);
+<a href='../S/889.html#L293'>fmp</a>               293 usr/server/fs/fatfs/fatfs_fat.c 		if (IS_EOFCL(fmp, c))
+<a href='../S/889.html#L308'>fmp</a>               308 usr/server/fs/fatfs/fatfs_fat.c fat_expand_file(struct fatfsmount *fmp, u_long cl, int size)
+<a href='../S/889.html#L314'>fmp</a>               314 usr/server/fs/fatfs/fatfs_fat.c 	cl_len = size / fmp-&gt;cluster_size + 1;
+<a href='../S/889.html#L317'>fmp</a>               317 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L320'>fmp</a>               320 usr/server/fs/fatfs/fatfs_fat.c 		if (alloc || next &gt;= fmp-&gt;fat_eof) {
+<a href='../S/889.html#L321'>fmp</a>               321 usr/server/fs/fatfs/fatfs_fat.c 			error = fat_alloc_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L327'>fmp</a>               327 usr/server/fs/fatfs/fatfs_fat.c 			error = fat_set_cluster(fmp, cl, next);
+<a href='../S/889.html#L334'>fmp</a>               334 usr/server/fs/fatfs/fatfs_fat.c 		fat_set_cluster(fmp, cl, fmp-&gt;fat_eof);	/* add eof */
+<a href='../S/889.html#L349'>fmp</a>               349 usr/server/fs/fatfs/fatfs_fat.c fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl)
+<a href='../S/889.html#L355'>fmp</a>               355 usr/server/fs/fatfs/fatfs_fat.c 	while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/889.html#L356'>fmp</a>               356 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L362'>fmp</a>               362 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_alloc_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L366'>fmp</a>               366 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, cl, next);
+<a href='../S/889.html#L370'>fmp</a>               370 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, next, fmp-&gt;fat_eof);
+<a href='../S/890.html#L45'>fmp</a>                45 usr/server/fs/fatfs/fatfs_node.c fat_read_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L50'>fmp</a>                50 usr/server/fs/fatfs/fatfs_node.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/890.html#L52'>fmp</a>                52 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/890.html#L61'>fmp</a>                61 usr/server/fs/fatfs/fatfs_node.c fat_write_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L65'>fmp</a>                65 usr/server/fs/fatfs/fatfs_node.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/890.html#L66'>fmp</a>                66 usr/server/fs/fatfs/fatfs_node.c 	memcpy(bp-&gt;b_data, fmp-&gt;dir_buf, SEC_SIZE);
+<a href='../S/890.html#L80'>fmp</a>                80 usr/server/fs/fatfs/fatfs_node.c fat_lookup_dirent(struct fatfsmount *fmp, u_long sec, char *name,
+<a href='../S/890.html#L86'>fmp</a>                86 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, sec);
+<a href='../S/890.html#L90'>fmp</a>                90 usr/server/fs/fatfs/fatfs_node.c 	de = (struct fat_dirent *)fmp-&gt;dir_buf;
+<a href='../S/890.html#L123'>fmp</a>               123 usr/server/fs/fatfs/fatfs_node.c 	struct fatfsmount *fmp;
+<a href='../S/890.html#L136'>fmp</a>               136 usr/server/fs/fatfs/fatfs_node.c 	fmp = (struct fatfsmount *)dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/890.html#L140'>fmp</a>               140 usr/server/fs/fatfs/fatfs_node.c 		for (sec = fmp-&gt;root_start; sec &lt; fmp-&gt;data_start; sec++) {
+<a href='../S/890.html#L141'>fmp</a>               141 usr/server/fs/fatfs/fatfs_node.c 			error = fat_lookup_dirent(fmp, sec, fat_name, np);
+<a href='../S/890.html#L147'>fmp</a>               147 usr/server/fs/fatfs/fatfs_node.c 		while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/890.html#L148'>fmp</a>               148 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L149'>fmp</a>               149 usr/server/fs/fatfs/fatfs_node.c 			for (i = 0; i &lt; fmp-&gt;sec_per_cl; i++) {
+<a href='../S/890.html#L150'>fmp</a>               150 usr/server/fs/fatfs/fatfs_node.c 				error = fat_lookup_dirent(fmp, sec, fat_name,
+<a href='../S/890.html#L156'>fmp</a>               156 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/890.html#L175'>fmp</a>               175 usr/server/fs/fatfs/fatfs_node.c fat_get_dirent(struct fatfsmount *fmp, u_long sec, int target, int *index,
+<a href='../S/890.html#L181'>fmp</a>               181 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, sec);
+<a href='../S/890.html#L185'>fmp</a>               185 usr/server/fs/fatfs/fatfs_node.c 	de = (struct fat_dirent *)fmp-&gt;dir_buf;
+<a href='../S/890.html#L216'>fmp</a>               216 usr/server/fs/fatfs/fatfs_node.c 	struct fatfsmount *fmp;
+<a href='../S/890.html#L220'>fmp</a>               220 usr/server/fs/fatfs/fatfs_node.c 	fmp = (struct fatfsmount *)dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/890.html#L228'>fmp</a>               228 usr/server/fs/fatfs/fatfs_node.c 		for (sec = fmp-&gt;root_start; sec &lt; fmp-&gt;data_start; sec++) {
+<a href='../S/890.html#L229'>fmp</a>               229 usr/server/fs/fatfs/fatfs_node.c 			error = fat_get_dirent(fmp, sec, index, &amp;cur_index, np);
+<a href='../S/890.html#L235'>fmp</a>               235 usr/server/fs/fatfs/fatfs_node.c 		while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/890.html#L236'>fmp</a>               236 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L237'>fmp</a>               237 usr/server/fs/fatfs/fatfs_node.c 			for (i = 0; i &lt; fmp-&gt;sec_per_cl; i++) {
+<a href='../S/890.html#L238'>fmp</a>               238 usr/server/fs/fatfs/fatfs_node.c 				error = fat_get_dirent(fmp, sec, index,
+<a href='../S/890.html#L244'>fmp</a>               244 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/890.html#L260'>fmp</a>               260 usr/server/fs/fatfs/fatfs_node.c fat_add_dirent(struct fatfsmount *fmp, u_long sec, struct fatfs_node *np)
+<a href='../S/890.html#L265'>fmp</a>               265 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, sec);
+<a href='../S/890.html#L269'>fmp</a>               269 usr/server/fs/fatfs/fatfs_node.c 	de = (struct fat_dirent *)fmp-&gt;dir_buf;
+<a href='../S/890.html#L281'>fmp</a>               281 usr/server/fs/fatfs/fatfs_node.c 	error = fat_write_dirent(fmp, sec);
+<a href='../S/890.html#L294'>fmp</a>               294 usr/server/fs/fatfs/fatfs_node.c 	struct fatfsmount *fmp;
+<a href='../S/890.html#L299'>fmp</a>               299 usr/server/fs/fatfs/fatfs_node.c 	fmp = (struct fatfsmount *)dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/890.html#L306'>fmp</a>               306 usr/server/fs/fatfs/fatfs_node.c 		for (sec = fmp-&gt;root_start; sec &lt; fmp-&gt;data_start; sec++) {
+<a href='../S/890.html#L307'>fmp</a>               307 usr/server/fs/fatfs/fatfs_node.c 			error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L313'>fmp</a>               313 usr/server/fs/fatfs/fatfs_node.c 		while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/890.html#L314'>fmp</a>               314 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L315'>fmp</a>               315 usr/server/fs/fatfs/fatfs_node.c 			for (i = 0; i &lt; fmp-&gt;sec_per_cl; i++) {
+<a href='../S/890.html#L316'>fmp</a>               316 usr/server/fs/fatfs/fatfs_node.c 				error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L321'>fmp</a>               321 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/890.html#L328'>fmp</a>               328 usr/server/fs/fatfs/fatfs_node.c 		error = fat_expand_dir(fmp, cl, &amp;next);
+<a href='../S/890.html#L333'>fmp</a>               333 usr/server/fs/fatfs/fatfs_node.c 		memset(fmp-&gt;dir_buf, 0, SEC_SIZE);
+<a href='../S/890.html#L334'>fmp</a>               334 usr/server/fs/fatfs/fatfs_node.c 		sec = cl_to_sec(fmp, next);
+<a href='../S/890.html#L335'>fmp</a>               335 usr/server/fs/fatfs/fatfs_node.c 		for (i = 0; i &lt; fmp-&gt;sec_per_cl; i++) {
+<a href='../S/890.html#L336'>fmp</a>               336 usr/server/fs/fatfs/fatfs_node.c 			error = fat_write_dirent(fmp, sec);
+<a href='../S/890.html#L342'>fmp</a>               342 usr/server/fs/fatfs/fatfs_node.c 		sec = cl_to_sec(fmp, next);
+<a href='../S/890.html#L343'>fmp</a>               343 usr/server/fs/fatfs/fatfs_node.c 		error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L355'>fmp</a>               355 usr/server/fs/fatfs/fatfs_node.c fatfs_put_node(struct fatfsmount *fmp, struct fatfs_node *np)
+<a href='../S/890.html#L359'>fmp</a>               359 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, np-&gt;sector);
+<a href='../S/890.html#L363'>fmp</a>               363 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf + np-&gt;offset, &amp;np-&gt;dirent,
+<a href='../S/890.html#L366'>fmp</a>               366 usr/server/fs/fatfs/fatfs_node.c 	error = fat_write_dirent(fmp, np-&gt;sector);
+<a href='../S/892.html#L70'>fmp</a>                70 usr/server/fs/fatfs/fatfs_vfsops.c fat_read_bpb(struct fatfsmount *fmp)
+<a href='../S/892.html#L82'>fmp</a>                82 usr/server/fs/fatfs/fatfs_vfsops.c 	error = device_read(fmp-&gt;dev, bpb, &amp;size, 0);
+<a href='../S/892.html#L94'>fmp</a>                94 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;fat_start = bpb-&gt;hidden_sectors + bpb-&gt;reserved_sectors;
+<a href='../S/892.html#L95'>fmp</a>                95 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;root_start = fmp-&gt;fat_start +
+<a href='../S/892.html#L97'>fmp</a>                97 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;data_start =
+<a href='../S/892.html#L98'>fmp</a>                98 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;root_start + (bpb-&gt;root_entries / DIR_PER_SEC);
+<a href='../S/892.html#L99'>fmp</a>                99 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;sec_per_cl = bpb-&gt;sectors_per_cluster;
+<a href='../S/892.html#L100'>fmp</a>               100 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;cluster_size = bpb-&gt;sectors_per_cluster * SEC_SIZE;
+<a href='../S/892.html#L101'>fmp</a>               101 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;last_cluster = (bpb-&gt;total_sectors - fmp-&gt;data_start) /
+<a href='../S/892.html#L103'>fmp</a>               103 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;free_scan = CL_FIRST;
+<a href='../S/892.html#L106'>fmp</a>               106 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;fat_type = 12;
+<a href='../S/892.html#L107'>fmp</a>               107 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;fat_mask = FAT12_MASK;
+<a href='../S/892.html#L108'>fmp</a>               108 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;fat_eof = CL_EOF &amp; FAT12_MASK;
+<a href='../S/892.html#L110'>fmp</a>               110 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;fat_type = 16;
+<a href='../S/892.html#L111'>fmp</a>               111 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;fat_mask = FAT16_MASK;
+<a href='../S/892.html#L112'>fmp</a>               112 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;fat_eof = CL_EOF &amp; FAT16_MASK;
+<a href='../S/892.html#L126'>fmp</a>               126 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("cluster size:%u sectors\n", (int)fmp-&gt;sec_per_cl));
+<a href='../S/892.html#L127'>fmp</a>               127 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("fat_type    :FAT%u\n", (int)fmp-&gt;fat_type));
+<a href='../S/892.html#L128'>fmp</a>               128 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("fat_eof     :0x%x\n\n", (int)fmp-&gt;fat_eof));
+<a href='../S/892.html#L138'>fmp</a>               138 usr/server/fs/fatfs/fatfs_vfsops.c 	struct fatfsmount *fmp;
+<a href='../S/892.html#L144'>fmp</a>               144 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp = malloc(sizeof(struct fatfsmount));
+<a href='../S/892.html#L145'>fmp</a>               145 usr/server/fs/fatfs/fatfs_vfsops.c 	if (fmp == NULL)
+<a href='../S/892.html#L148'>fmp</a>               148 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;dev = mp-&gt;m_dev;
+<a href='../S/892.html#L149'>fmp</a>               149 usr/server/fs/fatfs/fatfs_vfsops.c 	if (fat_read_bpb(fmp) != 0)
+<a href='../S/892.html#L153'>fmp</a>               153 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;io_buf = malloc(fmp-&gt;sec_per_cl * SEC_SIZE);
+<a href='../S/892.html#L154'>fmp</a>               154 usr/server/fs/fatfs/fatfs_vfsops.c 	if (fmp-&gt;io_buf == NULL)
+<a href='../S/892.html#L157'>fmp</a>               157 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;fat_buf = malloc(SEC_SIZE * 2);
+<a href='../S/892.html#L158'>fmp</a>               158 usr/server/fs/fatfs/fatfs_vfsops.c 	if (fmp-&gt;fat_buf == NULL)
+<a href='../S/892.html#L161'>fmp</a>               161 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;dir_buf = malloc(SEC_SIZE);
+<a href='../S/892.html#L162'>fmp</a>               162 usr/server/fs/fatfs/fatfs_vfsops.c 	if (fmp-&gt;dir_buf == NULL)
+<a href='../S/892.html#L165'>fmp</a>               165 usr/server/fs/fatfs/fatfs_vfsops.c 	mutex_init(&amp;fmp-&gt;lock);
+<a href='../S/892.html#L166'>fmp</a>               166 usr/server/fs/fatfs/fatfs_vfsops.c 	mp-&gt;m_data = fmp;
+<a href='../S/892.html#L171'>fmp</a>               171 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;fat_buf);
+<a href='../S/892.html#L173'>fmp</a>               173 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;io_buf);
+<a href='../S/892.html#L175'>fmp</a>               175 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp);
+<a href='../S/892.html#L185'>fmp</a>               185 usr/server/fs/fatfs/fatfs_vfsops.c 	struct fatfsmount *fmp;
+<a href='../S/892.html#L187'>fmp</a>               187 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp = mp-&gt;m_data;
+<a href='../S/892.html#L188'>fmp</a>               188 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;dir_buf);
+<a href='../S/892.html#L189'>fmp</a>               189 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;fat_buf);
+<a href='../S/892.html#L190'>fmp</a>               190 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp-&gt;io_buf);
+<a href='../S/892.html#L191'>fmp</a>               191 usr/server/fs/fatfs/fatfs_vfsops.c 	mutex_destroy(&amp;fmp-&gt;lock);
+<a href='../S/892.html#L192'>fmp</a>               192 usr/server/fs/fatfs/fatfs_vfsops.c 	free(fmp);
+<a href='../S/893.html#L101'>fmp</a>               101 usr/server/fs/fatfs/fatfs_vnops.c fat_read_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L106'>fmp</a>               106 usr/server/fs/fatfs/fatfs_vnops.c 	sec = cl_to_sec(fmp, cluster);
+<a href='../S/893.html#L107'>fmp</a>               107 usr/server/fs/fatfs/fatfs_vnops.c 	size = fmp-&gt;sec_per_cl * SEC_SIZE;
+<a href='../S/893.html#L108'>fmp</a>               108 usr/server/fs/fatfs/fatfs_vnops.c 	return device_read(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L115'>fmp</a>               115 usr/server/fs/fatfs/fatfs_vnops.c fat_write_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L120'>fmp</a>               120 usr/server/fs/fatfs/fatfs_vnops.c 	sec = cl_to_sec(fmp, cluster);
+<a href='../S/893.html#L121'>fmp</a>               121 usr/server/fs/fatfs/fatfs_vnops.c 	size = fmp-&gt;sec_per_cl * SEC_SIZE;
+<a href='../S/893.html#L122'>fmp</a>               122 usr/server/fs/fatfs/fatfs_vnops.c 	return device_write(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L132'>fmp</a>               132 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L140'>fmp</a>               140 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L141'>fmp</a>               141 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L149'>fmp</a>               149 usr/server/fs/fatfs/fatfs_vnops.c 		mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L160'>fmp</a>               160 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L167'>fmp</a>               167 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L174'>fmp</a>               174 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L186'>fmp</a>               186 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L193'>fmp</a>               193 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L199'>fmp</a>               199 usr/server/fs/fatfs/fatfs_vnops.c 	buf_pos = file_pos % fmp-&gt;cluster_size;
+<a href='../S/893.html#L201'>fmp</a>               201 usr/server/fs/fatfs/fatfs_vnops.c 		if (fat_read_cluster(fmp, cl)) {
+<a href='../S/893.html#L206'>fmp</a>               206 usr/server/fs/fatfs/fatfs_vnops.c 		nr_copy = fmp-&gt;cluster_size;
+<a href='../S/893.html#L209'>fmp</a>               209 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos + size &lt; fmp-&gt;cluster_size)
+<a href='../S/893.html#L211'>fmp</a>               211 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(buf, fmp-&gt;io_buf + buf_pos, nr_copy);
+<a href='../S/893.html#L219'>fmp</a>               219 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/893.html#L225'>fmp</a>               225 usr/server/fs/fatfs/fatfs_vnops.c 	} while (!IS_EOFCL(fmp, cl));
+<a href='../S/893.html#L231'>fmp</a>               231 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L238'>fmp</a>               238 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L248'>fmp</a>               248 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L255'>fmp</a>               255 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L263'>fmp</a>               263 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_expand_file(fmp, vp-&gt;v_blkno, end_pos);
+<a href='../S/893.html#L273'>fmp</a>               273 usr/server/fs/fatfs/fatfs_vnops.c 		error = fatfs_put_node(fmp, np);
+<a href='../S/893.html#L280'>fmp</a>               280 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L284'>fmp</a>               284 usr/server/fs/fatfs/fatfs_vnops.c 	buf_pos = file_pos % fmp-&gt;cluster_size;
+<a href='../S/893.html#L285'>fmp</a>               285 usr/server/fs/fatfs/fatfs_vnops.c 	cl_size = size / fmp-&gt;cluster_size + 1;
+<a href='../S/893.html#L291'>fmp</a>               291 usr/server/fs/fatfs/fatfs_vnops.c 			if (fat_read_cluster(fmp, cl)) {
+<a href='../S/893.html#L296'>fmp</a>               296 usr/server/fs/fatfs/fatfs_vnops.c 		nr_copy = fmp-&gt;cluster_size;
+<a href='../S/893.html#L299'>fmp</a>               299 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos + size &lt; fmp-&gt;cluster_size)
+<a href='../S/893.html#L301'>fmp</a>               301 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(fmp-&gt;io_buf + buf_pos, buf, nr_copy);
+<a href='../S/893.html#L303'>fmp</a>               303 usr/server/fs/fatfs/fatfs_vnops.c 		if (fat_write_cluster(fmp, cl)) {
+<a href='../S/893.html#L313'>fmp</a>               313 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/893.html#L320'>fmp</a>               320 usr/server/fs/fatfs/fatfs_vnops.c 	} while (!IS_EOFCL(fmp, cl));
+<a href='../S/893.html#L334'>fmp</a>               334 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L341'>fmp</a>               341 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L346'>fmp</a>               346 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L347'>fmp</a>               347 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L368'>fmp</a>               368 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L378'>fmp</a>               378 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L392'>fmp</a>               392 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L393'>fmp</a>               393 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L396'>fmp</a>               396 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_alloc_cluster(fmp, 0, &amp;cl);
+<a href='../S/893.html#L410'>fmp</a>               410 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_set_cluster(fmp, cl, fmp-&gt;fat_eof);
+<a href='../S/893.html#L412'>fmp</a>               412 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L419'>fmp</a>               419 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L427'>fmp</a>               427 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L428'>fmp</a>               428 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L444'>fmp</a>               444 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L450'>fmp</a>               450 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_put_node(fmp, &amp;np);
+<a href='../S/893.html#L452'>fmp</a>               452 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L460'>fmp</a>               460 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L465'>fmp</a>               465 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = dvp1-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L466'>fmp</a>               466 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L485'>fmp</a>               485 usr/server/fs/fatfs/fatfs_vnops.c 			error = fatfs_put_node(fmp, &amp;np1);
+<a href='../S/893.html#L512'>fmp</a>               512 usr/server/fs/fatfs/fatfs_vnops.c 			error = fatfs_put_node(fmp, &amp;np1);
+<a href='../S/893.html#L522'>fmp</a>               522 usr/server/fs/fatfs/fatfs_vnops.c 			if (fat_read_cluster(fmp, de1-&gt;cluster)) {
+<a href='../S/893.html#L527'>fmp</a>               527 usr/server/fs/fatfs/fatfs_vnops.c 			de2 = (struct fat_dirent *)fmp-&gt;io_buf;
+<a href='../S/893.html#L536'>fmp</a>               536 usr/server/fs/fatfs/fatfs_vnops.c 			if (fat_write_cluster(fmp, de1-&gt;cluster)) {
+<a href='../S/893.html#L548'>fmp</a>               548 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L555'>fmp</a>               555 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L567'>fmp</a>               567 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L568'>fmp</a>               568 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L571'>fmp</a>               571 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_alloc_cluster(fmp, 0, &amp;cl);
+<a href='../S/893.html#L587'>fmp</a>               587 usr/server/fs/fatfs/fatfs_vnops.c 	memset(fmp-&gt;io_buf, 0, fmp-&gt;cluster_size);
+<a href='../S/893.html#L589'>fmp</a>               589 usr/server/fs/fatfs/fatfs_vnops.c 	de = (struct fat_dirent *)fmp-&gt;io_buf;
+<a href='../S/893.html#L602'>fmp</a>               602 usr/server/fs/fatfs/fatfs_vnops.c 	if (fat_write_cluster(fmp, cl)) {
+<a href='../S/893.html#L607'>fmp</a>               607 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_set_cluster(fmp, cl, fmp-&gt;fat_eof);
+<a href='../S/893.html#L609'>fmp</a>               609 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L619'>fmp</a>               619 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L627'>fmp</a>               627 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = dvp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L628'>fmp</a>               628 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L641'>fmp</a>               641 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L648'>fmp</a>               648 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_put_node(fmp, &amp;np);
+<a href='../S/893.html#L650'>fmp</a>               650 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L680'>fmp</a>               680 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfsmount *fmp;
+<a href='../S/893.html#L685'>fmp</a>               685 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L686'>fmp</a>               686 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L693'>fmp</a>               693 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L697'>fmp</a>               697 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_expand_file(fmp, vp-&gt;v_blkno, length);
+<a href='../S/893.html#L706'>fmp</a>               706 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_put_node(fmp, np);
+<a href='../S/893.html#L711'>fmp</a>               711 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+</pre>
+</body>
+</html>

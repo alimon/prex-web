@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pgd_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L54'>pgd_t</a>              54 bsp/hal/arm/arch/mmu.c static pgd_t boot_pgd = (pgd_t)BOOT_PGD;
+<a href='../S/131.html#L111'>pgd_t</a>             111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L185'>pgd_t</a>             185 bsp/hal/arm/arch/mmu.c pgd_t
+<a href='../S/131.html#L189'>pgd_t</a>             189 bsp/hal/arm/arch/mmu.c 	pgd_t pgd;
+<a href='../S/131.html#L194'>pgd_t</a>             194 bsp/hal/arm/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/131.html#L210'>pgd_t</a>             210 bsp/hal/arm/arch/mmu.c mmu_terminate(pgd_t pgd)
+<a href='../S/131.html#L236'>pgd_t</a>             236 bsp/hal/arm/arch/mmu.c mmu_switch(pgd_t pgd)
+<a href='../S/131.html#L250'>pgd_t</a>             250 bsp/hal/arm/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t virt, size_t size)
+<a href='../S/178.html#L51'>pgd_t</a>              51 bsp/hal/x86/arch/mmu.c static pgd_t boot_pgd = (pgd_t)BOOT_PGD;
+<a href='../S/178.html#L82'>pgd_t</a>              82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L157'>pgd_t</a>             157 bsp/hal/x86/arch/mmu.c pgd_t
+<a href='../S/178.html#L161'>pgd_t</a>             161 bsp/hal/x86/arch/mmu.c 	pgd_t pgd;
+<a href='../S/178.html#L167'>pgd_t</a>             167 bsp/hal/x86/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/178.html#L180'>pgd_t</a>             180 bsp/hal/x86/arch/mmu.c mmu_terminate(pgd_t pgd)
+<a href='../S/178.html#L206'>pgd_t</a>             206 bsp/hal/x86/arch/mmu.c mmu_switch(pgd_t pgd)
+<a href='../S/178.html#L220'>pgd_t</a>             220 bsp/hal/x86/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t va, size_t size)
+<a href='../S/308.html#L38'>pgd_t</a>              38 sys/include/hal.h #define NO_PGD		((pgd_t)0)	/* non-existent pgd */
+<a href='../S/308.html#L108'>pgd_t</a>             108 sys/include/hal.h pgd_t	  mmu_newmap(void);
+<a href='../S/308.html#L109'>pgd_t</a>             109 sys/include/hal.h void	  mmu_terminate(pgd_t);
+<a href='../S/308.html#L110'>pgd_t</a>             110 sys/include/hal.h int	  mmu_map(pgd_t, paddr_t, vaddr_t, size_t, int);
+<a href='../S/308.html#L111'>pgd_t</a>             111 sys/include/hal.h void	  mmu_switch(pgd_t);
+<a href='../S/308.html#L112'>pgd_t</a>             112 sys/include/hal.h paddr_t	  mmu_extract(pgd_t, vaddr_t, size_t);
+<a href='../S/323.html#L72'>pgd_t</a>              72 sys/include/vm.h 	pgd_t		pgd;		/* page directory */
+<a href='../S/343.html#L775'>pgd_t</a>             775 sys/mem/vm.c   	pgd_t pgd;
+</pre>
+</body>
+</html>

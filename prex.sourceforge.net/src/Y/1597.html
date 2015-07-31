@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pgd</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L66'>pgd</a>                66 bsp/hal/arm/arch/mmu.c 	paddr_t pg, pgd;
+<a href='../S/131.html#L74'>pgd</a>                74 bsp/hal/arm/arch/mmu.c 	pgd = PGD_ALIGN(pg);
+<a href='../S/131.html#L77'>pgd</a>                77 bsp/hal/arm/arch/mmu.c 	gap = (size_t)(pgd - pg);
+<a href='../S/131.html#L80'>pgd</a>                80 bsp/hal/arm/arch/mmu.c 	page_free((paddr_t)(pgd + L1TBL_SIZE), (size_t)(L1TBL_SIZE - gap));
+<a href='../S/131.html#L82'>pgd</a>                82 bsp/hal/arm/arch/mmu.c 	return pgd;
+<a href='../S/131.html#L111'>pgd</a>               111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L152'>pgd</a>               152 bsp/hal/arm/arch/mmu.c 		if (pte_present(pgd, va)) {
+<a href='../S/131.html#L154'>pgd</a>               154 bsp/hal/arm/arch/mmu.c 			pte = vtopte(pgd, va);
+<a href='../S/131.html#L161'>pgd</a>               161 bsp/hal/arm/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | PDE_PRESENT;
+<a href='../S/131.html#L189'>pgd</a>               189 bsp/hal/arm/arch/mmu.c 	pgd_t pgd;
+<a href='../S/131.html#L194'>pgd</a>               194 bsp/hal/arm/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/131.html#L195'>pgd</a>               195 bsp/hal/arm/arch/mmu.c 	memset(pgd, 0, L1TBL_SIZE);
+<a href='../S/131.html#L199'>pgd</a>               199 bsp/hal/arm/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(L1TBL_SIZE - i * 4));
+<a href='../S/131.html#L202'>pgd</a>               202 bsp/hal/arm/arch/mmu.c 	mmu_map(pgd, 0, 0, PAGE_SIZE, PG_SYSTEM);
+<a href='../S/131.html#L203'>pgd</a>               203 bsp/hal/arm/arch/mmu.c 	return pgd;
+<a href='../S/131.html#L210'>pgd</a>               210 bsp/hal/arm/arch/mmu.c mmu_terminate(pgd_t pgd)
+<a href='../S/131.html#L219'>pgd</a>               219 bsp/hal/arm/arch/mmu.c 		pte = (pte_t)pgd[i];
+<a href='../S/131.html#L225'>pgd</a>               225 bsp/hal/arm/arch/mmu.c 	page_free(kvtop(pgd), L1TBL_SIZE);
+<a href='../S/131.html#L236'>pgd</a>               236 bsp/hal/arm/arch/mmu.c mmu_switch(pgd_t pgd)
+<a href='../S/131.html#L238'>pgd</a>               238 bsp/hal/arm/arch/mmu.c 	paddr_t phys = kvtop(pgd);
+<a href='../S/131.html#L250'>pgd</a>               250 bsp/hal/arm/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t virt, size_t size)
+<a href='../S/131.html#L261'>pgd</a>               261 bsp/hal/arm/arch/mmu.c 		if (!pte_present(pgd, pg))
+<a href='../S/131.html#L263'>pgd</a>               263 bsp/hal/arm/arch/mmu.c 		pte = vtopte(pgd, pg);
+<a href='../S/131.html#L269'>pgd</a>               269 bsp/hal/arm/arch/mmu.c 	pte = vtopte(pgd, start);
+<a href='../S/144.html#L65'>pgd</a>                65 bsp/hal/arm/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/144.html#L69'>pgd</a>                69 bsp/hal/arm/include/mmu.h #define vtopte(pgd, virt) \
+<a href='../S/144.html#L70'>pgd</a>                70 bsp/hal/arm/include/mmu.h             (pte_t)ptokv((pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/166.html#L66'>pgd</a>                66 bsp/hal/ppc/include/mmu.h #define pte_present(pgd, virt)
+<a href='../S/166.html#L70'>pgd</a>                70 bsp/hal/ppc/include/mmu.h #define vtopte(pgd, virt)
+<a href='../S/178.html#L82'>pgd</a>                82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L124'>pgd</a>               124 bsp/hal/x86/arch/mmu.c 		if (pte_present(pgd, va)) {
+<a href='../S/178.html#L126'>pgd</a>               126 bsp/hal/x86/arch/mmu.c 			pte = vtopte(pgd, va);
+<a href='../S/178.html#L133'>pgd</a>               133 bsp/hal/x86/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | pde_flag;
+<a href='../S/178.html#L161'>pgd</a>               161 bsp/hal/x86/arch/mmu.c 	pgd_t pgd;
+<a href='../S/178.html#L167'>pgd</a>               167 bsp/hal/x86/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/178.html#L168'>pgd</a>               168 bsp/hal/x86/arch/mmu.c 	memset(pgd, 0, PAGE_SIZE);
+<a href='../S/178.html#L172'>pgd</a>               172 bsp/hal/x86/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(1024 - i));
+<a href='../S/178.html#L173'>pgd</a>               173 bsp/hal/x86/arch/mmu.c 	return pgd;
+<a href='../S/178.html#L180'>pgd</a>               180 bsp/hal/x86/arch/mmu.c mmu_terminate(pgd_t pgd)
+<a href='../S/178.html#L189'>pgd</a>               189 bsp/hal/x86/arch/mmu.c 		pte = (pte_t)pgd[i];
+<a href='../S/178.html#L195'>pgd</a>               195 bsp/hal/x86/arch/mmu.c 	page_free(kvtop(pgd), PAGE_SIZE);
+<a href='../S/178.html#L206'>pgd</a>               206 bsp/hal/x86/arch/mmu.c mmu_switch(pgd_t pgd)
+<a href='../S/178.html#L208'>pgd</a>               208 bsp/hal/x86/arch/mmu.c 	uint32_t phys = (uint32_t)kvtop(pgd);
+<a href='../S/178.html#L220'>pgd</a>               220 bsp/hal/x86/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t va, size_t size)
+<a href='../S/178.html#L231'>pgd</a>               231 bsp/hal/x86/arch/mmu.c 		if (!pte_present(pgd, pg))
+<a href='../S/178.html#L233'>pgd</a>               233 bsp/hal/x86/arch/mmu.c 		pte = vtopte(pgd, pg);
+<a href='../S/178.html#L239'>pgd</a>               239 bsp/hal/x86/arch/mmu.c 	pte = vtopte(pgd, start);
+<a href='../S/184.html#L70'>pgd</a>                70 bsp/hal/x86/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/184.html#L74'>pgd</a>                74 bsp/hal/x86/include/mmu.h #define vtopte(pgd, virt) \
+<a href='../S/184.html#L75'>pgd</a>                75 bsp/hal/x86/include/mmu.h             (pte_t)ptokv(((uint32_t *)pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/323.html#L72'>pgd</a>                72 sys/include/vm.h 	pgd_t		pgd;		/* page directory */
+<a href='../S/343.html#L153'>pgd</a>               153 sys/mem/vm.c   	if (mmu_map(map-&gt;pgd, pa, seg-&gt;addr, size, PG_WRITE))
+<a href='../S/343.html#L224'>pgd</a>               224 sys/mem/vm.c   	mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,	seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L329'>pgd</a>               329 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, new_pa, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L343'>pgd</a>               343 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L436'>pgd</a>               436 sys/mem/vm.c   	if (mmu_map(curmap-&gt;pgd, pa, cur-&gt;addr, size, map_type)) {
+<a href='../S/343.html#L470'>pgd</a>               470 sys/mem/vm.c   	if ((map-&gt;pgd = mmu_newmap()) == NO_PGD) {
+<a href='../S/343.html#L495'>pgd</a>               495 sys/mem/vm.c   			mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,
+<a href='../S/343.html#L514'>pgd</a>               514 sys/mem/vm.c   		mmu_switch(kernel_map.pgd);
+<a href='../S/343.html#L517'>pgd</a>               517 sys/mem/vm.c   	mmu_terminate(map-&gt;pgd);
+<a href='../S/343.html#L617'>pgd</a>               617 sys/mem/vm.c   			if (mmu_map(new_map-&gt;pgd, dest-&gt;phys, dest-&gt;addr,
+<a href='../S/343.html#L655'>pgd</a>               655 sys/mem/vm.c   		mmu_switch(map-&gt;pgd);
+<a href='../S/343.html#L736'>pgd</a>               736 sys/mem/vm.c   	return mmu_extract(curtask-&gt;map-&gt;pgd, addr, size);
+<a href='../S/343.html#L775'>pgd</a>               775 sys/mem/vm.c   	pgd_t pgd;
+<a href='../S/343.html#L780'>pgd</a>               780 sys/mem/vm.c   	if ((pgd = mmu_newmap()) == NO_PGD)
+<a href='../S/343.html#L782'>pgd</a>               782 sys/mem/vm.c   	kernel_map.pgd = pgd;
+<a href='../S/343.html#L783'>pgd</a>               783 sys/mem/vm.c   	mmu_switch(pgd);
+</pre>
+</body>
+</html>

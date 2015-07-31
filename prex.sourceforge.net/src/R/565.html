@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>MAXDEVNAME</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/272.html#L139'>MAXDEVNAME</a>        139 include/sys/sysinfo.h 	char	 	name[MAXDEVNAME]; /* device name */
+<a href='../S/305.html#L43'>MAXDEVNAME</a>         43 sys/include/device.h 	char		name[MAXDEVNAME]; /* name of device */
+<a href='../S/327.html#L139'>MAXDEVNAME</a>        139 sys/kern/device.c 	len = strnlen(name, MAXDEVNAME);
+<a href='../S/327.html#L140'>MAXDEVNAME</a>        140 sys/kern/device.c 	if (len == 0 || len &gt;= MAXDEVNAME)
+<a href='../S/327.html#L202'>MAXDEVNAME</a>        202 sys/kern/device.c 		if (!strncmp(dev-&gt;name, name, MAXDEVNAME))
+<a href='../S/327.html#L303'>MAXDEVNAME</a>        303 sys/kern/device.c 	char str[MAXDEVNAME];
+<a href='../S/327.html#L306'>MAXDEVNAME</a>        306 sys/kern/device.c 	error = copyinstr(name, str, MAXDEVNAME);
+<a href='../S/327.html#L530'>MAXDEVNAME</a>        530 sys/kern/device.c 			strlcpy(info-&gt;name, dev-&gt;name, MAXDEVNAME);
+<a href='../S/886.html#L210'>MAXDEVNAME</a>        210 usr/server/fs/devfs/devfs_vnops.c 		if (!strncmp(info.name, name, MAXDEVNAME))
+</pre>
+</body>
+</html>

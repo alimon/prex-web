@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>phys</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L51'>phys</a>               51 bsp/boot/common/bootinfo.c 	       m-&gt;entry, m-&gt;phys, m-&gt;size,
+<a href='../S/13.html#L120'>phys</a>              120 bsp/boot/common/elf.c 	m-&gt;phys = load_base;
+<a href='../S/13.html#L168'>phys</a>              168 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - m-&gt;phys);
+<a href='../S/13.html#L286'>phys</a>              286 bsp/boot/common/elf.c 	m-&gt;phys = load_base;
+<a href='../S/13.html#L358'>phys</a>              358 bsp/boot/common/elf.c 	m-&gt;entry = (vaddr_t)ptokv(ehdr-&gt;e_entry + m-&gt;phys);
+<a href='../S/60.html#L298'>phys</a>              298 bsp/drv/dev/base/kd.c 				       (long)vi.virt, (long)vi.phys,
+<a href='../S/68.html#L140'>phys</a>              140 bsp/drv/dev/block/ramdisk.c 	struct physmem *phys;
+<a href='../S/68.html#L143'>phys</a>              143 bsp/drv/dev/block/ramdisk.c 	phys = &amp;bi-&gt;bootdisk;
+<a href='../S/68.html#L144'>phys</a>              144 bsp/drv/dev/block/ramdisk.c 	if (phys-&gt;size == 0) {
+<a href='../S/68.html#L158'>phys</a>              158 bsp/drv/dev/block/ramdisk.c 	struct physmem *phys;
+<a href='../S/68.html#L162'>phys</a>              162 bsp/drv/dev/block/ramdisk.c 	phys = &amp;bi-&gt;bootdisk;
+<a href='../S/68.html#L168'>phys</a>              168 bsp/drv/dev/block/ramdisk.c 	sc-&gt;addr = (char *)ptokv(phys-&gt;base);
+<a href='../S/68.html#L169'>phys</a>              169 bsp/drv/dev/block/ramdisk.c 	sc-&gt;size = (size_t)phys-&gt;size;
+<a href='../S/131.html#L238'>phys</a>              238 bsp/hal/arm/arch/mmu.c 	paddr_t phys = kvtop(pgd);
+<a href='../S/131.html#L240'>phys</a>              240 bsp/hal/arm/arch/mmu.c 	if (phys != get_ttb())
+<a href='../S/131.html#L241'>phys</a>              241 bsp/hal/arm/arch/mmu.c 		switch_ttb(phys);
+<a href='../S/131.html#L278'>phys</a>              278 bsp/hal/arm/arch/mmu.c mmu_premap(paddr_t phys, vaddr_t virt)
+<a href='../S/131.html#L284'>phys</a>              284 bsp/hal/arm/arch/mmu.c 	pte[PAGE_TABLE(virt)] = (uint32_t)phys | PTE_PRESENT | PTE_SYSTEM;
+<a href='../S/131.html#L316'>phys</a>              316 bsp/hal/arm/arch/mmu.c 		if (mmu_map(boot_pgd, map-&gt;phys, map-&gt;virt,
+<a href='../S/178.html#L208'>phys</a>              208 bsp/hal/x86/arch/mmu.c 	uint32_t phys = (uint32_t)kvtop(pgd);
+<a href='../S/178.html#L210'>phys</a>              210 bsp/hal/x86/arch/mmu.c 	if (phys != get_cr3())
+<a href='../S/178.html#L211'>phys</a>              211 bsp/hal/x86/arch/mmu.c 		set_cr3(phys);
+<a href='../S/178.html#L277'>phys</a>              277 bsp/hal/x86/arch/mmu.c 		if (mmu_map(boot_pgd, map-&gt;phys, map-&gt;virt,
+<a href='../S/247.html#L62'>phys</a>               62 include/sys/bootinfo.h 	paddr_t		phys;		/* physical address */
+<a href='../S/272.html#L121'>phys</a>              121 include/sys/sysinfo.h 	paddr_t		phys;		/* physical address */
+<a href='../S/308.html#L65'>phys</a>               65 sys/include/hal.h 	paddr_t		phys;		/* physical address */
+<a href='../S/323.html#L49'>phys</a>               49 sys/include/vm.h 	paddr_t		phys;		/* physical address */
+<a href='../S/343.html#L156'>phys</a>              156 sys/mem/vm.c   	seg-&gt;phys = pa;
+<a href='../S/343.html#L224'>phys</a>              224 sys/mem/vm.c   	mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,	seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L230'>phys</a>              230 sys/mem/vm.c   		page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/343.html#L319'>phys</a>              319 sys/mem/vm.c   		old_pa = seg-&gt;phys;
+<a href='../S/343.html#L334'>phys</a>              334 sys/mem/vm.c   		seg-&gt;phys = new_pa;
+<a href='../S/343.html#L343'>phys</a>              343 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L435'>phys</a>              435 sys/mem/vm.c   	pa = tgt-&gt;phys + (paddr_t)(start - tgt-&gt;addr);
+<a href='../S/343.html#L442'>phys</a>              442 sys/mem/vm.c   	cur-&gt;phys = pa;
+<a href='../S/343.html#L495'>phys</a>              495 sys/mem/vm.c   			mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,
+<a href='../S/343.html#L501'>phys</a>              501 sys/mem/vm.c   				page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/343.html#L603'>phys</a>              603 sys/mem/vm.c   				dest-&gt;phys = page_alloc(src-&gt;size);
+<a href='../S/343.html#L604'>phys</a>              604 sys/mem/vm.c   				if (dest-&gt;phys == 0)
+<a href='../S/343.html#L608'>phys</a>              608 sys/mem/vm.c   				memcpy(ptokv(dest-&gt;phys), ptokv(src-&gt;phys),
+<a href='../S/343.html#L617'>phys</a>              617 sys/mem/vm.c   			if (mmu_map(new_map-&gt;pgd, dest-&gt;phys, dest-&gt;addr,
+<a href='../S/343.html#L688'>phys</a>              688 sys/mem/vm.c   	src = ptokv(mod-&gt;phys);
+<a href='../S/343.html#L724'>phys</a>              724 sys/mem/vm.c   	page_free(mod-&gt;phys, mod-&gt;size);
+<a href='../S/343.html#L762'>phys</a>              762 sys/mem/vm.c   			info-&gt;phys = seg-&gt;phys;
+<a href='../S/343.html#L800'>phys</a>              800 sys/mem/vm.c   	seg-&gt;phys = 0;
+<a href='../S/343.html#L819'>phys</a>              819 sys/mem/vm.c   	seg-&gt;phys = 0;
+<a href='../S/344.html#L201'>phys</a>              201 sys/mem/vm_nommu.c 		page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/344.html#L403'>phys</a>              403 sys/mem/vm_nommu.c 				page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/344.html#L522'>phys</a>              522 sys/mem/vm_nommu.c 			info-&gt;phys = seg-&gt;phys;
+<a href='../S/344.html#L550'>phys</a>              550 sys/mem/vm_nommu.c 	seg-&gt;phys = 0;
+<a href='../S/344.html#L569'>phys</a>              569 sys/mem/vm_nommu.c 	seg-&gt;phys = (paddr_t)addr;
+</pre>
+</body>
+</html>

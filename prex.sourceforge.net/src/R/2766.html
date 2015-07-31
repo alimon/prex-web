@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>thread_setpri</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L104'>thread_setpri</a>     104 include/sys/prex.h int	thread_setpri(thread_t t, int	pri);
+<a href='../S/706.html#L135'>thread_setpri</a>     135 usr/lib/posix/process/fork_nommu.c 		thread_setpri(t, pri + 1);
+<a href='../S/706.html#L151'>thread_setpri</a>     151 usr/lib/posix/process/fork_nommu.c 		thread_setpri(t, pri - 1);
+<a href='../S/726.html#L75'>thread_setpri</a>      75 usr/lib/posix/process/setpriority.c 	error = thread_setpri(thread_self(), val);
+<a href='../S/731.html#L57'>thread_setpri</a>      57 usr/lib/posix/process/waitpid.c 	thread_setpri(self, pri - 1);
+<a href='../S/731.html#L81'>thread_setpri</a>      81 usr/lib/posix/process/waitpid.c 	thread_setpri(self, pri);
+<a href='../S/831.html#L72'>thread_setpri</a>      72 usr/sample/bench/bench.c 	thread_setpri(thread_self(), pri - 1);
+<a href='../S/833.html#L49'>thread_setpri</a>      49 usr/sample/cpumon/cpumon.c 	thread_setpri(thread_self(), 50);
+<a href='../S/837.html#L138'>thread_setpri</a>     138 usr/sample/ipc/ipc.c 	thread_setpri(thread_self(), 90);
+<a href='../S/841.html#L225'>thread_setpri</a>     225 usr/sample/mutex/mutex.c 	thread_setpri(thread_self(), 90);
+<a href='../S/841.html#L237'>thread_setpri</a>     237 usr/sample/mutex/mutex.c 	thread_setpri(th_1, 100);
+<a href='../S/841.html#L240'>thread_setpri</a>     240 usr/sample/mutex/mutex.c 	thread_setpri(th_2, 101);
+<a href='../S/841.html#L243'>thread_setpri</a>     243 usr/sample/mutex/mutex.c 	thread_setpri(th_3, 102);
+<a href='../S/843.html#L105'>thread_setpri</a>     105 usr/sample/sem/sem.c 	thread_setpri(thread_self(), 100);
+<a href='../S/855.html#L62'>thread_setpri</a>      62 usr/sample/thread/thread.c 	if (thread_setpri(t, 128) != 0)
+<a href='../S/855.html#L140'>thread_setpri</a>     140 usr/sample/thread/thread.c 	error = thread_setpri(main_th, 100);
+<a href='../S/855.html#L152'>thread_setpri</a>     152 usr/sample/thread/thread.c 	error = thread_setpri(main_th, 254);
+<a href='../S/860.html#L94'>thread_setpri</a>      94 usr/sbin/init/init.c 	thread_setpri(thread_self(), 254);
+<a href='../S/871.html#L274'>thread_setpri</a>     274 usr/server/boot/boot.c 	thread_setpri(thread_self(), PRI_DEFAULT);
+<a href='../S/877.html#L210'>thread_setpri</a>     210 usr/server/exec/exec_execve.c 	thread_setpri(t, PRI_DEFAULT);
+<a href='../S/879.html#L172'>thread_setpri</a>     172 usr/server/exec/main.c 	thread_setpri(thread_self(), PRI_EXEC);
+<a href='../S/903.html#L1102'>thread_setpri</a>    1102 usr/server/fs/vfs/main.c 	thread_setpri(thread_self(), PRI_FS);
+<a href='../S/916.html#L405'>thread_setpri</a>     405 usr/server/pow/pow.c 	thread_setpri(thread_self(), PRI_POW);
+<a href='../S/917.html#L532'>thread_setpri</a>     532 usr/server/proc/main.c 	thread_setpri(thread_self(), PRI_PROC);
+<a href='../S/938.html#L150'>thread_setpri</a>     150 usr/test/deadlock/deadlock.c 	thread_setpri(thread_self(), 90);
+<a href='../S/938.html#L162'>thread_setpri</a>     162 usr/test/deadlock/deadlock.c 	thread_setpri(th_1, 100);
+<a href='../S/938.html#L165'>thread_setpri</a>     165 usr/test/deadlock/deadlock.c 	thread_setpri(th_2, 101);
+<a href='../S/962.html#L79'>thread_setpri</a>      79 usr/test/ipc_mt/ipc_mt.c 	thread_setpri(thread_self(), 240);
+<a href='../S/962.html#L130'>thread_setpri</a>     130 usr/test/ipc_mt/ipc_mt.c 	thread_setpri(thread_self(), 241);
+<a href='../S/998.html#L66'>thread_setpri</a>      66 usr/test/task/task.c 	thread_setpri(thread_self(), 90);
+</pre>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/179.html#L153'>fp</a>                153 bsp/hal/x86/arch/trap.c 	uint32_t ss, esp, *fp;
+<a href='../S/179.html#L182'>fp</a>                182 bsp/hal/x86/arch/trap.c 		fp = (uint32_t *)r-&gt;ebp;
+<a href='../S/179.html#L184'>fp</a>                184 bsp/hal/x86/arch/trap.c 			if (user_area(fp))
+<a href='../S/179.html#L186'>fp</a>                186 bsp/hal/x86/arch/trap.c 			fp = (uint32_t *)(*fp);	/* XXX: may cause fault */
+<a href='../S/179.html#L187'>fp</a>                187 bsp/hal/x86/arch/trap.c 			if (!(*(fp + 1) &amp;&amp; *fp))
+<a href='../S/179.html#L189'>fp</a>                189 bsp/hal/x86/arch/trap.c 			printf(" %08x\n", *(fp + 1));
+<a href='../S/384.html#L59'>fp</a>                 59 usr/bin/head/head.c 	FILE *fp;
+<a href='../S/384.html#L80'>fp</a>                 80 usr/bin/head/head.c 			if ((fp = fopen(*argv, "r")) == NULL) {
+<a href='../S/384.html#L89'>fp</a>                 89 usr/bin/head/head.c 			head(fp, linecnt);
+<a href='../S/384.html#L90'>fp</a>                 90 usr/bin/head/head.c 			(void)fclose(fp);
+<a href='../S/384.html#L98'>fp</a>                 98 usr/bin/head/head.c head(FILE *fp, int cnt)
+<a href='../S/384.html#L103'>fp</a>                103 usr/bin/head/head.c 		while ((ch = getc(fp)) != EOF) {
+<a href='../S/388.html#L153'>fp</a>                153 usr/bin/kill/kill.c printsignals(fp)
+<a href='../S/388.html#L154'>fp</a>                154 usr/bin/kill/kill.c 	FILE *fp;
+<a href='../S/388.html#L162'>fp</a>                162 usr/bin/kill/kill.c 			(void)fprintf(fp, "%s\n", name);
+<a href='../S/388.html#L164'>fp</a>                164 usr/bin/kill/kill.c 			(void)fprintf(fp, "%s ", name);
+<a href='../S/396.html#L49'>fp</a>                 49 usr/bin/more/more.c 	FILE *fp = NULL;
+<a href='../S/396.html#L69'>fp</a>                 69 usr/bin/more/more.c 			if ((fp = fopen(*argv, "r")) == NULL) {
+<a href='../S/396.html#L75'>fp</a>                 75 usr/bin/more/more.c 			do_more(fp, height);
+<a href='../S/396.html#L76'>fp</a>                 76 usr/bin/more/more.c 			(void)fclose(fp);
+<a href='../S/396.html#L85'>fp</a>                 85 usr/bin/more/more.c do_more(FILE *fp, int maxlines)
+<a href='../S/396.html#L89'>fp</a>                 89 usr/bin/more/more.c 	while ((c = getc(fp)) != EOF) {
+<a href='../S/482.html#L44'>fp</a>                 44 usr/lib/libc/gen/getpass.c 	FILE *fp, *outfp;
+<a href='../S/482.html#L53'>fp</a>                 53 usr/lib/libc/gen/getpass.c 	if ((outfp = fp = fopen(_PATH_TTY, "w+")) == NULL) {
+<a href='../S/482.html#L55'>fp</a>                 55 usr/lib/libc/gen/getpass.c 		fp = stdin;
+<a href='../S/482.html#L62'>fp</a>                 62 usr/lib/libc/gen/getpass.c 	(void)tcgetattr(fileno(fp), &amp;term);
+<a href='../S/482.html#L65'>fp</a>                 65 usr/lib/libc/gen/getpass.c 		(void)tcsetattr(fileno(fp), TCSAFLUSH|TCSASOFT, &amp;term);
+<a href='../S/482.html#L69'>fp</a>                 69 usr/lib/libc/gen/getpass.c 	for (p = buf; (ch = getc(fp)) != EOF &amp;&amp; ch != '\n';) {
+<a href='../S/482.html#L77'>fp</a>                 77 usr/lib/libc/gen/getpass.c 		(void)tcsetattr(fileno(fp), TCSAFLUSH|TCSASOFT, &amp;term);
+<a href='../S/482.html#L80'>fp</a>                 80 usr/lib/libc/gen/getpass.c 	if (fp != stdin)
+<a href='../S/482.html#L81'>fp</a>                 81 usr/lib/libc/gen/getpass.c 		(void)fclose(fp);
+<a href='../S/496.html#L37'>fp</a>                 37 usr/lib/libc/stdio/clrerr.c clearerr(fp)
+<a href='../S/496.html#L38'>fp</a>                 38 usr/lib/libc/stdio/clrerr.c 	FILE *fp;
+<a href='../S/496.html#L40'>fp</a>                 40 usr/lib/libc/stdio/clrerr.c 	__sclearerr(fp);
+<a href='../S/497.html#L39'>fp</a>                 39 usr/lib/libc/stdio/fclose.c fclose(fp)
+<a href='../S/497.html#L40'>fp</a>                 40 usr/lib/libc/stdio/fclose.c 	FILE *fp;
+<a href='../S/497.html#L44'>fp</a>                 44 usr/lib/libc/stdio/fclose.c 	if (fp-&gt;_flags == 0) {	/* not open! */
+<a href='../S/497.html#L48'>fp</a>                 48 usr/lib/libc/stdio/fclose.c 	r = fp-&gt;_flags &amp; __SWR ? __sflush(fp) : 0;
+<a href='../S/497.html#L49'>fp</a>                 49 usr/lib/libc/stdio/fclose.c 	if (__sclose(fp) &lt; 0)
+<a href='../S/497.html#L51'>fp</a>                 51 usr/lib/libc/stdio/fclose.c 	if (fp-&gt;_flags &amp; __SMBF)
+<a href='../S/497.html#L52'>fp</a>                 52 usr/lib/libc/stdio/fclose.c 		free((char *)fp-&gt;_bf._base);
+<a href='../S/497.html#L53'>fp</a>                 53 usr/lib/libc/stdio/fclose.c 	if (HASUB(fp))
+<a href='../S/497.html#L54'>fp</a>                 54 usr/lib/libc/stdio/fclose.c 		FREEUB(fp);
+<a href='../S/497.html#L55'>fp</a>                 55 usr/lib/libc/stdio/fclose.c 	fp-&gt;_flags = 0;		/* Release this FILE for reuse. */
+<a href='../S/497.html#L56'>fp</a>                 56 usr/lib/libc/stdio/fclose.c 	fp-&gt;_r = fp-&gt;_w = 0;	/* Mess up if reaccessed. */
+<a href='../S/498.html#L45'>fp</a>                 45 usr/lib/libc/stdio/fdopen.c 	FILE *fp;
+<a href='../S/498.html#L60'>fp</a>                 60 usr/lib/libc/stdio/fdopen.c 	if ((fp = __sfp()) == NULL)
+<a href='../S/498.html#L62'>fp</a>                 62 usr/lib/libc/stdio/fdopen.c 	fp-&gt;_flags = flags;
+<a href='../S/498.html#L69'>fp</a>                 69 usr/lib/libc/stdio/fdopen.c 		fp-&gt;_flags |= __SAPP;
+<a href='../S/498.html#L70'>fp</a>                 70 usr/lib/libc/stdio/fdopen.c 	fp-&gt;_file = fd;
+<a href='../S/498.html#L71'>fp</a>                 71 usr/lib/libc/stdio/fdopen.c 	return (fp);
+<a href='../S/499.html#L42'>fp</a>                 42 usr/lib/libc/stdio/feof.c feof(fp)
+<a href='../S/499.html#L43'>fp</a>                 43 usr/lib/libc/stdio/feof.c 	FILE *fp;
+<a href='../S/499.html#L45'>fp</a>                 45 usr/lib/libc/stdio/feof.c 	return (__sfeof(fp));
+<a href='../S/500.html#L41'>fp</a>                 41 usr/lib/libc/stdio/ferror.c ferror(fp)
+<a href='../S/500.html#L42'>fp</a>                 42 usr/lib/libc/stdio/ferror.c 	FILE *fp;
+<a href='../S/500.html#L44'>fp</a>                 44 usr/lib/libc/stdio/ferror.c 	return (__sferror(fp));
+<a href='../S/501.html#L39'>fp</a>                 39 usr/lib/libc/stdio/fflush.c fflush(fp)
+<a href='../S/501.html#L40'>fp</a>                 40 usr/lib/libc/stdio/fflush.c 	FILE *fp;
+<a href='../S/501.html#L43'>fp</a>                 43 usr/lib/libc/stdio/fflush.c 	if (fp == NULL)
+<a href='../S/501.html#L45'>fp</a>                 45 usr/lib/libc/stdio/fflush.c 	if ((fp-&gt;_flags &amp; (__SWR | __SRW)) == 0) {
+<a href='../S/501.html#L49'>fp</a>                 49 usr/lib/libc/stdio/fflush.c 	return (__sflush(fp));
+<a href='../S/501.html#L53'>fp</a>                 53 usr/lib/libc/stdio/fflush.c __sflush(fp)
+<a href='../S/501.html#L54'>fp</a>                 54 usr/lib/libc/stdio/fflush.c 	FILE *fp;
+<a href='../S/501.html#L59'>fp</a>                 59 usr/lib/libc/stdio/fflush.c 	t = fp-&gt;_flags;
+<a href='../S/501.html#L63'>fp</a>                 63 usr/lib/libc/stdio/fflush.c 	if ((p = fp-&gt;_bf._base) == NULL)
+<a href='../S/501.html#L66'>fp</a>                 66 usr/lib/libc/stdio/fflush.c 	n = fp-&gt;_p - p;		/* write this much */
+<a href='../S/501.html#L72'>fp</a>                 72 usr/lib/libc/stdio/fflush.c 	fp-&gt;_p = p;
+<a href='../S/501.html#L73'>fp</a>                 73 usr/lib/libc/stdio/fflush.c 	fp-&gt;_w = t &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/501.html#L76'>fp</a>                 76 usr/lib/libc/stdio/fflush.c 		t = __swrite(fp, (char *)p, n);
+<a href='../S/501.html#L78'>fp</a>                 78 usr/lib/libc/stdio/fflush.c 			fp-&gt;_flags |= __SERR;
+<a href='../S/502.html#L36'>fp</a>                 36 usr/lib/libc/stdio/fgetc.c fgetc(fp)
+<a href='../S/502.html#L37'>fp</a>                 37 usr/lib/libc/stdio/fgetc.c 	FILE *fp;
+<a href='../S/502.html#L39'>fp</a>                 39 usr/lib/libc/stdio/fgetc.c 	return (getc(fp));
+<a href='../S/503.html#L36'>fp</a>                 36 usr/lib/libc/stdio/fgetpos.c fgetpos(fp, pos)
+<a href='../S/503.html#L37'>fp</a>                 37 usr/lib/libc/stdio/fgetpos.c 	FILE *fp;
+<a href='../S/503.html#L40'>fp</a>                 40 usr/lib/libc/stdio/fgetpos.c 	return((*pos = (fpos_t)ftell(fp)) == (fpos_t)-1);
+<a href='../S/504.html#L43'>fp</a>                 43 usr/lib/libc/stdio/fgets.c fgets(buf, n, fp)
+<a href='../S/504.html#L46'>fp</a>                 46 usr/lib/libc/stdio/fgets.c 	FILE *fp;
+<a href='../S/504.html#L52'>fp</a>                 52 usr/lib/libc/stdio/fgets.c 	while (--n &gt; 0 &amp;&amp; (c = getc(fp)) &gt;= 0) {
+<a href='../S/505.html#L41'>fp</a>                 41 usr/lib/libc/stdio/fileno.c fileno(fp)
+<a href='../S/505.html#L42'>fp</a>                 42 usr/lib/libc/stdio/fileno.c 	FILE *fp;
+<a href='../S/505.html#L44'>fp</a>                 44 usr/lib/libc/stdio/fileno.c 	return (__sfileno(fp));
+<a href='../S/506.html#L45'>fp</a>                 45 usr/lib/libc/stdio/findfp.c std(FILE *fp, FILE *next, short flags, short fileno)
+<a href='../S/506.html#L48'>fp</a>                 48 usr/lib/libc/stdio/findfp.c 	memset(fp, 0, sizeof(FILE));
+<a href='../S/506.html#L49'>fp</a>                 49 usr/lib/libc/stdio/findfp.c 	fp-&gt;next = next;
+<a href='../S/506.html#L50'>fp</a>                 50 usr/lib/libc/stdio/findfp.c 	fp-&gt;_flags = flags;
+<a href='../S/506.html#L51'>fp</a>                 51 usr/lib/libc/stdio/findfp.c 	fp-&gt;_file = fileno;
+<a href='../S/506.html#L60'>fp</a>                 60 usr/lib/libc/stdio/findfp.c 	FILE *fp, *tmp;
+<a href='../S/506.html#L64'>fp</a>                 64 usr/lib/libc/stdio/findfp.c 	for (fp = &amp;__sF[0];; fp = fp-&gt;next) {
+<a href='../S/506.html#L65'>fp</a>                 65 usr/lib/libc/stdio/findfp.c 		if (fp-&gt;_flags == 0)
+<a href='../S/506.html#L67'>fp</a>                 67 usr/lib/libc/stdio/findfp.c 		if (fp-&gt;next == NULL) {
+<a href='../S/506.html#L70'>fp</a>                 70 usr/lib/libc/stdio/findfp.c 			fp-&gt;next = tmp;
+<a href='../S/506.html#L71'>fp</a>                 71 usr/lib/libc/stdio/findfp.c 			fp = tmp;
+<a href='../S/506.html#L77'>fp</a>                 77 usr/lib/libc/stdio/findfp.c 	std(fp, NULL, 1, -1);
+<a href='../S/506.html#L78'>fp</a>                 78 usr/lib/libc/stdio/findfp.c 	return (fp);
+<a href='../S/508.html#L45'>fp</a>                 45 usr/lib/libc/stdio/fopen.c 	FILE *fp;
+<a href='../S/508.html#L51'>fp</a>                 51 usr/lib/libc/stdio/fopen.c 	if ((fp = __sfp()) == NULL)
+<a href='../S/508.html#L54'>fp</a>                 54 usr/lib/libc/stdio/fopen.c 		fp-&gt;_flags = 0;			/* release */
+<a href='../S/508.html#L57'>fp</a>                 57 usr/lib/libc/stdio/fopen.c 	fp-&gt;_file = f;
+<a href='../S/508.html#L58'>fp</a>                 58 usr/lib/libc/stdio/fopen.c 	fp-&gt;_flags = flags;
+<a href='../S/508.html#L69'>fp</a>                 69 usr/lib/libc/stdio/fopen.c 		(void) __sseek((void *)fp, (fpos_t)0, SEEK_END);
+<a href='../S/508.html#L70'>fp</a>                 70 usr/lib/libc/stdio/fopen.c 	return (fp);
+<a href='../S/509.html#L37'>fp</a>                 37 usr/lib/libc/stdio/fprintf.c fprintf(FILE *fp, const char *fmt, ...)
+<a href='../S/509.html#L43'>fp</a>                 43 usr/lib/libc/stdio/fprintf.c 	ret = vfprintf(fp, fmt, ap);
+<a href='../S/510.html#L43'>fp</a>                 43 usr/lib/libc/stdio/fpurge.c fpurge(fp)
+<a href='../S/510.html#L44'>fp</a>                 44 usr/lib/libc/stdio/fpurge.c 	FILE *fp;
+<a href='../S/510.html#L46'>fp</a>                 46 usr/lib/libc/stdio/fpurge.c 	if (!fp-&gt;_flags) {
+<a href='../S/510.html#L51'>fp</a>                 51 usr/lib/libc/stdio/fpurge.c 	if (HASUB(fp))
+<a href='../S/510.html#L52'>fp</a>                 52 usr/lib/libc/stdio/fpurge.c 		FREEUB(fp);
+<a href='../S/510.html#L53'>fp</a>                 53 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_p = fp-&gt;_bf._base;
+<a href='../S/510.html#L54'>fp</a>                 54 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_r = 0;
+<a href='../S/510.html#L55'>fp</a>                 55 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/511.html#L36'>fp</a>                 36 usr/lib/libc/stdio/fputc.c fputc(c, fp)
+<a href='../S/511.html#L38'>fp</a>                 38 usr/lib/libc/stdio/fputc.c 	FILE *fp;
+<a href='../S/511.html#L40'>fp</a>                 40 usr/lib/libc/stdio/fputc.c 	return (putc(c, fp));
+<a href='../S/512.html#L40'>fp</a>                 40 usr/lib/libc/stdio/fputs.c fputs(s, fp)
+<a href='../S/512.html#L42'>fp</a>                 42 usr/lib/libc/stdio/fputs.c 	FILE *fp;
+<a href='../S/512.html#L47'>fp</a>                 47 usr/lib/libc/stdio/fputs.c 		r = putc(c, fp);
+<a href='../S/513.html#L38'>fp</a>                 38 usr/lib/libc/stdio/fread.c fread(buf, size, count, fp)
+<a href='../S/513.html#L41'>fp</a>                 41 usr/lib/libc/stdio/fread.c 	FILE *fp;
+<a href='../S/513.html#L55'>fp</a>                 55 usr/lib/libc/stdio/fread.c 	if (fp-&gt;_r &lt; 0)
+<a href='../S/513.html#L56'>fp</a>                 56 usr/lib/libc/stdio/fread.c 		fp-&gt;_r = 0;
+<a href='../S/513.html#L59'>fp</a>                 59 usr/lib/libc/stdio/fread.c 	while (resid &gt; (size_t)(r = fp-&gt;_r)) {
+<a href='../S/513.html#L60'>fp</a>                 60 usr/lib/libc/stdio/fread.c 		(void)memcpy((void *)p, (void *)fp-&gt;_p, (size_t)r);
+<a href='../S/513.html#L61'>fp</a>                 61 usr/lib/libc/stdio/fread.c 		fp-&gt;_p += r;
+<a href='../S/513.html#L65'>fp</a>                 65 usr/lib/libc/stdio/fread.c 		if (__srefill(fp)) {
+<a href='../S/513.html#L70'>fp</a>                 70 usr/lib/libc/stdio/fread.c 	(void)memcpy((void *)p, (void *)fp-&gt;_p, resid);
+<a href='../S/513.html#L71'>fp</a>                 71 usr/lib/libc/stdio/fread.c 	fp-&gt;_r -= resid;
+<a href='../S/513.html#L72'>fp</a>                 72 usr/lib/libc/stdio/fread.c 	fp-&gt;_p += resid;
+<a href='../S/514.html#L48'>fp</a>                 48 usr/lib/libc/stdio/freopen.c freopen(file, mode, fp)
+<a href='../S/514.html#L50'>fp</a>                 50 usr/lib/libc/stdio/freopen.c 	FILE *fp;
+<a href='../S/514.html#L56'>fp</a>                 56 usr/lib/libc/stdio/freopen.c 		(void) fclose(fp);
+<a href='../S/514.html#L71'>fp</a>                 71 usr/lib/libc/stdio/freopen.c 	if (fp-&gt;_flags == 0) {
+<a href='../S/514.html#L72'>fp</a>                 72 usr/lib/libc/stdio/freopen.c 		fp-&gt;_flags = __SEOF;	/* hold on to it */
+<a href='../S/514.html#L77'>fp</a>                 77 usr/lib/libc/stdio/freopen.c 		if (fp-&gt;_flags &amp; __SWR)
+<a href='../S/514.html#L78'>fp</a>                 78 usr/lib/libc/stdio/freopen.c 			(void) __sflush(fp);
+<a href='../S/514.html#L81'>fp</a>                 81 usr/lib/libc/stdio/freopen.c 		if ((wantfd = fp-&gt;_file) &lt; 0 &amp;&amp; isopen) {
+<a href='../S/514.html#L82'>fp</a>                 82 usr/lib/libc/stdio/freopen.c 			(void) __sclose(fp);
+<a href='../S/514.html#L92'>fp</a>                 92 usr/lib/libc/stdio/freopen.c 			(void) __sclose(fp);
+<a href='../S/514.html#L105'>fp</a>                105 usr/lib/libc/stdio/freopen.c 		(void) __sclose(fp);
+<a href='../S/514.html#L106'>fp</a>                106 usr/lib/libc/stdio/freopen.c 	if (fp-&gt;_flags &amp; __SMBF)
+<a href='../S/514.html#L107'>fp</a>                107 usr/lib/libc/stdio/freopen.c 		free((char *)fp-&gt;_bf._base);
+<a href='../S/514.html#L108'>fp</a>                108 usr/lib/libc/stdio/freopen.c 	fp-&gt;_w = 0;
+<a href='../S/514.html#L109'>fp</a>                109 usr/lib/libc/stdio/freopen.c 	fp-&gt;_r = 0;
+<a href='../S/514.html#L110'>fp</a>                110 usr/lib/libc/stdio/freopen.c 	fp-&gt;_p = NULL;
+<a href='../S/514.html#L111'>fp</a>                111 usr/lib/libc/stdio/freopen.c 	fp-&gt;_bf._base = NULL;
+<a href='../S/514.html#L112'>fp</a>                112 usr/lib/libc/stdio/freopen.c 	fp-&gt;_bf._size = 0;
+<a href='../S/514.html#L113'>fp</a>                113 usr/lib/libc/stdio/freopen.c 	if (HASUB(fp))
+<a href='../S/514.html#L114'>fp</a>                114 usr/lib/libc/stdio/freopen.c 		FREEUB(fp);
+<a href='../S/514.html#L115'>fp</a>                115 usr/lib/libc/stdio/freopen.c 	fp-&gt;_ub._size = 0;
+<a href='../S/514.html#L118'>fp</a>                118 usr/lib/libc/stdio/freopen.c 		fp-&gt;_flags = 0;		/* set it free */
+<a href='../S/514.html#L135'>fp</a>                135 usr/lib/libc/stdio/freopen.c 	fp-&gt;_flags = flags;
+<a href='../S/514.html#L136'>fp</a>                136 usr/lib/libc/stdio/freopen.c 	fp-&gt;_file = f;
+<a href='../S/514.html#L137'>fp</a>                137 usr/lib/libc/stdio/freopen.c 	return (fp);
+<a href='../S/515.html#L37'>fp</a>                 37 usr/lib/libc/stdio/fscanf.c fscanf(FILE *fp, char const *fmt, ...) {
+<a href='../S/515.html#L42'>fp</a>                 42 usr/lib/libc/stdio/fscanf.c 	ret = __svfscanf(fp, fmt, ap);
+<a href='../S/516.html#L48'>fp</a>                 48 usr/lib/libc/stdio/fseek.c fseek(fp, offset, whence)
+<a href='../S/516.html#L49'>fp</a>                 49 usr/lib/libc/stdio/fseek.c 	FILE *fp;
+<a href='../S/516.html#L72'>fp</a>                 72 usr/lib/libc/stdio/fseek.c 		curoff = __sseek(fp, (fpos_t)0, SEEK_CUR);
+<a href='../S/516.html#L75'>fp</a>                 75 usr/lib/libc/stdio/fseek.c 		if (fp-&gt;_flags &amp; __SRD) {
+<a href='../S/516.html#L76'>fp</a>                 76 usr/lib/libc/stdio/fseek.c 			curoff -= fp-&gt;_r;
+<a href='../S/516.html#L77'>fp</a>                 77 usr/lib/libc/stdio/fseek.c 			if (HASUB(fp))
+<a href='../S/516.html#L78'>fp</a>                 78 usr/lib/libc/stdio/fseek.c 				curoff -= fp-&gt;_ur;
+<a href='../S/516.html#L79'>fp</a>                 79 usr/lib/libc/stdio/fseek.c 		} else if (fp-&gt;_flags &amp; __SWR &amp;&amp; fp-&gt;_p != NULL)
+<a href='../S/516.html#L80'>fp</a>                 80 usr/lib/libc/stdio/fseek.c 			curoff += fp-&gt;_p - fp-&gt;_bf._base;
+<a href='../S/516.html#L98'>fp</a>                 98 usr/lib/libc/stdio/fseek.c 	if (fp-&gt;_bf._base == NULL)
+<a href='../S/516.html#L99'>fp</a>                 99 usr/lib/libc/stdio/fseek.c 		__smakebuf(fp);
+<a href='../S/516.html#L101'>fp</a>                101 usr/lib/libc/stdio/fseek.c 	if (__sflush(fp) ||
+<a href='../S/516.html#L102'>fp</a>                102 usr/lib/libc/stdio/fseek.c 	    __sseek(fp, (fpos_t)offset, whence) == POS_ERR) {
+<a href='../S/516.html#L106'>fp</a>                106 usr/lib/libc/stdio/fseek.c 	if (HASUB(fp))
+<a href='../S/516.html#L107'>fp</a>                107 usr/lib/libc/stdio/fseek.c 		FREEUB(fp);
+<a href='../S/516.html#L108'>fp</a>                108 usr/lib/libc/stdio/fseek.c 	fp-&gt;_p = fp-&gt;_bf._base;
+<a href='../S/516.html#L109'>fp</a>                109 usr/lib/libc/stdio/fseek.c 	fp-&gt;_r = 0;
+<a href='../S/516.html#L111'>fp</a>                111 usr/lib/libc/stdio/fseek.c 	fp-&gt;_flags &amp;= ~__SEOF;
+<a href='../S/518.html#L41'>fp</a>                 41 usr/lib/libc/stdio/ftell.c ftell(fp)
+<a href='../S/518.html#L42'>fp</a>                 42 usr/lib/libc/stdio/ftell.c 	FILE *fp;
+<a href='../S/518.html#L50'>fp</a>                 50 usr/lib/libc/stdio/ftell.c 	pos = __sseek(fp, (fpos_t)0, SEEK_CUR);
+<a href='../S/518.html#L54'>fp</a>                 54 usr/lib/libc/stdio/ftell.c 	if (fp-&gt;_flags &amp; __SRD) {
+<a href='../S/518.html#L60'>fp</a>                 60 usr/lib/libc/stdio/ftell.c 		pos -= fp-&gt;_r;
+<a href='../S/518.html#L61'>fp</a>                 61 usr/lib/libc/stdio/ftell.c 		if (HASUB(fp))
+<a href='../S/518.html#L62'>fp</a>                 62 usr/lib/libc/stdio/ftell.c 			pos -= fp-&gt;_ur;
+<a href='../S/518.html#L63'>fp</a>                 63 usr/lib/libc/stdio/ftell.c 	} else if (fp-&gt;_flags &amp; __SWR &amp;&amp; fp-&gt;_p != NULL) {
+<a href='../S/518.html#L69'>fp</a>                 69 usr/lib/libc/stdio/ftell.c 		pos += fp-&gt;_p - fp-&gt;_bf._base;
+<a href='../S/519.html#L45'>fp</a>                 45 usr/lib/libc/stdio/fvwrite.c __sfvwrite(fp, uio)
+<a href='../S/519.html#L46'>fp</a>                 46 usr/lib/libc/stdio/fvwrite.c 	FILE *fp;
+<a href='../S/519.html#L59'>fp</a>                 59 usr/lib/libc/stdio/fvwrite.c 	if (cantwrite(fp))
+<a href='../S/519.html#L63'>fp</a>                 63 usr/lib/libc/stdio/fvwrite.c #define	COPY(n)	  (void)memcpy((void *)fp-&gt;_p, (void *)p, (size_t)(n))
+<a href='../S/519.html#L76'>fp</a>                 76 usr/lib/libc/stdio/fvwrite.c 	if (fp-&gt;_flags &amp; __SNBF) {
+<a href='../S/519.html#L82'>fp</a>                 82 usr/lib/libc/stdio/fvwrite.c 			w = __swrite(fp, p, MIN(len, BUFSIZ));
+<a href='../S/519.html#L88'>fp</a>                 88 usr/lib/libc/stdio/fvwrite.c 	} else if ((fp-&gt;_flags &amp; __SLBF) == 0) {
+<a href='../S/519.html#L102'>fp</a>                102 usr/lib/libc/stdio/fvwrite.c 			w = fp-&gt;_w;
+<a href='../S/519.html#L103'>fp</a>                103 usr/lib/libc/stdio/fvwrite.c 			if (fp-&gt;_flags &amp; __SSTR) {
+<a href='../S/519.html#L107'>fp</a>                107 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L108'>fp</a>                108 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L110'>fp</a>                110 usr/lib/libc/stdio/fvwrite.c 			} else if (fp-&gt;_p &gt; fp-&gt;_bf._base &amp;&amp; len &gt; w) {
+<a href='../S/519.html#L114'>fp</a>                114 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L115'>fp</a>                115 usr/lib/libc/stdio/fvwrite.c 				if (fflush(fp))
+<a href='../S/519.html#L117'>fp</a>                117 usr/lib/libc/stdio/fvwrite.c 			} else if (len &gt;= (w = fp-&gt;_bf._size)) {
+<a href='../S/519.html#L119'>fp</a>                119 usr/lib/libc/stdio/fvwrite.c 				w = __swrite(fp, p, w);
+<a href='../S/519.html#L126'>fp</a>                126 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L127'>fp</a>                127 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L150'>fp</a>                150 usr/lib/libc/stdio/fvwrite.c 			w = fp-&gt;_w + fp-&gt;_bf._size;
+<a href='../S/519.html#L151'>fp</a>                151 usr/lib/libc/stdio/fvwrite.c 			if (fp-&gt;_p &gt; fp-&gt;_bf._base &amp;&amp; s &gt; w) {
+<a href='../S/519.html#L154'>fp</a>                154 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L155'>fp</a>                155 usr/lib/libc/stdio/fvwrite.c 				if (fflush(fp))
+<a href='../S/519.html#L157'>fp</a>                157 usr/lib/libc/stdio/fvwrite.c 			} else if (s &gt;= (w = fp-&gt;_bf._size)) {
+<a href='../S/519.html#L158'>fp</a>                158 usr/lib/libc/stdio/fvwrite.c 				w = __swrite(fp, p, w);
+<a href='../S/519.html#L164'>fp</a>                164 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L165'>fp</a>                165 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L169'>fp</a>                169 usr/lib/libc/stdio/fvwrite.c 				if (fflush(fp))
+<a href='../S/519.html#L180'>fp</a>                180 usr/lib/libc/stdio/fvwrite.c 	fp-&gt;_flags |= __SERR;
+<a href='../S/521.html#L41'>fp</a>                 41 usr/lib/libc/stdio/fwalk.c 	FILE *fp;
+<a href='../S/521.html#L45'>fp</a>                 45 usr/lib/libc/stdio/fwalk.c 	for (fp = &amp;__sF[0]; fp != NULL; fp = fp-&gt;next) {
+<a href='../S/521.html#L46'>fp</a>                 46 usr/lib/libc/stdio/fwalk.c 		if (fp-&gt;_flags != 0)
+<a href='../S/521.html#L47'>fp</a>                 47 usr/lib/libc/stdio/fwalk.c 			ret |= (*function)(fp);
+<a href='../S/522.html#L41'>fp</a>                 41 usr/lib/libc/stdio/fwrite.c fwrite(buf, size, count, fp)
+<a href='../S/522.html#L44'>fp</a>                 44 usr/lib/libc/stdio/fwrite.c 	FILE *fp;
+<a href='../S/522.html#L51'>fp</a>                 51 usr/lib/libc/stdio/fwrite.c 		if (putc((int)*p, fp) == EOF)
+<a href='../S/523.html#L37'>fp</a>                 37 usr/lib/libc/stdio/getc.c getc(fp)
+<a href='../S/523.html#L38'>fp</a>                 38 usr/lib/libc/stdio/getc.c 	FILE *fp;
+<a href='../S/523.html#L40'>fp</a>                 40 usr/lib/libc/stdio/getc.c 	if (--(fp-&gt;_r) &lt; 0) {
+<a href='../S/523.html#L41'>fp</a>                 41 usr/lib/libc/stdio/getc.c 		if (__srefill(fp) == 0) {
+<a href='../S/523.html#L42'>fp</a>                 42 usr/lib/libc/stdio/getc.c 			fp-&gt;_r--;
+<a href='../S/523.html#L43'>fp</a>                 43 usr/lib/libc/stdio/getc.c 			return (*fp-&gt;_p++);
+<a href='../S/523.html#L47'>fp</a>                 47 usr/lib/libc/stdio/getc.c 	return (int)(*fp-&gt;_p++);
+<a href='../S/526.html#L36'>fp</a>                 36 usr/lib/libc/stdio/getw.c getw(fp)
+<a href='../S/526.html#L37'>fp</a>                 37 usr/lib/libc/stdio/getw.c 	FILE *fp;
+<a href='../S/526.html#L44'>fp</a>                 44 usr/lib/libc/stdio/getw.c 		*p++ = getc(fp);
+<a href='../S/526.html#L45'>fp</a>                 45 usr/lib/libc/stdio/getw.c 	if (fp-&gt;_flags &amp; (__SERR|__SEOF))
+<a href='../S/527.html#L63'>fp</a>                 63 usr/lib/libc/stdio/local.h #define	cantwrite(fp) \
+<a href='../S/527.html#L64'>fp</a>                 64 usr/lib/libc/stdio/local.h 	((((fp)-&gt;_flags &amp; __SWR) == 0 || (fp)-&gt;_bf._base == NULL) &amp;&amp; \
+<a href='../S/527.html#L65'>fp</a>                 65 usr/lib/libc/stdio/local.h 	 __swsetup(fp))
+<a href='../S/527.html#L71'>fp</a>                 71 usr/lib/libc/stdio/local.h #define	HASUB(fp) ((fp)-&gt;_ub._base != NULL)
+<a href='../S/527.html#L72'>fp</a>                 72 usr/lib/libc/stdio/local.h #define	FREEUB(fp) { \
+<a href='../S/527.html#L73'>fp</a>                 73 usr/lib/libc/stdio/local.h 	(fp)-&gt;_ub._base = NULL; \
+<a href='../S/528.html#L44'>fp</a>                 44 usr/lib/libc/stdio/makebuf.c __swhatbuf(FILE *fp, size_t *bufsize, int *couldbetty)
+<a href='../S/528.html#L50'>fp</a>                 50 usr/lib/libc/stdio/makebuf.c 	if (fp-&gt;_file &lt; 0 || fstat(fp-&gt;_file, &amp;st) &lt; 0)
+<a href='../S/528.html#L66'>fp</a>                 66 usr/lib/libc/stdio/makebuf.c __smakebuf(fp)
+<a href='../S/528.html#L67'>fp</a>                 67 usr/lib/libc/stdio/makebuf.c 	FILE *fp;
+<a href='../S/528.html#L74'>fp</a>                 74 usr/lib/libc/stdio/makebuf.c 	if (fp-&gt;_flags &amp; __SNBF) {
+<a href='../S/528.html#L75'>fp</a>                 75 usr/lib/libc/stdio/makebuf.c 		fp-&gt;_bf._base = fp-&gt;_p = fp-&gt;_nbuf;
+<a href='../S/528.html#L76'>fp</a>                 76 usr/lib/libc/stdio/makebuf.c 		fp-&gt;_bf._size = 1;
+<a href='../S/528.html#L79'>fp</a>                 79 usr/lib/libc/stdio/makebuf.c 	flags = __swhatbuf(fp, &amp;size, &amp;couldbetty);
+<a href='../S/528.html#L81'>fp</a>                 81 usr/lib/libc/stdio/makebuf.c 		fp-&gt;_flags |= __SNBF;
+<a href='../S/528.html#L82'>fp</a>                 82 usr/lib/libc/stdio/makebuf.c 		fp-&gt;_bf._base = fp-&gt;_p = fp-&gt;_nbuf;
+<a href='../S/528.html#L83'>fp</a>                 83 usr/lib/libc/stdio/makebuf.c 		fp-&gt;_bf._size = 1;
+<a href='../S/528.html#L88'>fp</a>                 88 usr/lib/libc/stdio/makebuf.c 	fp-&gt;_bf._base = fp-&gt;_p = p;
+<a href='../S/528.html#L89'>fp</a>                 89 usr/lib/libc/stdio/makebuf.c 	fp-&gt;_bf._size = size;
+<a href='../S/528.html#L90'>fp</a>                 90 usr/lib/libc/stdio/makebuf.c 	if (couldbetty &amp;&amp; isatty(fp-&gt;_file))
+<a href='../S/528.html#L93'>fp</a>                 93 usr/lib/libc/stdio/makebuf.c 	fp-&gt;_flags |= flags;
+<a href='../S/533.html#L42'>fp</a>                 42 usr/lib/libc/stdio/putc.c __swbuf(c, fp)
+<a href='../S/533.html#L44'>fp</a>                 44 usr/lib/libc/stdio/putc.c 	FILE *fp;
+<a href='../S/533.html#L48'>fp</a>                 48 usr/lib/libc/stdio/putc.c 	if (cantwrite(fp))
+<a href='../S/533.html#L61'>fp</a>                 61 usr/lib/libc/stdio/putc.c 	n = fp-&gt;_p - fp-&gt;_bf._base;
+<a href='../S/533.html#L62'>fp</a>                 62 usr/lib/libc/stdio/putc.c 	if (n &gt;= fp-&gt;_bf._size) {
+<a href='../S/533.html#L63'>fp</a>                 63 usr/lib/libc/stdio/putc.c 		if (fflush(fp))
+<a href='../S/533.html#L67'>fp</a>                 67 usr/lib/libc/stdio/putc.c 	fp-&gt;_w--;
+<a href='../S/533.html#L68'>fp</a>                 68 usr/lib/libc/stdio/putc.c 	*fp-&gt;_p++ = c;
+<a href='../S/533.html#L69'>fp</a>                 69 usr/lib/libc/stdio/putc.c 	if (++n == fp-&gt;_bf._size || (fp-&gt;_flags &amp; __SLBF &amp;&amp; c == '\n'))
+<a href='../S/533.html#L70'>fp</a>                 70 usr/lib/libc/stdio/putc.c 		if (fflush(fp))
+<a href='../S/533.html#L76'>fp</a>                 76 usr/lib/libc/stdio/putc.c putc(c, fp)
+<a href='../S/533.html#L78'>fp</a>                 78 usr/lib/libc/stdio/putc.c 	FILE *fp;
+<a href='../S/533.html#L80'>fp</a>                 80 usr/lib/libc/stdio/putc.c 	if (--fp-&gt;_w &gt;= 0)
+<a href='../S/533.html#L81'>fp</a>                 81 usr/lib/libc/stdio/putc.c 		return (*fp-&gt;_p++ = c);
+<a href='../S/533.html#L83'>fp</a>                 83 usr/lib/libc/stdio/putc.c 		return (__swbuf(c, fp));
+<a href='../S/536.html#L36'>fp</a>                 36 usr/lib/libc/stdio/putw.c putw(w, fp)
+<a href='../S/536.html#L38'>fp</a>                 38 usr/lib/libc/stdio/putw.c 	FILE *fp;
+<a href='../S/536.html#L44'>fp</a>                 44 usr/lib/libc/stdio/putw.c 		putc(*p++, fp);
+<a href='../S/536.html#L45'>fp</a>                 45 usr/lib/libc/stdio/putw.c 	if (fp-&gt;_flags &amp; __SERR)
+<a href='../S/537.html#L39'>fp</a>                 39 usr/lib/libc/stdio/refill.c lflush(FILE *fp)
+<a href='../S/537.html#L42'>fp</a>                 42 usr/lib/libc/stdio/refill.c 	if ((fp-&gt;_flags &amp; (__SLBF|__SWR)) == (__SLBF|__SWR))
+<a href='../S/537.html#L43'>fp</a>                 43 usr/lib/libc/stdio/refill.c 		return (__sflush(fp));
+<a href='../S/537.html#L52'>fp</a>                 52 usr/lib/libc/stdio/refill.c __srefill(fp)
+<a href='../S/537.html#L53'>fp</a>                 53 usr/lib/libc/stdio/refill.c 	FILE *fp;
+<a href='../S/537.html#L60'>fp</a>                 60 usr/lib/libc/stdio/refill.c 	fp-&gt;_r = 0;		/* largely a convenience for callers */
+<a href='../S/537.html#L63'>fp</a>                 63 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_flags &amp; __SEOF)
+<a href='../S/537.html#L67'>fp</a>                 67 usr/lib/libc/stdio/refill.c 	if ((fp-&gt;_flags &amp; __SRD) == 0) {
+<a href='../S/537.html#L68'>fp</a>                 68 usr/lib/libc/stdio/refill.c 		if ((fp-&gt;_flags &amp; __SRW) == 0) {
+<a href='../S/537.html#L73'>fp</a>                 73 usr/lib/libc/stdio/refill.c 		if (fp-&gt;_flags &amp; __SWR) {
+<a href='../S/537.html#L74'>fp</a>                 74 usr/lib/libc/stdio/refill.c 			if (__sflush(fp))
+<a href='../S/537.html#L76'>fp</a>                 76 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags &amp;= ~__SWR;
+<a href='../S/537.html#L77'>fp</a>                 77 usr/lib/libc/stdio/refill.c 			fp-&gt;_w = 0;
+<a href='../S/537.html#L79'>fp</a>                 79 usr/lib/libc/stdio/refill.c 		fp-&gt;_flags |= __SRD;
+<a href='../S/537.html#L87'>fp</a>                 87 usr/lib/libc/stdio/refill.c 		if (HASUB(fp)) {
+<a href='../S/537.html#L88'>fp</a>                 88 usr/lib/libc/stdio/refill.c 			FREEUB(fp);
+<a href='../S/537.html#L89'>fp</a>                 89 usr/lib/libc/stdio/refill.c 			if ((fp-&gt;_r = fp-&gt;_ur) != 0) {
+<a href='../S/537.html#L90'>fp</a>                 90 usr/lib/libc/stdio/refill.c 				fp-&gt;_p = fp-&gt;_up;
+<a href='../S/537.html#L96'>fp</a>                 96 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_bf._base == NULL)
+<a href='../S/537.html#L97'>fp</a>                 97 usr/lib/libc/stdio/refill.c 		__smakebuf(fp);
+<a href='../S/537.html#L104'>fp</a>                104 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_flags &amp; (__SLBF|__SNBF))
+<a href='../S/537.html#L106'>fp</a>                106 usr/lib/libc/stdio/refill.c 	fp-&gt;_p = fp-&gt;_bf._base;
+<a href='../S/537.html#L107'>fp</a>                107 usr/lib/libc/stdio/refill.c 	fp-&gt;_r = __sread(fp, (char *)fp-&gt;_p, fp-&gt;_bf._size);
+<a href='../S/537.html#L108'>fp</a>                108 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_r &lt;= 0) {
+<a href='../S/537.html#L109'>fp</a>                109 usr/lib/libc/stdio/refill.c 		if (fp-&gt;_r == 0)
+<a href='../S/537.html#L110'>fp</a>                110 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags |= __SEOF;
+<a href='../S/537.html#L112'>fp</a>                112 usr/lib/libc/stdio/refill.c 			fp-&gt;_r = 0;
+<a href='../S/537.html#L113'>fp</a>                113 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags |= __SERR;
+<a href='../S/539.html#L37'>fp</a>                 37 usr/lib/libc/stdio/rewind.c rewind(fp)
+<a href='../S/539.html#L38'>fp</a>                 38 usr/lib/libc/stdio/rewind.c 	FILE *fp;
+<a href='../S/539.html#L40'>fp</a>                 40 usr/lib/libc/stdio/rewind.c 	(void) fseek(fp, 0L, SEEK_SET);
+<a href='../S/539.html#L41'>fp</a>                 41 usr/lib/libc/stdio/rewind.c 	clearerr(fp);
+<a href='../S/541.html#L37'>fp</a>                 37 usr/lib/libc/stdio/setbuf.c setbuf(fp, buf)
+<a href='../S/541.html#L38'>fp</a>                 38 usr/lib/libc/stdio/setbuf.c 	FILE *fp;
+<a href='../S/541.html#L41'>fp</a>                 41 usr/lib/libc/stdio/setbuf.c 	(void) setvbuf(fp, buf, buf ? _IOFBF : _IONBF, BUFSIZ);
+<a href='../S/542.html#L36'>fp</a>                 36 usr/lib/libc/stdio/setbuffer.c setbuffer(fp, buf, size)
+<a href='../S/542.html#L37'>fp</a>                 37 usr/lib/libc/stdio/setbuffer.c 	FILE *fp;
+<a href='../S/542.html#L42'>fp</a>                 42 usr/lib/libc/stdio/setbuffer.c 	(void)setvbuf(fp, buf, buf ? _IOFBF : _IONBF, size);
+<a href='../S/542.html#L49'>fp</a>                 49 usr/lib/libc/stdio/setbuffer.c setlinebuf(fp)
+<a href='../S/542.html#L50'>fp</a>                 50 usr/lib/libc/stdio/setbuffer.c 	FILE *fp;
+<a href='../S/542.html#L53'>fp</a>                 53 usr/lib/libc/stdio/setbuffer.c 	return (setvbuf(fp, (char *)NULL, _IOLBF, (size_t)0));
+<a href='../S/543.html#L42'>fp</a>                 42 usr/lib/libc/stdio/setvbuf.c setvbuf(fp, buf, mode, size)
+<a href='../S/543.html#L43'>fp</a>                 43 usr/lib/libc/stdio/setvbuf.c 	FILE *fp;
+<a href='../S/543.html#L67'>fp</a>                 67 usr/lib/libc/stdio/setvbuf.c 	(void)__sflush(fp);
+<a href='../S/543.html#L68'>fp</a>                 68 usr/lib/libc/stdio/setvbuf.c 	if (HASUB(fp))
+<a href='../S/543.html#L69'>fp</a>                 69 usr/lib/libc/stdio/setvbuf.c 		FREEUB(fp);
+<a href='../S/543.html#L70'>fp</a>                 70 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_r = 0;
+<a href='../S/543.html#L71'>fp</a>                 71 usr/lib/libc/stdio/setvbuf.c 	flags = fp-&gt;_flags;
+<a href='../S/543.html#L73'>fp</a>                 73 usr/lib/libc/stdio/setvbuf.c 		free((void *)fp-&gt;_bf._base);
+<a href='../S/543.html#L82'>fp</a>                 82 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_flags = flags;
+<a href='../S/543.html#L90'>fp</a>                 90 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_bf._base = fp-&gt;_p = (unsigned char *)buf;
+<a href='../S/543.html#L91'>fp</a>                 91 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_bf._size = size;
+<a href='../S/543.html#L92'>fp</a>                 92 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_w = 0;
+<a href='../S/547.html#L43'>fp</a>                 43 usr/lib/libc/stdio/stdio.c __sread(fp, buf, n)
+<a href='../S/547.html#L44'>fp</a>                 44 usr/lib/libc/stdio/stdio.c 	FILE *fp;
+<a href='../S/547.html#L48'>fp</a>                 48 usr/lib/libc/stdio/stdio.c 	return (read(fp-&gt;_file, buf, n));
+<a href='../S/547.html#L52'>fp</a>                 52 usr/lib/libc/stdio/stdio.c __swrite(fp, buf, n)
+<a href='../S/547.html#L53'>fp</a>                 53 usr/lib/libc/stdio/stdio.c 	FILE *fp;
+<a href='../S/547.html#L57'>fp</a>                 57 usr/lib/libc/stdio/stdio.c 	if (fp-&gt;_flags &amp; __SAPP)
+<a href='../S/547.html#L58'>fp</a>                 58 usr/lib/libc/stdio/stdio.c 		(void) lseek(fp-&gt;_file, (off_t)0, SEEK_END);
+<a href='../S/547.html#L59'>fp</a>                 59 usr/lib/libc/stdio/stdio.c 	return (write(fp-&gt;_file, buf, n));
+<a href='../S/547.html#L63'>fp</a>                 63 usr/lib/libc/stdio/stdio.c __sseek(fp, offset, whence)
+<a href='../S/547.html#L64'>fp</a>                 64 usr/lib/libc/stdio/stdio.c 	FILE *fp;
+<a href='../S/547.html#L68'>fp</a>                 68 usr/lib/libc/stdio/stdio.c 	return (lseek(fp-&gt;_file, (off_t)offset, whence));
+<a href='../S/547.html#L72'>fp</a>                 72 usr/lib/libc/stdio/stdio.c __sclose(fp)
+<a href='../S/547.html#L73'>fp</a>                 73 usr/lib/libc/stdio/stdio.c 	FILE *fp;
+<a href='../S/547.html#L75'>fp</a>                 75 usr/lib/libc/stdio/stdio.c 	return (close(fp-&gt;_file));
+<a href='../S/549.html#L45'>fp</a>                 45 usr/lib/libc/stdio/tmpfile.c 	FILE *fp;
+<a href='../S/549.html#L65'>fp</a>                 65 usr/lib/libc/stdio/tmpfile.c 	if ((fp = fdopen(fd, "w+")) == NULL) {
+<a href='../S/549.html#L71'>fp</a>                 71 usr/lib/libc/stdio/tmpfile.c 	return (fp);
+<a href='../S/551.html#L39'>fp</a>                 39 usr/lib/libc/stdio/ungetc.c ungetc(c, fp)
+<a href='../S/551.html#L41'>fp</a>                 41 usr/lib/libc/stdio/ungetc.c 	FILE *fp;
+<a href='../S/551.html#L47'>fp</a>                 47 usr/lib/libc/stdio/ungetc.c 	if ((fp-&gt;_flags &amp; __SRD) == 0) {
+<a href='../S/551.html#L52'>fp</a>                 52 usr/lib/libc/stdio/ungetc.c 		if ((fp-&gt;_flags &amp; __SRW) == 0)
+<a href='../S/551.html#L54'>fp</a>                 54 usr/lib/libc/stdio/ungetc.c 		if (fp-&gt;_flags &amp; __SWR) {
+<a href='../S/551.html#L55'>fp</a>                 55 usr/lib/libc/stdio/ungetc.c 			if (__sflush(fp))
+<a href='../S/551.html#L57'>fp</a>                 57 usr/lib/libc/stdio/ungetc.c 			fp-&gt;_flags &amp;= ~__SWR;
+<a href='../S/551.html#L58'>fp</a>                 58 usr/lib/libc/stdio/ungetc.c 			fp-&gt;_w = 0;
+<a href='../S/551.html#L60'>fp</a>                 60 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_flags |= __SRD;
+<a href='../S/551.html#L67'>fp</a>                 67 usr/lib/libc/stdio/ungetc.c 	if (HASUB(fp)) {
+<a href='../S/551.html#L68'>fp</a>                 68 usr/lib/libc/stdio/ungetc.c 		if (fp-&gt;_r &gt;= fp-&gt;_ub._size)
+<a href='../S/551.html#L70'>fp</a>                 70 usr/lib/libc/stdio/ungetc.c 		*--fp-&gt;_p = c;
+<a href='../S/551.html#L71'>fp</a>                 71 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_r++;
+<a href='../S/551.html#L74'>fp</a>                 74 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_flags &amp;= ~__SEOF;
+<a href='../S/551.html#L81'>fp</a>                 81 usr/lib/libc/stdio/ungetc.c 	if (fp-&gt;_bf._base != NULL &amp;&amp; fp-&gt;_p &gt; fp-&gt;_bf._base &amp;&amp;
+<a href='../S/551.html#L82'>fp</a>                 82 usr/lib/libc/stdio/ungetc.c 	    fp-&gt;_p[-1] == c) {
+<a href='../S/551.html#L83'>fp</a>                 83 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_p--;
+<a href='../S/551.html#L84'>fp</a>                 84 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_r++;
+<a href='../S/551.html#L92'>fp</a>                 92 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ur = fp-&gt;_r;
+<a href='../S/551.html#L93'>fp</a>                 93 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_up = fp-&gt;_p;
+<a href='../S/551.html#L94'>fp</a>                 94 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ub._base = fp-&gt;_ubuf;
+<a href='../S/551.html#L95'>fp</a>                 95 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ub._size = sizeof(fp-&gt;_ubuf);
+<a href='../S/551.html#L96'>fp</a>                 96 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ubuf[sizeof(fp-&gt;_ubuf) - 1] = c;
+<a href='../S/551.html#L97'>fp</a>                 97 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_p = &amp;fp-&gt;_ubuf[sizeof(fp-&gt;_ubuf) - 1];
+<a href='../S/551.html#L98'>fp</a>                 98 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_r = 1;
+<a href='../S/552.html#L55'>fp</a>                 55 usr/lib/libc/stdio/vfprintf.c __sprint(FILE *fp, struct __suio *uio)
+<a href='../S/552.html#L63'>fp</a>                 63 usr/lib/libc/stdio/vfprintf.c 	error = __sfvwrite(fp, uio);
+<a href='../S/552.html#L75'>fp</a>                 75 usr/lib/libc/stdio/vfprintf.c __sbprintf(FILE *fp, const char *fmt, va_list ap)
+<a href='../S/552.html#L82'>fp</a>                 82 usr/lib/libc/stdio/vfprintf.c 	fake._flags = fp-&gt;_flags &amp; ~__SNBF;
+<a href='../S/552.html#L83'>fp</a>                 83 usr/lib/libc/stdio/vfprintf.c 	fake._file = fp-&gt;_file;
+<a href='../S/552.html#L94'>fp</a>                 94 usr/lib/libc/stdio/vfprintf.c 		fp-&gt;_flags |= __SERR;
+<a href='../S/552.html#L181'>fp</a>                181 usr/lib/libc/stdio/vfprintf.c vfprintf(fp, fmt0, ap)
+<a href='../S/552.html#L182'>fp</a>                182 usr/lib/libc/stdio/vfprintf.c 	FILE *fp;
+<a href='../S/552.html#L229'>fp</a>                229 usr/lib/libc/stdio/vfprintf.c 		if (__sprint(fp, &amp;uio)) \
+<a href='../S/552.html#L244'>fp</a>                244 usr/lib/libc/stdio/vfprintf.c 	if (uio.uio_resid &amp;&amp; __sprint(fp, &amp;uio)) \
+<a href='../S/552.html#L264'>fp</a>                264 usr/lib/libc/stdio/vfprintf.c 	if (cantwrite(fp))
+<a href='../S/552.html#L268'>fp</a>                268 usr/lib/libc/stdio/vfprintf.c 	if ((fp-&gt;_flags &amp; (__SNBF|__SWR|__SRW)) == (__SNBF|__SWR) &amp;&amp;
+<a href='../S/552.html#L269'>fp</a>                269 usr/lib/libc/stdio/vfprintf.c 	    fp-&gt;_file &gt;= 0)
+<a href='../S/552.html#L270'>fp</a>                270 usr/lib/libc/stdio/vfprintf.c 		return (__sbprintf(fp, fmt0, ap));
+<a href='../S/552.html#L539'>fp</a>                539 usr/lib/libc/stdio/vfprintf.c 	return (__sferror(fp) ? EOF : ret);
+<a href='../S/553.html#L83'>fp</a>                 83 usr/lib/libc/stdio/vfscanf.c __svfscanf(fp, fmt0, ap)
+<a href='../S/553.html#L84'>fp</a>                 84 usr/lib/libc/stdio/vfscanf.c 	FILE *fp;
+<a href='../S/553.html#L117'>fp</a>                117 usr/lib/libc/stdio/vfscanf.c 				if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L119'>fp</a>                119 usr/lib/libc/stdio/vfscanf.c 				if (!isspace(*fp-&gt;_p))
+<a href='../S/553.html#L121'>fp</a>                121 usr/lib/libc/stdio/vfscanf.c 				nread++, fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L137'>fp</a>                137 usr/lib/libc/stdio/vfscanf.c 			if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L139'>fp</a>                139 usr/lib/libc/stdio/vfscanf.c 			if (*fp-&gt;_p != c)
+<a href='../S/553.html#L141'>fp</a>                141 usr/lib/libc/stdio/vfscanf.c 			fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L261'>fp</a>                261 usr/lib/libc/stdio/vfscanf.c 		if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L269'>fp</a>                269 usr/lib/libc/stdio/vfscanf.c 			while (isspace(*fp-&gt;_p)) {
+<a href='../S/553.html#L271'>fp</a>                271 usr/lib/libc/stdio/vfscanf.c 				if (--fp-&gt;_r &gt; 0)
+<a href='../S/553.html#L272'>fp</a>                272 usr/lib/libc/stdio/vfscanf.c 					fp-&gt;_p++;
+<a href='../S/553.html#L273'>fp</a>                273 usr/lib/libc/stdio/vfscanf.c 				else if (__srefill(fp))
+<a href='../S/553.html#L295'>fp</a>                295 usr/lib/libc/stdio/vfscanf.c 					if ((size_t)(n = fp-&gt;_r) &lt; width) {
+<a href='../S/553.html#L298'>fp</a>                298 usr/lib/libc/stdio/vfscanf.c 						fp-&gt;_p += n;
+<a href='../S/553.html#L299'>fp</a>                299 usr/lib/libc/stdio/vfscanf.c 						if (__srefill(fp)) {
+<a href='../S/553.html#L306'>fp</a>                306 usr/lib/libc/stdio/vfscanf.c 						fp-&gt;_r -= width;
+<a href='../S/553.html#L307'>fp</a>                307 usr/lib/libc/stdio/vfscanf.c 						fp-&gt;_p += width;
+<a href='../S/553.html#L314'>fp</a>                314 usr/lib/libc/stdio/vfscanf.c 				    width, fp);
+<a href='../S/553.html#L330'>fp</a>                330 usr/lib/libc/stdio/vfscanf.c 				while (ccltab[*fp-&gt;_p]) {
+<a href='../S/553.html#L331'>fp</a>                331 usr/lib/libc/stdio/vfscanf.c 					n++, fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L334'>fp</a>                334 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp)) {
+<a href='../S/553.html#L344'>fp</a>                344 usr/lib/libc/stdio/vfscanf.c 				while (ccltab[*fp-&gt;_p]) {
+<a href='../S/553.html#L345'>fp</a>                345 usr/lib/libc/stdio/vfscanf.c 					fp-&gt;_r--;
+<a href='../S/553.html#L346'>fp</a>                346 usr/lib/libc/stdio/vfscanf.c 					*p++ = *fp-&gt;_p++;
+<a href='../S/553.html#L349'>fp</a>                349 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp)) {
+<a href='../S/553.html#L370'>fp</a>                370 usr/lib/libc/stdio/vfscanf.c 				while (!isspace(*fp-&gt;_p)) {
+<a href='../S/553.html#L371'>fp</a>                371 usr/lib/libc/stdio/vfscanf.c 					n++, fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L374'>fp</a>                374 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L380'>fp</a>                380 usr/lib/libc/stdio/vfscanf.c 				while (!isspace(*fp-&gt;_p)) {
+<a href='../S/553.html#L381'>fp</a>                381 usr/lib/libc/stdio/vfscanf.c 					fp-&gt;_r--;
+<a href='../S/553.html#L382'>fp</a>                382 usr/lib/libc/stdio/vfscanf.c 					*p++ = *fp-&gt;_p++;
+<a href='../S/553.html#L385'>fp</a>                385 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L407'>fp</a>                407 usr/lib/libc/stdio/vfscanf.c 				c = *fp-&gt;_p;
+<a href='../S/553.html#L491'>fp</a>                491 usr/lib/libc/stdio/vfscanf.c 				if (--fp-&gt;_r &gt; 0)
+<a href='../S/553.html#L492'>fp</a>                492 usr/lib/libc/stdio/vfscanf.c 					fp-&gt;_p++;
+<a href='../S/553.html#L493'>fp</a>                493 usr/lib/libc/stdio/vfscanf.c 				else if (__srefill(fp))
+<a href='../S/553.html#L504'>fp</a>                504 usr/lib/libc/stdio/vfscanf.c 					(void) ungetc(*(u_char *)--p, fp);
+<a href='../S/553.html#L510'>fp</a>                510 usr/lib/libc/stdio/vfscanf.c 				(void) ungetc(c, fp);
+<a href='../S/559.html#L44'>fp</a>                 44 usr/lib/libc/stdio/wsetup.c __swsetup(fp)
+<a href='../S/559.html#L45'>fp</a>                 45 usr/lib/libc/stdio/wsetup.c 	FILE *fp;
+<a href='../S/559.html#L54'>fp</a>                 54 usr/lib/libc/stdio/wsetup.c 	if ((fp-&gt;_flags &amp; __SWR) == 0) {
+<a href='../S/559.html#L55'>fp</a>                 55 usr/lib/libc/stdio/wsetup.c 		if ((fp-&gt;_flags &amp; __SRW) == 0)
+<a href='../S/559.html#L57'>fp</a>                 57 usr/lib/libc/stdio/wsetup.c 		if (fp-&gt;_flags &amp; __SRD) {
+<a href='../S/559.html#L59'>fp</a>                 59 usr/lib/libc/stdio/wsetup.c 			if (HASUB(fp))
+<a href='../S/559.html#L60'>fp</a>                 60 usr/lib/libc/stdio/wsetup.c 				FREEUB(fp);
+<a href='../S/559.html#L61'>fp</a>                 61 usr/lib/libc/stdio/wsetup.c 			fp-&gt;_flags &amp;= ~(__SRD|__SEOF);
+<a href='../S/559.html#L62'>fp</a>                 62 usr/lib/libc/stdio/wsetup.c 			fp-&gt;_r = 0;
+<a href='../S/559.html#L63'>fp</a>                 63 usr/lib/libc/stdio/wsetup.c 			fp-&gt;_p = fp-&gt;_bf._base;
+<a href='../S/559.html#L65'>fp</a>                 65 usr/lib/libc/stdio/wsetup.c 		fp-&gt;_flags |= __SWR;
+<a href='../S/559.html#L71'>fp</a>                 71 usr/lib/libc/stdio/wsetup.c 	if (fp-&gt;_bf._base == NULL)
+<a href='../S/559.html#L72'>fp</a>                 72 usr/lib/libc/stdio/wsetup.c 		__smakebuf(fp);
+<a href='../S/559.html#L74'>fp</a>                 74 usr/lib/libc/stdio/wsetup.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SNBF|__SLBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/587.html#L43'>fp</a>                 43 usr/lib/libc/string/memccpy.c 		const unsigned char *fp = f;
+<a href='../S/587.html#L45'>fp</a>                 45 usr/lib/libc/string/memccpy.c 			if ((*tp++ = *fp++) == c)
+<a href='../S/618.html#L39'>fp</a>                 39 usr/lib/libc/string/swab.c 	const char *fp;
+<a href='../S/618.html#L43'>fp</a>                 43 usr/lib/libc/string/swab.c 	fp = (const char *)from;
+<a href='../S/618.html#L45'>fp</a>                 45 usr/lib/libc/string/swab.c #define	STEP	temp = *fp++,*tp++ = *fp++,*tp++ = temp
+<a href='../S/866.html#L56'>fp</a>                 56 usr/sbin/lock/lock.c 	FILE *fp;
+<a href='../S/866.html#L70'>fp</a>                 70 usr/sbin/lock/lock.c 	if ((fp = fopen(_PATH_PASSWD, "r")) == NULL) {
+<a href='../S/866.html#L74'>fp</a>                 74 usr/sbin/lock/lock.c 	if (((p = fgets(passcode, sizeof(passcode), fp)) == NULL) ||
+<a href='../S/866.html#L77'>fp</a>                 77 usr/sbin/lock/lock.c 		fclose(fp);
+<a href='../S/866.html#L80'>fp</a>                 80 usr/sbin/lock/lock.c 	fclose(fp);
+<a href='../S/866.html#L124'>fp</a>                124 usr/sbin/lock/lock.c 	FILE *fp;
+<a href='../S/866.html#L144'>fp</a>                144 usr/sbin/lock/lock.c 	if ((fp = fopen(_PATH_PASSWD, "w+")) == NULL) {
+<a href='../S/866.html#L148'>fp</a>                148 usr/sbin/lock/lock.c 	fputs(buf, fp);
+<a href='../S/866.html#L149'>fp</a>                149 usr/sbin/lock/lock.c 	fclose(fp);
+<a href='../S/871.html#L125'>fp</a>                125 usr/server/boot/boot.c 	FILE *fp;
+<a href='../S/871.html#L157'>fp</a>                157 usr/server/boot/boot.c 	if ((fp = fopen("/boot/fstab", "r")) == NULL)
+<a href='../S/871.html#L161'>fp</a>                161 usr/server/boot/boot.c 		if ((p = fgets(line, sizeof(line), fp)) == NULL)
+<a href='../S/871.html#L177'>fp</a>                177 usr/server/boot/boot.c 	fclose(fp);
+<a href='../S/883.html#L206'>fp</a>                206 usr/server/fs/arfs/arfs_vnops.c arfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/883.html#L221'>fp</a>                221 usr/server/fs/arfs/arfs_vnops.c 	file_pos = fp-&gt;f_offset;
+<a href='../S/883.html#L261'>fp</a>                261 usr/server/fs/arfs/arfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/883.html#L274'>fp</a>                274 usr/server/fs/arfs/arfs_vnops.c arfs_seek(vnode_t vp, file_t fp, off_t oldoff, off_t newoff)
+<a href='../S/883.html#L284'>fp</a>                284 usr/server/fs/arfs/arfs_vnops.c arfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/883.html#L313'>fp</a>                313 usr/server/fs/arfs/arfs_vnops.c 		if (i == fp-&gt;f_offset)
+<a href='../S/883.html#L331'>fp</a>                331 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/883.html#L334'>fp</a>                334 usr/server/fs/arfs/arfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/886.html#L144'>fp</a>                144 usr/server/fs/devfs/devfs_vnops.c devfs_close(vnode_t vp, file_t fp)
+<a href='../S/886.html#L147'>fp</a>                147 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_close: fp=%x\n", fp));
+<a href='../S/886.html#L156'>fp</a>                156 usr/server/fs/devfs/devfs_vnops.c devfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L162'>fp</a>                162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L169'>fp</a>                169 usr/server/fs/devfs/devfs_vnops.c devfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L175'>fp</a>                175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L183'>fp</a>                183 usr/server/fs/devfs/devfs_vnops.c devfs_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/886.html#L229'>fp</a>                229 usr/server/fs/devfs/devfs_vnops.c devfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/886.html#L234'>fp</a>                234 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_readdir offset=%d\n", fp-&gt;f_offset));
+<a href='../S/886.html#L243'>fp</a>                243 usr/server/fs/devfs/devfs_vnops.c 	} while (i++ != fp-&gt;f_offset);
+<a href='../S/886.html#L251'>fp</a>                251 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/886.html#L255'>fp</a>                255 usr/server/fs/devfs/devfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/893.html#L165'>fp</a>                165 usr/server/fs/fatfs/fatfs_vnops.c fatfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L182'>fp</a>                182 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = fp-&gt;f_offset;
+<a href='../S/893.html#L227'>fp</a>                227 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/893.html#L236'>fp</a>                236 usr/server/fs/fatfs/fatfs_vnops.c fatfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L259'>fp</a>                259 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/893.html#L322'>fp</a>                322 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/893.html#L339'>fp</a>                339 usr/server/fs/fatfs/fatfs_vnops.c fatfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/893.html#L349'>fp</a>                349 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_get_node(vp, fp-&gt;f_offset, &amp;np);
+<a href='../S/893.html#L362'>fp</a>                362 usr/server/fs/fatfs/fatfs_vnops.c 	dir-&gt;d_fileno = fp-&gt;f_offset;
+<a href='../S/893.html#L365'>fp</a>                365 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/896.html#L188'>fp</a>                188 usr/server/fs/fifofs/fifo_vnops.c fifo_close(vnode_t vp, file_t fp)
+<a href='../S/896.html#L192'>fp</a>                192 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_close: fp=%x\n", fp));
+<a href='../S/896.html#L197'>fp</a>                197 usr/server/fs/fifofs/fifo_vnops.c 	if (fp-&gt;f_flags &amp; FREAD) {
+<a href='../S/896.html#L202'>fp</a>                202 usr/server/fs/fifofs/fifo_vnops.c 	if (fp-&gt;f_flags &amp; FWRITE) {
+<a href='../S/896.html#L219'>fp</a>                219 usr/server/fs/fifofs/fifo_vnops.c fifo_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L264'>fp</a>                264 usr/server/fs/fifofs/fifo_vnops.c fifo_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L310'>fp</a>                310 usr/server/fs/fifofs/fifo_vnops.c fifo_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/896.html#L424'>fp</a>                424 usr/server/fs/fifofs/fifo_vnops.c fifo_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/896.html#L432'>fp</a>                432 usr/server/fs/fifofs/fifo_vnops.c 	if (fp-&gt;f_offset == 0) {
+<a href='../S/896.html#L435'>fp</a>                435 usr/server/fs/fifofs/fifo_vnops.c 	} else if (fp-&gt;f_offset == 1) {
+<a href='../S/896.html#L443'>fp</a>                443 usr/server/fs/fifofs/fifo_vnops.c 			if (i == (fp-&gt;f_offset - 2)) {
+<a href='../S/896.html#L456'>fp</a>                456 usr/server/fs/fifofs/fifo_vnops.c 	dir-&gt;d_fileno = fp-&gt;f_offset;
+<a href='../S/896.html#L459'>fp</a>                459 usr/server/fs/fifofs/fifo_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/902.html#L334'>fp</a>                334 usr/server/fs/ramfs/ramfs_vnops.c ramfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L345'>fp</a>                345 usr/server/fs/ramfs/ramfs_vnops.c 	off = fp-&gt;f_offset;
+<a href='../S/902.html#L355'>fp</a>                355 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset += size;
+<a href='../S/902.html#L361'>fp</a>                361 usr/server/fs/ramfs/ramfs_vnops.c ramfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L378'>fp</a>                378 usr/server/fs/ramfs/ramfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/902.html#L405'>fp</a>                405 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset += size;
+<a href='../S/902.html#L452'>fp</a>                452 usr/server/fs/ramfs/ramfs_vnops.c ramfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/902.html#L459'>fp</a>                459 usr/server/fs/ramfs/ramfs_vnops.c 	if (fp-&gt;f_offset == 0) {
+<a href='../S/902.html#L462'>fp</a>                462 usr/server/fs/ramfs/ramfs_vnops.c 	} else if (fp-&gt;f_offset == 1) {
+<a href='../S/902.html#L473'>fp</a>                473 usr/server/fs/ramfs/ramfs_vnops.c 		for (i = 0; i != (fp-&gt;f_offset - 2); i++) {
+<a href='../S/902.html#L487'>fp</a>                487 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/902.html#L490'>fp</a>                490 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/903.html#L130'>fp</a>                130 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L153'>fp</a>                153 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, msg-&gt;flags, msg-&gt;mode, &amp;fp)) != 0)
+<a href='../S/903.html#L156'>fp</a>                156 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/903.html#L165'>fp</a>                165 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L172'>fp</a>                172 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L173'>fp</a>                173 usr/server/fs/vfs/main.c 	if (fp == NULL)
+<a href='../S/903.html#L176'>fp</a>                176 usr/server/fs/vfs/main.c 	if ((error = sys_close(fp)) != 0)
+<a href='../S/903.html#L199'>fp</a>                199 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L203'>fp</a>                203 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L208'>fp</a>                208 usr/server/fs/vfs/main.c 	error = sys_lseek(fp, offset, type, &amp;org);
+<a href='../S/903.html#L216'>fp</a>                216 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L221'>fp</a>                221 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L227'>fp</a>                227 usr/server/fs/vfs/main.c 	error = sys_read(fp, buf, size, &amp;bytes);
+<a href='../S/903.html#L236'>fp</a>                236 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L241'>fp</a>                241 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L247'>fp</a>                247 usr/server/fs/vfs/main.c 	error = sys_write(fp, buf, size, &amp;bytes);
+<a href='../S/903.html#L256'>fp</a>                256 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L258'>fp</a>                258 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L261'>fp</a>                261 usr/server/fs/vfs/main.c 	return sys_ioctl(fp, msg-&gt;request, msg-&gt;buf);
+<a href='../S/903.html#L267'>fp</a>                267 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L269'>fp</a>                269 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L272'>fp</a>                272 usr/server/fs/vfs/main.c 	return sys_fsync(fp);
+<a href='../S/903.html#L278'>fp</a>                278 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L282'>fp</a>                282 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L286'>fp</a>                286 usr/server/fs/vfs/main.c 	error = sys_fstat(fp, st);
+<a href='../S/903.html#L294'>fp</a>                294 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L305'>fp</a>                305 usr/server/fs/vfs/main.c 	if ((error = sys_opendir(path, &amp;fp)) != 0)
+<a href='../S/903.html#L307'>fp</a>                307 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/903.html#L315'>fp</a>                315 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L321'>fp</a>                321 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L322'>fp</a>                322 usr/server/fs/vfs/main.c 	if (fp == NULL)
+<a href='../S/903.html#L325'>fp</a>                325 usr/server/fs/vfs/main.c 	if ((error = sys_closedir(fp)) != 0)
+<a href='../S/903.html#L334'>fp</a>                334 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L336'>fp</a>                336 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L339'>fp</a>                339 usr/server/fs/vfs/main.c 	return sys_readdir(fp, &amp;msg-&gt;dirent);
+<a href='../S/903.html#L345'>fp</a>                345 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L347'>fp</a>                347 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L350'>fp</a>                350 usr/server/fs/vfs/main.c 	return sys_rewinddir(fp);
+<a href='../S/903.html#L356'>fp</a>                356 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L359'>fp</a>                359 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L363'>fp</a>                363 usr/server/fs/vfs/main.c 	return sys_seekdir(fp, loc);
+<a href='../S/903.html#L369'>fp</a>                369 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L373'>fp</a>                373 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L377'>fp</a>                377 usr/server/fs/vfs/main.c 	if ((error = sys_telldir(fp, &amp;loc)) != 0)
+<a href='../S/903.html#L432'>fp</a>                432 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L441'>fp</a>                441 usr/server/fs/vfs/main.c 	if ((error = sys_opendir(path, &amp;fp)) != 0)
+<a href='../S/903.html#L445'>fp</a>                445 usr/server/fs/vfs/main.c 	t-&gt;t_cwdfp = fp;
+<a href='../S/903.html#L453'>fp</a>                453 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L457'>fp</a>                457 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, fd)) == NULL)
+<a href='../S/903.html#L462'>fp</a>                462 usr/server/fs/vfs/main.c 	t-&gt;t_cwdfp = fp;
+<a href='../S/903.html#L463'>fp</a>                463 usr/server/fs/vfs/main.c 	return sys_fchdir(fp, t-&gt;t_cwd);
+<a href='../S/903.html#L516'>fp</a>                516 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L520'>fp</a>                520 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, old_fd)) == NULL)
+<a href='../S/903.html#L527'>fp</a>                527 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[new_fd] = fp;
+<a href='../S/903.html#L530'>fp</a>                530 usr/server/fs/vfs/main.c 	vref(fp-&gt;f_vnode);
+<a href='../S/903.html#L531'>fp</a>                531 usr/server/fs/vfs/main.c 	fp-&gt;f_count++;
+<a href='../S/903.html#L543'>fp</a>                543 usr/server/fs/vfs/main.c 	file_t fp, org;
+<a href='../S/903.html#L551'>fp</a>                551 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[old_fd];
+<a href='../S/903.html#L552'>fp</a>                552 usr/server/fs/vfs/main.c 	if (fp == NULL)
+<a href='../S/903.html#L559'>fp</a>                559 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[new_fd] = fp;
+<a href='../S/903.html#L562'>fp</a>                562 usr/server/fs/vfs/main.c 	vref(fp-&gt;f_vnode);
+<a href='../S/903.html#L563'>fp</a>                563 usr/server/fs/vfs/main.c 	fp-&gt;f_count++;
+<a href='../S/903.html#L575'>fp</a>                575 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L578'>fp</a>                578 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L589'>fp</a>                589 usr/server/fs/vfs/main.c 		t-&gt;t_ofile[new_fd] = fp;
+<a href='../S/903.html#L592'>fp</a>                592 usr/server/fs/vfs/main.c 		vref(fp-&gt;f_vnode);
+<a href='../S/903.html#L593'>fp</a>                593 usr/server/fs/vfs/main.c 		fp-&gt;f_count++;
+<a href='../S/903.html#L597'>fp</a>                597 usr/server/fs/vfs/main.c 		msg-&gt;arg = fp-&gt;f_flags &amp; FD_CLOEXEC;
+<a href='../S/903.html#L600'>fp</a>                600 usr/server/fs/vfs/main.c 		fp-&gt;f_flags = (fp-&gt;f_flags &amp; ~FD_CLOEXEC) |
+<a href='../S/903.html#L644'>fp</a>                644 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L658'>fp</a>                658 usr/server/fs/vfs/main.c 		fp = t-&gt;t_ofile[i];
+<a href='../S/903.html#L659'>fp</a>                659 usr/server/fs/vfs/main.c 		newtask-&gt;t_ofile[i] = fp;
+<a href='../S/903.html#L664'>fp</a>                664 usr/server/fs/vfs/main.c 		if (fp != NULL) {
+<a href='../S/903.html#L665'>fp</a>                665 usr/server/fs/vfs/main.c 			vref(fp-&gt;f_vnode);
+<a href='../S/903.html#L666'>fp</a>                666 usr/server/fs/vfs/main.c 			fp-&gt;f_count++;
+<a href='../S/903.html#L689'>fp</a>                689 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L703'>fp</a>                703 usr/server/fs/vfs/main.c 		fp = target-&gt;t_ofile[fd];
+<a href='../S/903.html#L704'>fp</a>                704 usr/server/fs/vfs/main.c 		if (fp) {
+<a href='../S/903.html#L705'>fp</a>                705 usr/server/fs/vfs/main.c 			if (fp-&gt;f_vnode-&gt;v_type == VDIR) {
+<a href='../S/903.html#L706'>fp</a>                706 usr/server/fs/vfs/main.c 				sys_close(fp);
+<a href='../S/903.html#L723'>fp</a>                723 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L732'>fp</a>                732 usr/server/fs/vfs/main.c 		fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L733'>fp</a>                733 usr/server/fs/vfs/main.c 		if (fp != NULL)
+<a href='../S/903.html#L734'>fp</a>                734 usr/server/fs/vfs/main.c 			sys_close(fp);
+<a href='../S/903.html#L807'>fp</a>                807 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L810'>fp</a>                810 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L813'>fp</a>                813 usr/server/fs/vfs/main.c 	if (fp-&gt;f_vnode-&gt;v_flags &amp; VISTTY)
+<a href='../S/903.html#L836'>fp</a>                836 usr/server/fs/vfs/main.c 	file_t fp;
+<a href='../S/903.html#L838'>fp</a>                838 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L841'>fp</a>                841 usr/server/fs/vfs/main.c 	return sys_ftruncate(fp, msg-&gt;data[1]);
+<a href='../S/905.html#L95'>fp</a>                 95 usr/server/fs/vfs/vfs.h int	 sys_close(file_t fp);
+<a href='../S/905.html#L96'>fp</a>                 96 usr/server/fs/vfs/vfs.h int	 sys_read(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L97'>fp</a>                 97 usr/server/fs/vfs/vfs.h int	 sys_write(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L98'>fp</a>                 98 usr/server/fs/vfs/vfs.h int	 sys_lseek(file_t fp, off_t off, int type, off_t * cur_off);
+<a href='../S/905.html#L99'>fp</a>                 99 usr/server/fs/vfs/vfs.h int	 sys_ioctl(file_t fp, u_long request, void *buf);
+<a href='../S/905.html#L100'>fp</a>                100 usr/server/fs/vfs/vfs.h int	 sys_fstat(file_t fp, struct stat *st);
+<a href='../S/905.html#L101'>fp</a>                101 usr/server/fs/vfs/vfs.h int	 sys_fsync(file_t fp);
+<a href='../S/905.html#L102'>fp</a>                102 usr/server/fs/vfs/vfs.h int	 sys_ftruncate(file_t fp, off_t length);
+<a href='../S/905.html#L105'>fp</a>                105 usr/server/fs/vfs/vfs.h int	 sys_closedir(file_t fp);
+<a href='../S/905.html#L106'>fp</a>                106 usr/server/fs/vfs/vfs.h int	 sys_readdir(file_t fp, struct dirent *dirent);
+<a href='../S/905.html#L107'>fp</a>                107 usr/server/fs/vfs/vfs.h int	 sys_rewinddir(file_t fp);
+<a href='../S/905.html#L108'>fp</a>                108 usr/server/fs/vfs/vfs.h int	 sys_seekdir(file_t fp, long loc);
+<a href='../S/905.html#L109'>fp</a>                109 usr/server/fs/vfs/vfs.h int	 sys_telldir(file_t fp, long *loc);
+<a href='../S/905.html#L110'>fp</a>                110 usr/server/fs/vfs/vfs.h int	 sys_fchdir(file_t fp, char *path);
+<a href='../S/905.html#L133'>fp</a>                133 usr/server/fs/vfs/vfs.h void	 task_setfp(struct task *t, int fd, file_t fp);
+<a href='../S/911.html#L58'>fp</a>                 58 usr/server/fs/vfs/vfs_syscalls.c 	file_t fp;
+<a href='../S/911.html#L127'>fp</a>                127 usr/server/fs/vfs/vfs_syscalls.c 	if (!(fp = malloc(sizeof(struct file)))) {
+<a href='../S/911.html#L133'>fp</a>                133 usr/server/fs/vfs/vfs_syscalls.c 		free(fp);
+<a href='../S/911.html#L137'>fp</a>                137 usr/server/fs/vfs/vfs_syscalls.c 	memset(fp, 0, sizeof(struct file));
+<a href='../S/911.html#L138'>fp</a>                138 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_vnode = vp;
+<a href='../S/911.html#L139'>fp</a>                139 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_flags = flags;
+<a href='../S/911.html#L140'>fp</a>                140 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = 0;
+<a href='../S/911.html#L141'>fp</a>                141 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_count = 1;
+<a href='../S/911.html#L142'>fp</a>                142 usr/server/fs/vfs/vfs_syscalls.c 	*pfp = fp;
+<a href='../S/911.html#L148'>fp</a>                148 usr/server/fs/vfs/vfs_syscalls.c sys_close(file_t fp)
+<a href='../S/911.html#L154'>fp</a>                154 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, fp-&gt;f_count));
+<a href='../S/911.html#L156'>fp</a>                156 usr/server/fs/vfs/vfs_syscalls.c 	if (fp-&gt;f_count &lt;= 0)
+<a href='../S/911.html#L159'>fp</a>                159 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L160'>fp</a>                160 usr/server/fs/vfs/vfs_syscalls.c 	if (--fp-&gt;f_count &gt; 0) {
+<a href='../S/911.html#L165'>fp</a>                165 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = VOP_CLOSE(vp, fp)) != 0) {
+<a href='../S/911.html#L170'>fp</a>                170 usr/server/fs/vfs/vfs_syscalls.c 	free(fp);
+<a href='../S/911.html#L175'>fp</a>                175 usr/server/fs/vfs/vfs_syscalls.c sys_read(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L181'>fp</a>                181 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)buf, size));
+<a href='../S/911.html#L183'>fp</a>                183 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; FREAD) == 0)
+<a href='../S/911.html#L189'>fp</a>                189 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L191'>fp</a>                191 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READ(vp, fp, buf, size, count);
+<a href='../S/911.html#L197'>fp</a>                197 usr/server/fs/vfs/vfs_syscalls.c sys_write(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L203'>fp</a>                203 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)buf, size));
+<a href='../S/911.html#L205'>fp</a>                205 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; FWRITE) == 0)
+<a href='../S/911.html#L211'>fp</a>                211 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L213'>fp</a>                213 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_WRITE(vp, fp, buf, size, count);
+<a href='../S/911.html#L219'>fp</a>                219 usr/server/fs/vfs/vfs_syscalls.c sys_lseek(file_t fp, off_t off, int type, off_t *origin)
+<a href='../S/911.html#L224'>fp</a>                224 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)off, type));
+<a href='../S/911.html#L226'>fp</a>                226 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L236'>fp</a>                236 usr/server/fs/vfs/vfs_syscalls.c 		if (fp-&gt;f_offset + off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L238'>fp</a>                238 usr/server/fs/vfs/vfs_syscalls.c 		else if (fp-&gt;f_offset + off &lt; 0)
+<a href='../S/911.html#L241'>fp</a>                241 usr/server/fs/vfs/vfs_syscalls.c 			off = fp-&gt;f_offset + off;
+<a href='../S/911.html#L256'>fp</a>                256 usr/server/fs/vfs/vfs_syscalls.c 	if (VOP_SEEK(vp, fp, fp-&gt;f_offset, off) != 0) {
+<a href='../S/911.html#L261'>fp</a>                261 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = off;
+<a href='../S/911.html#L267'>fp</a>                267 usr/server/fs/vfs/vfs_syscalls.c sys_ioctl(file_t fp, u_long request, void *buf)
+<a href='../S/911.html#L272'>fp</a>                272 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_ioctl: fp=%x request=%x\n", fp, request));
+<a href='../S/911.html#L274'>fp</a>                274 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; (FREAD | FWRITE)) == 0)
+<a href='../S/911.html#L277'>fp</a>                277 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L279'>fp</a>                279 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_IOCTL(vp, fp, request, buf);
+<a href='../S/911.html#L286'>fp</a>                286 usr/server/fs/vfs/vfs_syscalls.c sys_fsync(file_t fp)
+<a href='../S/911.html#L291'>fp</a>                291 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_fsync: fp=%x\n", fp));
+<a href='../S/911.html#L293'>fp</a>                293 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; FWRITE) == 0)
+<a href='../S/911.html#L296'>fp</a>                296 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L298'>fp</a>                298 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_FSYNC(vp, fp);
+<a href='../S/911.html#L304'>fp</a>                304 usr/server/fs/vfs/vfs_syscalls.c sys_fstat(file_t fp, struct stat *st)
+<a href='../S/911.html#L309'>fp</a>                309 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_fstat: fp=%x\n", fp));
+<a href='../S/911.html#L311'>fp</a>                311 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L325'>fp</a>                325 usr/server/fs/vfs/vfs_syscalls.c 	file_t fp;
+<a href='../S/911.html#L330'>fp</a>                330 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = sys_opendir(path, &amp;fp)) != 0)
+<a href='../S/911.html#L333'>fp</a>                333 usr/server/fs/vfs/vfs_syscalls.c 		error = sys_readdir(fp, &amp;dir);
+<a href='../S/911.html#L338'>fp</a>                338 usr/server/fs/vfs/vfs_syscalls.c 	sys_closedir(fp);
+<a href='../S/911.html#L351'>fp</a>                351 usr/server/fs/vfs/vfs_syscalls.c 	file_t fp;
+<a href='../S/911.html#L356'>fp</a>                356 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = sys_open(path, O_RDONLY, 0, &amp;fp)) != 0)
+<a href='../S/911.html#L359'>fp</a>                359 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/911.html#L363'>fp</a>                363 usr/server/fs/vfs/vfs_syscalls.c 		sys_close(fp);
+<a href='../S/911.html#L368'>fp</a>                368 usr/server/fs/vfs/vfs_syscalls.c 	*file = fp;
+<a href='../S/911.html#L373'>fp</a>                373 usr/server/fs/vfs/vfs_syscalls.c sys_closedir(file_t fp)
+<a href='../S/911.html#L378'>fp</a>                378 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_closedir: fp=%x\n", fp));
+<a href='../S/911.html#L380'>fp</a>                380 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/911.html#L387'>fp</a>                387 usr/server/fs/vfs/vfs_syscalls.c 	error = sys_close(fp);
+<a href='../S/911.html#L392'>fp</a>                392 usr/server/fs/vfs/vfs_syscalls.c sys_readdir(file_t fp, struct dirent *dir)
+<a href='../S/911.html#L397'>fp</a>                397 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_readdir: fp=%x\n", fp));
+<a href='../S/911.html#L399'>fp</a>                399 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/911.html#L405'>fp</a>                405 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READDIR(dvp, fp, dir);
+<a href='../S/911.html#L413'>fp</a>                413 usr/server/fs/vfs/vfs_syscalls.c sys_rewinddir(file_t fp)
+<a href='../S/911.html#L417'>fp</a>                417 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/911.html#L423'>fp</a>                423 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = 0;
+<a href='../S/911.html#L429'>fp</a>                429 usr/server/fs/vfs/vfs_syscalls.c sys_seekdir(file_t fp, long loc)
+<a href='../S/911.html#L433'>fp</a>                433 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/911.html#L439'>fp</a>                439 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = (off_t)loc;
+<a href='../S/911.html#L445'>fp</a>                445 usr/server/fs/vfs/vfs_syscalls.c sys_telldir(file_t fp, long *loc)
+<a href='../S/911.html#L449'>fp</a>                449 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/911.html#L455'>fp</a>                455 usr/server/fs/vfs/vfs_syscalls.c 	*loc = (long)fp-&gt;f_offset;
+<a href='../S/911.html#L738'>fp</a>                738 usr/server/fs/vfs/vfs_syscalls.c sys_ftruncate(file_t fp, off_t length)
+<a href='../S/911.html#L744'>fp</a>                744 usr/server/fs/vfs/vfs_syscalls.c sys_fchdir(file_t fp, char *cwd)
+<a href='../S/911.html#L748'>fp</a>                748 usr/server/fs/vfs/vfs_syscalls.c 	dvp = fp-&gt;f_vnode;
+<a href='../S/912.html#L178'>fp</a>                178 usr/server/fs/vfs/vfs_task.c task_setfp(struct task *t, int fd, file_t fp)
+<a href='../S/912.html#L181'>fp</a>                181 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_ofile[fd] = fp;
+</pre>
+</body>
+</html>

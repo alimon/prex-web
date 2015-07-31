@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>entry</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L51'>entry</a>              51 bsp/boot/common/bootinfo.c 	       m-&gt;entry, m-&gt;phys, m-&gt;size,
+<a href='../S/13.html#L169'>entry</a>             169 bsp/boot/common/elf.c 	m-&gt;entry = ehdr-&gt;e_entry;
+<a href='../S/13.html#L170'>entry</a>             170 bsp/boot/common/elf.c 	ELFDBG(("module size=%x entry=%lx\n", m-&gt;size, m-&gt;entry));
+<a href='../S/13.html#L358'>entry</a>             358 bsp/boot/common/elf.c 	m-&gt;entry = (vaddr_t)ptokv(ehdr-&gt;e_entry + m-&gt;phys);
+<a href='../S/13.html#L359'>entry</a>             359 bsp/boot/common/elf.c 	ELFDBG(("module size=%x entry=%lx\n", m-&gt;size, m-&gt;entry));
+<a href='../S/15.html#L55'>entry</a>              55 bsp/boot/common/main.c 	entry_t entry;
+<a href='../S/15.html#L88'>entry</a>              88 bsp/boot/common/main.c 	entry = (entry_t)kvtop(bootinfo-&gt;kernel.entry);
+<a href='../S/15.html#L89'>entry</a>              89 bsp/boot/common/main.c 	DPRINTF(("Entering kernel (at 0x%lx) ...\n\n", (long)entry));
+<a href='../S/15.html#L90'>entry</a>              90 bsp/boot/common/main.c 	(*entry)();
+<a href='../S/247.html#L64'>entry</a>              64 include/sys/bootinfo.h 	vaddr_t		entry;		/* entry address */
+<a href='../S/267.html#L98'>entry</a>              98 include/sys/prex.h int	thread_load(thread_t t, void (*entry)(void), void *stack);
+<a href='../S/327.html#L547'>entry</a>             547 sys/kern/device.c 	void (*entry)(const dkifn_t *);
+<a href='../S/327.html#L555'>entry</a>             555 sys/kern/device.c 	entry = (void (*)(const dkifn_t *))mod-&gt;entry;
+<a href='../S/327.html#L556'>entry</a>             556 sys/kern/device.c 	ASSERT(entry != NULL);
+<a href='../S/327.html#L559'>entry</a>             559 sys/kern/device.c 	DPRINTF(("Entering driver module (at 0x%x)\n", (int)entry));
+<a href='../S/327.html#L561'>entry</a>             561 sys/kern/device.c 	(*entry)(dkient);
+<a href='../S/334.html#L509'>entry</a>             509 sys/kern/task.c 		error = thread_load(t, (void (*)(void))mod-&gt;entry, sp);
+<a href='../S/335.html#L167'>entry</a>             167 sys/kern/thread.c thread_load(thread_t t, void (*entry)(void), void *stack)
+<a href='../S/335.html#L171'>entry</a>             171 sys/kern/thread.c 	if (entry != NULL &amp;&amp; !user_area(entry))
+<a href='../S/335.html#L187'>entry</a>             187 sys/kern/thread.c 	if (entry != NULL)
+<a href='../S/335.html#L188'>entry</a>             188 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_UENTRY, (register_t)entry);
+<a href='../S/335.html#L525'>entry</a>             525 sys/kern/thread.c kthread_create(void (*entry)(void *), void *arg, int pri)
+<a href='../S/335.html#L542'>entry</a>             542 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)entry);
+<a href='../S/372.html#L56'>entry</a>              56 usr/bin/cmdbox/main.c 	struct cmdentry const *entry;
+<a href='../S/372.html#L75'>entry</a>              75 usr/bin/cmdbox/main.c 	entry = builtin_cmds;
+<a href='../S/372.html#L76'>entry</a>              76 usr/bin/cmdbox/main.c 	while (entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L78'>entry</a>              78 usr/bin/cmdbox/main.c 			       entry-&gt;cmd);
+<a href='../S/372.html#L79'>entry</a>              79 usr/bin/cmdbox/main.c 		entry++;
+<a href='../S/372.html#L80'>entry</a>              80 usr/bin/cmdbox/main.c 		if (col &gt; maxcol &amp;&amp; entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L90'>entry</a>              90 usr/bin/cmdbox/main.c 	entry = shell_cmds;
+<a href='../S/372.html#L91'>entry</a>              91 usr/bin/cmdbox/main.c 	while (entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L93'>entry</a>              93 usr/bin/cmdbox/main.c 			       entry-&gt;cmd);
+<a href='../S/372.html#L94'>entry</a>              94 usr/bin/cmdbox/main.c 		entry++;
+<a href='../S/372.html#L95'>entry</a>              95 usr/bin/cmdbox/main.c 		if (col &gt; maxcol &amp;&amp; entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L109'>entry</a>             109 usr/bin/cmdbox/main.c 	struct cmdentry const *entry;
+<a href='../S/372.html#L143'>entry</a>             143 usr/bin/cmdbox/main.c 	entry = builtin_cmds;
+<a href='../S/372.html#L144'>entry</a>             144 usr/bin/cmdbox/main.c 	while (entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L145'>entry</a>             145 usr/bin/cmdbox/main.c 		if (!strcmp(cmd, entry-&gt;cmd)) {
+<a href='../S/372.html#L147'>entry</a>             147 usr/bin/cmdbox/main.c 			exit(entry-&gt;func(argc, argv));
+<a href='../S/372.html#L149'>entry</a>             149 usr/bin/cmdbox/main.c 		entry++;
+<a href='../S/390.html#L261'>entry</a>             261 usr/bin/ls/ls.c 	struct dirent *entry;
+<a href='../S/390.html#L275'>entry</a>             275 usr/bin/ls/ls.c 			entry = readdir(dir);
+<a href='../S/390.html#L276'>entry</a>             276 usr/bin/ls/ls.c 			if (entry == NULL)
+<a href='../S/390.html#L282'>entry</a>             282 usr/bin/ls/ls.c 			if (!strcmp(entry-&gt;d_name, "."))
+<a href='../S/390.html#L284'>entry</a>             284 usr/bin/ls/ls.c 			else if (!strcmp(entry-&gt;d_name, ".."))
+<a href='../S/390.html#L288'>entry</a>             288 usr/bin/ls/ls.c 				strlcat(buf, entry-&gt;d_name, sizeof(buf));
+<a href='../S/390.html#L292'>entry</a>             292 usr/bin/ls/ls.c 			printentry(entry-&gt;d_name, &amp;st);
+<a href='../S/685.html#L43'>entry</a>              43 usr/lib/posix/file/readdir.c 	struct dirent *entry = &amp;dir-&gt;dd_ent;
+<a href='../S/685.html#L49'>entry</a>              49 usr/lib/posix/file/readdir.c 	memcpy(entry, &amp;m.dirent, sizeof(struct dirent));
+<a href='../S/873.html#L64'>entry</a>              64 usr/server/exec/exec.h 	vaddr_t	entry;			/* entry address */
+<a href='../S/876.html#L59'>entry</a>              59 usr/server/exec/exec_elf.c load_exec(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L100'>entry</a>             100 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)ehdr-&gt;e_entry;
+<a href='../S/876.html#L195'>entry</a>             195 usr/server/exec/exec_elf.c load_reloc(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L306'>entry</a>             306 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)((u_long)mapped + ehdr-&gt;e_entry);
+<a href='../S/876.html#L307'>entry</a>             307 usr/server/exec/exec_elf.c 	DPRINTF(("exec: entry=%x\n", *entry));
+<a href='../S/876.html#L351'>entry</a>             351 usr/server/exec/exec_elf.c 			  fd, &amp;exec-&gt;entry);
+<a href='../S/876.html#L354'>entry</a>             354 usr/server/exec/exec_elf.c 			  fd, &amp;exec-&gt;entry);
+<a href='../S/877.html#L194'>entry</a>             194 usr/server/exec/exec_execve.c 	if ((error = thread_load(t, (void (*)(void))exec.entry, sp)) != 0)
+<a href='../S/903.html#L945'>entry</a>             945 usr/server/fs/vfs/main.c run_thread(void (*entry)(void))
+<a href='../S/903.html#L959'>entry</a>             959 usr/server/fs/vfs/main.c 	if ((error = thread_load(t, entry, sp)) != 0)
+<a href='../S/916.html#L266'>entry</a>             266 usr/server/pow/pow.c run_thread(void (*entry)(void))
+<a href='../S/916.html#L280'>entry</a>             280 usr/server/pow/pow.c 	if ((error = thread_load(t, entry, sp)) != 0)
+</pre>
+</body>
+</html>

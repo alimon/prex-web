@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>u</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/17.html#L48'>u</a>                  48 bsp/boot/common/printf.c 	unsigned u;
+<a href='../S/17.html#L74'>u</a>                  74 bsp/boot/common/printf.c 				u = va_arg(ap, unsigned);
+<a href='../S/17.html#L78'>u</a>                  78 bsp/boot/common/printf.c 						*s++ = digits[u % 10U];
+<a href='../S/17.html#L79'>u</a>                  79 bsp/boot/common/printf.c 					while (u /= 10U);
+<a href='../S/17.html#L86'>u</a>                  86 bsp/boot/common/printf.c 							*s++ = digits[u % 16U];
+<a href='../S/17.html#L87'>u</a>                  87 bsp/boot/common/printf.c 							if ((u /= 16U) == 0)
+<a href='../S/126.html#L64'>u</a>                  64 bsp/hal/arm/arch/context.c 	struct cpu_regs *u;
+<a href='../S/126.html#L76'>u</a>                  76 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L77'>u</a>                  77 bsp/hal/arm/arch/context.c 		u-&gt;r0 = 0;
+<a href='../S/126.html#L78'>u</a>                  78 bsp/hal/arm/arch/context.c 		u-&gt;r1 = 0x11111111;
+<a href='../S/126.html#L79'>u</a>                  79 bsp/hal/arm/arch/context.c 		u-&gt;r2 = 0x22222222;
+<a href='../S/126.html#L80'>u</a>                  80 bsp/hal/arm/arch/context.c 		u-&gt;r3 = 0x33333333;
+<a href='../S/126.html#L81'>u</a>                  81 bsp/hal/arm/arch/context.c 		u-&gt;svc_sp = (uint32_t)val;
+<a href='../S/126.html#L82'>u</a>                  82 bsp/hal/arm/arch/context.c 		u-&gt;cpsr = PSR_APP_MODE;	/* FIQ/IRQ is enabled */
+<a href='../S/126.html#L98'>u</a>                  98 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L99'>u</a>                  99 bsp/hal/arm/arch/context.c 		u-&gt;sp = (uint32_t)val;
+<a href='../S/126.html#L104'>u</a>                 104 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L105'>u</a>                 105 bsp/hal/arm/arch/context.c 		u-&gt;cpsr = PSR_APP_MODE;	/* FIQ/IRQ is enabled */
+<a href='../S/126.html#L106'>u</a>                 106 bsp/hal/arm/arch/context.c 		u-&gt;pc = (uint32_t)val;
+<a href='../S/126.html#L107'>u</a>                 107 bsp/hal/arm/arch/context.c 		u-&gt;lr = 0x12345678;
+<a href='../S/126.html#L112'>u</a>                 112 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L113'>u</a>                 113 bsp/hal/arm/arch/context.c 		u-&gt;r0 = (uint32_t)val;		/* Argument 1 */
+<a href='../S/154.html#L65'>u</a>                  65 bsp/hal/ppc/arch/context.c 	struct cpu_regs *u;
+<a href='../S/154.html#L83'>u</a>                  83 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L84'>u</a>                  84 bsp/hal/ppc/arch/context.c 		u-&gt;gr[3] = 0x11111111;
+<a href='../S/154.html#L85'>u</a>                  85 bsp/hal/ppc/arch/context.c 		u-&gt;gr[4] = 0x22222222;
+<a href='../S/154.html#L86'>u</a>                  86 bsp/hal/ppc/arch/context.c 		u-&gt;gr[5] = 0x33333333;
+<a href='../S/154.html#L87'>u</a>                  87 bsp/hal/ppc/arch/context.c 		u-&gt;srr1 = MSR_DFLT;
+<a href='../S/154.html#L103'>u</a>                 103 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L104'>u</a>                 104 bsp/hal/ppc/arch/context.c 		u-&gt;gr[1] = (uint32_t)val;
+<a href='../S/154.html#L109'>u</a>                 109 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L110'>u</a>                 110 bsp/hal/ppc/arch/context.c 		u-&gt;srr0 = (uint32_t)val;
+<a href='../S/154.html#L111'>u</a>                 111 bsp/hal/ppc/arch/context.c 		u-&gt;srr1 = MSR_DFLT;
+<a href='../S/154.html#L116'>u</a>                 116 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L117'>u</a>                 117 bsp/hal/ppc/arch/context.c 		u-&gt;gr[3] = (uint32_t)val;
+<a href='../S/154.html#L118'>u</a>                 118 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(u-&gt;gr[1] + sizeof(uint32_t));
+<a href='../S/173.html#L65'>u</a>                  65 bsp/hal/x86/arch/context.c 	struct cpu_regs *u;
+<a href='../S/173.html#L81'>u</a>                  81 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L82'>u</a>                  82 bsp/hal/x86/arch/context.c 		u-&gt;eax = 0;
+<a href='../S/173.html#L83'>u</a>                  83 bsp/hal/x86/arch/context.c 		u-&gt;eflags = (uint32_t)(EFL_IF | EFL_IOPL_KERN);
+<a href='../S/173.html#L99'>u</a>                  99 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L100'>u</a>                 100 bsp/hal/x86/arch/context.c 		u-&gt;esp = (uint32_t)val;
+<a href='../S/173.html#L101'>u</a>                 101 bsp/hal/x86/arch/context.c 		u-&gt;ss = (uint32_t)(USER_DS | 3); /* fail safe */
+<a href='../S/173.html#L106'>u</a>                 106 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L107'>u</a>                 107 bsp/hal/x86/arch/context.c 		u-&gt;eip = (uint32_t)val;
+<a href='../S/173.html#L108'>u</a>                 108 bsp/hal/x86/arch/context.c 		u-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/173.html#L109'>u</a>                 109 bsp/hal/x86/arch/context.c 		u-&gt;ds = u-&gt;es = (uint32_t)(USER_DS | 3);
+<a href='../S/173.html#L110'>u</a>                 110 bsp/hal/x86/arch/context.c 		u-&gt;eflags = (uint32_t)(EFL_IF | EFL_IOPL_KERN);
+<a href='../S/173.html#L111'>u</a>                 111 bsp/hal/x86/arch/context.c 		u-&gt;eax = u-&gt;ebx = u-&gt;ecx = u-&gt;edx =
+<a href='../S/173.html#L112'>u</a>                 112 bsp/hal/x86/arch/context.c 			u-&gt;edi = u-&gt;esi = u-&gt;ebp = 0;
+<a href='../S/173.html#L117'>u</a>                 117 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L118'>u</a>                 118 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(u-&gt;esp + sizeof(uint32_t));
+</pre>
+</body>
+</html>

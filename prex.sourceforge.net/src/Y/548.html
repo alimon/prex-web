@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>conds</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/318.html#L57'>conds</a>              57 sys/include/task.h 	struct list	conds;		/* cv owned by this task */
+<a href='../S/334.html#L143'>conds</a>             143 sys/kern/task.c 	list_init(&amp;task-&gt;conds);
+<a href='../S/334.html#L542'>conds</a>             542 sys/kern/task.c 	list_init(&amp;kernel_task.conds);
+<a href='../S/345.html#L71'>conds</a>              71 sys/sync/cond.c 	list_insert(&amp;self-&gt;conds, &amp;c-&gt;task_link);
+<a href='../S/345.html#L119'>conds</a>             119 sys/sync/cond.c 	while (!list_empty(&amp;task-&gt;conds)) {
+<a href='../S/345.html#L120'>conds</a>             120 sys/sync/cond.c 		c = list_entry(list_first(&amp;task-&gt;conds),
+<a href='../S/345.html#L223'>conds</a>             223 sys/sync/cond.c 	head = &amp;curtask-&gt;conds;
+</pre>
+</body>
+</html>

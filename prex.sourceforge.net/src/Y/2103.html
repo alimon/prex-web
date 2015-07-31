@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_state</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L192'>t_state</a>           192 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_state &amp; (TS_TTSTOP|TS_BUSY))
+<a href='../S/64.html#L215'>t_state</a>           215 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L228'>t_state</a>           228 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_BUSY;
+<a href='../S/64.html#L229'>t_state</a>           229 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_state &amp; TS_ASLEEP) {
+<a href='../S/64.html#L230'>t_state</a>           230 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_ASLEEP;
+<a href='../S/64.html#L245'>t_state</a>           245 bsp/drv/dev/base/tty.c 		tp-&gt;t_state |= TS_BUSY;
+<a href='../S/64.html#L248'>t_state</a>           248 bsp/drv/dev/base/tty.c 			if ((tp-&gt;t_state &amp; TS_BUSY) == 0)
+<a href='../S/64.html#L250'>t_state</a>           250 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_ASLEEP;
+<a href='../S/64.html#L309'>t_state</a>           309 bsp/drv/dev/base/tty.c 			if (!(tp-&gt;t_state &amp; TS_TTSTOP)) {
+<a href='../S/64.html#L310'>t_state</a>           310 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_TTSTOP;
+<a href='../S/64.html#L340'>t_state</a>           340 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_ISIG;
+<a href='../S/64.html#L350'>t_state</a>           350 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_ISIG;
+<a href='../S/64.html#L382'>t_state</a>           382 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_state &amp; TS_TTSTOP) &amp;&amp; (iflag &amp; IXANY) == 0 &amp;&amp;
+<a href='../S/64.html#L386'>t_state</a>           386 bsp/drv/dev/base/tty.c 	tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L471'>t_state</a>           471 bsp/drv/dev/base/tty.c 		if (rc == SLP_INTR || tp-&gt;t_state &amp; TS_ISIG) {
+<a href='../S/64.html#L472'>t_state</a>           472 bsp/drv/dev/base/tty.c 			tp-&gt;t_state &amp;= ~TS_ISIG;
+<a href='../S/64.html#L510'>t_state</a>           510 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_ASLEEP;
+<a href='../S/64.html#L570'>t_state</a>           570 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_state &amp; TS_TTSTOP) {
+<a href='../S/64.html#L571'>t_state</a>           571 bsp/drv/dev/base/tty.c 			tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L576'>t_state</a>           576 bsp/drv/dev/base/tty.c 		if (!(tp-&gt;t_state &amp; TS_TTSTOP)) {
+<a href='../S/64.html#L577'>t_state</a>           577 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_TTSTOP;
+<a href='../S/102.html#L67'>t_state</a>            67 bsp/drv/include/tty.h 	int		t_state;	/* driver state */
+</pre>
+</body>
+</html>

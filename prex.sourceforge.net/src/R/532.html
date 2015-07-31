@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>L1TBL_SIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L47'>L1TBL_SIZE</a>         47 bsp/hal/arm/arch/mmu.c #define L1TBL_MASK	(L1TBL_SIZE - 1)
+<a href='../S/131.html#L70'>L1TBL_SIZE</a>         70 bsp/hal/arm/arch/mmu.c 	if ((pg = page_alloc(L1TBL_SIZE * 2)) == 0)
+<a href='../S/131.html#L80'>L1TBL_SIZE</a>         80 bsp/hal/arm/arch/mmu.c 	page_free((paddr_t)(pgd + L1TBL_SIZE), (size_t)(L1TBL_SIZE - gap));
+<a href='../S/131.html#L195'>L1TBL_SIZE</a>        195 bsp/hal/arm/arch/mmu.c 	memset(pgd, 0, L1TBL_SIZE);
+<a href='../S/131.html#L199'>L1TBL_SIZE</a>        199 bsp/hal/arm/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(L1TBL_SIZE - i * 4));
+<a href='../S/131.html#L225'>L1TBL_SIZE</a>        225 bsp/hal/arm/arch/mmu.c 	page_free(kvtop(pgd), L1TBL_SIZE);
+</pre>
+</body>
+</html>

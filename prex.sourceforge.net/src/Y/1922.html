@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sh_next</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/323.html#L45'>sh_next</a>            45 sys/include/vm.h 	struct seg	*sh_next;
+<a href='../S/343.html#L337'>sh_next</a>           337 sys/mem/vm.c   		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/343.html#L338'>sh_next</a>           338 sys/mem/vm.c   		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/343.html#L339'>sh_next</a>           339 sys/mem/vm.c   		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/343.html#L341'>sh_next</a>           341 sys/mem/vm.c   		seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/343.html#L633'>sh_next</a>           633 sys/mem/vm.c   			dest-&gt;sh_next = src-&gt;sh_next;
+<a href='../S/343.html#L634'>sh_next</a>           634 sys/mem/vm.c   			src-&gt;sh_next-&gt;sh_prev = dest;
+<a href='../S/343.html#L635'>sh_next</a>           635 sys/mem/vm.c   			src-&gt;sh_next = dest;
+<a href='../S/343.html#L798'>sh_next</a>           798 sys/mem/vm.c   	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/343.html#L821'>sh_next</a>           821 sys/mem/vm.c   	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/343.html#L842'>sh_next</a>           842 sys/mem/vm.c   		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/343.html#L843'>sh_next</a>           843 sys/mem/vm.c   		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/343.html#L844'>sh_next</a>           844 sys/mem/vm.c   		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/343.html#L914'>sh_next</a>           914 sys/mem/vm.c   		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/343.html#L915'>sh_next</a>           915 sys/mem/vm.c   		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/343.html#L916'>sh_next</a>           916 sys/mem/vm.c   		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/344.html#L548'>sh_next</a>           548 sys/mem/vm_nommu.c 	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/344.html#L571'>sh_next</a>           571 sys/mem/vm_nommu.c 	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/344.html#L592'>sh_next</a>           592 sys/mem/vm_nommu.c 		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/344.html#L593'>sh_next</a>           593 sys/mem/vm_nommu.c 		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/344.html#L594'>sh_next</a>           594 sys/mem/vm_nommu.c 		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/344.html#L651'>sh_next</a>           651 sys/mem/vm_nommu.c 		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/344.html#L652'>sh_next</a>           652 sys/mem/vm_nommu.c 		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/344.html#L653'>sh_next</a>           653 sys/mem/vm_nommu.c 		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+</pre>
+</body>
+</html>

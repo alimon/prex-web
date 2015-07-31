@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>SECTOR_SIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L63'>SECTOR_SIZE</a>        63 bsp/drv/dev/block/fdd.c #define TRACK_SIZE	(SECTOR_SIZE * 18)
+<a href='../S/66.html#L308'>SECTOR_SIZE</a>       308 bsp/drv/dev/block/fdd.c 	io_size = irp-&gt;blksz * SECTOR_SIZE;
+<a href='../S/66.html#L575'>SECTOR_SIZE</a>       575 bsp/drv/dev/block/fdd.c 	nr_sect = *nbyte / SECTOR_SIZE;
+<a href='../S/66.html#L595'>SECTOR_SIZE</a>       595 bsp/drv/dev/block/fdd.c 		memcpy(kbuf, (char *)sc-&gt;rbuf + sect * SECTOR_SIZE,
+<a href='../S/66.html#L596'>SECTOR_SIZE</a>       596 bsp/drv/dev/block/fdd.c 		       SECTOR_SIZE);
+<a href='../S/66.html#L598'>SECTOR_SIZE</a>       598 bsp/drv/dev/block/fdd.c 		kbuf += SECTOR_SIZE;
+<a href='../S/66.html#L600'>SECTOR_SIZE</a>       600 bsp/drv/dev/block/fdd.c 	*nbyte = i * SECTOR_SIZE;
+<a href='../S/66.html#L631'>SECTOR_SIZE</a>       631 bsp/drv/dev/block/fdd.c 	nr_sect = *nbyte / SECTOR_SIZE;
+<a href='../S/66.html#L643'>SECTOR_SIZE</a>       643 bsp/drv/dev/block/fdd.c 			wbuf = (char *)sc-&gt;rbuf + sect * SECTOR_SIZE;
+<a href='../S/66.html#L647'>SECTOR_SIZE</a>       647 bsp/drv/dev/block/fdd.c 		memcpy(wbuf, kbuf, SECTOR_SIZE);
+<a href='../S/66.html#L654'>SECTOR_SIZE</a>       654 bsp/drv/dev/block/fdd.c 		kbuf += SECTOR_SIZE;
+<a href='../S/66.html#L656'>SECTOR_SIZE</a>       656 bsp/drv/dev/block/fdd.c 	*nbyte = i * SECTOR_SIZE;
+<a href='../S/66.html#L696'>SECTOR_SIZE</a>       696 bsp/drv/dev/block/fdd.c 	buf = dma_alloc(TRACK_SIZE + SECTOR_SIZE);
+</pre>
+</body>
+</html>

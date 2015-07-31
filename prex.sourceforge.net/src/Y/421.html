@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bi</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/8.html#L40'>bi</a>                 40 bsp/boot/arm/gba/startup.c        	struct bootinfo *bi = bootinfo;
+<a href='../S/8.html#L45'>bi</a>                 45 bsp/boot/arm/gba/startup.c 	bi-&gt;video.text_x = 30;
+<a href='../S/8.html#L46'>bi</a>                 46 bsp/boot/arm/gba/startup.c 	bi-&gt;video.text_y = 20;
+<a href='../S/8.html#L51'>bi</a>                 51 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].base = 0x2000000;
+<a href='../S/8.html#L52'>bi</a>                 52 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].size = 0x40000;
+<a href='../S/8.html#L53'>bi</a>                 53 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/8.html#L55'>bi</a>                 55 bsp/boot/arm/gba/startup.c 	bi-&gt;nr_rams = 1;
+<a href='../S/11.html#L40'>bi</a>                 40 bsp/boot/arm/integrator/startup.c 	struct bootinfo *bi = bootinfo;
+<a href='../S/11.html#L45'>bi</a>                 45 bsp/boot/arm/integrator/startup.c 	bi-&gt;video.text_x = 80;
+<a href='../S/11.html#L46'>bi</a>                 46 bsp/boot/arm/integrator/startup.c 	bi-&gt;video.text_y = 25;
+<a href='../S/11.html#L51'>bi</a>                 51 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/11.html#L52'>bi</a>                 52 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].size = 0x400000;
+<a href='../S/11.html#L53'>bi</a>                 53 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/11.html#L55'>bi</a>                 55 bsp/boot/arm/integrator/startup.c 	bi-&gt;nr_rams = 1;
+<a href='../S/12.html#L62'>bi</a>                 62 bsp/boot/common/bootinfo.c 	struct bootinfo *bi = bootinfo;
+<a href='../S/12.html#L67'>bi</a>                 67 bsp/boot/common/bootinfo.c 	printf("nr_rams=%d\n", bi-&gt;nr_rams);
+<a href='../S/12.html#L68'>bi</a>                 68 bsp/boot/common/bootinfo.c 	for (i = 0; i &lt; bi-&gt;nr_rams; i++) {
+<a href='../S/12.html#L69'>bi</a>                 69 bsp/boot/common/bootinfo.c 		if (bi-&gt;ram[i].type != 0) {
+<a href='../S/12.html#L71'>bi</a>                 71 bsp/boot/common/bootinfo.c 			       bi-&gt;ram[i].base,
+<a href='../S/12.html#L72'>bi</a>                 72 bsp/boot/common/bootinfo.c 			       bi-&gt;ram[i].size,
+<a href='../S/12.html#L73'>bi</a>                 73 bsp/boot/common/bootinfo.c 			       strtype[bi-&gt;ram[i].type]);
+<a href='../S/12.html#L78'>bi</a>                 78 bsp/boot/common/bootinfo.c 	       bi-&gt;bootdisk.base,
+<a href='../S/12.html#L79'>bi</a>                 79 bsp/boot/common/bootinfo.c 	       bi-&gt;bootdisk.size);
+<a href='../S/12.html#L83'>bi</a>                 83 bsp/boot/common/bootinfo.c 	print_module(&amp;bi-&gt;kernel);
+<a href='../S/12.html#L84'>bi</a>                 84 bsp/boot/common/bootinfo.c 	print_module(&amp;bi-&gt;driver);
+<a href='../S/12.html#L86'>bi</a>                 86 bsp/boot/common/bootinfo.c 	m = (struct module *)&amp;bi-&gt;tasks[0];
+<a href='../S/12.html#L87'>bi</a>                 87 bsp/boot/common/bootinfo.c 	for (i = 0; i &lt; bi-&gt;nr_tasks; i++, m++)
+<a href='../S/14.html#L60'>bi</a>                 60 bsp/boot/common/load.c 	struct bootinfo *bi = bootinfo;
+<a href='../S/14.html#L84'>bi</a>                 84 bsp/boot/common/load.c 	if (load_module((struct ar_hdr *)hdr, &amp;bi-&gt;kernel))
+<a href='../S/14.html#L95'>bi</a>                 95 bsp/boot/common/load.c 	if (load_module((struct ar_hdr *)hdr, &amp;bi-&gt;driver))
+<a href='../S/14.html#L102'>bi</a>                102 bsp/boot/common/load.c 	m = (struct module *)&amp;bi-&gt;tasks[0];
+<a href='../S/14.html#L130'>bi</a>                130 bsp/boot/common/load.c 	bi-&gt;nr_tasks = i;
+<a href='../S/14.html#L132'>bi</a>                132 bsp/boot/common/load.c 	if (bi-&gt;nr_tasks == 0)
+<a href='../S/14.html#L139'>bi</a>                139 bsp/boot/common/load.c 	i = bi-&gt;nr_rams;
+<a href='../S/14.html#L140'>bi</a>                140 bsp/boot/common/load.c 	bi-&gt;ram[i].base = load_start;
+<a href='../S/14.html#L141'>bi</a>                141 bsp/boot/common/load.c 	bi-&gt;ram[i].size = (size_t)(load_base - load_start);
+<a href='../S/14.html#L142'>bi</a>                142 bsp/boot/common/load.c 	bi-&gt;ram[i].type = MT_RESERVED;
+<a href='../S/14.html#L143'>bi</a>                143 bsp/boot/common/load.c 	bi-&gt;nr_rams++;
+<a href='../S/14.html#L180'>bi</a>                180 bsp/boot/common/load.c 	struct bootinfo *bi = bootinfo;
+<a href='../S/14.html#L198'>bi</a>                198 bsp/boot/common/load.c 	bi-&gt;bootdisk.base = base;
+<a href='../S/14.html#L199'>bi</a>                199 bsp/boot/common/load.c 	bi-&gt;bootdisk.size = size;
+<a href='../S/14.html#L206'>bi</a>                206 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].base = base;
+<a href='../S/14.html#L207'>bi</a>                207 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].size = size;
+<a href='../S/14.html#L208'>bi</a>                208 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].type = MT_BOOTDISK;
+<a href='../S/14.html#L209'>bi</a>                209 bsp/boot/common/load.c 	bi-&gt;nr_rams++;
+<a href='../S/14.html#L212'>bi</a>                212 bsp/boot/common/load.c 		 bi-&gt;bootdisk.base, bi-&gt;bootdisk.size));
+<a href='../S/32.html#L40'>bi</a>                 40 bsp/boot/ppc/prep/startup.c 	struct bootinfo *bi = bootinfo;
+<a href='../S/32.html#L45'>bi</a>                 45 bsp/boot/ppc/prep/startup.c 	bi-&gt;video.text_x = 80;
+<a href='../S/32.html#L46'>bi</a>                 46 bsp/boot/ppc/prep/startup.c 	bi-&gt;video.text_y = 25;
+<a href='../S/32.html#L51'>bi</a>                 51 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/32.html#L52'>bi</a>                 52 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].size = 0x9000000;
+<a href='../S/32.html#L53'>bi</a>                 53 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/32.html#L55'>bi</a>                 55 bsp/boot/ppc/prep/startup.c 	bi-&gt;nr_rams = 1;
+<a href='../S/42.html#L48'>bi</a>                 48 bsp/boot/x86/pc/startup.c 	struct bootinfo *bi = bootinfo;
+<a href='../S/42.html#L54'>bi</a>                 54 bsp/boot/x86/pc/startup.c 	bi-&gt;video.text_x = 80;
+<a href='../S/42.html#L55'>bi</a>                 55 bsp/boot/x86/pc/startup.c 	bi-&gt;video.text_y = 25;
+<a href='../S/42.html#L57'>bi</a>                 57 bsp/boot/x86/pc/startup.c 	bi-&gt;video.text_x = 80;
+<a href='../S/42.html#L58'>bi</a>                 58 bsp/boot/x86/pc/startup.c 	bi-&gt;video.text_y = 50;
+<a href='../S/42.html#L64'>bi</a>                 64 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/42.html#L65'>bi</a>                 65 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].size = (size_t)((1024 + hi_mem) * 1024);
+<a href='../S/42.html#L66'>bi</a>                 66 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/42.html#L67'>bi</a>                 67 bsp/boot/x86/pc/startup.c 	bi-&gt;nr_rams = 1;
+<a href='../S/42.html#L73'>bi</a>                 73 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].base = lo_mem * 1024;
+<a href='../S/42.html#L74'>bi</a>                 74 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].size = (size_t)((1024 - lo_mem) * 1024);
+<a href='../S/42.html#L75'>bi</a>                 75 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].type = MT_MEMHOLE;
+<a href='../S/42.html#L76'>bi</a>                 76 bsp/boot/x86/pc/startup.c 		bi-&gt;nr_rams++;
+<a href='../S/64.html#L613'>bi</a>                613 bsp/drv/dev/base/tty.c 	struct bootinfo *bi;
+<a href='../S/64.html#L629'>bi</a>                629 bsp/drv/dev/base/tty.c 	machine_bootinfo(&amp;bi);
+<a href='../S/64.html#L630'>bi</a>                630 bsp/drv/dev/base/tty.c 	tp-&gt;t_winsize.ws_row = (u_short)bi-&gt;video.text_y;
+<a href='../S/64.html#L631'>bi</a>                631 bsp/drv/dev/base/tty.c 	tp-&gt;t_winsize.ws_col = (u_short)bi-&gt;video.text_x;
+<a href='../S/65.html#L478'>bi</a>                478 bsp/drv/dev/base/wscons.c 	struct bootinfo *bi;
+<a href='../S/65.html#L494'>bi</a>                494 bsp/drv/dev/base/wscons.c 	machine_bootinfo(&amp;bi);
+<a href='../S/65.html#L495'>bi</a>                495 bsp/drv/dev/base/wscons.c 	sc-&gt;nrows = bi-&gt;video.text_y;
+<a href='../S/65.html#L496'>bi</a>                496 bsp/drv/dev/base/wscons.c 	sc-&gt;ncols = bi-&gt;video.text_x;
+<a href='../S/68.html#L139'>bi</a>                139 bsp/drv/dev/block/ramdisk.c 	struct bootinfo *bi;
+<a href='../S/68.html#L142'>bi</a>                142 bsp/drv/dev/block/ramdisk.c 	machine_bootinfo(&amp;bi);
+<a href='../S/68.html#L143'>bi</a>                143 bsp/drv/dev/block/ramdisk.c 	phys = &amp;bi-&gt;bootdisk;
+<a href='../S/68.html#L157'>bi</a>                157 bsp/drv/dev/block/ramdisk.c 	struct bootinfo *bi;
+<a href='../S/68.html#L161'>bi</a>                161 bsp/drv/dev/block/ramdisk.c 	machine_bootinfo(&amp;bi);
+<a href='../S/68.html#L162'>bi</a>                162 bsp/drv/dev/block/ramdisk.c 	phys = &amp;bi-&gt;bootdisk;
+<a href='../S/91.html#L239'>bi</a>                239 bsp/drv/dev/video/vga.c 	struct bootinfo *bi;
+<a href='../S/91.html#L242'>bi</a>                242 bsp/drv/dev/video/vga.c 	machine_bootinfo(&amp;bi);
+<a href='../S/91.html#L248'>bi</a>                248 bsp/drv/dev/video/vga.c 	sc-&gt;cols = bi-&gt;video.text_x;
+<a href='../S/187.html#L127'>bi</a>                127 bsp/hal/x86/pc/diag.c 	struct bootinfo *bi;
+<a href='../S/187.html#L129'>bi</a>                129 bsp/hal/x86/pc/diag.c 	machine_bootinfo(&amp;bi);
+<a href='../S/187.html#L134'>bi</a>                134 bsp/hal/x86/pc/diag.c 	screen_x = bi-&gt;video.text_x;
+<a href='../S/187.html#L135'>bi</a>                135 bsp/hal/x86/pc/diag.c 	screen_y = bi-&gt;video.text_y;
+<a href='../S/189.html#L145'>bi</a>                145 bsp/hal/x86/pc/machdep.c 	struct bootinfo *bi = (struct bootinfo *)BOOTINFO;
+<a href='../S/189.html#L164'>bi</a>                164 bsp/hal/x86/pc/machdep.c 	mmumap_table[0].size = bi-&gt;ram[0].size;
+<a href='../S/327.html#L546'>bi</a>                546 sys/kern/device.c 	struct bootinfo *bi;
+<a href='../S/327.html#L549'>bi</a>                549 sys/kern/device.c 	machine_bootinfo(&amp;bi);
+<a href='../S/327.html#L550'>bi</a>                550 sys/kern/device.c 	mod = &amp;bi-&gt;driver;
+<a href='../S/334.html#L476'>bi</a>                476 sys/kern/task.c 	struct bootinfo *bi;
+<a href='../S/334.html#L482'>bi</a>                482 sys/kern/task.c 	machine_bootinfo(&amp;bi);
+<a href='../S/334.html#L483'>bi</a>                483 sys/kern/task.c 	mod = &amp;bi-&gt;tasks[0];
+<a href='../S/334.html#L485'>bi</a>                485 sys/kern/task.c 	for (i = 0; i &lt; bi-&gt;nr_tasks; i++) {
+<a href='../S/342.html#L263'>bi</a>                263 sys/mem/page.c 	struct bootinfo *bi;
+<a href='../S/342.html#L266'>bi</a>                266 sys/mem/page.c 	machine_bootinfo(&amp;bi);
+<a href='../S/342.html#L275'>bi</a>                275 sys/mem/page.c 	for (i = 0; i &lt; bi-&gt;nr_rams; i++) {
+<a href='../S/342.html#L276'>bi</a>                276 sys/mem/page.c 		ram = &amp;bi-&gt;ram[i];
+<a href='../S/342.html#L285'>bi</a>                285 sys/mem/page.c 	for (i = 0; i &lt; bi-&gt;nr_rams; i++) {
+<a href='../S/342.html#L286'>bi</a>                286 sys/mem/page.c 		ram = &amp;bi-&gt;ram[i];
+</pre>
+</body>
+</html>

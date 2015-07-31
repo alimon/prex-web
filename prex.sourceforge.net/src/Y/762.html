@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>envp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/411.html#L95'>envp</a>               95 usr/bin/sh/cmds.c 	char **envp = environ;
+<a href='../S/411.html#L112'>envp</a>              112 usr/bin/sh/cmds.c 	return execve(argv[1], &amp;argv[2], envp);
+<a href='../S/415.html#L215'>envp</a>              215 usr/bin/sh/var.c 	char **envp;
+<a href='../S/415.html#L221'>envp</a>              221 usr/bin/sh/var.c 	for (envp = environ; *envp; envp++) {
+<a href='../S/415.html#L222'>envp</a>              222 usr/bin/sh/var.c 		if (strchr(*envp, '='))
+<a href='../S/415.html#L223'>envp</a>              223 usr/bin/sh/var.c 			setvareq(*envp);
+<a href='../S/448.html#L39'>envp</a>               39 usr/lib/crt/crt1.c extern int main(int argc, char *argv[], char *envp[]);
+<a href='../S/448.html#L48'>envp</a>               48 usr/lib/crt/crt1.c __prex_main(int argc, char *argv[], char *envp[])
+<a href='../S/448.html#L52'>envp</a>               52 usr/lib/crt/crt1.c 	environ = envp;
+<a href='../S/448.html#L63'>envp</a>               63 usr/lib/crt/crt1.c 	exit(main(argc, argv, envp));
+<a href='../S/475.html#L40'>envp</a>               40 usr/lib/libc/gen/execle.c 	char **envp;
+<a href='../S/475.html#L45'>envp</a>               45 usr/lib/libc/gen/execle.c 	envp = va_arg(ap, char **);
+<a href='../S/475.html#L48'>envp</a>               48 usr/lib/libc/gen/execle.c 	return execve(name, (char **) &amp;arg, envp);
+<a href='../S/475.html#L51'>envp</a>               51 usr/lib/libc/gen/execle.c 	char **argv, **envp;
+<a href='../S/475.html#L65'>envp</a>               65 usr/lib/libc/gen/execle.c 	envp = (char **) va_arg(ap, char **);
+<a href='../S/475.html#L68'>envp</a>               68 usr/lib/libc/gen/execle.c 	return execve(name, argv, envp);
+<a href='../S/655.html#L50'>envp</a>               50 usr/lib/posix/exec/execve.c execve(const char *path, char * const *argv, char * const *envp)
+<a href='../S/655.html#L78'>envp</a>               78 usr/lib/posix/exec/execve.c 	if (envp) {
+<a href='../S/655.html#L79'>envp</a>               79 usr/lib/posix/exec/execve.c 		while (envp[envc]) {
+<a href='../S/655.html#L80'>envp</a>               80 usr/lib/posix/exec/execve.c 			bufsz += (strlen(envp[envc]) + 1);
+<a href='../S/655.html#L93'>envp</a>               93 usr/lib/posix/exec/execve.c 		src = envp[i];
+<a href='../S/877.html#L319'>envp</a>              319 usr/server/exec/exec_execve.c 	char **argv, **envp;
+<a href='../S/877.html#L375'>envp</a>              375 usr/server/exec/exec_execve.c 	envp = (char **)sp;
+<a href='../S/877.html#L397'>envp</a>              397 usr/server/exec/exec_execve.c 		envp[i] = (char *)((u_long)stack + (arg_top - mapped));
+<a href='../S/877.html#L400'>envp</a>              400 usr/server/exec/exec_execve.c 	envp[envc] = NULL;
+<a href='../S/926.html#L44'>envp</a>               44 usr/test/args/args.c 	char **envp = environ;
+<a href='../S/926.html#L58'>envp</a>               58 usr/test/args/args.c 	for (i = 0; envp[i] != NULL; i++) {
+<a href='../S/926.html#L60'>envp</a>               60 usr/test/args/args.c 		printf("envp[%d]: %s\n", i, envp[i]);
+<a href='../S/942.html#L50'>envp</a>               50 usr/test/environ/environ.c 	char **envp = environ;
+<a href='../S/942.html#L53'>envp</a>               53 usr/test/environ/environ.c 	for (i = 0; envp[i] != NULL; i++) {
+<a href='../S/942.html#L54'>envp</a>               54 usr/test/environ/environ.c 		printf("envp[%d]: %s\n", i, envp[i]);
+</pre>
+</body>
+</html>

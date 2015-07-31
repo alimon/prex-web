@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sys/include/task.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1078.html'>sys</a>/<a href='../files/1079.html'>include</a>/task.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='318.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/319.html' title='Multiple included from 23 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2006, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#ifndef</em> <a href='318.html#L31' title='Defined at 31 in sys/include/task.h.'>_TASK_H</a>
+<a id='L31' name='L31' />  31 <em class='sharp'>#define</em> <a href='318.html#L30' title='Refered from 30 in sys/include/task.h.'>_TASK_H</a>
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>types.h</a>&gt;
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='262.html'>sys/list.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='249.html'>sys/capability.h</a>&gt;     <em class='comment'>/* for cap_t */</em>
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='272.html'>sys/sysinfo.h</a>&gt;
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='319.html'>thread.h</a>&gt;
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> &lt;<a href='320.html'>timer.h</a>&gt;
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='comment'>/*</em>
+<a id='L42' name='L42' />  42 <em class='comment'> * Task struct</em>
+<a id='L43' name='L43' />  43 <em class='comment'> */</em>
+<a id='L44' name='L44' />  44 <strong class='reserved'>struct</strong> <a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a> <em class='brace'>{</em>
+<a id='L45' name='L45' />  45         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>     <a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>;           <em class='comment'>/* linkage on task list in system */</em>
+<a id='L46' name='L46' />  46         <strong class='reserved'>char</strong>            <a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>[<a href='264.html#L65' title='Defined at 65 in include/sys/param.h.'>MAXTASKNAME</a>]; <em class='comment'>/* task name */</em>
+<a id='L47' name='L47' />  47         <a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>          <a href='../Y/1547.html' title='Multiple used in 28 places.'>parent</a>;         <em class='comment'>/* parent task */</em>
+<a id='L48' name='L48' />  48         <a href='321.html#L45' title='Defined at 45 in sys/include/types.h.'>vm_map_t</a>        <a href='../Y/1246.html' title='Multiple used in 175 places.'>map</a>;            <em class='comment'>/* address space description */</em>
+<a id='L49' name='L49' />  49         <strong class='reserved'>int</strong>             <a href='../Y/2046.html' title='Multiple used in 17 places.'>suscnt</a>;         <em class='comment'>/* suspend count */</em>
+<a id='L50' name='L50' />  50         <strong class='reserved'>int</strong>             <a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>;          <em class='comment'>/* flags defined below */</em>
+<a id='L51' name='L51' />  51         <a href='249.html#L36' title='Defined at 36 in include/sys/capability.h.'>cap_t</a>           <a href='../Y/489.html' title='Multiple used in 10 places.'>capability</a>;     <em class='comment'>/* security permission flag */</em>
+<a id='L52' name='L52' />  52         <strong class='reserved'>struct</strong> <a href='../Y/2160.html' title='Multiple used in 31 places.'>timer</a>    <a href='697.html#L33' title='Defined at 33 in usr/lib/posix/gen/alarm.c.'>alarm</a>;          <em class='comment'>/* timer for alarm exception */</em>
+<a id='L53' name='L53' />  53         <strong class='reserved'>void</strong>            (*<a href='../Y/1004.html' title='Multiple used in 18 places.'>handler</a>)(<strong class='reserved'>int</strong>); <em class='comment'>/* pointer to exception handler */</em>
+<a id='L54' name='L54' />  54         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>     <a href='../Y/2149.html' title='Multiple used in 12 places.'>threads</a>;        <em class='comment'>/* list of threads */</em>
+<a id='L55' name='L55' />  55         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>     <a href='../Y/1439.html' title='Multiple used in 6 places.'>objects</a>;        <em class='comment'>/* IPC objects owned by this task */</em>
+<a id='L56' name='L56' />  56         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>     <a href='../Y/1332.html' title='Multiple used in 15 places.'>mutexes</a>;        <em class='comment'>/* mutexes owned by this task */</em>
+<a id='L57' name='L57' />  57         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>     <a href='../Y/548.html' title='Multiple used in 7 places.'>conds</a>;          <em class='comment'>/* cv owned by this task */</em>
+<a id='L58' name='L58' />  58         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>     <a href='../Y/1884.html' title='Multiple used in 5 places.'>sems</a>;           <em class='comment'>/* semaphores owned by this task */</em>
+<a id='L59' name='L59' />  59         <strong class='reserved'>int</strong>             <a href='../Y/1421.html' title='Multiple used in 10 places.'>nthreads</a>;       <em class='comment'>/* number of threads */</em>
+<a id='L60' name='L60' />  60         <strong class='reserved'>int</strong>             <a href='../Y/1392.html' title='Multiple used in 4 places.'>nobjects</a>;       <em class='comment'>/* number of IPC objects */</em>
+<a id='L61' name='L61' />  61         <strong class='reserved'>int</strong>             <a href='../Y/1419.html' title='Multiple used in 10 places.'>nsyncs</a>;         <em class='comment'>/* number of syncronizer objects */</em>
+<a id='L62' name='L62' />  62 <em class='brace'>}</em>;
+<a id='L63' name='L63' />  63 
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/1623.html' title='Multiple refered from 59 places.'>curtask</a>         (<a href='../Y/600.html' title='Multiple used in 93 places.'>curthread</a>-&gt;<a href='../Y/2117.html' title='Multiple used in 389 places.'>task</a>)
+<a id='L65' name='L65' />  65 
+<a id='L66' name='L66' />  66 <em class='comment'>/* flags */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> <a href='../R/1044.html' title='Multiple refered from 10 places.'>TF_SYSTEM</a>       0x00000001 <em class='comment'>/* kernel task (kern_task) */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> <a href='../R/1045.html' title='Multiple refered from 3 places.'>TF_TRACE</a>        0x00000002 <em class='comment'>/* process system call tracing active */</em>
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> TF_PROFIL       0x00000004 <em class='comment'>/* has started profiling */</em>
+<a id='L70' name='L70' />  70 <em class='sharp'>#define</em> <a href='../R/1041.html' title='Multiple refered from 3 places.'>TF_AUDIT</a>        0x00000008 <em class='comment'>/* audit mode */</em>
+<a id='L71' name='L71' />  71 
+<a id='L72' name='L72' />  72 <em class='comment'>/* default flags */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#ifdef</em> <a href='318.html#L73' title='Used at 73 in sys/include/task.h.'>CONFIG_AUDIT</a>
+<a id='L74' name='L74' />  74 <em class='sharp'>#define</em> <a href='334.html#L138' title='Refered from 138 in sys/kern/task.c.'>TF_DEFAULT</a>      <a href='318.html#L70' title='Defined at 70 in sys/include/task.h.'>TF_AUDIT</a>
+<a id='L75' name='L75' />  75 <em class='sharp'>#else</em>
+<a id='L76' name='L76' />  76 <em class='sharp'>#define</em> <a href='334.html#L138' title='Refered from 138 in sys/kern/task.c.'>TF_DEFAULT</a>      0
+<a id='L77' name='L77' />  77 <em class='sharp'>#endif</em>
+<a id='L78' name='L78' />  78 
+<a id='L79' name='L79' />  79 <em class='comment'>/* vm option for task_create(). */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> <a href='../R/1160.html' title='Multiple refered from 4 places.'>VM_NEW</a>          0       <em class='comment'>/* create new memory map */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> <a href='../R/1161.html' title='Multiple refered from 5 places.'>VM_SHARE</a>        1       <em class='comment'>/* share parent's memory map */</em>
+<a id='L82' name='L82' />  82 <em class='sharp'>#define</em> <a href='../R/1159.html' title='Multiple refered from 5 places.'>VM_COPY</a>         2       <em class='comment'>/* duplicate parent's memory map */</em>
+<a id='L83' name='L83' />  83 
+<a id='L84' name='L84' />  84 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L85' name='L85' />  85 <strong class='reserved'>int</strong>      <a href='334.html#L62' title='Defined at 62 in sys/kern/task.c.'>task_create</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>, <strong class='reserved'>int</strong>, <a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a> *);
+<a id='L86' name='L86' />  86 <strong class='reserved'>int</strong>      <a href='334.html#L166' title='Defined at 166 in sys/kern/task.c.'>task_terminate</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>);
+<a id='L87' name='L87' />  87 <a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>   <a href='334.html#L217' title='Defined at 217 in sys/kern/task.c.'>task_self</a>(<strong class='reserved'>void</strong>);
+<a id='L88' name='L88' />  88 <strong class='reserved'>int</strong>      <a href='334.html#L227' title='Defined at 227 in sys/kern/task.c.'>task_suspend</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>);
+<a id='L89' name='L89' />  89 <strong class='reserved'>int</strong>      <a href='334.html#L263' title='Defined at 263 in sys/kern/task.c.'>task_resume</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>);
+<a id='L90' name='L90' />  90 <strong class='reserved'>int</strong>      <a href='334.html#L305' title='Defined at 305 in sys/kern/task.c.'>task_setname</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *);
+<a id='L91' name='L91' />  91 <strong class='reserved'>int</strong>      <a href='334.html#L338' title='Defined at 338 in sys/kern/task.c.'>task_setcap</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>, <a href='249.html#L36' title='Defined at 36 in include/sys/capability.h.'>cap_t</a>);
+<a id='L92' name='L92' />  92 <strong class='reserved'>int</strong>      <a href='334.html#L362' title='Defined at 362 in sys/kern/task.c.'>task_chkcap</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>, <a href='249.html#L36' title='Defined at 36 in include/sys/capability.h.'>cap_t</a>);
+<a id='L93' name='L93' />  93 <strong class='reserved'>int</strong>      <a href='334.html#L387' title='Defined at 387 in sys/kern/task.c.'>task_capable</a>(<a href='249.html#L36' title='Defined at 36 in include/sys/capability.h.'>cap_t</a>);
+<a id='L94' name='L94' />  94 <strong class='reserved'>int</strong>      <a href='334.html#L405' title='Defined at 405 in sys/kern/task.c.'>task_valid</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>);
+<a id='L95' name='L95' />  95 <strong class='reserved'>int</strong>      <a href='334.html#L423' title='Defined at 423 in sys/kern/task.c.'>task_access</a>(<a href='../D/3638.html' title='Multiple defined in 3 places.'>task_t</a>);
+<a id='L96' name='L96' />  96 <strong class='reserved'>int</strong>      <a href='334.html#L439' title='Defined at 439 in sys/kern/task.c.'>task_info</a>(<strong class='reserved'>struct</strong> <a href='../Y/2122.html' title='Multiple used in 7 places.'>taskinfo</a> *);
+<a id='L97' name='L97' />  97 <strong class='reserved'>void</strong>     <a href='334.html#L473' title='Defined at 473 in sys/kern/task.c.'>task_bootstrap</a>(<strong class='reserved'>void</strong>);
+<a id='L98' name='L98' />  98 <strong class='reserved'>void</strong>     <a href='../D/3627.html' title='Multiple defined in 2 places.'>task_init</a>(<strong class='reserved'>void</strong>);
+<a id='L99' name='L99' />  99 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L100' name='L100' /> 100 
+<a id='L101' name='L101' /> 101 <em class='sharp'>#endif</em> <em class='comment'>/* !_TASK_H */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='318.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

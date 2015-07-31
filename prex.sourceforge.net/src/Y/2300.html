@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>var</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/415.html#L45'>var</a>                45 usr/bin/sh/var.c struct var {
+<a href='../S/415.html#L50'>var</a>                50 usr/bin/sh/var.c static struct var vartab[VTABSIZE];
+<a href='../S/415.html#L74'>var</a>                74 usr/bin/sh/var.c static struct var *
+<a href='../S/415.html#L77'>var</a>                77 usr/bin/sh/var.c 	struct var *var;
+<a href='../S/415.html#L80'>var</a>                80 usr/bin/sh/var.c 	var = &amp;vartab[0];
+<a href='../S/415.html#L82'>var</a>                82 usr/bin/sh/var.c 		if (var-&gt;name != NULL &amp;&amp; !strcmp(var-&gt;name, name))
+<a href='../S/415.html#L83'>var</a>                83 usr/bin/sh/var.c 			return var;
+<a href='../S/415.html#L84'>var</a>                84 usr/bin/sh/var.c 		var++;
+<a href='../S/415.html#L92'>var</a>                92 usr/bin/sh/var.c 	struct var *var, *free;
+<a href='../S/415.html#L98'>var</a>                98 usr/bin/sh/var.c 	var = lookupvar(name);
+<a href='../S/415.html#L100'>var</a>               100 usr/bin/sh/var.c 	if (var == NULL) {
+<a href='../S/415.html#L105'>var</a>               105 usr/bin/sh/var.c 		var = &amp;vartab[0];
+<a href='../S/415.html#L107'>var</a>               107 usr/bin/sh/var.c 			if (var-&gt;name == NULL) {
+<a href='../S/415.html#L108'>var</a>               108 usr/bin/sh/var.c 				free = var;
+<a href='../S/415.html#L111'>var</a>               111 usr/bin/sh/var.c 			var++;
+<a href='../S/415.html#L117'>var</a>               117 usr/bin/sh/var.c 		var = free;
+<a href='../S/415.html#L124'>var</a>               124 usr/bin/sh/var.c 	if ((var-&gt;name = strdup(name)) == NULL) {
+<a href='../S/415.html#L128'>var</a>               128 usr/bin/sh/var.c 	var-&gt;val = strdup(val);
+<a href='../S/415.html#L134'>var</a>               134 usr/bin/sh/var.c 	struct var *var;
+<a href='../S/415.html#L137'>var</a>               137 usr/bin/sh/var.c 	var = lookupvar(name);
+<a href='../S/415.html#L138'>var</a>               138 usr/bin/sh/var.c 	if (var == NULL)
+<a href='../S/415.html#L141'>var</a>               141 usr/bin/sh/var.c 	free(var-&gt;name);
+<a href='../S/415.html#L142'>var</a>               142 usr/bin/sh/var.c 	free(var-&gt;val);
+<a href='../S/415.html#L143'>var</a>               143 usr/bin/sh/var.c 	var-&gt;name = NULL;
+<a href='../S/415.html#L144'>var</a>               144 usr/bin/sh/var.c 	var-&gt;val = NULL;
+<a href='../S/415.html#L169'>var</a>               169 usr/bin/sh/var.c 	struct var *var;
+<a href='../S/415.html#L172'>var</a>               172 usr/bin/sh/var.c 	var = &amp;vartab[0];
+<a href='../S/415.html#L174'>var</a>               174 usr/bin/sh/var.c 		if (var-&gt;name != NULL)
+<a href='../S/415.html#L175'>var</a>               175 usr/bin/sh/var.c 			printf("%s=%s\n", var-&gt;name, var-&gt;val);
+<a href='../S/415.html#L176'>var</a>               176 usr/bin/sh/var.c 		var++;
+<a href='../S/415.html#L197'>var</a>               197 usr/bin/sh/var.c 	struct var *var;
+<a href='../S/415.html#L205'>var</a>               205 usr/bin/sh/var.c 		var = lookupvar(argv[i]);
+<a href='../S/415.html#L206'>var</a>               206 usr/bin/sh/var.c 		if (var != NULL)
+<a href='../S/415.html#L207'>var</a>               207 usr/bin/sh/var.c 			setenv(var-&gt;name, var-&gt;val, 1);
+</pre>
+</body>
+</html>

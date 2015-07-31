@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Prex FAQ</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="keywords" content="Prex, embedded, real-time, operating system, RTOS, open source, free">
+  <meta name="author" content="Kohsuke Ohtani">
+  <link rel="stylesheet" type="text/css" href="default.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="print.css" media="print">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+
+<table id="content" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="index.html">
+            <img alt="Prex logo" src="img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="right"><div class="info"><span>
+          <a href="about.html">About Us</a> |
+          <a href="contact.html">Contact Us</a>
+      </span></div></td>
+    </tr>
+    <tr><td class="pad" colspan="2"></td></tr>
+
+    <tr>
+      <td id="side_menu" valign="top">
+      <div class="menu_title"><span>Navigation</span></div>
+      <div class="menu_navi">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="doc/index.html">Documentation</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="screen.html">Screenshots</a></li>
+          <li><a href="devel.html">Development</a></li>
+          <li><a href="src/index.html">Browse Source</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="links.html">Links</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      </td>
+      <td id="main" style="vertical-align: top;">
+
+      <h1>Frequently Asked Questions</h1>
+
+<h3>Table of Contents</h3>
+
+<h4>General</h4>
+<ul>
+<li><a href="faq.html#Q11">What does "Prex" mean?</a></li>
+<li><a href="faq.html#Q51">Where can I get Prex?</a></li>
+<li><a href="faq.html#Q12">What license is used for Prex?</a></li>
+<li><a href="faq.html#Q13">Can I use it for a commercial product?</a></li>
+<li><a href="faq.html#Q14">Can I use it in OS education class?</a></li>
+<li><a href="faq.html#Q15">Why don't you use real-time or embedded Linux?</a></li>
+<li><a href="faq.html#Q16">Which OS is an ancestor of it?</a></li>
+</ul>
+
+<h4>Features</h4>
+<ul>
+<li><a href="faq.html#Q21">What hardware platforms does it support?</a></li>
+<li><a href="faq.html#Q22">Does it support multi-processor systems?</a></li>
+<li><a href="faq.html#Q23">Does it support MMU-less system?</a></li>
+<li><a href="faq.html#Q24">Which is it hard or soft real-time?</a></li>
+<li><a href="faq.html#Q26">What file system does it support?</a></li>
+<li><a href="faq.html#Q27">Which POSIX features are supported?</a></li>
+<li><a href="faq.html#Q28">Does it support a command line shell?</a></li>
+</ul>
+
+<h4>Development</h4>
+<ul>
+<li><a href="faq.html#Q31">What is required to build Prex?</a></li>
+<li><a href="faq.html#Q32">Do you have a plan to port it to IBM S/390?</a></li>
+<li><a href="faq.html#Q33">Will you develop GUI, Web Browser or Office software?</a></li>
+<li><a href="faq.html#Q34">How can I contribute code?</a></li>
+<li><a href="faq.html#Q50">How do I post a patch?</a></li>
+<li><a href="faq.html#Q35">Can I apply GPL'd code to Prex?</a></li>
+</ul>
+
+<h4>Technical</h4>
+<ul>
+<li><a href="faq.html#Q41">Is it a preemptive kernel?</a></li>
+<li><a href="faq.html#Q42">Why does the device driver run in kernel mode?</a></li>
+<li><a href="faq.html#Q43">Does it support memory locking?</a></li>
+<li><a href="faq.html#Q25">Is the kernel configurable?</a></li>
+</ul>
+<br>
+
+
+<h2>General</h2>
+
+<h3 id="Q11">Q. What does "Prex" mean?</h3>
+The original name was Precs (<u><b>P</b></u>ortable <u><b>r</b></u>ealtime <u><b>e</b></u>mbedded
+<u><b>c</b></u>omputing <u><b>s</b></u>ystem).<br>
+The spelling was later changed to Prex.
+
+
+<h3 id="Q51">Q. Where can I get Prex?</h3>
+The current version can be obtained at
+<a href="http://sourceforge.net/projects/prex/">http://sourceforge.net/projects/prex/</a>.
+
+
+<h3 id="Q12">Q. What license is used for Prex?</h3>
+Prex is released under 3-clause <a href="doc/license.html">BSD license</a>.
+We know some manufacturers for commercial products are considering about GPL
+because they sometimes don't want to publish their modified code.
+And, we also think they should be free to do with <b>their</b> code as they wish.
+This is the reason why we use BSD license.
+
+<h3 id="Q13">Q. Can I use it for a commercial product?</h3>
+Yes. Please follow the Prex <a href="doc/license.html">license term</a>.
+This license allows you to use the source code free of change in
+your commercial products.
+You don't have to tell us about your products.
+But, we are happy if you inform us of the usage of Prex.
+
+<h3 id="Q14">Q. Can I use it in OS education class?</h3>
+Yes, of course. The simple and small codes of Prex kernel will be a good starting
+point to learn about OS kernel.
+In practice, Linux or BSD variants are <b>too complicated</b> to be hacked by
+kernel beginners.
+
+<h3 id="Q15">Q. Why don't you use real-time or embedded Linux?</h3>
+Some companies release the kernel patches to improve the real-time performance
+of Linux.
+But, Prex is fully optimized for embedded and real-time systems
+<b>by default</b>.
+It is nonsense to use the desktop/server OS on embedded platforms, or to
+maintain many patches for different kernel versions.
+
+<h3 id="Q16">Q. Which OS is an ancestor of it?</h3>
+<b>Prex's Not UNIX.</b>
+Since Prex kernel was written from scratch, there is no ancestor of it.
+But, regarding its design, it was inspired by a lot of OSes:
+Linux, BSDs, Mach, Amoeba, Minix, Hurd, L4, Chorus, VSTa, QNX,
+Solaris, WinNT, WinCE, iTRON, eCos, etc.
+Thanks to these great predecessors...
+
+<div class="toplink"><a href="faq.html#main">Back to top &#8593;</a></div>
+
+
+<h2>Features</h2>
+
+<h3 id="Q21">Q. What hardware platforms does it support?</h3>
+Current version supports <b>x86</b>, <b>ARM</b> &amp; <b>PowerPC</b> platforms. Although there are
+not so many embedded systems with x86-pc, it is our primary target platform.
+This is because x86-pc is used widely, and so peoples can test Prex easily.
+We have plan to port it to <b>MIPS</b>, and <b>Hitachi-SH</b>
+ platforms in future. You can check the current development
+status at this <a href="devel.html">page</a>.
+
+<h3 id="Q22">Q. Does it support multi-processor systems?</h3>
+No. Currently, Prex is designed only for <b>uni-processor</b> systems because
+of its performance and simplicity. OK, we know recent processor trend is
+moving to multi-core. This is one of our discussion item.
+
+<h3 id="Q23">Q. Does it support MMU-less system?</h3>
+Yes. It is designed for both of MMU and MMU-less system.
+If the processor does not have MMU, the memory protection is not provided.
+In that case, any application bug can stop the entire system.
+There is no difference about the kernel API between MMU and NOMMU system.
+
+<h3 id="Q24">Q. Which is it hard or soft real-time?</h3>
+As of now, Prex is a <b>soft real-time</b> system.
+It does not guarantee to keep a deadline,
+although hard real-time systems must always respond in time.
+However, we may support some deterministic real-time
+scheduler like EDF (Earliest Deadline First) or RMA (Rate Monotonic Analysis)
+in future.
+
+<h3 id="Q26">Q. What file system does it support?</h3>
+The Prex primary file system is <b>ramfs</b>. And, <b>fatfs</b> or some other
+file systems are also supported for removable storages.
+Because the power supply may be unexpectedly cut off with an embedded system,
+the Prex file system is designed in consideration of this point.
+
+<h3 id="Q27">Q. Which POSIX features are supported?</h3>
+Prex supports standard UNIX APIs and standard C library (libc).
+Although the code in libc is derived from BSD, it is customized for
+memory constrained systems.
+You can check the current status of POSIX compliance
+at this <a href="doc/posix.html">page</a>.
+
+<h3 id="Q28">Q. Does it support a command line shell?</h3>
+Yes. It is included in CmdBox.
+CmdBox is a small application which includes tiny versions of many UNIX utilities.
+You can check the available commands in
+<a href="doc/cmdbox.html">CmdBox User's Guide</a>.
+
+
+<div class="toplink"><a href="faq.html#main">Back to top &#8593;</a></div>
+
+
+<h2>Development</h2>
+
+<h3 id="Q31">Q. What is required to build Prex?</h3>
+<b>gcc</b>, <b>GNU binutils</b> and <b>GNU Make</b>.
+Or, <b>PCC</b> (Portable C Compiler) can be used instead of gcc.
+Since almost all codes are written in ANSI-C code, it's easy to use another compiler
+to build Prex.
+
+
+<h3 id="Q32">Q. Do you have a plan to port it to IBM S/390?</h3>
+No. It is not good idea because the Prex's target requisition is completely
+different from the mainframe's one.
+Prex focuses on mobile and embedded systems,
+and such kind of scalability is <b>not</b> a priority matter of
+this project.
+Obviously, it's better to use Linux for S/390, isn't it? :-)
+
+<h3 id="Q33">Q. Will you develop GUI, Web Browser or Office Software?</h3>
+No. It is beyond of the scope of this project. We will port the
+existing open source software for them, and this is the reason why we
+support POSIX emulation.
+I don't have enough time to make entire system from scratch!<br>
+<i>"Ars longa, vita brevis." (Art is long, life is short) -- Seneca</i>
+
+<h3 id="Q34">Q. How can I contribute code?</h3>
+Please send your patch to the developer mailing list.
+Since this is an open source project, you can freely change the code
+and try any new idea.
+I am going to be open to all people who are interested in this project.
+Please feel free to post the patch, and
+of course, we welcome even if you post only your idea without code.
+
+<h3 id="Q50">Q. How do I post a patch?</h3>
+First read this entire FAQ, then create a patch using diff and post it
+to the developer mailing list.
+Please make sure that your patch meets the <a href="doc/standard.html">Prex coding standard</a>.
+
+
+<h3 id="Q35">Q. Can I apply GPL'd code to Prex?</h3>
+No. It is because the software including GPL'd code <b>must</b> be released
+under the GPL license.
+Please ensure that GPL'd code is <b>not</b> included in your patch,
+before sending it to us.
+
+<div class="toplink"><a href="faq.html#main">Back to top &#8593;</a></div>
+
+
+<h2>Technical</h2>
+
+<h3 id="Q41">Q. Is it a preemptive kernel?</h3>
+Yes. Prex kernel is fully <b>preemptive</b>.
+This means that, when a higher priority task becomes ready to run,
+the kernel preempts the current task immediately even in kernel code.
+It is very important to get the better real-time performance.
+
+<h3 id="Q42">Q. Why does the device driver run in kernel mode?</h3>
+In general, the modern microkernel runs device drivers in user mode.
+But, Prex device drivers work in kernel mode because:
+<ol>
+ <li>To minimize the interrupt latency.</li>
+  <li>To keep the total memory size small.</li>
+  <li>To simplify the communication between drivers and kernel.</li>
+</ol>
+In order to get debugging facility, the Prex driver module is separated
+from the kernel module.
+
+<h3 id="Q43">Q. Does it support memory locking?</h3>
+Memory is <b>always</b> locked with Prex. Since all pages always exist,
+the real-time task doesn't have to wait the page loading.
+This is one of the reasons why demand-paging feature was dropped from Prex kernel.
+
+<h3 id="Q25">Q. Is the kernel configurable?</h3>
+No. The kernel options are intentionally limited to few options in order to provide
+the single and common kernel service on any different platforms.
+This helps to keep source codes clean and prevent a <b>#ifdef nightmare</b>.
+However, BSP (device drivers) can have various
+options to support many different H/W configurations.
+
+<div class="toplink"><a href="faq.html#main">Back to top &#8593;</a></div>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td id="footer" colspan="2">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1" alt="SourceForge.net Logo" width="88" border="0" height="31"></a><br>
+        Copyright© 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

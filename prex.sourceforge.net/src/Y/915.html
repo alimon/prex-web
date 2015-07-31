@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>free_list</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/752.html#L45'>free_list</a>          45 usr/lib/prex/malloc/malloc.c static struct header free_list;		/* start of free list */
+<a href='../S/752.html#L64'>free_list</a>          64 usr/lib/prex/malloc/malloc.c 		free_list.next = &amp;free_list;
+<a href='../S/752.html#L65'>free_list</a>          65 usr/lib/prex/malloc/malloc.c 		free_list.size = 0;
+<a href='../S/752.html#L66'>free_list</a>          66 usr/lib/prex/malloc/malloc.c 		free_list.vm_size = 0;
+<a href='../S/752.html#L67'>free_list</a>          67 usr/lib/prex/malloc/malloc.c 		scan_head = &amp;free_list;
+<a href='../S/752.html#L175'>free_list</a>         175 usr/lib/prex/malloc/malloc.c 	for (p = free_list.next; p != &amp;free_list; p = p-&gt;next) {
+<a href='../S/906.html#L76'>free_list</a>          76 usr/server/fs/vfs/vfs_bio.c static struct list free_list = LIST_INIT(free_list);
+<a href='../S/906.html#L88'>free_list</a>          88 usr/server/fs/vfs/vfs_bio.c 	list_insert(&amp;free_list, &amp;bp-&gt;b_link);
+<a href='../S/906.html#L99'>free_list</a>          99 usr/server/fs/vfs/vfs_bio.c 	list_insert(list_prev(&amp;free_list), &amp;bp-&gt;b_link);
+<a href='../S/906.html#L111'>free_list</a>         111 usr/server/fs/vfs/vfs_bio.c 	ASSERT(!list_empty(&amp;free_list));
+<a href='../S/906.html#L124'>free_list</a>         124 usr/server/fs/vfs/vfs_bio.c 	ASSERT(!list_empty(&amp;free_list));
+<a href='../S/906.html#L125'>free_list</a>         125 usr/server/fs/vfs/vfs_bio.c 	bp = list_entry(list_first(&amp;free_list), struct buf, b_link);
+<a href='../S/906.html#L379'>free_list</a>         379 usr/server/fs/vfs/vfs_bio.c 		list_insert(&amp;free_list, &amp;bp-&gt;b_link);
+</pre>
+</body>
+</html>

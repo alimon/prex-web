@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>task_self</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L89'>task_self</a>          89 include/sys/prex.h task_t	task_self(void);
+<a href='../S/318.html#L87'>task_self</a>          87 sys/include/task.h task_t	 task_self(void);
+<a href='../S/332.html#L89'>task_self</a>          89 sys/kern/sysent.c 	/*  6 */ SYSENT(0, task_self),
+<a href='../S/372.html#L139'>task_self</a>         139 usr/bin/cmdbox/main.c 		task_setname(task_self(), "sh");
+<a href='../S/372.html#L146'>task_self</a>         146 usr/bin/cmdbox/main.c 			task_setname(task_self(), cmd);
+<a href='../S/413.html#L157'>task_self</a>         157 usr/bin/sh/sh.c 			task_setname(task_self(), basename(file));
+<a href='../S/651.html#L39'>task_self</a>          39 usr/lib/libsa/_exit.c 		task_terminate(task_self());
+<a href='../S/732.html#L54'>task_self</a>          54 usr/lib/posix/process/_exit.c 		task_terminate(task_self());
+<a href='../S/705.html#L96'>task_self</a>          96 usr/lib/posix/process/fork.c 		error = task_create(task_self(), VM_COPY, &amp;tsk);
+<a href='../S/706.html#L98'>task_self</a>          98 usr/lib/posix/process/fork_nommu.c 		if ((error = task_create(task_self(), VM_SHARE, &amp;tsk)) != 0) {
+<a href='../S/706.html#L142'>task_self</a>         142 usr/lib/posix/process/fork_nommu.c 		task_suspend(task_self());
+<a href='../S/752.html#L110'>task_self</a>         110 usr/lib/prex/malloc/malloc.c 	if (vm_allocate(task_self(), (void *)&amp;p, size, 1))
+<a href='../S/752.html#L162'>task_self</a>         162 usr/lib/prex/malloc/malloc.c 		vm_free(task_self(), p);
+<a href='../S/752.html#L174'>task_self</a>         174 usr/lib/prex/malloc/malloc.c 	printf("mstat: task=%x\n", task_self());
+<a href='../S/827.html#L73'>task_self</a>          73 usr/sample/alarm/alarm.c 			task_terminate(task_self());
+<a href='../S/829.html#L54'>task_self</a>          54 usr/sample/balls/balls.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/831.html#L74'>task_self</a>          74 usr/sample/bench/bench.c 	task = task_self();
+<a href='../S/837.html#L60'>task_self</a>          60 usr/sample/ipc/ipc.c 	if (task_create(task_self(), VM_COPY, &amp;task) != 0)
+<a href='../S/837.html#L63'>task_self</a>          63 usr/sample/ipc/ipc.c 	task = task_self();
+<a href='../S/837.html#L122'>task_self</a>         122 usr/sample/ipc/ipc.c 	task_terminate(task_self());
+<a href='../S/841.html#L86'>task_self</a>          86 usr/sample/mutex/mutex.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/843.html#L44'>task_self</a>          44 usr/sample/sem/sem.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/845.html#L51'>task_self</a>          51 usr/sample/task/task.c 	if (task_create(task_self(), VM_SHARE, &amp;task) != 0)
+<a href='../S/845.html#L77'>task_self</a>          77 usr/sample/task/task.c 	self = task_self();
+<a href='../S/845.html#L89'>task_self</a>          89 usr/sample/task/task.c 	task_terminate(task_self());
+<a href='../S/845.html#L106'>task_self</a>         106 usr/sample/task/task.c 	task_suspend(task_self());
+<a href='../S/855.html#L56'>task_self</a>          56 usr/sample/thread/thread.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/876.html#L92'>task_self</a>          92 usr/server/exec/exec_elf.c 		vm_free(task_self(), mapped);
+<a href='../S/876.html#L104'>task_self</a>         104 usr/server/exec/exec_elf.c 	vm_free(task_self(), mapped);
+<a href='../S/876.html#L319'>task_self</a>         319 usr/server/exec/exec_elf.c 	vm_free(task_self(), mapped);
+<a href='../S/877.html#L403'>task_self</a>         403 usr/server/exec/exec_execve.c 	vm_free(task_self(), (void *)mapped);
+<a href='../S/879.html#L177'>task_self</a>         177 usr/server/exec/main.c 	bind_cap("/boot/exec", task_self());
+<a href='../S/902.html#L276'>task_self</a>         276 usr/server/fs/ramfs/ramfs_vnops.c 		vm_free(task_self(), np-&gt;rn_buf);
+<a href='../S/902.html#L294'>task_self</a>         294 usr/server/fs/ramfs/ramfs_vnops.c 			vm_free(task_self(), np-&gt;rn_buf);
+<a href='../S/902.html#L299'>task_self</a>         299 usr/server/fs/ramfs/ramfs_vnops.c 		task = task_self();
+<a href='../S/902.html#L383'>task_self</a>         383 usr/server/fs/ramfs/ramfs_vnops.c 			task = task_self();
+<a href='../S/903.html#L229'>task_self</a>         229 usr/server/fs/vfs/main.c 	vm_free(task_self(), buf);
+<a href='../S/903.html#L249'>task_self</a>         249 usr/server/fs/vfs/main.c 	vm_free(task_self(), buf);
+<a href='../S/903.html#L937'>task_self</a>         937 usr/server/fs/vfs/main.c 	msg.hdr.task = task_self();
+<a href='../S/903.html#L952'>task_self</a>         952 usr/server/fs/vfs/main.c 	self = task_self();
+<a href='../S/916.html#L273'>task_self</a>         273 usr/server/pow/pow.c 	self = task_self();
+<a href='../S/916.html#L308'>task_self</a>         308 usr/server/pow/pow.c 	self = task_self();
+<a href='../S/917.html#L509'>task_self</a>         509 usr/server/proc/main.c 	p-&gt;p_task = task_self();
+<a href='../S/925.html#L123'>task_self</a>         123 usr/server/proc/proc_tty.c 		self = task_self();
+<a href='../S/928.html#L49'>task_self</a>          49 usr/test/attack/attack.c 	task_t self	= task_self();
+<a href='../S/938.html#L63'>task_self</a>          63 usr/test/deadlock/deadlock.c 	error = thread_create(task_self(), &amp;t);
+<a href='../S/946.html#L57'>task_self</a>          57 usr/test/exception/exception.c 	task = task_self();
+<a href='../S/952.html#L63'>task_self</a>          63 usr/test/fifo/fifo.c 		printf("child: task=%x\n", (int)task_self());
+<a href='../S/952.html#L82'>task_self</a>          82 usr/test/fifo/fifo.c 	printf("parent: task=%x\n", (int)task_self());
+<a href='../S/960.html#L49'>task_self</a>          49 usr/test/ipc/ipc.c 	error = thread_create(task_self(), &amp;t);
+<a href='../S/962.html#L51'>task_self</a>          51 usr/test/ipc_mt/ipc_mt.c 	error = thread_create(task_self(), &amp;t);
+<a href='../S/998.html#L72'>task_self</a>          72 usr/test/task/task.c 	error = task_create(task_self(), VM_COPY, &amp;task);
+<a href='../S/998.html#L74'>task_self</a>          74 usr/test/task/task.c 	error = task_create(task_self(), VM_SHARE, &amp;task);
+<a href='../S/1000.html#L45'>task_self</a>          45 usr/test/thread/thread.c 	if ((error = thread_create(task_self(), &amp;t)) != 0)
+</pre>
+</body>
+</html>

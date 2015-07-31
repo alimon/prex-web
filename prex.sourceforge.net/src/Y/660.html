@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>devops</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L71'>devops</a>             71 bsp/drv/arm/gba/keypad.c static struct devops keypad_devops = {
+<a href='../S/51.html#L60'>devops</a>             60 bsp/drv/arm/gba/lcd.c static struct devops lcd_devops = {
+<a href='../S/54.html#L103'>devops</a>            103 bsp/drv/arm/gba/swkbd.c static struct devops swkbd_devops = {
+<a href='../S/58.html#L46'>devops</a>             46 bsp/drv/dev/base/cons.c static struct devops cons_devops = {
+<a href='../S/58.html#L77'>devops</a>             77 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;open(dev, mode);
+<a href='../S/58.html#L86'>devops</a>             86 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;close(dev);
+<a href='../S/58.html#L95'>devops</a>             95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L104'>devops</a>            104 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;write(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L113'>devops</a>            113 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;ioctl(dev, cmd, arg);
+<a href='../S/58.html#L122'>devops</a>            122 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;devctl(dev, cmd, arg);
+<a href='../S/59.html#L139'>devops</a>            139 bsp/drv/dev/base/init.c 		       (long)dp-&gt;devops,(long) dp-&gt;flags, dp-&gt;name);
+<a href='../S/63.html#L75'>devops</a>             75 bsp/drv/dev/base/pm.c static struct devops pm_devops = {
+<a href='../S/65.html#L81'>devops</a>             81 bsp/drv/dev/base/wscons.c static struct devops wscons_devops = {
+<a href='../S/66.html#L125'>devops</a>            125 bsp/drv/dev/block/fdd.c static struct devops fdd_devops = {
+<a href='../S/68.html#L58'>devops</a>             58 bsp/drv/dev/block/ramdisk.c static struct devops ramdisk_devops = {
+<a href='../S/69.html#L79'>devops</a>             79 bsp/drv/dev/cpufreq/cpufreq.c static struct devops cpufreq_devops= {
+<a href='../S/77.html#L70'>devops</a>             70 bsp/drv/dev/input/psaux.c static struct devops psaux_devops = {
+<a href='../S/79.html#L40'>devops</a>             40 bsp/drv/dev/misc/null.c static struct devops null_devops = {
+<a href='../S/80.html#L39'>devops</a>             39 bsp/drv/dev/misc/random.c static struct devops random_devops = {
+<a href='../S/81.html#L40'>devops</a>             40 bsp/drv/dev/misc/zero.c static struct devops zero_devops = {
+<a href='../S/85.html#L66'>devops</a>             66 bsp/drv/dev/rtc/rtc.c static struct devops rtc_devops = {
+<a href='../S/89.html#L66'>devops</a>             66 bsp/drv/dev/serial/serial.c static struct devops serial_devops = {
+<a href='../S/91.html#L71'>devops</a>             71 bsp/drv/dev/video/vga.c static struct devops vga_devops = {
+<a href='../S/92.html#L37'>devops</a>             37 bsp/drv/include/cons.h 	struct devops	*devops;	/* device operations */
+<a href='../S/252.html#L53'>devops</a>             53 include/sys/device.h struct devops {
+<a href='../S/252.html#L81'>devops</a>             81 include/sys/device.h 	struct devops	*devops;	/* device operations */
+<a href='../S/327.html#L301'>devops</a>            301 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L322'>devops</a>            322 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L341'>devops</a>            341 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L347'>devops</a>            347 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L364'>devops</a>            364 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L379'>devops</a>            379 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L397'>devops</a>            397 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L412'>devops</a>            412 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L432'>devops</a>            432 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L438'>devops</a>            438 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L453'>devops</a>            453 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L459'>devops</a>            459 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L483'>devops</a>            483 sys/kern/device.c 	struct devops *ops;
+<a href='../S/327.html#L492'>devops</a>            492 sys/kern/device.c 		ops = dev-&gt;driver-&gt;devops;
+</pre>
+</body>
+</html>

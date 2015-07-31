@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L80'>tq</a>                 80 bsp/drv/dev/base/tty.c tty_getc(struct tty_queue *tq)
+<a href='../S/64.html#L86'>tq</a>                 86 bsp/drv/dev/base/tty.c 	if (ttyq_empty(tq)) {
+<a href='../S/64.html#L90'>tq</a>                 90 bsp/drv/dev/base/tty.c 	c = tq-&gt;tq_buf[tq-&gt;tq_head];
+<a href='../S/64.html#L91'>tq</a>                 91 bsp/drv/dev/base/tty.c 	tq-&gt;tq_head = ttyq_next(tq-&gt;tq_head);
+<a href='../S/64.html#L92'>tq</a>                 92 bsp/drv/dev/base/tty.c 	tq-&gt;tq_count--;
+<a href='../S/64.html#L101'>tq</a>                101 bsp/drv/dev/base/tty.c tty_putc(int c, struct tty_queue *tq)
+<a href='../S/64.html#L106'>tq</a>                106 bsp/drv/dev/base/tty.c 	if (ttyq_full(tq)) {
+<a href='../S/64.html#L110'>tq</a>                110 bsp/drv/dev/base/tty.c 	tq-&gt;tq_buf[tq-&gt;tq_tail] = (char)(c &amp; 0xff);
+<a href='../S/64.html#L111'>tq</a>                111 bsp/drv/dev/base/tty.c 	tq-&gt;tq_tail = ttyq_next(tq-&gt;tq_tail);
+<a href='../S/64.html#L112'>tq</a>                112 bsp/drv/dev/base/tty.c 	tq-&gt;tq_count++;
+<a href='../S/64.html#L120'>tq</a>                120 bsp/drv/dev/base/tty.c tty_unputc(struct tty_queue *tq)
+<a href='../S/64.html#L125'>tq</a>                125 bsp/drv/dev/base/tty.c 	if (ttyq_empty(tq))
+<a href='../S/64.html#L128'>tq</a>                128 bsp/drv/dev/base/tty.c 	tq-&gt;tq_tail = ttyq_prev(tq-&gt;tq_tail);
+<a href='../S/64.html#L129'>tq</a>                129 bsp/drv/dev/base/tty.c 	c = tq-&gt;tq_buf[tq-&gt;tq_tail];
+<a href='../S/64.html#L130'>tq</a>                130 bsp/drv/dev/base/tty.c 	tq-&gt;tq_count--;
+</pre>
+</body>
+</html>

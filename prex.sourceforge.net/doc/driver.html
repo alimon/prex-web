@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Prex Driver Development Guide</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="keywords" content="Prex, embedded, real-time, operating system, RTOS, open source, free">
+  <meta name="author" content="Kohsuke Ohtani">
+  <link rel="stylesheet" type="text/css" href="../default.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../print.css" media="print">
+</head>
+<body>
+
+<table id="content" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../index.html">
+            <img alt="Prex logo" src="../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div class="info"><span>
+        <a href="../index.html">Prex Home</a> >
+        <a href="index.html">Document Index</a> >
+        Driver Development Guide
+      </span></div></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div id="doc">
+
+      <h1>Prex Driver Development Guide</h1>
+
+<i>For Prex version 0.9.0, 2009/11/07</i><br>
+
+
+<h3>Table of Contents</h3>
+<ul>
+  <li><a href="driver.html#intro">Introduction</a></li>
+  <li><a href="driver.html#over">Architecture Overview</a></li>
+  <li><a href="driver.html#struct">Driver Data Structures</a></li>
+  <li><a href="driver.html#devobj">Device Object</a></li>
+  <li><a href="driver.html#init">Driver Initialization</a></li>
+
+  <li><a href="driver.html#io">I/O Routines</a></li>
+  <li><a href="driver.html#int">Interrupt Handling</a></li>
+  <li><a href="driver.html#dpc">Deferred Procedure Call (DPC)</a></li>
+
+  <li><a href="driver.html#malloc">Memory Allocation</a></li>
+  <li><a href="driver.html#umem">Accessing User Memory</a></li>
+  <li><a href="driver.html#timer">Callout Timer</a></li>
+  <li><a href="driver.html#sync">Synchronization</a></li>
+  <li><a href="driver.html#except">Raising Exceptions</a></li>
+  <li><a href="driver.html#pm">Power Management</a></li>
+
+
+
+
+  <li><a href="driver.html#sample">Driver Sample</a></li>
+</ul>
+<br>
+
+
+
+<h2 id="intro">Introduction</h2>
+
+<p>
+This document describes how to write a device driver for Prex.
+</p>
+
+<p>
+The following documents will be helpful to understand more features
+of Prex.
+</p>
+<ul>
+  <li><a href="dki.html">Prex Driver-Kernel Interface</a></li>
+  <li><a href="security.html">Prex Platform Security</a></li>
+  <li><a href="power.html">Prex Power Management</a></li>
+</ul>
+
+
+
+<h2 id="over">Architecture Overview</h2>
+
+<h3>Kernel I/O Components</h3>
+
+<p>
+When Prex task accesses to the raw device, it calls kernel API
+for device I/O operations.
+
+A microkernel dispatches the I/O request from application to the device
+driver associated to the target device object. The microkernel provides
+driver helper service named driver-kernel interface (DKI).
+
+DKI includes the interface to the hardware abstraction layer (HAL) which
+provides the platform dependent functions to handle timer, interrupt or power circuit.
+</p>
+
+<p>
+The following figure illustrates the Prex I/O model.
+</p>
+
+<p class="figure">
+<img alt="Driver Components" src="img/driver.gif" border="1"
+style="width: 357px; height:397px;"><br>
+Figure 1. Kernel I/O Components
+</p>
+
+<h3>Driver Support Services</h3>
+
+<p>
+Prex provides two different driver helper interface:
+</p>
+
+<ul>
+ <li>Device Driver Interface (DDI)</li>
+ <li>Driver/Kernel Interace (DKI)</li>
+</ul>
+
+<p>
+The interface between device drivers and the Prex kernel has been 
+standardized and documented in the reference manual named
+ "Prex Driver-Kernel Interface".
+</p>
+
+
+<h3>Layered Driver Architecture</h3>
+
+<p>
+Prex supports layered driver architecture. Almost all devices are serviced
+by a chain of drivers, typically called a driver stack.
+Each driver in the stack isolates some hardware-dependent features from the drivers above it. 
+</p>
+
+<p class="figure">
+<img alt="Driver Stack" src="img/drvstack.gif" border="1"
+style="width: 302px; height:294px;"><br>
+Figure 2. Driver Stack
+</p>
+
+<p>
+The interface in the driver stack is defined as unique interface
+depends on each device class.
+</p>
+
+
+
+<h2 id="struct">Driver Data Structures</h2>
+
+<h3>Device Private Data</h3>
+<p>
+The softc (software context) structure stores all private data for the
+target device.
+The driver framework allocates a block of memory for the softc structure
+for each device instance.
+The softc structure is only accessed
+within the driver, so its definition is local to the driver.
+</p>
+
+<p>
+The following is an example about the private data for the 'foo' device.
+</p>
+
+<pre>
+struct foo_softc {
+        device_t        dev;            /* device object */
+        ...
+};
+</pre>
+<p>
+Usually, the device object for the target device is stored in the
+softc structure because it is needed to destroy the device object at a later time.
+</p>
+<p>
+The Prex DKI provides the interface to create, refer and destroy these
+device private data.
+</p>
+
+
+
+
+<h3>Device Operations</h3>
+<p>
+If the driver need to publish the I/O interface for user applications,
+it must define the devops (device operations) structure.
+The devops structure enables the kernel to find the
+I/O entry points of the device driver.
+The interface to the driver is constant and is defined statically inside
+the driver.
+</p>
+
+<pre>
+static struct devops foo_devops = {
+        /* open */      foo_open,
+        /* close */     foo_close,
+        /* read */      foo_read,
+        /* write */     foo_write,
+        /* ioctl */     foo_ioctl,
+        /* devctl */    foo_devctl,
+};
+</pre>
+
+
+<dl>
+<dt>open</dt>
+  <dd>Creates an initial access handle to the device.</dd>
+
+<dt>close</dt>
+  <dd>Deletes access to the device.</dd>
+
+<dt>read</dt>
+  <dd>Reads from the device.</dd>
+
+<dt>write</dt>
+  <dd>Writes to the device.</dd>
+
+<dt>ioctl</dt>
+  <dd>Controls the I/O operations.</dd>
+
+<dt>devctl</dt>
+  <dd>Controls the device.</dd>
+</dl>
+
+
+
+<h3>Driver Object</h3>
+
+<p>
+Each device driver must define the driver object properly.
+The driver framework maintains the list of the driver object,
+and uses it to find the driver for initialization or shutdown.
+</p>
+
+<pre>
+struct driver foo_driver = {
+        /* name */      "foo",
+        /* devops */    &amp;foo_devops,
+        /* devsz */     sizeof(struct foo_softc),
+        /* flags */     0,
+        /* probe */     foo_probe,
+        /* init */      foo_init,
+        /* unload */    foo_unload,
+};
+</pre>
+
+<dl>
+<dt>name</dt>
+<dd>
+Null terminated string for the driver name.
+The driver name may only contain alphanumeric and has a maximum length of 16 characters.
+</dd>
+
+<dt>devops</dt>
+<dd>
+Pointer to the devops structure.
+</dd>
+
+<dt>devsz</dt>
+<dd>
+Size of the device private (softc) structure.
+</dd>
+
+<dt>flags</dt>
+<dd>
+Must be initialized to zero.
+</dd>
+
+<dt>probe</dt>
+  <dd>Probes the device existence.</dd>
+
+<dt>init</dt>
+  <dd>Initializes device.</dd>
+
+<dt>unload</dt>
+  <dd>Prepares device for unloading.</dd>
+</dl>
+
+
+<p>
+Note: Set NULL if probe/init/unload routine is not needed.
+</p>
+
+
+
+
+
+<h2 id="devobj">Device Object</h2>
+
+<h3>Flow of an I/O Request</h3>
+
+<p>
+The device object represents a physical device or logical/virtual device.
+It is created by the device driver to communicate with applications
+or another device driver.
+A microkernel maintains the name space for the device objects.
+</p>
+
+<p class="figure">
+<img alt="Device Object" src="img/devops.gif" border="1"
+style="width: 509px; height:304px;"><br>
+Figure 3. Device Object
+</p>
+
+<h3>Creating a Device Object</h3>
+
+<p>
+The device object can be created by the following kernel service.
+</p>
+
+<pre>
+device_t dev;
+
+dev = device_create(self, "foo", D_CHR);
+</pre>
+
+<p>
+If the driver manages multiple devices, it can creates any number of
+device objects. In this case, the name of each device object must have an
+instance number at the tail of the name.
+The instance number should be zero-based (ex. "foo0", "foo1", ...).
+</p>
+
+<h3>Acessing Device Private Data</h3>
+
+<p>
+A pointer to the device private data can be obtained from the device object
+by calling device_read().
+</p>
+
+<pre>
+struct foo_softc *sc;
+
+sc = device_private(dev);
+</pre>
+
+
+<h3>Device Special File</h3>
+
+<p>
+Most Unix-like operating systems treat every hardware device as a file.
+This design allows applications to access without getting technical details about
+hardware. Prex also supports the device-special file as POSIX emulation.
+</p>
+
+<p>
+In case of Prex, the device file is handled by the file system server in the
+user mode. So, an application will send an I/O request IPC message to the file
+system server instead of calling kernel API for device access.
+The device file system (devfs) maps each device object to the
+device file under /dev directory.
+
+
+<pre class="terminal">
+[prex:/dev]# ls -l
+b---------  1 prex   Nov  9 2009 12:00       0 fd0
+b---------  1 prex   Nov  9 2009 12:00       0 ram0
+crw-------  1 prex   Nov  9 2009 12:00       0 zero
+crw-------  1 prex   Nov  9 2009 12:00       0 null
+crw-------  1 prex   Nov  9 2009 12:00       0 rtc
+c---------  1 prex   Nov  9 2009 12:00       0 cpufreq
+crw-------  1 prex   Nov  9 2009 12:00       0 vga
+crw-------  1 prex   Nov  9 2009 12:00       0 kbd
+crw-------  1 prex   Nov  9 2009 12:00       0 tty
+crw-------  1 prex   Nov  9 2009 12:00       0 console
+c---------  1 prex   Nov  9 2009 12:00       0 pm
+total 11
+[prex:/dev]#
+</pre>
+
+
+
+<h2 id="init">Driver Initialization</h2>
+
+
+<h3>xxx_probe()</h3>
+
+<p>
+During system bootstrap, the driver framework searches the system for devices.
+For each device driver, its probe routine is called
+to check the existence of target device.
+The argument for the probe routine is a pointer to the driver structure.
+</p>
+
+<pre>
+static int
+foo_probe(struct driver *self)
+{
+        ...
+}
+</pre>
+
+<p>
+If the device is not available for some reasons, it should return ENXIO. Otherwise,
+it returns 0 for success. If the probe routine returns an error, the driver
+framework mark it as inactive and does not call any routnies in that driver.
+</p>
+<p>
+If the driver does not provide the probe routine, we assume the target device
+is avilable at anytime.
+</p>
+
+<p>
+The probe routine is used only for checking the device availability.
+So, we can not assume the probe routine programs the device hardware
+before the initliaze routine described below.
+</p>
+
+
+<h3>xxx_init()</h3>
+
+<p>
+The driver framework will call each probe() routine for all drivers at first.
+Next, the driver framework calls an init() routine of the driver which
+returns 0 for probe() routine.
+</p>
+
+<pre>
+static int
+foo_init(struct driver *self)
+{
+        ...
+}
+</pre>
+
+<p>
+In general, the init() routine will do the following jobs:
+</p>
+<ul>
+<li>Program device hardware.</li>
+<li>Create a device object for each device instance.</li>
+<li>Initialize data in the soft structure.</li>
+<li>Allocate kernel memory needed for buffers.</li>
+<li>Register interrupt handler for the device.</li>
+</ul>
+
+<h3>Driver State</h3>
+
+<p>
+The driver state will be change as following figure:
+<p>
+<p class="figure">
+<img alt="Driver State" src="img/drvsts.gif" border="1"
+style="width: 352px; height:231px;"><br>
+Figure 4. Driver State
+</p>
+
+
+
+
+
+<h2 id="io">I/O Routines</h2>
+<p>
+</p>
+
+
+<h3>xxx_open()/xxx_close()</h3>
+
+<p>
+T.B.D.
+</p>
+
+<pre>
+static int
+foo_open(device_t dev, int mode)
+{
+	...
+}
+</pre>
+
+<pre>
+static int
+foo_close(device_t dev)
+{
+	...
+}
+</pre>
+
+
+<h3>xxx_read()/xxx_write()</h3>
+
+<p>
+T.B.D.
+</p>
+
+<pre>
+static int
+foo_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+{
+	...
+}
+</pre>
+
+<pre>
+static int
+foo_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+{
+	...
+}
+</pre>
+
+
+<h3>xxx_ioctl()</h3>
+
+<p>
+T.B.D.
+</p>
+
+<pre>
+static int
+foo_ioctl(device_t dev, u_long cmd, void *arg)
+{
+	...
+}
+</pre>
+
+<h3>xxx_devctl()</h3>
+
+<p>
+T.B.D.
+</p>
+
+<pre>
+static int
+foo_devctl(device_t dev, u_long cmd, void *arg)
+{
+	...
+}
+</pre>
+
+
+
+
+
+<h2 id="int">Interrupt Handling</h2>
+
+
+<h3>Interrupt Sequence</h3>
+<p>
+</p>
+
+<p class="figure">
+<img alt="Interrupt Processing" src="img/ist.gif" border="1"
+style="width: 520px; height:356px;"><br>
+Figure 4. Interrupt Processing
+</p>
+
+<ol>
+<li>A device signals the interrupt to ICU.</li>
+<li>ICU transfers the control to HAL.</li>
+<li>HAL calls the registered ISR associated with interrupt vector.</li>
+<li>ISR processes interrupt and returns with completion status.</li>
+<li>A scheduler starts IST to process remaining job.</li>
+</ol>
+
+<h3>Registering Interrupt</h3>
+
+
+<pre>
+irq_t irq_attach(int irqno, int prio, int shared, int (*isr)(void *), void (*ist)(void *), void *data);
+</pre>
+
+
+
+<h3>Disabling Interrupt</h3>
+
+
+<h2 id="dpc">Deferred Procedure Call (DPC)</h2>
+<p>
+</p>
+
+
+<h2 id="malloc">Memory Allocation</h2>
+<p>
+</p>
+
+
+<h2 id="umem">Accessing User Memory</h2>
+<p>
+</p>
+
+
+<h2 id="timer">Callout Timer</h2>
+
+<h3>Timer Object</h3>
+<p>
+</p>
+
+<p>
+</p>
+
+
+<h2 id="sync">Synchronization</h2>
+<p>
+</p>
+
+
+<h2 id="except">Raising Exceptions</h2>
+<p>
+</p>
+
+
+
+<h2 id="pm">Power Management</h2>
+<p>
+</p>
+
+
+
+
+
+<h2 id="sample">Driver Sample</h2>
+
+<h3>Choosing a Driver Name</h3>
+
+<p>
+The driver name must be unique in the system, and it should be same
+name with the name of the driver source file in order to identify them easily.
+For example, the device driver named "ramdisk" will be put to the
+file named "ramdisk.c".
+</p>
+<p>
+The driver name may only contain alphanumeric and has a maximum length of 16 characters.
+</p>
+
+
+<h3>Required Header File</h3>
+
+<p>
+Every device driver must include the common driver header file.
+</p>
+<pre>
+#include &lt;driver.h&gt;
+</pre>
+
+
+<h3>Defining Driver Data</h3>
+
+
+<h4>Driver Private Data</h4>
+
+<p>
+Since the ramdisk driver does not handle an actual device hardware,
+it just holds information about the ramdisk image.
+</p>
+
+<pre>
+struct ramdisk_softc {
+        device_t        dev;            /* device object */
+        char            *addr;          /* base address of image */
+        size_t          size;           /* image size */
+};
+</pre>
+
+<h4>Device Operations</h4>
+
+<p>
+The ramdisk driver supports only read() and write() operations.
+</p>
+
+<pre>
+static struct devops ramdisk_devops = {
+        /* open */      no_open,
+        /* close */     no_close,
+        /* read */      ramdisk_read,
+        /* write */     ramdisk_write,
+        /* ioctl */     no_ioctl,
+        /* devctl */    no_devctl,
+};
+</pre>
+
+<h4>Driver Object</h4>
+
+There is no unload routine in the ramdisk driver.
+<pre>
+struct driver ramdisk_driver = {
+        /* name */      "ramdisk",
+        /* devops */    &amp;ramdisk_devops,
+        /* devsz */     sizeof(struct ramdisk_softc),
+        /* flags */     0,
+        /* probe */     ramdisk_probe,
+        /* init */      ramdisk_init,
+        /* unload */    NULL,
+};
+</pre>
+
+
+<h3>Probing Device</h3>
+
+<p>
+The ramdisk driver will check whether the disk image is loaded by boot loader.
+It returns ENXIO if it can not find the disk image.
+</p>
+
+<pre>
+static int
+ramdisk_probe(struct driver *self)
+{
+        struct bootinfo *bi;
+        struct physmem *phys;
+
+        machine_bootinfo(&amp;bi);
+        phys = &amp;bi->bootdisk;
+        if (phys->size == 0) {
+                return ENXIO;
+        }
+        return 0;
+}
+</pre>
+
+
+<h3>Initializing Device</h3>
+<p>
+</p>
+
+<pre>
+static int
+ramdisk_init(struct driver *self)
+{
+        struct ramdisk_softc *sc;
+        struct bootinfo *bi;
+        struct physmem *phys;
+        device_t dev;
+
+        machine_bootinfo(&amp;bi);
+        phys = &amp;bi->bootdisk;
+
+        dev = device_create(self, "ram0", D_BLK|D_PROT);
+
+        sc = device_private(dev);
+        sc->dev = dev;
+        sc->addr = (char *)ptokv(phys->base);
+        sc->size = (size_t)phys->size;
+
+        return 0;
+}
+</pre>
+
+<h3>Defining I/O Operations</h3>
+
+<pre>
+static int
+ramdisk_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+{
+        struct ramdisk_softc *sc = device_private(dev);
+        int offset = blkno * BSIZE;
+        void *kbuf;
+        size_t nr_read;
+
+        DPRINTF(("ramdisk_read: buf=%x nbyte=%d blkno=%x\n",
+                 buf, *nbyte, blkno));
+
+        /* Check overrun */
+        if (offset > (int)sc->size) {
+                DPRINTF(("ramdisk_read: overrun!\n"));
+                return EIO;
+        }
+        nr_read = *nbyte;
+        if (offset + nr_read > (int)sc->size)
+                nr_read = sc->size - offset;
+
+        /* Translate buffer address to kernel address */
+        if ((kbuf = kmem_map(buf, nr_read)) == NULL) {
+                return EFAULT;
+        }
+
+        /* Copy data */
+        memcpy(kbuf, sc->addr + offset, nr_read);
+        *nbyte = nr_read;
+        return 0;
+}
+</pre>
+
+
+
+<h3>Installing a Driver</h3>
+<p>
+You can add new driver into system by using "device" option in the
+platform configureation file under /conf.
+The order of device options indicates the driver initialization order.
+So, it's important to put the device option with appropriate order
+considering for the driver dependency.
+</p>
+
+<pre>
+device          pm              # Power management
+device          i8237           # I8237 DMA controller
+device          cons            # System console
+device          wscons          # Workstation console
+device          pckbd           # PC/AT Keyboard (P:wscons)
+device          vga             # VGA video (P:wscons)
+device          cpufreq         # CPU frequency control
+device          est             # Intel enhanced speedstep (P:cpufreq)
+device          rtc             # Logical RTC
+device          mc146818        # MC146818 Real time clock (P:rtc)
+device          null            # NULL device
+device          zero            # Zero device
+device          fdd             # Floppy disk drive
+device          ramdisk         # RAM disk          <== Add!!
+</pre>
+
+
+
+
+</div>
+
+<div id="footer">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+</div>
+
+</body>
+</html>

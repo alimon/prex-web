@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>head</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L272'>head</a>              272 bsp/drv/dev/block/fdd.c 	int head, track;
+<a href='../S/66.html#L276'>head</a>              276 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L286'>head</a>              286 bsp/drv/dev/block/fdd.c 	fdc_out(head &lt;&lt; 2);
+<a href='../S/66.html#L298'>head</a>              298 bsp/drv/dev/block/fdd.c 	int head, track, sect;
+<a href='../S/66.html#L305'>head</a>              305 bsp/drv/dev/block/fdd.c 	head = (irp-&gt;blkno % (FDG_SECTORS * FDG_HEADS)) / FDG_SECTORS;
+<a href='../S/66.html#L312'>head</a>              312 bsp/drv/dev/block/fdd.c 		 head, track, sect, io_size, read));
+<a href='../S/66.html#L320'>head</a>              320 bsp/drv/dev/block/fdd.c 	fdc_out(head &lt;&lt; 2);
+<a href='../S/66.html#L322'>head</a>              322 bsp/drv/dev/block/fdd.c 	fdc_out(head);
+<a href='../S/112.html#L41'>head</a>               41 bsp/drv/lib/queue.c 	item-&gt;next = head;
+<a href='../S/112.html#L42'>head</a>               42 bsp/drv/lib/queue.c 	item-&gt;prev = head-&gt;prev;
+<a href='../S/112.html#L44'>head</a>               44 bsp/drv/lib/queue.c 	head-&gt;prev = item;
+<a href='../S/112.html#L55'>head</a>               55 bsp/drv/lib/queue.c 	if (head-&gt;next == head)
+<a href='../S/112.html#L57'>head</a>               57 bsp/drv/lib/queue.c 	item = head-&gt;next;
+<a href='../S/112.html#L58'>head</a>               58 bsp/drv/lib/queue.c 	item-&gt;next-&gt;prev = head;
+<a href='../S/112.html#L59'>head</a>               59 bsp/drv/lib/queue.c 	head-&gt;next = item-&gt;next;
+<a href='../S/262.html#L42'>head</a>               42 include/sys/list.h #define list_init(head)		((head)-&gt;next = (head)-&gt;prev = (head))
+<a href='../S/262.html#L45'>head</a>               45 include/sys/list.h #define list_empty(head)	((head)-&gt;next == (head))
+<a href='../S/262.html#L46'>head</a>               46 include/sys/list.h #define list_first(head)	((head)-&gt;next)
+<a href='../S/262.html#L47'>head</a>               47 include/sys/list.h #define list_last(head)		((head)-&gt;prev)
+<a href='../S/262.html#L48'>head</a>               48 include/sys/list.h #define list_end(head, node)	((node) == (head))
+<a href='../S/262.html#L56'>head</a>               56 include/sys/list.h #define LIST_INIT(head) { &amp;(head), &amp;(head) }
+<a href='../S/268.html#L41'>head</a>               41 include/sys/queue.h #define queue_init(head)	((head)-&gt;next = (head)-&gt;prev = (head))
+<a href='../S/268.html#L42'>head</a>               42 include/sys/queue.h #define queue_empty(head)	((head)-&gt;next == (head))
+<a href='../S/268.html#L45'>head</a>               45 include/sys/queue.h #define queue_first(head)	((head)-&gt;next)
+<a href='../S/268.html#L46'>head</a>               46 include/sys/queue.h #define queue_last(head)	((head)-&gt;prev)
+<a href='../S/268.html#L47'>head</a>               47 include/sys/queue.h #define queue_end(head,q)	((q) == (head))
+<a href='../S/320.html#L70'>head</a>               70 sys/include/timer.h 	(list_entry(list_first(head), struct timer, link))
+<a href='../S/323.html#L70'>head</a>               70 sys/include/vm.h 	struct seg	head;		/* list head of segements */
+<a href='../S/324.html#L419'>head</a>              419 sys/ipc/msg.c  	q = queue_first(head);
+<a href='../S/324.html#L422'>head</a>              422 sys/ipc/msg.c  	while (!queue_end(head, q)) {
+<a href='../S/324.html#L436'>head</a>              436 sys/ipc/msg.c  	enqueue(head, &amp;t-&gt;ipc_link);
+<a href='../S/328.html#L100'>head</a>              100 sys/kern/exception.c 	list_t head, n;
+<a href='../S/328.html#L115'>head</a>              115 sys/kern/exception.c 		head = &amp;self-&gt;threads;
+<a href='../S/328.html#L116'>head</a>              116 sys/kern/exception.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/328.html#L175'>head</a>              175 sys/kern/exception.c 	list_t head, n;
+<a href='../S/328.html#L197'>head</a>              197 sys/kern/exception.c 	head = &amp;task-&gt;threads;
+<a href='../S/328.html#L198'>head</a>              198 sys/kern/exception.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/331.html#L337'>head</a>              337 sys/kern/sched.c 	queue_t head, q;
+<a href='../S/331.html#L343'>head</a>              343 sys/kern/sched.c 	head = &amp;evt-&gt;sleepq;
+<a href='../S/331.html#L344'>head</a>              344 sys/kern/sched.c 	if (!queue_empty(head)) {
+<a href='../S/331.html#L349'>head</a>              349 sys/kern/sched.c 		q = queue_first(head);
+<a href='../S/331.html#L351'>head</a>              351 sys/kern/sched.c 		while (!queue_end(head, q)) {
+<a href='../S/334.html#L168'>head</a>              168 sys/kern/task.c 	list_t head, n;
+<a href='../S/334.html#L196'>head</a>              196 sys/kern/task.c 	head = &amp;task-&gt;threads;
+<a href='../S/334.html#L197'>head</a>              197 sys/kern/task.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/334.html#L229'>head</a>              229 sys/kern/task.c 	list_t head, n;
+<a href='../S/334.html#L246'>head</a>              246 sys/kern/task.c 		head = &amp;task-&gt;threads;
+<a href='../S/334.html#L247'>head</a>              247 sys/kern/task.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/334.html#L265'>head</a>              265 sys/kern/task.c 	list_t head, n;
+<a href='../S/334.html#L288'>head</a>              288 sys/kern/task.c 		head = &amp;task-&gt;threads;
+<a href='../S/334.html#L289'>head</a>              289 sys/kern/task.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/335.html#L213'>head</a>              213 sys/kern/thread.c 	list_t head, n;
+<a href='../S/335.html#L216'>head</a>              216 sys/kern/thread.c 	head = &amp;thread_list;
+<a href='../S/335.html#L217'>head</a>              217 sys/kern/thread.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/336.html#L71'>head</a>               71 sys/kern/timer.c 	list_t head, n;
+<a href='../S/336.html#L84'>head</a>               84 sys/kern/timer.c 	head = &amp;timer_list;
+<a href='../S/336.html#L85'>head</a>               85 sys/kern/timer.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/337.html#L43'>head</a>               43 sys/lib/queue.c 	item-&gt;next = head;
+<a href='../S/337.html#L44'>head</a>               44 sys/lib/queue.c 	item-&gt;prev = head-&gt;prev;
+<a href='../S/337.html#L46'>head</a>               46 sys/lib/queue.c 	head-&gt;prev = item;
+<a href='../S/337.html#L57'>head</a>               57 sys/lib/queue.c 	if (head-&gt;next == head)
+<a href='../S/337.html#L59'>head</a>               59 sys/lib/queue.c 	item = head-&gt;next;
+<a href='../S/337.html#L60'>head</a>               60 sys/lib/queue.c 	item-&gt;next-&gt;prev = head;
+<a href='../S/337.html#L61'>head</a>               61 sys/lib/queue.c 	head-&gt;next = item-&gt;next;
+<a href='../S/343.html#L135'>head</a>              135 sys/mem/vm.c   		if ((seg = seg_alloc(&amp;map-&gt;head, size)) == NULL)
+<a href='../S/343.html#L142'>head</a>              142 sys/mem/vm.c   		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/343.html#L167'>head</a>              167 sys/mem/vm.c   	seg_free(&amp;map-&gt;head, seg);
+<a href='../S/343.html#L217'>head</a>              217 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/343.html#L233'>head</a>              233 sys/mem/vm.c   	seg_free(&amp;map-&gt;head, seg);
+<a href='../S/343.html#L288'>head</a>              288 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/343.html#L414'>head</a>              414 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/343.html#L423'>head</a>              423 sys/mem/vm.c   	if ((seg = seg_alloc(&amp;curmap-&gt;head, size)) == NULL)
+<a href='../S/343.html#L437'>head</a>              437 sys/mem/vm.c   		seg_free(&amp;curmap-&gt;head, seg);
+<a href='../S/343.html#L474'>head</a>              474 sys/mem/vm.c   	seg_init(&amp;map-&gt;head);
+<a href='../S/343.html#L491'>head</a>              491 sys/mem/vm.c   	seg = &amp;map-&gt;head;
+<a href='../S/343.html#L506'>head</a>              506 sys/mem/vm.c   		seg_delete(&amp;map-&gt;head, tmp);
+<a href='../S/343.html#L507'>head</a>              507 sys/mem/vm.c   	} while (seg != &amp;map-&gt;head);
+<a href='../S/343.html#L558'>head</a>              558 sys/mem/vm.c   	tmp = &amp;new_map-&gt;head;
+<a href='../S/343.html#L559'>head</a>              559 sys/mem/vm.c   	src = &amp;org_map-&gt;head;
+<a href='../S/343.html#L574'>head</a>              574 sys/mem/vm.c   		if (src == &amp;org_map-&gt;head) {
+<a href='../S/343.html#L622'>head</a>              622 sys/mem/vm.c   	} while (src != &amp;org_map-&gt;head);
+<a href='../S/343.html#L627'>head</a>              627 sys/mem/vm.c   	dest = &amp;new_map-&gt;head;
+<a href='../S/343.html#L628'>head</a>              628 sys/mem/vm.c   	src = &amp;org_map-&gt;head;
+<a href='../S/343.html#L639'>head</a>              639 sys/mem/vm.c   	} while (src != &amp;org_map-&gt;head);
+<a href='../S/343.html#L754'>head</a>              754 sys/mem/vm.c   	seg = &amp;map-&gt;head;
+<a href='../S/343.html#L767'>head</a>              767 sys/mem/vm.c   	} while (seg != &amp;map-&gt;head);
+<a href='../S/343.html#L785'>head</a>              785 sys/mem/vm.c   	seg_init(&amp;kernel_map.head);
+<a href='../S/343.html#L847'>head</a>              847 sys/mem/vm.c   	if (head != seg)
+<a href='../S/343.html#L859'>head</a>              859 sys/mem/vm.c   	seg = head;
+<a href='../S/343.html#L866'>head</a>              866 sys/mem/vm.c   	} while (seg != head);
+<a href='../S/343.html#L878'>head</a>              878 sys/mem/vm.c   	seg = head;
+<a href='../S/343.html#L894'>head</a>              894 sys/mem/vm.c   	} while (seg != head);
+<a href='../S/343.html#L923'>head</a>              923 sys/mem/vm.c   	if (next != head &amp;&amp; (next-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L933'>head</a>              933 sys/mem/vm.c   	if (seg != head &amp;&amp; (prev-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L953'>head</a>              953 sys/mem/vm.c   	seg = seg_lookup(head, addr, size);
+<a href='../S/343.html#L977'>head</a>              977 sys/mem/vm.c   				seg_free(head, seg);
+<a href='../S/344.html#L127'>head</a>              127 sys/mem/vm_nommu.c 		if ((seg = seg_alloc(&amp;map-&gt;head, size)) == NULL)
+<a href='../S/344.html#L135'>head</a>              135 sys/mem/vm_nommu.c 		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L193'>head</a>              193 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/344.html#L204'>head</a>              204 sys/mem/vm_nommu.c 	seg_free(&amp;map-&gt;head, seg);
+<a href='../S/344.html#L258'>head</a>              258 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/344.html#L344'>head</a>              344 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/344.html#L353'>head</a>              353 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;curmap-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L380'>head</a>              380 sys/mem/vm_nommu.c 	seg_init(&amp;map-&gt;head);
+<a href='../S/344.html#L397'>head</a>              397 sys/mem/vm_nommu.c 	seg = &amp;map-&gt;head;
+<a href='../S/344.html#L408'>head</a>              408 sys/mem/vm_nommu.c 		seg_delete(&amp;map-&gt;head, tmp);
+<a href='../S/344.html#L409'>head</a>              409 sys/mem/vm_nommu.c 	} while (seg != &amp;map-&gt;head);
+<a href='../S/344.html#L474'>head</a>              474 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L514'>head</a>              514 sys/mem/vm_nommu.c 	seg = &amp;map-&gt;head;
+<a href='../S/344.html#L527'>head</a>              527 sys/mem/vm_nommu.c 	} while (seg != &amp;map-&gt;head);
+<a href='../S/344.html#L536'>head</a>              536 sys/mem/vm_nommu.c 	seg_init(&amp;kernel_map.head);
+<a href='../S/344.html#L597'>head</a>              597 sys/mem/vm_nommu.c 	if (head != seg)
+<a href='../S/344.html#L609'>head</a>              609 sys/mem/vm_nommu.c 	seg = head;
+<a href='../S/344.html#L616'>head</a>              616 sys/mem/vm_nommu.c 	} while (seg != head);
+<a href='../S/344.html#L632'>head</a>              632 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L676'>head</a>              676 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/345.html#L221'>head</a>              221 sys/sync/cond.c 	list_t head, n;
+<a href='../S/345.html#L223'>head</a>              223 sys/sync/cond.c 	head = &amp;curtask-&gt;conds;
+<a href='../S/345.html#L224'>head</a>              224 sys/sync/cond.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/346.html#L318'>head</a>              318 sys/sync/mutex.c 	list_t head;
+<a href='../S/346.html#L325'>head</a>              325 sys/sync/mutex.c 	head = &amp;t-&gt;mutexes;
+<a href='../S/346.html#L326'>head</a>              326 sys/sync/mutex.c 	while (!list_empty(head)) {
+<a href='../S/346.html#L330'>head</a>              330 sys/sync/mutex.c 		m = list_entry(list_first(head), struct mutex, link);
+<a href='../S/346.html#L367'>head</a>              367 sys/sync/mutex.c 	list_t head, n;
+<a href='../S/346.html#L369'>head</a>              369 sys/sync/mutex.c 	head = &amp;curtask-&gt;mutexes;
+<a href='../S/346.html#L370'>head</a>              370 sys/sync/mutex.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/346.html#L472'>head</a>              472 sys/sync/mutex.c 	list_t head, n;
+<a href='../S/346.html#L486'>head</a>              486 sys/sync/mutex.c 	head = &amp;t-&gt;mutexes;
+<a href='../S/346.html#L487'>head</a>              487 sys/sync/mutex.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/347.html#L308'>head</a>              308 sys/sync/sem.c 	list_t head, n;
+<a href='../S/347.html#L311'>head</a>              311 sys/sync/sem.c 	head = &amp;task-&gt;sems;
+<a href='../S/347.html#L312'>head</a>              312 sys/sync/sem.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/384.html#L50'>head</a>               50 usr/bin/head/head.c void head(FILE *, int);
+<a href='../S/384.html#L89'>head</a>               89 usr/bin/head/head.c 			head(fp, linecnt);
+<a href='../S/384.html#L93'>head</a>               93 usr/bin/head/head.c 		head(stdin, linecnt);
+<a href='../S/479.html#L539'>head</a>              539 usr/lib/libc/gen/fts.c 	FTSENT *p, *head;
+<a href='../S/479.html#L639'>head</a>              639 usr/lib/libc/gen/fts.c 	for (head = tail = NULL, nitems = 0; (dp = readdir(dirp)) != NULL;) {
+<a href='../S/479.html#L656'>head</a>              656 usr/lib/libc/gen/fts.c 				fts_lfree(head);
+<a href='../S/479.html#L710'>head</a>              710 usr/lib/libc/gen/fts.c 		if (head == NULL)
+<a href='../S/479.html#L711'>head</a>              711 usr/lib/libc/gen/fts.c 			head = tail = p;
+<a href='../S/479.html#L761'>head</a>              761 usr/lib/libc/gen/fts.c 		head = fts_sort(sp, head, nitems);
+<a href='../S/479.html#L762'>head</a>              762 usr/lib/libc/gen/fts.c 	return (head);
+<a href='../S/479.html#L862'>head</a>              862 usr/lib/libc/gen/fts.c 			return (head);
+<a href='../S/479.html#L865'>head</a>              865 usr/lib/libc/gen/fts.c 	for (ap = sp-&gt;fts_array, p = head; p; p = p-&gt;fts_link)
+<a href='../S/479.html#L870'>head</a>              870 usr/lib/libc/gen/fts.c 	for (head = *(ap = sp-&gt;fts_array); --nitems; ++ap)
+<a href='../S/479.html#L873'>head</a>              873 usr/lib/libc/gen/fts.c 	return (head);
+<a href='../S/479.html#L917'>head</a>              917 usr/lib/libc/gen/fts.c 	while ((p = head) != NULL) {
+<a href='../S/479.html#L918'>head</a>              918 usr/lib/libc/gen/fts.c 		head = head-&gt;fts_link;
+<a href='../S/896.html#L319'>head</a>              319 usr/server/fs/fifofs/fifo_vnops.c 	list_t head, n;
+<a href='../S/896.html#L331'>head</a>              331 usr/server/fs/fifofs/fifo_vnops.c 	head = &amp;fifo_head;
+<a href='../S/896.html#L332'>head</a>              332 usr/server/fs/fifofs/fifo_vnops.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/896.html#L427'>head</a>              427 usr/server/fs/fifofs/fifo_vnops.c 	list_t head, n;
+<a href='../S/896.html#L441'>head</a>              441 usr/server/fs/fifofs/fifo_vnops.c 		head = &amp;fifo_head;
+<a href='../S/896.html#L442'>head</a>              442 usr/server/fs/fifofs/fifo_vnops.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/909.html#L93'>head</a>               93 usr/server/fs/vfs/vfs_mount.c 	list_t head, n;
+<a href='../S/909.html#L121'>head</a>              121 usr/server/fs/vfs/vfs_mount.c 	head = &amp;mount_list;
+<a href='../S/909.html#L122'>head</a>              122 usr/server/fs/vfs/vfs_mount.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/909.html#L215'>head</a>              215 usr/server/fs/vfs/vfs_mount.c 	list_t head, n;
+<a href='../S/909.html#L223'>head</a>              223 usr/server/fs/vfs/vfs_mount.c 	head = &amp;mount_list;
+<a href='../S/909.html#L224'>head</a>              224 usr/server/fs/vfs/vfs_mount.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/909.html#L229'>head</a>              229 usr/server/fs/vfs/vfs_mount.c 	if (n == head) {
+<a href='../S/909.html#L265'>head</a>              265 usr/server/fs/vfs/vfs_mount.c 	list_t head, n;
+<a href='../S/909.html#L269'>head</a>              269 usr/server/fs/vfs/vfs_mount.c 	head = &amp;mount_list;
+<a href='../S/909.html#L270'>head</a>              270 usr/server/fs/vfs/vfs_mount.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/909.html#L315'>head</a>              315 usr/server/fs/vfs/vfs_mount.c 	list_t head, n;
+<a href='../S/909.html#L324'>head</a>              324 usr/server/fs/vfs/vfs_mount.c 	head = &amp;mount_list;
+<a href='../S/909.html#L325'>head</a>              325 usr/server/fs/vfs/vfs_mount.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/909.html#L384'>head</a>              384 usr/server/fs/vfs/vfs_mount.c 	list_t head, n;
+<a href='../S/909.html#L392'>head</a>              392 usr/server/fs/vfs/vfs_mount.c 	head = &amp;mount_list;
+<a href='../S/909.html#L393'>head</a>              393 usr/server/fs/vfs/vfs_mount.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/912.html#L72'>head</a>               72 usr/server/fs/vfs/vfs_task.c 	list_t head, n;
+<a href='../S/912.html#L79'>head</a>               79 usr/server/fs/vfs/vfs_task.c 	head = &amp;task_table[TASKHASH(task)];
+<a href='../S/912.html#L80'>head</a>               80 usr/server/fs/vfs/vfs_task.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/912.html#L296'>head</a>              296 usr/server/fs/vfs/vfs_task.c 	list_t head, n;
+<a href='../S/912.html#L305'>head</a>              305 usr/server/fs/vfs/vfs_task.c 		head = &amp;task_table[i];
+<a href='../S/912.html#L306'>head</a>              306 usr/server/fs/vfs/vfs_task.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/913.html#L107'>head</a>              107 usr/server/fs/vfs/vfs_vnode.c 	list_t head, n;
+<a href='../S/913.html#L111'>head</a>              111 usr/server/fs/vfs/vfs_vnode.c 	head = &amp;vnode_table[vn_hash(mp, path)];
+<a href='../S/913.html#L112'>head</a>              112 usr/server/fs/vfs/vfs_vnode.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/913.html#L326'>head</a>              326 usr/server/fs/vfs/vfs_vnode.c 	list_t head, n;
+<a href='../S/913.html#L331'>head</a>              331 usr/server/fs/vfs/vfs_vnode.c 		head = &amp;vnode_table[i];
+<a href='../S/913.html#L332'>head</a>              332 usr/server/fs/vfs/vfs_vnode.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/913.html#L426'>head</a>              426 usr/server/fs/vfs/vfs_vnode.c 	list_t head, n;
+<a href='../S/913.html#L438'>head</a>              438 usr/server/fs/vfs/vfs_vnode.c 		head = &amp;vnode_table[i];
+<a href='../S/913.html#L439'>head</a>              439 usr/server/fs/vfs/vfs_vnode.c 		for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/920.html#L54'>head</a>               54 usr/server/proc/proc_exit.c 	list_t head, n;
+<a href='../S/920.html#L72'>head</a>               72 usr/server/proc/proc_exit.c 	head = &amp;curproc-&gt;p_children;
+<a href='../S/920.html#L73'>head</a>               73 usr/server/proc/proc_exit.c 	n = list_first(head);
+<a href='../S/920.html#L74'>head</a>               74 usr/server/proc/proc_exit.c 	while (n != head) {
+<a href='../S/920.html#L147'>head</a>              147 usr/server/proc/proc_exit.c 	list_t head, n;
+<a href='../S/920.html#L162'>head</a>              162 usr/server/proc/proc_exit.c 	head = &amp;curproc-&gt;p_children;
+<a href='../S/920.html#L163'>head</a>              163 usr/server/proc/proc_exit.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+<a href='../S/922.html#L55'>head</a>               55 usr/server/proc/proc_hash.c 	list_t head, n;
+<a href='../S/922.html#L58'>head</a>               58 usr/server/proc/proc_hash.c 	head = &amp;pid_table[IDHASH(pid)];
+<a href='../S/922.html#L59'>head</a>               59 usr/server/proc/proc_hash.c 	n = list_first(head);
+<a href='../S/922.html#L60'>head</a>               60 usr/server/proc/proc_hash.c 	while (n != head) {
+<a href='../S/922.html#L75'>head</a>               75 usr/server/proc/proc_hash.c 	list_t head, n;
+<a href='../S/922.html#L78'>head</a>               78 usr/server/proc/proc_hash.c 	head = &amp;pgid_table[IDHASH(pgid)];
+<a href='../S/922.html#L79'>head</a>               79 usr/server/proc/proc_hash.c 	n = list_first(head);
+<a href='../S/922.html#L80'>head</a>               80 usr/server/proc/proc_hash.c 	while (n != head) {
+<a href='../S/922.html#L95'>head</a>               95 usr/server/proc/proc_hash.c 	list_t head, n;
+<a href='../S/922.html#L98'>head</a>               98 usr/server/proc/proc_hash.c 	head = &amp;task_table[IDHASH(task)];
+<a href='../S/922.html#L99'>head</a>               99 usr/server/proc/proc_hash.c 	n = list_first(head);
+<a href='../S/922.html#L101'>head</a>              101 usr/server/proc/proc_hash.c 	while (n != head) {
+<a href='../S/924.html#L104'>head</a>              104 usr/server/proc/proc_sig.c 	list_t head, n;
+<a href='../S/924.html#L112'>head</a>              112 usr/server/proc/proc_sig.c 	head = &amp;pgrp-&gt;pg_members;
+<a href='../S/924.html#L113'>head</a>              113 usr/server/proc/proc_sig.c 	for (n = list_first(head); n != head; n = list_next(n)) {
+</pre>
+</body>
+</html>

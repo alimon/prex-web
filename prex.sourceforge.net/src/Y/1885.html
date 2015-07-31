@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sender</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/319.html#L69'>sender</a>             69 sys/include/thread.h 	thread_t	sender;		/* thread that sends IPC message */
+<a href='../S/324.html#L274'>sender</a>            274 sys/ipc/msg.c  	curthread-&gt;sender = t;
+<a href='../S/324.html#L305'>sender</a>            305 sys/ipc/msg.c  	if (curthread-&gt;sender == NULL) {
+<a href='../S/324.html#L314'>sender</a>            314 sys/ipc/msg.c  	t = curthread-&gt;sender;
+<a href='../S/324.html#L329'>sender</a>            329 sys/ipc/msg.c  	curthread-&gt;sender = NULL;
+<a href='../S/324.html#L364'>sender</a>            364 sys/ipc/msg.c  			t-&gt;receiver-&gt;sender = NULL;
+<a href='../S/324.html#L369'>sender</a>            369 sys/ipc/msg.c  		if (t-&gt;sender != NULL) {
+<a href='../S/324.html#L370'>sender</a>            370 sys/ipc/msg.c  			sched_unsleep(t-&gt;sender, SLP_BREAK);
+<a href='../S/324.html#L371'>sender</a>            371 sys/ipc/msg.c  			t-&gt;sender-&gt;receiver = NULL;
+</pre>
+</body>
+</html>

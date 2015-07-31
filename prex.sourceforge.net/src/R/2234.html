@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>open</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L77'>open</a>               77 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;open(dev, mode);
+<a href='../S/252.html#L54'>open</a>               54 include/sys/device.h 	int (*open)	(device_t, int);
+<a href='../S/257.html#L132'>open</a>              132 include/sys/fcntl.h int	open(const char *, int, ...);
+<a href='../S/327.html#L323'>open</a>              323 sys/kern/device.c 	ASSERT(ops-&gt;open != NULL);
+<a href='../S/327.html#L324'>open</a>              324 sys/kern/device.c 	error = (*ops-&gt;open)(dev, mode);
+<a href='../S/366.html#L79'>open</a>               79 usr/bin/cat/cat.c 			else if ((fd = open(*argv, O_RDONLY, 0)) &lt; 0) {
+<a href='../S/374.html#L147'>open</a>              147 usr/bin/cp/cp.c 	if ((fold = open(from, O_RDONLY)) == -1) {
+<a href='../S/411.html#L103'>open</a>              103 usr/bin/sh/cmds.c 	open("/dev/tty", O_RDONLY);
+<a href='../S/413.html#L152'>open</a>              152 usr/bin/sh/sh.c 				open("/dev/null", O_RDWR);
+<a href='../S/413.html#L236'>open</a>              236 usr/bin/sh/sh.c 					fd = open(file, O_WRONLY | O_APPEND);
+<a href='../S/413.html#L240'>open</a>              240 usr/bin/sh/sh.c 				fd = open(file, O_RDONLY);
+<a href='../S/413.html#L479'>open</a>              479 usr/bin/sh/sh.c 		input = open(argv[1], O_RDONLY);
+<a href='../S/423.html#L103'>open</a>              103 usr/bin/touch/touch.c 	if ((fd = open(file, 2)) &lt; 0)
+<a href='../S/479.html#L162'>open</a>              162 usr/lib/libc/gen/fts.c 	if (!ISSET(FTS_NOCHDIR) &amp;&amp; (sp-&gt;fts_rfd = open(".", O_RDONLY, 0)) &lt; 0)
+<a href='../S/479.html#L285'>open</a>              285 usr/lib/libc/gen/fts.c 			if ((p-&gt;fts_symfd = open(".", O_RDONLY, 0)) &lt; 0) {
+<a href='../S/479.html#L375'>open</a>              375 usr/lib/libc/gen/fts.c 				    open(".", O_RDONLY, 0)) &lt; 0) {
+<a href='../S/479.html#L512'>open</a>              512 usr/lib/libc/gen/fts.c 	if ((fd = open(".", O_RDONLY, 0)) &lt; 0)
+<a href='../S/508.html#L53'>open</a>               53 usr/lib/libc/stdio/fopen.c 	if ((f = open(file, oflags, DEFFILEMODE)) &lt; 0) {
+<a href='../S/514.html#L88'>open</a>               88 usr/lib/libc/stdio/freopen.c 	f = open(file, oflags, DEFFILEMODE);
+<a href='../S/514.html#L94'>open</a>               94 usr/lib/libc/stdio/freopen.c 			f = open(file, oflags, DEFFILEMODE);
+<a href='../S/530.html#L96'>open</a>               96 usr/lib/libc/stdio/mktemp.c 			    open(path, O_CREAT|O_EXCL|O_RDWR, 0600)) &gt;= 0)
+<a href='../S/663.html#L38'>open</a>               38 usr/lib/posix/file/creat.c 	return open(file, O_WRONLY | O_CREAT | O_TRUNC, mode);
+<a href='../S/744.html#L42'>open</a>               42 usr/lib/posix/time/gettimeofday.c 	if ((fd = open("/dev/rtc", 0)) &lt; 0) {
+<a href='../S/860.html#L85'>open</a>               85 usr/sbin/init/init.c       		open(ctty, O_RDWR);	/* stdin */
+<a href='../S/862.html#L128'>open</a>              128 usr/sbin/install/install.c 	if ((fold = open(from, O_RDONLY)) == -1)
+<a href='../S/871.html#L244'>open</a>              244 usr/server/boot/boot.c 	if ((fold = open(src, O_RDONLY)) == -1)
+<a href='../S/876.html#L346'>open</a>              346 usr/server/exec/exec_elf.c 	if ((fd = open(exec-&gt;path, O_RDONLY)) == -1)
+<a href='../S/877.html#L451'>open</a>              451 usr/server/exec/exec_execve.c 	if ((fd = open(path, O_RDONLY)) == -1)
+<a href='../S/952.html#L65'>open</a>               65 usr/test/fifo/fifo.c 		fd1 = open("/mnt/fifo/test", O_RDONLY);
+<a href='../S/952.html#L84'>open</a>               84 usr/test/fifo/fifo.c 	fd2 = open("/mnt/fifo/test", O_WRONLY);
+<a href='../S/954.html#L57'>open</a>               57 usr/test/fileio/fileio.c 	if ((fd = open(WRITE_TARGET, O_CREAT|O_RDWR, 0)) &lt; 0)
+<a href='../S/954.html#L75'>open</a>               75 usr/test/fileio/fileio.c 	if ((fd = open(READ_TARGET, O_RDONLY, 0)) &lt; 0)
+<a href='../S/954.html#L106'>open</a>              106 usr/test/fileio/fileio.c 		if ((fd = open(READ_TARGET, O_RDONLY, 0)) &lt; 0)
+<a href='../S/954.html#L120'>open</a>              120 usr/test/fileio/fileio.c 	if ((fd = open(READ_TARGET, O_RDONLY, 0)) &lt; 0)
+<a href='../S/954.html#L160'>open</a>              160 usr/test/fileio/fileio.c 	open("/dev/tty", O_RDWR);	/* stdin */
+<a href='../S/992.html#L50'>open</a>               50 usr/test/signal/signal.c 	if ((ttyfd = open("/dev/tty", O_RDWR)) == -1) {
+</pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ticks</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/107.html#L70'>ticks</a>              70 bsp/drv/lib/delay.c 	u_long ticks, test_bit;
+<a href='../S/107.html#L77'>ticks</a>              77 bsp/drv/lib/delay.c 		ticks = timer_ticks();
+<a href='../S/107.html#L78'>ticks</a>              78 bsp/drv/lib/delay.c 		while (ticks == timer_ticks());
+<a href='../S/107.html#L80'>ticks</a>              80 bsp/drv/lib/delay.c 		ticks = timer_ticks();
+<a href='../S/107.html#L82'>ticks</a>              82 bsp/drv/lib/delay.c 		if (ticks != timer_ticks())
+<a href='../S/107.html#L94'>ticks</a>              94 bsp/drv/lib/delay.c 		ticks = timer_ticks();
+<a href='../S/107.html#L95'>ticks</a>              95 bsp/drv/lib/delay.c 		while (ticks == timer_ticks());
+<a href='../S/107.html#L97'>ticks</a>              97 bsp/drv/lib/delay.c 		ticks = timer_ticks();
+<a href='../S/107.html#L99'>ticks</a>              99 bsp/drv/lib/delay.c 		if (ticks != timer_ticks())
+<a href='../S/267.html#L154'>ticks</a>             154 include/sys/prex.h int	sys_time(u_long *ticks);
+<a href='../S/333.html#L230'>ticks</a>             230 sys/kern/system.c sys_time(u_long *ticks)
+<a href='../S/333.html#L235'>ticks</a>             235 sys/kern/system.c 	return copyout(&amp;t, ticks, sizeof(t));
+<a href='../S/336.html#L69'>ticks</a>              69 sys/kern/timer.c timer_add(struct timer *tmr, u_long ticks)
+<a href='../S/336.html#L74'>ticks</a>              74 sys/kern/timer.c 	if (ticks == 0)
+<a href='../S/336.html#L75'>ticks</a>              75 sys/kern/timer.c 		ticks++;
+<a href='../S/336.html#L77'>ticks</a>              77 sys/kern/timer.c 	tmr-&gt;expire = lbolt + ticks;
+<a href='../S/336.html#L392'>ticks</a>             392 sys/kern/timer.c 	u_long ticks;
+<a href='../S/336.html#L416'>ticks</a>             416 sys/kern/timer.c 			ticks = time_remain(tmr-&gt;expire + tmr-&gt;interval);
+<a href='../S/336.html#L417'>ticks</a>             417 sys/kern/timer.c 			timer_add(tmr, ticks);
+</pre>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>self</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L128'>self</a>              128 bsp/drv/arm/gba/keypad.c keypad_init(struct driver *self)
+<a href='../S/50.html#L133'>self</a>              133 bsp/drv/arm/gba/keypad.c 	dev = device_create(self, "keypad", D_CHR);
+<a href='../S/51.html#L179'>self</a>              179 bsp/drv/arm/gba/lcd.c lcd_init(struct driver *self)
+<a href='../S/51.html#L184'>self</a>              184 bsp/drv/arm/gba/lcd.c 	dev = device_create(self, "lcd", D_CHR|D_TTY);
+<a href='../S/54.html#L482'>self</a>              482 bsp/drv/arm/gba/swkbd.c swkbd_init(struct driver *self)
+<a href='../S/54.html#L487'>self</a>              487 bsp/drv/arm/gba/swkbd.c 	dev = device_create(self, "swkbd", D_CHR);
+<a href='../S/58.html#L198'>self</a>              198 bsp/drv/dev/base/cons.c cons_init(struct driver *self)
+<a href='../S/58.html#L202'>self</a>              202 bsp/drv/dev/base/cons.c 	device_create(self, "console", D_CHR|D_TTY);
+<a href='../S/63.html#L500'>self</a>              500 bsp/drv/dev/base/pm.c pm_init(struct driver *self)
+<a href='../S/63.html#L506'>self</a>              506 bsp/drv/dev/base/pm.c 	dev = device_create(self, "pm", D_CHR|D_PROT);
+<a href='../S/65.html#L476'>self</a>              476 bsp/drv/dev/base/wscons.c wscons_init(struct driver *self)
+<a href='../S/65.html#L482'>self</a>              482 bsp/drv/dev/base/wscons.c 	dev = device_create(self, "tty", D_CHR|D_TTY);
+<a href='../S/66.html#L663'>self</a>              663 bsp/drv/dev/block/fdd.c fdd_probe(struct driver *self)
+<a href='../S/66.html#L674'>self</a>              674 bsp/drv/dev/block/fdd.c fdd_init(struct driver *self)
+<a href='../S/66.html#L682'>self</a>              682 bsp/drv/dev/block/fdd.c 	dev = device_create(self, "fd0", D_BLK|D_PROT);
+<a href='../S/68.html#L137'>self</a>              137 bsp/drv/dev/block/ramdisk.c ramdisk_probe(struct driver *self)
+<a href='../S/68.html#L154'>self</a>              154 bsp/drv/dev/block/ramdisk.c ramdisk_init(struct driver *self)
+<a href='../S/68.html#L164'>self</a>              164 bsp/drv/dev/block/ramdisk.c 	dev = device_create(self, "ram0", D_BLK|D_PROT);
+<a href='../S/69.html#L372'>self</a>              372 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_init(struct driver *self)
+<a href='../S/70.html#L524'>self</a>              524 bsp/drv/dev/cpufreq/est.c est_probe(struct driver *self)
+<a href='../S/70.html#L579'>self</a>              579 bsp/drv/dev/cpufreq/est.c est_init(struct driver *self)
+<a href='../S/72.html#L96'>self</a>               96 bsp/drv/dev/dma/i8237.c static int	dma_init(struct driver *self);
+<a href='../S/72.html#L281'>self</a>              281 bsp/drv/dev/dma/i8237.c dma_init(struct driver *self)
+<a href='../S/76.html#L268'>self</a>              268 bsp/drv/dev/input/pckbd.c pckbd_init(struct driver *self)
+<a href='../S/76.html#L273'>self</a>              273 bsp/drv/dev/input/pckbd.c 	dev = device_create(self, "kbd", D_CHR);
+<a href='../S/77.html#L201'>self</a>              201 bsp/drv/dev/input/psaux.c psaux_init(struct driver *self)
+<a href='../S/77.html#L209'>self</a>              209 bsp/drv/dev/input/psaux.c 	dev = device_create(self, "mouse", D_CHR);
+<a href='../S/79.html#L81'>self</a>               81 bsp/drv/dev/misc/null.c null_init(struct driver *self)
+<a href='../S/79.html#L84'>self</a>               84 bsp/drv/dev/misc/null.c 	device_create(self, "null", D_CHR);
+<a href='../S/80.html#L69'>self</a>               69 bsp/drv/dev/misc/random.c random_init(struct driver *self)
+<a href='../S/80.html#L72'>self</a>               72 bsp/drv/dev/misc/random.c 	device_create(self, "random", D_CHR);
+<a href='../S/81.html#L86'>self</a>               86 bsp/drv/dev/misc/zero.c zero_init(struct driver *self)
+<a href='../S/81.html#L89'>self</a>               89 bsp/drv/dev/misc/zero.c 	device_create(self, "zero", D_CHR);
+<a href='../S/83.html#L150'>self</a>              150 bsp/drv/dev/rtc/mc146818.c mc146818_init(struct driver *self)
+<a href='../S/84.html#L86'>self</a>               86 bsp/drv/dev/rtc/pl030.c pl030_init(struct driver *self)
+<a href='../S/85.html#L231'>self</a>              231 bsp/drv/dev/rtc/rtc.c rtc_init(struct driver *self)
+<a href='../S/87.html#L205'>self</a>              205 bsp/drv/dev/serial/ns16550.c ns16550_probe(struct driver *self)
+<a href='../S/87.html#L214'>self</a>              214 bsp/drv/dev/serial/ns16550.c ns16550_init(struct driver *self)
+<a href='../S/88.html#L229'>self</a>              229 bsp/drv/dev/serial/pl011.c pl011_init(struct driver *self)
+<a href='../S/89.html#L209'>self</a>              209 bsp/drv/dev/serial/serial.c serial_init(struct driver *self)
+<a href='../S/91.html#L236'>self</a>              236 bsp/drv/dev/video/vga.c vga_init(struct driver *self)
+<a href='../S/91.html#L244'>self</a>              244 bsp/drv/dev/video/vga.c 	dev = device_create(self, "vga", D_CHR);
+<a href='../S/328.html#L99'>self</a>               99 sys/kern/exception.c 	task_t self = curtask;
+<a href='../S/328.html#L110'>self</a>              110 sys/kern/exception.c 	if (self-&gt;handler != EXC_DFL &amp;&amp; handler == EXC_DFL) {
+<a href='../S/328.html#L115'>self</a>              115 sys/kern/exception.c 		head = &amp;self-&gt;threads;
+<a href='../S/328.html#L132'>self</a>              132 sys/kern/exception.c 					 self-&gt;name));
+<a href='../S/328.html#L137'>self</a>              137 sys/kern/exception.c 	self-&gt;handler = handler;
+<a href='../S/328.html#L311'>self</a>              311 sys/kern/exception.c 	task_t self = curtask;
+<a href='../S/328.html#L331'>self</a>              331 sys/kern/exception.c 		handler = self-&gt;handler;
+<a href='../S/328.html#L336'>self</a>              336 sys/kern/exception.c 				 self-&gt;name, (long)self));
+<a href='../S/328.html#L338'>self</a>              338 sys/kern/exception.c 			task_terminate(self);
+<a href='../S/345.html#L54'>self</a>               54 sys/sync/cond.c 	task_t self = curtask;
+<a href='../S/345.html#L57'>self</a>               57 sys/sync/cond.c 	if (self-&gt;nsyncs &gt;= MAXSYNCS)
+<a href='../S/345.html#L64'>self</a>               64 sys/sync/cond.c 	c-&gt;owner = self;
+<a href='../S/345.html#L71'>self</a>               71 sys/sync/cond.c 	list_insert(&amp;self-&gt;conds, &amp;c-&gt;task_link);
+<a href='../S/345.html#L72'>self</a>               72 sys/sync/cond.c 	self-&gt;nsyncs++;
+<a href='../S/346.html#L96'>self</a>               96 sys/sync/mutex.c 	task_t self = curtask;
+<a href='../S/346.html#L99'>self</a>               99 sys/sync/mutex.c 	if (self-&gt;nsyncs &gt;= MAXSYNCS)
+<a href='../S/346.html#L106'>self</a>              106 sys/sync/mutex.c 	m-&gt;owner = self;
+<a href='../S/346.html#L116'>self</a>              116 sys/sync/mutex.c 	list_insert(&amp;self-&gt;mutexes, &amp;m-&gt;task_link);
+<a href='../S/346.html#L117'>self</a>              117 sys/sync/mutex.c 	self-&gt;nsyncs++;
+<a href='../S/347.html#L61'>self</a>               61 sys/sync/sem.c 	task_t self = curtask;
+<a href='../S/347.html#L67'>self</a>               67 sys/sync/sem.c 	if (self-&gt;nsyncs &gt;= MAXSYNCS)
+<a href='../S/347.html#L84'>self</a>               84 sys/sync/sem.c 		if (s-&gt;owner != self) {
+<a href='../S/347.html#L108'>self</a>              108 sys/sync/sem.c 		s-&gt;owner = self;
+<a href='../S/347.html#L112'>self</a>              112 sys/sync/sem.c 		list_insert(&amp;self-&gt;sems, &amp;s-&gt;task_link);
+<a href='../S/347.html#L113'>self</a>              113 sys/sync/sem.c 		self-&gt;nsyncs++;
+<a href='../S/731.html#L51'>self</a>               51 usr/lib/posix/process/waitpid.c 	thread_t self;
+<a href='../S/731.html#L55'>self</a>               55 usr/lib/posix/process/waitpid.c 	self = thread_self();
+<a href='../S/731.html#L56'>self</a>               56 usr/lib/posix/process/waitpid.c 	thread_getpri(self, &amp;pri);
+<a href='../S/731.html#L57'>self</a>               57 usr/lib/posix/process/waitpid.c 	thread_setpri(self, pri - 1);
+<a href='../S/731.html#L81'>self</a>               81 usr/lib/posix/process/waitpid.c 	thread_setpri(self, pri);
+<a href='../S/845.html#L72'>self</a>               72 usr/sample/task/task.c 	task_t self;
+<a href='../S/845.html#L77'>self</a>               77 usr/sample/task/task.c 	self = task_self();
+<a href='../S/845.html#L78'>self</a>               78 usr/sample/task/task.c 	printf("Task %x: Hey, Yo!\n", (u_int)self);
+<a href='../S/845.html#L88'>self</a>               88 usr/sample/task/task.c 	printf("Task %x: Bye!\n", (u_int)self);
+<a href='../S/903.html#L947'>self</a>              947 usr/server/fs/vfs/main.c 	task_t self;
+<a href='../S/903.html#L952'>self</a>              952 usr/server/fs/vfs/main.c 	self = task_self();
+<a href='../S/903.html#L953'>self</a>              953 usr/server/fs/vfs/main.c 	if ((error = thread_create(self, &amp;t)) != 0)
+<a href='../S/903.html#L955'>self</a>              955 usr/server/fs/vfs/main.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/916.html#L268'>self</a>              268 usr/server/pow/pow.c 	task_t self;
+<a href='../S/916.html#L273'>self</a>              273 usr/server/pow/pow.c 	self = task_self();
+<a href='../S/916.html#L274'>self</a>              274 usr/server/pow/pow.c 	if ((error = thread_create(self, &amp;t)) != 0)
+<a href='../S/916.html#L276'>self</a>              276 usr/server/pow/pow.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/916.html#L289'>self</a>              289 usr/server/pow/pow.c 	task_t self;
+<a href='../S/916.html#L308'>self</a>              308 usr/server/pow/pow.c 	self = task_self();
+<a href='../S/916.html#L309'>self</a>              309 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_CONNECT, &amp;self);
+<a href='../S/925.html#L108'>self</a>              108 usr/server/proc/proc_tty.c 	task_t self;
+<a href='../S/925.html#L123'>self</a>              123 usr/server/proc/proc_tty.c 		self = task_self();
+<a href='../S/925.html#L124'>self</a>              124 usr/server/proc/proc_tty.c 		device_ioctl(ttydev, TIOCSETSIGT, &amp;self);
+<a href='../S/928.html#L49'>self</a>               49 usr/test/attack/attack.c 	task_t self	= task_self();
+<a href='../S/928.html#L88'>self</a>               88 usr/test/attack/attack.c 	vm_allocate(self, addr, size, 1);
+<a href='../S/928.html#L89'>self</a>               89 usr/test/attack/attack.c 	vm_allocate(self, &amp;addr, size, 1);
+<a href='../S/928.html#L91'>self</a>               91 usr/test/attack/attack.c 	vm_free(self, addr);
+<a href='../S/928.html#L92'>self</a>               92 usr/test/attack/attack.c 	vm_attribute(self, addr, attr);
+<a href='../S/928.html#L93'>self</a>               93 usr/test/attack/attack.c 	vm_map(self, addr, size, &amp;addr);
+<a href='../S/928.html#L95'>self</a>               95 usr/test/attack/attack.c 	thread_create(self, tp);
+<a href='../S/1000.html#L69'>self</a>               69 usr/test/thread/thread.c 	thread_t self, t;
+<a href='../S/1000.html#L73'>self</a>               73 usr/test/thread/thread.c 	self = thread_self();
+</pre>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>f_offset</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/258.html#L44'>f_offset</a>           44 include/sys/file.h 	off_t		f_offset;	/* current position in file */
+<a href='../S/883.html#L221'>f_offset</a>          221 usr/server/fs/arfs/arfs_vnops.c 	file_pos = fp-&gt;f_offset;
+<a href='../S/883.html#L261'>f_offset</a>          261 usr/server/fs/arfs/arfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/883.html#L313'>f_offset</a>          313 usr/server/fs/arfs/arfs_vnops.c 		if (i == fp-&gt;f_offset)
+<a href='../S/883.html#L331'>f_offset</a>          331 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/883.html#L334'>f_offset</a>          334 usr/server/fs/arfs/arfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/886.html#L162'>f_offset</a>          162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L175'>f_offset</a>          175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L234'>f_offset</a>          234 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_readdir offset=%d\n", fp-&gt;f_offset));
+<a href='../S/886.html#L243'>f_offset</a>          243 usr/server/fs/devfs/devfs_vnops.c 	} while (i++ != fp-&gt;f_offset);
+<a href='../S/886.html#L251'>f_offset</a>          251 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/886.html#L255'>f_offset</a>          255 usr/server/fs/devfs/devfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/893.html#L182'>f_offset</a>          182 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = fp-&gt;f_offset;
+<a href='../S/893.html#L227'>f_offset</a>          227 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/893.html#L259'>f_offset</a>          259 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/893.html#L322'>f_offset</a>          322 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset = file_pos;
+<a href='../S/893.html#L349'>f_offset</a>          349 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_get_node(vp, fp-&gt;f_offset, &amp;np);
+<a href='../S/893.html#L362'>f_offset</a>          362 usr/server/fs/fatfs/fatfs_vnops.c 	dir-&gt;d_fileno = fp-&gt;f_offset;
+<a href='../S/893.html#L365'>f_offset</a>          365 usr/server/fs/fatfs/fatfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/896.html#L432'>f_offset</a>          432 usr/server/fs/fifofs/fifo_vnops.c 	if (fp-&gt;f_offset == 0) {
+<a href='../S/896.html#L435'>f_offset</a>          435 usr/server/fs/fifofs/fifo_vnops.c 	} else if (fp-&gt;f_offset == 1) {
+<a href='../S/896.html#L443'>f_offset</a>          443 usr/server/fs/fifofs/fifo_vnops.c 			if (i == (fp-&gt;f_offset - 2)) {
+<a href='../S/896.html#L456'>f_offset</a>          456 usr/server/fs/fifofs/fifo_vnops.c 	dir-&gt;d_fileno = fp-&gt;f_offset;
+<a href='../S/896.html#L459'>f_offset</a>          459 usr/server/fs/fifofs/fifo_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/902.html#L345'>f_offset</a>          345 usr/server/fs/ramfs/ramfs_vnops.c 	off = fp-&gt;f_offset;
+<a href='../S/902.html#L355'>f_offset</a>          355 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset += size;
+<a href='../S/902.html#L378'>f_offset</a>          378 usr/server/fs/ramfs/ramfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/902.html#L405'>f_offset</a>          405 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset += size;
+<a href='../S/902.html#L459'>f_offset</a>          459 usr/server/fs/ramfs/ramfs_vnops.c 	if (fp-&gt;f_offset == 0) {
+<a href='../S/902.html#L462'>f_offset</a>          462 usr/server/fs/ramfs/ramfs_vnops.c 	} else if (fp-&gt;f_offset == 1) {
+<a href='../S/902.html#L473'>f_offset</a>          473 usr/server/fs/ramfs/ramfs_vnops.c 		for (i = 0; i != (fp-&gt;f_offset - 2); i++) {
+<a href='../S/902.html#L487'>f_offset</a>          487 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/902.html#L490'>f_offset</a>          490 usr/server/fs/ramfs/ramfs_vnops.c 	fp-&gt;f_offset++;
+<a href='../S/911.html#L140'>f_offset</a>          140 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = 0;
+<a href='../S/911.html#L236'>f_offset</a>          236 usr/server/fs/vfs/vfs_syscalls.c 		if (fp-&gt;f_offset + off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L238'>f_offset</a>          238 usr/server/fs/vfs/vfs_syscalls.c 		else if (fp-&gt;f_offset + off &lt; 0)
+<a href='../S/911.html#L241'>f_offset</a>          241 usr/server/fs/vfs/vfs_syscalls.c 			off = fp-&gt;f_offset + off;
+<a href='../S/911.html#L256'>f_offset</a>          256 usr/server/fs/vfs/vfs_syscalls.c 	if (VOP_SEEK(vp, fp, fp-&gt;f_offset, off) != 0) {
+<a href='../S/911.html#L261'>f_offset</a>          261 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = off;
+<a href='../S/911.html#L423'>f_offset</a>          423 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = 0;
+<a href='../S/911.html#L439'>f_offset</a>          439 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = (off_t)loc;
+<a href='../S/911.html#L455'>f_offset</a>          455 usr/server/fs/vfs/vfs_syscalls.c 	*loc = (long)fp-&gt;f_offset;
+</pre>
+</body>
+</html>

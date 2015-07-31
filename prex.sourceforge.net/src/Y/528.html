@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cmd_table</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L71'>cmd_table</a>          71 bsp/drv/dev/base/kd.c static const struct cmd_entry cmd_table[] = {
+<a href='../S/60.html#L165'>cmd_table</a>         165 bsp/drv/dev/base/kd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/60.html#L166'>cmd_table</a>         166 bsp/drv/dev/base/kd.c 		if (cmd_table[i].usage)
+<a href='../S/60.html#L167'>cmd_table</a>         167 bsp/drv/dev/base/kd.c 			printf(" %10s -- %s.\n", cmd_table[i].cmd,
+<a href='../S/60.html#L168'>cmd_table</a>         168 bsp/drv/dev/base/kd.c 			       cmd_table[i].usage);
+<a href='../S/60.html#L586'>cmd_table</a>         586 bsp/drv/dev/base/kd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/60.html#L587'>cmd_table</a>         587 bsp/drv/dev/base/kd.c 		if (!strncmp(argv[0], cmd_table[i].cmd, LINE_MAX)) {
+<a href='../S/60.html#L588'>cmd_table</a>         588 bsp/drv/dev/base/kd.c 			error = (cmd_table[i].func)(argc, argv);
+<a href='../S/60.html#L593'>cmd_table</a>         593 bsp/drv/dev/base/kd.c 	if (cmd_table[i].cmd == NULL)
+<a href='../S/966.html#L58'>cmd_table</a>          58 usr/test/kmon/cmd.c static const struct cmd_entry cmd_table[] = {
+<a href='../S/966.html#L74'>cmd_table</a>          74 usr/test/kmon/cmd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/966.html#L75'>cmd_table</a>          75 usr/test/kmon/cmd.c 		printf("%s - %s\n", cmd_table[i].cmd, cmd_table[i].usage);
+<a href='../S/966.html#L164'>cmd_table</a>         164 usr/test/kmon/cmd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/966.html#L165'>cmd_table</a>         165 usr/test/kmon/cmd.c 		if (!strcmp(argv[0], cmd_table[i].cmd)) {
+<a href='../S/966.html#L166'>cmd_table</a>         166 usr/test/kmon/cmd.c 			(cmd_table[i].func)(argc, argv);
+<a href='../S/966.html#L171'>cmd_table</a>         171 usr/test/kmon/cmd.c 	if (cmd_table[i].cmd == NULL)
+</pre>
+</body>
+</html>

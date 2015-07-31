@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Prex Platform Security</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="keywords" content="Prex, embedded, real-time, operating system, RTOS, open source, free">
+  <meta name="author" content="Kohsuke Ohtani">
+  <link rel="stylesheet" type="text/css" href="../default.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../print.css" media="print">
+</head>
+<body>
+
+<table id="content" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../index.html">
+            <img alt="Prex logo" src="../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div class="info"><span>
+        <a href="../index.html">Prex Home</a> >
+        <a href="index.html">Document Index</a> >
+        Prex Platform Security
+      </span></div></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div id="doc">
+
+      <h1>Prex Platform Security</h1>
+
+<i>For Prex version 0.9.0, 2009/11/08</i>
+
+<h3>Table of Contents</h3>
+<ul>
+  <li><a href="security.html#intro">Introduction</a></li>
+  <li><a href="security.html#model">Security Model</a></li>
+  <li><a href="security.html#cap">Task Capabilities</a></li>
+  <li><a href="security.html#file">File Access Control</a></li>
+  <li><a href="security.html#io">I/O Access Control</a></li>
+  <li><a href="security.html#pol">Security Policy</a></li>
+  <li><a href="security.html#serv">Secure Servers</a></li>
+  <li><a href="security.html#other">Other Security Features</a></li>
+</ul>
+
+
+<h2 id="intro">Introduction</h2>
+
+<p>
+As a recent tendency, security is becoming very important
+in embedded systems design.
+So, we identify security as a key goal and design component for Prex.
+</p>
+<p>
+Prex supports installation and execution of the user applications by the end user.
+This design has higher security risk compared with other RTOS that can execute
+only pre-defined applications.
+So, Prex provides system-wide security features to protect the system from
+the threat.
+</p>
+<p>
+This document describes the design and implementation of
+the platform security of Prex.
+</p>
+
+<h2 id="model">Security Model</h2>
+
+<h3>Prerequisite</h3>
+<p>
+To achieve the effective security described in this document, it requires MMU support
+in the system. It's because we have to use separate memory space for the kernel and
+each user mode application.
+</p>
+
+<h3>Unit of Trust</h3>
+<p>
+Unlike generic desktop OS used on PC, Prex is designed for a single user
+(We can not assume that the user "login" to the Phone or MP3 player at every power-on).
+
+So, the task is unit of trust with Prex.
+The system designer can manage the security permission of each task.
+</p>
+
+<h3>Key Features</h3>
+
+<p>
+The key security features of Prex are as follows:
+</p>
+
+<ul>
+  <li>Task Capabilities</li>
+  <li>File Access Control</li>
+  <li>Secure Servers</li>
+  <li>Protected Device</li>
+  <li>Resource Limits</li>
+</ul>
+
+
+<h2 id="cap">Task Capabilities</h2>
+
+<p>
+Prex supports a security framework named "capability" which was derived from
+POSIX.1e capabilities.
+
+Each task will have its own capabilities for various operations.
+When a task tries to do a privileged operation, the
+kernel, device drivers and system servers
+will check the appropriate bit in the task's capability.
+</p>
+
+<h3>Types of Capability</h3>
+<p>
+The type of capability is unsigned 32-bit integer.
+So, we can define 32 types of capabilities in the maximum.
+</p>
+<pre>
+typedef uint32_t	cap_t;
+</pre>
+
+<p>
+The system defines the following capabilities:
+</p>
+
+<table border="1" width="70%" cellspacing="0">
+<caption>Table 1. Capabilities</caption>
+<tbody>
+<tr>
+  <th>Capability</th>
+  <th>Operations Permits</th>
+</tr>
+
+<tr>
+  <td>CAP_NICE</td>
+  <td>Change scheduling parameters of another task.
+  Set the priority to real-time priority or above.
+  </td>
+</tr>
+
+<tr>
+  <td>CAP_RAWIO</td>
+  <td>Perform raw I/O operations. (Use device_* API)</td>
+</tr>
+
+<tr>
+  <td>CAP_KILL</td>
+  <td>Raise exceptions to another task.</td>
+</tr>
+
+<tr>
+  <td>CAP_SETPCAP</td>
+  <td>Set capability.</td>
+</tr>
+
+<tr>
+  <td>CAP_TASKCTRL</td>
+  <td>Control another task's execution. (Create, terminate or suspend
+task/thread)</td>
+</tr>
+
+<tr>
+  <td>CAP_EXTMEM</td>
+  <td>Access another task's memory. (Allocate, free or map memory region
+in another task)
+</tr>
+
+<tr>
+  <td>CAP_PROTSERV</td>
+  <td>Create an object with a protected name started with '!'.
+      Send a privileged IPC message to other system servers.
+  </td>
+</tr>
+
+<tr>
+  <td>CAP_NETWORK</td>
+  <td>Perform various network-related operations.</td>
+</tr>
+
+<tr>
+  <td>CAP_POWERMGMT</td>
+  <td>Perform power management operations. (Shutdown system, set idle timer,
+      change power policy etc)</td>
+</tr>
+
+<tr>
+  <td>CAP_DISKADMIN</td>
+  <td>Use disk administration functions like mount, umount, etc.</td>
+</tr>
+
+<tr>
+  <td>CAP_USERFILES</td>
+  <td>Access to confidential user files.</td>
+</tr>
+
+<tr>
+  <td>CAP_SYSFILES</td>
+  <td>Access to system files.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h3>Capability Assignment</h3>
+
+<p>
+The task's capabilities are set in the following two conditions:
+</p>
+
+<ol>
+  <li>Boot: The default capability sets are assigned to boot tasks by the kernel at system boot.</li>
+  <li>Runtime: Appropriate capabilities are set by the exec server from the pre-defined security policy.</li>
+</ol>
+
+
+
+<p>
+The kernel provides the following APIs to control task's capability.
+</p>
+
+<pre>
+int task_setcap(task_t task, cap_t cap);
+int task_chkcap(task_t task, cap_t cap);
+</pre>
+
+<p>
+task_setcap() function can be used only by the task which has CAP_SETPCAP capability.
+So, CAP_SETPCAP capability is set to the exec server by the kernel at boot.
+</p>
+
+
+
+<h3>Kernel API</h3>
+
+<p>
+The kernel checks whether the task has an appropriate capability
+to call the specific kernel API.
+If the caller task does not have the proper capability, the kernel
+will reject the request with EPERM error.
+</p>
+
+<p>
+task_capable() in task.c is used to check whether the current task has
+the specific capability.
+</p>
+<pre>
+int
+task_capable(cap_t cap)
+{
+        int capable = 1;
+
+        if ((curtask->capability & cap) == 0) {
+                DPRINTF(("Denying capability by kernel: task=%s cap=%08x\n",
+                         curtask->name, cap));
+                if (curtask->flags & TF_AUDIT)
+                        panic("audit failed");
+                capable = 0;
+        }
+        return capable;
+}
+</pre>
+
+<p>
+vm_map() kernel API requires CAP_EXTMEM because a malicious task can
+access to other task's memory space by using this API.
+</p>
+
+<pre>
+int
+vm_map(task_t target, void *addr, size_t size, void **alloc)
+{
+        int error;
+
+        sched_lock();
+        if (!task_valid(target)) {
+                sched_unlock();
+                return ESRCH;
+        }
+        if (target == curtask) {
+                sched_unlock();
+                return EINVAL;
+        }
+        if (!task_capable(CAP_EXTMEM)) {
+                sched_unlock();
+                return EPERM;
+        }
+
+        ...
+}
+</pre>
+
+
+
+<h3>Security Auditing</h3>
+
+<p>
+To enable security auditing, the following option should be enabled in the
+configuration file.
+</p>
+
+<pre>
+options 	AUDIT		# Security auditing
+</pre>
+
+<p>
+When the audit option is enabled, the kernel marks the audit flag
+for all tasks. In this condition, the kernel will log the event for
+all capability violation. This is useful for platform builders
+to adjust the security policy.
+</p>
+
+
+
+
+<h2 id="file">File Access Control</h2>
+
+<h3>Pre-defined Directories</h3>
+
+<p>
+Prex supports the file access permission based on the path
+name. It means that the applications have access to only
+certain area of the file system.
+</p>
+<p>
+The file system has the following structure:
+</p>
+
+<dl>
+<dt>/boot</dt>
+<dd>
+This directory contains the server executable files and
+the system files like a splash screen image. Reading this
+directory is allowed only to the server process which has
+CAP_SYSFILES capability.
+Nobody can write to this directory at any time.
+</dd>
+
+<dt>/private</dt>
+<dd>
+This is the restricted system area and is inaccessible to
+the normal processes. It contains private user data like
+passwords or security settings. CAP_ALLFILES capability is
+required to access to the /private contents.
+</dd>
+
+<dt>/bin</dt>
+<dd>
+This directory contains the trusted applications.  This
+is read-only directory for normal processes, and
+CAP_ALLFILES is required to write files to it. In typical
+case, a software installer has right to copy the
+executable files to this directory.
+</dd>
+
+<dt>/etc</dt>
+<dd>
+This directory contains the various configuration files.
+This is read-only for normal processes, and CAP_CFGFILES
+is required to modify /etc. The system configurator will
+modify the contents in /etc, or all application can modify
+it only when the system boots with recovery mode.
+</dd>
+
+<dt>/all the rest</dt>
+<dd>
+Access to all the other directories is unrestricted.
+</dd>
+</dl>
+
+<table border="1" width="90%" cellspacing="0">
+<caption>Table 2. Directories and required capabilities</caption>
+<tbody>
+<tr>
+  <th>Directory</th>
+  <th>Read</th>
+  <th>Write</th>
+  <th>Execute</th>
+</tr>
+
+<tr>
+  <td>/boot</td>
+  <td>CAP_SYSFILES</td>
+  <td>Not Allowed</td>
+  <td>Any</td>
+</tr>
+
+<tr>
+  <td>/private</td>
+  <td>CAP_ALLFILES</td>
+  <td>CAP_ALLFILES</td>
+  <td>Not Allowed</td>
+</tr>
+
+<tr>
+  <td>/bin</td>
+  <td>Any</td>
+  <td>CAP_SYSFILES</td>
+  <td>Any</td>
+</tr>
+
+<tr>
+  <td>/etc</td>
+  <td>Any</td>
+  <td>CAP_SYSFILES</td>
+  <td>Not Allowed</td>
+</tr>
+
+<tr>
+  <td>/other</td>
+  <td>Any</td>
+  <td>Any</td>
+  <td>Not Allowed</td>
+</tr>
+</tbody>
+</table>
+
+<h3>File Access Example</h3>
+
+<p>
+The following is a sample to test copying a file to /etc directory without
+CAP_SYSFILES capability.
+</p>
+
+<pre class="terminal">
+[prex:/etc]# ls
+rc        fstab
+[prex:/etc]# cat rc
+PATH=/boot:/bin
+HOME=/
+export HOME PATH
+uname -msr
+mem
+date
+exec sh
+[prex:/etc]# cp rc rc.2
+Denying capability by fs: task=cp cap=00000800
+Kernel panic: audit failed
+</pre>
+
+<p>
+* The audit option is enabled for kernel with this example.
+</p>
+
+<h2 id="io">I/O Access Control</h2>
+
+<h3>Raw I/O Access</h3>
+<p>
+The raw I/O access is allowed only to the task which has CAP_RAWIO capability.
+This means that device_open() kernel call will be failed with EPERM error
+for the unauthorized process.
+</p>
+<p>
+The CAP_RAWIO capability is usually assigned to all real-time tasks, and it
+is not set to the Unix process.
+So, the Unix process must access the device via the device file under /dev.
+The POSIX open() call will transfer the I/O request to the file system server
+, and then, the file system server will invoke device I/O kernel call.
+</p>
+
+<h3>Protected Device</h3>
+<p>
+The device driver can set the protected flag (D_PROT) for the device object.
+If the device object is marked as protected, the file system server will reject the
+I/O request to such devices.
+It means that the application can not access the protected devices via
+Unix I/O calls.
+If the application has CAP_RAWIO capability, it still can access the
+protected device directly via kernel API.
+</p>
+
+<p>
+For example, a ram disk driver should be protected for normal tasks because
+only a file server can use it.
+So, the ram disk driver will create the device object with D_PROT flag as follows.
+</p>
+
+<pre>
+static int
+ramdisk_init(struct driver *self)
+{
+        device_t dev;
+
+        dev = device_create(self, "ram0", D_BLK|D_PROT);
+
+        ...
+}
+</pre>
+
+<p>
+With this example, the device object for the ram disk can not be opened
+with open() system call.
+</p>
+
+<p>
+The protected flag will be marked as 'P' with 'device' command in the kernel debugger.
+</p>
+
+<pre>
+[kd] device
+Device list:
+ device   name         flags
+ -------- ------------ -----
+ 8000e1f4 fd0          -B-P-
+ 8000e194 ram0         -B-P-
+ 8000e154 zero         C----
+ 8000e114 null         C----
+ 8000e0a4 rtc          C----
+ 8000e014 cpufreq      C--P-
+ 8000df94 vga          C----
+ 8000dee4 kbd          C----
+ 8000dc34 tty          C---T
+ 8000dbf4 console      C---T
+ 8000db44 pm           C--P-
+
+[kd]
+</pre>
+
+<h2 id="pol">Security Policy</h2>
+
+
+<h3>Default Capability Set</h3>
+
+<p>
+The system has static capability set which is assigned for the boot tasks
+by kernel at system boot.
+The default capability set is defined in the file /include/sys/capability.h.
+</p>
+
+<pre>
+#define CAPSET_BOOT	0x00000043	/* capabilities for boot tasks */
+</pre>
+
+
+<p>
+Note: This definition should be customized in the configuration file.
+</p>
+
+<h3>Capability Binding</h3>
+
+<p>
+When the exec server executes the user application,
+it will assign the capabilities defined in the capability table.
+The capability table is defined in the configuration file (/conf/etc/security),
+and the actual table is built at the OS compile time.
+So, we have to re-compile the system to change the security policy.
+
+</p>
+
+<pre>
+#
+# Security configuration
+#
+
+capability      /boot/boot      CAP_DISKADMIN \
+                                CAP_PROTSERV \
+                                CAP_SYSFILES
+
+capability      /boot/proc      CAP_RAWIO \
+                                CAP_KILL \
+                                CAP_TASKCTRL \
+                                CAP_EXTMEM \
+                                CAP_PROTSERV
+
+capability      /boot/fs        CAP_NICE \
+                                CAP_RAWIO \
+                                CAP_EXTMEM \
+                                CAP_SYSFILES \
+                                CAP_PROTSERV
+
+capability      /boot/exec      CAP_NICE \
+                                CAP_SETPCAP \
+                                CAP_TASKCTRL \
+                                CAP_EXTMEM \
+                                CAP_PROTSERV \
+                                CAP_SYSFILES
+
+capability      /boot/pow       CAP_RAWIO \
+                                CAP_KILL \
+                                CAP_POWERMGMT \
+                                CAP_PROTSERV
+
+capability      /boot/init      CAP_KILL
+
+capability      /boot/cmdbox    CAP_NICE \
+                                CAP_KILL
+
+capability      /boot/install   CAP_SYSFILES
+
+capability      /boot/pmctrl    CAP_POWERMGMT
+
+capability      /boot/lock      CAP_USERFILES
+</pre>
+
+
+<p><i>
+* Note: Do not set CAP_SETPCAP capability except the exec server in the
+security policy.
+</i></p>
+
+
+
+<h2 id="serv">Secure Servers</h2>
+
+<h3>Protected Object</h3>
+<p>
+The object name started with '!' means that it is a protected object.
+The protected object can be created only by the task which has
+CAP_PROTSERV capability. Since this capability is given to the known
+system servers, the client task can always trust the object owner.
+</p>
+
+<p class="figure">
+<img alt="Protected Objects" src="img/protobj.gif" border="1"
+style="width: 465px; height: 337px;"><br>
+Figure 1. Protected Objects
+</p>
+
+<h3>Checking Client's Capability</h3>
+<p>
+The server task will have some capabilities to execute various privileged
+ operations requested by client tasks.
+Therefore, the server should refuse the request of the client when the client does not
+have the right to the operation.
+</p>
+
+<p>
+The system server must call the task_chkcap() to check the client task's right
+to send the specific IPC message. For this purpose, the kernel stores the
+client's task ID in each IPC message header. Thus, the server can always
+get the correct task ID of the client task.
+</p>
+
+<pre>
+struct msg_header {
+        task_t  task;           /* id of send task */
+        int     code;           /* message code */
+        int     status;         /* return status */
+};
+</pre>
+
+<p>
+For example, the power sever always checks whether the client task has
+CAP_POWERMGMT capability. This is because the power management operation such like shutdown
+is privileged operation and should be limited only to the power management utility (pmctrl).
+</p>
+
+<p>
+Figure 2 shows the capability check for shutdown operation.
+</p>
+
+<p class="figure">
+<img alt="Capability Check" src="img/capability.gif" border="1"
+style="width: 539px; height: 384px;"><br>
+Figure 2. Capability Check for Shutdown
+</p>
+
+<p>
+The following is a sample code to check the capability of the client task.
+</p>
+<pre>
+/*
+ * Main routine for power server.
+ */
+int
+main(int argc, char *argv[])
+{
+        (snip)
+
+        /*
+         * Message loop
+         */
+        for (;;) {
+                /* Wait for an incoming request. */
+                error = msg_receive(obj, &amp;msg, sizeof(msg));
+                if (error)
+                        continue;
+
+                /* Check client's capability. */
+                if (task_chkcap(msg.hdr.task, CAP_POWERMGMT) != 0) {
+                        map = NULL;
+                        error = EPERM;
+                }
+        ...
+}
+</pre>
+
+
+<h2 id="other">Other Security Features</h2>
+
+<h3>Resource Limits</h3>
+
+<p>
+The kernel and system servers will limit the maximum count of the resource
+to create. This will prevent the DoS (Denial of Service) attack by
+malicious applications.
+</p>
+
+<h3>Software Installer</h3>
+
+<p>
+The software installer has CAP_SYSFILES capability to copy the
+applications into the /bin and /etc directories.
+It always requests user confirmation before installing software.
+</p>
+<pre class="terminal">
+[prex:/tmp]# install test
+Are you sure you want to install test? (y/n) y
+[prex:/tmp]#
+</pre>
+
+</div>
+
+<div id="footer">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+</div>
+
+</body>
+</html>

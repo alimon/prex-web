@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>v_path</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L75'>v_path</a>             75 include/sys/vnode.h 	char		*v_path;	/* pointer to path in fs */
+<a href='../S/886.html#L121'>v_path</a>            121 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_open: path=%s\n", vp-&gt;v_path));
+<a href='../S/886.html#L123'>v_path</a>            123 usr/server/fs/devfs/devfs_vnops.c 	path = vp-&gt;v_path;
+<a href='../S/886.html#L149'>v_path</a>            149 usr/server/fs/devfs/devfs_vnops.c 	if (!strcmp(vp-&gt;v_path, "/"))	/* root ? */
+<a href='../S/896.html#L146'>v_path</a>            146 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_open: path=%s\n", vp-&gt;v_path));
+<a href='../S/896.html#L148'>v_path</a>            148 usr/server/fs/fifofs/fifo_vnops.c 	if (!strcmp(vp-&gt;v_path, "/"))	/* root ? */
+<a href='../S/896.html#L357'>v_path</a>            357 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("create %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/896.html#L414'>v_path</a>            414 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("remove %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/902.html#L269'>v_path</a>            269 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("remove %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/902.html#L289'>v_path</a>            289 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("truncate %s length=%d\n", vp-&gt;v_path, length));
+<a href='../S/902.html#L323'>v_path</a>            323 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("create %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/911.html#L754'>v_path</a>            754 usr/server/fs/vfs/vfs_syscalls.c 	strlcpy(cwd, dvp-&gt;v_path, PATH_MAX);
+<a href='../S/913.html#L115'>v_path</a>            115 usr/server/fs/vfs/vfs_vnode.c 		    !strncmp(vp-&gt;v_path, path, PATH_MAX)) {
+<a href='../S/913.html#L138'>v_path</a>            138 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vn_lock:   %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L151'>v_path</a>            151 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vn_unlock: %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L174'>v_path</a>            174 usr/server/fs/vfs/vfs_vnode.c 	if (!(vp-&gt;v_path = malloc(len))) {
+<a href='../S/913.html#L181'>v_path</a>            181 usr/server/fs/vfs/vfs_vnode.c 	strlcpy(vp-&gt;v_path, path, len);
+<a href='../S/913.html#L190'>v_path</a>            190 usr/server/fs/vfs/vfs_vnode.c 		free(vp-&gt;v_path);
+<a href='../S/913.html#L214'>v_path</a>            214 usr/server/fs/vfs/vfs_vnode.c 			      vp-&gt;v_path));
+<a href='../S/913.html#L234'>v_path</a>            234 usr/server/fs/vfs/vfs_vnode.c 	free(vp-&gt;v_path);
+<a href='../S/913.html#L249'>v_path</a>            249 usr/server/fs/vfs/vfs_vnode.c 			      vp-&gt;v_path));
+<a href='../S/913.html#L268'>v_path</a>            268 usr/server/fs/vfs/vfs_vnode.c 			      vp-&gt;v_path));
+<a href='../S/913.html#L283'>v_path</a>            283 usr/server/fs/vfs/vfs_vnode.c 	free(vp-&gt;v_path);
+<a href='../S/913.html#L296'>v_path</a>            296 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vgone: %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L300'>v_path</a>            300 usr/server/fs/vfs/vfs_vnode.c 	free(vp-&gt;v_path);
+<a href='../S/913.html#L447'>v_path</a>            447 usr/server/fs/vfs/vfs_vnode.c 				vp-&gt;v_path);
+</pre>
+</body>
+</html>

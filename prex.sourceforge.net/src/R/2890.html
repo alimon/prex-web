@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vm_map</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L111'>vm_map</a>            111 include/sys/prex.h int	vm_map(task_t target, void  *addr, size_t size, void **alloc);
+<a href='../S/323.html#L80'>vm_map</a>             80 sys/include/vm.h int	 vm_map(task_t, void *, size_t, void **);
+<a href='../S/332.html#L106'>vm_map</a>            106 sys/kern/sysent.c 	/* 23 */ SYSENT(4, vm_map),
+<a href='../S/876.html#L82'>vm_map</a>             82 usr/server/exec/exec_elf.c 		if (vm_map(task, (void *)phdr-&gt;p_vaddr, size, &amp;mapped) != 0)
+<a href='../S/876.html#L240'>vm_map</a>            240 usr/server/exec/exec_elf.c 	if (vm_map(task, base, total_size, &amp;mapped) != 0) {
+<a href='../S/877.html#L332'>vm_map</a>            332 usr/server/exec/exec_execve.c 	error = vm_map(task, stack, DFLSTKSZ, (void *)&amp;mapped);
+<a href='../S/903.html#L224'>vm_map</a>            224 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L244'>vm_map</a>            244 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/928.html#L93'>vm_map</a>             93 usr/test/attack/attack.c 	vm_map(self, addr, size, &amp;addr);
+</pre>
+</body>
+</html>

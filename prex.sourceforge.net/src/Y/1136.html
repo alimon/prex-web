@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>kernel_map</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/343.html#L71'>kernel_map</a>         71 sys/mem/vm.c   static struct vm_map	kernel_map;	/* vm mapping for kernel */
+<a href='../S/343.html#L514'>kernel_map</a>        514 sys/mem/vm.c   		mmu_switch(kernel_map.pgd);
+<a href='../S/343.html#L654'>kernel_map</a>        654 sys/mem/vm.c   	if (map != &amp;kernel_map)
+<a href='../S/343.html#L782'>kernel_map</a>        782 sys/mem/vm.c   	kernel_map.pgd = pgd;
+<a href='../S/343.html#L785'>kernel_map</a>        785 sys/mem/vm.c   	seg_init(&amp;kernel_map.head);
+<a href='../S/343.html#L786'>kernel_map</a>        786 sys/mem/vm.c   	kernel_task.map = &amp;kernel_map;
+<a href='../S/344.html#L64'>kernel_map</a>         64 sys/mem/vm_nommu.c static struct vm_map	kernel_map;	/* vm mapping for kernel */
+<a href='../S/344.html#L536'>kernel_map</a>        536 sys/mem/vm_nommu.c 	seg_init(&amp;kernel_map.head);
+<a href='../S/344.html#L537'>kernel_map</a>        537 sys/mem/vm_nommu.c 	kernel_task.map = &amp;kernel_map;
+</pre>
+</body>
+</html>

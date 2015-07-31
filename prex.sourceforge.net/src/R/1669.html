@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>device_read</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L128'>device_read</a>       128 include/sys/prex.h int	device_read(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/305.html#L53'>device_read</a>        53 sys/include/device.h int	 device_read(device_t, void *, size_t *, int);
+<a href='../S/332.html#L119'>device_read</a>       119 sys/kern/sysent.c 	/* 36 */ SYSENT(4, device_read),
+<a href='../S/652.html#L79'>device_read</a>        79 usr/lib/libsa/_stdio.c 	device_read(__console_dev, &amp;ch, &amp;len, 0);
+<a href='../S/882.html#L84'>device_read</a>        84 usr/server/fs/arfs/arfs_vfsops.c 	error = device_read((device_t)mp-&gt;m_dev, buf, &amp;size, 0);
+<a href='../S/886.html#L162'>device_read</a>       162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/892.html#L82'>device_read</a>        82 usr/server/fs/fatfs/fatfs_vfsops.c 	error = device_read(fmp-&gt;dev, bpb, &amp;size, 0);
+<a href='../S/893.html#L108'>device_read</a>       108 usr/server/fs/fatfs/fatfs_vnops.c 	return device_read(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/906.html#L237'>device_read</a>       237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+<a href='../S/950.html#L58'>device_read</a>        58 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L105'>device_read</a>       105 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/964.html#L52'>device_read</a>        52 usr/test/kbd/kbd.c 		device_read(tty_dev, buf, &amp;len, 0);
+<a href='../S/983.html#L60'>device_read</a>        60 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L107'>device_read</a>       107 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/1002.html#L51'>device_read</a>        51 usr/test/time/time.c 	error = device_read(rtc_dev, &amp;sec, &amp;len, 0);
+<a href='../S/1008.html#L70'>device_read</a>        70 usr/test/zero/zero.c 	error = device_read(zero_dev, buf, &amp;len, 0);
+</pre>
+</body>
+</html>

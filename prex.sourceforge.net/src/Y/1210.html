@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>loc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/903.html#L357'>loc</a>               357 usr/server/fs/vfs/main.c 	long loc;
+<a href='../S/903.html#L361'>loc</a>               361 usr/server/fs/vfs/main.c 	loc = msg-&gt;data[1];
+<a href='../S/903.html#L363'>loc</a>               363 usr/server/fs/vfs/main.c 	return sys_seekdir(fp, loc);
+<a href='../S/903.html#L370'>loc</a>               370 usr/server/fs/vfs/main.c 	long loc;
+<a href='../S/903.html#L375'>loc</a>               375 usr/server/fs/vfs/main.c 	loc = msg-&gt;data[1];
+<a href='../S/903.html#L377'>loc</a>               377 usr/server/fs/vfs/main.c 	if ((error = sys_telldir(fp, &amp;loc)) != 0)
+<a href='../S/903.html#L379'>loc</a>               379 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = loc;
+<a href='../S/905.html#L108'>loc</a>               108 usr/server/fs/vfs/vfs.h int	 sys_seekdir(file_t fp, long loc);
+<a href='../S/905.html#L109'>loc</a>               109 usr/server/fs/vfs/vfs.h int	 sys_telldir(file_t fp, long *loc);
+<a href='../S/911.html#L429'>loc</a>               429 usr/server/fs/vfs/vfs_syscalls.c sys_seekdir(file_t fp, long loc)
+<a href='../S/911.html#L439'>loc</a>               439 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = (off_t)loc;
+<a href='../S/911.html#L445'>loc</a>               445 usr/server/fs/vfs/vfs_syscalls.c sys_telldir(file_t fp, long *loc)
+<a href='../S/911.html#L455'>loc</a>               455 usr/server/fs/vfs/vfs_syscalls.c 	*loc = (long)fp-&gt;f_offset;
+</pre>
+</body>
+</html>

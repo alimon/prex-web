@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bpb</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/892.html#L72'>bpb</a>                72 usr/server/fs/fatfs/fatfs_vfsops.c 	struct fat_bpb *bpb;
+<a href='../S/892.html#L76'>bpb</a>                76 usr/server/fs/fatfs/fatfs_vfsops.c 	bpb = malloc(SEC_SIZE);
+<a href='../S/892.html#L77'>bpb</a>                77 usr/server/fs/fatfs/fatfs_vfsops.c 	if (bpb == NULL)
+<a href='../S/892.html#L82'>bpb</a>                82 usr/server/fs/fatfs/fatfs_vfsops.c 	error = device_read(fmp-&gt;dev, bpb, &amp;size, 0);
+<a href='../S/892.html#L84'>bpb</a>                84 usr/server/fs/fatfs/fatfs_vfsops.c 		free(bpb);
+<a href='../S/892.html#L87'>bpb</a>                87 usr/server/fs/fatfs/fatfs_vfsops.c 	if (bpb-&gt;bytes_per_sector != SEC_SIZE) {
+<a href='../S/892.html#L89'>bpb</a>                89 usr/server/fs/fatfs/fatfs_vfsops.c 		free(bpb);
+<a href='../S/892.html#L94'>bpb</a>                94 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;fat_start = bpb-&gt;hidden_sectors + bpb-&gt;reserved_sectors;
+<a href='../S/892.html#L96'>bpb</a>                96 usr/server/fs/fatfs/fatfs_vfsops.c 		(bpb-&gt;num_of_fats * bpb-&gt;sectors_per_fat);
+<a href='../S/892.html#L98'>bpb</a>                98 usr/server/fs/fatfs/fatfs_vfsops.c 		fmp-&gt;root_start + (bpb-&gt;root_entries / DIR_PER_SEC);
+<a href='../S/892.html#L99'>bpb</a>                99 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;sec_per_cl = bpb-&gt;sectors_per_cluster;
+<a href='../S/892.html#L100'>bpb</a>               100 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;cluster_size = bpb-&gt;sectors_per_cluster * SEC_SIZE;
+<a href='../S/892.html#L101'>bpb</a>               101 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;last_cluster = (bpb-&gt;total_sectors - fmp-&gt;data_start) /
+<a href='../S/892.html#L102'>bpb</a>               102 usr/server/fs/fatfs/fatfs_vfsops.c 		bpb-&gt;sectors_per_cluster + CL_FIRST;
+<a href='../S/892.html#L105'>bpb</a>               105 usr/server/fs/fatfs/fatfs_vfsops.c 	if (!strncmp((const char *)bpb-&gt;file_sys_id, "FAT12   ", 8)) {
+<a href='../S/892.html#L109'>bpb</a>               109 usr/server/fs/fatfs/fatfs_vfsops.c 	} else if (!strncmp((const char *)bpb-&gt;file_sys_id, "FAT16   ", 8)) {
+<a href='../S/892.html#L116'>bpb</a>               116 usr/server/fs/fatfs/fatfs_vfsops.c 		free(bpb);
+<a href='../S/892.html#L119'>bpb</a>               119 usr/server/fs/fatfs/fatfs_vfsops.c 	free(bpb);
+<a href='../S/892.html#L122'>bpb</a>               122 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("drive:%x\n", (int)bpb-&gt;physical_drive));
+<a href='../S/892.html#L123'>bpb</a>               123 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("total_sectors:%d\n", (int)bpb-&gt;total_sectors));
+<a href='../S/892.html#L124'>bpb</a>               124 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("heads       :%d\n", (int)bpb-&gt;heads));
+<a href='../S/892.html#L125'>bpb</a>               125 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("serial      :%x\n", (int)bpb-&gt;serial_no));
+</pre>
+</body>
+</html>

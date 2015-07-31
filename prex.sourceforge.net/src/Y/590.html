@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>curmap</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/343.html#L389'>curmap</a>            389 sys/mem/vm.c   	vm_map_t curmap;
+<a href='../S/343.html#L422'>curmap</a>            422 sys/mem/vm.c   	curmap = curtask-&gt;map;
+<a href='../S/343.html#L423'>curmap</a>            423 sys/mem/vm.c   	if ((seg = seg_alloc(&amp;curmap-&gt;head, size)) == NULL)
+<a href='../S/343.html#L436'>curmap</a>            436 sys/mem/vm.c   	if (mmu_map(curmap-&gt;pgd, pa, cur-&gt;addr, size, map_type)) {
+<a href='../S/343.html#L437'>curmap</a>            437 sys/mem/vm.c   		seg_free(&amp;curmap-&gt;head, seg);
+<a href='../S/343.html#L447'>curmap</a>            447 sys/mem/vm.c   	curmap-&gt;total += size;
+<a href='../S/344.html#L323'>curmap</a>            323 sys/mem/vm_nommu.c 	vm_map_t curmap;
+<a href='../S/344.html#L352'>curmap</a>            352 sys/mem/vm_nommu.c 	curmap = curtask-&gt;map;
+<a href='../S/344.html#L353'>curmap</a>            353 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;curmap-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L359'>curmap</a>            359 sys/mem/vm_nommu.c 	curmap-&gt;total += size;
+</pre>
+</body>
+</html>

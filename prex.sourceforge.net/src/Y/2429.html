@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ws</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/372.html#L57'>ws</a>                 57 usr/bin/cmdbox/main.c 	struct winsize ws;
+<a href='../S/372.html#L62'>ws</a>                 62 usr/bin/cmdbox/main.c 	if (ioctl(fileno(stderr), TIOCGWINSZ, &amp;ws) == 0)
+<a href='../S/372.html#L63'>ws</a>                 63 usr/bin/cmdbox/main.c 		maxcol = (int)ws.ws_col;
+<a href='../S/390.html#L68'>ws</a>                 68 usr/bin/ls/ls.c 	struct winsize ws;
+<a href='../S/390.html#L106'>ws</a>                106 usr/bin/ls/ls.c 		if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &amp;ws) == 0 &amp;&amp;
+<a href='../S/390.html#L107'>ws</a>                107 usr/bin/ls/ls.c 		    ws.ws_col != 0) {
+<a href='../S/390.html#L108'>ws</a>                108 usr/bin/ls/ls.c 			termwidth = ws.ws_col;
+<a href='../S/396.html#L47'>ws</a>                 47 usr/bin/more/more.c 	struct winsize ws;
+<a href='../S/396.html#L64'>ws</a>                 64 usr/bin/more/more.c 	if (ioctl(0, TIOCGWINSZ, &amp;ws) == 0)
+<a href='../S/396.html#L65'>ws</a>                 65 usr/bin/more/more.c 		height = (int)ws.ws_row;
+<a href='../S/829.html#L108'>ws</a>                108 usr/sample/balls/balls.c 	struct winsize ws;
+<a href='../S/829.html#L114'>ws</a>                114 usr/sample/balls/balls.c 	if (device_ioctl(cons, TIOCGWINSZ, &amp;ws) == 0) {
+<a href='../S/829.html#L115'>ws</a>                115 usr/sample/balls/balls.c 		rows = (int)ws.ws_row;
+<a href='../S/829.html#L116'>ws</a>                116 usr/sample/balls/balls.c 		cols = (int)ws.ws_col;
+<a href='../S/849.html#L81'>ws</a>                 81 usr/sample/tetris/screen.c 	struct winsize ws;
+<a href='../S/849.html#L85'>ws</a>                 85 usr/sample/tetris/screen.c 	if (ioctl(0, TIOCGWINSZ, &amp;ws) == 0) {
+<a href='../S/849.html#L86'>ws</a>                 86 usr/sample/tetris/screen.c 		Rows = (int)ws.ws_row;
+<a href='../S/849.html#L87'>ws</a>                 87 usr/sample/tetris/screen.c 		Cols = (int)ws.ws_col;
+</pre>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>endp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/469.html#L27'>endp</a>               27 usr/lib/libc/gen/basename.c         const char *endp, *startp;
+<a href='../S/469.html#L37'>endp</a>               37 usr/lib/libc/gen/basename.c         endp = path + strlen(path) - 1;
+<a href='../S/469.html#L38'>endp</a>               38 usr/lib/libc/gen/basename.c         while (endp &gt; path &amp;&amp; *endp == '/')
+<a href='../S/469.html#L39'>endp</a>               39 usr/lib/libc/gen/basename.c                 endp--;
+<a href='../S/469.html#L42'>endp</a>               42 usr/lib/libc/gen/basename.c         if (endp == path &amp;&amp; *endp == '/') {
+<a href='../S/469.html#L49'>endp</a>               49 usr/lib/libc/gen/basename.c         startp = endp;
+<a href='../S/469.html#L53'>endp</a>               53 usr/lib/libc/gen/basename.c         len = endp - startp + 1;
+<a href='../S/471.html#L27'>endp</a>               27 usr/lib/libc/gen/dirname.c         const char *endp;
+<a href='../S/471.html#L37'>endp</a>               37 usr/lib/libc/gen/dirname.c         endp = path + strlen(path) - 1;
+<a href='../S/471.html#L38'>endp</a>               38 usr/lib/libc/gen/dirname.c         while (endp &gt; path &amp;&amp; *endp == '/')
+<a href='../S/471.html#L39'>endp</a>               39 usr/lib/libc/gen/dirname.c                 endp--;
+<a href='../S/471.html#L42'>endp</a>               42 usr/lib/libc/gen/dirname.c         while (endp &gt; path &amp;&amp; *endp != '/')
+<a href='../S/471.html#L43'>endp</a>               43 usr/lib/libc/gen/dirname.c                 endp--;
+<a href='../S/471.html#L46'>endp</a>               46 usr/lib/libc/gen/dirname.c         if (endp == path) {
+<a href='../S/471.html#L47'>endp</a>               47 usr/lib/libc/gen/dirname.c                 dname[0] = *endp == '/' ? '/' : '.';
+<a href='../S/471.html#L53'>endp</a>               53 usr/lib/libc/gen/dirname.c                         endp--;
+<a href='../S/471.html#L54'>endp</a>               54 usr/lib/libc/gen/dirname.c                 } while (endp &gt; path &amp;&amp; *endp == '/');
+<a href='../S/471.html#L57'>endp</a>               57 usr/lib/libc/gen/dirname.c         len = endp - path + 1;
+<a href='../S/552.html#L112'>endp</a>              112 usr/lib/libc/stdio/vfprintf.c __ultoa(u_long val, char *endp, int base, int octzero, char *xdigs)
+<a href='../S/552.html#L114'>endp</a>              114 usr/lib/libc/stdio/vfprintf.c 	char *cp = endp;
+</pre>
+</body>
+</html>

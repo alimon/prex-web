@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pg_pgid</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/917.html#L462'>pg_pgid</a>           462 usr/server/proc/main.c 			p-&gt;p_parent-&gt;p_pid, p-&gt;p_pgrp-&gt;pg_pgid,
+<a href='../S/917.html#L495'>pg_pgid</a>           495 usr/server/proc/main.c 	pg-&gt;pg_pgid = 0;
+<a href='../S/919.html#L79'>pg_pgid</a>            79 usr/server/proc/proc.h 	pid_t		pg_pgid;	/* pgrp id */
+<a href='../S/920.html#L180'>pg_pgid</a>           180 usr/server/proc/proc_exit.c 			if (p-&gt;p_pgrp-&gt;pg_pgid == curproc-&gt;p_pgrp-&gt;pg_pgid)
+<a href='../S/920.html#L186'>pg_pgid</a>           186 usr/server/proc/proc_exit.c 			if (p-&gt;p_pgrp-&gt;pg_pgid == -pid)
+<a href='../S/922.html#L82'>pg_pgid</a>            82 usr/server/proc/proc_hash.c 		if (g-&gt;pg_pgid == pgid)
+<a href='../S/922.html#L141'>pg_pgid</a>           141 usr/server/proc/proc_hash.c 	list_insert(&amp;pgid_table[IDHASH(pgrp-&gt;pg_pgid)], &amp;pgrp-&gt;pg_link);
+<a href='../S/923.html#L87'>pg_pgid</a>            87 usr/server/proc/proc_pid.c 	*retval = p-&gt;p_pgrp-&gt;pg_pgid;
+<a href='../S/923.html#L134'>pg_pgid</a>           134 usr/server/proc/proc_pid.c 		pgrp-&gt;pg_pgid = pgid;
+<a href='../S/923.html#L193'>pg_pgid</a>           193 usr/server/proc/proc_pid.c 	if (p-&gt;p_pgrp-&gt;pg_pgid == pgid)	/* already leader */
+<a href='../S/923.html#L212'>pg_pgid</a>           212 usr/server/proc/proc_pid.c 	if (p-&gt;p_pid == p-&gt;p_pgrp-&gt;pg_pgid)	/* already leader */
+<a href='../S/924.html#L191'>pg_pgid</a>           191 usr/server/proc/proc_sig.c 		error = kill_pg(curproc-&gt;p_pgrp-&gt;pg_pgid, sig);
+<a href='../S/924.html#L194'>pg_pgid</a>           194 usr/server/proc/proc_sig.c 		if (curproc-&gt;p_pgrp-&gt;pg_pgid != -pid &amp;&amp; !kill_capable())
+</pre>
+</body>
+</html>

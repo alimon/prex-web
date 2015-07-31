@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>KERNEL_CS</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L135'>KERNEL_CS</a>         135 bsp/hal/x86/arch/cpu.c 	gdt_set(KERNEL_CS / 8, 0, 0xffffffff, ST_KERN | ST_CODE_R, SIZE_32);
+<a href='../S/174.html#L166'>KERNEL_CS</a>         166 bsp/hal/x86/arch/cpu.c 		idt_set(i, trap_default, KERNEL_CS, ST_KERN | ST_TRAP_GATE);
+<a href='../S/174.html#L170'>KERNEL_CS</a>         170 bsp/hal/x86/arch/cpu.c 		idt_set(i, trap_table[i], KERNEL_CS, ST_KERN | ST_TRAP_GATE);
+<a href='../S/174.html#L174'>KERNEL_CS</a>         174 bsp/hal/x86/arch/cpu.c 		idt_set(0x20 + i, intr_table[i], KERNEL_CS,
+<a href='../S/174.html#L178'>KERNEL_CS</a>         178 bsp/hal/x86/arch/cpu.c 	idt_set(3, trap_3, KERNEL_CS, ST_USER | ST_TRAP_GATE);
+<a href='../S/174.html#L181'>KERNEL_CS</a>         181 bsp/hal/x86/arch/cpu.c 	idt_set(SYSCALL_INT, syscall_entry, KERNEL_CS,
+<a href='../S/179.html#L119'>KERNEL_CS</a>         119 bsp/hal/x86/arch/trap.c 	if (trap_no == 14 &amp;&amp; regs-&gt;cs == KERNEL_CS &amp;&amp;
+<a href='../S/179.html#L135'>KERNEL_CS</a>         135 bsp/hal/x86/arch/trap.c 	if (regs-&gt;cs == KERNEL_CS) {
+<a href='../S/179.html#L142'>KERNEL_CS</a>         142 bsp/hal/x86/arch/trap.c 	if (regs-&gt;cs == KERNEL_CS)
+<a href='../S/179.html#L180'>KERNEL_CS</a>         180 bsp/hal/x86/arch/trap.c 	if (r-&gt;cs == KERNEL_CS) {
+</pre>
+</body>
+</html>

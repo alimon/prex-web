@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/dev/base/init.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1032.html'>dev</a>/<a href='../files/1033.html'>base</a>/init.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='59.html#L53'>[^]</a><a href='59.html#L126'>[v]</a>[top]<a href='59.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='59.html#L53' title='Defined at 53.'>driver_probe</a></li>
+<li><a href='59.html#L80' title='Defined at 80.'>driver_init</a></li>
+<li><a href='59.html#L103' title='Defined at 103.'>driver_shutdown</a></li>
+<li><a href='59.html#L126' title='Defined at 126.'>driver_dump</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * init.c - driver initialization routine</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='97.html'>driver.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='92.html'>cons.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='96.html'>dki.h</a>&gt;
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='98.html'>kd.h</a>&gt;
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;conf/drvtab.h&gt;
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='sharp'>#ifdef</em> <a href='../Y/93.html' title='Multiple used in 63 places.'>DEBUG</a>
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/191.html' title='Multiple refered from 331 places.'>DPRINTF</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>) <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a> <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>
+<a id='L42' name='L42' />  42 <em class='sharp'>#else</em>
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> <a href='../R/191.html' title='Multiple refered from 331 places.'>DPRINTF</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)
+<a id='L44' name='L44' />  44 <em class='sharp'>#endif</em>
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='../R/632.html' title='Multiple refered from 4 places.'>NDRIVERS</a>        (<strong class='reserved'>int</strong>)(<strong class='reserved'>sizeof</strong>(<a href='../Y/703.html' title='Multiple used in 5 places.'>driver_table</a>) / <strong class='reserved'>sizeof</strong>(<a href='../Y/703.html' title='Multiple used in 5 places.'>driver_table</a>[0]))
+<a id='L47' name='L47' />  47 
+<a id='L48' name='L48' />  48 
+<a id='L49' name='L49' />  49 <em class='comment'>/*</em>
+<a id='L50' name='L50' />  50 <em class='comment'> * Call xxx_probe routine for all drivers.</em>
+<a id='L51' name='L51' />  51 <em class='comment'> */</em>
+<a id='L52' name='L52' />  52 <strong class='reserved'>void</strong>
+<a id='L53' name='L53' />  53 <a href='../R/1713.html' title='Multiple refered from 2 places.'>driver_probe</a>(<strong class='reserved'>void</strong>)
+<a id='L54' name='L54' />  54 <em class='brace'>{</em>
+<a id='L55' name='L55' />  55         <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>;
+<a id='L56' name='L56' />  56         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L57' name='L57' />  57 
+<a id='L58' name='L58' />  58         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("Probing devices...\n"));
+<a id='L59' name='L59' />  59 
+<a id='L60' name='L60' />  60         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='59.html#L46' title='Defined at 46 in bsp/drv/dev/base/init.c.'>NDRIVERS</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L61' name='L61' />  61                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a> = <a href='../Y/703.html' title='Multiple used in 5 places.'>driver_table</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>];
+<a id='L62' name='L62' />  62                 <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L63' name='L63' />  63 
+<a id='L64' name='L64' />  64                 <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1652.html' title='Multiple used in 4 places.'>probe</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L65' name='L65' />  65                         <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1652.html' title='Multiple used in 4 places.'>probe</a>(<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>) == 0)
+<a id='L66' name='L66' />  66                                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> |= <a href='252.html#L93' title='Defined at 93 in include/sys/device.h.'>DS_ALIVE</a>;
+<a id='L67' name='L67' />  67                 <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L68' name='L68' />  68                         <em class='comment'>/*</em>
+<a id='L69' name='L69' />  69 <em class='comment'>                         * No probe method. Mark it alive.</em>
+<a id='L70' name='L70' />  70 <em class='comment'>                         */</em>
+<a id='L71' name='L71' />  71                         <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> |= <a href='252.html#L93' title='Defined at 93 in include/sys/device.h.'>DS_ALIVE</a>;
+<a id='L72' name='L72' />  72                 <em class='brace'>}</em>
+<a id='L73' name='L73' />  73         <em class='brace'>}</em>
+<a id='L74' name='L74' />  74 <em class='brace'>}</em>
+<a id='L75' name='L75' />  75 
+<a id='L76' name='L76' />  76 <em class='comment'>/*</em>
+<a id='L77' name='L77' />  77 <em class='comment'> * Call xxx_init routine for all living drivers.</em>
+<a id='L78' name='L78' />  78 <em class='comment'> */</em>
+<a id='L79' name='L79' />  79 <strong class='reserved'>void</strong>
+<a id='L80' name='L80' />  80 <a href='../R/1712.html' title='Multiple refered from 2 places.'>driver_init</a>(<strong class='reserved'>void</strong>)
+<a id='L81' name='L81' />  81 <em class='brace'>{</em>
+<a id='L82' name='L82' />  82         <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>;
+<a id='L83' name='L83' />  83         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L84' name='L84' />  84 
+<a id='L85' name='L85' />  85         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='59.html#L46' title='Defined at 46 in bsp/drv/dev/base/init.c.'>NDRIVERS</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L86' name='L86' />  86                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a> = <a href='../Y/703.html' title='Multiple used in 5 places.'>driver_table</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>];
+<a id='L87' name='L87' />  87 
+<a id='L88' name='L88' />  88                 <em class='comment'>/* All drivers must have init method */</em>
+<a id='L89' name='L89' />  89                 <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1047.html' title='Multiple used in 4 places.'>init</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L90' name='L90' />  90 
+<a id='L91' name='L91' />  91                 <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='252.html#L93' title='Defined at 93 in include/sys/device.h.'>DS_ALIVE</a>) <em class='brace'>{</em>
+<a id='L92' name='L92' />  92                         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("Initializing %s\n", <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L93' name='L93' />  93                         <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1047.html' title='Multiple used in 4 places.'>init</a>(<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>) == 0)
+<a id='L94' name='L94' />  94                                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> |= <a href='252.html#L94' title='Defined at 94 in include/sys/device.h.'>DS_ACTIVE</a>;
+<a id='L95' name='L95' />  95                 <em class='brace'>}</em>
+<a id='L96' name='L96' />  96         <em class='brace'>}</em>
+<a id='L97' name='L97' />  97 <em class='brace'>}</em>
+<a id='L98' name='L98' />  98 
+<a id='L99' name='L99' />  99 <em class='comment'>/*</em>
+<a id='L100' name='L100' /> 100 <em class='comment'> * Call xxx_unload routine for all active drivers.</em>
+<a id='L101' name='L101' /> 101 <em class='comment'> */</em>
+<a id='L102' name='L102' /> 102 <strong class='reserved'>void</strong>
+<a id='L103' name='L103' /> 103 <a href='../R/1714.html' title='Multiple refered from 4 places.'>driver_shutdown</a>(<strong class='reserved'>void</strong>)
+<a id='L104' name='L104' /> 104 <em class='brace'>{</em>
+<a id='L105' name='L105' /> 105         <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>;
+<a id='L106' name='L106' /> 106         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L107' name='L107' /> 107 
+<a id='L108' name='L108' /> 108         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("Shutting down...\n"));
+<a id='L109' name='L109' /> 109         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = <a href='59.html#L46' title='Defined at 46 in bsp/drv/dev/base/init.c.'>NDRIVERS</a> - 1; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &gt;= 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>--) <em class='brace'>{</em>
+<a id='L110' name='L110' /> 110                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a> = <a href='../Y/703.html' title='Multiple used in 5 places.'>driver_table</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>];
+<a id='L111' name='L111' /> 111                 <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L112' name='L112' /> 112                         <strong class='reserved'>break</strong>;
+<a id='L113' name='L113' /> 113                 <em class='comment'>/*</em>
+<a id='L114' name='L114' /> 114 <em class='comment'>                 * Process only active drivers.</em>
+<a id='L115' name='L115' /> 115 <em class='comment'>                 */</em>
+<a id='L116' name='L116' /> 116                 <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a> &amp; <a href='252.html#L94' title='Defined at 94 in include/sys/device.h.'>DS_ACTIVE</a>) <em class='brace'>{</em>
+<a id='L117' name='L117' /> 117                         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("Unloading %s\n", <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L118' name='L118' /> 118                         <strong class='reserved'>if</strong> (<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/2261.html' title='Multiple used in 4 places.'>unload</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L119' name='L119' /> 119                                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/2261.html' title='Multiple used in 4 places.'>unload</a>(<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>);
+<a id='L120' name='L120' /> 120                 <em class='brace'>}</em>
+<a id='L121' name='L121' /> 121         <em class='brace'>}</em>
+<a id='L122' name='L122' /> 122 <em class='brace'>}</em>
+<a id='L123' name='L123' /> 123 
+<a id='L124' name='L124' /> 124 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/93.html' title='Multiple used in 63 places.'>DEBUG</a>) &amp;&amp; <strong class='reserved'>defined</strong>(<a href='../Y/72.html' title='Multiple used in 3 places.'>CONFIG_KD</a>)
+<a id='L125' name='L125' /> 125 <strong class='reserved'>void</strong>
+<a id='L126' name='L126' /> 126 <a href='../R/1711.html' title='Multiple refered from 2 places.'>driver_dump</a>(<strong class='reserved'>void</strong>)
+<a id='L127' name='L127' /> 127 <em class='brace'>{</em>
+<a id='L128' name='L128' /> 128         <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>;
+<a id='L129' name='L129' /> 129         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0;
+<a id='L130' name='L130' /> 130 
+<a id='L131' name='L131' /> 131         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Driver table:\n");
+<a id='L132' name='L132' /> 132         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>(" probe    init     unload   devops   flags    name\n");
+<a id='L133' name='L133' /> 133         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>(" -------- -------- -------- -------- -------- -----------\n");
+<a id='L134' name='L134' /> 134 
+<a id='L135' name='L135' /> 135         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='59.html#L46' title='Defined at 46 in bsp/drv/dev/base/init.c.'>NDRIVERS</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L136' name='L136' /> 136                 <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a> = <a href='../Y/703.html' title='Multiple used in 5 places.'>driver_table</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>];
+<a id='L137' name='L137' /> 137                 <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>(" %08lx %08lx %08lx %08lx %08lx %s\n",
+<a id='L138' name='L138' /> 138                        (<strong class='reserved'>long</strong>)<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1652.html' title='Multiple used in 4 places.'>probe</a>, (<strong class='reserved'>long</strong>)<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1047.html' title='Multiple used in 4 places.'>init</a>, (<strong class='reserved'>long</strong>)<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/2261.html' title='Multiple used in 4 places.'>unload</a>,
+<a id='L139' name='L139' /> 139                        (<strong class='reserved'>long</strong>)<a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>,(<strong class='reserved'>long</strong>) <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>, <a href='../Y/697.html' title='Multiple used in 34 places.'>dp</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>);
+<a id='L140' name='L140' /> 140         <em class='brace'>}</em>
+<a id='L141' name='L141' /> 141 <em class='brace'>}</em>
+<a id='L142' name='L142' /> 142 <em class='sharp'>#endif</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='59.html#L53'>[^]</a><a href='59.html#L126'>[v]</a><a href='59.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

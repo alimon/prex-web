@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>thread_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L96'>thread_t</a>           96 include/sys/prex.h int	thread_create(task_t task, thread_t *tp);
+<a href='../S/267.html#L97'>thread_t</a>           97 include/sys/prex.h int	thread_terminate(thread_t t);
+<a href='../S/267.html#L98'>thread_t</a>           98 include/sys/prex.h int	thread_load(thread_t t, void (*entry)(void), void *stack);
+<a href='../S/267.html#L99'>thread_t</a>           99 include/sys/prex.h thread_t thread_self(void);
+<a href='../S/267.html#L101'>thread_t</a>          101 include/sys/prex.h int	thread_suspend(thread_t t);
+<a href='../S/267.html#L102'>thread_t</a>          102 include/sys/prex.h int	thread_resume(thread_t t);
+<a href='../S/267.html#L103'>thread_t</a>          103 include/sys/prex.h int	thread_getpri(thread_t t, int *pri);
+<a href='../S/267.html#L104'>thread_t</a>          104 include/sys/prex.h int	thread_setpri(thread_t t, int	pri);
+<a href='../S/267.html#L105'>thread_t</a>          105 include/sys/prex.h int	thread_getpolicy(thread_t t, int *policy);
+<a href='../S/267.html#L106'>thread_t</a>          106 include/sys/prex.h int	thread_setpolicy(thread_t t, int policy);
+<a href='../S/267.html#L123'>thread_t</a>          123 include/sys/prex.h int	timer_periodic(thread_t t, u_long start, u_long period);
+<a href='../S/272.html#L84'>thread_t</a>           84 include/sys/sysinfo.h 	thread_t	id;		/* thread id */
+<a href='../S/272.html#L160'>thread_t</a>          160 include/sys/sysinfo.h 	thread_t	thread;		/* thread id of ist */
+<a href='../S/277.html#L70'>thread_t</a>           70 include/sys/types.h #define THREAD_NULL	((thread_t)0)
+<a href='../S/309.html#L59'>thread_t</a>           59 sys/include/ipc.h void	 msg_cancel(thread_t);
+<a href='../S/310.html#L47'>thread_t</a>           47 sys/include/irq.h 	thread_t	thread;		/* thread id of ist */
+<a href='../S/315.html#L69'>thread_t</a>           69 sys/include/sched.h thread_t sched_wakeone(struct event *);
+<a href='../S/315.html#L70'>thread_t</a>           70 sys/include/sched.h void	 sched_unsleep(thread_t, int);
+<a href='../S/315.html#L72'>thread_t</a>           72 sys/include/sched.h void	 sched_suspend(thread_t);
+<a href='../S/315.html#L73'>thread_t</a>           73 sys/include/sched.h void	 sched_resume(thread_t);
+<a href='../S/315.html#L75'>thread_t</a>           75 sys/include/sched.h void	 sched_start(thread_t, int, int);
+<a href='../S/315.html#L76'>thread_t</a>           76 sys/include/sched.h void	 sched_stop(thread_t);
+<a href='../S/315.html#L79'>thread_t</a>           79 sys/include/sched.h int	 sched_getpri(thread_t);
+<a href='../S/315.html#L80'>thread_t</a>           80 sys/include/sched.h void	 sched_setpri(thread_t, int, int);
+<a href='../S/315.html#L81'>thread_t</a>           81 sys/include/sched.h int	 sched_getpolicy(thread_t);
+<a href='../S/315.html#L82'>thread_t</a>           82 sys/include/sched.h int	 sched_setpolicy(thread_t, int);
+<a href='../S/316.html#L52'>thread_t</a>           52 sys/include/sync.h 	thread_t	holder;		/* thread that holds the mutex */
+<a href='../S/316.html#L86'>thread_t</a>           86 sys/include/sync.h void	 mutex_cancel(thread_t);
+<a href='../S/316.html#L87'>thread_t</a>           87 sys/include/sync.h void	 mutex_setpri(thread_t, int);
+<a href='../S/319.html#L69'>thread_t</a>           69 sys/include/thread.h 	thread_t	sender;		/* thread that sends IPC message */
+<a href='../S/319.html#L70'>thread_t</a>           70 sys/include/thread.h 	thread_t	receiver;	/* thread that receives IPC message */
+<a href='../S/319.html#L103'>thread_t</a>          103 sys/include/thread.h int	 thread_create(task_t, thread_t *);
+<a href='../S/319.html#L104'>thread_t</a>          104 sys/include/thread.h int	 thread_terminate(thread_t);
+<a href='../S/319.html#L105'>thread_t</a>          105 sys/include/thread.h void	 thread_destroy(thread_t);
+<a href='../S/319.html#L106'>thread_t</a>          106 sys/include/thread.h int	 thread_load(thread_t, void (*)(void), void *);
+<a href='../S/319.html#L107'>thread_t</a>          107 sys/include/thread.h thread_t thread_self(void);
+<a href='../S/319.html#L108'>thread_t</a>          108 sys/include/thread.h int	 thread_valid(thread_t);
+<a href='../S/319.html#L110'>thread_t</a>          110 sys/include/thread.h int	 thread_suspend(thread_t);
+<a href='../S/319.html#L111'>thread_t</a>          111 sys/include/thread.h int	 thread_resume(thread_t);
+<a href='../S/319.html#L112'>thread_t</a>          112 sys/include/thread.h int	 thread_schedparam(thread_t, int, int *);
+<a href='../S/319.html#L115'>thread_t</a>          115 sys/include/thread.h thread_t kthread_create(void (*)(void *), void *, int);
+<a href='../S/319.html#L116'>thread_t</a>          116 sys/include/thread.h void	 kthread_terminate(thread_t);
+<a href='../S/320.html#L78'>thread_t</a>           78 sys/include/timer.h int	 timer_periodic(thread_t, u_long, u_long);
+<a href='../S/320.html#L80'>thread_t</a>           80 sys/include/timer.h void	 timer_cancel(thread_t);
+<a href='../S/324.html#L68'>thread_t</a>           68 sys/ipc/msg.c  static thread_t	msg_dequeue(queue_t);
+<a href='../S/324.html#L69'>thread_t</a>           69 sys/ipc/msg.c  static void	msg_enqueue(queue_t, thread_t);
+<a href='../S/324.html#L84'>thread_t</a>           84 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L190'>thread_t</a>          190 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L290'>thread_t</a>          290 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L357'>thread_t</a>          357 sys/ipc/msg.c  msg_cancel(thread_t t)
+<a href='../S/324.html#L386'>thread_t</a>          386 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L413'>thread_t</a>          413 sys/ipc/msg.c  static thread_t
+<a href='../S/324.html#L417'>thread_t</a>          417 sys/ipc/msg.c  	thread_t t, top;
+<a href='../S/324.html#L433'>thread_t</a>          433 sys/ipc/msg.c  msg_enqueue(queue_t head, thread_t t)
+<a href='../S/328.html#L101'>thread_t</a>          101 sys/kern/exception.c 	thread_t t;
+<a href='../S/328.html#L176'>thread_t</a>          176 sys/kern/exception.c 	thread_t t = NULL;
+<a href='../S/331.html#L118'>thread_t</a>          118 sys/kern/sched.c runq_enqueue(thread_t t)
+<a href='../S/331.html#L133'>thread_t</a>          133 sys/kern/sched.c runq_insert(thread_t t)
+<a href='../S/331.html#L145'>thread_t</a>          145 sys/kern/sched.c static thread_t
+<a href='../S/331.html#L149'>thread_t</a>          149 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L163'>thread_t</a>          163 sys/kern/sched.c runq_remove(thread_t t)
+<a href='../S/331.html#L177'>thread_t</a>          177 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L198'>thread_t</a>          198 sys/kern/sched.c sched_setrun(thread_t t)
+<a href='../S/331.html#L217'>thread_t</a>          217 sys/kern/sched.c 	thread_t prev, next;
+<a href='../S/331.html#L257'>thread_t</a>          257 sys/kern/sched.c 	thread_t t = (thread_t)arg;
+<a href='../S/331.html#L310'>thread_t</a>          310 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L334'>thread_t</a>          334 sys/kern/sched.c thread_t
+<a href='../S/331.html#L338'>thread_t</a>          338 sys/kern/sched.c 	thread_t top, t = NULL;
+<a href='../S/331.html#L374'>thread_t</a>          374 sys/kern/sched.c sched_unsleep(thread_t t, int result)
+<a href='../S/331.html#L412'>thread_t</a>          412 sys/kern/sched.c sched_suspend(thread_t t)
+<a href='../S/331.html#L429'>thread_t</a>          429 sys/kern/sched.c sched_resume(thread_t t)
+<a href='../S/331.html#L471'>thread_t</a>          471 sys/kern/sched.c sched_start(thread_t t, int pri, int policy)
+<a href='../S/331.html#L486'>thread_t</a>          486 sys/kern/sched.c sched_stop(thread_t t)
+<a href='../S/331.html#L567'>thread_t</a>          567 sys/kern/sched.c sched_getpri(thread_t t)
+<a href='../S/331.html#L581'>thread_t</a>          581 sys/kern/sched.c sched_setpri(thread_t t, int basepri, int pri)
+<a href='../S/331.html#L614'>thread_t</a>          614 sys/kern/sched.c sched_getpolicy(thread_t t)
+<a href='../S/331.html#L624'>thread_t</a>          624 sys/kern/sched.c sched_setpolicy(thread_t t, int policy)
+<a href='../S/331.html#L716'>thread_t</a>          716 sys/kern/sched.c 	thread_t t;
+<a href='../S/334.html#L169'>thread_t</a>          169 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L230'>thread_t</a>          230 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L266'>thread_t</a>          266 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L478'>thread_t</a>          478 sys/kern/task.c 	thread_t t;
+<a href='../S/335.html#L44'>thread_t</a>           44 sys/kern/thread.c static thread_t thread_allocate(task_t);
+<a href='../S/335.html#L45'>thread_t</a>           45 sys/kern/thread.c static void	thread_deallocate(thread_t);
+<a href='../S/335.html#L48'>thread_t</a>           48 sys/kern/thread.c static thread_t		zombie;		/* zombie thread */
+<a href='../S/335.html#L52'>thread_t</a>           52 sys/kern/thread.c thread_t curthread = &amp;idle_thread;	/* current thread */
+<a href='../S/335.html#L65'>thread_t</a>           65 sys/kern/thread.c thread_create(task_t task, thread_t *tp)
+<a href='../S/335.html#L67'>thread_t</a>           67 sys/kern/thread.c 	thread_t t;
+<a href='../S/335.html#L129'>thread_t</a>          129 sys/kern/thread.c thread_terminate(thread_t t)
+<a href='../S/335.html#L150'>thread_t</a>          150 sys/kern/thread.c thread_destroy(thread_t th)
+<a href='../S/335.html#L167'>thread_t</a>          167 sys/kern/thread.c thread_load(thread_t t, void (*entry)(void), void *stack)
+<a href='../S/335.html#L200'>thread_t</a>          200 sys/kern/thread.c thread_t
+<a href='../S/335.html#L211'>thread_t</a>          211 sys/kern/thread.c thread_valid(thread_t t)
+<a href='../S/335.html#L214'>thread_t</a>          214 sys/kern/thread.c 	thread_t tmp;
+<a href='../S/335.html#L243'>thread_t</a>          243 sys/kern/thread.c thread_suspend(thread_t t)
+<a href='../S/335.html#L269'>thread_t</a>          269 sys/kern/thread.c thread_resume(thread_t t)
+<a href='../S/335.html#L299'>thread_t</a>          299 sys/kern/thread.c thread_schedparam(thread_t t, int op, int *param)
+<a href='../S/335.html#L410'>thread_t</a>          410 sys/kern/thread.c static thread_t
+<a href='../S/335.html#L444'>thread_t</a>          444 sys/kern/thread.c thread_deallocate(thread_t t)
+<a href='../S/335.html#L485'>thread_t</a>          485 sys/kern/thread.c 	thread_t t;
+<a href='../S/335.html#L524'>thread_t</a>          524 sys/kern/thread.c thread_t
+<a href='../S/335.html#L527'>thread_t</a>          527 sys/kern/thread.c 	thread_t t;
+<a href='../S/335.html#L555'>thread_t</a>          555 sys/kern/thread.c kthread_terminate(thread_t t)
+<a href='../S/336.html#L240'>thread_t</a>          240 sys/kern/timer.c timer_periodic(thread_t t, u_long start, u_long period)
+<a href='../S/336.html#L330'>thread_t</a>          330 sys/kern/timer.c timer_cancel(thread_t t)
+<a href='../S/346.html#L82'>thread_t</a>           82 sys/sync/mutex.c static int	prio_inherit(thread_t);
+<a href='../S/346.html#L83'>thread_t</a>           83 sys/sync/mutex.c static void	prio_uninherit(thread_t);
+<a href='../S/346.html#L316'>thread_t</a>          316 sys/sync/mutex.c mutex_cancel(thread_t t)
+<a href='../S/346.html#L320'>thread_t</a>          320 sys/sync/mutex.c 	thread_t holder;
+<a href='../S/346.html#L353'>thread_t</a>          353 sys/sync/mutex.c mutex_setpri(thread_t t, int pri)
+<a href='../S/346.html#L418'>thread_t</a>          418 sys/sync/mutex.c prio_inherit(thread_t waiter)
+<a href='../S/346.html#L421'>thread_t</a>          421 sys/sync/mutex.c 	thread_t holder;
+<a href='../S/346.html#L469'>thread_t</a>          469 sys/sync/mutex.c prio_uninherit(thread_t t)
+<a href='../S/705.html#L87'>thread_t</a>           87 usr/lib/posix/process/fork.c 	thread_t t;
+<a href='../S/706.html#L46'>thread_t</a>           46 usr/lib/posix/process/fork_nommu.c static thread_t __parent_thread;
+<a href='../S/706.html#L89'>thread_t</a>           89 usr/lib/posix/process/fork_nommu.c 	thread_t t;
+<a href='../S/731.html#L51'>thread_t</a>           51 usr/lib/posix/process/waitpid.c 	thread_t self;
+<a href='../S/803.html#L32'>thread_t</a>           32 usr/lib/prex/syscalls/thread_getpolicy.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/803.html#L35'>thread_t</a>           35 usr/lib/prex/syscalls/thread_getpolicy.c thread_getpolicy(thread_t t, int *policy)
+<a href='../S/804.html#L32'>thread_t</a>           32 usr/lib/prex/syscalls/thread_getpri.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/804.html#L35'>thread_t</a>           35 usr/lib/prex/syscalls/thread_getpri.c thread_getpri(thread_t t, int *pri)
+<a href='../S/809.html#L32'>thread_t</a>           32 usr/lib/prex/syscalls/thread_setpolicy.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/809.html#L35'>thread_t</a>           35 usr/lib/prex/syscalls/thread_setpolicy.c thread_setpolicy(thread_t t, int policy)
+<a href='../S/810.html#L32'>thread_t</a>           32 usr/lib/prex/syscalls/thread_setpri.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/810.html#L35'>thread_t</a>           35 usr/lib/prex/syscalls/thread_setpri.c thread_setpri(thread_t t, int pri)
+<a href='../S/829.html#L49'>thread_t</a>           49 usr/sample/balls/balls.c static thread_t
+<a href='../S/829.html#L52'>thread_t</a>           52 usr/sample/balls/balls.c 	thread_t t;
+<a href='../S/831.html#L48'>thread_t</a>           48 usr/sample/bench/bench.c static thread_t *thread;
+<a href='../S/831.html#L76'>thread_t</a>           76 usr/sample/bench/bench.c 			    sizeof(thread_t) * NR_THREADS, 1);
+<a href='../S/837.html#L57'>thread_t</a>           57 usr/sample/ipc/ipc.c 	thread_t t;
+<a href='../S/841.html#L63'>thread_t</a>           63 usr/sample/mutex/mutex.c static thread_t th_1, th_2, th_3;
+<a href='../S/841.html#L81'>thread_t</a>           81 usr/sample/mutex/mutex.c thread_t
+<a href='../S/841.html#L84'>thread_t</a>           84 usr/sample/mutex/mutex.c 	thread_t t;
+<a href='../S/843.html#L42'>thread_t</a>           42 usr/sample/sem/sem.c 	thread_t t;
+<a href='../S/843.html#L63'>thread_t</a>           63 usr/sample/sem/sem.c 	thread_t t;
+<a href='../S/845.html#L48'>thread_t</a>           48 usr/sample/task/task.c 	thread_t t;
+<a href='../S/855.html#L45'>thread_t</a>           45 usr/sample/thread/thread.c static thread_t main_th;
+<a href='../S/855.html#L54'>thread_t</a>           54 usr/sample/thread/thread.c 	thread_t t;
+<a href='../S/877.html#L77'>thread_t</a>           77 usr/server/exec/exec_execve.c 	thread_t t;
+<a href='../S/903.html#L948'>thread_t</a>          948 usr/server/fs/vfs/main.c 	thread_t t;
+<a href='../S/916.html#L269'>thread_t</a>          269 usr/server/pow/pow.c 	thread_t t;
+<a href='../S/928.html#L52'>thread_t</a>           52 usr/test/attack/attack.c 	thread_t t	= (thread_t)random();
+<a href='../S/928.html#L53'>thread_t</a>           53 usr/test/attack/attack.c 	thread_t *tp	= (thread_t *)random();
+<a href='../S/938.html#L54'>thread_t</a>           54 usr/test/deadlock/deadlock.c static thread_t th_1, th_2;
+<a href='../S/938.html#L57'>thread_t</a>           57 usr/test/deadlock/deadlock.c thread_t
+<a href='../S/938.html#L60'>thread_t</a>           60 usr/test/deadlock/deadlock.c 	thread_t t;
+<a href='../S/960.html#L46'>thread_t</a>           46 usr/test/ipc/ipc.c 	thread_t t;
+<a href='../S/962.html#L48'>thread_t</a>           48 usr/test/ipc_mt/ipc_mt.c 	thread_t t;
+<a href='../S/966.html#L117'>thread_t</a>          117 usr/test/kmon/cmd.c 	thread_t t;
+<a href='../S/966.html#L124'>thread_t</a>          124 usr/test/kmon/cmd.c 	t = (thread_t)strtoul(argv[1], &amp;ep, 16);
+<a href='../S/998.html#L57'>thread_t</a>           57 usr/test/task/task.c 	thread_t t;
+<a href='../S/1000.html#L39'>thread_t</a>           39 usr/test/thread/thread.c static thread_t
+<a href='../S/1000.html#L42'>thread_t</a>           42 usr/test/thread/thread.c 	thread_t t;
+<a href='../S/1000.html#L69'>thread_t</a>           69 usr/test/thread/thread.c 	thread_t self, t;
+</pre>
+</body>
+</html>

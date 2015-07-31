@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cap</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L93'>cap</a>                93 include/sys/prex.h int	task_setcap(task_t task, cap_t cap);
+<a href='../S/267.html#L94'>cap</a>                94 include/sys/prex.h int	task_chkcap(task_t task, cap_t cap);
+<a href='../S/334.html#L338'>cap</a>               338 sys/kern/task.c task_setcap(task_t task, cap_t cap)
+<a href='../S/334.html#L353'>cap</a>               353 sys/kern/task.c 	task-&gt;capability = cap;
+<a href='../S/334.html#L362'>cap</a>               362 sys/kern/task.c task_chkcap(task_t task, cap_t cap)
+<a href='../S/334.html#L371'>cap</a>               371 sys/kern/task.c 	if ((task-&gt;capability &amp; cap) == 0) {
+<a href='../S/334.html#L373'>cap</a>               373 sys/kern/task.c 			 curtask-&gt;name, task-&gt;name, cap));
+<a href='../S/334.html#L387'>cap</a>               387 sys/kern/task.c task_capable(cap_t cap)
+<a href='../S/334.html#L391'>cap</a>               391 sys/kern/task.c 	if ((curtask-&gt;capability &amp; cap) == 0) {
+<a href='../S/334.html#L393'>cap</a>               393 sys/kern/task.c 			 curtask-&gt;name, cap));
+<a href='../S/874.html#L48'>cap</a>                48 usr/server/exec/exec_cap.c 	cap_t cap = 0;
+<a href='../S/874.html#L57'>cap</a>                57 usr/server/exec/exec_cap.c 			cap = map-&gt;c_capset;
+<a href='../S/874.html#L62'>cap</a>                62 usr/server/exec/exec_cap.c 	if (cap != 0) {
+<a href='../S/874.html#L63'>cap</a>                63 usr/server/exec/exec_cap.c 		DPRINTF(("exec: set capability:%08x to %s\n", cap, path));
+<a href='../S/874.html#L64'>cap</a>                64 usr/server/exec/exec_cap.c 		error = task_setcap(task, cap);
+<a href='../S/910.html#L139'>cap</a>               139 usr/server/fs/vfs/vfs_security.c capable(task_t task, cap_t cap)
+<a href='../S/910.html#L142'>cap</a>               142 usr/server/fs/vfs/vfs_security.c 	if (cap == ACC_OK)
+<a href='../S/910.html#L145'>cap</a>               145 usr/server/fs/vfs/vfs_security.c 	if (cap == ACC_NG)
+<a href='../S/910.html#L148'>cap</a>               148 usr/server/fs/vfs/vfs_security.c 	if (task_chkcap(task, cap) != 0) {
+</pre>
+</body>
+</html>

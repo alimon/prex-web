@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/include/rtc.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1042.html'>include</a>/rtc.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='100.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/103.html' title='Multiple included from 3 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*      $OpenBSD: time.h,v 1.25 2007/05/09 17:42:19 deraadt Exp $       */</em>
+<a id='L2' name='L2' />   2 <em class='comment'>/*      $NetBSD: time.h,v 1.18 1996/04/23 10:29:33 mycroft Exp $        */</em>
+<a id='L3' name='L3' />   3 
+<a id='L4' name='L4' />   4 <em class='comment'>/*</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Copyright (c) 1982, 1986, 1993</em>
+<a id='L6' name='L6' />   6 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L7' name='L7' />   7 <em class='comment'> *</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * are met:</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L18' name='L18' />  18 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L31' name='L31' />  31 <em class='comment'> *</em>
+<a id='L32' name='L32' />  32 <em class='comment'> *      @(#)time.h      8.2 (Berkeley) 7/10/94</em>
+<a id='L33' name='L33' />  33 <em class='comment'> */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='comment'>/* Modified for Prex by Kohsuke Ohtani */</em>
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='sharp'>#ifndef</em> <a href='100.html#L38' title='Defined at 38 in bsp/drv/include/rtc.h.'>_RTC_H</a>
+<a id='L38' name='L38' />  38 <em class='sharp'>#define</em> <a href='100.html#L37' title='Refered from 37 in bsp/drv/include/rtc.h.'>_RTC_H</a>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42 <strong class='reserved'>struct</strong> <a href='../Y/1790.html' title='Multiple used in 6 places.'>rtc_ops</a> <em class='brace'>{</em>
+<a id='L43' name='L43' />  43         <strong class='reserved'>int</strong>     (*<a href='../Y/991.html' title='Multiple used in 2 places.'>gettime</a>)(<strong class='reserved'>void</strong> *<a href='../Y/397.html' title='Multiple used in 51 places.'>aux</a>, <strong class='reserved'>struct</strong> <a href='../Y/2166.html' title='Multiple used in 30 places.'>timeval</a> *<a href='../Y/2237.html' title='Multiple used in 34 places.'>tv</a>);
+<a id='L44' name='L44' />  44         <strong class='reserved'>int</strong>     (*<a href='100.html#L44' title='Used at 44 in bsp/drv/include/rtc.h.'>settime</a>)(<strong class='reserved'>void</strong> *<a href='../Y/397.html' title='Multiple used in 51 places.'>aux</a>, <strong class='reserved'>struct</strong> <a href='../Y/2166.html' title='Multiple used in 30 places.'>timeval</a> *<a href='../Y/2237.html' title='Multiple used in 34 places.'>tv</a>);
+<a id='L45' name='L45' />  45 <em class='brace'>}</em>;
+<a id='L46' name='L46' />  46 
+<a id='L47' name='L47' />  47 <em class='comment'>/*</em>
+<a id='L48' name='L48' />  48 <em class='comment'> * "POSIX time" to/from "YY/MM/DD/hh/mm/ss"</em>
+<a id='L49' name='L49' />  49 <em class='comment'> */</em>
+<a id='L50' name='L50' />  50 <strong class='reserved'>struct</strong> <a href='../Y/522.html' title='Multiple used in 6 places.'>clock_ymdhms</a> <em class='brace'>{</em>
+<a id='L51' name='L51' />  51         <a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>         <a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a>;
+<a id='L52' name='L52' />  52         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='../Y/1297.html' title='Multiple used in 12 places.'>mon</a>;
+<a id='L53' name='L53' />  53         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='../Y/623.html' title='Multiple used in 6 places.'>day</a>;
+<a id='L54' name='L54' />  54         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='../Y/696.html' title='Multiple used in 3 places.'>dow</a>;    <em class='comment'>/* Day of week */</em>
+<a id='L55' name='L55' />  55         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='../Y/1023.html' title='Multiple used in 9 places.'>hour</a>;
+<a id='L56' name='L56' />  56         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a>;
+<a id='L57' name='L57' />  57         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>;
+<a id='L58' name='L58' />  58         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>          <a href='../Y/1418.html' title='Multiple used in 2 places.'>nsec</a>;
+<a id='L59' name='L59' />  59 <em class='brace'>}</em>;
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61 <em class='comment'>/*</em>
+<a id='L62' name='L62' />  62 <em class='comment'> * BCD to decimal and decimal to BCD.</em>
+<a id='L63' name='L63' />  63 <em class='comment'> */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/325.html' title='Multiple refered from 6 places.'>FROMBCD</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)      (<a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>)(((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &gt;&gt; 4) * 10 + ((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &amp; 0xf))
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> TOBCD(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)        (<a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>)(((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) / 10 * 16) + ((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) % 10))
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67 <em class='comment'>/* Some handy constants. */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> <a href='../R/872.html' title='Multiple refered from 3 places.'>SECDAY</a>          86400L
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> SECYR           (<a href='100.html#L68' title='Defined at 68 in bsp/drv/include/rtc.h.'>SECDAY</a> * 365)
+<a id='L70' name='L70' />  70 
+<a id='L71' name='L71' />  71 <em class='comment'>/* Traditional POSIX base year */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <a href='../R/729.html' title='Multiple refered from 2 places.'>POSIX_BASE_YEAR</a> 1970
+<a id='L73' name='L73' />  73 
+<a id='L74' name='L74' />  74 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L75' name='L75' />  75 <a href='../D/3698.html' title='Multiple defined in 2 places.'>time_t</a>  <a href='85.html#L106' title='Defined at 106 in bsp/drv/dev/rtc/rtc.c.'>rtc_ymdhms_to_secs</a>(<strong class='reserved'>struct</strong> <a href='../Y/522.html' title='Multiple used in 6 places.'>clock_ymdhms</a> *<a href='../Y/709.html' title='Multiple used in 17 places.'>dt</a>);
+<a id='L76' name='L76' />  76 <strong class='reserved'>void</strong>    <a href='85.html#L140' title='Defined at 140 in bsp/drv/dev/rtc/rtc.c.'>rtc_secs_to_ymdhms</a>(<a href='../D/3698.html' title='Multiple defined in 2 places.'>time_t</a> <a href='../Y/1867.html' title='Multiple used in 10 places.'>secs</a>, <strong class='reserved'>struct</strong> <a href='../Y/522.html' title='Multiple used in 6 places.'>clock_ymdhms</a> *<a href='../Y/709.html' title='Multiple used in 17 places.'>dt</a>);
+<a id='L77' name='L77' />  77 <strong class='reserved'>void</strong>    <a href='85.html#L211' title='Defined at 211 in bsp/drv/dev/rtc/rtc.c.'>rtc_attach</a>(<strong class='reserved'>struct</strong> <a href='../Y/1790.html' title='Multiple used in 6 places.'>rtc_ops</a> *<a href='../Y/1481.html' title='Multiple used in 62 places.'>ops</a>, <strong class='reserved'>void</strong> *<a href='../Y/397.html' title='Multiple used in 51 places.'>aux</a>);
+<a id='L78' name='L78' />  78 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L79' name='L79' />  79 
+<a id='L80' name='L80' />  80 <em class='sharp'>#endif</em> <em class='comment'>/* !_RTC_H */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='100.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

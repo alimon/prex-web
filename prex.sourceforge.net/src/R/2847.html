@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>va_arg</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/17.html#L60'>va_arg</a>             60 bsp/boot/common/printf.c 				debug_putc(va_arg(ap, int));
+<a href='../S/17.html#L63'>va_arg</a>             63 bsp/boot/common/printf.c 				s = va_arg(ap, char *);
+<a href='../S/17.html#L74'>va_arg</a>             74 bsp/boot/common/printf.c 				u = va_arg(ap, unsigned);
+<a href='../S/339.html#L103'>va_arg</a>            103 sys/lib/vsprintf.c 			*p++ = (char)va_arg(args, int);
+<a href='../S/339.html#L106'>va_arg</a>            106 sys/lib/vsprintf.c 			str = va_arg(args, char *);
+<a href='../S/339.html#L127'>va_arg</a>            127 sys/lib/vsprintf.c 		num = va_arg(args, long);
+<a href='../S/474.html#L52'>va_arg</a>             52 usr/lib/libc/gen/execl.c 	for (i = 2; va_arg(ap, char *) != NULL; i++)
+<a href='../S/474.html#L60'>va_arg</a>             60 usr/lib/libc/gen/execl.c 	for (i = 1; (argv[i] = (char *) va_arg(ap, char *)) != NULL; i++)
+<a href='../S/475.html#L43'>va_arg</a>             43 usr/lib/libc/gen/execle.c 	while ((va_arg(ap, char *)) != NULL)
+<a href='../S/475.html#L45'>va_arg</a>             45 usr/lib/libc/gen/execle.c 	envp = va_arg(ap, char **);
+<a href='../S/475.html#L55'>va_arg</a>             55 usr/lib/libc/gen/execle.c 	for (i = 2; va_arg(ap, char *) != NULL; i++)
+<a href='../S/475.html#L63'>va_arg</a>             63 usr/lib/libc/gen/execle.c 	for (i = 1; (argv[i] = (char *) va_arg(ap, char *)) != NULL; i++)
+<a href='../S/475.html#L65'>va_arg</a>             65 usr/lib/libc/gen/execle.c 	envp = (char **) va_arg(ap, char **);
+<a href='../S/476.html#L46'>va_arg</a>             46 usr/lib/libc/gen/execlp.c 	for (i = 2; va_arg(ap, char *) != NULL; i++)
+<a href='../S/476.html#L54'>va_arg</a>             54 usr/lib/libc/gen/execlp.c 	for (i = 1; (argv[i] = va_arg(ap, char *)) != NULL; i++)
+<a href='../S/552.html#L255'>va_arg</a>            255 usr/lib/libc/stdio/vfprintf.c 	(flags&amp;LONGINT ? va_arg(ap, long) : \
+<a href='../S/552.html#L256'>va_arg</a>            256 usr/lib/libc/stdio/vfprintf.c 	    flags&amp;SHORTINT ? (long)(short)va_arg(ap, int) : \
+<a href='../S/552.html#L257'>va_arg</a>            257 usr/lib/libc/stdio/vfprintf.c 	    (long)va_arg(ap, int))
+<a href='../S/552.html#L259'>va_arg</a>            259 usr/lib/libc/stdio/vfprintf.c 	(flags&amp;LONGINT ? va_arg(ap, u_long) : \
+<a href='../S/552.html#L260'>va_arg</a>            260 usr/lib/libc/stdio/vfprintf.c 	    flags&amp;SHORTINT ? (u_long)(u_short)va_arg(ap, int) : \
+<a href='../S/552.html#L261'>va_arg</a>            261 usr/lib/libc/stdio/vfprintf.c 	    (u_long)va_arg(ap, u_int))
+<a href='../S/552.html#L319'>va_arg</a>            319 usr/lib/libc/stdio/vfprintf.c 			if ((width = va_arg(ap, int)) &gt;= 0)
+<a href='../S/552.html#L331'>va_arg</a>            331 usr/lib/libc/stdio/vfprintf.c 				n = va_arg(ap, int);
+<a href='../S/552.html#L366'>va_arg</a>            366 usr/lib/libc/stdio/vfprintf.c 			*(cp = buf) = va_arg(ap, int);
+<a href='../S/552.html#L384'>va_arg</a>            384 usr/lib/libc/stdio/vfprintf.c 				*va_arg(ap, long *) = ret;
+<a href='../S/552.html#L386'>va_arg</a>            386 usr/lib/libc/stdio/vfprintf.c 				*va_arg(ap, short *) = ret;
+<a href='../S/552.html#L388'>va_arg</a>            388 usr/lib/libc/stdio/vfprintf.c 				*va_arg(ap, int *) = ret;
+<a href='../S/552.html#L405'>va_arg</a>            405 usr/lib/libc/stdio/vfprintf.c 			ulval = (u_long)va_arg(ap, void *);
+<a href='../S/552.html#L412'>va_arg</a>            412 usr/lib/libc/stdio/vfprintf.c 			if ((cp = va_arg(ap, char *)) == NULL)
+<a href='../S/553.html#L236'>va_arg</a>            236 usr/lib/libc/stdio/vfscanf.c 				*va_arg(ap, short *) = nread;
+<a href='../S/553.html#L238'>va_arg</a>            238 usr/lib/libc/stdio/vfscanf.c 				*va_arg(ap, long *) = nread;
+<a href='../S/553.html#L240'>va_arg</a>            240 usr/lib/libc/stdio/vfscanf.c 				*va_arg(ap, int *) = nread;
+<a href='../S/553.html#L313'>va_arg</a>            313 usr/lib/libc/stdio/vfscanf.c 				size_t r = fread((void *)va_arg(ap, char *), 1,
+<a href='../S/553.html#L343'>va_arg</a>            343 usr/lib/libc/stdio/vfscanf.c 				p0 = p = va_arg(ap, char *);
+<a href='../S/553.html#L379'>va_arg</a>            379 usr/lib/libc/stdio/vfscanf.c 				p0 = p = va_arg(ap, char *);
+<a href='../S/553.html#L518'>va_arg</a>            518 usr/lib/libc/stdio/vfscanf.c 					*va_arg(ap, void **) = (void *)res;
+<a href='../S/553.html#L520'>va_arg</a>            520 usr/lib/libc/stdio/vfscanf.c 					*va_arg(ap, short *) = res;
+<a href='../S/553.html#L522'>va_arg</a>            522 usr/lib/libc/stdio/vfscanf.c 					*va_arg(ap, long *) = res;
+<a href='../S/553.html#L524'>va_arg</a>            524 usr/lib/libc/stdio/vfscanf.c 					*va_arg(ap, int *) = res;
+<a href='../S/650.html#L119'>va_arg</a>            119 usr/lib/libsa/vsprintf.c 			*p++ = (unsigned char)va_arg(args, int);
+<a href='../S/650.html#L122'>va_arg</a>            122 usr/lib/libsa/vsprintf.c 			str = va_arg(args, char *);
+<a href='../S/650.html#L143'>va_arg</a>            143 usr/lib/libsa/vsprintf.c 		num = va_arg(args, long);
+<a href='../S/667.html#L46'>va_arg</a>             46 usr/lib/posix/file/fcntl.c 	arg = va_arg(args, long);
+<a href='../S/672.html#L49'>va_arg</a>             49 usr/lib/posix/file/ioctl.c 	argp = va_arg(args, char *);
+<a href='../S/681.html#L47'>va_arg</a>             47 usr/lib/posix/file/open.c 	mode = va_arg(args, int);
+</pre>
+</body>
+</html>

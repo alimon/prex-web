@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tsk</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/705.html#L86'>tsk</a>                86 usr/lib/posix/process/fork.c 	task_t tsk;
+<a href='../S/705.html#L96'>tsk</a>                96 usr/lib/posix/process/fork.c 		error = task_create(task_self(), VM_COPY, &amp;tsk);
+<a href='../S/705.html#L101'>tsk</a>               101 usr/lib/posix/process/fork.c 		if ((error = thread_create(tsk, &amp;t)) != 0) {
+<a href='../S/705.html#L102'>tsk</a>               102 usr/lib/posix/process/fork.c 			task_terminate(tsk);
+<a href='../S/705.html#L110'>tsk</a>               110 usr/lib/posix/process/fork.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/705.html#L120'>tsk</a>               120 usr/lib/posix/process/fork.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L88'>tsk</a>                88 usr/lib/posix/process/fork_nommu.c 	task_t tsk;
+<a href='../S/706.html#L98'>tsk</a>                98 usr/lib/posix/process/fork_nommu.c 		if ((error = task_create(task_self(), VM_SHARE, &amp;tsk)) != 0) {
+<a href='../S/706.html#L102'>tsk</a>               102 usr/lib/posix/process/fork_nommu.c 		if ((error = thread_create(tsk, &amp;t)) != 0) {
+<a href='../S/706.html#L103'>tsk</a>               103 usr/lib/posix/process/fork_nommu.c 			task_terminate(tsk);
+<a href='../S/706.html#L111'>tsk</a>               111 usr/lib/posix/process/fork_nommu.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L119'>tsk</a>               119 usr/lib/posix/process/fork_nommu.c 		m.data[0] = tsk;		/* child task */
+</pre>
+</body>
+</html>

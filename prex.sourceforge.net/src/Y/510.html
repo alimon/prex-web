@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ch</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/19.html#L109'>ch</a>                109 bsp/boot/common/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/19.html#L114'>ch</a>                114 bsp/boot/common/string.c 		*p++ = (char)ch;
+<a href='../S/51.html#L96'>ch</a>                 96 bsp/drv/arm/gba/lcd.c lcd_putc(void *aux, int row, int col, int ch)
+<a href='../S/51.html#L100'>ch</a>                100 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram[row * VSCR_COLS + col] = ch;
+<a href='../S/91.html#L151'>ch</a>                151 bsp/drv/dev/video/vga.c vga_putc(void *aux, int row, int col, int ch)
+<a href='../S/91.html#L155'>ch</a>                155 bsp/drv/dev/video/vga.c 	sc-&gt;vram[row * sc-&gt;cols + col] = ch | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/92.html#L39'>ch</a>                 39 bsp/drv/include/cons.h 	void	(*cnputc)(device_t dev, int ch);  /* kernel putchar */
+<a href='../S/94.html#L95'>ch</a>                 95 bsp/drv/include/ddi.h void	 *memset(void *dest, int ch, size_t count);
+<a href='../S/104.html#L40'>ch</a>                 40 bsp/drv/include/wscons.h 	void	(*putc)      (void *aux, int row, int col, int ch);
+<a href='../S/113.html#L111'>ch</a>                111 bsp/drv/lib/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/113.html#L118'>ch</a>                118 bsp/drv/lib/string.c 		*p++ = (char)ch;
+<a href='../S/338.html#L103'>ch</a>                103 sys/lib/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/338.html#L110'>ch</a>                110 sys/lib/string.c 		*p++ = (char)ch;
+<a href='../S/366.html#L58'>ch</a>                 58 usr/bin/cat/cat.c 	int ch, fd;
+<a href='../S/366.html#L60'>ch</a>                 60 usr/bin/cat/cat.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/366.html#L61'>ch</a>                 61 usr/bin/cat/cat.c 		switch(ch) {
+<a href='../S/374.html#L59'>ch</a>                 59 usr/bin/cp/cp.c 	int r, ch, checkch, i, iflag = 0;
+<a href='../S/374.html#L63'>ch</a>                 63 usr/bin/cp/cp.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/374.html#L64'>ch</a>                 64 usr/bin/cp/cp.c 		switch(ch) {
+<a href='../S/374.html#L100'>ch</a>                100 usr/bin/cp/cp.c 			checkch = ch = getchar();
+<a href='../S/374.html#L101'>ch</a>                101 usr/bin/cp/cp.c 			while (ch != '\n' &amp;&amp; ch != EOF)
+<a href='../S/374.html#L102'>ch</a>                102 usr/bin/cp/cp.c 				ch = getchar();
+<a href='../S/384.html#L58'>ch</a>                 58 usr/bin/head/head.c 	int ch;
+<a href='../S/384.html#L64'>ch</a>                 64 usr/bin/head/head.c 	while ((ch = getopt(argc, argv, "n:")) != EOF)
+<a href='../S/384.html#L65'>ch</a>                 65 usr/bin/head/head.c 		switch(ch) {
+<a href='../S/384.html#L100'>ch</a>                100 usr/bin/head/head.c 	int ch;
+<a href='../S/384.html#L103'>ch</a>                103 usr/bin/head/head.c 		while ((ch = getc(fp)) != EOF) {
+<a href='../S/384.html#L104'>ch</a>                104 usr/bin/head/head.c 			if (putchar(ch) == EOF)
+<a href='../S/384.html#L106'>ch</a>                106 usr/bin/head/head.c 			if (ch == '\n')
+<a href='../S/390.html#L69'>ch</a>                 69 usr/bin/ls/ls.c 	int ch, rc;
+<a href='../S/390.html#L73'>ch</a>                 73 usr/bin/ls/ls.c 	while ((ch = getopt(argc, argv, "1ClFaA")) != -1) {
+<a href='../S/390.html#L74'>ch</a>                 74 usr/bin/ls/ls.c 		switch(ch) {
+<a href='../S/394.html#L48'>ch</a>                 48 usr/bin/mkdir/mkdir.c 	int ch, exitval, pflag;
+<a href='../S/394.html#L51'>ch</a>                 51 usr/bin/mkdir/mkdir.c 	while ((ch = getopt(argc, argv, "p")) != EOF)
+<a href='../S/394.html#L52'>ch</a>                 52 usr/bin/mkdir/mkdir.c 		switch(ch) {
+<a href='../S/396.html#L48'>ch</a>                 48 usr/bin/more/more.c 	int ch;
+<a href='../S/396.html#L53'>ch</a>                 53 usr/bin/more/more.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/396.html#L54'>ch</a>                 54 usr/bin/more/more.c 		switch(ch) {
+<a href='../S/402.html#L55'>ch</a>                 55 usr/bin/printenv/printenv.c 	int ch;
+<a href='../S/402.html#L57'>ch</a>                 57 usr/bin/printenv/printenv.c 	while ((ch = getopt(argc, argv, "")) != EOF)
+<a href='../S/402.html#L58'>ch</a>                 58 usr/bin/printenv/printenv.c 		switch(ch) {
+<a href='../S/404.html#L86'>ch</a>                 86 usr/bin/ps/ps.c 	int ch, rc, ps_flag = 0;
+<a href='../S/404.html#L89'>ch</a>                 89 usr/bin/ps/ps.c 	while ((ch = getopt(argc, argv, "lx")) != -1)
+<a href='../S/404.html#L90'>ch</a>                 90 usr/bin/ps/ps.c 		switch(ch) {
+<a href='../S/408.html#L51'>ch</a>                 51 usr/bin/rm/rm.c 	int ch, rc;
+<a href='../S/408.html#L53'>ch</a>                 53 usr/bin/rm/rm.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/408.html#L54'>ch</a>                 54 usr/bin/rm/rm.c 		switch(ch) {
+<a href='../S/410.html#L50'>ch</a>                 50 usr/bin/rmdir/rmdir.c 	int ch, rc;
+<a href='../S/410.html#L52'>ch</a>                 52 usr/bin/rmdir/rmdir.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/410.html#L53'>ch</a>                 53 usr/bin/rmdir/rmdir.c 		switch(ch) {
+<a href='../S/417.html#L43'>ch</a>                 43 usr/bin/sleep/sleep.c 	int ch, secs;
+<a href='../S/417.html#L45'>ch</a>                 45 usr/bin/sleep/sleep.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/417.html#L46'>ch</a>                 46 usr/bin/sleep/sleep.c 		switch(ch) {
+<a href='../S/423.html#L56'>ch</a>                 56 usr/bin/touch/touch.c 	int ch;
+<a href='../S/423.html#L59'>ch</a>                 59 usr/bin/touch/touch.c 	while ((ch = getopt(argc, argv, "")) != -1)
+<a href='../S/423.html#L60'>ch</a>                 60 usr/bin/touch/touch.c 		switch(ch) {
+<a href='../S/425.html#L60'>ch</a>                 60 usr/bin/uname/uname.c 	int ch;
+<a href='../S/425.html#L64'>ch</a>                 64 usr/bin/uname/uname.c 	while ((ch = getopt(argc, argv, "amnrsv")) != EOF) {
+<a href='../S/425.html#L65'>ch</a>                 65 usr/bin/uname/uname.c 		switch(ch) {
+<a href='../S/448.html#L68'>ch</a>                 68 usr/lib/crt/crt1.c _strrchr(char *p, int ch)
+<a href='../S/448.html#L73'>ch</a>                 73 usr/lib/crt/crt1.c 		if (*p == ch)
+<a href='../S/482.html#L42'>ch</a>                 42 usr/lib/libc/gen/getpass.c 	register int ch;
+<a href='../S/482.html#L69'>ch</a>                 69 usr/lib/libc/gen/getpass.c 	for (p = buf; (ch = getc(fp)) != EOF &amp;&amp; ch != '\n';) {
+<a href='../S/482.html#L71'>ch</a>                 71 usr/lib/libc/gen/getpass.c 			*p++ = ch;
+<a href='../S/552.html#L187'>ch</a>                187 usr/lib/libc/stdio/vfprintf.c 	int ch;			/* character from fmt */
+<a href='../S/552.html#L282'>ch</a>                282 usr/lib/libc/stdio/vfprintf.c 		for (cp = fmt; (ch = *fmt) != '\0' &amp;&amp; ch != '%'; fmt++)
+<a href='../S/552.html#L288'>ch</a>                288 usr/lib/libc/stdio/vfprintf.c 		if (ch == '\0')
+<a href='../S/552.html#L298'>ch</a>                298 usr/lib/libc/stdio/vfprintf.c rflag:		ch = *fmt++;
+<a href='../S/552.html#L299'>ch</a>                299 usr/lib/libc/stdio/vfprintf.c reswitch:	switch (ch) {
+<a href='../S/552.html#L330'>ch</a>                330 usr/lib/libc/stdio/vfprintf.c 			if ((ch = *fmt++) == '*') {
+<a href='../S/552.html#L336'>ch</a>                336 usr/lib/libc/stdio/vfprintf.c 			while (is_digit(ch)) {
+<a href='../S/552.html#L337'>ch</a>                337 usr/lib/libc/stdio/vfprintf.c 				n = 10 * n + to_digit(ch);
+<a href='../S/552.html#L338'>ch</a>                338 usr/lib/libc/stdio/vfprintf.c 				ch = *fmt++;
+<a href='../S/552.html#L354'>ch</a>                354 usr/lib/libc/stdio/vfprintf.c 				n = 10 * n + to_digit(ch);
+<a href='../S/552.html#L355'>ch</a>                355 usr/lib/libc/stdio/vfprintf.c 				ch = *fmt++;
+<a href='../S/552.html#L356'>ch</a>                356 usr/lib/libc/stdio/vfprintf.c 			} while (is_digit(ch));
+<a href='../S/552.html#L409'>ch</a>                409 usr/lib/libc/stdio/vfprintf.c 			ch = 'x';
+<a href='../S/552.html#L473'>ch</a>                473 usr/lib/libc/stdio/vfprintf.c 			if (ch == '\0')
+<a href='../S/552.html#L477'>ch</a>                477 usr/lib/libc/stdio/vfprintf.c 			*cp = ch;
+<a href='../S/552.html#L513'>ch</a>                513 usr/lib/libc/stdio/vfprintf.c 			ox[1] = ch;
+<a href='../S/585.html#L36'>ch</a>                 36 usr/lib/libc/string/index.c strchr(p, ch)
+<a href='../S/585.html#L38'>ch</a>                 38 usr/lib/libc/string/index.c index(p, ch)
+<a href='../S/585.html#L40'>ch</a>                 40 usr/lib/libc/string/index.c 	const char *p, ch;
+<a href='../S/585.html#L43'>ch</a>                 43 usr/lib/libc/string/index.c 		if (*p == ch)
+<a href='../S/593.html#L35'>ch</a>                 35 usr/lib/libc/string/rindex.c strrchr(p, ch)
+<a href='../S/593.html#L37'>ch</a>                 37 usr/lib/libc/string/rindex.c rindex(p, ch)
+<a href='../S/593.html#L40'>ch</a>                 40 usr/lib/libc/string/rindex.c 	int ch;
+<a href='../S/593.html#L45'>ch</a>                 45 usr/lib/libc/string/rindex.c 		if (*p == ch)
+<a href='../S/652.html#L73'>ch</a>                 73 usr/lib/libsa/_stdio.c 	char ch;
+<a href='../S/652.html#L79'>ch</a>                 79 usr/lib/libsa/_stdio.c 	device_read(__console_dev, &amp;ch, &amp;len, 0);
+<a href='../S/652.html#L80'>ch</a>                 80 usr/lib/libsa/_stdio.c 	return ch;
+<a href='../S/647.html#L38'>ch</a>                 38 usr/lib/libsa/putchar.c 	char ch;
+<a href='../S/647.html#L40'>ch</a>                 40 usr/lib/libsa/putchar.c 	ch = (char)c;
+<a href='../S/647.html#L41'>ch</a>                 41 usr/lib/libsa/putchar.c 	__console_write(&amp;ch, 1);
+<a href='../S/852.html#L126'>ch</a>                126 usr/sample/tetris/tetris.c 	int ch;
+<a href='../S/852.html#L128'>ch</a>                128 usr/sample/tetris/tetris.c 	while ((ch = getopt(argc, argv, "l")) != EOF)
+<a href='../S/852.html#L129'>ch</a>                129 usr/sample/tetris/tetris.c 		switch(ch) {
+<a href='../S/862.html#L65'>ch</a>                 65 usr/sbin/install/install.c 	int r, ch, checkch, i;
+<a href='../S/862.html#L90'>ch</a>                 90 usr/sbin/install/install.c 			checkch = ch = getchar();
+<a href='../S/862.html#L91'>ch</a>                 91 usr/sbin/install/install.c 			while (ch != '\n' &amp;&amp; ch != EOF)
+<a href='../S/862.html#L92'>ch</a>                 92 usr/sbin/install/install.c 				ch = getchar();
+<a href='../S/870.html#L109'>ch</a>                109 usr/sbin/pmctrl/pmctrl.c 	int ch, checkch;
+<a href='../S/870.html#L112'>ch</a>                112 usr/sbin/pmctrl/pmctrl.c 	checkch = ch = getchar();
+<a href='../S/870.html#L113'>ch</a>                113 usr/sbin/pmctrl/pmctrl.c 	while (ch != '\n' &amp;&amp; ch != EOF)
+<a href='../S/870.html#L114'>ch</a>                114 usr/sbin/pmctrl/pmctrl.c 		ch = getchar();
+<a href='../S/950.html#L46'>ch</a>                 46 usr/test/fdd/fdd.c 	unsigned char ch;
+<a href='../S/950.html#L71'>ch</a>                 71 usr/test/fdd/fdd.c 			ch = disk_buf[i * 16 + j];
+<a href='../S/950.html#L72'>ch</a>                 72 usr/test/fdd/fdd.c 			if (isprint(ch))
+<a href='../S/950.html#L73'>ch</a>                 73 usr/test/fdd/fdd.c 				putchar(ch);
+<a href='../S/983.html#L48'>ch</a>                 48 usr/test/ramdisk/ramdisk.c 	unsigned char ch;
+<a href='../S/983.html#L73'>ch</a>                 73 usr/test/ramdisk/ramdisk.c 			ch = disk_buf[i * 16 + j];
+<a href='../S/983.html#L74'>ch</a>                 74 usr/test/ramdisk/ramdisk.c 			if (isprint(ch))
+<a href='../S/983.html#L75'>ch</a>                 75 usr/test/ramdisk/ramdisk.c 				putchar(ch);
+<a href='../S/990.html#L55'>ch</a>                 55 usr/test/shutdown/shutdown.c 	int ch, checkch, rflag;
+<a href='../S/990.html#L70'>ch</a>                 70 usr/test/shutdown/shutdown.c 	checkch = ch = getchar();
+<a href='../S/990.html#L71'>ch</a>                 71 usr/test/shutdown/shutdown.c 	while (ch != '\n' &amp;&amp; ch != EOF)
+<a href='../S/990.html#L72'>ch</a>                 72 usr/test/shutdown/shutdown.c 		ch = getchar();
+</pre>
+</body>
+</html>

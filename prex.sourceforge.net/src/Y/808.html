@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>execobj</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/655.html#L52'>execobj</a>            52 usr/lib/posix/exec/execve.c 	object_t execobj;
+<a href='../S/655.html#L58'>execobj</a>            58 usr/lib/posix/exec/execve.c 	if ((error = object_lookup("!exec", &amp;execobj)) != 0)
+<a href='../S/655.html#L105'>execobj</a>           105 usr/lib/posix/exec/execve.c 		error = msg_send(execobj, &amp;msg, sizeof(msg));
+<a href='../S/871.html#L181'>execobj</a>           181 usr/server/boot/boot.c exec_init(object_t execobj)
+<a href='../S/871.html#L226'>execobj</a>           226 usr/server/boot/boot.c 		error = msg_send(execobj, &amp;msg, sizeof(msg));
+<a href='../S/871.html#L268'>execobj</a>           268 usr/server/boot/boot.c 	object_t execobj, procobj, fsobj;
+<a href='../S/871.html#L282'>execobj</a>           282 usr/server/boot/boot.c 	wait_server("!exec", &amp;execobj);
+<a href='../S/871.html#L289'>execobj</a>           289 usr/server/boot/boot.c 	send_bootmsg(execobj);
+<a href='../S/871.html#L298'>execobj</a>           298 usr/server/boot/boot.c 	msg_send(execobj, &amp;bm, sizeof(bm));
+<a href='../S/871.html#L328'>execobj</a>           328 usr/server/boot/boot.c 	exec_init(execobj);
+<a href='../S/903.html#L850'>execobj</a>           850 usr/server/fs/vfs/main.c 	object_t execobj, procobj;
+<a href='../S/903.html#L862'>execobj</a>           862 usr/server/fs/vfs/main.c 	if (object_lookup("!exec", &amp;execobj) != 0)
+<a href='../S/903.html#L866'>execobj</a>           866 usr/server/fs/vfs/main.c 	msg_send(execobj, &amp;bm, sizeof(bm));
+<a href='../S/916.html#L399'>execobj</a>           399 usr/server/pow/pow.c 	object_t execobj, procobj;
+<a href='../S/916.html#L412'>execobj</a>           412 usr/server/pow/pow.c 	wait_server("!exec", &amp;execobj);
+<a href='../S/916.html#L419'>execobj</a>           419 usr/server/pow/pow.c 	msg_send(execobj, &amp;bm, sizeof(bm));
+</pre>
+</body>
+</html>

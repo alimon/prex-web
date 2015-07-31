@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>printf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L50'>printf</a>             50 bsp/boot/common/bootinfo.c 	printf("%lx %lx %x %lx %lx %x %x %x %s\n",
+<a href='../S/12.html#L65'>printf</a>             65 bsp/boot/common/bootinfo.c 	printf("[Boot information]\n");
+<a href='../S/12.html#L67'>printf</a>             67 bsp/boot/common/bootinfo.c 	printf("nr_rams=%d\n", bi-&gt;nr_rams);
+<a href='../S/12.html#L70'>printf</a>             70 bsp/boot/common/bootinfo.c 			printf("ram[%d]:  base=%lx size=%x type=%s\n", i,
+<a href='../S/12.html#L77'>printf</a>             77 bsp/boot/common/bootinfo.c 	printf("bootdisk: base=%lx size=%x\n",
+<a href='../S/12.html#L81'>printf</a>             81 bsp/boot/common/bootinfo.c 	printf("entry    phys     size     text     data     textsz   datasz   bsssz    module\n");
+<a href='../S/12.html#L82'>printf</a>             82 bsp/boot/common/bootinfo.c 	printf("-------- -------- -------- -------- -------- -------- -------- -------- ------\n");
+<a href='../S/20.html#L42'>printf</a>             42 bsp/boot/include/boot.h #define DPRINTF(a) printf a
+<a href='../S/20.html#L48'>printf</a>             48 bsp/boot/include/boot.h #define ELFDBG(a) printf a
+<a href='../S/20.html#L60'>printf</a>             60 bsp/boot/include/boot.h void	 printf(const char *, ...);
+<a href='../S/51.html#L42'>printf</a>             42 bsp/drv/arm/gba/lcd.c #define DPRINTF(a) printf a
+<a href='../S/59.html#L41'>printf</a>             41 bsp/drv/dev/base/init.c #define DPRINTF(a) printf a
+<a href='../S/59.html#L131'>printf</a>            131 bsp/drv/dev/base/init.c 	printf("Driver table:\n");
+<a href='../S/59.html#L132'>printf</a>            132 bsp/drv/dev/base/init.c 	printf(" probe    init     unload   devops   flags    name\n");
+<a href='../S/59.html#L133'>printf</a>            133 bsp/drv/dev/base/init.c 	printf(" -------- -------- -------- -------- -------- -----------\n");
+<a href='../S/59.html#L137'>printf</a>            137 bsp/drv/dev/base/init.c 		printf(" %08lx %08lx %08lx %08lx %08lx %s\n",
+<a href='../S/60.html#L135'>printf</a>            135 bsp/drv/dev/base/kd.c 		printf("%s\n", kd_errname[id]);
+<a href='../S/60.html#L167'>printf</a>            167 bsp/drv/dev/base/kd.c 			printf(" %10s -- %s.\n", cmd_table[i].cmd,
+<a href='../S/60.html#L171'>printf</a>            171 bsp/drv/dev/base/kd.c 	printf("\nuse `-?` to find out more about each command.\n");
+<a href='../S/60.html#L202'>printf</a>            202 bsp/drv/dev/base/kd.c 	printf("Memory usage:\n");
+<a href='../S/60.html#L203'>printf</a>            203 bsp/drv/dev/base/kd.c 	printf(" Used     :%8ld KB\n", (info.total - info.free) / 1024);
+<a href='../S/60.html#L204'>printf</a>            204 bsp/drv/dev/base/kd.c 	printf(" Free     :%8ld KB\n", info.free / 1024);
+<a href='../S/60.html#L205'>printf</a>            205 bsp/drv/dev/base/kd.c 	printf(" Total    :%8ld KB\n", info.total / 1024);
+<a href='../S/60.html#L206'>printf</a>            206 bsp/drv/dev/base/kd.c 	printf(" Bootdisk :%8ld KB\n", info.bootdisk / 1024);
+<a href='../S/60.html#L219'>printf</a>            219 bsp/drv/dev/base/kd.c 	printf("Thread list:\n");
+<a href='../S/60.html#L220'>printf</a>            220 bsp/drv/dev/base/kd.c 	printf(" thread   task         stat pol  pri base     time "
+<a href='../S/60.html#L222'>printf</a>            222 bsp/drv/dev/base/kd.c 	printf(" -------- ------------ ---- ---- --- ---- -------- "
+<a href='../S/60.html#L231'>printf</a>            231 bsp/drv/dev/base/kd.c 			printf(" %08lx %12s %s%c %s  %3d  %3d %8d %6d %s\n",
+<a href='../S/60.html#L248'>printf</a>            248 bsp/drv/dev/base/kd.c 	printf("Task list:\n");
+<a href='../S/60.html#L249'>printf</a>            249 bsp/drv/dev/base/kd.c 	printf(" task      name     nthreads flags    suscnt capability   vmsize\n");
+<a href='../S/60.html#L250'>printf</a>            250 bsp/drv/dev/base/kd.c 	printf(" --------- -------- -------- -------- ------ ---------- --------\n");
+<a href='../S/60.html#L258'>printf</a>            258 bsp/drv/dev/base/kd.c 			printf(" %08lx%c %8s %8d %08x %6d   %08x %8d\n",
+<a href='../S/60.html#L275'>printf</a>            275 bsp/drv/dev/base/kd.c 	printf(" virtual  physical     size flags\n");
+<a href='../S/60.html#L276'>printf</a>            276 bsp/drv/dev/base/kd.c 	printf(" -------- -------- -------- -----\n");
+<a href='../S/60.html#L297'>printf</a>            297 bsp/drv/dev/base/kd.c 				printf(" %08lx %08lx %8x %s\n",
+<a href='../S/60.html#L311'>printf</a>            311 bsp/drv/dev/base/kd.c 	printf("VM information:\n");
+<a href='../S/60.html#L320'>printf</a>            320 bsp/drv/dev/base/kd.c 				printf("\ntask=%08lx name=%s total=%dK bytes\n",
+<a href='../S/60.html#L337'>printf</a>            337 bsp/drv/dev/base/kd.c 	printf("Device list:\n");
+<a href='../S/60.html#L338'>printf</a>            338 bsp/drv/dev/base/kd.c 	printf(" device   name         flags\n");
+<a href='../S/60.html#L339'>printf</a>            339 bsp/drv/dev/base/kd.c 	printf(" -------- ------------ -----\n");
+<a href='../S/60.html#L359'>printf</a>            359 bsp/drv/dev/base/kd.c 			printf(" %08lx %12s %s\n", di.id, di.name, flags);
+<a href='../S/60.html#L380'>printf</a>            380 bsp/drv/dev/base/kd.c 	printf("Interrupt table:\n");
+<a href='../S/60.html#L381'>printf</a>            381 bsp/drv/dev/base/kd.c 	printf(" vector count    pending IST pri thread\n");
+<a href='../S/60.html#L382'>printf</a>            382 bsp/drv/dev/base/kd.c 	printf(" ------ -------- ----------- --- --------\n");
+<a href='../S/60.html#L389'>printf</a>            389 bsp/drv/dev/base/kd.c 			printf("   %4d %8d    %8d %3d %08lx\n",
+<a href='../S/60.html#L402'>printf</a>            402 bsp/drv/dev/base/kd.c 	printf("Trap frame:\n");
+<a href='../S/60.html#L412'>printf</a>            412 bsp/drv/dev/base/kd.c 	printf("Device state:\n");
+<a href='../S/60.html#L424'>printf</a>            424 bsp/drv/dev/base/kd.c 		printf("usage: trace taskname\n");
+<a href='../S/60.html#L432'>printf</a>            432 bsp/drv/dev/base/kd.c 	printf("Toggle trace flag: %s (%08lx)\n", argv[1], (long)task);
+<a href='../S/60.html#L491'>printf</a>            491 bsp/drv/dev/base/kd.c 			printf("\n%08lx: ", (long)addr);
+<a href='../S/60.html#L495'>printf</a>            495 bsp/drv/dev/base/kd.c 			printf("%c", *kp);
+<a href='../S/60.html#L499'>printf</a>            499 bsp/drv/dev/base/kd.c 			printf("%02x ", *kp);
+<a href='../S/60.html#L503'>printf</a>            503 bsp/drv/dev/base/kd.c 			printf("%04x ", *(u_short *)kp);
+<a href='../S/60.html#L508'>printf</a>            508 bsp/drv/dev/base/kd.c 			printf("%08lx ", *(u_long *)kp);
+<a href='../S/60.html#L658'>printf</a>            658 bsp/drv/dev/base/kd.c 			printf("\n");
+<a href='../S/60.html#L666'>printf</a>            666 bsp/drv/dev/base/kd.c 				printf("\b");
+<a href='../S/60.html#L667'>printf</a>            667 bsp/drv/dev/base/kd.c 				printf(" ");
+<a href='../S/60.html#L668'>printf</a>            668 bsp/drv/dev/base/kd.c 				printf("\b");
+<a href='../S/60.html#L679'>printf</a>            679 bsp/drv/dev/base/kd.c 			printf("%c", c);
+<a href='../S/60.html#L691'>printf</a>            691 bsp/drv/dev/base/kd.c 	printf("\n-------------------------------\n");
+<a href='../S/60.html#L692'>printf</a>            692 bsp/drv/dev/base/kd.c 	printf(" Entering debugger.\n");
+<a href='../S/60.html#L693'>printf</a>            693 bsp/drv/dev/base/kd.c 	printf(" Type 'help' to list commands.\n");
+<a href='../S/60.html#L694'>printf</a>            694 bsp/drv/dev/base/kd.c 	printf("-------------------------------\n");
+<a href='../S/60.html#L702'>printf</a>            702 bsp/drv/dev/base/kd.c 		printf("\n[kd] ");
+<a href='../S/61.html#L39'>printf</a>             39 bsp/drv/dev/base/main.c #define DPRINTF(a) printf a
+<a href='../S/63.html#L46'>printf</a>             46 bsp/drv/dev/base/pm.c #define DPRINTF(a) printf a
+<a href='../S/64.html#L53'>printf</a>             53 bsp/drv/dev/base/tty.c #define DPRINTF(a) printf a
+<a href='../S/65.html#L42'>printf</a>             42 bsp/drv/dev/base/wscons.c #define DPRINTF(a) printf a
+<a href='../S/65.html#L258'>printf</a>            258 bsp/drv/dev/base/wscons.c 			printf("TTY: save %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L263'>printf</a>            263 bsp/drv/dev/base/wscons.c 			printf("TTY: restore %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/66.html#L54'>printf</a>             54 bsp/drv/dev/block/fdd.c #define DPRINTF(a)	printf a
+<a href='../S/66.html#L667'>printf</a>            667 bsp/drv/dev/block/fdd.c 		printf("Floppy drive not found!\n");
+<a href='../S/68.html#L39'>printf</a>             39 bsp/drv/dev/block/ramdisk.c #define DPRINTF(a)	printf a
+<a href='../S/68.html#L146'>printf</a>            146 bsp/drv/dev/block/ramdisk.c 		printf("ramdisk: no bootdisk found...\n");
+<a href='../S/68.html#L172'>printf</a>            172 bsp/drv/dev/block/ramdisk.c 	printf("RAM disk at 0x%08x (%dK bytes)\n",
+<a href='../S/69.html#L55'>printf</a>             55 bsp/drv/dev/cpufreq/cpufreq.c #define DPRINTF(a) printf a
+<a href='../S/70.html#L65'>printf</a>             65 bsp/drv/dev/cpufreq/est.c #define DPRINTF(a) printf a
+<a href='../S/70.html#L588'>printf</a>            588 bsp/drv/dev/cpufreq/est.c 	printf("Enhanced SpeedStep %d MHz (%d mV)\n", curfreq, curvolts);
+<a href='../S/70.html#L589'>printf</a>            589 bsp/drv/dev/cpufreq/est.c 	printf("Speeds: ");
+<a href='../S/70.html#L591'>printf</a>            591 bsp/drv/dev/cpufreq/est.c 		printf("%d%s", est_fqlist-&gt;table[i].mhz,
+<a href='../S/72.html#L84'>printf</a>             84 bsp/drv/dev/dma/i8237.c #define DPRINTF(a) printf a
+<a href='../S/77.html#L51'>printf</a>             51 bsp/drv/dev/input/psaux.c #define DPRINTF(a) printf a
+<a href='../S/77.html#L130'>printf</a>            130 bsp/drv/dev/input/psaux.c 		printf("kmc_write_aux: error val=%x\n", val);
+<a href='../S/77.html#L207'>printf</a>            207 bsp/drv/dev/input/psaux.c 	printf("Mouse sampling rate=100 samples/sec\n");
+<a href='../S/83.html#L135'>printf</a>            135 bsp/drv/dev/rtc/mc146818.c 	printf("rtc: system time was %d/%d/%d %d:%d:%d\n",
+<a href='../S/84.html#L75'>printf</a>             75 bsp/drv/dev/rtc/pl030.c 	printf("******* sec=%d\n", tv-&gt;tv_sec);
+<a href='../S/87.html#L41'>printf</a>             41 bsp/drv/dev/serial/ns16550.c #define DPRINTF(a) printf a
+<a href='../S/88.html#L41'>printf</a>             41 bsp/drv/dev/serial/pl011.c #define DPRINTF(a) printf a
+<a href='../S/89.html#L43'>printf</a>             43 bsp/drv/dev/serial/serial.c #define DPRINTF(a) printf a
+<a href='../S/91.html#L42'>printf</a>             42 bsp/drv/dev/video/vga.c #define DPRINTF(a) printf a
+<a href='../S/96.html#L151'>printf</a>            151 bsp/drv/include/dki.h void	 printf(const char *, ...);
+<a href='../S/105.html#L48'>printf</a>             48 bsp/drv/lib/assert.c 	printf("\nAssertion failed: %s line:%d '%s'\n", file, line, exp);
+<a href='../S/107.html#L37'>printf</a>             37 bsp/drv/lib/delay.c #define DPRINTF(a) printf a
+<a href='../S/132.html#L88'>printf</a>             88 bsp/hal/arm/arch/trap.c 	printf("=============================\n");
+<a href='../S/132.html#L89'>printf</a>             89 bsp/hal/arm/arch/trap.c 	printf("Trap %x: %s\n", (u_int)trap_no, trap_name[trap_no]);
+<a href='../S/132.html#L91'>printf</a>             91 bsp/hal/arm/arch/trap.c 		printf(" Fault address=%x\n", get_faultaddress());
+<a href='../S/132.html#L93'>printf</a>             93 bsp/hal/arm/arch/trap.c 		printf(" Fault address=%x\n", regs-&gt;pc);
+<a href='../S/132.html#L94'>printf</a>             94 bsp/hal/arm/arch/trap.c 	printf("=============================\n");
+<a href='../S/132.html#L111'>printf</a>            111 bsp/hal/arm/arch/trap.c 	printf("Trap frame %x\n", r);
+<a href='../S/132.html#L112'>printf</a>            112 bsp/hal/arm/arch/trap.c 	printf(" r0  %08x r1  %08x r2  %08x r3  %08x r4  %08x r5  %08x\n",
+<a href='../S/132.html#L114'>printf</a>            114 bsp/hal/arm/arch/trap.c 	printf(" r6  %08x r7  %08x r8  %08x r9  %08x r10 %08x r11 %08x\n",
+<a href='../S/132.html#L116'>printf</a>            116 bsp/hal/arm/arch/trap.c 	printf(" r12 %08x sp  %08x lr  %08x pc  %08x cpsr %08x\n",
+<a href='../S/132.html#L119'>printf</a>            119 bsp/hal/arm/arch/trap.c 	printf(" &gt;&gt; interrupt is %s\n",
+<a href='../S/132.html#L122'>printf</a>            122 bsp/hal/arm/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/159.html#L103'>printf</a>            103 bsp/hal/ppc/arch/trap.c 	printf("============================\n");
+<a href='../S/159.html#L104'>printf</a>            104 bsp/hal/ppc/arch/trap.c 	printf("Trap %x: %s\n", trap_no, trap_name[trap_no]);
+<a href='../S/159.html#L105'>printf</a>            105 bsp/hal/ppc/arch/trap.c 	printf("============================\n");
+<a href='../S/159.html#L122'>printf</a>            122 bsp/hal/ppc/arch/trap.c 	printf("Trap frame %x\n", r);
+<a href='../S/159.html#L123'>printf</a>            123 bsp/hal/ppc/arch/trap.c 	printf(" r0  %08x r1  %08x r2  %08x r3  %08x r4  %08x r5  %08x\n",
+<a href='../S/159.html#L125'>printf</a>            125 bsp/hal/ppc/arch/trap.c 	printf(" r6  %08x r7  %08x r8  %08x r9  %08x r10 %08x r11 %08x\n",
+<a href='../S/159.html#L127'>printf</a>            127 bsp/hal/ppc/arch/trap.c 	printf(" r12 %08x r13 %08x r14 %08x r15 %08x r16 %08x r17 %08x\n",
+<a href='../S/159.html#L129'>printf</a>            129 bsp/hal/ppc/arch/trap.c 	printf(" r18 %08x r19 %08x r20 %08x r21 %08x r22 %08x r23 %08x\n",
+<a href='../S/159.html#L131'>printf</a>            131 bsp/hal/ppc/arch/trap.c 	printf(" r24 %08x r25 %08x r26 %08x r27 %08x r28 %08x r29 %08x\n",
+<a href='../S/159.html#L133'>printf</a>            133 bsp/hal/ppc/arch/trap.c 	printf(" r30 %08x r31 %08x lr  %08x cr  %08x xer %08x ctr %08x\n",
+<a href='../S/159.html#L135'>printf</a>            135 bsp/hal/ppc/arch/trap.c 	printf(" srr0 %08x srr1 %08x\n", r-&gt;srr0, r-&gt;srr1);
+<a href='../S/159.html#L137'>printf</a>            137 bsp/hal/ppc/arch/trap.c 	printf(" &gt;&gt; interrupt is %s\n",
+<a href='../S/159.html#L140'>printf</a>            140 bsp/hal/ppc/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/179.html#L129'>printf</a>            129 bsp/hal/x86/arch/trap.c 	printf("============================\n");
+<a href='../S/179.html#L130'>printf</a>            130 bsp/hal/x86/arch/trap.c 	printf("Trap %x: %s\n", (u_int)trap_no, trap_name[trap_no]);
+<a href='../S/179.html#L132'>printf</a>            132 bsp/hal/x86/arch/trap.c 		printf(" Fault address=%x\n", get_cr2());
+<a href='../S/179.html#L133'>printf</a>            133 bsp/hal/x86/arch/trap.c 	printf("============================\n");
+<a href='../S/179.html#L136'>printf</a>            136 bsp/hal/x86/arch/trap.c 		printf("Trap in kernel!\n");
+<a href='../S/179.html#L168'>printf</a>            168 bsp/hal/x86/arch/trap.c 	printf("Trap frame %08lx error %x\n", (long)r, r-&gt;err_code);
+<a href='../S/179.html#L169'>printf</a>            169 bsp/hal/x86/arch/trap.c 	printf(" eax %08x ebx %08x ecx %08x edx %08x esi %08x edi %08x\n",
+<a href='../S/179.html#L171'>printf</a>            171 bsp/hal/x86/arch/trap.c 	printf(" eip %08x esp %08x ebp %08x eflags %08x\n",
+<a href='../S/179.html#L173'>printf</a>            173 bsp/hal/x86/arch/trap.c 	printf(" cs  %08x ss  %08x ds  %08x es  %08x esp0 %08x\n",
+<a href='../S/179.html#L176'>printf</a>            176 bsp/hal/x86/arch/trap.c 	printf(" &gt;&gt; interrupt is %s\n", (spl == 0) ? "enabled" : "disabled");
+<a href='../S/179.html#L178'>printf</a>            178 bsp/hal/x86/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/179.html#L181'>printf</a>            181 bsp/hal/x86/arch/trap.c 		printf("Stack trace:\n");
+<a href='../S/179.html#L189'>printf</a>            189 bsp/hal/x86/arch/trap.c 			printf(" %08x\n", *(fp + 1));
+<a href='../S/304.html#L45'>printf</a>             45 sys/include/debug.h #define DPRINTF(a)	printf a
+<a href='../S/304.html#L56'>printf</a>             56 sys/include/debug.h void	printf(const char *, ...);
+<a href='../S/326.html#L98'>printf</a>             98 sys/kern/debug.c 	printf("Assertion failed: %s line:%d '%s'\n", file, line, exp);
+<a href='../S/326.html#L111'>printf</a>            111 sys/kern/debug.c 	printf("Kernel panic: %s\n", msg);
+<a href='../S/327.html#L110'>printf</a>            110 sys/kern/device.c 	/* 35 */ DKIENT(printf),
+<a href='../S/332.html#L185'>printf</a>            185 sys/kern/sysent.c 			printf("%s: OUT OF RANGE (%d)\n",
+<a href='../S/332.html#L192'>printf</a>            192 sys/kern/sysent.c 		printf("%s: %s(", curtask-&gt;name, callp-&gt;sy_name);
+<a href='../S/332.html#L195'>printf</a>            195 sys/kern/sysent.c 			printf(")\n");
+<a href='../S/332.html#L198'>printf</a>            198 sys/kern/sysent.c 			printf("0x%08x)\n", a1);
+<a href='../S/332.html#L201'>printf</a>            201 sys/kern/sysent.c 			printf("0x%08x, 0x%08x)\n", a1, a2);
+<a href='../S/332.html#L204'>printf</a>            204 sys/kern/sysent.c 			printf("0x%08x, 0x%08x, 0x%08x)\n",
+<a href='../S/332.html#L208'>printf</a>            208 sys/kern/sysent.c 			printf("0x%08x, 0x%08x, 0x%08x, 0x%08x)\n",
+<a href='../S/332.html#L232'>printf</a>            232 sys/kern/sysent.c 			printf("%s: !!! %s() = 0x%08x\n",
+<a href='../S/333.html#L166'>printf</a>            166 sys/kern/system.c 	printf("%s", buf);
+<a href='../S/333.html#L215'>printf</a>            215 sys/kern/system.c 	printf("User panic: %s\n", str);
+<a href='../S/333.html#L216'>printf</a>            216 sys/kern/system.c 	printf(" task=%s thread=%lx\n", curtask-&gt;name, (long)curthread);
+<a href='../S/368.html#L40'>printf</a>             40 usr/bin/clear/clear.c 	printf("\33[2J");
+<a href='../S/376.html#L52'>printf</a>             52 usr/bin/date/date.c 	printf("%s\n", buf);
+<a href='../S/380.html#L52'>printf</a>             52 usr/bin/echo/echo.c 		(void)printf("%s", *argv);
+<a href='../S/382.html#L49'>printf</a>             49 usr/bin/free/free.c 	printf("          total       used       free   bootdisk\n");
+<a href='../S/382.html#L50'>printf</a>             50 usr/bin/free/free.c 	printf("Mem: %10d %10d %10d %10d\n", (u_int)info.total,
+<a href='../S/384.html#L85'>printf</a>             85 usr/bin/head/head.c 				(void)printf("%s==&gt; %s &lt;==\n",
+<a href='../S/386.html#L49'>printf</a>             49 usr/bin/hostname/hostname.c 		printf("%s\n", hostname);
+<a href='../S/388.html#L74'>printf</a>             74 usr/bin/kill/kill.c 			printf("%s\n", sys_signame[numsig]);
+<a href='../S/390.html#L206'>printf</a>            206 usr/bin/ls/ls.c 		printf("------");
+<a href='../S/390.html#L209'>printf</a>            209 usr/bin/ls/ls.c 		printf("  1 ");
+<a href='../S/390.html#L212'>printf</a>            212 usr/bin/ls/ls.c 		printf("prex   ");
+<a href='../S/390.html#L215'>printf</a>            215 usr/bin/ls/ls.c 		printf("%s 12:00 ", __DATE__);
+<a href='../S/390.html#L218'>printf</a>            218 usr/bin/ls/ls.c 		printf("%7d ", (int)sp-&gt;st_size);
+<a href='../S/390.html#L222'>printf</a>            222 usr/bin/ls/ls.c 	printf("\033[%dm", color);
+<a href='../S/390.html#L223'>printf</a>            223 usr/bin/ls/ls.c 	printf("%s", name);
+<a href='../S/390.html#L231'>printf</a>            231 usr/bin/ls/ls.c 	printf("\033[0m");
+<a href='../S/390.html#L238'>printf</a>            238 usr/bin/ls/ls.c 			printf("\n");
+<a href='../S/390.html#L297'>printf</a>            297 usr/bin/ls/ls.c 			printf("total %d\n", nr_file);
+<a href='../S/396.html#L91'>printf</a>             91 usr/bin/more/more.c 			len = printf("\n--More-- ");
+<a href='../S/396.html#L95'>printf</a>             95 usr/bin/more/more.c 			printf("\033[1A"); /* up cursor */
+<a href='../S/402.html#L68'>printf</a>             68 usr/bin/printenv/printenv.c 			(void)printf("%s\n", *ep);
+<a href='../S/402.html#L76'>printf</a>             76 usr/bin/printenv/printenv.c 				(void)printf("%s\n", *cp ? cp + 1 : cp);
+<a href='../S/404.html#L110'>printf</a>            110 usr/bin/ps/ps.c 		printf("  PID  PPID PRI STAT POL      TIME WCHAN       CMD\n");
+<a href='../S/404.html#L112'>printf</a>            112 usr/bin/ps/ps.c 		printf("  PID     TIME CMD\n");
+<a href='../S/404.html#L130'>printf</a>            130 usr/bin/ps/ps.c 					printf("    -     -"); /* kernel */
+<a href='../S/404.html#L132'>printf</a>            132 usr/bin/ps/ps.c 					printf("%5d %5d", pi.pid, pi.ppid);
+<a href='../S/404.html#L134'>printf</a>            134 usr/bin/ps/ps.c 				printf(" %3d %s    %s %8d "
+<a href='../S/404.html#L143'>printf</a>            143 usr/bin/ps/ps.c 					printf("    -"); /* kernel */
+<a href='../S/404.html#L145'>printf</a>            145 usr/bin/ps/ps.c 					printf("%5d", pi.pid);
+<a href='../S/404.html#L147'>printf</a>            147 usr/bin/ps/ps.c 				printf(" %8d %-11s\n", ti.time, ti.taskname);
+<a href='../S/411.html#L123'>printf</a>            123 usr/bin/sh/cmds.c 	printf("mem = %d\n", (u_int)info.total);
+<a href='../S/415.html#L175'>printf</a>            175 usr/bin/sh/var.c 			printf("%s=%s\n", var-&gt;name, var-&gt;val);
+<a href='../S/425.html#L101'>printf</a>            101 usr/bin/uname/uname.c 		printf("%s ", uts.sysname);
+<a href='../S/425.html#L104'>printf</a>            104 usr/bin/uname/uname.c 		printf("%s ", uts.release);
+<a href='../S/425.html#L107'>printf</a>            107 usr/bin/uname/uname.c 		printf("%s ", uts.version);
+<a href='../S/425.html#L110'>printf</a>            110 usr/bin/uname/uname.c 		printf("%s ", uts.machine);
+<a href='../S/425.html#L113'>printf</a>            113 usr/bin/uname/uname.c 		printf("%s", uts.nodename);
+<a href='../S/441.html#L211'>printf</a>            211 usr/include/stdio.h int	 printf(const char *, ...);
+<a href='../S/479.html#L586'>printf</a>            586 usr/lib/libc/gen/fts.c 	(void)printf("nlinks == %d (cur: %d)\n", nlinks, cur-&gt;fts_nlink);
+<a href='../S/479.html#L587'>printf</a>            587 usr/lib/libc/gen/fts.c 	(void)printf("NOSTAT %d PHYSICAL %d SEEDOT %d\n",
+<a href='../S/752.html#L174'>printf</a>            174 usr/lib/prex/malloc/malloc.c 	printf("mstat: task=%x\n", task_self());
+<a href='../S/752.html#L176'>printf</a>            176 usr/lib/prex/malloc/malloc.c 		printf("mstat: addr=%x size=%d next=%x\n", p, p-&gt;size, p-&gt;next);
+<a href='../S/827.html#L72'>printf</a>             72 usr/sample/alarm/alarm.c 			printf("End...\n");
+<a href='../S/827.html#L77'>printf</a>             77 usr/sample/alarm/alarm.c 		printf("Ring! count=%ld time=%d msec\n", count,
+<a href='../S/827.html#L89'>printf</a>             89 usr/sample/alarm/alarm.c 	printf("Alarm sample program\n");
+<a href='../S/827.html#L105'>printf</a>            105 usr/sample/alarm/alarm.c 	printf("Start alarm timer\n");
+<a href='../S/827.html#L114'>printf</a>            114 usr/sample/alarm/alarm.c 	printf("Test completed...\n");
+<a href='../S/829.html#L84'>printf</a>             84 usr/sample/balls/balls.c 		printf("\33[%d;%dH ", old_y / 10, old_x / 10);
+<a href='../S/829.html#L87'>printf</a>             87 usr/sample/balls/balls.c 		printf("\33[%d;%dH*", y / 10, x / 10);
+<a href='../S/829.html#L128'>printf</a>            128 usr/sample/balls/balls.c 	printf("\33[2J");
+<a href='../S/831.html#L65'>printf</a>             65 usr/sample/bench/bench.c 	printf("Benchmark to create/terminate %d threads\n", NR_THREADS);
+<a href='../S/831.html#L106'>printf</a>            106 usr/sample/bench/bench.c 	printf("Complete. The score is %d msec (%d ticks).\n",
+<a href='../S/833.html#L55'>printf</a>             55 usr/sample/cpumon/cpumon.c 	printf("\33[2J");
+<a href='../S/833.html#L57'>printf</a>             57 usr/sample/cpumon/cpumon.c 	printf("CPU voltage monitor\n");
+<a href='../S/833.html#L73'>printf</a>             73 usr/sample/cpumon/cpumon.c 			printf("\33[s"); /* save cursor */
+<a href='../S/833.html#L78'>printf</a>             78 usr/sample/cpumon/cpumon.c 			printf("\nSpeed: %4dMHz  0|", cf_info.freq);
+<a href='../S/833.html#L83'>printf</a>             83 usr/sample/cpumon/cpumon.c 			printf("%s|100", bar);
+<a href='../S/833.html#L88'>printf</a>             88 usr/sample/cpumon/cpumon.c 			printf("\nPower: %4dmV   0|", cf_info.volts);
+<a href='../S/833.html#L93'>printf</a>             93 usr/sample/cpumon/cpumon.c 			printf("%s|100", bar);
+<a href='../S/833.html#L95'>printf</a>             95 usr/sample/cpumon/cpumon.c 			printf("\33[u"); /* restore cursor */
+<a href='../S/835.html#L36'>printf</a>             36 usr/sample/hello/hello.c 	printf("Hello, world!\n");
+<a href='../S/837.html#L88'>printf</a>             88 usr/sample/ipc/ipc.c 	printf("client: Received \"%s\"\n", msg.str);
+<a href='../S/837.html#L101'>printf</a>            101 usr/sample/ipc/ipc.c 	printf("Client is started\n");
+<a href='../S/837.html#L121'>printf</a>            121 usr/sample/ipc/ipc.c 	printf("Exit client task...\n");
+<a href='../S/837.html#L133'>printf</a>            133 usr/sample/ipc/ipc.c 	printf("IPC sample program\n");
+<a href='../S/837.html#L166'>printf</a>            166 usr/sample/ipc/ipc.c 		printf("server: Received \"%s\"\n", msg.str);
+<a href='../S/837.html#L183'>printf</a>            183 usr/sample/ipc/ipc.c 	printf("End...\n");
+<a href='../S/841.html#L72'>printf</a>             72 usr/sample/mutex/mutex.c 		printf("th_1: pri=%d\n", pri);
+<a href='../S/841.html#L75'>printf</a>             75 usr/sample/mutex/mutex.c 		printf("th_2: pri=%d\n", pri);
+<a href='../S/841.html#L78'>printf</a>             78 usr/sample/mutex/mutex.c 		printf("th_3: pri=%d\n", pri);
+<a href='../S/841.html#L101'>printf</a>            101 usr/sample/mutex/mutex.c 	printf("thread_1: starting\n");
+<a href='../S/841.html#L110'>printf</a>            110 usr/sample/mutex/mutex.c 	printf("thread_1: 4) lock B\n");
+<a href='../S/841.html#L113'>printf</a>            113 usr/sample/mutex/mutex.c 	printf("thread_1: running\n");
+<a href='../S/841.html#L119'>printf</a>            119 usr/sample/mutex/mutex.c 	printf("thread_1: 7) unlock B\n");
+<a href='../S/841.html#L123'>printf</a>            123 usr/sample/mutex/mutex.c 	printf("thread_1: exit\n");
+<a href='../S/841.html#L133'>printf</a>            133 usr/sample/mutex/mutex.c 	printf("thread_2: starting\n");
+<a href='../S/841.html#L138'>printf</a>            138 usr/sample/mutex/mutex.c 	printf("thread_2: 2) lock B\n");
+<a href='../S/841.html#L148'>printf</a>            148 usr/sample/mutex/mutex.c 	printf("thread_2: 3) lock A\n");
+<a href='../S/841.html#L151'>printf</a>            151 usr/sample/mutex/mutex.c 	printf("thread_2: running\n");
+<a href='../S/841.html#L157'>printf</a>            157 usr/sample/mutex/mutex.c 	printf("thread_2: 6) unlock B\n");
+<a href='../S/841.html#L165'>printf</a>            165 usr/sample/mutex/mutex.c 	printf("thread_2: 8) unlock A\n");
+<a href='../S/841.html#L168'>printf</a>            168 usr/sample/mutex/mutex.c 	printf("thread_2: exit\n");
+<a href='../S/841.html#L179'>printf</a>            179 usr/sample/mutex/mutex.c 	printf("thread_3: start\n");
+<a href='../S/841.html#L184'>printf</a>            184 usr/sample/mutex/mutex.c 	printf("thread_3: 1) lock A\n");
+<a href='../S/841.html#L196'>printf</a>            196 usr/sample/mutex/mutex.c 	printf("thread_3: running-1\n");
+<a href='../S/841.html#L203'>printf</a>            203 usr/sample/mutex/mutex.c 	printf("thread_3: running-2\n");
+<a href='../S/841.html#L209'>printf</a>            209 usr/sample/mutex/mutex.c 	printf("thread_3: 5) unlock A\n");
+<a href='../S/841.html#L213'>printf</a>            213 usr/sample/mutex/mutex.c 	printf("thread_3: exit\n");
+<a href='../S/841.html#L220'>printf</a>            220 usr/sample/mutex/mutex.c 	printf("Mutex sample program\n");
+<a href='../S/843.html#L66'>printf</a>             66 usr/sample/sem/sem.c 	printf("Start thread=%x\n", (u_int)t);
+<a href='../S/843.html#L77'>printf</a>             77 usr/sample/sem/sem.c 	printf("Running thread=%x\n", (u_int)t);
+<a href='../S/843.html#L85'>printf</a>             85 usr/sample/sem/sem.c 	printf("End thread=%x\n", (u_int)t);
+<a href='../S/843.html#L95'>printf</a>             95 usr/sample/sem/sem.c 	printf("Semaphore sample program\n");
+<a href='../S/845.html#L78'>printf</a>             78 usr/sample/task/task.c 	printf("Task %x: Hey, Yo!\n", (u_int)self);
+<a href='../S/845.html#L88'>printf</a>             88 usr/sample/task/task.c 	printf("Task %x: Bye!\n", (u_int)self);
+<a href='../S/845.html#L97'>printf</a>             97 usr/sample/task/task.c 	printf("Task sample program\n");
+<a href='../S/849.html#L64'>printf</a>             64 usr/sample/tetris/screen.c #define	putstr(s)	printf("%s", s)
+<a href='../S/849.html#L65'>printf</a>             65 usr/sample/tetris/screen.c #define	moveto(r, c)	printf("\33[%d;%dH", r, c)
+<a href='../S/849.html#L138'>printf</a>            138 usr/sample/tetris/screen.c 	printf("\33[2J");
+<a href='../S/849.html#L164'>printf</a>            164 usr/sample/tetris/screen.c 		printf("%d", score);
+<a href='../S/852.html#L274'>printf</a>            274 usr/sample/tetris/tetris.c 	(void)printf("Your score:  %d point%s  x  level %d  =  %d\n",
+<a href='../S/855.html#L132'>printf</a>            132 usr/sample/thread/thread.c 	printf("Thread sample program\n");
+<a href='../S/855.html#L158'>printf</a>            158 usr/sample/thread/thread.c 	printf("test - OK!\n");
+<a href='../S/866.html#L71'>printf</a>             71 usr/sbin/lock/lock.c 		printf("Passcode is not set.\n");
+<a href='../S/866.html#L76'>printf</a>             76 usr/sbin/lock/lock.c 		printf("Invalid passcode is set.\n");
+<a href='../S/866.html#L87'>printf</a>             87 usr/sbin/lock/lock.c 			printf("Mismatch.\n");
+<a href='../S/866.html#L100'>printf</a>            100 usr/sbin/lock/lock.c 	printf("\33[2J");	/* clear screen */
+<a href='../S/866.html#L101'>printf</a>            101 usr/sbin/lock/lock.c 	printf("Device is locked.\n");
+<a href='../S/866.html#L131'>printf</a>            131 usr/sbin/lock/lock.c 			printf("Passcode unchanged.\n");
+<a href='../S/866.html#L136'>printf</a>            136 usr/sbin/lock/lock.c 			printf("Please enter 4 digit number for passcode.\n");
+<a href='../S/866.html#L142'>printf</a>            142 usr/sbin/lock/lock.c 		printf("Mismatch; try again, EOF to quit.\n");
+<a href='../S/870.html#L111'>printf</a>            111 usr/sbin/pmctrl/pmctrl.c 	printf("Do you want to %s the system now? (y/n) ", action);
+<a href='../S/870.html#L126'>printf</a>            126 usr/sbin/pmctrl/pmctrl.c 	printf("Shutdown system...\n");
+<a href='../S/870.html#L141'>printf</a>            141 usr/sbin/pmctrl/pmctrl.c 	printf("Reboot system...\n");
+<a href='../S/870.html#L156'>printf</a>            156 usr/sbin/pmctrl/pmctrl.c 	printf("Suspend system...\n");
+<a href='../S/870.html#L174'>printf</a>            174 usr/sbin/pmctrl/pmctrl.c 	printf("Power policy   : %s mode\n",
+<a href='../S/870.html#L180'>printf</a>            180 usr/sbin/pmctrl/pmctrl.c 	printf("Suspend timeout: %d sec\n", timeout);
+<a href='../S/870.html#L185'>printf</a>            185 usr/sbin/pmctrl/pmctrl.c 	printf("Dim timeout    : %d sec\n", timeout);
+<a href='../S/926.html#L46'>printf</a>             46 usr/test/args/args.c 	printf("argument test\n");
+<a href='../S/926.html#L51'>printf</a>             51 usr/test/args/args.c 	printf("argc=%d argv=%x\n", argc, (unsigned int)argv);
+<a href='../S/926.html#L52'>printf</a>             52 usr/test/args/args.c 	printf("Dump args:\n");
+<a href='../S/926.html#L55'>printf</a>             55 usr/test/args/args.c 		printf("argv[%d]: %s\n", i, argv[i]);
+<a href='../S/926.html#L57'>printf</a>             57 usr/test/args/args.c 	printf("Dump envs:\n");
+<a href='../S/926.html#L60'>printf</a>             60 usr/test/args/args.c 		printf("envp[%d]: %s\n", i, envp[i]);
+<a href='../S/928.html#L105'>printf</a>            105 usr/test/attack/attack.c 	printf("starting invalid parameter attack.\n");
+<a href='../S/928.html#L110'>printf</a>            110 usr/test/attack/attack.c 	printf("test complete\n");
+<a href='../S/930.html#L43'>printf</a>             43 usr/test/conf/conf.c 	printf("configuration test\n");
+<a href='../S/930.html#L47'>printf</a>             47 usr/test/conf/conf.c 		printf("no mem\n");
+<a href='../S/930.html#L51'>printf</a>             51 usr/test/conf/conf.c 	printf("_CS_PATH=%s\n", pathbuf);
+<a href='../S/934.html#L58'>printf</a>             58 usr/test/cpufreq/cpufreq.c 		printf("\rCPU Busy:");
+<a href='../S/934.html#L69'>printf</a>             69 usr/test/cpufreq/cpufreq.c 				printf("%s", bar);
+<a href='../S/934.html#L75'>printf</a>             75 usr/test/cpufreq/cpufreq.c 		printf("\rCPU Idle  ");
+<a href='../S/934.html#L88'>printf</a>             88 usr/test/cpufreq/cpufreq.c 	printf("\rCPU half speed:");
+<a href='../S/934.html#L96'>printf</a>             96 usr/test/cpufreq/cpufreq.c 			printf("%s", bar);
+<a href='../S/934.html#L116'>printf</a>            116 usr/test/cpufreq/cpufreq.c 	printf("cpufreq test program\n");
+<a href='../S/938.html#L82'>printf</a>             82 usr/test/deadlock/deadlock.c 	printf("thread_1: starting\n");
+<a href='../S/938.html#L87'>printf</a>             87 usr/test/deadlock/deadlock.c 	printf("thread_1: 2) lock B\n");
+<a href='../S/938.html#L89'>printf</a>             89 usr/test/deadlock/deadlock.c 	if (error) printf("error=%d\n", error);
+<a href='../S/938.html#L96'>printf</a>             96 usr/test/deadlock/deadlock.c 	printf("thread_1: 3) lock A\n");
+<a href='../S/938.html#L98'>printf</a>             98 usr/test/deadlock/deadlock.c 	if (error) printf("error=%d\n", error);
+<a href='../S/938.html#L100'>printf</a>            100 usr/test/deadlock/deadlock.c 	printf("thread_1: exit\n");
+<a href='../S/938.html#L112'>printf</a>            112 usr/test/deadlock/deadlock.c 	printf("thread_2: starting\n");
+<a href='../S/938.html#L117'>printf</a>            117 usr/test/deadlock/deadlock.c 	printf("thread_2: 1) lock A\n");
+<a href='../S/938.html#L119'>printf</a>            119 usr/test/deadlock/deadlock.c 	if (error) printf("error=%d\n", error);
+<a href='../S/938.html#L126'>printf</a>            126 usr/test/deadlock/deadlock.c 	printf("thread_2: running\n");
+<a href='../S/938.html#L132'>printf</a>            132 usr/test/deadlock/deadlock.c 	printf("thread_2: 4) lock B\n");
+<a href='../S/938.html#L134'>printf</a>            134 usr/test/deadlock/deadlock.c 	if (error) printf("error=%d\n", error);
+<a href='../S/938.html#L136'>printf</a>            136 usr/test/deadlock/deadlock.c 		printf("**** DEADLOCK!! ****\n");
+<a href='../S/938.html#L138'>printf</a>            138 usr/test/deadlock/deadlock.c 	printf("thread_2: exit\n");
+<a href='../S/938.html#L145'>printf</a>            145 usr/test/deadlock/deadlock.c 	printf("Deadlock test program\n");
+<a href='../S/940.html#L61'>printf</a>             61 usr/test/dup/dup.c 	printf("1..17\n");
+<a href='../S/940.html#L66'>printf</a>             66 usr/test/dup/dup.c 	printf("ok %d - dup(2) works\n", ++test);
+<a href='../S/940.html#L75'>printf</a>             75 usr/test/dup/dup.c 	printf("ok %d - dup2(2) works\n", ++test);
+<a href='../S/940.html#L80'>printf</a>             80 usr/test/dup/dup.c 		printf("no ok %d - dup2(2) didn't give us the right fd\n",
+<a href='../S/940.html#L83'>printf</a>             83 usr/test/dup/dup.c 		printf("ok %d - dup2(2) returned a correct fd\n", test);
+<a href='../S/940.html#L89'>printf</a>             89 usr/test/dup/dup.c 		printf("not ok %d - dup2(2) didn't clear close-on-exec\n",
+<a href='../S/940.html#L92'>printf</a>             92 usr/test/dup/dup.c 		printf("ok %d - dup2(2) cleared close-on-exec\n", test);
+<a href='../S/940.html#L123'>printf</a>            123 usr/test/dup/dup.c 	printf("ok %d - dup2(2) to itself works\n", ++test);
+<a href='../S/940.html#L128'>printf</a>            128 usr/test/dup/dup.c 		printf("not ok %d - dup2(2) didn't give us the right fd\n",
+<a href='../S/940.html#L131'>printf</a>            131 usr/test/dup/dup.c 		printf("ok %d - dup2(2) to itself returned a correct fd\n",
+<a href='../S/940.html#L138'>printf</a>            138 usr/test/dup/dup.c 		printf("not ok %d - dup2(2) cleared close-on-exec\n", test);
+<a href='../S/940.html#L140'>printf</a>            140 usr/test/dup/dup.c 		printf("ok %d - dup2(2) didn't clear close-on-exec\n", test);
+<a href='../S/940.html#L146'>printf</a>            146 usr/test/dup/dup.c 	printf("ok %d - fcntl(F_DUPFD) works\n", ++test);
+<a href='../S/940.html#L152'>printf</a>            152 usr/test/dup/dup.c 		printf(
+<a href='../S/940.html#L156'>printf</a>            156 usr/test/dup/dup.c 		printf("ok %d - fcntl(F_DUPFD) cleared close-on-exec\n", test);
+<a href='../S/940.html#L163'>printf</a>            163 usr/test/dup/dup.c 		printf("not ok %d - dup2(2) bypassed NOFILE limit\n", test);
+<a href='../S/940.html#L165'>printf</a>            165 usr/test/dup/dup.c 		printf("ok %d - dup2(2) didn't bypass NOFILE limit\n", test);
+<a href='../S/942.html#L43'>printf</a>             43 usr/test/environ/environ.c 	printf("oops!\n");
+<a href='../S/942.html#L54'>printf</a>             54 usr/test/environ/environ.c 		printf("envp[%d]: %s\n", i, envp[i]);
+<a href='../S/942.html#L63'>printf</a>             63 usr/test/environ/environ.c 	printf("test environment variables\n");
+<a href='../S/942.html#L66'>printf</a>             66 usr/test/environ/environ.c 	printf("show env\n");
+<a href='../S/942.html#L70'>printf</a>             70 usr/test/environ/environ.c 	printf("setenv-1\n");
+<a href='../S/942.html#L75'>printf</a>             75 usr/test/environ/environ.c 	printf("setenv-2\n");
+<a href='../S/942.html#L80'>printf</a>             80 usr/test/environ/environ.c 	printf("setenv-3\n");
+<a href='../S/942.html#L85'>printf</a>             85 usr/test/environ/environ.c 	printf("setenv-4\n");
+<a href='../S/942.html#L90'>printf</a>             90 usr/test/environ/environ.c 	printf("getenv-1\n");
+<a href='../S/942.html#L96'>printf</a>             96 usr/test/environ/environ.c 	printf("getenv-2\n");
+<a href='../S/942.html#L100'>printf</a>            100 usr/test/environ/environ.c 	printf("PATH=%s\n", val);
+<a href='../S/942.html#L103'>printf</a>            103 usr/test/environ/environ.c 	printf("putenv-1\n");
+<a href='../S/942.html#L107'>printf</a>            107 usr/test/environ/environ.c 	printf("putenv-2\n");
+<a href='../S/944.html#L44'>printf</a>             44 usr/test/errno/errno.c 	printf("Dump errno\n");
+<a href='../S/944.html#L46'>printf</a>             46 usr/test/errno/errno.c 		printf("error #%d:%s\n", i, strerror(i));
+<a href='../S/946.html#L40'>printf</a>             40 usr/test/exception/exception.c 	printf("Get exception code=%x\n", code);
+<a href='../S/946.html#L53'>printf</a>             53 usr/test/exception/exception.c 	printf("Exception test program\n");
+<a href='../S/946.html#L75'>printf</a>             75 usr/test/exception/exception.c 	printf("OK\n");
+<a href='../S/948.html#L43'>printf</a>             43 usr/test/fault/fault.c 	printf("Fault test program is staring...\n");
+<a href='../S/948.html#L44'>printf</a>             44 usr/test/fault/fault.c 	printf("Waiting for key input.\n");
+<a href='../S/948.html#L48'>printf</a>             48 usr/test/fault/fault.c 	printf("Key pressed!\n");
+<a href='../S/948.html#L49'>printf</a>             49 usr/test/fault/fault.c 	printf("Try to read from NULL pointer\n");
+<a href='../S/950.html#L48'>printf</a>             48 usr/test/fdd/fdd.c 	printf("open fd0\n");
+<a href='../S/950.html#L51'>printf</a>             51 usr/test/fdd/fdd.c 		printf("open failed\n");
+<a href='../S/950.html#L54'>printf</a>             54 usr/test/fdd/fdd.c 	printf("opened\n");
+<a href='../S/950.html#L56'>printf</a>             56 usr/test/fdd/fdd.c 	printf("fdd read: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/950.html#L60'>printf</a>             60 usr/test/fdd/fdd.c 		printf("read failed\n");
+<a href='../S/950.html#L64'>printf</a>             64 usr/test/fdd/fdd.c 	printf("read comp: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/950.html#L68'>printf</a>             68 usr/test/fdd/fdd.c 			printf("%02x ", disk_buf[i * 16 + j]);
+<a href='../S/950.html#L69'>printf</a>             69 usr/test/fdd/fdd.c 		printf("    ");
+<a href='../S/950.html#L78'>printf</a>             78 usr/test/fdd/fdd.c 		printf("\n");
+<a href='../S/950.html#L80'>printf</a>             80 usr/test/fdd/fdd.c 	printf("\n");
+<a href='../S/950.html#L83'>printf</a>             83 usr/test/fdd/fdd.c 		printf("close failed\n");
+<a href='../S/950.html#L96'>printf</a>             96 usr/test/fdd/fdd.c 	printf("open fd0\n");
+<a href='../S/950.html#L99'>printf</a>             99 usr/test/fdd/fdd.c 		printf("open failed\n");
+<a href='../S/950.html#L102'>printf</a>            102 usr/test/fdd/fdd.c 	printf("opened\n");
+<a href='../S/950.html#L107'>printf</a>            107 usr/test/fdd/fdd.c 		printf("read failed\n");
+<a href='../S/950.html#L111'>printf</a>            111 usr/test/fdd/fdd.c 	printf("read comp sector=%d\n", sector);
+<a href='../S/950.html#L116'>printf</a>            116 usr/test/fdd/fdd.c 		printf("write failed\n");
+<a href='../S/950.html#L120'>printf</a>            120 usr/test/fdd/fdd.c 	printf("write comp sector=%d\n", sector);
+<a href='../S/950.html#L124'>printf</a>            124 usr/test/fdd/fdd.c 		printf("close failed\n");
+<a href='../S/952.html#L50'>printf</a>             50 usr/test/fifo/fifo.c 	printf("FIFO test program\n");
+<a href='../S/952.html#L63'>printf</a>             63 usr/test/fifo/fifo.c 		printf("child: task=%x\n", (int)task_self());
+<a href='../S/952.html#L71'>printf</a>             71 usr/test/fifo/fifo.c 			printf("child: reading data from FIFO\n");
+<a href='../S/952.html#L76'>printf</a>             76 usr/test/fifo/fifo.c 			printf("child: length=%d data=%s\n", len, buf1);
+<a href='../S/952.html#L79'>printf</a>             79 usr/test/fifo/fifo.c 		printf("child: exit\n");
+<a href='../S/952.html#L82'>printf</a>             82 usr/test/fifo/fifo.c 	printf("parent: task=%x\n", (int)task_self());
+<a href='../S/952.html#L90'>printf</a>             90 usr/test/fifo/fifo.c 		printf("parent: please input string...\n");
+<a href='../S/952.html#L94'>printf</a>             94 usr/test/fifo/fifo.c 		printf("parent: writing to FIFO\n");
+<a href='../S/952.html#L98'>printf</a>             98 usr/test/fifo/fifo.c 	printf("parent: exit\n");
+<a href='../S/956.html#L46'>printf</a>             46 usr/test/fork/fork.c 	printf("Test fork\n");
+<a href='../S/956.html#L60'>printf</a>             60 usr/test/fork/fork.c 	printf("Done.\n");
+<a href='../S/960.html#L74'>printf</a>             74 usr/test/ipc/ipc.c 	printf("Send thread is starting...\n");
+<a href='../S/960.html#L90'>printf</a>             90 usr/test/ipc/ipc.c 	printf("Delete object A\n");
+<a href='../S/960.html#L101'>printf</a>            101 usr/test/ipc/ipc.c 	printf("Send message to object B.\n");
+<a href='../S/960.html#L104'>printf</a>            104 usr/test/ipc/ipc.c 	printf("Send completed.\n");
+<a href='../S/960.html#L115'>printf</a>            115 usr/test/ipc/ipc.c 	printf("IPC test program\n");
+<a href='../S/960.html#L151'>printf</a>            151 usr/test/ipc/ipc.c 	printf("Wait message from object A\n");
+<a href='../S/960.html#L154'>printf</a>            154 usr/test/ipc/ipc.c 		printf("Receive error!\n");
+<a href='../S/960.html#L156'>printf</a>            156 usr/test/ipc/ipc.c 		printf("Rreceive ok!\n");
+<a href='../S/960.html#L163'>printf</a>            163 usr/test/ipc/ipc.c 	printf("Wait message from object B\n");
+<a href='../S/960.html#L166'>printf</a>            166 usr/test/ipc/ipc.c 		printf("Receive error!\n");
+<a href='../S/960.html#L168'>printf</a>            168 usr/test/ipc/ipc.c 		printf("Receive ok!\n");
+<a href='../S/960.html#L172'>printf</a>            172 usr/test/ipc/ipc.c 	printf("Test completed...\n");
+<a href='../S/962.html#L77'>printf</a>             77 usr/test/ipc_mt/ipc_mt.c 	printf("Receiver thread is starting...\n");
+<a href='../S/962.html#L90'>printf</a>             90 usr/test/ipc_mt/ipc_mt.c 		printf("Wait message.\n");
+<a href='../S/962.html#L93'>printf</a>             93 usr/test/ipc_mt/ipc_mt.c 		printf("Message received.\n");
+<a href='../S/962.html#L99'>printf</a>             99 usr/test/ipc_mt/ipc_mt.c 		printf("Reply message.\n");
+<a href='../S/962.html#L112'>printf</a>            112 usr/test/ipc_mt/ipc_mt.c 	printf("IPC test for multi threads\n");
+<a href='../S/962.html#L129'>printf</a>            129 usr/test/ipc_mt/ipc_mt.c 	printf("ok?\n");
+<a href='../S/966.html#L75'>printf</a>             75 usr/test/kmon/cmd.c 		printf("%s - %s\n", cmd_table[i].cmd, cmd_table[i].usage);
+<a href='../S/966.html#L87'>printf</a>             87 usr/test/kmon/cmd.c 	printf("Kernel version:\n");
+<a href='../S/966.html#L88'>printf</a>             88 usr/test/kmon/cmd.c 	printf("%s version %s for %s\n",
+<a href='../S/966.html#L99'>printf</a>             99 usr/test/kmon/cmd.c 	printf("Memory usage:\n");
+<a href='../S/966.html#L100'>printf</a>            100 usr/test/kmon/cmd.c 	printf(" Used     : %8d KB\n",
+<a href='../S/966.html#L102'>printf</a>            102 usr/test/kmon/cmd.c 	printf(" Free     : %8d KB\n", (u_int)(info.free / 1024));
+<a href='../S/966.html#L103'>printf</a>            103 usr/test/kmon/cmd.c 	printf(" Total    : %8d KB\n", (u_int)(info.total / 1024));
+<a href='../S/966.html#L104'>printf</a>            104 usr/test/kmon/cmd.c 	printf(" Bootdisk : %8d KB\n", (u_int)(info.bootdisk / 1024));
+<a href='../S/966.html#L111'>printf</a>            111 usr/test/kmon/cmd.c 	printf("\33[2J");
+<a href='../S/966.html#L125'>printf</a>            125 usr/test/kmon/cmd.c 	printf("Kill thread id:%x\n", (u_int)t);
+<a href='../S/966.html#L128'>printf</a>            128 usr/test/kmon/cmd.c 		printf("Thread %x does not exist\n", (u_int)t);
+<a href='../S/966.html#L142'>printf</a>            142 usr/test/kmon/cmd.c 		printf("Error %d\n", error);
+<a href='../S/966.html#L156'>printf</a>            156 usr/test/kmon/cmd.c 		printf("Error %d\n", error);
+<a href='../S/966.html#L172'>printf</a>            172 usr/test/kmon/cmd.c 		printf("%s: command not found\n", argv[0]);
+<a href='../S/967.html#L70'>printf</a>             70 usr/test/kmon/kmon.c 					printf("Too many args\n");
+<a href='../S/967.html#L111'>printf</a>            111 usr/test/kmon/kmon.c 	printf("Prex kernel monitor - type 'help' to list commands\n");
+<a href='../S/967.html#L114'>printf</a>            114 usr/test/kmon/kmon.c 		printf("[kmon]$ ");
+<a href='../S/971.html#L47'>printf</a>             47 usr/test/malloc/malloc.c 	printf("Allocate %d bytes - ", buflen);
+<a href='../S/971.html#L51'>printf</a>             51 usr/test/malloc/malloc.c 		printf("Error: malloc() returns NULL!\n");
+<a href='../S/971.html#L60'>printf</a>             60 usr/test/malloc/malloc.c 	printf("OK!\n");
+<a href='../S/971.html#L69'>printf</a>             69 usr/test/malloc/malloc.c 	printf("test_1 - start\n");
+<a href='../S/971.html#L84'>printf</a>             84 usr/test/malloc/malloc.c 	printf("test_1 - done\n");
+<a href='../S/971.html#L92'>printf</a>             92 usr/test/malloc/malloc.c 	printf("test_2 - start\n");
+<a href='../S/971.html#L118'>printf</a>            118 usr/test/malloc/malloc.c 	printf("test_2 - done\n");
+<a href='../S/971.html#L126'>printf</a>            126 usr/test/malloc/malloc.c 	printf("test_3 - start\n");
+<a href='../S/971.html#L131'>printf</a>            131 usr/test/malloc/malloc.c 	printf("test_3 - try to free invalid area...\n");
+<a href='../S/971.html#L134'>printf</a>            134 usr/test/malloc/malloc.c 	printf("test_3 - done!?\n");
+<a href='../S/971.html#L140'>printf</a>            140 usr/test/malloc/malloc.c 	printf("Malloc test program.\n");
+<a href='../S/973.html#L49'>printf</a>             49 usr/test/memleak/memleak.c 	printf("memory leak test\n");
+<a href='../S/973.html#L53'>printf</a>             53 usr/test/memleak/memleak.c 		printf("memleak: malloc %d bytes\n", size);
+<a href='../S/973.html#L56'>printf</a>             56 usr/test/memleak/memleak.c 			printf("memleak: malloc failed\n");
+<a href='../S/973.html#L65'>printf</a>             65 usr/test/memleak/memleak.c 		printf("memleak: object create name=%s\n", str);
+<a href='../S/973.html#L68'>printf</a>             68 usr/test/memleak/memleak.c 			printf("memleak: object create failed\n");
+<a href='../S/977.html#L45'>printf</a>             45 usr/test/mutex/mutex.c 	printf("Mutex test program\n");
+<a href='../S/977.html#L56'>printf</a>             56 usr/test/mutex/mutex.c 	printf("1) Lock mutex A: error=%d\n", error);
+<a href='../S/977.html#L59'>printf</a>             59 usr/test/mutex/mutex.c 	printf("2) Lock mutex B: error=%d\n", error);
+<a href='../S/977.html#L63'>printf</a>             63 usr/test/mutex/mutex.c 	printf("3e) Lock mutex C: error=%d\n", error);
+<a href='../S/977.html#L69'>printf</a>             69 usr/test/mutex/mutex.c 	printf("4) Unlock mutex A: error=%d\n", error);
+<a href='../S/977.html#L72'>printf</a>             72 usr/test/mutex/mutex.c 	printf("5) Unlock mutex B: error=%d\n", error);
+<a href='../S/977.html#L76'>printf</a>             76 usr/test/mutex/mutex.c 	printf("6e) Unlock mutex B: error=%d\n", error);
+<a href='../S/977.html#L80'>printf</a>             80 usr/test/mutex/mutex.c 	printf("7e) Unlock mutex B: error=%d\n", error);
+<a href='../S/977.html#L89'>printf</a>             89 usr/test/mutex/mutex.c 	printf("8e) Lock mutex B: error=%d\n", error);
+<a href='../S/977.html#L95'>printf</a>             95 usr/test/mutex/mutex.c 	printf("9) Lock mutex A: error=%d\n", error);
+<a href='../S/977.html#L99'>printf</a>             99 usr/test/mutex/mutex.c 	printf("10e) Lock mutex A: error=%d\n", error);
+<a href='../S/977.html#L102'>printf</a>            102 usr/test/mutex/mutex.c 	printf("11) Unlock mutex A: error=%d\n", error);
+<a href='../S/977.html#L104'>printf</a>            104 usr/test/mutex/mutex.c 	printf("Test completed...\n");
+<a href='../S/979.html#L46'>printf</a>             46 usr/test/object/object.c 	printf("test for object security\n");
+<a href='../S/979.html#L77'>printf</a>             77 usr/test/object/object.c 	printf("test ok\n");
+<a href='../S/981.html#L51'>printf</a>             51 usr/test/pipe/pipe.c 	printf("pipe test program\n");
+<a href='../S/981.html#L59'>printf</a>             59 usr/test/pipe/pipe.c 	printf("str=%s\n", buf);
+<a href='../S/981.html#L69'>printf</a>             69 usr/test/pipe/pipe.c 	printf("pipe test program\n");
+<a href='../S/981.html#L84'>printf</a>             84 usr/test/pipe/pipe.c 		printf("str=%s\n", buf);
+<a href='../S/983.html#L50'>printf</a>             50 usr/test/ramdisk/ramdisk.c 	printf("open ram0\n");
+<a href='../S/983.html#L53'>printf</a>             53 usr/test/ramdisk/ramdisk.c 		printf("open failed\n");
+<a href='../S/983.html#L56'>printf</a>             56 usr/test/ramdisk/ramdisk.c 	printf("opened\n");
+<a href='../S/983.html#L58'>printf</a>             58 usr/test/ramdisk/ramdisk.c 	printf("ramdisk read: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/983.html#L62'>printf</a>             62 usr/test/ramdisk/ramdisk.c 		printf("read failed\n");
+<a href='../S/983.html#L66'>printf</a>             66 usr/test/ramdisk/ramdisk.c 	printf("read comp: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/983.html#L70'>printf</a>             70 usr/test/ramdisk/ramdisk.c 			printf("%02x ", disk_buf[i * 16 + j]);
+<a href='../S/983.html#L71'>printf</a>             71 usr/test/ramdisk/ramdisk.c 		printf("    ");
+<a href='../S/983.html#L80'>printf</a>             80 usr/test/ramdisk/ramdisk.c 		printf("\n");
+<a href='../S/983.html#L82'>printf</a>             82 usr/test/ramdisk/ramdisk.c 	printf("\n");
+<a href='../S/983.html#L85'>printf</a>             85 usr/test/ramdisk/ramdisk.c 		printf("close failed\n");
+<a href='../S/983.html#L98'>printf</a>             98 usr/test/ramdisk/ramdisk.c 	printf("open ram0\n");
+<a href='../S/983.html#L101'>printf</a>            101 usr/test/ramdisk/ramdisk.c 		printf("open failed\n");
+<a href='../S/983.html#L104'>printf</a>            104 usr/test/ramdisk/ramdisk.c 	printf("opened\n");
+<a href='../S/983.html#L109'>printf</a>            109 usr/test/ramdisk/ramdisk.c 		printf("read failed\n");
+<a href='../S/983.html#L113'>printf</a>            113 usr/test/ramdisk/ramdisk.c 	printf("read comp sector=%d\n", sector);
+<a href='../S/983.html#L120'>printf</a>            120 usr/test/ramdisk/ramdisk.c 		printf("write failed\n");
+<a href='../S/983.html#L124'>printf</a>            124 usr/test/ramdisk/ramdisk.c 	printf("write comp sector=%d\n", sector);
+<a href='../S/983.html#L128'>printf</a>            128 usr/test/ramdisk/ramdisk.c 		printf("close failed\n");
+<a href='../S/985.html#L46'>printf</a>             46 usr/test/reset/reset.c 	printf("Reset test program. Wait 5 sec...\n");
+<a href='../S/985.html#L49'>printf</a>             49 usr/test/reset/reset.c 	printf("Reset!\n");
+<a href='../S/988.html#L44'>printf</a>             44 usr/test/sem/sem.c 	printf("Semaphore test program\n");
+<a href='../S/988.html#L55'>printf</a>             55 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L57'>printf</a>             57 usr/test/sem/sem.c 	printf("1) Wait semahore\n");
+<a href='../S/988.html#L63'>printf</a>             63 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L65'>printf</a>             65 usr/test/sem/sem.c 	printf("2) Wait semahore\n");
+<a href='../S/988.html#L71'>printf</a>             71 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L73'>printf</a>             73 usr/test/sem/sem.c 	printf("3) Wait semahore\n");
+<a href='../S/988.html#L79'>printf</a>             79 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L85'>printf</a>             85 usr/test/sem/sem.c 	printf("4) Wait semahore\n");
+<a href='../S/988.html#L93'>printf</a>             93 usr/test/sem/sem.c 	printf("4e) Try to wait semahore\n");
+<a href='../S/988.html#L95'>printf</a>             95 usr/test/sem/sem.c 	printf("Try wait error=%d\n", error);
+<a href='../S/988.html#L100'>printf</a>            100 usr/test/sem/sem.c 	printf("5) Post semahore\n");
+<a href='../S/988.html#L105'>printf</a>            105 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L107'>printf</a>            107 usr/test/sem/sem.c 	printf("Test complete\n");
+<a href='../S/990.html#L69'>printf</a>             69 usr/test/shutdown/shutdown.c 	printf("Do you want to shutdown the system now? (y/n) ");
+<a href='../S/992.html#L48'>printf</a>             48 usr/test/signal/signal.c 	printf("signal test program\n");
+<a href='../S/992.html#L51'>printf</a>             51 usr/test/signal/signal.c 		printf("failed to open tty\n");
+<a href='../S/992.html#L55'>printf</a>             55 usr/test/signal/signal.c 	printf("tcsetpgrp=%x\n", pgrp);
+<a href='../S/992.html#L71'>printf</a>             71 usr/test/signal/signal.c 	printf("Got signal: %d\n", sig);
+<a href='../S/994.html#L43'>printf</a>             43 usr/test/stack/stack.c 	printf("%d %x\n", num, (unsigned int)&amp;num);
+<a href='../S/994.html#L52'>printf</a>             52 usr/test/stack/stack.c 	printf("starting stack overflow test.\n");
+<a href='../S/994.html#L56'>printf</a>             56 usr/test/stack/stack.c 	printf("test complete\n");
+<a href='../S/998.html#L45'>printf</a>             45 usr/test/task/task.c 	printf("New thread %x is started\n", (u_int)thread_self());
+<a href='../S/998.html#L49'>printf</a>             49 usr/test/task/task.c 		printf("@");
+<a href='../S/998.html#L60'>printf</a>             60 usr/test/task/task.c 	printf("Task test program\n");
+<a href='../S/998.html#L77'>printf</a>             77 usr/test/task/task.c 		printf("task_create failed. error=%d\n", error);
+<a href='../S/998.html#L86'>printf</a>             86 usr/test/task/task.c 		printf("thread_create: error=%d\n", error);
+<a href='../S/998.html#L88'>printf</a>             88 usr/test/task/task.c 		printf("thread_load: error=%d\n", error);
+<a href='../S/998.html#L100'>printf</a>            100 usr/test/task/task.c 	printf("\nSuspend test task.\n");
+<a href='../S/998.html#L108'>printf</a>            108 usr/test/task/task.c 	printf("Sleep\n");
+<a href='../S/998.html#L111'>printf</a>            111 usr/test/task/task.c 	printf("\nResume test task.\n");
+<a href='../S/998.html#L121'>printf</a>            121 usr/test/task/task.c 	printf("\nResume task, again.\n");
+<a href='../S/998.html#L124'>printf</a>            124 usr/test/task/task.c 		printf("Error - OK!\n");
+<a href='../S/998.html#L128'>printf</a>            128 usr/test/task/task.c 	printf("\nTerminate task.\n");
+<a href='../S/998.html#L131'>printf</a>            131 usr/test/task/task.c 	printf("\nTest OK!\n");
+<a href='../S/1000.html#L60'>printf</a>             60 usr/test/thread/thread.c 	printf("test thread is starting...\n");
+<a href='../S/1000.html#L71'>printf</a>             71 usr/test/thread/thread.c 	printf("Thread test program\n");
+<a href='../S/1000.html#L78'>printf</a>             78 usr/test/thread/thread.c 	printf("Start test thread\n");
+<a href='../S/1000.html#L89'>printf</a>             89 usr/test/thread/thread.c 	printf("\nSuspend test thread\n");
+<a href='../S/1000.html#L100'>printf</a>            100 usr/test/thread/thread.c 	printf("\nResume test thread\n");
+<a href='../S/1002.html#L47'>printf</a>             47 usr/test/time/time.c 		printf("error to open rtc device!\n");
+<a href='../S/1002.html#L53'>printf</a>             53 usr/test/time/time.c 		printf("error in reading from rtc device\n");
+<a href='../S/1002.html#L67'>printf</a>             67 usr/test/time/time.c 	printf("Time test program\n");
+<a href='../S/1002.html#L76'>printf</a>             76 usr/test/time/time.c 	printf("Current time: %lu:%lu:%lu\n", hour, min, sec);
+<a href='../S/1004.html#L40'>printf</a>             40 usr/test/timer/timer.c 	printf("Timer Test program\n");
+<a href='../S/1004.html#L42'>printf</a>             42 usr/test/timer/timer.c 	printf("Sleep 5000 msec...\n");
+<a href='../S/1004.html#L44'>printf</a>             44 usr/test/timer/timer.c 	printf("Wake!\n");
+<a href='../S/1004.html#L46'>printf</a>             46 usr/test/timer/timer.c 	printf("Kick periodic timer start=5000 msec, period=2000msec\n");
+<a href='../S/1004.html#L49'>printf</a>             49 usr/test/timer/timer.c 		printf("Wait timer\n");
+<a href='../S/1004.html#L51'>printf</a>             51 usr/test/timer/timer.c 		printf("Wake!\n");
+<a href='../S/1008.html#L57'>printf</a>             57 usr/test/zero/zero.c 	printf("zero test\n");
+<a href='../S/1008.html#L66'>printf</a>             66 usr/test/zero/zero.c 		printf("device open error!\n");
+<a href='../S/1008.html#L72'>printf</a>             72 usr/test/zero/zero.c 		printf("device read error!\n");	
+</pre>
+</body>
+</html>

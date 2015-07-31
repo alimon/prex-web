@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>status</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/220.html#L46'>status</a>             46 include/ipc/ipc.h 	int	status;		/* return status */
+<a href='../S/404.html#L66'>status</a>             66 usr/bin/ps/ps.c 	if (rc || m.hdr.status) {
+<a href='../S/413.html#L116'>status</a>            116 usr/bin/sh/sh.c 	int status;
+<a href='../S/413.html#L189'>status</a>            189 usr/bin/sh/sh.c 	while (wait(&amp;status) != pid);
+<a href='../S/413.html#L190'>status</a>            190 usr/bin/sh/sh.c 	if (status) {
+<a href='../S/413.html#L191'>status</a>            191 usr/bin/sh/sh.c 		if (WIFSIGNALED(status))
+<a href='../S/413.html#L192'>status</a>            192 usr/bin/sh/sh.c 			showsignal(pid, status);
+<a href='../S/413.html#L193'>status</a>            193 usr/bin/sh/sh.c 		else if (WIFEXITED(status))
+<a href='../S/413.html#L194'>status</a>            194 usr/bin/sh/sh.c 			retval = WEXITSTATUS(status);
+<a href='../S/569.html#L42'>status</a>             42 usr/lib/libc/stdlib/exit.c exit(int status)
+<a href='../S/569.html#L53'>status</a>             53 usr/lib/libc/stdlib/exit.c 	_exit(status);
+<a href='../S/651.html#L35'>status</a>             35 usr/lib/libsa/_exit.c _exit(int status)
+<a href='../S/655.html#L114'>status</a>            114 usr/lib/posix/exec/execve.c 	else if (msg.hdr.status)
+<a href='../S/655.html#L115'>status</a>            115 usr/lib/posix/exec/execve.c 		errno = msg.hdr.status;
+<a href='../S/702.html#L59'>status</a>             59 usr/lib/posix/gen/__posix_call.c 	} else if (((struct msg_header *)msg)-&gt;status) {
+<a href='../S/702.html#L60'>status</a>             60 usr/lib/posix/gen/__posix_call.c 		errno = ((struct msg_header *)msg)-&gt;status;
+<a href='../S/733.html#L37'>status</a>             37 usr/lib/posix/process/__process.c void __process_exit(int status, int signo);
+<a href='../S/733.html#L54'>status</a>             54 usr/lib/posix/process/__process.c __process_exit(int status, int signo)
+<a href='../S/733.html#L61'>status</a>             61 usr/lib/posix/process/__process.c 		m.data[0] = signo ? signo : ((status &amp; 0xff) &lt;&lt; 8);
+<a href='../S/732.html#L43'>status</a>             43 usr/lib/posix/process/_exit.c _exit(int status)
+<a href='../S/732.html#L50'>status</a>             50 usr/lib/posix/process/_exit.c 	__process_exit(status, signo);
+<a href='../S/717.html#L59'>status</a>             59 usr/lib/posix/process/kill.c 	if (m.hdr.status) {
+<a href='../S/717.html#L60'>status</a>             60 usr/lib/posix/process/kill.c 		errno = m.hdr.status;
+<a href='../S/730.html#L36'>status</a>             36 usr/lib/posix/process/wait.c wait(int *status)
+<a href='../S/730.html#L39'>status</a>             39 usr/lib/posix/process/wait.c 	return waitpid(-1, status, 0);
+<a href='../S/731.html#L46'>status</a>             46 usr/lib/posix/process/waitpid.c waitpid(pid_t pid, int *status, int options)
+<a href='../S/731.html#L66'>status</a>             66 usr/lib/posix/process/waitpid.c 		if (m.hdr.status) {
+<a href='../S/731.html#L67'>status</a>             67 usr/lib/posix/process/waitpid.c 			errno = m.hdr.status;
+<a href='../S/731.html#L82'>status</a>             82 usr/lib/posix/process/waitpid.c 	if (status != NULL)
+<a href='../S/731.html#L83'>status</a>             83 usr/lib/posix/process/waitpid.c 		*status = m.data[1];
+<a href='../S/879.html#L232'>status</a>            232 usr/server/exec/main.c 		msg-&gt;hdr.status = error;
+<a href='../S/903.html#L1083'>status</a>           1083 usr/server/fs/vfs/main.c 		msg-&gt;hdr.status = error;
+<a href='../S/916.html#L471'>status</a>            471 usr/server/pow/pow.c 		msg.hdr.status = error;
+<a href='../S/917.html#L248'>status</a>            248 usr/server/proc/main.c 	int options, status, error;
+<a href='../S/917.html#L253'>status</a>            253 usr/server/proc/main.c 	error = sys_waitpid(pid, &amp;status, options, &amp;pid_child);
+<a href='../S/917.html#L258'>status</a>            258 usr/server/proc/main.c 	msg-&gt;data[1] = status;
+<a href='../S/917.html#L573'>status</a>            573 usr/server/proc/main.c 		msg.hdr.status = error;
+<a href='../S/920.html#L142'>status</a>            142 usr/server/proc/proc_exit.c sys_waitpid(pid_t pid, int *status, int options, pid_t *retval)
+<a href='../S/920.html#L210'>status</a>            210 usr/server/proc/proc_exit.c 	*status = code;
+</pre>
+</body>
+</html>

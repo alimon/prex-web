@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dev</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L65'>dev</a>                65 bsp/drv/arm/gba/keypad.c 	device_t	dev;
+<a href='../S/50.html#L131'>dev</a>               131 bsp/drv/arm/gba/keypad.c 	device_t dev;
+<a href='../S/50.html#L133'>dev</a>               133 bsp/drv/arm/gba/keypad.c 	dev = device_create(self, "keypad", D_CHR);
+<a href='../S/50.html#L134'>dev</a>               134 bsp/drv/arm/gba/keypad.c 	sc = device_private(dev);
+<a href='../S/51.html#L48'>dev</a>                48 bsp/drv/arm/gba/lcd.c 	device_t	dev;
+<a href='../S/51.html#L181'>dev</a>               181 bsp/drv/arm/gba/lcd.c 	device_t dev;
+<a href='../S/51.html#L184'>dev</a>               184 bsp/drv/arm/gba/lcd.c 	dev = device_create(self, "lcd", D_CHR|D_TTY);
+<a href='../S/51.html#L186'>dev</a>               186 bsp/drv/arm/gba/lcd.c 	sc = device_private(dev);
+<a href='../S/54.html#L83'>dev</a>                83 bsp/drv/arm/gba/swkbd.c 	device_t	dev;		/* device object */
+<a href='../S/54.html#L485'>dev</a>               485 bsp/drv/arm/gba/swkbd.c 	device_t dev;
+<a href='../S/54.html#L487'>dev</a>               487 bsp/drv/arm/gba/swkbd.c 	dev = device_create(self, "swkbd", D_CHR);
+<a href='../S/54.html#L489'>dev</a>               489 bsp/drv/arm/gba/swkbd.c 	sc = device_private(dev);
+<a href='../S/54.html#L490'>dev</a>               490 bsp/drv/arm/gba/swkbd.c 	sc-&gt;dev = dev;
+<a href='../S/58.html#L72'>dev</a>                72 bsp/drv/dev/base/cons.c cons_open(device_t dev, int mode)
+<a href='../S/58.html#L76'>dev</a>                76 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L77'>dev</a>                77 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;open(dev, mode);
+<a href='../S/58.html#L81'>dev</a>                81 bsp/drv/dev/base/cons.c cons_close(device_t dev)
+<a href='../S/58.html#L85'>dev</a>                85 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L86'>dev</a>                86 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;close(dev);
+<a href='../S/58.html#L90'>dev</a>                90 bsp/drv/dev/base/cons.c cons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L94'>dev</a>                94 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L95'>dev</a>                95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L99'>dev</a>                99 bsp/drv/dev/base/cons.c cons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L103'>dev</a>               103 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L104'>dev</a>               104 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;write(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L108'>dev</a>               108 bsp/drv/dev/base/cons.c cons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L112'>dev</a>               112 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L113'>dev</a>               113 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;ioctl(dev, cmd, arg);
+<a href='../S/58.html#L117'>dev</a>               117 bsp/drv/dev/base/cons.c cons_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L121'>dev</a>               121 bsp/drv/dev/base/cons.c 	dev = consdev-&gt;dev;
+<a href='../S/58.html#L122'>dev</a>               122 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;devctl(dev, cmd, arg);
+<a href='../S/58.html#L135'>dev</a>               135 bsp/drv/dev/base/cons.c 	return consdev-&gt;cngetc(consdev-&gt;dev);
+<a href='../S/58.html#L148'>dev</a>               148 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, on);
+<a href='../S/58.html#L160'>dev</a>               160 bsp/drv/dev/base/cons.c 		consdev-&gt;cnputc(consdev-&gt;dev, c);
+<a href='../S/58.html#L162'>dev</a>               162 bsp/drv/dev/base/cons.c 			consdev-&gt;cnputc(consdev-&gt;dev, '\r');
+<a href='../S/58.html#L172'>dev</a>               172 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, 1);
+<a href='../S/58.html#L174'>dev</a>               174 bsp/drv/dev/base/cons.c 		consdev-&gt;cnputc(consdev-&gt;dev, *str);
+<a href='../S/58.html#L176'>dev</a>               176 bsp/drv/dev/base/cons.c 			consdev-&gt;cnputc(consdev-&gt;dev, '\r');
+<a href='../S/58.html#L179'>dev</a>               179 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, 0);
+<a href='../S/63.html#L52'>dev</a>                52 bsp/drv/dev/base/pm.c 	device_t	dev;		/* device object */
+<a href='../S/63.html#L100'>dev</a>               100 bsp/drv/dev/base/pm.c pm_open(device_t dev, int mode)
+<a href='../S/63.html#L115'>dev</a>               115 bsp/drv/dev/base/pm.c pm_close(device_t dev)
+<a href='../S/63.html#L130'>dev</a>               130 bsp/drv/dev/base/pm.c pm_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/63.html#L491'>dev</a>               491 bsp/drv/dev/base/pm.c pm_attach_lcd(device_t dev)
+<a href='../S/63.html#L496'>dev</a>               496 bsp/drv/dev/base/pm.c 	pm_softc-&gt;lcd_dev = dev;
+<a href='../S/63.html#L503'>dev</a>               503 bsp/drv/dev/base/pm.c 	device_t dev;
+<a href='../S/63.html#L506'>dev</a>               506 bsp/drv/dev/base/pm.c 	dev = device_create(self, "pm", D_CHR|D_PROT);
+<a href='../S/63.html#L508'>dev</a>               508 bsp/drv/dev/base/pm.c 	sc = device_private(dev);
+<a href='../S/63.html#L509'>dev</a>               509 bsp/drv/dev/base/pm.c 	sc-&gt;dev = dev;
+<a href='../S/65.html#L57'>dev</a>                57 bsp/drv/dev/base/wscons.c 	device_t	dev;		/* our device */
+<a href='../S/65.html#L117'>dev</a>               117 bsp/drv/dev/base/wscons.c wscons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L125'>dev</a>               125 bsp/drv/dev/base/wscons.c wscons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L133'>dev</a>               133 bsp/drv/dev/base/wscons.c wscons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/65.html#L415'>dev</a>               415 bsp/drv/dev/base/wscons.c wscons_cngetc(device_t dev)
+<a href='../S/65.html#L424'>dev</a>               424 bsp/drv/dev/base/wscons.c wscons_cnputc(device_t dev, int c)
+<a href='../S/65.html#L433'>dev</a>               433 bsp/drv/dev/base/wscons.c wscons_cnpollc(device_t dev, int on)
+<a href='../S/65.html#L462'>dev</a>               462 bsp/drv/dev/base/wscons.c 	wsconsdev.dev = sc-&gt;dev;
+<a href='../S/65.html#L480'>dev</a>               480 bsp/drv/dev/base/wscons.c 	device_t dev;
+<a href='../S/65.html#L482'>dev</a>               482 bsp/drv/dev/base/wscons.c 	dev = device_create(self, "tty", D_CHR|D_TTY);
+<a href='../S/65.html#L484'>dev</a>               484 bsp/drv/dev/base/wscons.c 	sc = device_private(dev);
+<a href='../S/65.html#L485'>dev</a>               485 bsp/drv/dev/base/wscons.c 	sc-&gt;dev = dev;
+<a href='../S/65.html#L491'>dev</a>               491 bsp/drv/dev/base/wscons.c 	sc-&gt;tty.t_dev = dev;
+<a href='../S/66.html#L102'>dev</a>               102 bsp/drv/dev/block/fdd.c 	device_t	dev;		/* device object */
+<a href='../S/66.html#L487'>dev</a>               487 bsp/drv/dev/block/fdd.c fdd_open(device_t dev, int mode)
+<a href='../S/66.html#L489'>dev</a>               489 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L500'>dev</a>               500 bsp/drv/dev/block/fdd.c fdd_close(device_t dev)
+<a href='../S/66.html#L502'>dev</a>               502 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L558'>dev</a>               558 bsp/drv/dev/block/fdd.c fdd_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L560'>dev</a>               560 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L614'>dev</a>               614 bsp/drv/dev/block/fdd.c fdd_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L616'>dev</a>               616 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L678'>dev</a>               678 bsp/drv/dev/block/fdd.c 	device_t dev;
+<a href='../S/66.html#L682'>dev</a>               682 bsp/drv/dev/block/fdd.c 	dev = device_create(self, "fd0", D_BLK|D_PROT);
+<a href='../S/66.html#L683'>dev</a>               683 bsp/drv/dev/block/fdd.c 	sc = device_private(dev);
+<a href='../S/66.html#L684'>dev</a>               684 bsp/drv/dev/block/fdd.c 	sc-&gt;dev = dev;
+<a href='../S/68.html#L48'>dev</a>                48 bsp/drv/dev/block/ramdisk.c 	device_t	dev;		/* device object */
+<a href='../S/68.html#L78'>dev</a>                78 bsp/drv/dev/block/ramdisk.c ramdisk_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L80'>dev</a>                80 bsp/drv/dev/block/ramdisk.c 	struct ramdisk_softc *sc = device_private(dev);
+<a href='../S/68.html#L109'>dev</a>               109 bsp/drv/dev/block/ramdisk.c ramdisk_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L111'>dev</a>               111 bsp/drv/dev/block/ramdisk.c 	struct ramdisk_softc *sc = device_private(dev);
+<a href='../S/68.html#L159'>dev</a>               159 bsp/drv/dev/block/ramdisk.c 	device_t dev;
+<a href='../S/68.html#L164'>dev</a>               164 bsp/drv/dev/block/ramdisk.c 	dev = device_create(self, "ram0", D_BLK|D_PROT);
+<a href='../S/68.html#L166'>dev</a>               166 bsp/drv/dev/block/ramdisk.c 	sc = device_private(dev);
+<a href='../S/68.html#L167'>dev</a>               167 bsp/drv/dev/block/ramdisk.c 	sc-&gt;dev = dev;
+<a href='../S/69.html#L69'>dev</a>                69 bsp/drv/dev/cpufreq/cpufreq.c 	device_t	dev;		/* device object */
+<a href='../S/69.html#L303'>dev</a>               303 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L305'>dev</a>               305 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc = device_private(dev);
+<a href='../S/69.html#L324'>dev</a>               324 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L326'>dev</a>               326 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc = device_private(dev);
+<a href='../S/69.html#L353'>dev</a>               353 bsp/drv/dev/cpufreq/cpufreq.c 	device_t dev;
+<a href='../S/69.html#L358'>dev</a>               358 bsp/drv/dev/cpufreq/cpufreq.c 	dev = device_create(&amp;cpufreq_driver, "cpufreq", D_CHR|D_PROT);
+<a href='../S/69.html#L360'>dev</a>               360 bsp/drv/dev/cpufreq/cpufreq.c 	sc = device_private(dev);
+<a href='../S/69.html#L361'>dev</a>               361 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;dev = dev;
+<a href='../S/76.html#L45'>dev</a>                45 bsp/drv/dev/input/pckbd.c 	device_t	dev;		/* device object */
+<a href='../S/76.html#L271'>dev</a>               271 bsp/drv/dev/input/pckbd.c 	device_t dev;
+<a href='../S/76.html#L273'>dev</a>               273 bsp/drv/dev/input/pckbd.c 	dev = device_create(self, "kbd", D_CHR);
+<a href='../S/76.html#L275'>dev</a>               275 bsp/drv/dev/input/pckbd.c 	sc = device_private(dev);
+<a href='../S/76.html#L276'>dev</a>               276 bsp/drv/dev/input/pckbd.c 	sc-&gt;dev = dev;
+<a href='../S/77.html#L59'>dev</a>                59 bsp/drv/dev/input/psaux.c 	device_t	dev;		/* device object */
+<a href='../S/77.html#L173'>dev</a>               173 bsp/drv/dev/input/psaux.c psaux_open(device_t dev, int mode)
+<a href='../S/77.html#L176'>dev</a>               176 bsp/drv/dev/input/psaux.c 	DPRINTF(("psaux_open: dev=%x\n", dev));
+<a href='../S/77.html#L184'>dev</a>               184 bsp/drv/dev/input/psaux.c psaux_close(device_t dev)
+<a href='../S/77.html#L186'>dev</a>               186 bsp/drv/dev/input/psaux.c 	DPRINTF(("psaux_close: dev=%x\n", dev));
+<a href='../S/77.html#L194'>dev</a>               194 bsp/drv/dev/input/psaux.c psaux_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/77.html#L204'>dev</a>               204 bsp/drv/dev/input/psaux.c 	device_t dev;
+<a href='../S/77.html#L209'>dev</a>               209 bsp/drv/dev/input/psaux.c 	dev = device_create(self, "mouse", D_CHR);
+<a href='../S/77.html#L211'>dev</a>               211 bsp/drv/dev/input/psaux.c 	sc = device_private(dev);
+<a href='../S/77.html#L212'>dev</a>               212 bsp/drv/dev/input/psaux.c 	sc-&gt;dev = dev;
+<a href='../S/79.html#L63'>dev</a>                63 bsp/drv/dev/misc/null.c null_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L74'>dev</a>                74 bsp/drv/dev/misc/null.c null_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/80.html#L59'>dev</a>                59 bsp/drv/dev/misc/random.c random_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L63'>dev</a>                63 bsp/drv/dev/misc/zero.c zero_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L79'>dev</a>                79 bsp/drv/dev/misc/zero.c zero_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/85.html#L56'>dev</a>                56 bsp/drv/dev/rtc/rtc.c 	device_t	dev;		/* device object */
+<a href='../S/85.html#L178'>dev</a>               178 bsp/drv/dev/rtc/rtc.c rtc_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/85.html#L180'>dev</a>               180 bsp/drv/dev/rtc/rtc.c 	struct rtc_softc *sc = device_private(dev);
+<a href='../S/85.html#L214'>dev</a>               214 bsp/drv/dev/rtc/rtc.c 	device_t dev;
+<a href='../S/85.html#L217'>dev</a>               217 bsp/drv/dev/rtc/rtc.c 	dev = device_create(&amp;rtc_driver, "rtc", D_CHR);
+<a href='../S/85.html#L219'>dev</a>               219 bsp/drv/dev/rtc/rtc.c 	sc = device_private(dev);
+<a href='../S/85.html#L220'>dev</a>               220 bsp/drv/dev/rtc/rtc.c 	sc-&gt;dev = dev;
+<a href='../S/89.html#L49'>dev</a>                49 bsp/drv/dev/serial/serial.c 	device_t	dev;		/* device object */
+<a href='../S/89.html#L95'>dev</a>                95 bsp/drv/dev/serial/serial.c serial_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L97'>dev</a>                97 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L103'>dev</a>               103 bsp/drv/dev/serial/serial.c serial_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L105'>dev</a>               105 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L111'>dev</a>               111 bsp/drv/dev/serial/serial.c serial_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/89.html#L113'>dev</a>               113 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L153'>dev</a>               153 bsp/drv/dev/serial/serial.c serial_cngetc(device_t dev)
+<a href='../S/89.html#L155'>dev</a>               155 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L162'>dev</a>               162 bsp/drv/dev/serial/serial.c serial_cnputc(device_t dev, int c)
+<a href='../S/89.html#L164'>dev</a>               164 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L171'>dev</a>               171 bsp/drv/dev/serial/serial.c serial_cnpollc(device_t dev, int on)
+<a href='../S/89.html#L173'>dev</a>               173 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L183'>dev</a>               183 bsp/drv/dev/serial/serial.c 	device_t dev;
+<a href='../S/89.html#L186'>dev</a>               186 bsp/drv/dev/serial/serial.c 	dev = device_create(&amp;serial_driver, "tty", D_CHR|D_TTY);
+<a href='../S/89.html#L188'>dev</a>               188 bsp/drv/dev/serial/serial.c 	sc = device_private(dev);
+<a href='../S/89.html#L189'>dev</a>               189 bsp/drv/dev/serial/serial.c 	sc-&gt;dev = dev;
+<a href='../S/89.html#L194'>dev</a>               194 bsp/drv/dev/serial/serial.c 	sc-&gt;tty.t_dev = dev;
+<a href='../S/89.html#L204'>dev</a>               204 bsp/drv/dev/serial/serial.c 	serial_consdev.dev = dev;
+<a href='../S/91.html#L55'>dev</a>                55 bsp/drv/dev/video/vga.c 	device_t	dev;
+<a href='../S/91.html#L207'>dev</a>               207 bsp/drv/dev/video/vga.c vga_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/91.html#L209'>dev</a>               209 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = device_private(dev);
+<a href='../S/91.html#L238'>dev</a>               238 bsp/drv/dev/video/vga.c 	device_t dev;
+<a href='../S/91.html#L244'>dev</a>               244 bsp/drv/dev/video/vga.c 	dev = device_create(self, "vga", D_CHR);
+<a href='../S/91.html#L246'>dev</a>               246 bsp/drv/dev/video/vga.c 	sc = device_private(dev);
+<a href='../S/91.html#L254'>dev</a>               254 bsp/drv/dev/video/vga.c 	pm_attach_lcd(dev);
+<a href='../S/92.html#L36'>dev</a>                36 bsp/drv/include/cons.h 	device_t	dev;		/* device */
+<a href='../S/92.html#L38'>dev</a>                38 bsp/drv/include/cons.h 	int	(*cngetc)(device_t dev);          /* kernel getchar */
+<a href='../S/92.html#L39'>dev</a>                39 bsp/drv/include/cons.h 	void	(*cnputc)(device_t dev, int ch);  /* kernel putchar */
+<a href='../S/92.html#L40'>dev</a>                40 bsp/drv/include/cons.h 	void	(*cnpollc)(device_t dev, int on); /* polling control */
+<a href='../S/219.html#L90'>dev</a>                90 include/ipc/fs.h 	char	dev[PATH_MAX];		/* mount device */
+<a href='../S/267.html#L126'>dev</a>               126 include/sys/prex.h int	device_open(const char *name, int mode, device_t *dev);
+<a href='../S/267.html#L127'>dev</a>               127 include/sys/prex.h int	device_close(device_t dev);
+<a href='../S/267.html#L128'>dev</a>               128 include/sys/prex.h int	device_read(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L129'>dev</a>               129 include/sys/prex.h int	device_write(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L130'>dev</a>               130 include/sys/prex.h int	device_ioctl(device_t dev, u_long cmd, void *arg);
+<a href='../S/327.html#L132'>dev</a>               132 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L152'>dev</a>               152 sys/kern/device.c 	if ((dev = kmem_alloc(sizeof(*dev))) == NULL)
+<a href='../S/327.html#L160'>dev</a>               160 sys/kern/device.c 	strlcpy(dev-&gt;name, name, len + 1);
+<a href='../S/327.html#L161'>dev</a>               161 sys/kern/device.c 	dev-&gt;driver = drv;
+<a href='../S/327.html#L162'>dev</a>               162 sys/kern/device.c 	dev-&gt;flags = flags;
+<a href='../S/327.html#L163'>dev</a>               163 sys/kern/device.c 	dev-&gt;active = 1;
+<a href='../S/327.html#L164'>dev</a>               164 sys/kern/device.c 	dev-&gt;refcnt = 1;
+<a href='../S/327.html#L165'>dev</a>               165 sys/kern/device.c 	dev-&gt;private = private;
+<a href='../S/327.html#L166'>dev</a>               166 sys/kern/device.c 	dev-&gt;next = device_list;
+<a href='../S/327.html#L167'>dev</a>               167 sys/kern/device.c 	device_list = dev;
+<a href='../S/327.html#L170'>dev</a>               170 sys/kern/device.c 	return dev;
+<a href='../S/327.html#L179'>dev</a>               179 sys/kern/device.c device_destroy(device_t dev)
+<a href='../S/327.html#L183'>dev</a>               183 sys/kern/device.c 	if (!device_valid(dev)) {
+<a href='../S/327.html#L187'>dev</a>               187 sys/kern/device.c 	dev-&gt;active = 0;
+<a href='../S/327.html#L188'>dev</a>               188 sys/kern/device.c 	device_release(dev);
+<a href='../S/327.html#L199'>dev</a>               199 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L201'>dev</a>               201 sys/kern/device.c 	for (dev = device_list; dev != NULL; dev = dev-&gt;next) {
+<a href='../S/327.html#L202'>dev</a>               202 sys/kern/device.c 		if (!strncmp(dev-&gt;name, name, MAXDEVNAME))
+<a href='../S/327.html#L203'>dev</a>               203 sys/kern/device.c 			return dev;
+<a href='../S/327.html#L212'>dev</a>               212 sys/kern/device.c device_private(device_t dev)
+<a href='../S/327.html#L214'>dev</a>               214 sys/kern/device.c 	ASSERT(dev != NULL);
+<a href='../S/327.html#L215'>dev</a>               215 sys/kern/device.c 	ASSERT(dev-&gt;private != NULL);
+<a href='../S/327.html#L217'>dev</a>               217 sys/kern/device.c 	return dev-&gt;private;
+<a href='../S/327.html#L224'>dev</a>               224 sys/kern/device.c device_valid(device_t dev)
+<a href='../S/327.html#L230'>dev</a>               230 sys/kern/device.c 		if (tmp == dev) {
+<a href='../S/327.html#L235'>dev</a>               235 sys/kern/device.c 	if (found &amp;&amp; dev-&gt;active)
+<a href='../S/327.html#L244'>dev</a>               244 sys/kern/device.c device_reference(device_t dev)
+<a href='../S/327.html#L248'>dev</a>               248 sys/kern/device.c 	if (!device_valid(dev)) {
+<a href='../S/327.html#L256'>dev</a>               256 sys/kern/device.c 	dev-&gt;refcnt++;
+<a href='../S/327.html#L266'>dev</a>               266 sys/kern/device.c device_release(device_t dev)
+<a href='../S/327.html#L271'>dev</a>               271 sys/kern/device.c 	if (--dev-&gt;refcnt &gt; 0) {
+<a href='../S/327.html#L279'>dev</a>               279 sys/kern/device.c 		if (*tmp == dev) {
+<a href='../S/327.html#L280'>dev</a>               280 sys/kern/device.c 			*tmp = dev-&gt;next;
+<a href='../S/327.html#L284'>dev</a>               284 sys/kern/device.c 	kmem_free(dev);
+<a href='../S/327.html#L302'>dev</a>               302 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L311'>dev</a>               311 sys/kern/device.c 	if ((dev = device_lookup(str)) == NULL) {
+<a href='../S/327.html#L315'>dev</a>               315 sys/kern/device.c 	error = device_reference(dev);
+<a href='../S/327.html#L322'>dev</a>               322 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L324'>dev</a>               324 sys/kern/device.c 	error = (*ops-&gt;open)(dev, mode);
+<a href='../S/327.html#L326'>dev</a>               326 sys/kern/device.c 		error = copyout(&amp;dev, devp, sizeof(dev));
+<a href='../S/327.html#L328'>dev</a>               328 sys/kern/device.c 	device_release(dev);
+<a href='../S/327.html#L339'>dev</a>               339 sys/kern/device.c device_close(device_t dev)
+<a href='../S/327.html#L344'>dev</a>               344 sys/kern/device.c 	if ((error = device_reference(dev)) != 0)
+<a href='../S/327.html#L347'>dev</a>               347 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L349'>dev</a>               349 sys/kern/device.c 	error = (*ops-&gt;close)(dev);
+<a href='../S/327.html#L351'>dev</a>               351 sys/kern/device.c 	device_release(dev);
+<a href='../S/327.html#L362'>dev</a>               362 sys/kern/device.c device_read(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L371'>dev</a>               371 sys/kern/device.c 	if ((error = device_reference(dev)) != 0)
+<a href='../S/327.html#L375'>dev</a>               375 sys/kern/device.c 		device_release(dev);
+<a href='../S/327.html#L379'>dev</a>               379 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L381'>dev</a>               381 sys/kern/device.c 	error = (*ops-&gt;read)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L385'>dev</a>               385 sys/kern/device.c 	device_release(dev);
+<a href='../S/327.html#L395'>dev</a>               395 sys/kern/device.c device_write(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L404'>dev</a>               404 sys/kern/device.c 	if ((error = device_reference(dev)) != 0)
+<a href='../S/327.html#L408'>dev</a>               408 sys/kern/device.c 		device_release(dev);
+<a href='../S/327.html#L412'>dev</a>               412 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L414'>dev</a>               414 sys/kern/device.c 	error = (*ops-&gt;write)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L418'>dev</a>               418 sys/kern/device.c 	device_release(dev);
+<a href='../S/327.html#L430'>dev</a>               430 sys/kern/device.c device_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L435'>dev</a>               435 sys/kern/device.c 	if ((error = device_reference(dev)) != 0)
+<a href='../S/327.html#L438'>dev</a>               438 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L440'>dev</a>               440 sys/kern/device.c 	error = (*ops-&gt;ioctl)(dev, cmd, arg);
+<a href='../S/327.html#L442'>dev</a>               442 sys/kern/device.c 	device_release(dev);
+<a href='../S/327.html#L451'>dev</a>               451 sys/kern/device.c device_control(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L456'>dev</a>               456 sys/kern/device.c 	ASSERT(dev != NULL);
+<a href='../S/327.html#L459'>dev</a>               459 sys/kern/device.c 	ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L461'>dev</a>               461 sys/kern/device.c 	error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/327.html#L482'>dev</a>               482 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L488'>dev</a>               488 sys/kern/device.c 	for (dev = device_list; dev != NULL; dev = dev-&gt;next) {
+<a href='../S/327.html#L492'>dev</a>               492 sys/kern/device.c 		ops = dev-&gt;driver-&gt;devops;
+<a href='../S/327.html#L497'>dev</a>               497 sys/kern/device.c 		error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/327.html#L500'>dev</a>               500 sys/kern/device.c 				 dev-&gt;name, error, cmd));
+<a href='../S/327.html#L521'>dev</a>               521 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L525'>dev</a>               525 sys/kern/device.c 	for (dev = device_list; dev != NULL; dev = dev-&gt;next) {
+<a href='../S/327.html#L528'>dev</a>               528 sys/kern/device.c 			info-&gt;id = dev;
+<a href='../S/327.html#L529'>dev</a>               529 sys/kern/device.c 			info-&gt;flags = dev-&gt;flags;
+<a href='../S/327.html#L530'>dev</a>               530 sys/kern/device.c 			strlcpy(info-&gt;name, dev-&gt;name, MAXDEVNAME);
+<a href='../S/479.html#L769'>dev</a>               769 usr/lib/libc/gen/fts.c 	dev_t dev;
+<a href='../S/479.html#L817'>dev</a>               817 usr/lib/libc/gen/fts.c 		dev = p-&gt;fts_dev = sbp-&gt;st_dev;
+<a href='../S/479.html#L832'>dev</a>               832 usr/lib/libc/gen/fts.c 			if (ino == t-&gt;fts_ino &amp;&amp; dev == t-&gt;fts_dev) {
+<a href='../S/679.html#L40'>dev</a>                40 usr/lib/posix/file/mknod.c mknod(const char *path, mode_t mode, dev_t dev)
+<a href='../S/680.html#L39'>dev</a>                39 usr/lib/posix/file/mount.c mount(const char *dev, const char *dir, const char *fs, int flags,
+<a href='../S/680.html#L44'>dev</a>                44 usr/lib/posix/file/mount.c 	strlcpy(m.dev, (char *)dev, PATH_MAX);
+<a href='../S/833.html#L43'>dev</a>                43 usr/sample/cpumon/cpumon.c 	device_t dev;
+<a href='../S/833.html#L51'>dev</a>                51 usr/sample/cpumon/cpumon.c 	if (device_open("cpufreq", 0, &amp;dev))
+<a href='../S/833.html#L58'>dev</a>                58 usr/sample/cpumon/cpumon.c 	device_ioctl(dev, CFIOC_GET_INFO, &amp;cf_info);
+<a href='../S/833.html#L71'>dev</a>                71 usr/sample/cpumon/cpumon.c 		device_ioctl(dev, CFIOC_GET_INFO, &amp;cf_info);
+<a href='../S/882.html#L49'>dev</a>                49 usr/server/fs/arfs/arfs_vfsops.c static int arfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/882.html#L71'>dev</a>                71 usr/server/fs/arfs/arfs_vfsops.c arfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/882.html#L77'>dev</a>                77 usr/server/fs/arfs/arfs_vfsops.c 	DPRINTF(("arfs_mount: dev=%s\n", dev));
+<a href='../S/886.html#L118'>dev</a>               118 usr/server/fs/devfs/devfs_vnops.c 	device_t dev;
+<a href='../S/886.html#L133'>dev</a>               133 usr/server/fs/devfs/devfs_vnops.c 	error = device_open(path, flags &amp; DO_RWMASK, &amp;dev);
+<a href='../S/886.html#L139'>dev</a>               139 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_data = (void *)dev;	/* Store private data */
+<a href='../S/888.html#L171'>dev</a>               171 usr/server/fs/fatfs/fatfs.h 	dev_t	dev;		/* mounted device */
+<a href='../S/889.html#L67'>dev</a>                67 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/889.html#L76'>dev</a>                76 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec + 1, &amp;bp)) != 0)
+<a href='../S/889.html#L106'>dev</a>               106 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/889.html#L115'>dev</a>               115 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec + 1);
+<a href='../S/890.html#L50'>dev</a>                50 usr/server/fs/fatfs/fatfs_node.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/890.html#L65'>dev</a>                65 usr/server/fs/fatfs/fatfs_node.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/892.html#L47'>dev</a>                47 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/892.html#L82'>dev</a>                82 usr/server/fs/fatfs/fatfs_vfsops.c 	error = device_read(fmp-&gt;dev, bpb, &amp;size, 0);
+<a href='../S/892.html#L136'>dev</a>               136 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/892.html#L142'>dev</a>               142 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("fatfs_mount device=%s\n", dev));
+<a href='../S/892.html#L148'>dev</a>               148 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;dev = mp-&gt;m_dev;
+<a href='../S/893.html#L108'>dev</a>               108 usr/server/fs/fatfs/fatfs_vnops.c 	return device_read(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L122'>dev</a>               122 usr/server/fs/fatfs/fatfs_vnops.c 	return device_write(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/901.html#L39'>dev</a>                39 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_mount(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/901.html#L61'>dev</a>                61 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/901.html#L65'>dev</a>                65 usr/server/fs/ramfs/ramfs_vfsops.c 	DPRINTF(("ramfs_mount: dev=%s\n", dev));
+<a href='../S/903.html#L98'>dev</a>                98 usr/server/fs/vfs/main.c 		error = sys_mount(msg-&gt;dev, msg-&gt;dir, msg-&gt;fs, msg-&gt;flags,
+<a href='../S/905.html#L121'>dev</a>               121 usr/server/fs/vfs/vfs.h int	 sys_mount(char *dev, char *dir, char *fsname, int flags, void *data);
+<a href='../S/906.html#L134'>dev</a>               134 usr/server/fs/vfs/vfs_bio.c incore(dev_t dev, int blkno)
+<a href='../S/906.html#L141'>dev</a>               141 usr/server/fs/vfs/vfs_bio.c 		if (bp-&gt;b_blkno == blkno &amp;&amp; bp-&gt;b_dev == dev &amp;&amp;
+<a href='../S/906.html#L157'>dev</a>               157 usr/server/fs/vfs/vfs_bio.c getblk(dev_t dev, int blkno)
+<a href='../S/906.html#L161'>dev</a>               161 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("getblk: dev=%x blkno=%d\n", dev, blkno));
+<a href='../S/906.html#L164'>dev</a>               164 usr/server/fs/vfs/vfs_bio.c 	bp = incore(dev, blkno);
+<a href='../S/906.html#L187'>dev</a>               187 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_dev = dev;
+<a href='../S/906.html#L226'>dev</a>               226 usr/server/fs/vfs/vfs_bio.c bread(dev_t dev, int blkno, struct buf **bpp)
+<a href='../S/906.html#L232'>dev</a>               232 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bread: dev=%x blkno=%d\n", dev, blkno));
+<a href='../S/906.html#L233'>dev</a>               233 usr/server/fs/vfs/vfs_bio.c 	bp = getblk(dev, blkno);
+<a href='../S/906.html#L237'>dev</a>               237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+<a href='../S/906.html#L320'>dev</a>               320 usr/server/fs/vfs/vfs_bio.c binval(dev_t dev)
+<a href='../S/906.html#L328'>dev</a>               328 usr/server/fs/vfs/vfs_bio.c 		if (bp-&gt;b_dev == dev) {
+<a href='../S/909.html#L89'>dev</a>                89 usr/server/fs/vfs/vfs_mount.c sys_mount(char *dev, char *dir, char *fsname, int flags, void *data)
+<a href='../S/909.html#L111'>dev</a>               111 usr/server/fs/vfs/vfs_mount.c 	if (*dev != '\0') {
+<a href='../S/909.html#L112'>dev</a>               112 usr/server/fs/vfs/vfs_mount.c 		if (strncmp(dev, "/dev/", 5))
+<a href='../S/909.html#L114'>dev</a>               114 usr/server/fs/vfs/vfs_mount.c 		if ((error = device_open(dev + 5, DO_RDWR, &amp;device)) != 0)
+<a href='../S/909.html#L177'>dev</a>               177 usr/server/fs/vfs/vfs_mount.c 	if ((error = VFS_MOUNT(mp, dev, flags, data)) != 0)
+</pre>
+</body>
+</html>

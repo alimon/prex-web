@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ioctl</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L113'>ioctl</a>             113 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;ioctl(dev, cmd, arg);
+<a href='../S/252.html#L58'>ioctl</a>              58 include/sys/device.h 	int (*ioctl)	(device_t, u_long, void *);
+<a href='../S/259.html#L111'>ioctl</a>             111 include/sys/ioctl.h int	ioctl(int, unsigned long, ...);
+<a href='../S/327.html#L439'>ioctl</a>             439 sys/kern/device.c 	ASSERT(ops-&gt;ioctl != NULL);
+<a href='../S/327.html#L440'>ioctl</a>             440 sys/kern/device.c 	error = (*ops-&gt;ioctl)(dev, cmd, arg);
+<a href='../S/372.html#L62'>ioctl</a>              62 usr/bin/cmdbox/main.c 	if (ioctl(fileno(stderr), TIOCGWINSZ, &amp;ws) == 0)
+<a href='../S/390.html#L106'>ioctl</a>             106 usr/bin/ls/ls.c 		if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &amp;ws) == 0 &amp;&amp;
+<a href='../S/396.html#L64'>ioctl</a>              64 usr/bin/more/more.c 	if (ioctl(0, TIOCGWINSZ, &amp;ws) == 0)
+<a href='../S/626.html#L41'>ioctl</a>              41 usr/lib/libc/termios/tcdrain.c 	return (ioctl(fd, TIOCDRAIN, 0));
+<a href='../S/627.html#L46'>ioctl</a>              46 usr/lib/libc/termios/tcflow.c 		return (ioctl(fd, TIOCSTOP, 0));
+<a href='../S/627.html#L48'>ioctl</a>              48 usr/lib/libc/termios/tcflow.c 		return (ioctl(fd, TIOCSTART, 0));
+<a href='../S/628.html#L60'>ioctl</a>              60 usr/lib/libc/termios/tcflush.c 	return (ioctl(fd, TIOCFLUSH, &amp;com));
+<a href='../S/629.html#L41'>ioctl</a>              41 usr/lib/libc/termios/tcgetattr.c 	return (ioctl(fd, TIOCGETA, t));
+<a href='../S/630.html#L42'>ioctl</a>              42 usr/lib/libc/termios/tcgetpgrp.c 	if (ioctl(fd, TIOCGPGRP, &amp;s) &lt; 0)
+<a href='../S/631.html#L45'>ioctl</a>              45 usr/lib/libc/termios/tcsendbreak.c 	if (ioctl(fd, TIOCSBRK, 0) == -1)
+<a href='../S/631.html#L48'>ioctl</a>              48 usr/lib/libc/termios/tcsendbreak.c 	if (ioctl(fd, TIOCCBRK, 0) == -1)
+<a href='../S/632.html#L52'>ioctl</a>              52 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETA, t));
+<a href='../S/632.html#L54'>ioctl</a>              54 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETAW, t));
+<a href='../S/632.html#L56'>ioctl</a>              56 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETAF, t));
+<a href='../S/633.html#L43'>ioctl</a>              43 usr/lib/libc/termios/tcsetpgrp.c 	return (ioctl(fd, TIOCSPGRP, &amp;s));
+<a href='../S/744.html#L46'>ioctl</a>              46 usr/lib/posix/time/gettimeofday.c 	error = ioctl(fd, RTCIOC_GET_TIME, tv);
+<a href='../S/846.html#L94'>ioctl</a>              94 usr/sample/tetris/input.c 		ioctl(1, TIOCINQ, &amp;ninq);
+<a href='../S/849.html#L85'>ioctl</a>              85 usr/sample/tetris/screen.c 	if (ioctl(0, TIOCGWINSZ, &amp;ws) == 0) {
+</pre>
+</body>
+</html>

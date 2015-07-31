@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>psize</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/342.html#L76'>psize</a>              76 sys/mem/page.c page_alloc(psize_t psize)
+<a href='../S/342.html#L81'>psize</a>              81 sys/mem/page.c 	ASSERT(psize != 0);
+<a href='../S/342.html#L88'>psize</a>              88 sys/mem/page.c 	size = round_page(psize);
+<a href='../S/342.html#L129'>psize</a>             129 sys/mem/page.c page_free(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L134'>psize</a>             134 sys/mem/page.c 	ASSERT(psize != 0);
+<a href='../S/342.html#L138'>psize</a>             138 sys/mem/page.c 	size = round_page(psize);
+<a href='../S/342.html#L182'>psize</a>             182 sys/mem/page.c page_reserve(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L188'>psize</a>             188 sys/mem/page.c 	if (psize == 0)
+<a href='../S/342.html#L192'>psize</a>             192 sys/mem/page.c 	end = round_page((vaddr_t)ptokv(paddr + psize));
+</pre>
+</body>
+</html>

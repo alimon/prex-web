@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>name</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L53'>name</a>               53 bsp/boot/common/bootinfo.c 	       m-&gt;datasz, m-&gt;bsssz, m-&gt;name);
+<a href='../S/13.html#L366'>name</a>              366 bsp/boot/common/elf.c 				DPRINTF(("Relocation error: module=%s\n", m-&gt;name));
+<a href='../S/14.html#L159'>name</a>              159 bsp/boot/common/load.c 	strlcpy(m-&gt;name, hdr-&gt;ar_name, sizeof(m-&gt;name));
+<a href='../S/14.html#L160'>name</a>              160 bsp/boot/common/load.c 	c = m-&gt;name;
+<a href='../S/14.html#L166'>name</a>              166 bsp/boot/common/load.c 		 (paddr_t)hdr, (paddr_t)m, m-&gt;name));
+<a href='../S/59.html#L92'>name</a>               92 bsp/drv/dev/base/init.c 			DPRINTF(("Initializing %s\n", dp-&gt;name));
+<a href='../S/59.html#L117'>name</a>              117 bsp/drv/dev/base/init.c 			DPRINTF(("Unloading %s\n", dp-&gt;name));
+<a href='../S/59.html#L139'>name</a>              139 bsp/drv/dev/base/init.c 		       (long)dp-&gt;devops,(long) dp-&gt;flags, dp-&gt;name);
+<a href='../S/60.html#L142'>name</a>              142 bsp/drv/dev/base/kd.c kd_lookup_task(char *name)
+<a href='../S/60.html#L152'>name</a>              152 bsp/drv/dev/base/kd.c 		if (!rc &amp;&amp; !strncmp(ti.taskname, name, MAXTASKNAME)) {
+<a href='../S/60.html#L359'>name</a>              359 bsp/drv/dev/base/kd.c 			printf(" %08lx %12s %s\n", di.id, di.name, flags);
+<a href='../S/96.html#L71'>name</a>               71 bsp/drv/include/dki.h 	const char	*name;		/* pointer to event name string */
+<a href='../S/96.html#L75'>name</a>               75 bsp/drv/include/dki.h     do { list_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/132.html#L83'>name</a>               83 bsp/hal/arm/arch/trap.c 			 get_faultaddress(), curtask-&gt;name));
+<a href='../S/132.html#L122'>name</a>              122 bsp/hal/arm/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/159.html#L140'>name</a>              140 bsp/hal/ppc/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/179.html#L124'>name</a>              124 bsp/hal/x86/arch/trap.c 			 get_cr2(), curtask-&gt;name));
+<a href='../S/179.html#L178'>name</a>              178 bsp/hal/x86/arch/trap.c 	printf(" &gt;&gt; task=%s\n", curtask-&gt;name);
+<a href='../S/216.html#L45'>name</a>               45 include/arm/systrap.h #define SYSCALL0(name) \
+<a href='../S/216.html#L46'>name</a>               46 include/arm/systrap.h 	.global name; .align; \
+<a href='../S/216.html#L47'>name</a>               47 include/arm/systrap.h name##: \
+<a href='../S/216.html#L49'>name</a>               49 include/arm/systrap.h 	mov r4, #SYS_##name; \
+<a href='../S/216.html#L57'>name</a>               57 include/arm/systrap.h #define SYSCALL0(name) \
+<a href='../S/216.html#L58'>name</a>               58 include/arm/systrap.h 	.global name; .align; \
+<a href='../S/216.html#L59'>name</a>               59 include/arm/systrap.h name##: swi #SYS_##name; \
+<a href='../S/216.html#L65'>name</a>               65 include/arm/systrap.h #define SYSCALL1(name) SYSCALL0(name)
+<a href='../S/216.html#L66'>name</a>               66 include/arm/systrap.h #define SYSCALL2(name) SYSCALL0(name)
+<a href='../S/216.html#L67'>name</a>               67 include/arm/systrap.h #define SYSCALL3(name) SYSCALL0(name)
+<a href='../S/216.html#L68'>name</a>               68 include/arm/systrap.h #define SYSCALL4(name) SYSCALL0(name)
+<a href='../S/244.html#L33'>name</a>               33 include/ppc/systrap.h #define SYSCALL0(name) \
+<a href='../S/244.html#L34'>name</a>               34 include/ppc/systrap.h 	.global name; .align; \
+<a href='../S/244.html#L35'>name</a>               35 include/ppc/systrap.h name##: ; \
+<a href='../S/244.html#L36'>name</a>               36 include/ppc/systrap.h 	li	r0, SYS_##name; \
+<a href='../S/244.html#L41'>name</a>               41 include/ppc/systrap.h #define SYSCALL1(name) SYSCALL0(name)
+<a href='../S/244.html#L42'>name</a>               42 include/ppc/systrap.h #define SYSCALL2(name) SYSCALL0(name)
+<a href='../S/244.html#L43'>name</a>               43 include/ppc/systrap.h #define SYSCALL3(name) SYSCALL0(name)
+<a href='../S/244.html#L44'>name</a>               44 include/ppc/systrap.h #define SYSCALL4(name) SYSCALL0(name)
+<a href='../S/247.html#L61'>name</a>               61 include/sys/bootinfo.h 	char		name[MAXIMGNAME]; /* name of image */
+<a href='../S/252.html#L80'>name</a>               80 include/sys/device.h 	const char	*name;		/* name of device driver */
+<a href='../S/254.html#L369'>name</a>              369 include/sys/elf.h unsigned int elf_hash(const unsigned char *name);
+<a href='../S/267.html#L92'>name</a>               92 include/sys/prex.h int	task_setname(task_t task, const char *name);
+<a href='../S/267.html#L113'>name</a>              113 include/sys/prex.h int	object_create(const char *name, object_t *objp);
+<a href='../S/267.html#L115'>name</a>              115 include/sys/prex.h int	object_lookup(const char *name, object_t *objp);
+<a href='../S/267.html#L126'>name</a>              126 include/sys/prex.h int	device_open(const char *name, int mode, device_t *dev);
+<a href='../S/272.html#L139'>name</a>              139 include/sys/sysinfo.h 	char	 	name[MAXDEVNAME]; /* device name */
+<a href='../S/290.html#L33'>name</a>               33 include/x86/systrap.h #define SYSCALL0(name) \
+<a href='../S/290.html#L34'>name</a>               34 include/x86/systrap.h 	.global name; .align 2; \
+<a href='../S/290.html#L35'>name</a>               35 include/x86/systrap.h name##: movl	$(SYS_##name), %eax; \
+<a href='../S/290.html#L38'>name</a>               38 include/x86/systrap.h #define SYSCALL1(name) SYSCALL0(name)
+<a href='../S/290.html#L39'>name</a>               39 include/x86/systrap.h #define SYSCALL2(name) SYSCALL0(name)
+<a href='../S/290.html#L40'>name</a>               40 include/x86/systrap.h #define SYSCALL3(name) SYSCALL0(name)
+<a href='../S/290.html#L41'>name</a>               41 include/x86/systrap.h #define SYSCALL4(name) SYSCALL0(name)
+<a href='../S/305.html#L43'>name</a>               43 sys/include/device.h 	char		name[MAXDEVNAME]; /* name of device */
+<a href='../S/306.html#L41'>name</a>               41 sys/include/event.h 	char		*name;		/* pointer to event name string */
+<a href='../S/306.html#L46'>name</a>               46 sys/include/event.h     do { queue_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/309.html#L41'>name</a>               41 sys/include/ipc.h 	char		name[MAXOBJNAME]; /* object name */
+<a href='../S/318.html#L46'>name</a>               46 sys/include/task.h 	char		name[MAXTASKNAME]; /* task name */
+<a href='../S/325.html#L81'>name</a>               81 sys/ipc/object.c object_create(const char *name, object_t *objp)
+<a href='../S/325.html#L87'>name</a>               87 sys/ipc/object.c 	if (name == NULL)
+<a href='../S/325.html#L90'>name</a>               90 sys/ipc/object.c 		error = copyinstr(name, str, MAXOBJNAME);
+<a href='../S/325.html#L95'>name</a>               95 sys/ipc/object.c 		if (name[0] == '!' &amp;&amp; !task_capable(CAP_PROTSERV))
+<a href='../S/325.html#L120'>name</a>              120 sys/ipc/object.c 	if (name != NULL)
+<a href='../S/325.html#L121'>name</a>              121 sys/ipc/object.c 		strlcpy(obj-&gt;name, str, MAXOBJNAME);
+<a href='../S/325.html#L140'>name</a>              140 sys/ipc/object.c object_lookup(const char *name, object_t *objp)
+<a href='../S/325.html#L146'>name</a>              146 sys/ipc/object.c 	error = copyinstr(name, str, MAXOBJNAME);
+<a href='../S/325.html#L178'>name</a>              178 sys/ipc/object.c object_find(const char *name)
+<a href='../S/325.html#L186'>name</a>              186 sys/ipc/object.c 		if (!strncmp(obj-&gt;name, name, MAXOBJNAME))
+<a href='../S/327.html#L130'>name</a>              130 sys/kern/device.c device_create(struct driver *drv, const char *name, int flags)
+<a href='../S/327.html#L139'>name</a>              139 sys/kern/device.c 	len = strnlen(name, MAXDEVNAME);
+<a href='../S/327.html#L146'>name</a>              146 sys/kern/device.c 	if (device_lookup(name) != NULL)
+<a href='../S/327.html#L160'>name</a>              160 sys/kern/device.c 	strlcpy(dev-&gt;name, name, len + 1);
+<a href='../S/327.html#L197'>name</a>              197 sys/kern/device.c device_lookup(const char *name)
+<a href='../S/327.html#L202'>name</a>              202 sys/kern/device.c 		if (!strncmp(dev-&gt;name, name, MAXDEVNAME))
+<a href='../S/327.html#L299'>name</a>              299 sys/kern/device.c device_open(const char *name, int mode, device_t *devp)
+<a href='../S/327.html#L306'>name</a>              306 sys/kern/device.c 	error = copyinstr(name, str, MAXDEVNAME);
+<a href='../S/327.html#L500'>name</a>              500 sys/kern/device.c 				 dev-&gt;name, error, cmd));
+<a href='../S/327.html#L530'>name</a>              530 sys/kern/device.c 			strlcpy(info-&gt;name, dev-&gt;name, MAXDEVNAME);
+<a href='../S/328.html#L132'>name</a>              132 sys/kern/exception.c 					 self-&gt;name));
+<a href='../S/328.html#L336'>name</a>              336 sys/kern/exception.c 				 self-&gt;name, (long)self));
+<a href='../S/332.html#L186'>name</a>              186 sys/kern/sysent.c 			       curtask-&gt;name, id);
+<a href='../S/332.html#L192'>name</a>              192 sys/kern/sysent.c 		printf("%s: %s(", curtask-&gt;name, callp-&gt;sy_name);
+<a href='../S/332.html#L233'>name</a>              233 sys/kern/sysent.c 				curtask-&gt;name, callp-&gt;sy_name, retval);
+<a href='../S/333.html#L216'>name</a>              216 sys/kern/system.c 	printf(" task=%s thread=%lx\n", curtask-&gt;name, (long)curthread);
+<a href='../S/334.html#L139'>name</a>              139 sys/kern/task.c 	strlcpy(task-&gt;name, "*noname", MAXTASKNAME);
+<a href='../S/334.html#L305'>name</a>              305 sys/kern/task.c task_setname(task_t task, const char *name)
+<a href='../S/334.html#L321'>name</a>              321 sys/kern/task.c 		strlcpy(task-&gt;name, name, MAXTASKNAME);
+<a href='../S/334.html#L323'>name</a>              323 sys/kern/task.c 		error = copyinstr(name, str, MAXTASKNAME);
+<a href='../S/334.html#L328'>name</a>              328 sys/kern/task.c 		strlcpy(task-&gt;name, str, MAXTASKNAME);
+<a href='../S/334.html#L373'>name</a>              373 sys/kern/task.c 			 curtask-&gt;name, task-&gt;name, cap));
+<a href='../S/334.html#L393'>name</a>              393 sys/kern/task.c 			 curtask-&gt;name, cap));
+<a href='../S/334.html#L459'>name</a>              459 sys/kern/task.c 			strlcpy(info-&gt;taskname, task-&gt;name, MAXTASKNAME);
+<a href='../S/334.html#L493'>name</a>              493 sys/kern/task.c 		task_setname(task, mod-&gt;name);
+<a href='../S/334.html#L500'>name</a>              500 sys/kern/task.c 		if (!strncmp(task-&gt;name, "exec", MAXTASKNAME))
+<a href='../S/334.html#L536'>name</a>              536 sys/kern/task.c 	strlcpy(kernel_task.name, "kernel", MAXTASKNAME);
+<a href='../S/335.html#L503'>name</a>              503 sys/kern/thread.c 			strlcpy(info-&gt;taskname, t-&gt;task-&gt;name, MAXTASKNAME);
+<a href='../S/335.html#L505'>name</a>              505 sys/kern/thread.c 				t-&gt;slpevt-&gt;name : "-", MAXEVTNAME);
+<a href='../S/343.html#L680'>name</a>              680 sys/mem/vm.c   	DPRINTF(("Loading task: %s\n", mod-&gt;name));
+<a href='../S/344.html#L460'>name</a>              460 sys/mem/vm_nommu.c 	DPRINTF(("Loading task:\'%s\'\n", mod-&gt;name));
+<a href='../S/388.html#L142'>name</a>              142 usr/bin/kill/kill.c nosig(name)
+<a href='../S/388.html#L143'>name</a>              143 usr/bin/kill/kill.c 	char *name;
+<a href='../S/388.html#L146'>name</a>              146 usr/bin/kill/kill.c 	warnx("unknown signal %s; valid signals:", name);
+<a href='../S/388.html#L157'>name</a>              157 usr/bin/kill/kill.c 	const char *name;
+<a href='../S/388.html#L160'>name</a>              160 usr/bin/kill/kill.c 		name = sys_signame[n];
+<a href='../S/388.html#L162'>name</a>              162 usr/bin/kill/kill.c 			(void)fprintf(fp, "%s\n", name);
+<a href='../S/388.html#L164'>name</a>              164 usr/bin/kill/kill.c 			(void)fprintf(fp, "%s ", name);
+<a href='../S/390.html#L46'>name</a>               46 usr/bin/ls/ls.c static void printentry(char *name, struct stat *sp);
+<a href='../S/390.html#L179'>name</a>              179 usr/bin/ls/ls.c printentry(char *name, struct stat *sp)
+<a href='../S/390.html#L185'>name</a>              185 usr/bin/ls/ls.c 	if (name[0] == '.') {
+<a href='../S/390.html#L223'>name</a>              223 usr/bin/ls/ls.c 	printf("%s", name);
+<a href='../S/390.html#L235'>name</a>              235 usr/bin/ls/ls.c 		len = strlen(name);
+<a href='../S/414.html#L44'>name</a>               44 usr/bin/sh/sh.h 	char	*name;
+<a href='../S/414.html#L51'>name</a>               51 usr/bin/sh/sh.h extern void	setvar(char *name, char *val);
+<a href='../S/414.html#L52'>name</a>               52 usr/bin/sh/sh.h extern void	unsetvar(char *name);
+<a href='../S/415.html#L46'>name</a>               46 usr/bin/sh/var.c 	char	*name;
+<a href='../S/415.html#L63'>name</a>               63 usr/bin/sh/var.c is_validname(char *name)
+<a href='../S/415.html#L67'>name</a>               67 usr/bin/sh/var.c 	for (p = name; *p != '\0'; p++) {
+<a href='../S/415.html#L75'>name</a>               75 usr/bin/sh/var.c lookupvar(char *name)
+<a href='../S/415.html#L82'>name</a>               82 usr/bin/sh/var.c 		if (var-&gt;name != NULL &amp;&amp; !strcmp(var-&gt;name, name))
+<a href='../S/415.html#L90'>name</a>               90 usr/bin/sh/var.c setvar(char *name, char *val)
+<a href='../S/415.html#L98'>name</a>               98 usr/bin/sh/var.c 	var = lookupvar(name);
+<a href='../S/415.html#L107'>name</a>              107 usr/bin/sh/var.c 			if (var-&gt;name == NULL) {
+<a href='../S/415.html#L120'>name</a>              120 usr/bin/sh/var.c 	if (!is_validname(name)) {
+<a href='../S/415.html#L121'>name</a>              121 usr/bin/sh/var.c 		fprintf(stderr, "%s: bad vairable name\n", name);
+<a href='../S/415.html#L124'>name</a>              124 usr/bin/sh/var.c 	if ((var-&gt;name = strdup(name)) == NULL) {
+<a href='../S/415.html#L132'>name</a>              132 usr/bin/sh/var.c unsetvar(char *name)
+<a href='../S/415.html#L137'>name</a>              137 usr/bin/sh/var.c 	var = lookupvar(name);
+<a href='../S/415.html#L141'>name</a>              141 usr/bin/sh/var.c 	free(var-&gt;name);
+<a href='../S/415.html#L143'>name</a>              143 usr/bin/sh/var.c 	var-&gt;name = NULL;
+<a href='../S/415.html#L150'>name</a>              150 usr/bin/sh/var.c 	char name[MAXVARNAME];
+<a href='../S/415.html#L155'>name</a>              155 usr/bin/sh/var.c 	p = name;
+<a href='../S/415.html#L163'>name</a>              163 usr/bin/sh/var.c 	setvar(name, p + 1);
+<a href='../S/415.html#L174'>name</a>              174 usr/bin/sh/var.c 		if (var-&gt;name != NULL)
+<a href='../S/415.html#L175'>name</a>              175 usr/bin/sh/var.c 			printf("%s=%s\n", var-&gt;name, var-&gt;val);
+<a href='../S/415.html#L207'>name</a>              207 usr/bin/sh/var.c 			setenv(var-&gt;name, var-&gt;val, 1);
+<a href='../S/415.html#L219'>name</a>              219 usr/bin/sh/var.c 		vartab[i].name = NULL;
+<a href='../S/470.html#L37'>name</a>               37 usr/lib/libc/gen/confstr.c confstr(name, buf, len)
+<a href='../S/470.html#L38'>name</a>               38 usr/lib/libc/gen/confstr.c 	int name;
+<a href='../S/470.html#L42'>name</a>               42 usr/lib/libc/gen/confstr.c 	switch (name) {
+<a href='../S/474.html#L40'>name</a>               40 usr/lib/libc/gen/execl.c execl(const char *name, const char *arg, ...)
+<a href='../S/474.html#L44'>name</a>               44 usr/lib/libc/gen/execl.c 	r = execve(name, (char **) &amp;arg, environ);
+<a href='../S/474.html#L64'>name</a>               64 usr/lib/libc/gen/execl.c 	r = execve(name, argv, environ);
+<a href='../S/475.html#L36'>name</a>               36 usr/lib/libc/gen/execle.c execle(const char *name, const char *arg, ...)
+<a href='../S/475.html#L48'>name</a>               48 usr/lib/libc/gen/execle.c 	return execve(name, (char **) &amp;arg, envp);
+<a href='../S/475.html#L68'>name</a>               68 usr/lib/libc/gen/execle.c 	return execve(name, argv, envp);
+<a href='../S/476.html#L36'>name</a>               36 usr/lib/libc/gen/execlp.c execlp(const char *name, const char *arg, ...)
+<a href='../S/476.html#L39'>name</a>               39 usr/lib/libc/gen/execlp.c 	return execvp(name, (char **) &amp;arg);
+<a href='../S/476.html#L58'>name</a>               58 usr/lib/libc/gen/execlp.c 	return execvp(name, argv);
+<a href='../S/477.html#L36'>name</a>               36 usr/lib/libc/gen/execv.c execv(name, argv)
+<a href='../S/477.html#L37'>name</a>               37 usr/lib/libc/gen/execv.c 	const char *name;
+<a href='../S/477.html#L42'>name</a>               42 usr/lib/libc/gen/execv.c 	r = execve(name, argv, environ);
+<a href='../S/478.html#L43'>name</a>               43 usr/lib/libc/gen/execvp.c execvp(const char *name, char * const *argv)
+<a href='../S/478.html#L54'>name</a>               54 usr/lib/libc/gen/execvp.c 	if (name[0] == '\0') {
+<a href='../S/478.html#L59'>name</a>               59 usr/lib/libc/gen/execvp.c 	if (strchr(name, '/')) {
+<a href='../S/478.html#L60'>name</a>               60 usr/lib/libc/gen/execvp.c 		bp = name;
+<a href='../S/478.html#L70'>name</a>               70 usr/lib/libc/gen/execvp.c 	ln = strlen(name);
+<a href='../S/478.html#L94'>name</a>               94 usr/lib/libc/gen/execvp.c 		memcpy(buf + lp + 1, name, ln);
+<a href='../S/479.html#L343'>name</a>              343 usr/lib/libc/gen/fts.c 		goto name;
+<a href='../S/479.html#L384'>name</a>              384 usr/lib/libc/gen/fts.c name:		t = sp-&gt;fts_path + NAPPEND(p-&gt;fts_parent);
+<a href='../S/479.html#L877'>name</a>              877 usr/lib/libc/gen/fts.c fts_alloc(FTS *sp, char *name, int namelen)
+<a href='../S/479.html#L897'>name</a>              897 usr/lib/libc/gen/fts.c 	memmove(p-&gt;fts_name, name, namelen + 1);
+<a href='../S/480.html#L35'>name</a>               35 usr/lib/libc/gen/gethostname.c gethostname(char *name, size_t namelen)
+<a href='../S/480.html#L40'>name</a>               40 usr/lib/libc/gen/gethostname.c 	strcpy(name, uts.nodename);
+<a href='../S/485.html#L33'>name</a>               33 usr/lib/libc/gen/sethostname.c sethostname(const char *name, size_t namelen)
+<a href='../S/548.html#L43'>name</a>               43 usr/lib/libc/stdio/tempnam.c 	char *f, *name;
+<a href='../S/548.html#L45'>name</a>               45 usr/lib/libc/stdio/tempnam.c 	if (!(name = malloc((size_t)MAXPATHLEN)))
+<a href='../S/548.html#L52'>name</a>               52 usr/lib/libc/stdio/tempnam.c 		(void)snprintf(name, (size_t)MAXPATHLEN, "%s%s%sXXXXXXXXXX", f,
+<a href='../S/548.html#L54'>name</a>               54 usr/lib/libc/stdio/tempnam.c 		if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L59'>name</a>               59 usr/lib/libc/stdio/tempnam.c 		(void)snprintf(name, (size_t)MAXPATHLEN, "%s%s%sXXXXXXXXXX", f,
+<a href='../S/548.html#L61'>name</a>               61 usr/lib/libc/stdio/tempnam.c 		if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L66'>name</a>               66 usr/lib/libc/stdio/tempnam.c 	(void)snprintf(name, (size_t)MAXPATHLEN, "%s%sXXXXXXXXXX", f, pfx);
+<a href='../S/548.html#L67'>name</a>               67 usr/lib/libc/stdio/tempnam.c 	if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L71'>name</a>               71 usr/lib/libc/stdio/tempnam.c 	(void)snprintf(name, (size_t)MAXPATHLEN, "%s%sXXXXXXXXXX", f, pfx);
+<a href='../S/548.html#L72'>name</a>               72 usr/lib/libc/stdio/tempnam.c 	if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L76'>name</a>               76 usr/lib/libc/stdio/tempnam.c 	free(name);
+<a href='../S/570.html#L43'>name</a>               43 usr/lib/libc/stdlib/getenv.c getenv(name)
+<a href='../S/570.html#L44'>name</a>               44 usr/lib/libc/stdlib/getenv.c 	const char *name;
+<a href='../S/570.html#L48'>name</a>               48 usr/lib/libc/stdlib/getenv.c 	return (__findenv(name, &amp;offset));
+<a href='../S/570.html#L61'>name</a>               61 usr/lib/libc/stdlib/getenv.c __findenv(name, offset)
+<a href='../S/570.html#L62'>name</a>               62 usr/lib/libc/stdlib/getenv.c 	const char *name;
+<a href='../S/570.html#L69'>name</a>               69 usr/lib/libc/stdlib/getenv.c 	if (name == NULL || environ == NULL)
+<a href='../S/570.html#L71'>name</a>               71 usr/lib/libc/stdlib/getenv.c 	for (np = name; *np &amp;&amp; *np != '='; ++np)
+<a href='../S/570.html#L73'>name</a>               73 usr/lib/libc/stdlib/getenv.c 	len = np - name;
+<a href='../S/570.html#L75'>name</a>               75 usr/lib/libc/stdlib/getenv.c 		if (strncmp(c, name, len) == 0 &amp;&amp; c[len] == '=') {
+<a href='../S/578.html#L44'>name</a>               44 usr/lib/libc/stdlib/setenv.c setenv(name, value, rewrite)
+<a href='../S/578.html#L45'>name</a>               45 usr/lib/libc/stdlib/setenv.c 	const char *name;
+<a href='../S/578.html#L56'>name</a>               56 usr/lib/libc/stdlib/setenv.c 	if ((c = __findenv(name, &amp;offset))) {	/* find if already exists */
+<a href='../S/578.html#L85'>name</a>               85 usr/lib/libc/stdlib/setenv.c 	for (c = (char *)name; *c &amp;&amp; *c != '='; ++c);	/* no `=' in name */
+<a href='../S/578.html#L87'>name</a>               87 usr/lib/libc/stdlib/setenv.c 	    malloc((size_t)((int)(c - name) + l_value + 2))))
+<a href='../S/578.html#L89'>name</a>               89 usr/lib/libc/stdlib/setenv.c 	for (c = environ[offset]; (*c = *name++) &amp;&amp; *c != '='; ++c);
+<a href='../S/578.html#L99'>name</a>               99 usr/lib/libc/stdlib/setenv.c unsetenv(name)
+<a href='../S/578.html#L100'>name</a>              100 usr/lib/libc/stdlib/setenv.c 	const char *name;
+<a href='../S/578.html#L105'>name</a>              105 usr/lib/libc/stdlib/setenv.c 	while (__findenv(name, &amp;offset))	/* if set multiple times */
+<a href='../S/682.html#L41'>name</a>               41 usr/lib/posix/file/opendir.c opendir(const char *name)
+<a href='../S/682.html#L50'>name</a>               50 usr/lib/posix/file/opendir.c 	strlcpy(m.path, (char *)name, PATH_MAX);
+<a href='../S/871.html#L86'>name</a>               86 usr/server/boot/boot.c wait_server(const char *name, object_t *pobj)
+<a href='../S/871.html#L97'>name</a>               97 usr/server/boot/boot.c 		error = object_lookup((char *)name, pobj);
+<a href='../S/878.html#L68'>name</a>               68 usr/server/exec/exec_script.c 	char *p, *name;
+<a href='../S/878.html#L83'>name</a>               83 usr/server/exec/exec_script.c 	name = p;
+<a href='../S/878.html#L88'>name</a>               88 usr/server/exec/exec_script.c 	if (!strncmp(name, "/bin/sh", PATH_MAX)) {
+<a href='../S/878.html#L94'>name</a>               94 usr/server/exec/exec_script.c 		strlcpy(interp, name, sizeof(interp));
+<a href='../S/883.html#L144'>name</a>              144 usr/server/fs/arfs/arfs_vnops.c arfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/883.html#L153'>name</a>              153 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_lookup: name=%s\n", name));
+<a href='../S/883.html#L154'>name</a>              154 usr/server/fs/arfs/arfs_vnops.c 	if (*name == '\0')
+<a href='../S/883.html#L182'>name</a>              182 usr/server/fs/arfs/arfs_vnops.c 		if (strncmp(name, (char *)&amp;hdr-&gt;ar_name, 16) == 0)
+<a href='../S/886.html#L193'>name</a>              193 usr/server/fs/devfs/devfs_vnops.c devfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/886.html#L198'>name</a>              198 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_lookup:%s\n", name));
+<a href='../S/886.html#L200'>name</a>              200 usr/server/fs/devfs/devfs_vnops.c 	if (*name == '\0')
+<a href='../S/886.html#L210'>name</a>              210 usr/server/fs/devfs/devfs_vnops.c 		if (!strncmp(info.name, name, MAXDEVNAME))
+<a href='../S/886.html#L250'>name</a>              250 usr/server/fs/devfs/devfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, info.name, sizeof(dir-&gt;d_name));
+<a href='../S/888.html#L117'>name</a>              117 usr/server/fs/fatfs/fatfs.h 	uint8_t		name[11];
+<a href='../S/888.html#L150'>name</a>              150 usr/server/fs/fatfs/fatfs.h #define IS_DELETED(de)  ((de)-&gt;name[0] == 0xe5)
+<a href='../S/888.html#L151'>name</a>              151 usr/server/fs/fatfs/fatfs.h #define IS_EMPTY(de)    ((de)-&gt;name[0] == 0)
+<a href='../S/888.html#L208'>name</a>              208 usr/server/fs/fatfs/fatfs.h void	 fat_convert_name(char *org, char *name);
+<a href='../S/888.html#L209'>name</a>              209 usr/server/fs/fatfs/fatfs.h void	 fat_restore_name(char *org, char *name);
+<a href='../S/888.html#L210'>name</a>              210 usr/server/fs/fatfs/fatfs.h int	 fat_valid_name(char *name);
+<a href='../S/888.html#L215'>name</a>              215 usr/server/fs/fatfs/fatfs.h int	 fatfs_lookup_node(vnode_t dvp, char *name, struct fatfs_node *node);
+<a href='../S/890.html#L80'>name</a>               80 usr/server/fs/fatfs/fatfs_node.c fat_lookup_dirent(struct fatfsmount *fmp, u_long sec, char *name,
+<a href='../S/890.html#L97'>name</a>               97 usr/server/fs/fatfs/fatfs_node.c 		    !fat_compare_name((char *)de-&gt;name, name)) {
+<a href='../S/890.html#L106'>name</a>              106 usr/server/fs/fatfs/fatfs_node.c 			DPRINTF(("fat_lookup_dirent: %s\n", de-&gt;name));
+<a href='../S/890.html#L121'>name</a>              121 usr/server/fs/fatfs/fatfs_node.c fatfs_lookup_node(vnode_t dvp, char *name, struct fatfs_node *np)
+<a href='../S/890.html#L128'>name</a>              128 usr/server/fs/fatfs/fatfs_node.c 	if (name == NULL)
+<a href='../S/890.html#L131'>name</a>              131 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fat_lookup_denode: cl=%d name=%s\n", dvp-&gt;v_blkno, name));
+<a href='../S/890.html#L133'>name</a>              133 usr/server/fs/fatfs/fatfs_node.c 	fat_convert_name(name, fat_name);
+<a href='../S/890.html#L200'>name</a>              200 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fat_get_dirent: %s\n", de-&gt;name));
+<a href='../S/890.html#L273'>name</a>              273 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fat_add_dirent: scan %s\n", de-&gt;name));
+<a href='../S/891.html#L46'>name</a>               46 usr/server/fs/fatfs/fatfs_subr.c fat_convert_name(char *org, char *name)
+<a href='../S/891.html#L50'>name</a>               50 usr/server/fs/fatfs/fatfs_subr.c 	memset(name, (int)' ', 11);
+<a href='../S/891.html#L61'>name</a>               61 usr/server/fs/fatfs/fatfs_subr.c 		*(name + i) = *org;
+<a href='../S/891.html#L71'>name</a>               71 usr/server/fs/fatfs/fatfs_subr.c fat_restore_name(char *org, char *name)
+<a href='../S/891.html#L75'>name</a>               75 usr/server/fs/fatfs/fatfs_subr.c 	memset(name, 0, 13);
+<a href='../S/891.html#L78'>name</a>               78 usr/server/fs/fatfs/fatfs_subr.c 			*name++ = *org;
+<a href='../S/891.html#L82'>name</a>               82 usr/server/fs/fatfs/fatfs_subr.c 		*name++ = '.';
+<a href='../S/891.html#L85'>name</a>               85 usr/server/fs/fatfs/fatfs_subr.c 			*name++ = *org;
+<a href='../S/891.html#L112'>name</a>              112 usr/server/fs/fatfs/fatfs_subr.c fat_valid_name(char *name)
+<a href='../S/891.html#L118'>name</a>              118 usr/server/fs/fatfs/fatfs_subr.c 	if (*name == '.') {
+<a href='../S/891.html#L119'>name</a>              119 usr/server/fs/fatfs/fatfs_subr.c 		name++;
+<a href='../S/891.html#L120'>name</a>              120 usr/server/fs/fatfs/fatfs_subr.c 		if (*name == '.')
+<a href='../S/891.html#L121'>name</a>              121 usr/server/fs/fatfs/fatfs_subr.c 			name++;
+<a href='../S/891.html#L122'>name</a>              122 usr/server/fs/fatfs/fatfs_subr.c 		return (*(name + 1) == '\0') ? 1 : 0;
+<a href='../S/891.html#L125'>name</a>              125 usr/server/fs/fatfs/fatfs_subr.c 	if (!isalnum((int)*name))
+<a href='../S/891.html#L127'>name</a>              127 usr/server/fs/fatfs/fatfs_subr.c 	while (*name != '\0') {
+<a href='../S/891.html#L128'>name</a>              128 usr/server/fs/fatfs/fatfs_subr.c 		if (strchr(invalid_char, *name))
+<a href='../S/891.html#L130'>name</a>              130 usr/server/fs/fatfs/fatfs_subr.c 		if (*name == '.')
+<a href='../S/891.html#L134'>name</a>              134 usr/server/fs/fatfs/fatfs_subr.c 		name++;
+<a href='../S/891.html#L136'>name</a>              136 usr/server/fs/fatfs/fatfs_subr.c 	if (*name == '\0')
+<a href='../S/891.html#L138'>name</a>              138 usr/server/fs/fatfs/fatfs_subr.c 	name++;
+<a href='../S/891.html#L139'>name</a>              139 usr/server/fs/fatfs/fatfs_subr.c 	if (*name == '\0')	/* Empty extension */
+<a href='../S/891.html#L142'>name</a>              142 usr/server/fs/fatfs/fatfs_subr.c 	while (*name != '\0') {
+<a href='../S/891.html#L143'>name</a>              143 usr/server/fs/fatfs/fatfs_subr.c 		if (strchr(invalid_char, *name))
+<a href='../S/891.html#L145'>name</a>              145 usr/server/fs/fatfs/fatfs_subr.c 		if (*name == '.')
+<a href='../S/891.html#L149'>name</a>              149 usr/server/fs/fatfs/fatfs_subr.c 		name++;
+<a href='../S/893.html#L130'>name</a>              130 usr/server/fs/fatfs/fatfs_vnops.c fatfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/893.html#L137'>name</a>              137 usr/server/fs/fatfs/fatfs_vnops.c 	if (*name == '\0')
+<a href='../S/893.html#L143'>name</a>              143 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_lookup: name=%s\n", name));
+<a href='../S/893.html#L146'>name</a>              146 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_lookup_node(dvp, name, np);
+<a href='../S/893.html#L148'>name</a>              148 usr/server/fs/fatfs/fatfs_vnops.c 		DPRINTF(("fatfs_lookup: failed!! name=%s\n", name));
+<a href='../S/893.html#L353'>name</a>              353 usr/server/fs/fatfs/fatfs_vnops.c 	fat_restore_name((char *)&amp;de-&gt;name, dir-&gt;d_name);
+<a href='../S/893.html#L376'>name</a>              376 usr/server/fs/fatfs/fatfs_vnops.c fatfs_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/893.html#L384'>name</a>              384 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_create: %s\n", name));
+<a href='../S/893.html#L389'>name</a>              389 usr/server/fs/fatfs/fatfs_vnops.c 	if (!fat_valid_name(name))
+<a href='../S/893.html#L402'>name</a>              402 usr/server/fs/fatfs/fatfs_vnops.c 	fat_convert_name(name, (char *)de-&gt;name);
+<a href='../S/893.html#L417'>name</a>              417 usr/server/fs/fatfs/fatfs_vnops.c fatfs_remove(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/893.html#L424'>name</a>              424 usr/server/fs/fatfs/fatfs_vnops.c 	if (*name == '\0')
+<a href='../S/893.html#L430'>name</a>              430 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_lookup_node(dvp, name, &amp;np);
+<a href='../S/893.html#L449'>name</a>              449 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;name[0] = 0xe5;
+<a href='../S/893.html#L480'>name</a>              480 usr/server/fs/fatfs/fatfs_vnops.c 		fat_convert_name(name2, (char *)de1-&gt;name);
+<a href='../S/893.html#L507'>name</a>              507 usr/server/fs/fatfs/fatfs_vnops.c 		fat_convert_name(name2, (char *)de1-&gt;name);
+<a href='../S/893.html#L553'>name</a>              553 usr/server/fs/fatfs/fatfs_vnops.c fatfs_mkdir(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/893.html#L564'>name</a>              564 usr/server/fs/fatfs/fatfs_vnops.c 	if (!fat_valid_name(name))
+<a href='../S/893.html#L577'>name</a>              577 usr/server/fs/fatfs/fatfs_vnops.c 	fat_convert_name(name, (char *)&amp;de-&gt;name);
+<a href='../S/893.html#L590'>name</a>              590 usr/server/fs/fatfs/fatfs_vnops.c 	memcpy(de-&gt;name, ".          ", 11);
+<a href='../S/893.html#L596'>name</a>              596 usr/server/fs/fatfs/fatfs_vnops.c 	memcpy(de-&gt;name, "..         ", 11);
+<a href='../S/893.html#L617'>name</a>              617 usr/server/fs/fatfs/fatfs_vnops.c fatfs_rmdir(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/893.html#L624'>name</a>              624 usr/server/fs/fatfs/fatfs_vnops.c 	if (*name == '\0')
+<a href='../S/893.html#L630'>name</a>              630 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_lookup_node(dvp, name, &amp;np);
+<a href='../S/893.html#L646'>name</a>              646 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;name[0] = 0xe5;
+<a href='../S/896.html#L317'>name</a>              317 usr/server/fs/fifofs/fifo_vnops.c fifo_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/896.html#L323'>name</a>              323 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_lookup: %s\n", name));
+<a href='../S/896.html#L325'>name</a>              325 usr/server/fs/fifofs/fifo_vnops.c 	if (*name == '\0')
+<a href='../S/896.html#L334'>name</a>              334 usr/server/fs/fifofs/fifo_vnops.c 		if (strcmp(name, np-&gt;fn_name) == 0) {
+<a href='../S/896.html#L352'>name</a>              352 usr/server/fs/fifofs/fifo_vnops.c fifo_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/896.html#L357'>name</a>              357 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("create %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/896.html#L371'>name</a>              371 usr/server/fs/fifofs/fifo_vnops.c 	len = strlen(name) + 1;
+<a href='../S/896.html#L379'>name</a>              379 usr/server/fs/fifofs/fifo_vnops.c 	strlcpy(np-&gt;fn_name, name, len);
+<a href='../S/896.html#L412'>name</a>              412 usr/server/fs/fifofs/fifo_vnops.c fifo_remove(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/896.html#L414'>name</a>              414 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("remove %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/900.html#L73'>name</a>               73 usr/server/fs/ramfs/ramfs.h struct ramfs_node *ramfs_allocate_node(char *name, int type);
+<a href='../S/902.html#L99'>name</a>               99 usr/server/fs/ramfs/ramfs_vnops.c ramfs_allocate_node(char *name, int type)
+<a href='../S/902.html#L108'>name</a>              108 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_namelen = strlen(name);
+<a href='../S/902.html#L114'>name</a>              114 usr/server/fs/ramfs/ramfs_vnops.c 	strlcpy(np-&gt;rn_name, name, np-&gt;rn_namelen + 1);
+<a href='../S/902.html#L128'>name</a>              128 usr/server/fs/ramfs/ramfs_vnops.c ramfs_add_node(struct ramfs_node *dnp, char *name, int type)
+<a href='../S/902.html#L132'>name</a>              132 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_allocate_node(name, type);
+<a href='../S/902.html#L181'>name</a>              181 usr/server/fs/ramfs/ramfs_vnops.c ramfs_rename_node(struct ramfs_node *np, char *name)
+<a href='../S/902.html#L186'>name</a>              186 usr/server/fs/ramfs/ramfs_vnops.c 	len = strlen(name);
+<a href='../S/902.html#L189'>name</a>              189 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy(np-&gt;rn_name, name, sizeof(np-&gt;rn_name));
+<a href='../S/902.html#L195'>name</a>              195 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy(tmp, name, len + 1);
+<a href='../S/902.html#L204'>name</a>              204 usr/server/fs/ramfs/ramfs_vnops.c ramfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/902.html#L210'>name</a>              210 usr/server/fs/ramfs/ramfs_vnops.c 	if (*name == '\0')
+<a href='../S/902.html#L215'>name</a>              215 usr/server/fs/ramfs/ramfs_vnops.c 	len = strlen(name);
+<a href='../S/902.html#L220'>name</a>              220 usr/server/fs/ramfs/ramfs_vnops.c 		    memcmp(name, np-&gt;rn_name, len) == 0) {
+<a href='../S/902.html#L239'>name</a>              239 usr/server/fs/ramfs/ramfs_vnops.c ramfs_mkdir(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/902.html#L243'>name</a>              243 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("mkdir %s\n", name));
+<a href='../S/902.html#L247'>name</a>              247 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_add_node(dvp-&gt;v_data, name, VDIR);
+<a href='../S/902.html#L256'>name</a>              256 usr/server/fs/ramfs/ramfs_vnops.c ramfs_rmdir(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/902.html#L264'>name</a>              264 usr/server/fs/ramfs/ramfs_vnops.c ramfs_remove(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/902.html#L269'>name</a>              269 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("remove %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/902.html#L319'>name</a>              319 usr/server/fs/ramfs/ramfs_vnops.c ramfs_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/902.html#L323'>name</a>              323 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("create %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/902.html#L327'>name</a>              327 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_add_node(dvp-&gt;v_data, name, VREG);
+<a href='../S/905.html#L144'>name</a>              144 usr/server/fs/vfs/vfs.h int	 lookup(char *path, vnode_t *vpp, char **name);
+<a href='../S/908.html#L55'>name</a>               55 usr/server/fs/vfs/vfs_lookup.c 	char name[PATH_MAX];
+<a href='../S/908.html#L97'>name</a>               97 usr/server/fs/vfs/vfs_lookup.c 			name[i] = *p++;
+<a href='../S/908.html#L99'>name</a>               99 usr/server/fs/vfs/vfs_lookup.c 		name[i] = '\0';
+<a href='../S/908.html#L105'>name</a>              105 usr/server/fs/vfs/vfs_lookup.c 		strlcat(node, name, sizeof(node));
+<a href='../S/908.html#L114'>name</a>              114 usr/server/fs/vfs/vfs_lookup.c 			error = VOP_LOOKUP(dvp, name, vp);
+<a href='../S/908.html#L150'>name</a>              150 usr/server/fs/vfs/vfs_lookup.c lookup(char *path, vnode_t *vpp, char **name)
+<a href='../S/908.html#L187'>name</a>              187 usr/server/fs/vfs/vfs_lookup.c 	*name = strrchr(path, '/') + 1;
+<a href='../S/909.html#L75'>name</a>               75 usr/server/fs/vfs/vfs_mount.c fs_getfs(char *name)
+<a href='../S/909.html#L80'>name</a>               80 usr/server/fs/vfs/vfs_mount.c 		if (!strncmp(name, fs-&gt;vs_name, FSMAXNAMES))
+<a href='../S/911.html#L463'>name</a>              463 usr/server/fs/vfs/vfs_syscalls.c 	char *name;
+<a href='../S/911.html#L476'>name</a>              476 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0) {
+<a href='../S/911.html#L485'>name</a>              485 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_MKDIR(dvp, name, mode);
+<a href='../S/911.html#L496'>name</a>              496 usr/server/fs/vfs/vfs_syscalls.c 	char *name;
+<a href='../S/911.html#L514'>name</a>              514 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0)
+<a href='../S/911.html#L517'>name</a>              517 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_RMDIR(dvp, vp, name);
+<a href='../S/911.html#L531'>name</a>              531 usr/server/fs/vfs/vfs_syscalls.c 	char *name;
+<a href='../S/911.html#L553'>name</a>              553 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0)
+<a href='../S/911.html#L558'>name</a>              558 usr/server/fs/vfs/vfs_syscalls.c 		error = VOP_MKDIR(dvp, name, mode);
+<a href='../S/911.html#L560'>name</a>              560 usr/server/fs/vfs/vfs_syscalls.c 		error = VOP_CREATE(dvp, name, mode);
+<a href='../S/911.html#L657'>name</a>              657 usr/server/fs/vfs/vfs_syscalls.c 	char *name;
+<a href='../S/911.html#L676'>name</a>              676 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = lookup(path, &amp;dvp, &amp;name)) != 0)
+<a href='../S/911.html#L679'>name</a>              679 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_REMOVE(dvp, vp, name);
+<a href='../S/916.html#L342'>name</a>              342 usr/server/pow/pow.c wait_server(const char *name, object_t *pobj)
+<a href='../S/916.html#L353'>name</a>              353 usr/server/pow/pow.c 		error = object_lookup((char *)name, pobj);
+<a href='../S/916.html#L366'>name</a>              366 usr/server/pow/pow.c shutdown_server(const char *name)
+<a href='../S/916.html#L372'>name</a>              372 usr/server/pow/pow.c 	DPRINTF(("pow: shutdown %s\n", name));
+<a href='../S/916.html#L373'>name</a>              373 usr/server/pow/pow.c 	error = object_lookup((char *)name, &amp;obj);
+<a href='../S/928.html#L46'>name</a>               46 usr/test/attack/attack.c 	char *name	= (char *)random();
+<a href='../S/928.html#L57'>name</a>               57 usr/test/attack/attack.c 	object_create(name, NULL);
+<a href='../S/928.html#L58'>name</a>               58 usr/test/attack/attack.c 	object_create(name, objp);
+<a href='../S/928.html#L64'>name</a>               64 usr/test/attack/attack.c 	object_lookup(name, NULL);
+<a href='../S/928.html#L65'>name</a>               65 usr/test/attack/attack.c 	object_lookup(name, objp);
+</pre>
+</body>
+</html>

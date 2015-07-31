@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fts_info</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/433.html#L99'>fts_info</a>           99 usr/include/fts.h 	u_short fts_info;		/* user flags for FTSENT structure */
+<a href='../S/479.html#L119'>fts_info</a>          119 usr/lib/libc/gen/fts.c 		p-&gt;fts_info = fts_stat(sp, p, ISSET(FTS_COMFOLLOW));
+<a href='../S/479.html#L122'>fts_info</a>          122 usr/lib/libc/gen/fts.c 		if (p-&gt;fts_info == FTS_DOT)
+<a href='../S/479.html#L123'>fts_info</a>          123 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = FTS_D;
+<a href='../S/479.html#L153'>fts_info</a>          153 usr/lib/libc/gen/fts.c 	sp-&gt;fts_cur-&gt;fts_info = FTS_INIT;
+<a href='../S/479.html#L271'>fts_info</a>          271 usr/lib/libc/gen/fts.c 		p-&gt;fts_info = fts_stat(sp, p, 0);
+<a href='../S/479.html#L282'>fts_info</a>          282 usr/lib/libc/gen/fts.c 	    (p-&gt;fts_info == FTS_SL || p-&gt;fts_info == FTS_SLNONE)) {
+<a href='../S/479.html#L283'>fts_info</a>          283 usr/lib/libc/gen/fts.c 		p-&gt;fts_info = fts_stat(sp, p, 1);
+<a href='../S/479.html#L284'>fts_info</a>          284 usr/lib/libc/gen/fts.c 		if (p-&gt;fts_info == FTS_D &amp;&amp; !ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L287'>fts_info</a>          287 usr/lib/libc/gen/fts.c 				p-&gt;fts_info = FTS_ERR;
+<a href='../S/479.html#L295'>fts_info</a>          295 usr/lib/libc/gen/fts.c 	if (p-&gt;fts_info == FTS_D) {
+<a href='../S/479.html#L305'>fts_info</a>          305 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = FTS_DP;
+<a href='../S/479.html#L372'>fts_info</a>          372 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = fts_stat(sp, p, 1);
+<a href='../S/479.html#L373'>fts_info</a>          373 usr/lib/libc/gen/fts.c 			if (p-&gt;fts_info == FTS_D &amp;&amp; !ISSET(FTS_NOCHDIR)) {
+<a href='../S/479.html#L377'>fts_info</a>          377 usr/lib/libc/gen/fts.c 					p-&gt;fts_info = FTS_ERR;
+<a href='../S/479.html#L432'>fts_info</a>          432 usr/lib/libc/gen/fts.c 	p-&gt;fts_info = p-&gt;fts_errno ? FTS_ERR : FTS_DP;
+<a href='../S/479.html#L480'>fts_info</a>          480 usr/lib/libc/gen/fts.c 	if (p-&gt;fts_info == FTS_INIT)
+<a href='../S/479.html#L488'>fts_info</a>          488 usr/lib/libc/gen/fts.c 	if (p-&gt;fts_info != FTS_D /* &amp;&amp; p-&gt;fts_info != FTS_DNR */)
+<a href='../S/479.html#L567'>fts_info</a>          567 usr/lib/libc/gen/fts.c 			cur-&gt;fts_info = FTS_DNR;
+<a href='../S/479.html#L659'>fts_info</a>          659 usr/lib/libc/gen/fts.c 				cur-&gt;fts_info = FTS_ERR;
+<a href='../S/479.html#L678'>fts_info</a>          678 usr/lib/libc/gen/fts.c 				p-&gt;fts_info = FTS_NS;
+<a href='../S/479.html#L681'>fts_info</a>          681 usr/lib/libc/gen/fts.c 				p-&gt;fts_info = FTS_NSOK;
+<a href='../S/479.html#L691'>fts_info</a>          691 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = FTS_NSOK;
+<a href='../S/479.html#L700'>fts_info</a>          700 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = fts_stat(sp, p, 0);
+<a href='../S/479.html#L703'>fts_info</a>          703 usr/lib/libc/gen/fts.c 			if (nlinks &gt; 0 &amp;&amp; (p-&gt;fts_info == FTS_D ||
+<a href='../S/479.html#L704'>fts_info</a>          704 usr/lib/libc/gen/fts.c 			    p-&gt;fts_info == FTS_DC || p-&gt;fts_info == FTS_DOT))
+<a href='../S/479.html#L747'>fts_info</a>          747 usr/lib/libc/gen/fts.c 		cur-&gt;fts_info = FTS_ERR;
+<a href='../S/479.html#L755'>fts_info</a>          755 usr/lib/libc/gen/fts.c 			cur-&gt;fts_info = FTS_DP;
+</pre>
+</body>
+</html>

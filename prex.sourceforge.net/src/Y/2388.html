@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vram</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L49'>vram</a>               49 bsp/drv/arm/gba/lcd.c 	uint16_t	*vram;
+<a href='../S/51.html#L100'>vram</a>              100 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram[row * VSCR_COLS + col] = ch;
+<a href='../S/51.html#L110'>vram</a>              110 bsp/drv/arm/gba/lcd.c 		sc-&gt;vram[dstrow * VSCR_COLS + i] =
+<a href='../S/51.html#L111'>vram</a>              111 bsp/drv/arm/gba/lcd.c 			sc-&gt;vram[srcrow * VSCR_COLS + i];
+<a href='../S/51.html#L125'>vram</a>              125 bsp/drv/arm/gba/lcd.c 		sc-&gt;vram[i] = ' ';
+<a href='../S/51.html#L187'>vram</a>              187 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram = CONSOLE_MAP;
+<a href='../S/91.html#L56'>vram</a>               56 bsp/drv/dev/video/vga.c 	short		*vram;
+<a href='../S/91.html#L155'>vram</a>              155 bsp/drv/dev/video/vga.c 	sc-&gt;vram[row * sc-&gt;cols + col] = ch | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L163'>vram</a>              163 bsp/drv/dev/video/vga.c 	memcpy(sc-&gt;vram + dstrow * sc-&gt;cols,
+<a href='../S/91.html#L164'>vram</a>              164 bsp/drv/dev/video/vga.c 	       sc-&gt;vram + srcrow * sc-&gt;cols,
+<a href='../S/91.html#L178'>vram</a>              178 bsp/drv/dev/video/vga.c 		sc-&gt;vram[i] = ' ' | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L247'>vram</a>              247 bsp/drv/dev/video/vga.c 	sc-&gt;vram = ptokv(VID_RAM);
+<a href='../S/134.html#L56'>vram</a>               56 bsp/hal/arm/gba/diag.c static u_short *vram = VRAM_MAP;
+<a href='../S/134.html#L66'>vram</a>               66 bsp/hal/arm/gba/diag.c 		vram[i] = vram[i + VSCR_COLS];
+<a href='../S/134.html#L68'>vram</a>               68 bsp/hal/arm/gba/diag.c 		vram[VSCR_COLS * (SCR_ROWS - 1) + i] = ' ';
+<a href='../S/134.html#L100'>vram</a>              100 bsp/hal/arm/gba/diag.c 	vram[pos_y * VSCR_COLS + pos_x] = c;
+<a href='../S/187.html#L45'>vram</a>               45 bsp/hal/x86/pc/diag.c static short	*vram;
+<a href='../S/187.html#L56'>vram</a>               56 bsp/hal/x86/pc/diag.c 	memcpy(vram, vram + screen_x, (size_t)(screen_x * (screen_y - 1) * 2));
+<a href='../S/187.html#L58'>vram</a>               58 bsp/hal/x86/pc/diag.c 		vram[screen_x * (screen_y - 1) + i] = ' ';
+<a href='../S/187.html#L102'>vram</a>              102 bsp/hal/x86/pc/diag.c 	vram[pos_y * screen_x + pos_x] = c | VID_ATTR;
+<a href='../S/187.html#L131'>vram</a>              131 bsp/hal/x86/pc/diag.c 	vram = ptokv(VID_RAM);
+</pre>
+</body>
+</html>

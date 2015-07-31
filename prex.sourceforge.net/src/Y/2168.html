@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tm</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/445.html#L61'>tm</a>                 61 usr/include/time.h struct tm {
+<a href='../S/445.html#L80'>tm</a>                 80 usr/include/time.h char	*asctime(const struct tm *);
+<a href='../S/445.html#L84'>tm</a>                 84 usr/include/time.h struct tm *gmtime(const time_t *);
+<a href='../S/445.html#L85'>tm</a>                 85 usr/include/time.h struct tm *localtime(const time_t *);
+<a href='../S/445.html#L86'>tm</a>                 86 usr/include/time.h time_t	 mktime(struct tm *);
+<a href='../S/445.html#L87'>tm</a>                 87 usr/include/time.h size_t	 strftime(char *, size_t, const char *, const struct tm *);
+<a href='../S/445.html#L90'>tm</a>                 90 usr/include/time.h char	 *asctime_r(const struct tm *, char *);
+<a href='../S/445.html#L91'>tm</a>                 91 usr/include/time.h struct tm *gmtime_r(const time_t *, struct tm *);
+<a href='../S/445.html#L92'>tm</a>                 92 usr/include/time.h struct tm *localtime_r(const time_t *, struct tm *);
+<a href='../S/634.html#L57'>tm</a>                 57 usr/lib/libc/time/asctime.c register const struct tm *	timeptr;
+<a href='../S/635.html#L16'>tm</a>                 16 usr/lib/libc/time/asctime_r.c register const struct tm *	timeptr;
+<a href='../S/636.html#L32'>tm</a>                 32 usr/lib/libc/time/gmtime.c struct tm *
+<a href='../S/636.html#L35'>tm</a>                 35 usr/lib/libc/time/gmtime.c 	static struct tm tm;
+<a href='../S/636.html#L37'>tm</a>                 37 usr/lib/libc/time/gmtime.c 	return gmtime_r(timep, &amp;tm);
+<a href='../S/637.html#L42'>tm</a>                 42 usr/lib/libc/time/gmtime_r.c struct tm *
+<a href='../S/637.html#L43'>tm</a>                 43 usr/lib/libc/time/gmtime_r.c gmtime_r(const time_t *timep, struct tm *tmp)
+<a href='../S/638.html#L32'>tm</a>                 32 usr/lib/libc/time/localtime.c struct tm *
+<a href='../S/638.html#L35'>tm</a>                 35 usr/lib/libc/time/localtime.c 	static struct tm tm;
+<a href='../S/638.html#L37'>tm</a>                 37 usr/lib/libc/time/localtime.c 	return localtime_r(timep, &amp;tm);
+<a href='../S/639.html#L33'>tm</a>                 33 usr/lib/libc/time/localtime_r.c struct tm *
+<a href='../S/639.html#L34'>tm</a>                 34 usr/lib/libc/time/localtime_r.c localtime_r(const time_t* timep, struct tm* tmp)
+<a href='../S/641.html#L34'>tm</a>                 34 usr/lib/libc/time/mktime.c mktime(struct tm *tmp)
+<a href='../S/642.html#L55'>tm</a>                 55 usr/lib/libc/time/strftime.c static int _secs(const struct tm *);
+<a href='../S/642.html#L56'>tm</a>                 56 usr/lib/libc/time/strftime.c static size_t _fmt(const char *, const struct tm *);
+<a href='../S/642.html#L63'>tm</a>                 63 usr/lib/libc/time/strftime.c 	const struct tm *t;
+<a href='../S/642.html#L79'>tm</a>                 79 usr/lib/libc/time/strftime.c 	const struct tm *t;
+<a href='../S/642.html#L247'>tm</a>                247 usr/lib/libc/time/strftime.c 	const struct tm *t;
+<a href='../S/642.html#L252'>tm</a>                252 usr/lib/libc/time/strftime.c 	struct tm tmp;
+</pre>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cwd</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/218.html#L49'>cwd</a>                49 include/ipc/exec.h 	char	cwd[PATH_MAX];		/* current directory */
+<a href='../S/406.html#L44'>cwd</a>                44 usr/bin/pwd/pwd.c 	char cwd[PATH_MAX];
+<a href='../S/406.html#L51'>cwd</a>                51 usr/bin/pwd/pwd.c 	if ((p = getcwd(cwd, PATH_MAX)) == NULL) {
+<a href='../S/413.html#L104'>cwd</a>               104 usr/bin/sh/sh.c 	static char cwd[PATH_MAX];
+<a href='../S/413.html#L107'>cwd</a>               107 usr/bin/sh/sh.c 	getcwd(cwd, PATH_MAX);
+<a href='../S/413.html#L108'>cwd</a>               108 usr/bin/sh/sh.c 	sprintf(prompt, "\033[32m[prex:%s]\033[0m# ", cwd);
+<a href='../S/655.html#L102'>cwd</a>               102 usr/lib/posix/exec/execve.c 	getcwd(msg.cwd, PATH_MAX);
+<a href='../S/871.html#L222'>cwd</a>               222 usr/server/boot/boot.c 	strlcpy(msg.cwd, "/", sizeof(msg.cwd));
+<a href='../S/877.html#L90'>cwd</a>                90 usr/server/exec/exec_execve.c 	if ((error = conv_path(msg-&gt;cwd, msg-&gt;path, path)) != 0) {
+<a href='../S/877.html#L233'>cwd</a>               233 usr/server/exec/exec_execve.c conv_path(char *cwd, char *path, char *full)
+<a href='../S/877.html#L242'>cwd</a>               242 usr/server/exec/exec_execve.c 	if (strlen(cwd) + len &gt;= PATH_MAX)
+<a href='../S/877.html#L251'>cwd</a>               251 usr/server/exec/exec_execve.c 		strlcpy(full, cwd, PATH_MAX);
+<a href='../S/877.html#L252'>cwd</a>               252 usr/server/exec/exec_execve.c 		len = strlen(cwd);
+<a href='../S/911.html#L744'>cwd</a>               744 usr/server/fs/vfs/vfs_syscalls.c sys_fchdir(file_t fp, char *cwd)
+<a href='../S/911.html#L754'>cwd</a>               754 usr/server/fs/vfs/vfs_syscalls.c 	strlcpy(cwd, dvp-&gt;v_path, PATH_MAX);
+<a href='../S/912.html#L226'>cwd</a>               226 usr/server/fs/vfs/vfs_task.c 	char *src, *tgt, *p, *end, *cwd;
+<a href='../S/912.html#L229'>cwd</a>               229 usr/server/fs/vfs/vfs_task.c 	cwd = t-&gt;t_cwd;
+<a href='../S/912.html#L234'>cwd</a>               234 usr/server/fs/vfs/vfs_task.c 	if (strlen(cwd) + len &gt;= PATH_MAX)
+<a href='../S/912.html#L243'>cwd</a>               243 usr/server/fs/vfs/vfs_task.c 		strlcpy(full, cwd, PATH_MAX);
+<a href='../S/912.html#L244'>cwd</a>               244 usr/server/fs/vfs/vfs_task.c 		len = strlen(cwd);
+</pre>
+</body>
+</html>

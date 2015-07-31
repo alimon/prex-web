@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>d_namlen</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/253.html#L52'>d_namlen</a>           52 include/sys/dirent.h 	uint16_t d_namlen;		/* length of string in d_name */
+<a href='../S/479.html#L644'>d_namlen</a>          644 usr/lib/libc/gen/fts.c 		if ((p = fts_alloc(sp, dp-&gt;d_name, (int)dp-&gt;d_namlen)) == NULL)
+<a href='../S/479.html#L646'>d_namlen</a>          646 usr/lib/libc/gen/fts.c 		if (dp-&gt;d_namlen &gt; maxlen) {
+<a href='../S/479.html#L647'>d_namlen</a>          647 usr/lib/libc/gen/fts.c 			if (fts_palloc(sp, (size_t)dp-&gt;d_namlen)) {
+<a href='../S/479.html#L667'>d_namlen</a>          667 usr/lib/libc/gen/fts.c 		p-&gt;fts_pathlen = len + dp-&gt;d_namlen + 1;
+<a href='../S/883.html#L330'>d_namlen</a>          330 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/886.html#L252'>d_namlen</a>          252 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/893.html#L363'>d_namlen</a>          363 usr/server/fs/fatfs/fatfs_vnops.c 	dir-&gt;d_namlen = strlen(dir-&gt;d_name);
+<a href='../S/896.html#L457'>d_namlen</a>          457 usr/server/fs/fifofs/fifo_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/902.html#L488'>d_namlen</a>          488 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+</pre>
+</body>
+</html>

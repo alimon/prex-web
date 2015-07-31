@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>next</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/112.html#L41'>next</a>               41 bsp/drv/lib/queue.c 	item-&gt;next = head;
+<a href='../S/112.html#L43'>next</a>               43 bsp/drv/lib/queue.c 	item-&gt;prev-&gt;next = item;
+<a href='../S/112.html#L55'>next</a>               55 bsp/drv/lib/queue.c 	if (head-&gt;next == head)
+<a href='../S/112.html#L57'>next</a>               57 bsp/drv/lib/queue.c 	item = head-&gt;next;
+<a href='../S/112.html#L58'>next</a>               58 bsp/drv/lib/queue.c 	item-&gt;next-&gt;prev = head;
+<a href='../S/112.html#L59'>next</a>               59 bsp/drv/lib/queue.c 	head-&gt;next = item-&gt;next;
+<a href='../S/112.html#L70'>next</a>               70 bsp/drv/lib/queue.c 	item-&gt;next = prev-&gt;next;
+<a href='../S/112.html#L71'>next</a>               71 bsp/drv/lib/queue.c 	prev-&gt;next-&gt;prev = item;
+<a href='../S/112.html#L72'>next</a>               72 bsp/drv/lib/queue.c 	prev-&gt;next = item;
+<a href='../S/112.html#L81'>next</a>               81 bsp/drv/lib/queue.c 	item-&gt;prev-&gt;next = item-&gt;next;
+<a href='../S/112.html#L82'>next</a>               82 bsp/drv/lib/queue.c 	item-&gt;next-&gt;prev = item-&gt;prev;
+<a href='../S/126.html#L133'>next</a>              133 bsp/hal/arm/arch/context.c context_switch(context_t prev, context_t next)
+<a href='../S/126.html#L136'>next</a>              136 bsp/hal/arm/arch/context.c 	cpu_switch(&amp;prev-&gt;kregs, &amp;next-&gt;kregs);
+<a href='../S/154.html#L139'>next</a>              139 bsp/hal/ppc/arch/context.c context_switch(context_t prev, context_t next)
+<a href='../S/154.html#L142'>next</a>              142 bsp/hal/ppc/arch/context.c 	cpu_switch(&amp;prev-&gt;kregs, &amp;next-&gt;kregs);
+<a href='../S/173.html#L145'>next</a>              145 bsp/hal/x86/arch/context.c context_switch(context_t prev, context_t next)
+<a href='../S/173.html#L148'>next</a>              148 bsp/hal/x86/arch/context.c 	tss_set((uint32_t)next-&gt;esp0);
+<a href='../S/173.html#L151'>next</a>              151 bsp/hal/x86/arch/context.c 	cpu_switch(&amp;prev-&gt;kregs, &amp;next-&gt;kregs);
+<a href='../S/262.html#L36'>next</a>               36 include/sys/list.h 	struct list	*next;
+<a href='../S/262.html#L42'>next</a>               42 include/sys/list.h #define list_init(head)		((head)-&gt;next = (head)-&gt;prev = (head))
+<a href='../S/262.html#L43'>next</a>               43 include/sys/list.h #define list_next(node)		((node)-&gt;next)
+<a href='../S/262.html#L45'>next</a>               45 include/sys/list.h #define list_empty(head)	((head)-&gt;next == (head))
+<a href='../S/262.html#L46'>next</a>               46 include/sys/list.h #define list_first(head)	((head)-&gt;next)
+<a href='../S/262.html#L65'>next</a>               65 include/sys/list.h 	prev-&gt;next-&gt;prev = node;
+<a href='../S/262.html#L66'>next</a>               66 include/sys/list.h 	node-&gt;next = prev-&gt;next;
+<a href='../S/262.html#L68'>next</a>               68 include/sys/list.h 	prev-&gt;next = node;
+<a href='../S/262.html#L77'>next</a>               77 include/sys/list.h 	node-&gt;prev-&gt;next = node-&gt;next;
+<a href='../S/262.html#L78'>next</a>               78 include/sys/list.h 	node-&gt;next-&gt;prev = node-&gt;prev;
+<a href='../S/268.html#L36'>next</a>               36 include/sys/queue.h 	struct queue   *next;
+<a href='../S/268.html#L41'>next</a>               41 include/sys/queue.h #define queue_init(head)	((head)-&gt;next = (head)-&gt;prev = (head))
+<a href='../S/268.html#L42'>next</a>               42 include/sys/queue.h #define queue_empty(head)	((head)-&gt;next == (head))
+<a href='../S/268.html#L43'>next</a>               43 include/sys/queue.h #define queue_next(q)		((q)-&gt;next)
+<a href='../S/268.html#L45'>next</a>               45 include/sys/queue.h #define queue_first(head)	((head)-&gt;next)
+<a href='../S/305.html#L41'>next</a>               41 sys/include/device.h 	struct device	*next;		/* linkage on list of all devices */
+<a href='../S/316.html#L39'>next</a>               39 sys/include/sync.h 	struct sem	*next;		/* linkage on semaphore list in system */
+<a href='../S/323.html#L43'>next</a>               43 sys/include/vm.h 	struct seg	*next;
+<a href='../S/327.html#L166'>next</a>              166 sys/kern/device.c 	dev-&gt;next = device_list;
+<a href='../S/327.html#L201'>next</a>              201 sys/kern/device.c 	for (dev = device_list; dev != NULL; dev = dev-&gt;next) {
+<a href='../S/327.html#L229'>next</a>              229 sys/kern/device.c 	for (tmp = device_list; tmp != NULL; tmp = tmp-&gt;next) {
+<a href='../S/327.html#L278'>next</a>              278 sys/kern/device.c 	for (tmp = &amp;device_list; *tmp; tmp = &amp;(*tmp)-&gt;next) {
+<a href='../S/327.html#L280'>next</a>              280 sys/kern/device.c 			*tmp = dev-&gt;next;
+<a href='../S/327.html#L488'>next</a>              488 sys/kern/device.c 	for (dev = device_list; dev != NULL; dev = dev-&gt;next) {
+<a href='../S/327.html#L525'>next</a>              525 sys/kern/device.c 	for (dev = device_list; dev != NULL; dev = dev-&gt;next) {
+<a href='../S/331.html#L217'>next</a>              217 sys/kern/sched.c 	thread_t prev, next;
+<a href='../S/331.html#L235'>next</a>              235 sys/kern/sched.c 	next = runq_dequeue();
+<a href='../S/331.html#L236'>next</a>              236 sys/kern/sched.c 	if (next == prev)
+<a href='../S/331.html#L238'>next</a>              238 sys/kern/sched.c 	curthread = next;
+<a href='../S/331.html#L244'>next</a>              244 sys/kern/sched.c 	if (prev-&gt;task != next-&gt;task)
+<a href='../S/331.html#L245'>next</a>              245 sys/kern/sched.c 		vm_switch(next-&gt;task-&gt;map);
+<a href='../S/331.html#L246'>next</a>              246 sys/kern/sched.c 	context_switch(&amp;prev-&gt;ctx, &amp;next-&gt;ctx);
+<a href='../S/337.html#L43'>next</a>               43 sys/lib/queue.c 	item-&gt;next = head;
+<a href='../S/337.html#L45'>next</a>               45 sys/lib/queue.c 	item-&gt;prev-&gt;next = item;
+<a href='../S/337.html#L57'>next</a>               57 sys/lib/queue.c 	if (head-&gt;next == head)
+<a href='../S/337.html#L59'>next</a>               59 sys/lib/queue.c 	item = head-&gt;next;
+<a href='../S/337.html#L60'>next</a>               60 sys/lib/queue.c 	item-&gt;next-&gt;prev = head;
+<a href='../S/337.html#L61'>next</a>               61 sys/lib/queue.c 	head-&gt;next = item-&gt;next;
+<a href='../S/337.html#L73'>next</a>               73 sys/lib/queue.c 	item-&gt;next = prev-&gt;next;
+<a href='../S/337.html#L74'>next</a>               74 sys/lib/queue.c 	prev-&gt;next-&gt;prev = item;
+<a href='../S/337.html#L75'>next</a>               75 sys/lib/queue.c 	prev-&gt;next = item;
+<a href='../S/337.html#L85'>next</a>               85 sys/lib/queue.c 	item-&gt;prev-&gt;next = item-&gt;next;
+<a href='../S/337.html#L86'>next</a>               86 sys/lib/queue.c 	item-&gt;next-&gt;prev = item-&gt;prev;
+<a href='../S/342.html#L57'>next</a>               57 sys/mem/page.c 	struct page	*next;
+<a href='../S/342.html#L91'>next</a>               91 sys/mem/page.c 		blk = blk-&gt;next;
+<a href='../S/342.html#L106'>next</a>              106 sys/mem/page.c 		blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L107'>next</a>              107 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L112'>next</a>              112 sys/mem/page.c 		tmp-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L113'>next</a>              113 sys/mem/page.c 		blk-&gt;prev-&gt;next = tmp;
+<a href='../S/342.html#L114'>next</a>              114 sys/mem/page.c 		blk-&gt;next-&gt;prev = tmp;
+<a href='../S/342.html#L144'>next</a>              144 sys/mem/page.c 	for (prev = &amp;page_head; prev-&gt;next &lt; blk; prev = prev-&gt;next) {
+<a href='../S/342.html#L145'>next</a>              145 sys/mem/page.c 		if (prev-&gt;next == &amp;page_head)
+<a href='../S/342.html#L154'>next</a>              154 sys/mem/page.c 	blk-&gt;next = prev-&gt;next;
+<a href='../S/342.html#L155'>next</a>              155 sys/mem/page.c 	prev-&gt;next-&gt;prev = blk;
+<a href='../S/342.html#L156'>next</a>              156 sys/mem/page.c 	prev-&gt;next = blk;
+<a href='../S/342.html#L162'>next</a>              162 sys/mem/page.c 	if (blk-&gt;next != &amp;page_head &amp;&amp;
+<a href='../S/342.html#L163'>next</a>              163 sys/mem/page.c 	    ((vaddr_t)blk + blk-&gt;size) == (vaddr_t)blk-&gt;next) {
+<a href='../S/342.html#L164'>next</a>              164 sys/mem/page.c 		blk-&gt;size += blk-&gt;next-&gt;size;
+<a href='../S/342.html#L165'>next</a>              165 sys/mem/page.c 		blk-&gt;next = blk-&gt;next-&gt;next;
+<a href='../S/342.html#L166'>next</a>              166 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk;
+<a href='../S/342.html#L171'>next</a>              171 sys/mem/page.c 		blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L172'>next</a>              172 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L198'>next</a>              198 sys/mem/page.c 	blk = page_head.next;
+<a href='../S/342.html#L206'>next</a>              206 sys/mem/page.c 		blk = blk-&gt;next;
+<a href='../S/342.html#L212'>next</a>              212 sys/mem/page.c 		blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L213'>next</a>              213 sys/mem/page.c 		blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L221'>next</a>              221 sys/mem/page.c 			tmp-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L225'>next</a>              225 sys/mem/page.c 			blk-&gt;next-&gt;prev = tmp;
+<a href='../S/342.html#L226'>next</a>              226 sys/mem/page.c 			blk-&gt;next = tmp;
+<a href='../S/342.html#L229'>next</a>              229 sys/mem/page.c 			blk-&gt;prev-&gt;next = blk-&gt;next;
+<a href='../S/342.html#L230'>next</a>              230 sys/mem/page.c 			blk-&gt;next-&gt;prev = blk-&gt;prev;
+<a href='../S/342.html#L270'>next</a>              270 sys/mem/page.c 	page_head.next = page_head.prev = &amp;page_head;
+<a href='../S/343.html#L505'>next</a>              505 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L565'>next</a>              565 sys/mem/vm.c   	tmp-&gt;next = tmp-&gt;prev = tmp;
+<a href='../S/343.html#L567'>next</a>              567 sys/mem/vm.c   	if (src == src-&gt;next)	/* Blank memory ? */
+<a href='../S/343.html#L572'>next</a>              572 sys/mem/vm.c   		ASSERT(src-&gt;next != NULL);
+<a href='../S/343.html#L585'>next</a>              585 sys/mem/vm.c   			dest-&gt;next = tmp-&gt;next;
+<a href='../S/343.html#L586'>next</a>              586 sys/mem/vm.c   			tmp-&gt;next-&gt;prev = dest;
+<a href='../S/343.html#L587'>next</a>              587 sys/mem/vm.c   			tmp-&gt;next = dest;
+<a href='../S/343.html#L621'>next</a>              621 sys/mem/vm.c   		src = src-&gt;next;
+<a href='../S/343.html#L637'>next</a>              637 sys/mem/vm.c   		dest = dest-&gt;next;
+<a href='../S/343.html#L638'>next</a>              638 sys/mem/vm.c   		src = src-&gt;next;
+<a href='../S/343.html#L766'>next</a>              766 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L797'>next</a>              797 sys/mem/vm.c   	seg-&gt;next = seg-&gt;prev = seg;
+<a href='../S/343.html#L823'>next</a>              823 sys/mem/vm.c   	seg-&gt;next = prev-&gt;next;
+<a href='../S/343.html#L825'>next</a>              825 sys/mem/vm.c   	prev-&gt;next-&gt;prev = seg;
+<a href='../S/343.html#L826'>next</a>              826 sys/mem/vm.c   	prev-&gt;next = seg;
+<a href='../S/343.html#L865'>next</a>              865 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L893'>next</a>              893 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L904'>next</a>              904 sys/mem/vm.c   	struct seg *prev, *next;
+<a href='../S/343.html#L922'>next</a>              922 sys/mem/vm.c   	next = seg-&gt;next;
+<a href='../S/343.html#L923'>next</a>              923 sys/mem/vm.c   	if (next != head &amp;&amp; (next-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L924'>next</a>              924 sys/mem/vm.c   		seg-&gt;next = next-&gt;next;
+<a href='../S/343.html#L925'>next</a>              925 sys/mem/vm.c   		next-&gt;next-&gt;prev = seg;
+<a href='../S/343.html#L926'>next</a>              926 sys/mem/vm.c   		seg-&gt;size += next-&gt;size;
+<a href='../S/343.html#L927'>next</a>              927 sys/mem/vm.c   		kmem_free(next);
+<a href='../S/343.html#L934'>next</a>              934 sys/mem/vm.c   		prev-&gt;next = seg-&gt;next;
+<a href='../S/343.html#L935'>next</a>              935 sys/mem/vm.c   		seg-&gt;next-&gt;prev = prev;
+<a href='../S/343.html#L947'>next</a>              947 sys/mem/vm.c   	struct seg *seg, *prev, *next;
+<a href='../S/343.html#L973'>next</a>              973 sys/mem/vm.c   		next = seg_create(seg, seg-&gt;addr + size, seg-&gt;size - size);
+<a href='../S/343.html#L974'>next</a>              974 sys/mem/vm.c   		if (next == NULL) {
+<a href='../S/344.html#L407'>next</a>              407 sys/mem/vm_nommu.c 		seg = seg-&gt;next;
+<a href='../S/344.html#L526'>next</a>              526 sys/mem/vm_nommu.c 		seg = seg-&gt;next;
+<a href='../S/344.html#L547'>next</a>              547 sys/mem/vm_nommu.c 	seg-&gt;next = seg-&gt;prev = seg;
+<a href='../S/344.html#L573'>next</a>              573 sys/mem/vm_nommu.c 	seg-&gt;next = prev-&gt;next;
+<a href='../S/344.html#L575'>next</a>              575 sys/mem/vm_nommu.c 	prev-&gt;next-&gt;prev = seg;
+<a href='../S/344.html#L576'>next</a>              576 sys/mem/vm_nommu.c 	prev-&gt;next = seg;
+<a href='../S/344.html#L615'>next</a>              615 sys/mem/vm_nommu.c 		seg = seg-&gt;next;
+<a href='../S/344.html#L656'>next</a>              656 sys/mem/vm_nommu.c 	seg-&gt;prev-&gt;next = seg-&gt;next;
+<a href='../S/344.html#L657'>next</a>              657 sys/mem/vm_nommu.c 	seg-&gt;next-&gt;prev = seg-&gt;prev;
+<a href='../S/347.html#L114'>next</a>              114 sys/sync/sem.c 		s-&gt;next = sem_list;
+<a href='../S/347.html#L296'>next</a>              296 sys/sync/sem.c 	for (sp = &amp;sem_list; *sp; sp = &amp;(*sp)-&gt;next) {
+<a href='../S/347.html#L298'>next</a>              298 sys/sync/sem.c 			*sp = s-&gt;next;
+<a href='../S/347.html#L323'>next</a>              323 sys/sync/sem.c 	for (tmp = sem_list; tmp; tmp = tmp-&gt;next) {
+<a href='../S/441.html#L99'>next</a>               99 usr/include/stdio.h 	struct __sFILE *next;	/* file chain */
+<a href='../S/479.html#L347'>next</a>              347 usr/lib/libc/gen/fts.c next:	tmp = p;
+<a href='../S/479.html#L370'>next</a>              370 usr/lib/libc/gen/fts.c 			goto next;
+<a href='../S/506.html#L45'>next</a>               45 usr/lib/libc/stdio/findfp.c std(FILE *fp, FILE *next, short flags, short fileno)
+<a href='../S/506.html#L49'>next</a>               49 usr/lib/libc/stdio/findfp.c 	fp-&gt;next = next;
+<a href='../S/506.html#L64'>next</a>               64 usr/lib/libc/stdio/findfp.c 	for (fp = &amp;__sF[0];; fp = fp-&gt;next) {
+<a href='../S/506.html#L67'>next</a>               67 usr/lib/libc/stdio/findfp.c 		if (fp-&gt;next == NULL) {
+<a href='../S/506.html#L70'>next</a>               70 usr/lib/libc/stdio/findfp.c 			fp-&gt;next = tmp;
+<a href='../S/521.html#L45'>next</a>               45 usr/lib/libc/stdio/fwalk.c 	for (fp = &amp;__sF[0]; fp != NULL; fp = fp-&gt;next) {
+<a href='../S/576.html#L33'>next</a>               33 usr/lib/libc/stdlib/rand.c static u_long next = 1;
+<a href='../S/576.html#L38'>next</a>               38 usr/lib/libc/stdlib/rand.c 	return ((next = next * 1103515245 + 12345) % ((u_long)RAND_MAX + 1));
+<a href='../S/576.html#L45'>next</a>               45 usr/lib/libc/stdlib/rand.c 	next = seed;
+<a href='../S/752.html#L64'>next</a>               64 usr/lib/prex/malloc/malloc.c 		free_list.next = &amp;free_list;
+<a href='../S/752.html#L70'>next</a>               70 usr/lib/prex/malloc/malloc.c 	for (p = prev-&gt;next;; prev = p, p = p-&gt;next) {
+<a href='../S/752.html#L73'>next</a>               73 usr/lib/prex/malloc/malloc.c 				prev-&gt;next = p-&gt;next;
+<a href='../S/752.html#L116'>next</a>              116 usr/lib/prex/malloc/malloc.c 	for (prev = scan_head; !(p &gt; prev &amp;&amp; p &lt; prev-&gt;next); prev = prev-&gt;next) {
+<a href='../S/752.html#L117'>next</a>              117 usr/lib/prex/malloc/malloc.c 		if (prev &gt;= prev-&gt;next &amp;&amp; (p &gt; prev || p &lt; prev-&gt;next))
+<a href='../S/752.html#L120'>next</a>              120 usr/lib/prex/malloc/malloc.c 	p-&gt;next = prev-&gt;next;
+<a href='../S/752.html#L121'>next</a>              121 usr/lib/prex/malloc/malloc.c 	prev-&gt;next = p;
+<a href='../S/752.html#L141'>next</a>              141 usr/lib/prex/malloc/malloc.c 	for (prev = scan_head; !(p &gt; prev &amp;&amp; p &lt; prev-&gt;next); prev = prev-&gt;next) {
+<a href='../S/752.html#L142'>next</a>              142 usr/lib/prex/malloc/malloc.c 		if (prev &gt;= prev-&gt;next &amp;&amp; (p &gt; prev || p &lt; prev-&gt;next))
+<a href='../S/752.html#L145'>next</a>              145 usr/lib/prex/malloc/malloc.c 	if ((prev-&gt;next-&gt;vm_size == 0) &amp;&amp;	/* join to upper block */
+<a href='../S/752.html#L146'>next</a>              146 usr/lib/prex/malloc/malloc.c 	    ((char *)p + p-&gt;size == (char *)prev-&gt;next)) {
+<a href='../S/752.html#L147'>next</a>              147 usr/lib/prex/malloc/malloc.c 		p-&gt;size += prev-&gt;next-&gt;size;
+<a href='../S/752.html#L148'>next</a>              148 usr/lib/prex/malloc/malloc.c 		p-&gt;next = prev-&gt;next-&gt;next;
+<a href='../S/752.html#L150'>next</a>              150 usr/lib/prex/malloc/malloc.c 		p-&gt;next = prev-&gt;next;
+<a href='../S/752.html#L155'>next</a>              155 usr/lib/prex/malloc/malloc.c 		prev-&gt;next = p-&gt;next;
+<a href='../S/752.html#L157'>next</a>              157 usr/lib/prex/malloc/malloc.c 		prev-&gt;next = p;
+<a href='../S/752.html#L161'>next</a>              161 usr/lib/prex/malloc/malloc.c 		prev-&gt;next = p-&gt;next;
+<a href='../S/752.html#L175'>next</a>              175 usr/lib/prex/malloc/malloc.c 	for (p = free_list.next; p != &amp;free_list; p = p-&gt;next) {
+<a href='../S/752.html#L176'>next</a>              176 usr/lib/prex/malloc/malloc.c 		printf("mstat: addr=%x size=%d next=%x\n", p, p-&gt;size, p-&gt;next);
+<a href='../S/753.html#L50'>next</a>               50 usr/lib/prex/malloc/malloc.h 	struct header *next;
+<a href='../S/888.html#L199'>next</a>              199 usr/server/fs/fatfs/fatfs.h int	 fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next);
+<a href='../S/888.html#L200'>next</a>              200 usr/server/fs/fatfs/fatfs.h int	 fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next);
+<a href='../S/889.html#L128'>next</a>              128 usr/server/fs/fatfs/fatfs_fat.c fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next)
+<a href='../S/889.html#L155'>next</a>              155 usr/server/fs/fatfs/fatfs_fat.c 	*next = (u_long)val;
+<a href='../S/889.html#L156'>next</a>              156 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_next_cluster: %d =&gt; %d\n", cl, *next));
+<a href='../S/889.html#L167'>next</a>              167 usr/server/fs/fatfs/fatfs_fat.c fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next)
+<a href='../S/889.html#L186'>next</a>              186 usr/server/fs/fatfs/fatfs_fat.c 	val = (uint16_t)(next &amp; fmp-&gt;fat_mask);
+<a href='../S/889.html#L214'>next</a>              214 usr/server/fs/fatfs/fatfs_fat.c 	u_long cl, next;
+<a href='../S/889.html#L224'>next</a>              224 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L227'>next</a>              227 usr/server/fs/fatfs/fatfs_fat.c 		if (next == CL_FREE) {	/* free ? */
+<a href='../S/889.html#L247'>next</a>              247 usr/server/fs/fatfs/fatfs_fat.c 	u_long cl, next;
+<a href='../S/889.html#L254'>next</a>              254 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L260'>next</a>              260 usr/server/fs/fatfs/fatfs_fat.c 		cl = next;
+<a href='../S/889.html#L311'>next</a>              311 usr/server/fs/fatfs/fatfs_fat.c 	u_long next;
+<a href='../S/889.html#L317'>next</a>              317 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L320'>next</a>              320 usr/server/fs/fatfs/fatfs_fat.c 		if (alloc || next &gt;= fmp-&gt;fat_eof) {
+<a href='../S/889.html#L321'>next</a>              321 usr/server/fs/fatfs/fatfs_fat.c 			error = fat_alloc_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L327'>next</a>              327 usr/server/fs/fatfs/fatfs_fat.c 			error = fat_set_cluster(fmp, cl, next);
+<a href='../S/889.html#L331'>next</a>              331 usr/server/fs/fatfs/fatfs_fat.c 		cl = next;
+<a href='../S/889.html#L352'>next</a>              352 usr/server/fs/fatfs/fatfs_fat.c 	u_long next;
+<a href='../S/889.html#L356'>next</a>              356 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L359'>next</a>              359 usr/server/fs/fatfs/fatfs_fat.c 		cl = next;
+<a href='../S/889.html#L362'>next</a>              362 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_alloc_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L366'>next</a>              366 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, cl, next);
+<a href='../S/889.html#L370'>next</a>              370 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, next, fmp-&gt;fat_eof);
+<a href='../S/889.html#L374'>next</a>              374 usr/server/fs/fatfs/fatfs_fat.c 	*new_cl = next;
+<a href='../S/890.html#L297'>next</a>              297 usr/server/fs/fatfs/fatfs_node.c 	u_long next;
+<a href='../S/890.html#L321'>next</a>              321 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/890.html#L324'>next</a>              324 usr/server/fs/fatfs/fatfs_node.c 			cl = next;
+<a href='../S/890.html#L328'>next</a>              328 usr/server/fs/fatfs/fatfs_node.c 		error = fat_expand_dir(fmp, cl, &amp;next);
+<a href='../S/890.html#L334'>next</a>              334 usr/server/fs/fatfs/fatfs_node.c 		sec = cl_to_sec(fmp, next);
+<a href='../S/890.html#L342'>next</a>              342 usr/server/fs/fatfs/fatfs_node.c 		sec = cl_to_sec(fmp, next);
+</pre>
+</body>
+</html>

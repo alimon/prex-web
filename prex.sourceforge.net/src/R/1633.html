@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dev_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/248.html#L43'>dev_t</a>              43 include/sys/buf.h 	dev_t		b_dev;		/* device number */
+<a href='../S/248.html#L59'>dev_t</a>              59 include/sys/buf.h struct buf *getblk(dev_t, int);
+<a href='../S/248.html#L60'>dev_t</a>              60 include/sys/buf.h int	bread(dev_t, int, struct buf **);
+<a href='../S/248.html#L63'>dev_t</a>              63 include/sys/buf.h void	binval(dev_t);
+<a href='../S/263.html#L68'>dev_t</a>              68 include/sys/mount.h 	dev_t		m_dev;		/* mounted device */
+<a href='../S/271.html#L43'>dev_t</a>              43 include/sys/stat.h 	dev_t	  st_dev;		/* inode's device */
+<a href='../S/271.html#L49'>dev_t</a>              49 include/sys/stat.h 	dev_t	  st_rdev;		/* device type */
+<a href='../S/433.html#L39'>dev_t</a>              39 usr/include/fts.h 	dev_t fts_dev;			/* starting device # */
+<a href='../S/433.html#L78'>dev_t</a>              78 usr/include/fts.h 	dev_t fts_dev;			/* device */
+<a href='../S/447.html#L123'>dev_t</a>             123 usr/include/unistd.h int	 mknod(const char *, mode_t, dev_t);
+<a href='../S/479.html#L769'>dev_t</a>             769 usr/lib/libc/gen/fts.c 	dev_t dev;
+<a href='../S/679.html#L40'>dev_t</a>              40 usr/lib/posix/file/mknod.c mknod(const char *path, mode_t mode, dev_t dev)
+<a href='../S/888.html#L171'>dev_t</a>             171 usr/server/fs/fatfs/fatfs.h 	dev_t	dev;		/* mounted device */
+<a href='../S/906.html#L134'>dev_t</a>             134 usr/server/fs/vfs/vfs_bio.c incore(dev_t dev, int blkno)
+<a href='../S/906.html#L157'>dev_t</a>             157 usr/server/fs/vfs/vfs_bio.c getblk(dev_t dev, int blkno)
+<a href='../S/906.html#L226'>dev_t</a>             226 usr/server/fs/vfs/vfs_bio.c bread(dev_t dev, int blkno, struct buf **bpp)
+<a href='../S/906.html#L320'>dev_t</a>             320 usr/server/fs/vfs/vfs_bio.c binval(dev_t dev)
+<a href='../S/909.html#L125'>dev_t</a>             125 usr/server/fs/vfs/vfs_mount.c 		    (device &amp;&amp; mp-&gt;m_dev == (dev_t)device)) {
+<a href='../S/909.html#L140'>dev_t</a>             140 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_dev = (dev_t)device;
+<a href='../S/913.html#L383'>dev_t</a>             383 usr/server/fs/vfs/vfs_vnode.c 		st-&gt;st_rdev = (dev_t)vp-&gt;v_data;
+</pre>
+</body>
+</html>

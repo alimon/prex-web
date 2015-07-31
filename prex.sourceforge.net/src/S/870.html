@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/sbin/pmctrl/pmctrl.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1154.html'>sbin</a>/<a href='../files/1161.html'>pmctrl</a>/pmctrl.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='870.html#L83'>[^]</a><a href='870.html#L252'>[v]</a>[top]<a href='870.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='870.html#L83' title='Defined at 83.'>pmctrl_null</a></li>
+<li><a href='870.html#L88' title='Defined at 88.'>pmctrl_help</a></li>
+<li><a href='870.html#L107' title='Defined at 107.'>pmctrl_confirm</a></li>
+<li><a href='870.html#L120' title='Defined at 120.'>pmctrl_off</a></li>
+<li><a href='870.html#L135' title='Defined at 135.'>pmctrl_reboot</a></li>
+<li><a href='870.html#L150' title='Defined at 150.'>pmctrl_suspend</a></li>
+<li><a href='870.html#L165' title='Defined at 165.'>pmctrl_info</a></li>
+<li><a href='870.html#L189' title='Defined at 189.'>pmctrl_policy</a></li>
+<li><a href='870.html#L211' title='Defined at 211.'>pmctrl_sustime</a></li>
+<li><a href='870.html#L228' title='Defined at 228.'>pmctrl_dimtime</a></li>
+<li><a href='870.html#L245' title='Defined at 245.'>pmctrl_battery</a></li>
+<li><a href='870.html#L252' title='Defined at 252.'>main</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * pmctrl.c - power management utility</em>
+<a id='L32' name='L32' />  32 <em class='comment'> *</em>
+<a id='L33' name='L33' />  33 <em class='comment'> * Required capabilities:</em>
+<a id='L34' name='L34' />  34 <em class='comment'> *      CAP_POWERMGMT</em>
+<a id='L35' name='L35' />  35 <em class='comment'> */</em>
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='267.html'>sys/prex.h</a>&gt;
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='259.html'>sys/ioctl.h</a>&gt;
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> &lt;<a href='221.html'>ipc/pow.h</a>&gt;
+<a id='L40' name='L40' />  40 <em class='sharp'>#include</em> &lt;<a href='../I/221.html'>ipc/ipc.h</a>&gt;
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42 <em class='sharp'>#include</em> &lt;<a href='447.html'>unistd.h</a>&gt;
+<a id='L43' name='L43' />  43 <em class='sharp'>#include</em> &lt;<a href='430.html'>err.h</a>&gt;
+<a id='L44' name='L44' />  44 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L45' name='L45' />  45 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L46' name='L46' />  46 <em class='sharp'>#include</em> &lt;<a href='441.html'>stdio.h</a>&gt;
+<a id='L47' name='L47' />  47 <em class='sharp'>#include</em> &lt;<a href='443.html'>string.h</a>&gt;
+<a id='L48' name='L48' />  48 <em class='sharp'>#include</em> &lt;<a href='../I/214.html'>signal.h</a>&gt;
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L88' title='Defined at 88 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_help</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L51' name='L51' />  51 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L120' title='Defined at 120 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_off</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L52' name='L52' />  52 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L135' title='Defined at 135 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_reboot</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L53' name='L53' />  53 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L150' title='Defined at 150 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_suspend</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L54' name='L54' />  54 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L165' title='Defined at 165 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_info</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L55' name='L55' />  55 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L189' title='Defined at 189 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_policy</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L56' name='L56' />  56 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L211' title='Defined at 211 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_sustime</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L57' name='L57' />  57 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L228' title='Defined at 228 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_dimtime</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L58' name='L58' />  58 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L245' title='Defined at 245 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_battery</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L59' name='L59' />  59 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='870.html#L83' title='Defined at 83 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_null</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61 <strong class='reserved'>struct</strong> <a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a> <em class='brace'>{</em>
+<a id='L62' name='L62' />  62         <strong class='reserved'>const</strong> <strong class='reserved'>char</strong>      *<a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>;
+<a id='L63' name='L63' />  63         <strong class='reserved'>void</strong>            (*<a href='../Y/962.html' title='Multiple used in 37 places.'>func</a>)(<strong class='reserved'>int</strong>, <strong class='reserved'>char</strong> **);
+<a id='L64' name='L64' />  64         <strong class='reserved'>const</strong> <strong class='reserved'>char</strong>      *<a href='../D/3773.html' title='Multiple defined in 16 places.'>usage</a>;
+<a id='L65' name='L65' />  65 <em class='brace'>}</em>;
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67 <strong class='reserved'>static</strong> <strong class='reserved'>const</strong> <strong class='reserved'>struct</strong> <a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a> <a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[] = <em class='brace'>{</em>
+<a id='L68' name='L68' />  68         <em class='brace'>{</em> "off"         ,<a href='870.html#L120' title='Defined at 120 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_off</a>     ,"Power off." <em class='brace'>}</em>,
+<a id='L69' name='L69' />  69         <em class='brace'>{</em> "reboot"      ,<a href='870.html#L135' title='Defined at 135 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_reboot</a>  ,"Reboot system." <em class='brace'>}</em>,
+<a id='L70' name='L70' />  70         <em class='brace'>{</em> "suspend"     ,<a href='870.html#L150' title='Defined at 150 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_suspend</a> ,"Suspend system." <em class='brace'>}</em>,
+<a id='L71' name='L71' />  71         <em class='brace'>{</em> "info"        ,<a href='870.html#L165' title='Defined at 165 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_info</a>    ,"Disaplay power management information." <em class='brace'>}</em>,
+<a id='L72' name='L72' />  72         <em class='brace'>{</em> "policy"      ,<a href='870.html#L189' title='Defined at 189 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_policy</a>  ,"Set power policy." <em class='brace'>}</em>,
+<a id='L73' name='L73' />  73         <em class='brace'>{</em> "sustime"     ,<a href='870.html#L211' title='Defined at 211 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_sustime</a> ,"Set timeout for suspend timer." <em class='brace'>}</em>,
+<a id='L74' name='L74' />  74         <em class='brace'>{</em> "dimtime"     ,<a href='870.html#L228' title='Defined at 228 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_dimtime</a> ,"Set timeout for dim timer." <em class='brace'>}</em>,
+<a id='L75' name='L75' />  75         <em class='brace'>{</em> "battery"     ,<a href='870.html#L245' title='Defined at 245 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_battery</a> ,"Show current battery level." <em class='brace'>}</em>,
+<a id='L76' name='L76' />  76         <em class='brace'>{</em> "-?"          ,<a href='870.html#L88' title='Defined at 88 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_help</a>    ,"This help." <em class='brace'>}</em>,
+<a id='L77' name='L77' />  77         <em class='brace'>{</em> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>          ,<a href='870.html#L83' title='Defined at 83 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_null</a>    ,<a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a> <em class='brace'>}</em>,
+<a id='L78' name='L78' />  78 <em class='brace'>}</em>;
+<a id='L79' name='L79' />  79 
+<a id='L80' name='L80' />  80 <strong class='reserved'>static</strong> <a href='../D/3124.html' title='Multiple defined in 2 places.'>object_t</a> <a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>;
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L83' name='L83' />  83 <a href='../R/2301.html' title='Multiple refered from 2 places.'>pmctrl_null</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L84' name='L84' />  84 <em class='brace'>{</em>
+<a id='L85' name='L85' />  85 <em class='brace'>}</em>
+<a id='L86' name='L86' />  86 
+<a id='L87' name='L87' />  87 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L88' name='L88' />  88 <a href='../R/2299.html' title='Multiple refered from 4 places.'>pmctrl_help</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L89' name='L89' />  89 <em class='brace'>{</em>
+<a id='L90' name='L90' />  90         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0;
+<a id='L91' name='L91' />  91 
+<a id='L92' name='L92' />  92         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "usage: pmctrl command\n");
+<a id='L93' name='L93' />  93         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "commands:\n");
+<a id='L94' name='L94' />  94         <strong class='reserved'>while</strong> (<a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L95' name='L95' />  95                 <strong class='reserved'>if</strong> (<a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../D/3773.html' title='Multiple defined in 16 places.'>usage</a>)
+<a id='L96' name='L96' />  96                         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, " %-8s -- %s\n", <a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>,
+<a id='L97' name='L97' />  97                                <a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../D/3773.html' title='Multiple defined in 16 places.'>usage</a>);
+<a id='L98' name='L98' />  98                 <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++;
+<a id='L99' name='L99' />  99         <em class='brace'>}</em>
+<a id='L100' name='L100' /> 100 <em class='brace'>}</em>
+<a id='L101' name='L101' /> 101 
+<a id='L102' name='L102' /> 102 <em class='comment'>/*</em>
+<a id='L103' name='L103' /> 103 <em class='comment'> * User confirmation is required for some actions</em>
+<a id='L104' name='L104' /> 104 <em class='comment'> * due to security reason.</em>
+<a id='L105' name='L105' /> 105 <em class='comment'> */</em>
+<a id='L106' name='L106' /> 106 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L107' name='L107' /> 107 <a href='../R/2297.html' title='Multiple refered from 3 places.'>pmctrl_confirm</a>(<strong class='reserved'>char</strong> *<a href='../Y/343.html' title='Multiple used in 15 places.'>action</a>)
+<a id='L108' name='L108' /> 108 <em class='brace'>{</em>
+<a id='L109' name='L109' /> 109         <strong class='reserved'>int</strong> <a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a>, <a href='../Y/513.html' title='Multiple used in 12 places.'>checkch</a>;
+<a id='L110' name='L110' /> 110 
+<a id='L111' name='L111' /> 111         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Do you want to %s the system now? (y/n) ", <a href='../Y/343.html' title='Multiple used in 15 places.'>action</a>);
+<a id='L112' name='L112' /> 112         <a href='../Y/513.html' title='Multiple used in 12 places.'>checkch</a> = <a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a> = <a href='../D/2846.html' title='Multiple defined in 3 places.'>getchar</a>();
+<a id='L113' name='L113' /> 113         <strong class='reserved'>while</strong> (<a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a> != '\n' &amp;&amp; <a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a> != <a href='441.html#L147' title='Defined at 147 in usr/include/stdio.h.'>EOF</a>)
+<a id='L114' name='L114' /> 114                 <a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a> = <a href='../D/2846.html' title='Multiple defined in 3 places.'>getchar</a>();
+<a id='L115' name='L115' /> 115         <strong class='reserved'>if</strong> (<a href='../Y/513.html' title='Multiple used in 12 places.'>checkch</a> != 'y')
+<a id='L116' name='L116' /> 116                 <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L117' name='L117' /> 117 <em class='brace'>}</em>
+<a id='L118' name='L118' /> 118 
+<a id='L119' name='L119' /> 119 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L120' name='L120' /> 120 <a href='../R/2302.html' title='Multiple refered from 2 places.'>pmctrl_off</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L121' name='L121' /> 121 <em class='brace'>{</em>
+<a id='L122' name='L122' /> 122         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L123' name='L123' /> 123 
+<a id='L124' name='L124' /> 124         <a href='870.html#L107' title='Defined at 107 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_confirm</a>("shutdown");
+<a id='L125' name='L125' /> 125 
+<a id='L126' name='L126' /> 126         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Shutdown system...\n");
+<a id='L127' name='L127' /> 127         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L36' title='Defined at 36 in include/ipc/pow.h.'>POW_SET_POWER</a>;
+<a id='L128' name='L128' /> 128         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='266.html#L46' title='Defined at 46 in include/sys/power.h.'>PWR_OFF</a>;
+<a id='L129' name='L129' /> 129         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L130' name='L130' /> 130 
+<a id='L131' name='L131' /> 131         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Shutdown failed!\n");
+<a id='L132' name='L132' /> 132 <em class='brace'>}</em>
+<a id='L133' name='L133' /> 133 
+<a id='L134' name='L134' /> 134 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L135' name='L135' /> 135 <a href='../R/2304.html' title='Multiple refered from 2 places.'>pmctrl_reboot</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L136' name='L136' /> 136 <em class='brace'>{</em>
+<a id='L137' name='L137' /> 137         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L138' name='L138' /> 138 
+<a id='L139' name='L139' /> 139         <a href='870.html#L107' title='Defined at 107 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_confirm</a>("reboot");
+<a id='L140' name='L140' /> 140 
+<a id='L141' name='L141' /> 141         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Reboot system...\n");
+<a id='L142' name='L142' /> 142         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L36' title='Defined at 36 in include/ipc/pow.h.'>POW_SET_POWER</a>;
+<a id='L143' name='L143' /> 143         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='266.html#L47' title='Defined at 47 in include/sys/power.h.'>PWR_REBOOT</a>;
+<a id='L144' name='L144' /> 144         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L145' name='L145' /> 145 
+<a id='L146' name='L146' /> 146         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Reboot failed!\n");
+<a id='L147' name='L147' /> 147 <em class='brace'>}</em>
+<a id='L148' name='L148' /> 148 
+<a id='L149' name='L149' /> 149 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L150' name='L150' /> 150 <a href='../R/2305.html' title='Multiple refered from 2 places.'>pmctrl_suspend</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L151' name='L151' /> 151 <em class='brace'>{</em>
+<a id='L152' name='L152' /> 152         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L153' name='L153' /> 153 
+<a id='L154' name='L154' /> 154         <a href='870.html#L107' title='Defined at 107 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_confirm</a>("suspend");
+<a id='L155' name='L155' /> 155 
+<a id='L156' name='L156' /> 156         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Suspend system...\n");
+<a id='L157' name='L157' /> 157         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L36' title='Defined at 36 in include/ipc/pow.h.'>POW_SET_POWER</a>;
+<a id='L158' name='L158' /> 158         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='266.html#L45' title='Defined at 45 in include/sys/power.h.'>PWR_SUSPEND</a>;
+<a id='L159' name='L159' /> 159         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L160' name='L160' /> 160 
+<a id='L161' name='L161' /> 161         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Suspend failed!\n");
+<a id='L162' name='L162' /> 162 <em class='brace'>}</em>
+<a id='L163' name='L163' /> 163 
+<a id='L164' name='L164' /> 164 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L165' name='L165' /> 165 <a href='../R/2300.html' title='Multiple refered from 2 places.'>pmctrl_info</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L166' name='L166' /> 166 <em class='brace'>{</em>
+<a id='L167' name='L167' /> 167         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L168' name='L168' /> 168         <strong class='reserved'>int</strong> <a href='../Y/1633.html' title='Multiple used in 54 places.'>policy</a>;
+<a id='L169' name='L169' /> 169         <strong class='reserved'>int</strong> <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>;
+<a id='L170' name='L170' /> 170 
+<a id='L171' name='L171' /> 171         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L37' title='Defined at 37 in include/ipc/pow.h.'>POW_GET_POLICY</a>;
+<a id='L172' name='L172' /> 172         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L173' name='L173' /> 173         <a href='../Y/1633.html' title='Multiple used in 54 places.'>policy</a> = <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0];
+<a id='L174' name='L174' /> 174         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Power policy   : %s mode\n",
+<a id='L175' name='L175' /> 175                <a href='../Y/1633.html' title='Multiple used in 54 places.'>policy</a> == <a href='266.html#L38' title='Defined at 38 in include/sys/power.h.'>PM_PERFORMANCE</a> ? "high performance" : "power save");
+<a id='L176' name='L176' /> 176 
+<a id='L177' name='L177' /> 177         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L39' title='Defined at 39 in include/ipc/pow.h.'>POW_GET_SUSTMR</a>;
+<a id='L178' name='L178' /> 178         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L179' name='L179' /> 179         <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a> = <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0];
+<a id='L180' name='L180' /> 180         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Suspend timeout: %d sec\n", <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>);
+<a id='L181' name='L181' /> 181 
+<a id='L182' name='L182' /> 182         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L41' title='Defined at 41 in include/ipc/pow.h.'>POW_GET_DIMTMR</a>;
+<a id='L183' name='L183' /> 183         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L184' name='L184' /> 184         <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a> = <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0];
+<a id='L185' name='L185' /> 185         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("Dim timeout    : %d sec\n", <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>);
+<a id='L186' name='L186' /> 186 <em class='brace'>}</em>
+<a id='L187' name='L187' /> 187 
+<a id='L188' name='L188' /> 188 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L189' name='L189' /> 189 <a href='../R/2303.html' title='Multiple refered from 2 places.'>pmctrl_policy</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L190' name='L190' /> 190 <em class='brace'>{</em>
+<a id='L191' name='L191' /> 191         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L192' name='L192' /> 192 
+<a id='L193' name='L193' /> 193         <strong class='reserved'>if</strong> (<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a> != 3) <em class='brace'>{</em>
+<a id='L194' name='L194' /> 194                 <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Usage: pmctrl policy high|save\n");
+<a id='L195' name='L195' /> 195                 <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L196' name='L196' /> 196         <em class='brace'>}</em>
+<a id='L197' name='L197' /> 197 
+<a id='L198' name='L198' /> 198         <strong class='reserved'>if</strong> (!<a href='597.html#L40' title='Defined at 40 in usr/lib/libc/string/strcmp.c.'>strcmp</a>(<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[2], "high"))
+<a id='L199' name='L199' /> 199                 <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='266.html#L38' title='Defined at 38 in include/sys/power.h.'>PM_PERFORMANCE</a>;
+<a id='L200' name='L200' /> 200         <strong class='reserved'>else</strong> <strong class='reserved'>if</strong> (!<a href='597.html#L40' title='Defined at 40 in usr/lib/libc/string/strcmp.c.'>strcmp</a>(<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[2], "save"))
+<a id='L201' name='L201' /> 201                 <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='266.html#L39' title='Defined at 39 in include/sys/power.h.'>PM_POWERSAVE</a>;
+<a id='L202' name='L202' /> 202         <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L203' name='L203' /> 203                 <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Invalid policy\n");
+<a id='L204' name='L204' /> 204                 <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L205' name='L205' /> 205         <em class='brace'>}</em>
+<a id='L206' name='L206' /> 206         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L38' title='Defined at 38 in include/ipc/pow.h.'>POW_SET_POLICY</a>;
+<a id='L207' name='L207' /> 207         <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L208' name='L208' /> 208 <em class='brace'>}</em>
+<a id='L209' name='L209' /> 209 
+<a id='L210' name='L210' /> 210 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L211' name='L211' /> 211 <a href='../R/2306.html' title='Multiple refered from 2 places.'>pmctrl_sustime</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L212' name='L212' /> 212 <em class='brace'>{</em>
+<a id='L213' name='L213' /> 213         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L214' name='L214' /> 214         <strong class='reserved'>int</strong> <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>;
+<a id='L215' name='L215' /> 215 
+<a id='L216' name='L216' /> 216         <strong class='reserved'>if</strong> (<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a> &lt; 3)
+<a id='L217' name='L217' /> 217                 <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Usage: pmctrl sustime sec\n");
+<a id='L218' name='L218' /> 218         <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L219' name='L219' /> 219                 <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a> = <a href='../D/2361.html' title='Multiple defined in 3 places.'>atoi</a>(<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[2]);
+<a id='L220' name='L220' /> 220 
+<a id='L221' name='L221' /> 221                 <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L40' title='Defined at 40 in include/ipc/pow.h.'>POW_SET_SUSTMR</a>;
+<a id='L222' name='L222' /> 222                 <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>;
+<a id='L223' name='L223' /> 223                 <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L224' name='L224' /> 224         <em class='brace'>}</em>
+<a id='L225' name='L225' /> 225 <em class='brace'>}</em>
+<a id='L226' name='L226' /> 226 
+<a id='L227' name='L227' /> 227 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L228' name='L228' /> 228 <a href='../R/2298.html' title='Multiple refered from 2 places.'>pmctrl_dimtime</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L229' name='L229' /> 229 <em class='brace'>{</em>
+<a id='L230' name='L230' /> 230         <strong class='reserved'>struct</strong> <a href='../Y/1315.html' title='Multiple used in 435 places.'>msg</a> <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L231' name='L231' /> 231         <strong class='reserved'>int</strong> <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>;
+<a id='L232' name='L232' /> 232 
+<a id='L233' name='L233' /> 233         <strong class='reserved'>if</strong> (<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a> &lt; 3)
+<a id='L234' name='L234' /> 234                 <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Usage: pmctrl dimtime sec\n");
+<a id='L235' name='L235' /> 235         <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L236' name='L236' /> 236                 <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a> = <a href='../D/2361.html' title='Multiple defined in 3 places.'>atoi</a>(<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[2]);
+<a id='L237' name='L237' /> 237 
+<a id='L238' name='L238' /> 238                 <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/1007.html' title='Multiple used in 163 places.'>hdr</a>.<a href='../Y/540.html' title='Multiple used in 111 places.'>code</a> = <a href='221.html#L42' title='Defined at 42 in include/ipc/pow.h.'>POW_SET_DIMTMR</a>;
+<a id='L239' name='L239' /> 239                 <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>.<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>[0] = <a href='../Y/2157.html' title='Multiple used in 40 places.'>timeout</a>;
+<a id='L240' name='L240' /> 240                 <a href='324.html#L81' title='Defined at 81 in sys/ipc/msg.c.'>msg_send</a>(<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>, &amp;<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>, <strong class='reserved'>sizeof</strong>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>));
+<a id='L241' name='L241' /> 241         <em class='brace'>}</em>
+<a id='L242' name='L242' /> 242 <em class='brace'>}</em>
+<a id='L243' name='L243' /> 243 
+<a id='L244' name='L244' /> 244 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L245' name='L245' /> 245 <a href='../R/2296.html' title='Multiple refered from 2 places.'>pmctrl_battery</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> **<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L246' name='L246' /> 246 <em class='brace'>{</em>
+<a id='L247' name='L247' /> 247 
+<a id='L248' name='L248' /> 248         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "Not supported...\n");
+<a id='L249' name='L249' /> 249 <em class='brace'>}</em>
+<a id='L250' name='L250' /> 250 
+<a id='L251' name='L251' /> 251 <strong class='reserved'>int</strong>
+<a id='L252' name='L252' /> 252 <a href='../R/2134.html' title='Multiple refered from 2 places.'>main</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[])
+<a id='L253' name='L253' /> 253 <em class='brace'>{</em>
+<a id='L254' name='L254' /> 254         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0;
+<a id='L255' name='L255' /> 255         <strong class='reserved'>int</strong> <a href='../Y/905.html' title='Multiple used in 34 places.'>found</a> = 0;
+<a id='L256' name='L256' /> 256 
+<a id='L257' name='L257' /> 257         <strong class='reserved'>if</strong> (<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a> &lt; 2) <em class='brace'>{</em>
+<a id='L258' name='L258' /> 258                 <a href='870.html#L88' title='Defined at 88 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_help</a>(1, <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L259' name='L259' /> 259                 <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L260' name='L260' /> 260         <em class='brace'>}</em>
+<a id='L261' name='L261' /> 261 
+<a id='L262' name='L262' /> 262         <strong class='reserved'>if</strong> (<a href='325.html#L140' title='Defined at 140 in sys/ipc/object.c.'>object_lookup</a>("!pow", &amp;<a href='../Y/1641.html' title='Multiple used in 14 places.'>powobj</a>) != 0) <em class='brace'>{</em>
+<a id='L263' name='L263' /> 263                 <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "No power server found\n");
+<a id='L264' name='L264' /> 264                 <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L265' name='L265' /> 265         <em class='brace'>}</em>
+<a id='L266' name='L266' /> 266 
+<a id='L267' name='L267' /> 267         <strong class='reserved'>while</strong> (<a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L268' name='L268' /> 268                 <strong class='reserved'>if</strong> (!<a href='../D/3529.html' title='Multiple defined in 4 places.'>strncmp</a>(<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[1], <a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>, <a href='273.html#L43' title='Defined at 43 in include/sys/syslimits.h.'>LINE_MAX</a>)) <em class='brace'>{</em>
+<a id='L269' name='L269' /> 269                         (<a href='../Y/534.html' title='Multiple used in 17 places.'>cmdtab</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/962.html' title='Multiple used in 37 places.'>func</a>)(<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>);
+<a id='L270' name='L270' /> 270                         <a href='../Y/905.html' title='Multiple used in 34 places.'>found</a> = 1;
+<a id='L271' name='L271' /> 271                         <strong class='reserved'>break</strong>;
+<a id='L272' name='L272' /> 272                 <em class='brace'>}</em>
+<a id='L273' name='L273' /> 273                 <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++;
+<a id='L274' name='L274' /> 274         <em class='brace'>}</em>
+<a id='L275' name='L275' /> 275         <strong class='reserved'>if</strong> (!<a href='../Y/905.html' title='Multiple used in 34 places.'>found</a>)
+<a id='L276' name='L276' /> 276                 <a href='870.html#L88' title='Defined at 88 in usr/sbin/pmctrl/pmctrl.c.'>pmctrl_help</a>(1, <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L277' name='L277' /> 277         <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L278' name='L278' /> 278 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='870.html#L83'>[^]</a><a href='870.html#L252'>[v]</a><a href='870.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

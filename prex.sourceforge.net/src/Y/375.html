@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>arg</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L94'>arg</a>                94 bsp/drv/arm/gba/keypad.c keypad_isr(void *arg)
+<a href='../S/54.html#L172'>arg</a>               172 bsp/drv/arm/gba/swkbd.c swkbd_timeout(void *arg)
+<a href='../S/54.html#L174'>arg</a>               174 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc = arg;
+<a href='../S/58.html#L108'>arg</a>               108 bsp/drv/dev/base/cons.c cons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L113'>arg</a>               113 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;ioctl(dev, cmd, arg);
+<a href='../S/58.html#L117'>arg</a>               117 bsp/drv/dev/base/cons.c cons_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L122'>arg</a>               122 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;devctl(dev, cmd, arg);
+<a href='../S/60.html#L686'>arg</a>               686 bsp/drv/dev/base/kd.c kd_invoke(void *arg)
+<a href='../S/63.html#L130'>arg</a>               130 bsp/drv/dev/base/pm.c pm_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/63.html#L143'>arg</a>               143 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;powtask, sizeof(task_t)))
+<a href='../S/63.html#L151'>arg</a>               151 bsp/drv/dev/base/pm.c 		if (copyout(&amp;event, arg, sizeof(int)))
+<a href='../S/63.html#L157'>arg</a>               157 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;state, sizeof(int)))
+<a href='../S/63.html#L173'>arg</a>               173 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;policy, arg, sizeof(int)))
+<a href='../S/63.html#L179'>arg</a>               179 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;policy, sizeof(int)))
+<a href='../S/63.html#L201'>arg</a>               201 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;sustime, arg, sizeof(u_long)))
+<a href='../S/63.html#L206'>arg</a>               206 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;sustime, sizeof(u_long)))
+<a href='../S/63.html#L213'>arg</a>               213 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;dimtime, arg, sizeof(u_long)))
+<a href='../S/63.html#L218'>arg</a>               218 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;dimtime, sizeof(u_long)))
+<a href='../S/63.html#L364'>arg</a>               364 bsp/drv/dev/base/pm.c pm_timeout(void *arg)
+<a href='../S/63.html#L366'>arg</a>               366 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = arg;
+<a href='../S/64.html#L260'>arg</a>               260 bsp/drv/dev/base/tty.c tty_signal(void *arg)
+<a href='../S/64.html#L262'>arg</a>               262 bsp/drv/dev/base/tty.c 	struct tty *tp = arg;
+<a href='../S/65.html#L133'>arg</a>               133 bsp/drv/dev/base/wscons.c wscons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/65.html#L137'>arg</a>               137 bsp/drv/dev/base/wscons.c 	return tty_ioctl(tty, cmd, arg);
+<a href='../S/66.html#L350'>arg</a>               350 bsp/drv/dev/block/fdd.c fdc_timeout(void *arg)
+<a href='../S/66.html#L352'>arg</a>               352 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = arg;
+<a href='../S/66.html#L387'>arg</a>               387 bsp/drv/dev/block/fdd.c fdc_isr(void *arg)
+<a href='../S/66.html#L389'>arg</a>               389 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = arg;
+<a href='../S/66.html#L423'>arg</a>               423 bsp/drv/dev/block/fdd.c fdc_ist(void *arg)
+<a href='../S/66.html#L425'>arg</a>               425 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = arg;
+<a href='../S/69.html#L211'>arg</a>               211 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_timeout(void *arg)
+<a href='../S/69.html#L213'>arg</a>               213 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc = arg;
+<a href='../S/69.html#L303'>arg</a>               303 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L314'>arg</a>               314 bsp/drv/dev/cpufreq/cpufreq.c 		if (copyout(&amp;info, arg, sizeof(info)))
+<a href='../S/69.html#L324'>arg</a>               324 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L338'>arg</a>               338 bsp/drv/dev/cpufreq/cpufreq.c 		policy = *(int *)arg;
+<a href='../S/76.html#L231'>arg</a>               231 bsp/drv/dev/input/pckbd.c pckbd_isr(void *arg)
+<a href='../S/76.html#L233'>arg</a>               233 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc = arg;
+<a href='../S/77.html#L139'>arg</a>               139 bsp/drv/dev/input/psaux.c psaux_isr(void *arg)
+<a href='../S/77.html#L141'>arg</a>               141 bsp/drv/dev/input/psaux.c 	struct psaux_softc *sc = arg;
+<a href='../S/85.html#L178'>arg</a>               178 bsp/drv/dev/rtc/rtc.c rtc_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/85.html#L194'>arg</a>               194 bsp/drv/dev/rtc/rtc.c 		if (copyout(&amp;tv, arg, sizeof(tv)))
+<a href='../S/87.html#L152'>arg</a>               152 bsp/drv/dev/serial/ns16550.c ns16550_isr(void *arg)
+<a href='../S/87.html#L154'>arg</a>               154 bsp/drv/dev/serial/ns16550.c 	struct serial_port *sp = arg;
+<a href='../S/88.html#L153'>arg</a>               153 bsp/drv/dev/serial/pl011.c pl011_isr(void *arg)
+<a href='../S/88.html#L155'>arg</a>               155 bsp/drv/dev/serial/pl011.c 	struct serial_port *sp = arg;
+<a href='../S/89.html#L111'>arg</a>               111 bsp/drv/dev/serial/serial.c serial_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/89.html#L115'>arg</a>               115 bsp/drv/dev/serial/serial.c 	return tty_ioctl(&amp;sc-&gt;tty, cmd, arg);
+<a href='../S/91.html#L207'>arg</a>               207 bsp/drv/dev/video/vga.c vga_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/133.html#L74'>arg</a>                74 bsp/hal/arm/gba/clock.c clock_isr(void *arg)
+<a href='../S/146.html#L72'>arg</a>                72 bsp/hal/arm/integrator/clock.c clock_isr(void *arg)
+<a href='../S/153.html#L47'>arg</a>                47 bsp/hal/ppc/arch/clock.c clock_isr(void *arg)
+<a href='../S/186.html#L58'>arg</a>                58 bsp/hal/x86/pc/clock.c clock_isr(void *arg)
+<a href='../S/219.html#L165'>arg</a>               165 include/ipc/fs.h 	int	arg;			/* argument */
+<a href='../S/267.html#L130'>arg</a>               130 include/sys/prex.h int	device_ioctl(device_t dev, u_long cmd, void *arg);
+<a href='../S/315.html#L57'>arg</a>                57 sys/include/sched.h 	void		*arg;		/* argument to pass */
+<a href='../S/320.html#L48'>arg</a>                48 sys/include/timer.h 	void		*arg;		/* function argument */
+<a href='../S/327.html#L430'>arg</a>               430 sys/kern/device.c device_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L440'>arg</a>               440 sys/kern/device.c 	error = (*ops-&gt;ioctl)(dev, cmd, arg);
+<a href='../S/327.html#L451'>arg</a>               451 sys/kern/device.c device_control(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L461'>arg</a>               461 sys/kern/device.c 	error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/327.html#L480'>arg</a>               480 sys/kern/device.c device_broadcast(u_long cmd, void *arg, int force)
+<a href='../S/327.html#L497'>arg</a>               497 sys/kern/device.c 		error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/329.html#L145'>arg</a>               145 sys/kern/irq.c irq_thread(void *arg)
+<a href='../S/329.html#L153'>arg</a>               153 sys/kern/irq.c 	irq = (struct irq *)arg;
+<a href='../S/331.html#L255'>arg</a>               255 sys/kern/sched.c sleep_timeout(void *arg)
+<a href='../S/331.html#L257'>arg</a>               257 sys/kern/sched.c 	thread_t t = (thread_t)arg;
+<a href='../S/331.html#L649'>arg</a>               649 sys/kern/sched.c sched_dpc(struct dpc *dpc, void (*fn)(void *), void *arg)
+<a href='../S/331.html#L660'>arg</a>               660 sys/kern/sched.c 	dpc-&gt;arg = arg;
+<a href='../S/331.html#L703'>arg</a>               703 sys/kern/sched.c 			(*dpc-&gt;func)(dpc-&gt;arg);
+<a href='../S/335.html#L525'>arg</a>               525 sys/kern/thread.c kthread_create(void (*entry)(void *), void *arg, int pri)
+<a href='../S/335.html#L543'>arg</a>               543 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KARG, (register_t)arg);
+<a href='../S/336.html#L119'>arg</a>               119 sys/kern/timer.c timer_callout(struct timer *tmr, u_long msec, void (*fn)(void *), void *arg)
+<a href='../S/336.html#L132'>arg</a>               132 sys/kern/timer.c 	tmr-&gt;arg = arg;
+<a href='../S/336.html#L189'>arg</a>               189 sys/kern/timer.c alarm_expire(void *arg)
+<a href='../S/336.html#L191'>arg</a>               191 sys/kern/timer.c 	task_t task = (task_t)arg;
+<a href='../S/336.html#L368'>arg</a>               368 sys/kern/timer.c 			(*tmr-&gt;func)(tmr-&gt;arg);
+<a href='../S/413.html#L117'>arg</a>               117 usr/bin/sh/sh.c 	static char **arg;
+<a href='../S/413.html#L121'>arg</a>               121 usr/bin/sh/sh.c 	arg = argc &gt; 1 ? &amp;argv[1] : NULL;
+<a href='../S/413.html#L162'>arg</a>               162 usr/bin/sh/sh.c 			execv(file, arg);
+<a href='../S/413.html#L165'>arg</a>               165 usr/bin/sh/sh.c 				execvp(file, arg);
+<a href='../S/474.html#L40'>arg</a>                40 usr/lib/libc/gen/execl.c execl(const char *name, const char *arg, ...)
+<a href='../S/474.html#L44'>arg</a>                44 usr/lib/libc/gen/execl.c 	r = execve(name, (char **) &amp;arg, environ);
+<a href='../S/474.html#L51'>arg</a>                51 usr/lib/libc/gen/execl.c 	va_start(ap, arg);
+<a href='../S/474.html#L58'>arg</a>                58 usr/lib/libc/gen/execl.c 	va_start(ap, arg);
+<a href='../S/474.html#L59'>arg</a>                59 usr/lib/libc/gen/execl.c 	argv[0] = (char *) arg;
+<a href='../S/475.html#L36'>arg</a>                36 usr/lib/libc/gen/execle.c execle(const char *name, const char *arg, ...)
+<a href='../S/475.html#L42'>arg</a>                42 usr/lib/libc/gen/execle.c 	va_start(ap, arg);
+<a href='../S/475.html#L48'>arg</a>                48 usr/lib/libc/gen/execle.c 	return execve(name, (char **) &amp;arg, envp);
+<a href='../S/475.html#L54'>arg</a>                54 usr/lib/libc/gen/execle.c 	va_start(ap, arg);
+<a href='../S/475.html#L61'>arg</a>                61 usr/lib/libc/gen/execle.c 	va_start(ap, arg);
+<a href='../S/475.html#L62'>arg</a>                62 usr/lib/libc/gen/execle.c 	argv[0] = (char *) arg;
+<a href='../S/476.html#L36'>arg</a>                36 usr/lib/libc/gen/execlp.c execlp(const char *name, const char *arg, ...)
+<a href='../S/476.html#L39'>arg</a>                39 usr/lib/libc/gen/execlp.c 	return execvp(name, (char **) &amp;arg);
+<a href='../S/476.html#L45'>arg</a>                45 usr/lib/libc/gen/execlp.c 	va_start(ap, arg);
+<a href='../S/476.html#L52'>arg</a>                52 usr/lib/libc/gen/execlp.c 	va_start(ap, arg);
+<a href='../S/476.html#L53'>arg</a>                53 usr/lib/libc/gen/execlp.c 	argv[0] = (char *) arg;
+<a href='../S/667.html#L43'>arg</a>                43 usr/lib/posix/file/fcntl.c 	long arg;
+<a href='../S/667.html#L46'>arg</a>                46 usr/lib/posix/file/fcntl.c 	arg = va_arg(args, long);
+<a href='../S/667.html#L53'>arg</a>                53 usr/lib/posix/file/fcntl.c 		memcpy(&amp;m.lock, (char *)arg, sizeof(struct flock));
+<a href='../S/667.html#L55'>arg</a>                55 usr/lib/posix/file/fcntl.c 		m.arg = arg;
+<a href='../S/667.html#L59'>arg</a>                59 usr/lib/posix/file/fcntl.c 	return m.arg;
+<a href='../S/886.html#L183'>arg</a>               183 usr/server/fs/devfs/devfs_vnops.c devfs_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/886.html#L187'>arg</a>               187 usr/server/fs/devfs/devfs_vnops.c 	error = device_ioctl((device_t)vp-&gt;v_data, cmd, arg);
+<a href='../S/896.html#L310'>arg</a>               310 usr/server/fs/fifofs/fifo_vnops.c fifo_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/903.html#L576'>arg</a>               576 usr/server/fs/vfs/main.c 	int arg, new_fd;
+<a href='../S/903.html#L581'>arg</a>               581 usr/server/fs/vfs/main.c 	arg = msg-&gt;arg;
+<a href='../S/903.html#L584'>arg</a>               584 usr/server/fs/vfs/main.c 		if (arg &gt;= OPEN_MAX)
+<a href='../S/903.html#L594'>arg</a>               594 usr/server/fs/vfs/main.c 		msg-&gt;arg = new_fd;
+<a href='../S/903.html#L597'>arg</a>               597 usr/server/fs/vfs/main.c 		msg-&gt;arg = fp-&gt;f_flags &amp; FD_CLOEXEC;
+<a href='../S/903.html#L601'>arg</a>               601 usr/server/fs/vfs/main.c 			(msg-&gt;arg &amp; FD_CLOEXEC);
+<a href='../S/903.html#L602'>arg</a>               602 usr/server/fs/vfs/main.c 		msg-&gt;arg = 0;
+<a href='../S/903.html#L606'>arg</a>               606 usr/server/fs/vfs/main.c 		msg-&gt;arg = -1;
+<a href='../S/903.html#L609'>arg</a>               609 usr/server/fs/vfs/main.c 		msg-&gt;arg = -1;
+</pre>
+</body>
+</html>

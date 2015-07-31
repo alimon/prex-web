@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>psize_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/96.html#L122'>psize_t</a>           122 bsp/drv/include/dki.h paddr_t	 page_alloc(psize_t);
+<a href='../S/96.html#L123'>psize_t</a>           123 bsp/drv/include/dki.h void	 page_free(paddr_t, psize_t);
+<a href='../S/96.html#L124'>psize_t</a>           124 bsp/drv/include/dki.h void	 page_reserve(paddr_t, psize_t);
+<a href='../S/247.html#L78'>psize_t</a>            78 include/sys/bootinfo.h 	psize_t		size;		/* size in bytes */
+<a href='../S/272.html#L74'>psize_t</a>            74 include/sys/sysinfo.h 	psize_t		total;		/* total memory size in bytes */
+<a href='../S/272.html#L75'>psize_t</a>            75 include/sys/sysinfo.h 	psize_t		free;		/* current free memory in bytes */
+<a href='../S/272.html#L76'>psize_t</a>            76 include/sys/sysinfo.h 	psize_t		bootdisk;	/* total size of boot disk */
+<a href='../S/308.html#L66'>psize_t</a>            66 sys/include/hal.h 	psize_t		size;		/* size */
+<a href='../S/314.html#L38'>psize_t</a>            38 sys/include/page.h paddr_t	 page_alloc(psize_t);
+<a href='../S/314.html#L39'>psize_t</a>            39 sys/include/page.h void	 page_free(paddr_t, psize_t);
+<a href='../S/314.html#L40'>psize_t</a>            40 sys/include/page.h int	 page_reserve(paddr_t, psize_t);
+<a href='../S/342.html#L63'>psize_t</a>            63 sys/mem/page.c static psize_t		total_size;	/* size of memory in the system */
+<a href='../S/342.html#L64'>psize_t</a>            64 sys/mem/page.c static psize_t		used_size;	/* current used size */
+<a href='../S/342.html#L65'>psize_t</a>            65 sys/mem/page.c static psize_t		bootdisk_size;	/* size of the boot disk */
+<a href='../S/342.html#L76'>psize_t</a>            76 sys/mem/page.c page_alloc(psize_t psize)
+<a href='../S/342.html#L116'>psize_t</a>           116 sys/mem/page.c 	used_size += (psize_t)size;
+<a href='../S/342.html#L129'>psize_t</a>           129 sys/mem/page.c page_free(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L174'>psize_t</a>           174 sys/mem/page.c 	used_size -= (psize_t)size;
+<a href='../S/342.html#L182'>psize_t</a>           182 sys/mem/page.c page_reserve(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L234'>psize_t</a>           234 sys/mem/page.c 	used_size += (psize_t)size;
+</pre>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>irq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L66'>irq</a>                66 bsp/drv/arm/gba/keypad.c 	irq_t		irq;
+<a href='../S/50.html#L140'>irq</a>               140 bsp/drv/arm/gba/keypad.c 	sc-&gt;irq = irq_attach(KEYPAD_IRQ, IPL_INPUT, 0, keypad_isr,
+<a href='../S/54.html#L84'>irq</a>                84 bsp/drv/arm/gba/swkbd.c 	irq_t		irq;		/* irq handle */
+<a href='../S/66.html#L107'>irq</a>               107 bsp/drv/dev/block/fdd.c 	irq_t		irq;		/* interrupt handle */
+<a href='../S/66.html#L705'>irq</a>               705 bsp/drv/dev/block/fdd.c 	sc-&gt;irq = irq_attach(FDC_IRQ, IPL_BLOCK, 0, fdc_isr, fdc_ist, sc);
+<a href='../S/76.html#L46'>irq</a>                46 bsp/drv/dev/input/pckbd.c 	irq_t		irq;		/* irq handle */
+<a href='../S/76.html#L283'>irq</a>               283 bsp/drv/dev/input/pckbd.c 	sc-&gt;irq = irq_attach(KBD_IRQ, IPL_INPUT, 0, pckbd_isr, IST_NONE, sc);
+<a href='../S/77.html#L60'>irq</a>                60 bsp/drv/dev/input/psaux.c 	irq_t		irq;		/* handle for mouse irq */
+<a href='../S/77.html#L216'>irq</a>               216 bsp/drv/dev/input/psaux.c 	sc-&gt;irq = irq_attach(MOUSE_IRQ, IPL_INPUT, 0, psaux_isr,
+<a href='../S/87.html#L185'>irq</a>               185 bsp/drv/dev/serial/ns16550.c 	sp-&gt;irq = irq_attach(COM_IRQ, IPL_COMM, 0, ns16550_isr,
+<a href='../S/88.html#L214'>irq</a>               214 bsp/drv/dev/serial/pl011.c 	sp-&gt;irq = irq_attach(UART_IRQ, IPL_COMM, 0, pl011_isr, IST_NONE, sp);
+<a href='../S/101.html#L37'>irq</a>                37 bsp/drv/include/serial.h 	irq_t		irq;
+<a href='../S/169.html#L154'>irq</a>               154 bsp/hal/ppc/prep/interrupt.c 	int irq;
+<a href='../S/169.html#L157'>irq</a>               157 bsp/hal/ppc/prep/interrupt.c 	irq = inb(PIC_M) &amp; 7;
+<a href='../S/169.html#L158'>irq</a>               158 bsp/hal/ppc/prep/interrupt.c 	if (irq == 2) {
+<a href='../S/169.html#L160'>irq</a>               160 bsp/hal/ppc/prep/interrupt.c 		irq = (inb(PIC_M) &amp; 7) + 8;
+<a href='../S/169.html#L162'>irq</a>               162 bsp/hal/ppc/prep/interrupt.c 	return irq;
+<a href='../S/310.html#L39'>irq</a>                39 sys/include/irq.h struct irq {
+<a href='../S/321.html#L46'>irq</a>                46 sys/include/types.h typedef struct irq	*irq_t;
+<a href='../S/329.html#L72'>irq</a>                72 sys/kern/irq.c static struct irq	*irq_table[MAXIRQS];	/* IRQ descriptor table */
+<a href='../S/329.html#L85'>irq</a>                85 sys/kern/irq.c 	struct irq *irq;
+<a href='../S/329.html#L91'>irq</a>                91 sys/kern/irq.c 	if ((irq = kmem_alloc(sizeof(*irq))) == NULL)
+<a href='../S/329.html#L94'>irq</a>                94 sys/kern/irq.c 	memset(irq, 0, sizeof(*irq));
+<a href='../S/329.html#L95'>irq</a>                95 sys/kern/irq.c 	irq-&gt;vector = vector;
+<a href='../S/329.html#L96'>irq</a>                96 sys/kern/irq.c 	irq-&gt;priority = pri;
+<a href='../S/329.html#L97'>irq</a>                97 sys/kern/irq.c 	irq-&gt;isr = isr;
+<a href='../S/329.html#L98'>irq</a>                98 sys/kern/irq.c 	irq-&gt;ist = ist;
+<a href='../S/329.html#L99'>irq</a>                99 sys/kern/irq.c 	irq-&gt;data = data;
+<a href='../S/329.html#L105'>irq</a>               105 sys/kern/irq.c 		irq-&gt;thread = kthread_create(&amp;irq_thread, irq, ISTPRI(pri));
+<a href='../S/329.html#L106'>irq</a>               106 sys/kern/irq.c 		if (irq-&gt;thread == NULL)
+<a href='../S/329.html#L109'>irq</a>               109 sys/kern/irq.c 		event_init(&amp;irq-&gt;istevt, "interrupt");
+<a href='../S/329.html#L111'>irq</a>               111 sys/kern/irq.c 	irq_table[vector] = irq;
+<a href='../S/329.html#L118'>irq</a>               118 sys/kern/irq.c 	return irq;
+<a href='../S/329.html#L127'>irq</a>               127 sys/kern/irq.c irq_detach(irq_t irq)
+<a href='../S/329.html#L129'>irq</a>               129 sys/kern/irq.c 	ASSERT(irq != NULL);
+<a href='../S/329.html#L130'>irq</a>               130 sys/kern/irq.c 	ASSERT(irq-&gt;vector &lt; MAXIRQS);
+<a href='../S/329.html#L132'>irq</a>               132 sys/kern/irq.c 	interrupt_mask(irq-&gt;vector);
+<a href='../S/329.html#L133'>irq</a>               133 sys/kern/irq.c 	irq_table[irq-&gt;vector] = NULL;
+<a href='../S/329.html#L134'>irq</a>               134 sys/kern/irq.c 	if (irq-&gt;thread != NULL)
+<a href='../S/329.html#L135'>irq</a>               135 sys/kern/irq.c 		kthread_terminate(irq-&gt;thread);
+<a href='../S/329.html#L137'>irq</a>               137 sys/kern/irq.c 	kmem_free(irq);
+<a href='../S/329.html#L149'>irq</a>               149 sys/kern/irq.c 	struct irq *irq;
+<a href='../S/329.html#L153'>irq</a>               153 sys/kern/irq.c 	irq = (struct irq *)arg;
+<a href='../S/329.html#L154'>irq</a>               154 sys/kern/irq.c 	fn = irq-&gt;ist;
+<a href='../S/329.html#L155'>irq</a>               155 sys/kern/irq.c 	data = irq-&gt;data;
+<a href='../S/329.html#L158'>irq</a>               158 sys/kern/irq.c 		if (irq-&gt;istreq &lt;= 0) {
+<a href='../S/329.html#L167'>irq</a>               167 sys/kern/irq.c 			sched_sleep(&amp;irq-&gt;istevt);
+<a href='../S/329.html#L169'>irq</a>               169 sys/kern/irq.c 		irq-&gt;istreq--;
+<a href='../S/329.html#L170'>irq</a>               170 sys/kern/irq.c 		ASSERT(irq-&gt;istreq &gt;= 0);
+<a href='../S/329.html#L192'>irq</a>               192 sys/kern/irq.c 	struct irq *irq;
+<a href='../S/329.html#L195'>irq</a>               195 sys/kern/irq.c 	irq = irq_table[vector];
+<a href='../S/329.html#L196'>irq</a>               196 sys/kern/irq.c 	if (irq == NULL) {
+<a href='../S/329.html#L200'>irq</a>               200 sys/kern/irq.c 	ASSERT(irq-&gt;isr != NULL);
+<a href='../S/329.html#L203'>irq</a>               203 sys/kern/irq.c 	irq-&gt;count++;
+<a href='../S/329.html#L208'>irq</a>               208 sys/kern/irq.c 	rc = (*irq-&gt;isr)(irq-&gt;data);
+<a href='../S/329.html#L214'>irq</a>               214 sys/kern/irq.c 		ASSERT(irq-&gt;ist != IST_NONE);
+<a href='../S/329.html#L215'>irq</a>               215 sys/kern/irq.c 		irq-&gt;istreq++;
+<a href='../S/329.html#L216'>irq</a>               216 sys/kern/irq.c 		sched_wakeup(&amp;irq-&gt;istevt);
+<a href='../S/329.html#L217'>irq</a>               217 sys/kern/irq.c 		ASSERT(irq-&gt;istreq != 0);
+<a href='../S/329.html#L229'>irq</a>               229 sys/kern/irq.c 	struct irq *irq;
+<a href='../S/329.html#L241'>irq</a>               241 sys/kern/irq.c 	irq = irq_table[vec];
+<a href='../S/329.html#L242'>irq</a>               242 sys/kern/irq.c 	info-&gt;vector = irq-&gt;vector;
+<a href='../S/329.html#L243'>irq</a>               243 sys/kern/irq.c 	info-&gt;count = irq-&gt;count;
+<a href='../S/329.html#L244'>irq</a>               244 sys/kern/irq.c 	info-&gt;priority = irq-&gt;priority;
+<a href='../S/329.html#L245'>irq</a>               245 sys/kern/irq.c 	info-&gt;istreq = irq-&gt;istreq;
+<a href='../S/329.html#L246'>irq</a>               246 sys/kern/irq.c 	info-&gt;thread = irq-&gt;thread;
+</pre>
+</body>
+</html>

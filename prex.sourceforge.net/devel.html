@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Prex Development</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta name="keywords" content="Prex, embedded, real-time, operating system, RTOS, open source, free">
+  <meta name="author" content="Kohsuke Ohtani">
+  <link rel="stylesheet" type="text/css" href="default.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="print.css" media="print">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+
+<table id="content" cellpadding="0" cellspacing="0">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="index.html">
+            <img alt="Prex logo" src="img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="right"><div class="info"><span>
+          <a href="about.html">About Us</a> |
+          <a href="contact.html">Contact Us</a>
+      </span></div></td>
+    </tr>
+
+    <tr>
+      <td id="side_menu" valign="top">
+      <div class="menu_title"><span>Navigation</span></div>
+      <div class="menu_navi">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="doc/index.html">Documentation</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="screen.html">Screenshots</a></li>
+          <li><a href="devel.html">Development</a></li>
+          <li><a href="src/index.html">Browse Source</a></li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="links.html">Links</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      </td>
+      <td id="main" style="vertical-align: top;">
+
+      <h1>Development</h1>
+
+(Last updated: 2009-10-01)
+
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="devel.html#roadmap">Roadmap</a></li>
+        <li><a href="devel.html#port">Current Ports</a></li>
+        <li><a href="devel.html#status">Project Status</a></li>
+      </ul>
+
+
+<h2 id="roadmap">Roadmap</h2>
+<p>
+The prex development phase is divided into the following 3 stages:
+</p>
+
+<h3>1) Version 0.1 - 0.4</h3>
+<span style="text-decoration: underline;">
+Focus: Kernel Quality</span>
+<ul>
+  <li>Port kernel to some different h/w platforms</li>
+  <li>Freeze primal kernel API</li>
+  <li>Increase kernel stability</li>
+  <li>Build driver framework</li>
+</ul>
+
+<h3>2) Version 0.5 - 1.0</h3>
+<span style="text-decoration: underline;">
+Focus: Application Availability</span>
+<ul>
+  <li>Develop standard system servers (boot, proc, fs, and exec)</li>
+  <li>Build POSIX application framework</li>
+  <li>Port shell or some valuable UNIX applications
+  <li>Improve OS security</li>
+</ul>
+
+<h3>3) Version 1.1 - 2.0</h3>
+<span style="text-decoration: underline;">
+Focus: Network Connectivity</span>
+<ul>
+  <li>Develop networking server (net)</li>
+  <li>Port various protocol stacks</li>
+  <li>Support more h/w platforms</li>
+</ul>
+
+<div class="toplink"><a href="devel.html#main">Back to top &uarr;</a></div>
+
+<h2 id="port">Current Ports</h2>
+<p>
+Prex currently supports the following platforms.
+</p>
+
+<table border="1" cellspacing="0">
+<caption>Table 1. Support Platforms</caption>
+<tbody>
+<tr>
+  <th>Name</th>
+  <th>Arch</th>
+  <th>Platform</th>
+  <th>Emulator</th>
+  <th>Toolchain</th>
+</tr>
+<tr>
+  <td>x86-pc</td>
+  <td>IA32</td>
+  <td>PC</td>
+  <td>Bochs, QEMU, VMware, Virtual PC</td>
+  <td>GCC, PCC, SunCC</td>
+</tr>
+<tr>
+  <td>x86-pc</td>
+  <td>IA32</td>
+  <td>PC (MMU-less)</td>
+  <td>Bochs, QEMU, VMware, Virtual PC</td>
+  <td>GCC, PCC, SunCC</td>
+</tr>
+<tr>
+  <td>arm-gba</td>
+  <td>ARM7TDMI</td>
+  <td>Game Boy Advance</td>
+  <td>VisualBoyAdvance</td>
+  <td>GCC, DevKitAdvance</td>
+</tr>
+<tr>
+  <td>arm-integrator</td>
+  <td>ARM9</td>
+  <td>Integrator/CP</td>
+  <td>QEMU</td>
+  <td>GCC, YAGARTO</td>
+</tr>
+<tr>
+  <td>ppc-prep</td>
+  <td>PowerPC</td>
+  <td>PReP (MMU-less)</td>
+  <td>QEMU</td>
+  <td>GCC</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div class="toplink"><a href="devel.html#main">Back to top &uarr;</a></div>
+
+
+<h2 id="status">Project Status</h2>
+
+<h3>Work Completed</h3>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+<tr>
+<td width="50%" valign="top">
+<ul>
+  <li>Task/thread control</li>
+  <li>Round Robin & FIFO scheduler</li>
+  <li>Kernel thread</li>
+  <li>Idle thread</li>
+  <li>Physical page allocator</li>
+  <li>Kernel memory allocator</li>
+  <li>Virtual memory allocator</li>
+  <li>Memory protection (MMU)</li>
+  <li>Shared memory</li>
+  <li>MMU-less system support</li>
+  <li>Object name space</li>
+  <li>IPC messaging mechanism</li>
+  <li>Nested interrupt service routine</li>
+  <li>Prioritized interrupt service thread</li>
+  <li>Dedicated interrupt stack</li>
+  <li>Mutex with priority inheritance</li>
+  <li>Deadlock detection for mutex</li>
+  <li>Condition variables</li>
+  <li>Counting semaphores</li>
+  <li>Alarm timer</li>
+  <li>Sleep timer</li>
+  <li>Periodic timer</li>
+  <li>Device I/O interface</li>
+  <li>Event logging interface</li>
+  <li>Fault trapping</li>
+  <li>System call library</li>
+  <li>Dynamic voltage scaling</li>
+  <li>CPU voltage monitor</li>
+  <li>Power policy</li>
+  <li>System suspend timer</li>
+  <li>LCD off timer</li>
+  <li>ELF relocation by task loader</li>
+</ul>
+</td>
+
+<td valign="top">
+<ul>
+  <li>Recursive mutex locking</li>
+  <li>Getting system information</li>
+  <li>Kernel monitoring utility</li>
+  <li>DPC (Deferred Procedure Call)</li>
+  <li>dmesg - diagnostic message</li>
+  <li>'configure' script for build</li>
+  <li>File system server</li>
+  <li>Embedded VFS</li>
+  <li>devfs - device file system</li>
+  <li>ramfs - RAM file system</li>
+  <li>arfs - archive file system</li>
+  <li>fatfs - FAT file system</li>
+  <li>fifofs - FIFO file system</li>
+  <li>UNIX pipe</li>
+  <li>Boot server</li>
+  <li>Process server</li>
+  <li>Exec server</li>
+  <li>Init process</li>
+  <li>Power server</li>
+  <li>multi-threaded file system</li>
+  <li>Signal emulation</li>
+  <li>POSIX system call emulation</li>
+  <li>CmdBox - embedded UNIX utils</li>
+  <li>TTY</li>
+  <li>libc embedded</li>
+  <li>ANSI-C comliant source code</li>
+  <li>Capability based security</li>
+  <li>Resource limit</li>
+  <li>Tiny shell</li>
+  <li>Pathname-based access control</li>
+  <li>fstab - file system table</li>
+  <li>Shell script loader</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h3>Work In Progress</h3>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+<tr>
+<td width="50%" valign="top">
+<ul>
+  <li>Kernel debugger</li>
+  <li>System call trace</li>
+  <li>Disk management utility</li>
+  <li>New driver framework</li>
+</ul>
+</td>
+
+<td valign="top">
+</td>
+</tr>
+</table>
+
+<h3>Plan for the Future</h3>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+<tr>
+<td width="50%" valign="top">
+<ul>
+  <li>Shared interrupt</li>
+  <li>Execution in ROM (XIP)</li>
+  <li>Tick-less kernel</li>
+  <li>High resolution timer</li>
+  <li>Device object filtering</li>
+  <li>FPU support</li>
+  <li>pthread library (subset)</li>
+  <li>Directory name cache in fs</li>
+  <li>OS image de-compression by boot loader</li>
+</ul>
+</td>
+
+<td valign="top">
+<ul>
+  <li>Raw I/O permission in user space</li>
+  <li>romfs - ROM file system</li>
+  <li>isofs - CD file system</li>
+  <li>ffs - flash file system</li>
+  <li>Embedded TCP/IP</li>
+  <li>Network server</li>
+  <li>USB support</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<div class="toplink"><a href="devel.html#main">Back to top &uarr;</a></div>
+
+
+
+<p>
+</p>
+
+
+    </tr>
+
+    <tr>
+      <td id="footer" colspan="2">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

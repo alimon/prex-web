@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>count</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/19.html#L60'>count</a>              60 bsp/boot/common/string.c strlcpy(char *dest, const char *src, size_t count)
+<a href='../S/19.html#L64'>count</a>              64 bsp/boot/common/string.c 	size_t n = count;
+<a href='../S/19.html#L76'>count</a>              76 bsp/boot/common/string.c 		if (count != 0)
+<a href='../S/19.html#L86'>count</a>              86 bsp/boot/common/string.c strncmp(const char *src, const char *tgt, size_t count)
+<a href='../S/19.html#L90'>count</a>              90 bsp/boot/common/string.c 	while (count) {
+<a href='../S/19.html#L93'>count</a>              93 bsp/boot/common/string.c 		count--;
+<a href='../S/19.html#L99'>count</a>              99 bsp/boot/common/string.c memcpy(void *dest, const void *src, size_t count)
+<a href='../S/19.html#L103'>count</a>             103 bsp/boot/common/string.c 	while (count--)
+<a href='../S/19.html#L109'>count</a>             109 bsp/boot/common/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/19.html#L113'>count</a>             113 bsp/boot/common/string.c 	while (count--)
+<a href='../S/60.html#L390'>count</a>             390 bsp/drv/dev/base/kd.c 			       ii.vector, ii.count, ii.istreq,
+<a href='../S/64.html#L459'>count</a>             459 bsp/drv/dev/base/tty.c 	size_t count = 0;
+<a href='../S/64.html#L476'>count</a>             476 bsp/drv/dev/base/tty.c 	while (count &lt; *nbyte) {
+<a href='../S/64.html#L482'>count</a>             482 bsp/drv/dev/base/tty.c 		count++;
+<a href='../S/64.html#L489'>count</a>             489 bsp/drv/dev/base/tty.c 	*nbyte = count;
+<a href='../S/64.html#L499'>count</a>             499 bsp/drv/dev/base/tty.c 	size_t remain, count = 0;
+<a href='../S/64.html#L519'>count</a>             519 bsp/drv/dev/base/tty.c 		count++;
+<a href='../S/64.html#L522'>count</a>             522 bsp/drv/dev/base/tty.c 	*nbyte = count;
+<a href='../S/72.html#L115'>count</a>             115 bsp/drv/dev/dma/i8237.c 	int	count;
+<a href='../S/72.html#L190'>count</a>             190 bsp/drv/dev/dma/i8237.c dma_setup(dma_t handle, void *addr, u_long count, int read)
+<a href='../S/72.html#L210'>count</a>             210 bsp/drv/dev/dma/i8237.c 	count--;
+<a href='../S/72.html#L219'>count</a>             219 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;count, (u_char)((count &gt;&gt; 0) &amp; 0xff));	/* Count low */
+<a href='../S/72.html#L220'>count</a>             220 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;count, (u_char)((count &gt;&gt; 8) &amp; 0xff));	/* Count high */
+<a href='../S/94.html#L85'>count</a>              85 bsp/drv/include/ddi.h void	 dma_setup(dma_t handle, void *addr, u_long count, int read);
+<a href='../S/94.html#L90'>count</a>              90 bsp/drv/include/ddi.h char	*strncpy(char *dest, const char *src, size_t count);
+<a href='../S/94.html#L91'>count</a>              91 bsp/drv/include/ddi.h int	 strncmp(const char *src, const char *tgt, size_t count);
+<a href='../S/94.html#L92'>count</a>              92 bsp/drv/include/ddi.h size_t	 strlcpy(char *dest, const char *src, size_t count);
+<a href='../S/94.html#L94'>count</a>              94 bsp/drv/include/ddi.h void	 *memcpy(void *dest, const void *src, size_t count);
+<a href='../S/94.html#L95'>count</a>              95 bsp/drv/include/ddi.h void	 *memset(void *dest, int ch, size_t count);
+<a href='../S/107.html#L45'>count</a>              45 bsp/drv/lib/delay.c void delay_loop(u_long count)
+<a href='../S/107.html#L49'>count</a>              49 bsp/drv/lib/delay.c 	for (i = 0; i &lt; count; i++);
+<a href='../S/113.html#L53'>count</a>              53 bsp/drv/lib/string.c strnlen(const char *str, size_t count)
+<a href='../S/113.html#L57'>count</a>              57 bsp/drv/lib/string.c 	for (tmp = str; count-- &amp;&amp; *tmp != '\0'; ++tmp);
+<a href='../S/113.html#L62'>count</a>              62 bsp/drv/lib/string.c strncpy(char *dest, const char *src, size_t count)
+<a href='../S/113.html#L66'>count</a>              66 bsp/drv/lib/string.c 	while (count-- &amp;&amp; (*dest++ = *src++) != '\0');
+<a href='../S/113.html#L71'>count</a>              71 bsp/drv/lib/string.c strncmp(const char *src, const char *tgt, size_t count)
+<a href='../S/113.html#L75'>count</a>              75 bsp/drv/lib/string.c 	while (count) {
+<a href='../S/113.html#L78'>count</a>              78 bsp/drv/lib/string.c 		count--;
+<a href='../S/113.html#L85'>count</a>              85 bsp/drv/lib/string.c strlcpy(char *dest, const char *src, size_t count)
+<a href='../S/113.html#L89'>count</a>              89 bsp/drv/lib/string.c 	while (count-- &amp;&amp; (*dest++ = *src++) != '\0');
+<a href='../S/113.html#L91'>count</a>              91 bsp/drv/lib/string.c 	if (count == 0) {
+<a href='../S/113.html#L99'>count</a>              99 bsp/drv/lib/string.c memcpy(void *dest, const void *src, size_t count)
+<a href='../S/113.html#L103'>count</a>             103 bsp/drv/lib/string.c 	ASSERT(count != 0);
+<a href='../S/113.html#L105'>count</a>             105 bsp/drv/lib/string.c 	while (count--)
+<a href='../S/113.html#L111'>count</a>             111 bsp/drv/lib/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/113.html#L115'>count</a>             115 bsp/drv/lib/string.c 	ASSERT(count != 0);
+<a href='../S/113.html#L117'>count</a>             117 bsp/drv/lib/string.c 	while (count--)
+<a href='../S/272.html#L157'>count</a>             157 include/sys/sysinfo.h 	u_int		count;		/* interrupt count */
+<a href='../S/310.html#L45'>count</a>              45 sys/include/irq.h 	u_int		count;		/* interrupt count */
+<a href='../S/327.html#L365'>count</a>             365 sys/kern/device.c 	size_t count;
+<a href='../S/327.html#L374'>count</a>             374 sys/kern/device.c 	if (copyin(nbyte, &amp;count, sizeof(count))) {
+<a href='../S/327.html#L381'>count</a>             381 sys/kern/device.c 	error = (*ops-&gt;read)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L383'>count</a>             383 sys/kern/device.c 		error = copyout(&amp;count, nbyte, sizeof(count));
+<a href='../S/327.html#L398'>count</a>             398 sys/kern/device.c 	size_t count;
+<a href='../S/327.html#L407'>count</a>             407 sys/kern/device.c 	if (copyin(nbyte, &amp;count, sizeof(count))) {
+<a href='../S/327.html#L414'>count</a>             414 sys/kern/device.c 	error = (*ops-&gt;write)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L416'>count</a>             416 sys/kern/device.c 		error = copyout(&amp;count, nbyte, sizeof(count));
+<a href='../S/329.html#L203'>count</a>             203 sys/kern/irq.c 	irq-&gt;count++;
+<a href='../S/329.html#L243'>count</a>             243 sys/kern/irq.c 	info-&gt;count = irq-&gt;count;
+<a href='../S/338.html#L41'>count</a>              41 sys/lib/string.c strlcpy(char *dest, const char *src, size_t count)
+<a href='../S/338.html#L45'>count</a>              45 sys/lib/string.c 	size_t n = count;
+<a href='../S/338.html#L57'>count</a>              57 sys/lib/string.c 		if (count != 0)
+<a href='../S/338.html#L67'>count</a>              67 sys/lib/string.c strncmp(const char *src, const char *tgt, size_t count)
+<a href='../S/338.html#L71'>count</a>              71 sys/lib/string.c 	while (count) {
+<a href='../S/338.html#L74'>count</a>              74 sys/lib/string.c 		count--;
+<a href='../S/338.html#L81'>count</a>              81 sys/lib/string.c strnlen(const char *str, size_t count)
+<a href='../S/338.html#L85'>count</a>              85 sys/lib/string.c 	for (tmp = str; count-- &amp;&amp; *tmp != '\0'; ++tmp);
+<a href='../S/338.html#L90'>count</a>              90 sys/lib/string.c memcpy(void *dest, const void *src, size_t count)
+<a href='../S/338.html#L94'>count</a>              94 sys/lib/string.c 	ASSERT(count != 0);
+<a href='../S/338.html#L96'>count</a>              96 sys/lib/string.c 	while (count--)
+<a href='../S/338.html#L103'>count</a>             103 sys/lib/string.c memset(void *dest, int ch, size_t count)
+<a href='../S/338.html#L107'>count</a>             107 sys/lib/string.c 	ASSERT(count != 0);
+<a href='../S/338.html#L109'>count</a>             109 sys/lib/string.c 	while (count--)
+<a href='../S/346.html#L422'>count</a>             422 sys/sync/mutex.c 	int count = 0;
+<a href='../S/346.html#L452'>count</a>             452 sys/sync/mutex.c 		ASSERT(count &lt; MAXINHERIT);
+<a href='../S/346.html#L453'>count</a>             453 sys/sync/mutex.c 		if (count &gt;= MAXINHERIT)
+<a href='../S/513.html#L38'>count</a>              38 usr/lib/libc/stdio/fread.c fread(buf, size, count, fp)
+<a href='../S/513.html#L40'>count</a>              40 usr/lib/libc/stdio/fread.c 	size_t size, count;
+<a href='../S/513.html#L53'>count</a>              53 usr/lib/libc/stdio/fread.c 	if ((resid = count * size) == 0)
+<a href='../S/513.html#L73'>count</a>              73 usr/lib/libc/stdio/fread.c 	return (count);
+<a href='../S/522.html#L41'>count</a>              41 usr/lib/libc/stdio/fwrite.c fwrite(buf, size, count, fp)
+<a href='../S/522.html#L43'>count</a>              43 usr/lib/libc/stdio/fwrite.c 	size_t size, count;
+<a href='../S/522.html#L47'>count</a>              47 usr/lib/libc/stdio/fwrite.c 	size_t len = count * size;
+<a href='../S/827.html#L58'>count</a>              58 usr/sample/alarm/alarm.c static volatile u_long count;
+<a href='../S/827.html#L70'>count</a>              70 usr/sample/alarm/alarm.c 		count++;
+<a href='../S/827.html#L71'>count</a>              71 usr/sample/alarm/alarm.c 		if (count &gt; 10) {
+<a href='../S/827.html#L75'>count</a>              75 usr/sample/alarm/alarm.c 		timer_alarm(count * 200, 0);
+<a href='../S/827.html#L77'>count</a>              77 usr/sample/alarm/alarm.c 		printf("Ring! count=%ld time=%d msec\n", count,
+<a href='../S/827.html#L106'>count</a>             106 usr/sample/alarm/alarm.c 	count = 0;
+<a href='../S/827.html#L111'>count</a>             111 usr/sample/alarm/alarm.c 	while (count &lt; 10) {
+<a href='../S/896.html#L268'>count</a>             268 usr/server/fs/fifofs/fifo_vnops.c 	u_int pos, nfree, nbytes, count = 0;
+<a href='../S/896.html#L297'>count</a>             297 usr/server/fs/fifofs/fifo_vnops.c 		count++;
+<a href='../S/896.html#L305'>count</a>             305 usr/server/fs/fifofs/fifo_vnops.c 	*result = count;
+<a href='../S/911.html#L175'>count</a>             175 usr/server/fs/vfs/vfs_syscalls.c sys_read(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L186'>count</a>             186 usr/server/fs/vfs/vfs_syscalls.c 		*count = 0;
+<a href='../S/911.html#L191'>count</a>             191 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READ(vp, fp, buf, size, count);
+<a href='../S/911.html#L197'>count</a>             197 usr/server/fs/vfs/vfs_syscalls.c sys_write(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L208'>count</a>             208 usr/server/fs/vfs/vfs_syscalls.c 		*count = 0;
+<a href='../S/911.html#L213'>count</a>             213 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_WRITE(vp, fp, buf, size, count);
+<a href='../S/913.html#L311'>count</a>             311 usr/server/fs/vfs/vfs_vnode.c 	int count;
+<a href='../S/913.html#L314'>count</a>             314 usr/server/fs/vfs/vfs_vnode.c 	count = vp-&gt;v_refcnt;
+<a href='../S/913.html#L316'>count</a>             316 usr/server/fs/vfs/vfs_vnode.c 	return count;
+</pre>
+</body>
+</html>

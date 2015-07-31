@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/sys/param.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1070.html'>include</a>/<a href='../files/1075.html'>sys</a>/param.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='264.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/265.html' title='Multiple included from 44 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1982, 1986, 1989, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> * (c) UNIX System Laboratories, Inc.</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * All or some portions of this file are derived from material licensed</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * to the University of California by American Telephone and Telegraph</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * Co. or Unix System Laboratories, Inc. and are reproduced herein with</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * the permission of UNIX System Laboratories, Inc.</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L12' name='L12' />  12 <em class='comment'> * are met:</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L15' name='L15' />  15 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L20' name='L20' />  20 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L21' name='L21' />  21 <em class='comment'> *</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L32' name='L32' />  32 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L33' name='L33' />  33 <em class='comment'> *</em>
+<a id='L34' name='L34' />  34 <em class='comment'> *      @(#)param.h     8.3 (Berkeley) 4/4/95</em>
+<a id='L35' name='L35' />  35 <em class='comment'> */</em>
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='sharp'>#ifndef</em> <a href='264.html#L38' title='Defined at 38 in include/sys/param.h.'>_SYS_PARAM_H_</a>
+<a id='L38' name='L38' />  38 <em class='sharp'>#define</em> <a href='264.html#L37' title='Refered from 37 in include/sys/param.h.'>_SYS_PARAM_H_</a>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='sharp'>#include</em> &lt;conf/config.h&gt;
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42 <em class='sharp'>#ifndef</em> <a href='264.html#L42' title='Used at 42 in include/sys/param.h.'>LOCORE</a>
+<a id='L43' name='L43' />  43 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L44' name='L44' />  44 <em class='sharp'>#endif</em>
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <em class='comment'>/*</em>
+<a id='L47' name='L47' />  47 <em class='comment'> * Machine-independent constants (some used in following include files).</em>
+<a id='L48' name='L48' />  48 <em class='comment'> * Redefined constants are from POSIX 1003.1 limits file.</em>
+<a id='L49' name='L49' />  49 <em class='comment'> */</em>
+<a id='L50' name='L50' />  50 <em class='sharp'>#include</em> &lt;<a href='273.html'>sys/syslimits.h</a>&gt;
+<a id='L51' name='L51' />  51 
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> NCARGS          <a href='273.html#L36' title='Defined at 36 in include/sys/syslimits.h.'>ARG_MAX</a>         <em class='comment'>/* max bytes for an exec function */</em>
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> NGROUPS         <a href='273.html#L39' title='Defined at 39 in include/sys/syslimits.h.'>NGROUPS_MAX</a>     <em class='comment'>/* max number groups */</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> <a href='905.html#L86' title='Refered from 86 in usr/server/fs/vfs/vfs.h.'>NOFILE</a>          <a href='273.html#L40' title='Defined at 40 in include/sys/syslimits.h.'>OPEN_MAX</a>        <em class='comment'>/* max open files per process */</em>
+<a id='L55' name='L55' />  55 <em class='sharp'>#define</em> NOGROUP         65535           <em class='comment'>/* marker for empty group set member */</em>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> <a href='386.html#L46' title='Refered from 46 in usr/bin/hostname/hostname.c.'>MAXHOSTNAMELEN</a>  32              <em class='comment'>/* max hostname size */</em>
+<a id='L57' name='L57' />  57 
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> <a href='../R/581.html' title='Multiple refered from 2 places.'>MAXTASKS</a>        256             <em class='comment'>/* max number of tasks in system */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> <a href='335.html#L80' title='Refered from 80 in sys/kern/thread.c.'>MAXTHREADS</a>      128             <em class='comment'>/* max number of threads per task */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> <a href='325.html#L100' title='Refered from 100 in sys/ipc/object.c.'>MAXOBJECTS</a>      32              <em class='comment'>/* max number of objects per task */</em>
+<a id='L61' name='L61' />  61 <em class='sharp'>#define</em> <a href='../R/579.html' title='Multiple refered from 3 places.'>MAXSYNCS</a>        512             <em class='comment'>/* max number of synch objects per task */</em>
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> <a href='../R/573.html' title='Multiple refered from 5 places.'>MAXMEM</a>          (4*1024*1024)   <em class='comment'>/* max core per task - first # is Mb */</em>
+<a id='L63' name='L63' />  63 
+<a id='L64' name='L64' />  64 <em class='comment'>/* The following name length include a null-terminate character */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> <a href='../R/580.html' title='Multiple refered from 13 places.'>MAXTASKNAME</a>     12              <em class='comment'>/* max task name */</em>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> <a href='../R/565.html' title='Multiple refered from 9 places.'>MAXDEVNAME</a>      12              <em class='comment'>/* max device name */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> <a href='../R/575.html' title='Multiple refered from 7 places.'>MAXOBJNAME</a>      16              <em class='comment'>/* max object name */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> <a href='../R/566.html' title='Multiple refered from 2 places.'>MAXEVTNAME</a>      12              <em class='comment'>/* max event name */</em>
+<a id='L69' name='L69' />  69 
+<a id='L70' name='L70' />  70 <em class='sharp'>#define</em> <a href='../R/387.html' title='Multiple refered from 10 places.'>HZ</a>              <a href='../Y/71.html' title='Multiple used in 3 places.'>CONFIG_HZ</a>       <em class='comment'>/* ticks per second */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> <a href='../R/571.html' title='Multiple refered from 3 places.'>MAXIRQS</a>         32              <em class='comment'>/* max number of irq line */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <a href='../R/686.html' title='Multiple refered from 4 places.'>PASSWORD_LEN</a>    4               <em class='comment'>/* fixed length, not counting NULL */</em>
+<a id='L73' name='L73' />  73 
+<a id='L74' name='L74' />  74 <em class='comment'>/*</em>
+<a id='L75' name='L75' />  75 <em class='comment'> * Priorities.</em>
+<a id='L76' name='L76' />  76 <em class='comment'> * Probably should not be altered too much.</em>
+<a id='L77' name='L77' />  77 <em class='comment'> */</em>
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> <a href='336.html#L467' title='Refered from 467 in sys/kern/timer.c.'>PRI_TIMER</a>       15      <em class='comment'>/* priority for timer thread */</em>
+<a id='L79' name='L79' />  79 <em class='sharp'>#define</em> <a href='310.html#L61' title='Refered from 61 in sys/include/irq.h.'>PRI_IST</a>         16      <em class='comment'>/* top priority for interrupt threads */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> <a href='331.html#L728' title='Refered from 728 in sys/kern/sched.c.'>PRI_DPC</a>         33      <em class='comment'>/* priority for Deferred Procedure Call */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> <a href='../R/747.html' title='Multiple refered from 5 places.'>PRI_IDLE</a>        255     <em class='comment'>/* priority for idle thread */</em>
+<a id='L82' name='L82' />  82 <em class='sharp'>#define</em> <a href='../R/751.html' title='Multiple refered from 3 places.'>PRI_REALTIME</a>    127     <em class='comment'>/* default priority for real-time thread */</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> <a href='../R/743.html' title='Multiple refered from 4 places.'>PRI_DEFAULT</a>     200     <em class='comment'>/* default user priority */</em>
+<a id='L84' name='L84' />  84 
+<a id='L85' name='L85' />  85 <em class='sharp'>#define</em> <a href='../R/577.html' title='Multiple refered from 4 places.'>MAXPRI</a>          0
+<a id='L86' name='L86' />  86 <em class='sharp'>#define</em> <a href='../R/595.html' title='Multiple refered from 8 places.'>MINPRI</a>          255
+<a id='L87' name='L87' />  87 <em class='sharp'>#define</em> <a href='../R/650.html' title='Multiple refered from 2 places.'>NPRI</a>            (<a href='264.html#L86' title='Defined at 86 in include/sys/param.h.'>MINPRI</a> + 1)    <em class='comment'>/* number of thread priority */</em>
+<a id='L88' name='L88' />  88 
+<a id='L89' name='L89' />  89 <em class='comment'>/* Server priorities */</em>
+<a id='L90' name='L90' />  90 <em class='sharp'>#define</em> <a href='917.html#L532' title='Refered from 532 in usr/server/proc/main.c.'>PRI_PROC</a>        124     <em class='comment'>/* process server */</em>
+<a id='L91' name='L91' />  91 <em class='sharp'>#define</em> <a href='879.html#L172' title='Refered from 172 in usr/server/exec/main.c.'>PRI_EXEC</a>        125     <em class='comment'>/* exec server */</em>
+<a id='L92' name='L92' />  92 <em class='sharp'>#define</em> <a href='903.html#L1102' title='Refered from 1102 in usr/server/fs/vfs/main.c.'>PRI_FS</a>          126     <em class='comment'>/* file system server */</em>
+<a id='L93' name='L93' />  93 <em class='sharp'>#define</em> <a href='916.html#L405' title='Refered from 405 in usr/server/pow/pow.c.'>PRI_POW</a>         100     <em class='comment'>/* power server */</em>
+<a id='L94' name='L94' />  94 
+<a id='L95' name='L95' />  95 <em class='sharp'>#ifndef</em> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>
+<a id='L96' name='L96' />  96 <em class='sharp'>#if</em> !<strong class='reserved'>defined</strong>(<a href='../Y/274.html' title='Multiple used in 5 places.'>__cplusplus</a>)
+<a id='L97' name='L97' />  97 <em class='sharp'>#define</em> <a href='../R/660.html' title='Multiple refered from 755 places.'>NULL</a>    ((<strong class='reserved'>void</strong> *)0)
+<a id='L98' name='L98' />  98 <em class='sharp'>#else</em>
+<a id='L99' name='L99' />  99 <em class='sharp'>#define</em> <a href='../R/660.html' title='Multiple refered from 755 places.'>NULL</a>    0
+<a id='L100' name='L100' /> 100 <em class='sharp'>#endif</em>
+<a id='L101' name='L101' /> 101 <em class='sharp'>#endif</em>
+<a id='L102' name='L102' /> 102 
+<a id='L103' name='L103' /> 103 <em class='comment'>/* More types and definitions used throughout the kernel. */</em>
+<a id='L104' name='L104' /> 104 <em class='sharp'>#ifdef</em> <a href='../D/826.html' title='Multiple defined in 2 places.'>KERNEL</a>
+<a id='L105' name='L105' /> 105 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L106' name='L106' /> 106 <em class='sharp'>#endif</em>
+<a id='L107' name='L107' /> 107 
+<a id='L108' name='L108' /> 108 <em class='sharp'>#ifndef</em> <a href='../D/826.html' title='Multiple defined in 2 places.'>KERNEL</a>
+<a id='L109' name='L109' /> 109 <em class='comment'>/* Signals. */</em>
+<a id='L110' name='L110' /> 110 <em class='sharp'>#include</em> &lt;<a href='../I/214.html'>sys/signal.h</a>&gt;
+<a id='L111' name='L111' /> 111 <em class='sharp'>#endif</em>
+<a id='L112' name='L112' /> 112 
+<a id='L113' name='L113' /> 113 <em class='sharp'>#include</em> &lt;<a href='../I/211.html'>machine/limits.h</a>&gt;
+<a id='L114' name='L114' /> 114 <em class='sharp'>#include</em> &lt;<a href='../I/212.html'>machine/memory.h</a>&gt;
+<a id='L115' name='L115' /> 115 
+<a id='L116' name='L116' /> 116 <em class='sharp'>#define</em> <a href='../R/505.html' title='Multiple refered from 8 places.'>KSTACKSZ</a>        768             <em class='comment'>/* kernel stack size */</em>
+<a id='L117' name='L117' /> 117 
+<a id='L118' name='L118' /> 118 <em class='sharp'>#define</em> <a href='343.html#L718' title='Refered from 718 in sys/mem/vm.c.'>USRSTACK</a>        (0 + <a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a>) <em class='comment'>/* base address of user stack */</em>
+<a id='L119' name='L119' /> 119 <em class='sharp'>#define</em> <a href='../R/180.html' title='Multiple refered from 14 places.'>DFLSTKSZ</a>        4096            <em class='comment'>/* default size of user stack */</em>
+<a id='L120' name='L120' /> 120 
+<a id='L121' name='L121' /> 121 <em class='sharp'>#ifdef</em> <a href='../Y/75.html' title='Multiple used in 25 places.'>CONFIG_MMU</a>
+<a id='L122' name='L122' /> 122 <em class='sharp'>#define</em> <a href='../R/2846.html' title='Multiple refered from 21 places.'>user_area</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)    ((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>) &lt;  (<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../D/1939.html' title='Multiple defined in 6 places.'>USERLIMIT</a>)
+<a id='L123' name='L123' /> 123 <em class='sharp'>#else</em>
+<a id='L124' name='L124' /> 124 <em class='sharp'>#define</em> <a href='../R/2846.html' title='Multiple refered from 21 places.'>user_area</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)    1
+<a id='L125' name='L125' /> 125 <em class='sharp'>#endif</em>
+<a id='L126' name='L126' /> 126 
+<a id='L127' name='L127' /> 127 <em class='comment'>/* Address translation between physical address and kernel viritul address */</em>
+<a id='L128' name='L128' /> 128 <em class='sharp'>#define</em> <a href='../R/2361.html' title='Multiple refered from 27 places.'>ptokv</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>)       (<strong class='reserved'>void</strong> *)((<a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a>)(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>) + <a href='../D/825.html' title='Multiple defined in 6 places.'>KERNBASE</a>)
+<a id='L129' name='L129' /> 129 <em class='sharp'>#define</em> <a href='../R/2087.html' title='Multiple refered from 15 places.'>kvtop</a>(<a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a>)       ((<a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a>)(<a href='../Y/2290.html' title='Multiple used in 35 places.'>va</a>) - <a href='../D/825.html' title='Multiple defined in 6 places.'>KERNBASE</a>)
+<a id='L130' name='L130' /> 130 
+<a id='L131' name='L131' /> 131 <em class='comment'>/*</em>
+<a id='L132' name='L132' /> 132 <em class='comment'> * Round p (pointer or byte index) up to a correctly-aligned value for all</em>
+<a id='L133' name='L133' /> 133 <em class='comment'> * data types (int, long, ...).   The result is u_long and must be cast to</em>
+<a id='L134' name='L134' /> 134 <em class='comment'> * any desired pointer type.</em>
+<a id='L135' name='L135' /> 135 <em class='comment'> */</em>
+<a id='L136' name='L136' /> 136 <em class='sharp'>#define</em> <a href='../R/1204.html' title='Multiple refered from 2 places.'>_ALIGNBYTES</a>     (<strong class='reserved'>sizeof</strong>(<strong class='reserved'>int</strong>) - 1)
+<a id='L137' name='L137' /> 137 <em class='sharp'>#define</em> <a href='479.html#L900' title='Refered from 900 in usr/lib/libc/gen/fts.c.'>ALIGN</a>(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)        (((<strong class='reserved'>unsigned</strong>)(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>) + <a href='264.html#L136' title='Defined at 136 in include/sys/param.h.'>_ALIGNBYTES</a>) &amp;~ <a href='264.html#L136' title='Defined at 136 in include/sys/param.h.'>_ALIGNBYTES</a>)
+<a id='L138' name='L138' /> 138 
+<a id='L139' name='L139' /> 139 <em class='comment'>/*</em>
+<a id='L140' name='L140' /> 140 <em class='comment'> * Memory page</em>
+<a id='L141' name='L141' /> 141 <em class='comment'> */</em>
+<a id='L142' name='L142' /> 142 <em class='sharp'>#define</em> <a href='../R/681.html' title='Multiple refered from 2 places.'>PAGE_MASK</a>       (<a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a>-1)
+<a id='L143' name='L143' /> 143 <em class='sharp'>#define</em> <a href='../R/2803.html' title='Multiple refered from 16 places.'>trunc_page</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)   ((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &amp; ~<a href='264.html#L142' title='Defined at 142 in include/sys/param.h.'>PAGE_MASK</a>)
+<a id='L144' name='L144' /> 144 <em class='sharp'>#define</em> <a href='../R/2439.html' title='Multiple refered from 20 places.'>round_page</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)   (((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) + <a href='264.html#L142' title='Defined at 142 in include/sys/param.h.'>PAGE_MASK</a>) &amp; ~<a href='264.html#L142' title='Defined at 142 in include/sys/param.h.'>PAGE_MASK</a>)
+<a id='L145' name='L145' /> 145 
+<a id='L146' name='L146' /> 146 <em class='comment'>/*</em>
+<a id='L147' name='L147' /> 147 <em class='comment'> * MAXPATHLEN defines the longest permissable path length after expanding</em>
+<a id='L148' name='L148' /> 148 <em class='comment'> * symbolic links. It is used to allocate a temporary buffer from the buffer</em>
+<a id='L149' name='L149' /> 149 <em class='comment'> * pool in which to do the name expansion, hence should be a power of two,</em>
+<a id='L150' name='L150' /> 150 <em class='comment'> * and must be less than or equal to MAXBSIZE.  MAXSYMLINKS defines the</em>
+<a id='L151' name='L151' /> 151 <em class='comment'> * maximum number of symbolic links that may be expanded in a path name.</em>
+<a id='L152' name='L152' /> 152 <em class='comment'> * It should be set high enough to allow all legitimate uses, but halt</em>
+<a id='L153' name='L153' /> 153 <em class='comment'> * infinite loops reasonably quickly.</em>
+<a id='L154' name='L154' /> 154 <em class='comment'> */</em>
+<a id='L155' name='L155' /> 155 <em class='sharp'>#define</em> <a href='../R/576.html' title='Multiple refered from 8 places.'>MAXPATHLEN</a>      <a href='273.html#L41' title='Defined at 41 in include/sys/syslimits.h.'>PATH_MAX</a>
+<a id='L156' name='L156' /> 156 <em class='sharp'>#define</em> MAXSYMLINKS     8
+<a id='L157' name='L157' /> 157 
+<a id='L158' name='L158' /> 158 <em class='comment'>/* Bit map related macros. */</em>
+<a id='L159' name='L159' /> 159 <em class='sharp'>#define</em> setbit(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>,<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)     ((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)[(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)/<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>] |= 1&lt;&lt;((<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)%<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>))
+<a id='L160' name='L160' /> 160 <em class='sharp'>#define</em> clrbit(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>,<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)     ((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)[(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)/<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>] &amp;= ~(1&lt;&lt;((<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)%<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>)))
+<a id='L161' name='L161' /> 161 <em class='sharp'>#define</em> <a href='../R/2038.html' title='Multiple refered from 4 places.'>isset</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>,<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)      ((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)[(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)/<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>] &amp; (1&lt;&lt;((<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)%<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>)))
+<a id='L162' name='L162' /> 162 <em class='sharp'>#define</em> isclr(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>,<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)      (((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)[(<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)/<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>] &amp; (1&lt;&lt;((<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>)%<a href='277.html#L102' title='Defined at 102 in include/sys/types.h.'>NBBY</a>))) == 0)
+<a id='L163' name='L163' /> 163 
+<a id='L164' name='L164' /> 164 <em class='comment'>/* Macros for counting and rounding. */</em>
+<a id='L165' name='L165' /> 165 <em class='sharp'>#ifndef</em> <a href='../D/2878.html' title='Multiple defined in 2 places.'>howmany</a>
+<a id='L166' name='L166' /> 166 <em class='sharp'>#define</em> <a href='../R/1994.html' title='Multiple refered from 4 places.'>howmany</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>, <a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)   (((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)+((<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)-1))/(<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>))
+<a id='L167' name='L167' /> 167 <em class='sharp'>#endif</em>
+<a id='L168' name='L168' /> 168 <em class='sharp'>#define</em> roundup(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>, <a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)   ((((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)+((<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)-1))/(<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>))*(<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>))
+<a id='L169' name='L169' /> 169 <em class='sharp'>#define</em> rounddown(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)  (((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)/(<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>))*(<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>))
+<a id='L170' name='L170' /> 170 <em class='sharp'>#define</em> powerof2(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)     ((((<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)-1)&amp;(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>))==0)
+<a id='L171' name='L171' /> 171 
+<a id='L172' name='L172' /> 172 <em class='comment'>/* Macros for min/max. */</em>
+<a id='L173' name='L173' /> 173 <em class='sharp'>#define</em> <a href='../R/592.html' title='Multiple refered from 4 places.'>MIN</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>,<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>) (((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)&lt;(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>))?(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>):(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>))
+<a id='L174' name='L174' /> 174 <em class='sharp'>#define</em> <a href='479.html#L99' title='Refered from 99 in usr/lib/libc/gen/fts.c.'>MAX</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>,<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>) (((<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)&gt;(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>))?(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>):(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>))
+<a id='L175' name='L175' /> 175 
+<a id='L176' name='L176' /> 176 <em class='sharp'>#define</em> <a href='../R/50.html' title='Multiple refered from 20 places.'>BSIZE</a>   512             <em class='comment'>/* size of secondary block (bytes) */</em>
+<a id='L177' name='L177' /> 177 
+<a id='L178' name='L178' /> 178 <em class='comment'>/*</em>
+<a id='L179' name='L179' /> 179 <em class='comment'> * Macro to convert milliseconds and tick.</em>
+<a id='L180' name='L180' /> 180 <em class='comment'> */</em>
+<a id='L181' name='L181' /> 181 <em class='sharp'>#define</em> <a href='../R/2176.html' title='Multiple refered from 4 places.'>mstohz</a>(<a href='264.html#L181' title='Used at 181 in include/sys/param.h.'>ms</a>)      (((<a href='264.html#L181' title='Used at 181 in include/sys/param.h.'>ms</a>) + 0UL) * <a href='264.html#L70' title='Defined at 70 in include/sys/param.h.'>HZ</a> / 1000)
+<a id='L182' name='L182' /> 182 
+<a id='L183' name='L183' /> 183 <em class='sharp'>#define</em> <a href='../R/1997.html' title='Multiple refered from 3 places.'>hztoms</a>(<a href='../Y/2151.html' title='Multiple used in 7 places.'>tick</a>)    ((<a href='../Y/2151.html' title='Multiple used in 7 places.'>tick</a>) &gt;= 0x20000 ? \
+<a id='L184' name='L184' /> 184                          (((<a href='../Y/2151.html' title='Multiple used in 7 places.'>tick</a>) + 0u) / <a href='264.html#L70' title='Defined at 70 in include/sys/param.h.'>HZ</a>) * 1000u : \
+<a id='L185' name='L185' /> 185                          (((<a href='../Y/2151.html' title='Multiple used in 7 places.'>tick</a>) + 0u) * 1000u) / <a href='264.html#L70' title='Defined at 70 in include/sys/param.h.'>HZ</a>)
+<a id='L186' name='L186' /> 186 
+<a id='L187' name='L187' /> 187 <em class='sharp'>#endif</em> <em class='comment'>/* !_SYS_PARAM_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='264.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

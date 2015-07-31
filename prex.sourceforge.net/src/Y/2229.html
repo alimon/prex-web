@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tss</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L47'>tss</a>                47 bsp/hal/x86/arch/cpu.c static struct tss tss;
+<a href='../S/174.html#L77'>tss</a>                77 bsp/hal/x86/arch/cpu.c 	tss.esp0 = kstack;
+<a href='../S/174.html#L87'>tss</a>                87 bsp/hal/x86/arch/cpu.c 	return tss.esp0;
+<a href='../S/174.html#L198'>tss</a>               198 bsp/hal/x86/arch/cpu.c 	gdt_set(KERNEL_TSS / 8, &amp;tss, sizeof(struct tss) - 1,
+<a href='../S/174.html#L201'>tss</a>               201 bsp/hal/x86/arch/cpu.c 	memset(&amp;tss, 0, sizeof(struct tss));
+<a href='../S/174.html#L202'>tss</a>               202 bsp/hal/x86/arch/cpu.c 	tss.ss0 = KERNEL_DS;
+<a href='../S/174.html#L203'>tss</a>               203 bsp/hal/x86/arch/cpu.c 	tss.esp0 = (uint32_t)BOOTSTKTOP;
+<a href='../S/174.html#L204'>tss</a>               204 bsp/hal/x86/arch/cpu.c 	tss.cs = (uint32_t)USER_CS | 3;
+<a href='../S/174.html#L205'>tss</a>               205 bsp/hal/x86/arch/cpu.c 	tss.ds = tss.es = tss.ss = tss.fs = tss.gs = (uint32_t)USER_CS | 3;
+<a href='../S/174.html#L206'>tss</a>               206 bsp/hal/x86/arch/cpu.c 	tss.io_bitmap_offset = INVALID_IO_BITMAP;
+<a href='../S/181.html#L172'>tss</a>               172 bsp/hal/x86/include/cpu.h struct tss {
+</pre>
+</body>
+</html>

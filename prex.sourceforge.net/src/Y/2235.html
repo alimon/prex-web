@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ttydev</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/925.html#L46'>ttydev</a>             46 usr/server/proc/proc_tty.c static device_t ttydev;
+<a href='../S/925.html#L60'>ttydev</a>             60 usr/server/proc/proc_tty.c 	if (device_ioctl(ttydev, TIOCGPGRP, &amp;pgid) != 0)
+<a href='../S/925.html#L87'>ttydev</a>             87 usr/server/proc/proc_tty.c 		if (ttydev != NODEV)
+<a href='../S/925.html#L115'>ttydev</a>            115 usr/server/proc/proc_tty.c 	if (device_open("tty", 0, &amp;ttydev) != 0) {
+<a href='../S/925.html#L117'>ttydev</a>            117 usr/server/proc/proc_tty.c 		ttydev = NODEV;
+<a href='../S/925.html#L124'>ttydev</a>            124 usr/server/proc/proc_tty.c 		device_ioctl(ttydev, TIOCSETSIGT, &amp;self);
+</pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>k</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/126.html#L63'>k</a>                  63 bsp/hal/arm/arch/context.c 	struct kern_regs *k;
+<a href='../S/126.html#L66'>k</a>                  66 bsp/hal/arm/arch/context.c 	k = &amp;ctx-&gt;kregs;
+<a href='../S/126.html#L73'>k</a>                  73 bsp/hal/arm/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/126.html#L87'>k</a>                  87 bsp/hal/arm/arch/context.c 		k-&gt;lr = (uint32_t)&amp;kernel_thread_entry;
+<a href='../S/126.html#L88'>k</a>                  88 bsp/hal/arm/arch/context.c 		k-&gt;r4 = (uint32_t)val;
+<a href='../S/126.html#L93'>k</a>                  93 bsp/hal/arm/arch/context.c 		k-&gt;r5 = (uint32_t)val;
+<a href='../S/154.html#L64'>k</a>                  64 bsp/hal/ppc/arch/context.c 	struct kern_regs *k;
+<a href='../S/154.html#L68'>k</a>                  68 bsp/hal/ppc/arch/context.c 	k = &amp;ctx-&gt;kregs;
+<a href='../S/154.html#L79'>k</a>                  79 bsp/hal/ppc/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/154.html#L80'>k</a>                  80 bsp/hal/ppc/arch/context.c 		k-&gt;kstack = (uint32_t)val;
+<a href='../S/154.html#L92'>k</a>                  92 bsp/hal/ppc/arch/context.c 		k-&gt;lr = (uint32_t)val;
+<a href='../S/154.html#L97'>k</a>                  97 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(k-&gt;sp + sizeof(uint32_t) * 2);
+<a href='../S/173.html#L64'>k</a>                  64 bsp/hal/x86/arch/context.c 	struct kern_regs *k;
+<a href='../S/173.html#L68'>k</a>                  68 bsp/hal/x86/arch/context.c 	k = &amp;ctx-&gt;kregs;
+<a href='../S/173.html#L77'>k</a>                  77 bsp/hal/x86/arch/context.c 		k-&gt;eip = (uint32_t)&amp;syscall_ret;
+<a href='../S/173.html#L78'>k</a>                  78 bsp/hal/x86/arch/context.c 		k-&gt;esp = (uint32_t)ctx-&gt;uregs - sizeof(uint32_t);
+<a href='../S/173.html#L88'>k</a>                  88 bsp/hal/x86/arch/context.c 		k-&gt;eip = (uint32_t)val;
+<a href='../S/173.html#L93'>k</a>                  93 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(k-&gt;esp + sizeof(uint32_t) * 2);
+</pre>
+</body>
+</html>

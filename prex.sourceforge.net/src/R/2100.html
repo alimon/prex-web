@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>link</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/309.html#L40'>link</a>               40 sys/include/ipc.h 	struct list	link;		/* linkage for all objects in system */
+<a href='../S/315.html#L54'>link</a>               54 sys/include/sched.h 	struct queue	link;		/* linkage on DPC queue */
+<a href='../S/316.html#L51'>link</a>               51 sys/include/sync.h 	struct list	link;		/* linkage on locked mutex list */
+<a href='../S/318.html#L45'>link</a>               45 sys/include/task.h 	struct list	link;		/* linkage on task list in system */
+<a href='../S/319.html#L46'>link</a>               46 sys/include/thread.h 	struct list	link;		/* linkage on all threads */
+<a href='../S/320.html#L43'>link</a>               43 sys/include/timer.h 	struct list	link;		/* linkage on timer chain */
+<a href='../S/320.html#L70'>link</a>               70 sys/include/timer.h 	(list_entry(list_first(head), struct timer, link))
+<a href='../S/325.html#L128'>link</a>              128 sys/ipc/object.c 	list_insert(&amp;object_list, &amp;obj-&gt;link);
+<a href='../S/325.html#L170'>link</a>              170 sys/ipc/object.c 		tmp = list_entry(n, struct object, link);
+<a href='../S/325.html#L185'>link</a>              185 sys/ipc/object.c 		obj = list_entry(n, struct object, link);
+<a href='../S/325.html#L202'>link</a>              202 sys/ipc/object.c 	list_remove(&amp;obj-&gt;link);
+<a href='../S/331.html#L662'>link</a>              662 sys/kern/sched.c 		enqueue(&amp;dpcq, &amp;dpc-&gt;link);
+<a href='../S/331.html#L696'>link</a>              696 sys/kern/sched.c 			dpc = queue_entry(q, struct dpc, link);
+<a href='../S/334.html#L145'>link</a>              145 sys/kern/task.c 	list_insert(&amp;task_list, &amp;task-&gt;link);
+<a href='../S/334.html#L181'>link</a>              181 sys/kern/task.c 	list_remove(&amp;task-&gt;link);
+<a href='../S/334.html#L411'>link</a>              411 sys/kern/task.c 		tmp = list_entry(n, struct task, link);
+<a href='../S/334.html#L450'>link</a>              450 sys/kern/task.c 			task = list_entry(n, struct task, link);
+<a href='../S/334.html#L545'>link</a>              545 sys/kern/task.c 	list_insert(&amp;task_list, &amp;kernel_task.link);
+<a href='../S/335.html#L218'>link</a>              218 sys/kern/thread.c 		tmp = list_entry(n, struct thread, link);
+<a href='../S/335.html#L428'>link</a>              428 sys/kern/thread.c 	list_insert(&amp;thread_list, &amp;t-&gt;link);
+<a href='../S/335.html#L448'>link</a>              448 sys/kern/thread.c 	list_remove(&amp;t-&gt;link);
+<a href='../S/335.html#L492'>link</a>              492 sys/kern/thread.c 			t = list_entry(n, struct thread, link);
+<a href='../S/335.html#L596'>link</a>              596 sys/kern/thread.c 	list_insert(&amp;thread_list, &amp;idle_thread.link);
+<a href='../S/336.html#L86'>link</a>               86 sys/kern/timer.c 		t = list_entry(n, struct timer, link);
+<a href='../S/336.html#L90'>link</a>               90 sys/kern/timer.c 	list_insert(list_prev(n), &amp;tmr-&gt;link);
+<a href='../S/336.html#L105'>link</a>              105 sys/kern/timer.c 		list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L129'>link</a>              129 sys/kern/timer.c 		list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L364'>link</a>              364 sys/kern/timer.c 			list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L411'>link</a>              411 sys/kern/timer.c 		list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L423'>link</a>              423 sys/kern/timer.c 			list_insert(&amp;expire_list, &amp;tmr-&gt;link);
+<a href='../S/341.html#L70'>link</a>               70 sys/mem/kmem.c 	struct list	 link;		/* link to the free list */
+<a href='../S/341.html#L163'>link</a>              163 sys/mem/kmem.c 	return list_entry(n, struct block_hdr, link);
+<a href='../S/341.html#L200'>link</a>              200 sys/mem/kmem.c 		list_remove(&amp;blk-&gt;link); /* Remove from free list */
+<a href='../S/341.html#L239'>link</a>              239 sys/mem/kmem.c 		list_insert(&amp;free_blocks[BLKNDX(newblk)], &amp;newblk-&gt;link);
+<a href='../S/341.html#L289'>link</a>              289 sys/mem/kmem.c 	list_insert(&amp;free_blocks[BLKNDX(blk)], &amp;blk-&gt;link);
+<a href='../S/341.html#L301'>link</a>              301 sys/mem/kmem.c 			list_remove(&amp;blk-&gt;link); /* Remove from free list */
+<a href='../S/346.html#L231'>link</a>              231 sys/sync/mutex.c 		list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L261'>link</a>              261 sys/sync/mutex.c 			list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L289'>link</a>              289 sys/sync/mutex.c 		list_remove(&amp;m-&gt;link);
+<a href='../S/346.html#L330'>link</a>              330 sys/sync/mutex.c 		m = list_entry(list_first(head), struct mutex, link);
+<a href='../S/346.html#L332'>link</a>              332 sys/sync/mutex.c 		list_remove(&amp;m-&gt;link);
+<a href='../S/346.html#L342'>link</a>              342 sys/sync/mutex.c 			list_insert(&amp;holder-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L488'>link</a>              488 sys/sync/mutex.c 		m = list_entry(n, struct mutex, link);
+</pre>
+</body>
+</html>

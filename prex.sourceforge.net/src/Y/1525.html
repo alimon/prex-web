@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>p_pgrp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/917.html#L462'>p_pgrp</a>            462 usr/server/proc/main.c 			p-&gt;p_parent-&gt;p_pid, p-&gt;p_pgrp-&gt;pg_pgid,
+<a href='../S/917.html#L463'>p_pgrp</a>            463 usr/server/proc/main.c 			p-&gt;p_pgrp-&gt;pg_session-&gt;s_leader-&gt;p_pid,
+<a href='../S/917.html#L505'>p_pgrp</a>            505 usr/server/proc/main.c 	p-&gt;p_pgrp = pg;
+<a href='../S/919.html#L93'>p_pgrp</a>             93 usr/server/proc/proc.h 	struct pgrp 	*p_pgrp;	/* pointer to process group */
+<a href='../S/920.html#L180'>p_pgrp</a>            180 usr/server/proc/proc_exit.c 			if (p-&gt;p_pgrp-&gt;pg_pgid == curproc-&gt;p_pgrp-&gt;pg_pgid)
+<a href='../S/920.html#L186'>p_pgrp</a>            186 usr/server/proc/proc_exit.c 			if (p-&gt;p_pgrp-&gt;pg_pgid == -pid)
+<a href='../S/921.html#L88'>p_pgrp</a>             88 usr/server/proc/proc_fork.c 	pg = curproc-&gt;p_pgrp;
+<a href='../S/921.html#L101'>p_pgrp</a>            101 usr/server/proc/proc_fork.c 	p-&gt;p_pgrp = pg;
+<a href='../S/923.html#L87'>p_pgrp</a>             87 usr/server/proc/proc_pid.c 	*retval = p-&gt;p_pgrp-&gt;pg_pgid;
+<a href='../S/923.html#L108'>p_pgrp</a>            108 usr/server/proc/proc_pid.c 	leader = p-&gt;p_pgrp-&gt;pg_session-&gt;s_leader;
+<a href='../S/923.html#L143'>p_pgrp</a>            143 usr/server/proc/proc_pid.c 	pgrp-&gt;pg_session = curproc-&gt;p_pgrp-&gt;pg_session;
+<a href='../S/923.html#L144'>p_pgrp</a>            144 usr/server/proc/proc_pid.c 	p-&gt;p_pgrp = pgrp;
+<a href='../S/923.html#L154'>p_pgrp</a>            154 usr/server/proc/proc_pid.c 	struct pgrp *pgrp = p-&gt;p_pgrp;
+<a href='../S/923.html#L164'>p_pgrp</a>            164 usr/server/proc/proc_pid.c 	p-&gt;p_pgrp = 0;
+<a href='../S/923.html#L193'>p_pgrp</a>            193 usr/server/proc/proc_pid.c 	if (p-&gt;p_pgrp-&gt;pg_pgid == pgid)	/* already leader */
+<a href='../S/923.html#L212'>p_pgrp</a>            212 usr/server/proc/proc_pid.c 	if (p-&gt;p_pid == p-&gt;p_pgrp-&gt;pg_pgid)	/* already leader */
+<a href='../S/923.html#L226'>p_pgrp</a>            226 usr/server/proc/proc_pid.c 	pgrp = p-&gt;p_pgrp;
+<a href='../S/924.html#L191'>p_pgrp</a>            191 usr/server/proc/proc_sig.c 		error = kill_pg(curproc-&gt;p_pgrp-&gt;pg_pgid, sig);
+<a href='../S/924.html#L194'>p_pgrp</a>            194 usr/server/proc/proc_sig.c 		if (curproc-&gt;p_pgrp-&gt;pg_pgid != -pid &amp;&amp; !kill_capable())
+</pre>
+</body>
+</html>

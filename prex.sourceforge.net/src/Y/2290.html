@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>va</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L111'>va</a>                111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L118'>va</a>                118 bsp/hal/arm/arch/mmu.c 	va = round_page(va);
+<a href='../S/131.html#L152'>va</a>                152 bsp/hal/arm/arch/mmu.c 		if (pte_present(pgd, va)) {
+<a href='../S/131.html#L154'>va</a>                154 bsp/hal/arm/arch/mmu.c 			pte = vtopte(pgd, va);
+<a href='../S/131.html#L161'>va</a>                161 bsp/hal/arm/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | PDE_PRESENT;
+<a href='../S/131.html#L166'>va</a>                166 bsp/hal/arm/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/131.html#L170'>va</a>                170 bsp/hal/arm/arch/mmu.c 		va += PAGE_SIZE;
+<a href='../S/178.html#L82'>va</a>                 82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L90'>va</a>                 90 bsp/hal/x86/arch/mmu.c 	va = round_page(va);
+<a href='../S/178.html#L124'>va</a>                124 bsp/hal/x86/arch/mmu.c 		if (pte_present(pgd, va)) {
+<a href='../S/178.html#L126'>va</a>                126 bsp/hal/x86/arch/mmu.c 			pte = vtopte(pgd, va);
+<a href='../S/178.html#L133'>va</a>                133 bsp/hal/x86/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | pde_flag;
+<a href='../S/178.html#L138'>va</a>                138 bsp/hal/x86/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/178.html#L142'>va</a>                142 bsp/hal/x86/arch/mmu.c 		va += PAGE_SIZE;
+<a href='../S/178.html#L220'>va</a>                220 bsp/hal/x86/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t va, size_t size)
+<a href='../S/178.html#L226'>va</a>                226 bsp/hal/x86/arch/mmu.c 	start = trunc_page(va);
+<a href='../S/178.html#L227'>va</a>                227 bsp/hal/x86/arch/mmu.c 	end = trunc_page(va + size - 1);
+<a href='../S/178.html#L241'>va</a>                241 bsp/hal/x86/arch/mmu.c 	return pa + (paddr_t)(va - start);
+<a href='../S/264.html#L129'>va</a>                129 include/sys/param.h #define kvtop(va)	((paddr_t)(va) - KERNBASE)
+<a href='../S/343.html#L210'>va</a>                210 sys/mem/vm.c   	vaddr_t va;
+<a href='../S/343.html#L212'>va</a>                212 sys/mem/vm.c   	va = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L217'>va</a>                217 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/343.html#L218'>va</a>                218 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L281'>va</a>                281 sys/mem/vm.c   	vaddr_t va;
+<a href='../S/343.html#L283'>va</a>                283 sys/mem/vm.c   	va = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L288'>va</a>                288 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/343.html#L289'>va</a>                289 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/344.html#L186'>va</a>                186 sys/mem/vm_nommu.c 	vaddr_t va;
+<a href='../S/344.html#L188'>va</a>                188 sys/mem/vm_nommu.c 	va = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L193'>va</a>                193 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/344.html#L194'>va</a>                194 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/344.html#L251'>va</a>                251 sys/mem/vm_nommu.c 	vaddr_t va;
+<a href='../S/344.html#L253'>va</a>                253 sys/mem/vm_nommu.c 	va = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L258'>va</a>                258 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/344.html#L259'>va</a>                259 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+</pre>
+</body>
+</html>

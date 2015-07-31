@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>_file</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L104'>_file</a>             104 usr/include/stdio.h 	short	_file;		/* fileno, if Unix descriptor, else -1 */
+<a href='../S/441.html#L291'>_file</a>             291 usr/include/stdio.h #define	__sfileno(p)	((p)-&gt;_file)
+<a href='../S/498.html#L70'>_file</a>              70 usr/lib/libc/stdio/fdopen.c 	fp-&gt;_file = fd;
+<a href='../S/506.html#L51'>_file</a>              51 usr/lib/libc/stdio/findfp.c 	fp-&gt;_file = fileno;
+<a href='../S/508.html#L57'>_file</a>              57 usr/lib/libc/stdio/fopen.c 	fp-&gt;_file = f;
+<a href='../S/514.html#L81'>_file</a>              81 usr/lib/libc/stdio/freopen.c 		if ((wantfd = fp-&gt;_file) &lt; 0 &amp;&amp; isopen) {
+<a href='../S/514.html#L136'>_file</a>             136 usr/lib/libc/stdio/freopen.c 	fp-&gt;_file = f;
+<a href='../S/528.html#L50'>_file</a>              50 usr/lib/libc/stdio/makebuf.c 	if (fp-&gt;_file &lt; 0 || fstat(fp-&gt;_file, &amp;st) &lt; 0)
+<a href='../S/528.html#L90'>_file</a>              90 usr/lib/libc/stdio/makebuf.c 	if (couldbetty &amp;&amp; isatty(fp-&gt;_file))
+<a href='../S/547.html#L48'>_file</a>              48 usr/lib/libc/stdio/stdio.c 	return (read(fp-&gt;_file, buf, n));
+<a href='../S/547.html#L58'>_file</a>              58 usr/lib/libc/stdio/stdio.c 		(void) lseek(fp-&gt;_file, (off_t)0, SEEK_END);
+<a href='../S/547.html#L59'>_file</a>              59 usr/lib/libc/stdio/stdio.c 	return (write(fp-&gt;_file, buf, n));
+<a href='../S/547.html#L68'>_file</a>              68 usr/lib/libc/stdio/stdio.c 	return (lseek(fp-&gt;_file, (off_t)offset, whence));
+<a href='../S/547.html#L75'>_file</a>              75 usr/lib/libc/stdio/stdio.c 	return (close(fp-&gt;_file));
+<a href='../S/552.html#L83'>_file</a>              83 usr/lib/libc/stdio/vfprintf.c 	fake._file = fp-&gt;_file;
+<a href='../S/552.html#L269'>_file</a>             269 usr/lib/libc/stdio/vfprintf.c 	    fp-&gt;_file &gt;= 0)
+</pre>
+</body>
+</html>

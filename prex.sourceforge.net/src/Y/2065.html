@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sym</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L181'>sym</a>               181 bsp/boot/common/elf.c 	Elf32_Sym *sym;
+<a href='../S/13.html#L186'>sym</a>               186 bsp/boot/common/elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rela-&gt;r_info)];
+<a href='../S/13.html#L187'>sym</a>               187 bsp/boot/common/elf.c 		ELFDBG(("%s\n", strtab + sym-&gt;st_name));
+<a href='../S/13.html#L188'>sym</a>               188 bsp/boot/common/elf.c 		if (sym-&gt;st_shndx != STN_UNDEF) {
+<a href='../S/13.html#L189'>sym</a>               189 bsp/boot/common/elf.c 			sym_val = (Elf32_Addr)sect_addr[sym-&gt;st_shndx]
+<a href='../S/13.html#L190'>sym</a>               190 bsp/boot/common/elf.c 				+ sym-&gt;st_value;
+<a href='../S/13.html#L193'>sym</a>               193 bsp/boot/common/elf.c 		} else if (ELF32_ST_BIND(sym-&gt;st_info) != STB_WEAK) {
+<a href='../S/13.html#L195'>sym</a>               195 bsp/boot/common/elf.c 				 i, (long)sym));
+<a href='../S/13.html#L209'>sym</a>               209 bsp/boot/common/elf.c 	Elf32_Sym *sym;
+<a href='../S/13.html#L214'>sym</a>               214 bsp/boot/common/elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rel-&gt;r_info)];
+<a href='../S/13.html#L215'>sym</a>               215 bsp/boot/common/elf.c 		ELFDBG(("%s\n", strtab + sym-&gt;st_name));
+<a href='../S/13.html#L216'>sym</a>               216 bsp/boot/common/elf.c 		if (sym-&gt;st_shndx != STN_UNDEF) {
+<a href='../S/13.html#L217'>sym</a>               217 bsp/boot/common/elf.c 			sym_val = (Elf32_Addr)sect_addr[sym-&gt;st_shndx]
+<a href='../S/13.html#L218'>sym</a>               218 bsp/boot/common/elf.c 				+ sym-&gt;st_value;
+<a href='../S/13.html#L221'>sym</a>               221 bsp/boot/common/elf.c 		} else if (ELF32_ST_BIND(sym-&gt;st_info) != STB_WEAK) {
+<a href='../S/13.html#L223'>sym</a>               223 bsp/boot/common/elf.c 				 i, (long)sym));
+<a href='../S/876.html#L113'>sym</a>               113 usr/server/exec/exec_elf.c 	Elf32_Sym *sym;
+<a href='../S/876.html#L118'>sym</a>               118 usr/server/exec/exec_elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rela-&gt;r_info)];
+<a href='../S/876.html#L119'>sym</a>               119 usr/server/exec/exec_elf.c 		if (sym-&gt;st_shndx != STN_UNDEF) {
+<a href='../S/876.html#L120'>sym</a>               120 usr/server/exec/exec_elf.c 			sym_val = (Elf32_Addr)sect_addr[sym-&gt;st_shndx]
+<a href='../S/876.html#L121'>sym</a>               121 usr/server/exec/exec_elf.c 				+ sym-&gt;st_value;
+<a href='../S/876.html#L124'>sym</a>               124 usr/server/exec/exec_elf.c 		} else if (ELF32_ST_BIND(sym-&gt;st_info) == STB_WEAK) {
+<a href='../S/876.html#L136'>sym</a>               136 usr/server/exec/exec_elf.c 	Elf32_Sym *sym;
+<a href='../S/876.html#L141'>sym</a>               141 usr/server/exec/exec_elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rel-&gt;r_info)];
+<a href='../S/876.html#L142'>sym</a>               142 usr/server/exec/exec_elf.c 		if (sym-&gt;st_shndx != STN_UNDEF) {
+<a href='../S/876.html#L143'>sym</a>               143 usr/server/exec/exec_elf.c 			sym_val = (Elf32_Addr)sect_addr[sym-&gt;st_shndx]
+<a href='../S/876.html#L144'>sym</a>               144 usr/server/exec/exec_elf.c 				+ sym-&gt;st_value;
+<a href='../S/876.html#L147'>sym</a>               147 usr/server/exec/exec_elf.c 		} else if (ELF32_ST_BIND(sym-&gt;st_info) == STB_WEAK) {
+</pre>
+</body>
+</html>

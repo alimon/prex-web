@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>argp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/154.html#L66'>argp</a>               66 bsp/hal/ppc/arch/context.c 	uint32_t *argp;
+<a href='../S/154.html#L97'>argp</a>               97 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(k-&gt;sp + sizeof(uint32_t) * 2);
+<a href='../S/154.html#L98'>argp</a>               98 bsp/hal/ppc/arch/context.c 		*argp = (uint32_t)val;
+<a href='../S/154.html#L118'>argp</a>              118 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(u-&gt;gr[1] + sizeof(uint32_t));
+<a href='../S/154.html#L119'>argp</a>              119 bsp/hal/ppc/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/173.html#L66'>argp</a>               66 bsp/hal/x86/arch/context.c 	uint32_t *argp;
+<a href='../S/173.html#L93'>argp</a>               93 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(k-&gt;esp + sizeof(uint32_t) * 2);
+<a href='../S/173.html#L94'>argp</a>               94 bsp/hal/x86/arch/context.c 		*argp = (uint32_t)val;
+<a href='../S/173.html#L118'>argp</a>              118 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(u-&gt;esp + sizeof(uint32_t));
+<a href='../S/173.html#L119'>argp</a>              119 bsp/hal/x86/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/672.html#L43'>argp</a>               43 usr/lib/posix/file/ioctl.c 	char *argp;
+<a href='../S/672.html#L49'>argp</a>               49 usr/lib/posix/file/ioctl.c 	argp = va_arg(args, char *);
+<a href='../S/672.html#L64'>argp</a>               64 usr/lib/posix/file/ioctl.c 	if ((cmd &amp; IOC_IN &amp;&amp; (cmd &amp; IOC_IVAL) == 0 &amp;&amp; argp == NULL) ||
+<a href='../S/672.html#L65'>argp</a>               65 usr/lib/posix/file/ioctl.c 	    (cmd &amp; IOC_OUT &amp;&amp; (cmd &amp; IOC_OVAL) == 0 &amp;&amp; argp == NULL)) {
+<a href='../S/672.html#L75'>argp</a>               75 usr/lib/posix/file/ioctl.c 			*((int *)m.buf) = (int)argp;
+<a href='../S/672.html#L77'>argp</a>               77 usr/lib/posix/file/ioctl.c 			memcpy(&amp;m.buf, argp, size);
+<a href='../S/672.html#L93'>argp</a>               93 usr/lib/posix/file/ioctl.c 			memcpy(argp, &amp;m.buf, size);
+</pre>
+</body>
+</html>

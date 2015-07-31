@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fn_rmtx</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/896.html#L59'>fn_rmtx</a>            59 usr/server/fs/fifofs/fifo_vnops.c 	mutex_t	fn_rmtx;	/* mutex for read */
+<a href='../S/896.html#L380'>fn_rmtx</a>           380 usr/server/fs/fifofs/fifo_vnops.c 	mutex_init(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L480'>fn_rmtx</a>           480 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L481'>fn_rmtx</a>           481 usr/server/fs/fifofs/fifo_vnops.c 	cond_wait(&amp;np-&gt;fn_rcond, &amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L482'>fn_rmtx</a>           482 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;np-&gt;fn_rmtx);
+</pre>
+</body>
+</html>

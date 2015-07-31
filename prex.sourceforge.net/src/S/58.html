@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/dev/base/cons.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1032.html'>dev</a>/<a href='../files/1033.html'>base</a>/cons.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='58.html#L72'>[^]</a><a href='58.html#L198'>[v]</a>[top]<a href='58.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='58.html#L72' title='Defined at 72.'>cons_open</a></li>
+<li><a href='58.html#L81' title='Defined at 81.'>cons_close</a></li>
+<li><a href='58.html#L90' title='Defined at 90.'>cons_read</a></li>
+<li><a href='58.html#L99' title='Defined at 99.'>cons_write</a></li>
+<li><a href='58.html#L108' title='Defined at 108.'>cons_ioctl</a></li>
+<li><a href='58.html#L117' title='Defined at 117.'>cons_devctl</a></li>
+<li><a href='58.html#L131' title='Defined at 131.'>cons_getc</a></li>
+<li><a href='58.html#L144' title='Defined at 144.'>cons_pollc</a></li>
+<li><a href='58.html#L155' title='Defined at 155.'>cons_putc</a></li>
+<li><a href='58.html#L167' title='Defined at 167.'>cons_puts</a></li>
+<li><a href='58.html#L183' title='Defined at 183.'>cons_attach</a></li>
+<li><a href='58.html#L198' title='Defined at 198.'>cons_init</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2008-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * cons.c - console redirection driver</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='97.html'>driver.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='92.html'>cons.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='251.html'>sys/dbgctl.h</a>&gt;
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L72' title='Defined at 72 in bsp/drv/dev/base/cons.c.'>cons_open</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>, <strong class='reserved'>int</strong>);
+<a id='L39' name='L39' />  39 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L81' title='Defined at 81 in bsp/drv/dev/base/cons.c.'>cons_close</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>);
+<a id='L40' name='L40' />  40 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L90' title='Defined at 90 in bsp/drv/dev/base/cons.c.'>cons_read</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>, <strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> *, <strong class='reserved'>int</strong>);
+<a id='L41' name='L41' />  41 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L99' title='Defined at 99 in bsp/drv/dev/base/cons.c.'>cons_write</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>, <strong class='reserved'>char</strong> *, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> *, <strong class='reserved'>int</strong>);
+<a id='L42' name='L42' />  42 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L108' title='Defined at 108 in bsp/drv/dev/base/cons.c.'>cons_ioctl</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a>, <strong class='reserved'>void</strong> *);
+<a id='L43' name='L43' />  43 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L117' title='Defined at 117 in bsp/drv/dev/base/cons.c.'>cons_devctl</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a>, <strong class='reserved'>void</strong> *);
+<a id='L44' name='L44' />  44 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='58.html#L198' title='Defined at 198 in bsp/drv/dev/base/cons.c.'>cons_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *);
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a> <a href='../Y/550.html' title='Multiple used in 2 places.'>cons_devops</a> = <em class='brace'>{</em>
+<a id='L47' name='L47' />  47         <em class='comment'>/* open */</em>      <a href='58.html#L72' title='Defined at 72 in bsp/drv/dev/base/cons.c.'>cons_open</a>,
+<a id='L48' name='L48' />  48         <em class='comment'>/* close */</em>     <a href='58.html#L81' title='Defined at 81 in bsp/drv/dev/base/cons.c.'>cons_close</a>,
+<a id='L49' name='L49' />  49         <em class='comment'>/* read */</em>      <a href='58.html#L90' title='Defined at 90 in bsp/drv/dev/base/cons.c.'>cons_read</a>,
+<a id='L50' name='L50' />  50         <em class='comment'>/* write */</em>     <a href='58.html#L99' title='Defined at 99 in bsp/drv/dev/base/cons.c.'>cons_write</a>,
+<a id='L51' name='L51' />  51         <em class='comment'>/* ioctl */</em>     <a href='58.html#L108' title='Defined at 108 in bsp/drv/dev/base/cons.c.'>cons_ioctl</a>,
+<a id='L52' name='L52' />  52         <em class='comment'>/* devctl */</em>    <a href='58.html#L117' title='Defined at 117 in bsp/drv/dev/base/cons.c.'>cons_devctl</a>,
+<a id='L53' name='L53' />  53 <em class='brace'>}</em>;
+<a id='L54' name='L54' />  54 
+<a id='L55' name='L55' />  55 <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> <a href='58.html#L55' title='Used at 55 in bsp/drv/dev/base/cons.c.'>cons_driver</a> = <em class='brace'>{</em>
+<a id='L56' name='L56' />  56         <em class='comment'>/* name */</em>      "cons",
+<a id='L57' name='L57' />  57         <em class='comment'>/* devops */</em>    &amp;<a href='../Y/550.html' title='Multiple used in 2 places.'>cons_devops</a>,
+<a id='L58' name='L58' />  58         <em class='comment'>/* devsz */</em>     0,
+<a id='L59' name='L59' />  59         <em class='comment'>/* flags */</em>     0,
+<a id='L60' name='L60' />  60         <em class='comment'>/* probe */</em>     <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L61' name='L61' />  61         <em class='comment'>/* init */</em>      <a href='58.html#L198' title='Defined at 198 in bsp/drv/dev/base/cons.c.'>cons_init</a>,
+<a id='L62' name='L62' />  62         <em class='comment'>/* unload */</em>    <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L63' name='L63' />  63 <em class='brace'>}</em>;
+<a id='L64' name='L64' />  64 
+<a id='L65' name='L65' />  65 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/665.html' title='Multiple used in 3 places.'>diag_ops</a> <a href='../Y/551.html' title='Multiple used in 2 places.'>cons_diag_ops</a> = <em class='brace'>{</em>
+<a id='L66' name='L66' />  66         <em class='comment'>/* puts */</em>      <a href='58.html#L167' title='Defined at 167 in bsp/drv/dev/base/cons.c.'>cons_puts</a>,
+<a id='L67' name='L67' />  67 <em class='brace'>}</em>;
+<a id='L68' name='L68' />  68 
+<a id='L69' name='L69' />  69 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> *<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>;         <em class='comment'>/* console device info */</em>
+<a id='L70' name='L70' />  70 
+<a id='L71' name='L71' />  71 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L72' name='L72' />  72 <a href='../R/1586.html' title='Multiple refered from 2 places.'>cons_open</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a> <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>int</strong> <a href='../Y/1294.html' title='Multiple used in 151 places.'>mode</a>)
+<a id='L73' name='L73' />  73 <em class='brace'>{</em>
+<a id='L74' name='L74' />  74 
+<a id='L75' name='L75' />  75         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L76' name='L76' />  76         <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a> = <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>;
+<a id='L77' name='L77' />  77         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>-&gt;<a href='681.html#L40' title='Defined at 40 in usr/lib/posix/file/open.c.'>open</a>(<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/1294.html' title='Multiple used in 151 places.'>mode</a>);
+<a id='L78' name='L78' />  78 <em class='brace'>}</em>
+<a id='L79' name='L79' />  79 
+<a id='L80' name='L80' />  80 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L81' name='L81' />  81 <a href='../R/1581.html' title='Multiple refered from 2 places.'>cons_close</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a> <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>)
+<a id='L82' name='L82' />  82 <em class='brace'>{</em>
+<a id='L83' name='L83' />  83 
+<a id='L84' name='L84' />  84         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L85' name='L85' />  85         <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a> = <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>;
+<a id='L86' name='L86' />  86         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>-&gt;<a href='661.html#L36' title='Defined at 36 in usr/lib/posix/file/close.c.'>close</a>(<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>);
+<a id='L87' name='L87' />  87 <em class='brace'>}</em>
+<a id='L88' name='L88' />  88 
+<a id='L89' name='L89' />  89 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L90' name='L90' />  90 <a href='../R/1590.html' title='Multiple refered from 2 places.'>cons_read</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a> <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>char</strong> *<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> *<a href='../Y/1347.html' title='Multiple used in 54 places.'>nbyte</a>, <strong class='reserved'>int</strong> <a href='../Y/432.html' title='Multiple used in 73 places.'>blkno</a>)
+<a id='L91' name='L91' />  91 <em class='brace'>{</em>
+<a id='L92' name='L92' />  92 
+<a id='L93' name='L93' />  93         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L94' name='L94' />  94         <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a> = <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>;
+<a id='L95' name='L95' />  95         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>-&gt;<a href='684.html#L38' title='Defined at 38 in usr/lib/posix/file/read.c.'>read</a>(<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>, <a href='../Y/1347.html' title='Multiple used in 54 places.'>nbyte</a>, <a href='../Y/432.html' title='Multiple used in 73 places.'>blkno</a>);
+<a id='L96' name='L96' />  96 <em class='brace'>}</em>
+<a id='L97' name='L97' />  97 
+<a id='L98' name='L98' />  98 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L99' name='L99' />  99 <a href='../R/1591.html' title='Multiple refered from 2 places.'>cons_write</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a> <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>char</strong> *<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> *<a href='../Y/1347.html' title='Multiple used in 54 places.'>nbyte</a>, <strong class='reserved'>int</strong> <a href='../Y/432.html' title='Multiple used in 73 places.'>blkno</a>)
+<a id='L100' name='L100' /> 100 <em class='brace'>{</em>
+<a id='L101' name='L101' /> 101 
+<a id='L102' name='L102' /> 102         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L103' name='L103' /> 103         <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a> = <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>;
+<a id='L104' name='L104' /> 104         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>-&gt;<a href='695.html#L37' title='Defined at 37 in usr/lib/posix/file/write.c.'>write</a>(<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>, <a href='../Y/1347.html' title='Multiple used in 54 places.'>nbyte</a>, <a href='../Y/432.html' title='Multiple used in 73 places.'>blkno</a>);
+<a id='L105' name='L105' /> 105 <em class='brace'>}</em>
+<a id='L106' name='L106' /> 106 
+<a id='L107' name='L107' /> 107 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L108' name='L108' /> 108 <a href='../R/1585.html' title='Multiple refered from 2 places.'>cons_ioctl</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a> <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>, <strong class='reserved'>void</strong> *<a href='../Y/375.html' title='Multiple used in 114 places.'>arg</a>)
+<a id='L109' name='L109' /> 109 <em class='brace'>{</em>
+<a id='L110' name='L110' /> 110 
+<a id='L111' name='L111' /> 111         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L112' name='L112' /> 112         <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a> = <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>;
+<a id='L113' name='L113' /> 113         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>-&gt;<a href='672.html#L40' title='Defined at 40 in usr/lib/posix/file/ioctl.c.'>ioctl</a>(<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>, <a href='../Y/375.html' title='Multiple used in 114 places.'>arg</a>);
+<a id='L114' name='L114' /> 114 <em class='brace'>}</em>
+<a id='L115' name='L115' /> 115 
+<a id='L116' name='L116' /> 116 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L117' name='L117' /> 117 <a href='../R/1582.html' title='Multiple refered from 2 places.'>cons_devctl</a>(<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a> <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>, <strong class='reserved'>void</strong> *<a href='../Y/375.html' title='Multiple used in 114 places.'>arg</a>)
+<a id='L118' name='L118' /> 118 <em class='brace'>{</em>
+<a id='L119' name='L119' /> 119 
+<a id='L120' name='L120' /> 120         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L121' name='L121' /> 121         <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a> = <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>;
+<a id='L122' name='L122' /> 122         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/660.html' title='Multiple used in 40 places.'>devops</a>-&gt;<a href='../Y/646.html' title='Multiple used in 6 places.'>devctl</a>(<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/526.html' title='Multiple used in 109 places.'>cmd</a>, <a href='../Y/375.html' title='Multiple used in 114 places.'>arg</a>);
+<a id='L123' name='L123' /> 123 <em class='brace'>}</em>
+<a id='L124' name='L124' /> 124 
+<a id='L125' name='L125' /> 125 <em class='comment'>/*</em>
+<a id='L126' name='L126' /> 126 <em class='comment'> * Poll (busy wait) for a input and return the input key.</em>
+<a id='L127' name='L127' /> 127 <em class='comment'> * cons_pollc() must be called before cons_getc() could be used.</em>
+<a id='L128' name='L128' /> 128 <em class='comment'> * cons_getc() should be used only for kernel deugger.</em>
+<a id='L129' name='L129' /> 129 <em class='comment'> */</em>
+<a id='L130' name='L130' /> 130 <strong class='reserved'>int</strong>
+<a id='L131' name='L131' /> 131 <a href='../R/1583.html' title='Multiple refered from 2 places.'>cons_getc</a>(<strong class='reserved'>void</strong>)
+<a id='L132' name='L132' /> 132 <em class='brace'>{</em>
+<a id='L133' name='L133' /> 133 
+<a id='L134' name='L134' /> 134         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L135' name='L135' /> 135         <strong class='reserved'>return</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/536.html' title='Multiple used in 2 places.'>cngetc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>);
+<a id='L136' name='L136' /> 136 <em class='brace'>}</em>
+<a id='L137' name='L137' /> 137 
+<a id='L138' name='L138' /> 138 <em class='comment'>/*</em>
+<a id='L139' name='L139' /> 139 <em class='comment'> * Switch the console driver to polling mode if on is non-zero, or</em>
+<a id='L140' name='L140' /> 140 <em class='comment'> * back to interrupt driven mode if on is zero.</em>
+<a id='L141' name='L141' /> 141 <em class='comment'> * cons_pollc() should be used only for kernel deugger.</em>
+<a id='L142' name='L142' /> 142 <em class='comment'> */</em>
+<a id='L143' name='L143' /> 143 <strong class='reserved'>void</strong>
+<a id='L144' name='L144' /> 144 <a href='../R/1587.html' title='Multiple refered from 3 places.'>cons_pollc</a>(<strong class='reserved'>int</strong> <a href='../Y/1470.html' title='Multiple used in 15 places.'>on</a>)
+<a id='L145' name='L145' /> 145 <em class='brace'>{</em>
+<a id='L146' name='L146' /> 146 
+<a id='L147' name='L147' /> 147         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L148' name='L148' /> 148         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/537.html' title='Multiple used in 4 places.'>cnpollc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/1470.html' title='Multiple used in 15 places.'>on</a>);
+<a id='L149' name='L149' /> 149 <em class='brace'>}</em>
+<a id='L150' name='L150' /> 150 
+<a id='L151' name='L151' /> 151 <em class='comment'>/*</em>
+<a id='L152' name='L152' /> 152 <em class='comment'> * Console character output routine.</em>
+<a id='L153' name='L153' /> 153 <em class='comment'> */</em>
+<a id='L154' name='L154' /> 154 <strong class='reserved'>void</strong>
+<a id='L155' name='L155' /> 155 <a href='92.html#L45' title='Refered from 45 in bsp/drv/include/cons.h.'>cons_putc</a>(<strong class='reserved'>int</strong> <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>)
+<a id='L156' name='L156' /> 156 <em class='brace'>{</em>
+<a id='L157' name='L157' /> 157 
+<a id='L158' name='L158' /> 158         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L159' name='L159' /> 159         <strong class='reserved'>if</strong> (<a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>) <em class='brace'>{</em>
+<a id='L160' name='L160' /> 160                 <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/538.html' title='Multiple used in 5 places.'>cnputc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>);
+<a id='L161' name='L161' /> 161                 <strong class='reserved'>if</strong> (<a href='../Y/469.html' title='Multiple used in 503 places.'>c</a> == '\n')
+<a id='L162' name='L162' /> 162                         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/538.html' title='Multiple used in 5 places.'>cnputc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, '\r');
+<a id='L163' name='L163' /> 163         <em class='brace'>}</em>
+<a id='L164' name='L164' /> 164 <em class='brace'>}</em>
+<a id='L165' name='L165' /> 165 
+<a id='L166' name='L166' /> 166 <strong class='reserved'>void</strong>
+<a id='L167' name='L167' /> 167 <a href='../R/1589.html' title='Multiple refered from 4 places.'>cons_puts</a>(<strong class='reserved'>char</strong> *<a href='../Y/2031.html' title='Multiple used in 140 places.'>str</a>)
+<a id='L168' name='L168' /> 168 <em class='brace'>{</em>
+<a id='L169' name='L169' /> 169 
+<a id='L170' name='L170' /> 170         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L171' name='L171' /> 171 
+<a id='L172' name='L172' /> 172         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/537.html' title='Multiple used in 4 places.'>cnpollc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, 1);
+<a id='L173' name='L173' /> 173         <strong class='reserved'>while</strong> (*<a href='../Y/2031.html' title='Multiple used in 140 places.'>str</a>) <em class='brace'>{</em>
+<a id='L174' name='L174' /> 174                 <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/538.html' title='Multiple used in 5 places.'>cnputc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, *<a href='../Y/2031.html' title='Multiple used in 140 places.'>str</a>);
+<a id='L175' name='L175' /> 175                 <strong class='reserved'>if</strong> (*<a href='../Y/2031.html' title='Multiple used in 140 places.'>str</a> == '\n')
+<a id='L176' name='L176' /> 176                         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/538.html' title='Multiple used in 5 places.'>cnputc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, '\r');
+<a id='L177' name='L177' /> 177                 <a href='../Y/2031.html' title='Multiple used in 140 places.'>str</a>++;
+<a id='L178' name='L178' /> 178         <em class='brace'>}</em>
+<a id='L179' name='L179' /> 179         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/537.html' title='Multiple used in 4 places.'>cnpollc</a>(<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, 0);
+<a id='L180' name='L180' /> 180 <em class='brace'>}</em>
+<a id='L181' name='L181' /> 181 
+<a id='L182' name='L182' /> 182 <strong class='reserved'>void</strong>
+<a id='L183' name='L183' /> 183 <a href='../R/1580.html' title='Multiple refered from 3 places.'>cons_attach</a>(<strong class='reserved'>struct</strong> <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> *<a href='../Y/497.html' title='Multiple used in 2 places.'>cdev</a>, <strong class='reserved'>int</strong> <a href='../Y/664.html' title='Multiple used in 8 places.'>diag</a>)
+<a id='L184' name='L184' /> 184 <em class='brace'>{</em>
+<a id='L185' name='L185' /> 185 
+<a id='L186' name='L186' /> 186         <strong class='reserved'>if</strong> (<a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L187' name='L187' /> 187                 <strong class='reserved'>return</strong>;
+<a id='L188' name='L188' /> 188         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> = <a href='../Y/497.html' title='Multiple used in 2 places.'>cdev</a>;
+<a id='L189' name='L189' /> 189 
+<a id='L190' name='L190' /> 190         <em class='comment'>/*</em>
+<a id='L191' name='L191' /> 191 <em class='comment'>         * Set console port as diag port.</em>
+<a id='L192' name='L192' /> 192 <em class='comment'>         */</em>
+<a id='L193' name='L193' /> 193         <strong class='reserved'>if</strong> (<a href='../Y/664.html' title='Multiple used in 8 places.'>diag</a>)
+<a id='L194' name='L194' /> 194                 <a href='326.html#L159' title='Defined at 159 in sys/kern/debug.c.'>dbgctl</a>(<a href='251.html#L50' title='Defined at 50 in include/sys/dbgctl.h.'>DBGC_SETDIAG</a>, &amp;<a href='../Y/551.html' title='Multiple used in 2 places.'>cons_diag_ops</a>);
+<a id='L195' name='L195' /> 195 <em class='brace'>}</em>
+<a id='L196' name='L196' /> 196 
+<a id='L197' name='L197' /> 197 <strong class='reserved'>int</strong>
+<a id='L198' name='L198' /> 198 <a href='../R/1584.html' title='Multiple refered from 2 places.'>cons_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/1881.html' title='Multiple used in 99 places.'>self</a>)
+<a id='L199' name='L199' /> 199 <em class='brace'>{</em>
+<a id='L200' name='L200' /> 200 
+<a id='L201' name='L201' /> 201         <a href='../Y/553.html' title='Multiple used in 39 places.'>consdev</a> = <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L202' name='L202' /> 202         <a href='327.html#L130' title='Defined at 130 in sys/kern/device.c.'>device_create</a>(<a href='../Y/1881.html' title='Multiple used in 99 places.'>self</a>, "console", <a href='252.html#L41' title='Defined at 41 in include/sys/device.h.'>D_CHR</a>|<a href='252.html#L45' title='Defined at 45 in include/sys/device.h.'>D_TTY</a>);
+<a id='L203' name='L203' /> 203         <strong class='reserved'>return</strong> 0;
+<a id='L204' name='L204' /> 204 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='58.html#L72'>[^]</a><a href='58.html#L198'>[v]</a><a href='58.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

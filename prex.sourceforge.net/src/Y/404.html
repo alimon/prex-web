@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>b_data</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/248.html#L46'>b_data</a>             46 include/sys/buf.h 	char		*b_data;	/* pointer to data buffer */
+<a href='../S/883.html#L128'>b_data</a>            128 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L133'>b_data</a>            133 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf + BSIZE, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L247'>b_data</a>            247 usr/server/fs/arfs/arfs_vnops.c 		memcpy(buf, bp-&gt;b_data + buf_pos, nr_copy);
+<a href='../S/889.html#L69'>b_data</a>             69 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L78'>b_data</a>             78 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf + SEC_SIZE, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L107'>b_data</a>            107 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf, SEC_SIZE);
+<a href='../S/889.html#L116'>b_data</a>            116 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf + SEC_SIZE, SEC_SIZE);
+<a href='../S/890.html#L52'>b_data</a>             52 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/890.html#L66'>b_data</a>             66 usr/server/fs/fatfs/fatfs_node.c 	memcpy(bp-&gt;b_data, fmp-&gt;dir_buf, SEC_SIZE);
+<a href='../S/906.html#L237'>b_data</a>            237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+<a href='../S/906.html#L273'>b_data</a>            273 usr/server/fs/vfs/vfs_bio.c 	error = device_write((device_t)bp-&gt;b_dev, bp-&gt;b_data, &amp;size,
+<a href='../S/906.html#L377'>b_data</a>            377 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_data = buffers[i];
+</pre>
+</body>
+</html>

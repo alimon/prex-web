@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pgid</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/718.html#L35'>pgid</a>               35 usr/lib/posix/process/killpg.c killpg(pid_t pgid, int sig)
+<a href='../S/718.html#L38'>pgid</a>               38 usr/lib/posix/process/killpg.c 	return kill(-pgid, sig);
+<a href='../S/724.html#L40'>pgid</a>               40 usr/lib/posix/process/setpgid.c setpgid(pid_t pid, pid_t pgid)
+<a href='../S/724.html#L46'>pgid</a>               46 usr/lib/posix/process/setpgid.c 	m.data[1] = pgid;
+<a href='../S/917.html#L151'>pgid</a>              151 usr/server/proc/main.c 	pid_t pid, pgid;
+<a href='../S/917.html#L156'>pgid</a>              156 usr/server/proc/main.c 	error = sys_getpgid(pid, &amp;pgid);
+<a href='../S/917.html#L160'>pgid</a>              160 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pgid;
+<a href='../S/917.html#L167'>pgid</a>              167 usr/server/proc/main.c 	pid_t pid, pgid;
+<a href='../S/917.html#L170'>pgid</a>              170 usr/server/proc/main.c 	pgid = (pid_t)msg-&gt;data[1];
+<a href='../S/917.html#L172'>pgid</a>              172 usr/server/proc/main.c 	return sys_setpgid(pid, pgid);
+<a href='../S/922.html#L73'>pgid</a>               73 usr/server/proc/proc_hash.c pg_find(pid_t pgid)
+<a href='../S/922.html#L78'>pgid</a>               78 usr/server/proc/proc_hash.c 	head = &amp;pgid_table[IDHASH(pgid)];
+<a href='../S/922.html#L82'>pgid</a>               82 usr/server/proc/proc_hash.c 		if (g-&gt;pg_pgid == pgid)
+<a href='../S/923.html#L120'>pgid</a>              120 usr/server/proc/proc_pid.c enterpgrp(struct proc *p, pid_t pgid)
+<a href='../S/923.html#L124'>pgid</a>              124 usr/server/proc/proc_pid.c 	DPRINTF(("proc: enter pgrp pid=%d pgid=%d\n", p-&gt;p_pid, pgid));
+<a href='../S/923.html#L125'>pgid</a>              125 usr/server/proc/proc_pid.c 	if ((pgrp = pg_find(pgid)) == NULL) {
+<a href='../S/923.html#L134'>pgid</a>              134 usr/server/proc/proc_pid.c 		pgrp-&gt;pg_pgid = pgid;
+<a href='../S/923.html#L177'>pgid</a>              177 usr/server/proc/proc_pid.c sys_setpgid(pid_t pid, pid_t pgid)
+<a href='../S/923.html#L181'>pgid</a>              181 usr/server/proc/proc_pid.c 	DPRINTF(("proc: setpgid pid=%d pgid=%d\n", pid, pgid));
+<a href='../S/923.html#L189'>pgid</a>              189 usr/server/proc/proc_pid.c 	if (pgid &lt; 0)
+<a href='../S/923.html#L191'>pgid</a>              191 usr/server/proc/proc_pid.c 	if (pgid == 0)
+<a href='../S/923.html#L192'>pgid</a>              192 usr/server/proc/proc_pid.c 		pgid = p-&gt;p_pid;
+<a href='../S/923.html#L193'>pgid</a>              193 usr/server/proc/proc_pid.c 	if (p-&gt;p_pgrp-&gt;pg_pgid == pgid)	/* already leader */
+<a href='../S/923.html#L195'>pgid</a>              195 usr/server/proc/proc_pid.c 	return (enterpgrp(p, pgid));
+<a href='../S/924.html#L100'>pgid</a>              100 usr/server/proc/proc_sig.c kill_pg(pid_t pgid, int sig)
+<a href='../S/924.html#L107'>pgid</a>              107 usr/server/proc/proc_sig.c 	DPRINTF(("proc: killpg pgid=%d sig=%d\n", pgid, sig));
+<a href='../S/924.html#L109'>pgid</a>              109 usr/server/proc/proc_sig.c 	if ((pgrp = pg_find(pgid)) == NULL)
+<a href='../S/925.html#L54'>pgid</a>               54 usr/server/proc/proc_tty.c 	pid_t pgid;
+<a href='../S/925.html#L60'>pgid</a>               60 usr/server/proc/proc_tty.c 	if (device_ioctl(ttydev, TIOCGPGRP, &amp;pgid) != 0)
+<a href='../S/925.html#L63'>pgid</a>               63 usr/server/proc/proc_tty.c 	DPRINTF(("proc: tty_signal pgid=%d sig=%d\n", pgid, sig));
+<a href='../S/925.html#L64'>pgid</a>               64 usr/server/proc/proc_tty.c 	kill_pg(pgid, sig);
+</pre>
+</body>
+</html>

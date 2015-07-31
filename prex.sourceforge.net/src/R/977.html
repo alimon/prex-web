@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>SYSENT</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/332.html#L83'>SYSENT</a>             83 sys/kern/sysent.c 	/*  0 */ SYSENT(0, exception_return),
+<a href='../S/332.html#L84'>SYSENT</a>             84 sys/kern/sysent.c 	/*  1 */ SYSENT(1, exception_setup),
+<a href='../S/332.html#L85'>SYSENT</a>             85 sys/kern/sysent.c 	/*  2 */ SYSENT(2, exception_raise),
+<a href='../S/332.html#L86'>SYSENT</a>             86 sys/kern/sysent.c 	/*  3 */ SYSENT(1, exception_wait),
+<a href='../S/332.html#L87'>SYSENT</a>             87 sys/kern/sysent.c 	/*  4 */ SYSENT(3, task_create),
+<a href='../S/332.html#L88'>SYSENT</a>             88 sys/kern/sysent.c 	/*  5 */ SYSENT(1, task_terminate),
+<a href='../S/332.html#L89'>SYSENT</a>             89 sys/kern/sysent.c 	/*  6 */ SYSENT(0, task_self),
+<a href='../S/332.html#L90'>SYSENT</a>             90 sys/kern/sysent.c 	/*  7 */ SYSENT(1, task_suspend),
+<a href='../S/332.html#L91'>SYSENT</a>             91 sys/kern/sysent.c 	/*  8 */ SYSENT(1, task_resume),
+<a href='../S/332.html#L92'>SYSENT</a>             92 sys/kern/sysent.c 	/*  9 */ SYSENT(2, task_setname),
+<a href='../S/332.html#L93'>SYSENT</a>             93 sys/kern/sysent.c 	/* 10 */ SYSENT(2, task_setcap),
+<a href='../S/332.html#L94'>SYSENT</a>             94 sys/kern/sysent.c 	/* 11 */ SYSENT(2, task_chkcap),
+<a href='../S/332.html#L95'>SYSENT</a>             95 sys/kern/sysent.c 	/* 12 */ SYSENT(2, thread_create),
+<a href='../S/332.html#L96'>SYSENT</a>             96 sys/kern/sysent.c 	/* 13 */ SYSENT(1, thread_terminate),
+<a href='../S/332.html#L97'>SYSENT</a>             97 sys/kern/sysent.c 	/* 14 */ SYSENT(3, thread_load),
+<a href='../S/332.html#L98'>SYSENT</a>             98 sys/kern/sysent.c 	/* 15 */ SYSENT(0, thread_self),
+<a href='../S/332.html#L99'>SYSENT</a>             99 sys/kern/sysent.c 	/* 16 */ SYSENT(0, thread_yield),
+<a href='../S/332.html#L100'>SYSENT</a>            100 sys/kern/sysent.c 	/* 17 */ SYSENT(1, thread_suspend),
+<a href='../S/332.html#L101'>SYSENT</a>            101 sys/kern/sysent.c 	/* 18 */ SYSENT(1, thread_resume),
+<a href='../S/332.html#L102'>SYSENT</a>            102 sys/kern/sysent.c 	/* 19 */ SYSENT(3, thread_schedparam),
+<a href='../S/332.html#L103'>SYSENT</a>            103 sys/kern/sysent.c 	/* 20 */ SYSENT(4, vm_allocate),
+<a href='../S/332.html#L104'>SYSENT</a>            104 sys/kern/sysent.c 	/* 21 */ SYSENT(2, vm_free),
+<a href='../S/332.html#L105'>SYSENT</a>            105 sys/kern/sysent.c 	/* 22 */ SYSENT(3, vm_attribute),
+<a href='../S/332.html#L106'>SYSENT</a>            106 sys/kern/sysent.c 	/* 23 */ SYSENT(4, vm_map),
+<a href='../S/332.html#L107'>SYSENT</a>            107 sys/kern/sysent.c 	/* 24 */ SYSENT(2, object_create),
+<a href='../S/332.html#L108'>SYSENT</a>            108 sys/kern/sysent.c 	/* 25 */ SYSENT(1, object_destroy),
+<a href='../S/332.html#L109'>SYSENT</a>            109 sys/kern/sysent.c 	/* 26 */ SYSENT(2, object_lookup),
+<a href='../S/332.html#L110'>SYSENT</a>            110 sys/kern/sysent.c 	/* 27 */ SYSENT(3, msg_send),
+<a href='../S/332.html#L111'>SYSENT</a>            111 sys/kern/sysent.c 	/* 28 */ SYSENT(3, msg_receive),
+<a href='../S/332.html#L112'>SYSENT</a>            112 sys/kern/sysent.c 	/* 29 */ SYSENT(3, msg_reply),
+<a href='../S/332.html#L113'>SYSENT</a>            113 sys/kern/sysent.c 	/* 30 */ SYSENT(2, timer_sleep),
+<a href='../S/332.html#L114'>SYSENT</a>            114 sys/kern/sysent.c 	/* 31 */ SYSENT(2, timer_alarm),
+<a href='../S/332.html#L115'>SYSENT</a>            115 sys/kern/sysent.c 	/* 32 */ SYSENT(3, timer_periodic),
+<a href='../S/332.html#L116'>SYSENT</a>            116 sys/kern/sysent.c 	/* 33 */ SYSENT(0, timer_waitperiod),
+<a href='../S/332.html#L117'>SYSENT</a>            117 sys/kern/sysent.c 	/* 34 */ SYSENT(3, device_open),
+<a href='../S/332.html#L118'>SYSENT</a>            118 sys/kern/sysent.c 	/* 35 */ SYSENT(1, device_close),
+<a href='../S/332.html#L119'>SYSENT</a>            119 sys/kern/sysent.c 	/* 36 */ SYSENT(4, device_read),
+<a href='../S/332.html#L120'>SYSENT</a>            120 sys/kern/sysent.c 	/* 37 */ SYSENT(4, device_write),
+<a href='../S/332.html#L121'>SYSENT</a>            121 sys/kern/sysent.c 	/* 38 */ SYSENT(3, device_ioctl),
+<a href='../S/332.html#L122'>SYSENT</a>            122 sys/kern/sysent.c 	/* 39 */ SYSENT(1, mutex_init),
+<a href='../S/332.html#L123'>SYSENT</a>            123 sys/kern/sysent.c 	/* 40 */ SYSENT(1, mutex_destroy),
+<a href='../S/332.html#L124'>SYSENT</a>            124 sys/kern/sysent.c 	/* 41 */ SYSENT(1, mutex_lock),
+<a href='../S/332.html#L125'>SYSENT</a>            125 sys/kern/sysent.c 	/* 42 */ SYSENT(1, mutex_trylock),
+<a href='../S/332.html#L126'>SYSENT</a>            126 sys/kern/sysent.c 	/* 43 */ SYSENT(1, mutex_unlock),
+<a href='../S/332.html#L127'>SYSENT</a>            127 sys/kern/sysent.c 	/* 44 */ SYSENT(1, cond_init),
+<a href='../S/332.html#L128'>SYSENT</a>            128 sys/kern/sysent.c 	/* 45 */ SYSENT(1, cond_destroy),
+<a href='../S/332.html#L129'>SYSENT</a>            129 sys/kern/sysent.c 	/* 46 */ SYSENT(2, cond_wait),
+<a href='../S/332.html#L130'>SYSENT</a>            130 sys/kern/sysent.c 	/* 47 */ SYSENT(1, cond_signal),
+<a href='../S/332.html#L131'>SYSENT</a>            131 sys/kern/sysent.c 	/* 48 */ SYSENT(1, cond_broadcast),
+<a href='../S/332.html#L132'>SYSENT</a>            132 sys/kern/sysent.c 	/* 49 */ SYSENT(2, sem_init),
+<a href='../S/332.html#L133'>SYSENT</a>            133 sys/kern/sysent.c 	/* 50 */ SYSENT(1, sem_destroy),
+<a href='../S/332.html#L134'>SYSENT</a>            134 sys/kern/sysent.c 	/* 51 */ SYSENT(2, sem_wait),
+<a href='../S/332.html#L135'>SYSENT</a>            135 sys/kern/sysent.c 	/* 52 */ SYSENT(1, sem_trywait),
+<a href='../S/332.html#L136'>SYSENT</a>            136 sys/kern/sysent.c 	/* 53 */ SYSENT(1, sem_post),
+<a href='../S/332.html#L137'>SYSENT</a>            137 sys/kern/sysent.c 	/* 54 */ SYSENT(2, sem_getvalue),
+<a href='../S/332.html#L138'>SYSENT</a>            138 sys/kern/sysent.c 	/* 55 */ SYSENT(1, sys_log),
+<a href='../S/332.html#L139'>SYSENT</a>            139 sys/kern/sysent.c 	/* 56 */ SYSENT(1, sys_panic),
+<a href='../S/332.html#L140'>SYSENT</a>            140 sys/kern/sysent.c 	/* 57 */ SYSENT(2, sys_info),
+<a href='../S/332.html#L141'>SYSENT</a>            141 sys/kern/sysent.c 	/* 58 */ SYSENT(1, sys_time),
+<a href='../S/332.html#L142'>SYSENT</a>            142 sys/kern/sysent.c 	/* 59 */ SYSENT(2, sys_debug),
+</pre>
+</body>
+</html>

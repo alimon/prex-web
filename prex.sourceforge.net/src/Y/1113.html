@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>item</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/112.html#L39'>item</a>               39 bsp/drv/lib/queue.c enqueue(queue_t head, queue_t item)
+<a href='../S/112.html#L41'>item</a>               41 bsp/drv/lib/queue.c 	item-&gt;next = head;
+<a href='../S/112.html#L42'>item</a>               42 bsp/drv/lib/queue.c 	item-&gt;prev = head-&gt;prev;
+<a href='../S/112.html#L43'>item</a>               43 bsp/drv/lib/queue.c 	item-&gt;prev-&gt;next = item;
+<a href='../S/112.html#L44'>item</a>               44 bsp/drv/lib/queue.c 	head-&gt;prev = item;
+<a href='../S/112.html#L53'>item</a>               53 bsp/drv/lib/queue.c 	queue_t item;
+<a href='../S/112.html#L57'>item</a>               57 bsp/drv/lib/queue.c 	item = head-&gt;next;
+<a href='../S/112.html#L58'>item</a>               58 bsp/drv/lib/queue.c 	item-&gt;next-&gt;prev = head;
+<a href='../S/112.html#L59'>item</a>               59 bsp/drv/lib/queue.c 	head-&gt;next = item-&gt;next;
+<a href='../S/112.html#L60'>item</a>               60 bsp/drv/lib/queue.c 	return item;
+<a href='../S/112.html#L67'>item</a>               67 bsp/drv/lib/queue.c queue_insert(queue_t prev, queue_t item)
+<a href='../S/112.html#L69'>item</a>               69 bsp/drv/lib/queue.c 	item-&gt;prev = prev;
+<a href='../S/112.html#L70'>item</a>               70 bsp/drv/lib/queue.c 	item-&gt;next = prev-&gt;next;
+<a href='../S/112.html#L71'>item</a>               71 bsp/drv/lib/queue.c 	prev-&gt;next-&gt;prev = item;
+<a href='../S/112.html#L72'>item</a>               72 bsp/drv/lib/queue.c 	prev-&gt;next = item;
+<a href='../S/112.html#L79'>item</a>               79 bsp/drv/lib/queue.c queue_remove(queue_t item)
+<a href='../S/112.html#L81'>item</a>               81 bsp/drv/lib/queue.c 	item-&gt;prev-&gt;next = item-&gt;next;
+<a href='../S/112.html#L82'>item</a>               82 bsp/drv/lib/queue.c 	item-&gt;next-&gt;prev = item-&gt;prev;
+<a href='../S/337.html#L40'>item</a>               40 sys/lib/queue.c enqueue(queue_t head, queue_t item)
+<a href='../S/337.html#L43'>item</a>               43 sys/lib/queue.c 	item-&gt;next = head;
+<a href='../S/337.html#L44'>item</a>               44 sys/lib/queue.c 	item-&gt;prev = head-&gt;prev;
+<a href='../S/337.html#L45'>item</a>               45 sys/lib/queue.c 	item-&gt;prev-&gt;next = item;
+<a href='../S/337.html#L46'>item</a>               46 sys/lib/queue.c 	head-&gt;prev = item;
+<a href='../S/337.html#L55'>item</a>               55 sys/lib/queue.c 	queue_t item;
+<a href='../S/337.html#L59'>item</a>               59 sys/lib/queue.c 	item = head-&gt;next;
+<a href='../S/337.html#L60'>item</a>               60 sys/lib/queue.c 	item-&gt;next-&gt;prev = head;
+<a href='../S/337.html#L61'>item</a>               61 sys/lib/queue.c 	head-&gt;next = item-&gt;next;
+<a href='../S/337.html#L62'>item</a>               62 sys/lib/queue.c 	return item;
+<a href='../S/337.html#L69'>item</a>               69 sys/lib/queue.c queue_insert(queue_t prev, queue_t item)
+<a href='../S/337.html#L72'>item</a>               72 sys/lib/queue.c 	item-&gt;prev = prev;
+<a href='../S/337.html#L73'>item</a>               73 sys/lib/queue.c 	item-&gt;next = prev-&gt;next;
+<a href='../S/337.html#L74'>item</a>               74 sys/lib/queue.c 	prev-&gt;next-&gt;prev = item;
+<a href='../S/337.html#L75'>item</a>               75 sys/lib/queue.c 	prev-&gt;next = item;
+<a href='../S/337.html#L82'>item</a>               82 sys/lib/queue.c queue_remove(queue_t item)
+<a href='../S/337.html#L85'>item</a>               85 sys/lib/queue.c 	item-&gt;prev-&gt;next = item-&gt;next;
+<a href='../S/337.html#L86'>item</a>               86 sys/lib/queue.c 	item-&gt;next-&gt;prev = item-&gt;prev;
+</pre>
+</body>
+</html>

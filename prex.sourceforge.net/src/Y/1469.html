@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>omask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/482.html#L45'>omask</a>              45 usr/lib/libc/gen/getpass.c 	long omask;
+<a href='../S/482.html#L61'>omask</a>              61 usr/lib/libc/gen/getpass.c 	omask = sigblock(sigmask(SIGINT)|sigmask(SIGTSTP));
+<a href='../S/482.html#L79'>omask</a>              79 usr/lib/libc/gen/getpass.c 	(void)sigsetmask(omask);
+<a href='../S/700.html#L72'>omask</a>              72 usr/lib/posix/gen/syslog.c 	int omask;
+<a href='../S/700.html#L74'>omask</a>              74 usr/lib/posix/gen/syslog.c 	omask = LogMask;
+<a href='../S/700.html#L77'>omask</a>              77 usr/lib/posix/gen/syslog.c 	return (omask);
+<a href='../S/737.html#L52'>omask</a>              52 usr/lib/posix/signal/sigcompat.c 	int omask, n;
+<a href='../S/737.html#L54'>omask</a>              54 usr/lib/posix/signal/sigcompat.c 	n = sigprocmask(SIG_SETMASK, (sigset_t *) &amp;mask, (sigset_t *) &amp;omask);
+<a href='../S/737.html#L57'>omask</a>              57 usr/lib/posix/signal/sigcompat.c 	return (omask);
+<a href='../S/737.html#L64'>omask</a>              64 usr/lib/posix/signal/sigcompat.c 	int omask, n;
+<a href='../S/737.html#L66'>omask</a>              66 usr/lib/posix/signal/sigcompat.c 	n = sigprocmask(SIG_BLOCK, (sigset_t *) &amp;mask, (sigset_t *) &amp;omask);
+<a href='../S/737.html#L69'>omask</a>              69 usr/lib/posix/signal/sigcompat.c 	return (omask);
+</pre>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>list_entry</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/320.html#L70'>list_entry</a>         70 sys/include/timer.h 	(list_entry(list_first(head), struct timer, link))
+<a href='../S/325.html#L170'>list_entry</a>        170 sys/ipc/object.c 		tmp = list_entry(n, struct object, link);
+<a href='../S/325.html#L185'>list_entry</a>        185 sys/ipc/object.c 		obj = list_entry(n, struct object, link);
+<a href='../S/325.html#L239'>list_entry</a>        239 sys/ipc/object.c 		obj = list_entry(list_first(&amp;task-&gt;objects),
+<a href='../S/328.html#L122'>list_entry</a>        122 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L199'>list_entry</a>        199 sys/kern/exception.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L213'>list_entry</a>        213 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L198'>list_entry</a>        198 sys/kern/task.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L248'>list_entry</a>        248 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L290'>list_entry</a>        290 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L411'>list_entry</a>        411 sys/kern/task.c 		tmp = list_entry(n, struct task, link);
+<a href='../S/334.html#L450'>list_entry</a>        450 sys/kern/task.c 			task = list_entry(n, struct task, link);
+<a href='../S/335.html#L218'>list_entry</a>        218 sys/kern/thread.c 		tmp = list_entry(n, struct thread, link);
+<a href='../S/335.html#L492'>list_entry</a>        492 sys/kern/thread.c 			t = list_entry(n, struct thread, link);
+<a href='../S/336.html#L86'>list_entry</a>         86 sys/kern/timer.c 		t = list_entry(n, struct timer, link);
+<a href='../S/341.html#L163'>list_entry</a>        163 sys/mem/kmem.c 	return list_entry(n, struct block_hdr, link);
+<a href='../S/345.html#L120'>list_entry</a>        120 sys/sync/cond.c 		c = list_entry(list_first(&amp;task-&gt;conds),
+<a href='../S/345.html#L225'>list_entry</a>        225 sys/sync/cond.c 		tmp = list_entry(n, struct cond, task_link);
+<a href='../S/346.html#L170'>list_entry</a>        170 sys/sync/mutex.c 		m = list_entry(list_first(&amp;task-&gt;mutexes),
+<a href='../S/346.html#L330'>list_entry</a>        330 sys/sync/mutex.c 		m = list_entry(list_first(head), struct mutex, link);
+<a href='../S/346.html#L371'>list_entry</a>        371 sys/sync/mutex.c 		tmp = list_entry(n, struct mutex, task_link);
+<a href='../S/346.html#L488'>list_entry</a>        488 sys/sync/mutex.c 		m = list_entry(n, struct mutex, link);
+<a href='../S/347.html#L313'>list_entry</a>        313 sys/sync/sem.c 		s = list_entry(n, struct sem, task_link);
+<a href='../S/896.html#L333'>list_entry</a>        333 usr/server/fs/fifofs/fifo_vnops.c 		np = list_entry(n, struct fifo_node, fn_link);
+<a href='../S/896.html#L444'>list_entry</a>        444 usr/server/fs/fifofs/fifo_vnops.c 				np = list_entry(n, struct fifo_node, fn_link);
+<a href='../S/906.html#L125'>list_entry</a>        125 usr/server/fs/vfs/vfs_bio.c 	bp = list_entry(list_first(&amp;free_list), struct buf, b_link);
+<a href='../S/909.html#L123'>list_entry</a>        123 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L225'>list_entry</a>        225 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L271'>list_entry</a>        271 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L326'>list_entry</a>        326 usr/server/fs/vfs/vfs_mount.c 		tmp = list_entry(n, struct mount, m_link);
+<a href='../S/909.html#L394'>list_entry</a>        394 usr/server/fs/vfs/vfs_mount.c 		mp = list_entry(n, struct mount, m_link);
+<a href='../S/912.html#L81'>list_entry</a>         81 usr/server/fs/vfs/vfs_task.c 		t = list_entry(n, struct task, t_link);
+<a href='../S/912.html#L307'>list_entry</a>        307 usr/server/fs/vfs/vfs_task.c 			t = list_entry(n, struct task, t_link);
+<a href='../S/913.html#L113'>list_entry</a>        113 usr/server/fs/vfs/vfs_vnode.c 		vp = list_entry(n, struct vnode, v_link);
+<a href='../S/913.html#L333'>list_entry</a>        333 usr/server/fs/vfs/vfs_vnode.c 			vp = list_entry(n, struct vnode, v_link);
+<a href='../S/913.html#L440'>list_entry</a>        440 usr/server/fs/vfs/vfs_vnode.c 			vp = list_entry(n, struct vnode, v_link);
+<a href='../S/917.html#L460'>list_entry</a>        460 usr/server/proc/main.c 		p = list_entry(n, struct proc, p_link);
+<a href='../S/920.html#L75'>list_entry</a>         75 usr/server/proc/proc_exit.c 		child = list_entry(n, struct proc, p_sibling);
+<a href='../S/920.html#L164'>list_entry</a>        164 usr/server/proc/proc_exit.c 		p = list_entry(n, struct proc, p_sibling);
+<a href='../S/922.html#L61'>list_entry</a>         61 usr/server/proc/proc_hash.c 		p = list_entry(n, struct proc, p_pid_link);
+<a href='../S/922.html#L81'>list_entry</a>         81 usr/server/proc/proc_hash.c 		g = list_entry(n, struct pgrp, pg_link);
+<a href='../S/922.html#L102'>list_entry</a>        102 usr/server/proc/proc_hash.c 		p = list_entry(n, struct proc, p_task_link);
+<a href='../S/924.html#L114'>list_entry</a>        114 usr/server/proc/proc_sig.c 		p = list_entry(n, struct proc, p_pgrp_link);
+<a href='../S/924.html#L172'>list_entry</a>        172 usr/server/proc/proc_sig.c 			p = list_entry(n, struct proc, p_link);
+</pre>
+</body>
+</html>

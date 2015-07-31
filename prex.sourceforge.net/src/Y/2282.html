@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>v_mode</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L70'>v_mode</a>             70 include/sys/vnode.h 	mode_t		v_mode;		/* file mode */
+<a href='../S/883.html#L194'>v_mode</a>            194 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_mode = (mode_t)(S_IRUSR | S_IXUSR);
+<a href='../S/886.html#L221'>v_mode</a>            221 usr/server/fs/devfs/devfs_vnops.c 		vp-&gt;v_mode = (mode_t)(S_IRUSR | S_IWUSR);
+<a href='../S/893.html#L154'>v_mode</a>            154 usr/server/fs/fatfs/fatfs_vnops.c 	fat_attr_to_mode(de-&gt;attr, &amp;vp-&gt;v_mode);
+<a href='../S/893.html#L155'>v_mode</a>            155 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_mode = ALLPERMS;
+<a href='../S/896.html#L344'>v_mode</a>            344 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_mode = ALLPERMS;
+<a href='../S/902.html#L230'>v_mode</a>            230 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_mode = ALLPERMS;
+<a href='../S/908.html#L132'>v_mode</a>            132 usr/server/fs/vfs/vfs_lookup.c 		vp-&gt;v_mode &amp;= ~(0111);
+<a href='../S/909.html#L171'>v_mode</a>            171 usr/server/fs/vfs/vfs_mount.c 	vp-&gt;v_mode = S_IFDIR | S_IRUSR | S_IWUSR | S_IXUSR;
+<a href='../S/909.html#L181'>v_mode</a>            181 usr/server/fs/vfs/vfs_mount.c 		vp-&gt;v_mode &amp;=~S_IWUSR;
+<a href='../S/913.html#L351'>v_mode</a>            351 usr/server/fs/vfs/vfs_vnode.c 	mode = vp-&gt;v_mode;
+<a href='../S/913.html#L396'>v_mode</a>            396 usr/server/fs/vfs/vfs_vnode.c 	if ((flags &amp; VEXEC) &amp;&amp; (vp-&gt;v_mode &amp; 0111) == 0) {
+<a href='../S/913.html#L400'>v_mode</a>            400 usr/server/fs/vfs/vfs_vnode.c 	if ((flags &amp; VREAD) &amp;&amp; (vp-&gt;v_mode &amp; 0444) == 0) {
+<a href='../S/913.html#L409'>v_mode</a>            409 usr/server/fs/vfs/vfs_vnode.c 		if ((vp-&gt;v_mode &amp; 0222) == 0) {
+</pre>
+</body>
+</html>

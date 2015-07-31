@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>BLKHDR_SIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/341.html#L103'>BLKHDR_SIZE</a>       103 sys/mem/kmem.c #define MIN_BLOCK_SIZE	(BLKHDR_SIZE + 16)
+<a href='../S/341.html#L104'>BLKHDR_SIZE</a>       104 sys/mem/kmem.c #define MAX_BLOCK_SIZE	(u_short)(PAGE_SIZE - (PGHDR_SIZE - BLKHDR_SIZE))
+<a href='../S/341.html#L191'>BLKHDR_SIZE</a>       191 sys/mem/kmem.c 	size = ALLOC_SIZE(size + BLKHDR_SIZE);
+<a href='../S/341.html#L252'>BLKHDR_SIZE</a>       252 sys/mem/kmem.c 	p = (void *)((vaddr_t)blk + BLKHDR_SIZE);
+<a href='../S/341.html#L280'>BLKHDR_SIZE</a>       280 sys/mem/kmem.c 	blk = (struct block_hdr *)((vaddr_t)ptr - BLKHDR_SIZE);
+</pre>
+</body>
+</html>

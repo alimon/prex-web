@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>col</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L89'>col</a>                89 bsp/drv/arm/gba/lcd.c lcd_cursor(void *aux, int row, int col)
+<a href='../S/51.html#L96'>col</a>                96 bsp/drv/arm/gba/lcd.c lcd_putc(void *aux, int row, int col, int ch)
+<a href='../S/51.html#L100'>col</a>               100 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram[row * VSCR_COLS + col] = ch;
+<a href='../S/51.html#L136'>col</a>               136 bsp/drv/arm/gba/lcd.c lcd_get_cursor(void *aux, int *col, int *row)
+<a href='../S/51.html#L139'>col</a>               139 bsp/drv/arm/gba/lcd.c 	*col = 0;
+<a href='../S/51.html#L146'>col</a>               146 bsp/drv/arm/gba/lcd.c 	int i, row, col, bit, val = 0;
+<a href='../S/51.html#L151'>col</a>               151 bsp/drv/arm/gba/lcd.c 			for (col = 7; col &gt;= 0; col--) {
+<a href='../S/51.html#L152'>col</a>               152 bsp/drv/arm/gba/lcd.c 				bit = (font_bitmap[i][row] &amp; (1 &lt;&lt; col)) ? 2 : 1;
+<a href='../S/51.html#L153'>col</a>               153 bsp/drv/arm/gba/lcd.c 				if (col % 2)
+<a href='../S/51.html#L156'>col</a>               156 bsp/drv/arm/gba/lcd.c 					tile[(i * 32) + (row * 4) + ((7 - col) / 2)] =
+<a href='../S/54.html#L390'>col</a>               390 bsp/drv/arm/gba/swkbd.c 	int i, j, row, col;
+<a href='../S/54.html#L414'>col</a>               414 bsp/drv/arm/gba/swkbd.c 		for (col = 13; col &lt; 29; col++) {
+<a href='../S/54.html#L415'>col</a>               415 bsp/drv/arm/gba/swkbd.c 			map1[row * 32 + col] = (uint16_t)i;
+<a href='../S/54.html#L416'>col</a>               416 bsp/drv/arm/gba/swkbd.c 			map2[row * 32 + col] = (uint16_t)(i + 127);
+<a href='../S/64.html#L404'>col</a>               404 bsp/drv/dev/base/tty.c 	int i, col;
+<a href='../S/64.html#L425'>col</a>               425 bsp/drv/dev/base/tty.c 	col = tp-&gt;t_column;
+<a href='../S/64.html#L428'>col</a>               428 bsp/drv/dev/base/tty.c 		if (col &gt; 0)
+<a href='../S/64.html#L429'>col</a>               429 bsp/drv/dev/base/tty.c 			--col;
+<a href='../S/64.html#L432'>col</a>               432 bsp/drv/dev/base/tty.c 		col = (col + 8) &amp; ~7;
+<a href='../S/64.html#L435'>col</a>               435 bsp/drv/dev/base/tty.c 		col = 0;
+<a href='../S/64.html#L438'>col</a>               438 bsp/drv/dev/base/tty.c 		col = 0;
+<a href='../S/64.html#L442'>col</a>               442 bsp/drv/dev/base/tty.c 		    ++col;
+<a href='../S/64.html#L445'>col</a>               445 bsp/drv/dev/base/tty.c 	tp-&gt;t_column = col;
+<a href='../S/65.html#L60'>col</a>                60 bsp/drv/dev/base/wscons.c 	int		col;		/* current col */
+<a href='../S/65.html#L145'>col</a>               145 bsp/drv/dev/base/wscons.c 	vops-&gt;cursor(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col);
+<a href='../S/65.html#L162'>col</a>               162 bsp/drv/dev/base/wscons.c 	sc-&gt;col = 0;
+<a href='../S/65.html#L180'>col</a>               180 bsp/drv/dev/base/wscons.c 	sc-&gt;col = 0;
+<a href='../S/65.html#L256'>col</a>               256 bsp/drv/dev/base/wscons.c 			esc-&gt;saved_col = sc-&gt;col;
+<a href='../S/65.html#L258'>col</a>               258 bsp/drv/dev/base/wscons.c 			printf("TTY: save %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L261'>col</a>               261 bsp/drv/dev/base/wscons.c 			sc-&gt;col = esc-&gt;saved_col;
+<a href='../S/65.html#L263'>col</a>               263 bsp/drv/dev/base/wscons.c 			printf("TTY: restore %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L285'>col</a>               285 bsp/drv/dev/base/wscons.c 			sc-&gt;col += esc-&gt;arg1;
+<a href='../S/65.html#L286'>col</a>               286 bsp/drv/dev/base/wscons.c 			if (sc-&gt;col &gt;= sc-&gt;ncols)
+<a href='../S/65.html#L287'>col</a>               287 bsp/drv/dev/base/wscons.c 				sc-&gt;col = sc-&gt;ncols - 1;
+<a href='../S/65.html#L291'>col</a>               291 bsp/drv/dev/base/wscons.c 			sc-&gt;col -= esc-&gt;arg1;
+<a href='../S/65.html#L292'>col</a>               292 bsp/drv/dev/base/wscons.c 			if (sc-&gt;col &lt; 0)
+<a href='../S/65.html#L293'>col</a>               293 bsp/drv/dev/base/wscons.c 				sc-&gt;col = 0;
+<a href='../S/65.html#L340'>col</a>               340 bsp/drv/dev/base/wscons.c 			sc-&gt;col = esc-&gt;arg2;
+<a href='../S/65.html#L343'>col</a>               343 bsp/drv/dev/base/wscons.c 			if (sc-&gt;col &gt;= sc-&gt;ncols)
+<a href='../S/65.html#L344'>col</a>               344 bsp/drv/dev/base/wscons.c 				sc-&gt;col = sc-&gt;ncols - 1;
+<a href='../S/65.html#L376'>col</a>               376 bsp/drv/dev/base/wscons.c 		sc-&gt;col = 0;
+<a href='../S/65.html#L379'>col</a>               379 bsp/drv/dev/base/wscons.c 		if (sc-&gt;col == 0)
+<a href='../S/65.html#L381'>col</a>               381 bsp/drv/dev/base/wscons.c 		sc-&gt;col--;
+<a href='../S/65.html#L385'>col</a>               385 bsp/drv/dev/base/wscons.c 	vops-&gt;putc(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col, c);
+<a href='../S/65.html#L387'>col</a>               387 bsp/drv/dev/base/wscons.c 	sc-&gt;col++;
+<a href='../S/65.html#L388'>col</a>               388 bsp/drv/dev/base/wscons.c 	if (sc-&gt;col &gt;= sc-&gt;ncols) {
+<a href='../S/65.html#L389'>col</a>               389 bsp/drv/dev/base/wscons.c 		sc-&gt;col = 0;
+<a href='../S/65.html#L457'>col</a>               457 bsp/drv/dev/base/wscons.c 	ops-&gt;get_cursor(aux, &amp;sc-&gt;col, &amp;sc-&gt;row);
+<a href='../S/91.html#L137'>col</a>               137 bsp/drv/dev/video/vga.c vga_cursor(void *aux, int row, int col)
+<a href='../S/91.html#L142'>col</a>               142 bsp/drv/dev/video/vga.c 	pos = row * sc-&gt;cols + col;
+<a href='../S/91.html#L151'>col</a>               151 bsp/drv/dev/video/vga.c vga_putc(void *aux, int row, int col, int ch)
+<a href='../S/91.html#L155'>col</a>               155 bsp/drv/dev/video/vga.c 	sc-&gt;vram[row * sc-&gt;cols + col] = ch | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L191'>col</a>               191 bsp/drv/dev/video/vga.c vga_get_cursor(void *aux, int *col, int *row)
+<a href='../S/91.html#L201'>col</a>               201 bsp/drv/dev/video/vga.c 	*col = (int)offset % sc-&gt;cols;
+<a href='../S/104.html#L39'>col</a>                39 bsp/drv/include/wscons.h 	void	(*cursor)    (void *aux, int row, int col);
+<a href='../S/104.html#L40'>col</a>                40 bsp/drv/include/wscons.h 	void	(*putc)      (void *aux, int row, int col, int ch);
+<a href='../S/104.html#L44'>col</a>                44 bsp/drv/include/wscons.h 	void	(*get_cursor)(void *aux, int *col, int *row);
+<a href='../S/134.html#L118'>col</a>               118 bsp/hal/arm/gba/diag.c 	int i, row, col, bit, val = 0;
+<a href='../S/134.html#L123'>col</a>               123 bsp/hal/arm/gba/diag.c 			for (col = 7; col &gt;= 0; col--) {
+<a href='../S/134.html#L125'>col</a>               125 bsp/hal/arm/gba/diag.c 				       (1 &lt;&lt; col)) ? 2 : 1;
+<a href='../S/134.html#L126'>col</a>               126 bsp/hal/arm/gba/diag.c 				if (col % 2)
+<a href='../S/134.html#L130'>col</a>               130 bsp/hal/arm/gba/diag.c 					     (row * 4) + ((7 - col) / 2)] =
+<a href='../S/372.html#L58'>col</a>                58 usr/bin/cmdbox/main.c 	int maxcol, col = 0;
+<a href='../S/372.html#L77'>col</a>                77 usr/bin/cmdbox/main.c 		col += fprintf(stderr, "%s%s", ((col == 0) ? "    " : ", "),
+<a href='../S/372.html#L80'>col</a>                80 usr/bin/cmdbox/main.c 		if (col &gt; maxcol &amp;&amp; entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L82'>col</a>                82 usr/bin/cmdbox/main.c 			col = 0;
+<a href='../S/372.html#L92'>col</a>                92 usr/bin/cmdbox/main.c 		col += fprintf(stderr, "%s%s", ((col == 0) ? "    " : ", "),
+<a href='../S/372.html#L95'>col</a>                95 usr/bin/cmdbox/main.c 		if (col &gt; maxcol &amp;&amp; entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L97'>col</a>                97 usr/bin/cmdbox/main.c 			col = 0;
+</pre>
+</body>
+</html>

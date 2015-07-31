@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>buf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/17.html#L46'>buf</a>                46 bsp/boot/common/printf.c 	char buf[10];
+<a href='../S/17.html#L75'>buf</a>                75 bsp/boot/common/printf.c 				s = buf;
+<a href='../S/17.html#L92'>buf</a>                92 bsp/boot/common/printf.c 				while (--s &gt;= buf)
+<a href='../S/58.html#L90'>buf</a>                90 bsp/drv/dev/base/cons.c cons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L95'>buf</a>                95 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;read(dev, buf, nbyte, blkno);
+<a href='../S/58.html#L99'>buf</a>                99 bsp/drv/dev/base/cons.c cons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L104'>buf</a>               104 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;write(dev, buf, nbyte, blkno);
+<a href='../S/64.html#L453'>buf</a>               453 bsp/drv/dev/base/tty.c tty_read(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L483'>buf</a>               483 bsp/drv/dev/base/tty.c 		if (copyout(&amp;c, buf, 1))
+<a href='../S/64.html#L487'>buf</a>               487 bsp/drv/dev/base/tty.c 		buf++;
+<a href='../S/64.html#L497'>buf</a>               497 bsp/drv/dev/base/tty.c tty_write(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L514'>buf</a>               514 bsp/drv/dev/base/tty.c 		if (copyin(buf, &amp;c, 1))
+<a href='../S/64.html#L517'>buf</a>               517 bsp/drv/dev/base/tty.c 		buf++;
+<a href='../S/65.html#L117'>buf</a>               117 bsp/drv/dev/base/wscons.c wscons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L121'>buf</a>               121 bsp/drv/dev/base/wscons.c 	return tty_read(tty, buf, nbyte);
+<a href='../S/65.html#L125'>buf</a>               125 bsp/drv/dev/base/wscons.c wscons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L129'>buf</a>               129 bsp/drv/dev/base/wscons.c 	return tty_write(tty, buf, nbyte);
+<a href='../S/66.html#L316'>buf</a>               316 bsp/drv/dev/block/fdd.c 	dma_setup(sc-&gt;dma, irp-&gt;buf, io_size, read);
+<a href='../S/66.html#L518'>buf</a>               518 bsp/drv/dev/block/fdd.c fdd_rw(struct fdd_softc *sc, int cmd, char *buf, u_long blksz, int blkno)
+<a href='../S/66.html#L524'>buf</a>               524 bsp/drv/dev/block/fdd.c 		 cmd, buf, blksz, blkno));
+<a href='../S/66.html#L530'>buf</a>               530 bsp/drv/dev/block/fdd.c 	irp-&gt;buf = buf;
+<a href='../S/66.html#L558'>buf</a>               558 bsp/drv/dev/block/fdd.c fdd_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L565'>buf</a>               565 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_read: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L572'>buf</a>               572 bsp/drv/dev/block/fdd.c 	if ((kbuf = kmem_map(buf, *nbyte)) == NULL)
+<a href='../S/66.html#L614'>buf</a>               614 bsp/drv/dev/block/fdd.c fdd_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L621'>buf</a>               621 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_write: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L628'>buf</a>               628 bsp/drv/dev/block/fdd.c 	if ((kbuf = kmem_map(buf, *nbyte)) == NULL)
+<a href='../S/66.html#L679'>buf</a>               679 bsp/drv/dev/block/fdd.c 	char *buf;
+<a href='../S/66.html#L696'>buf</a>               696 bsp/drv/dev/block/fdd.c 	buf = dma_alloc(TRACK_SIZE + SECTOR_SIZE);
+<a href='../S/66.html#L697'>buf</a>               697 bsp/drv/dev/block/fdd.c 	ASSERT(buf != NULL);
+<a href='../S/66.html#L698'>buf</a>               698 bsp/drv/dev/block/fdd.c 	sc-&gt;rbuf = buf;
+<a href='../S/66.html#L699'>buf</a>               699 bsp/drv/dev/block/fdd.c 	sc-&gt;wbuf = buf + TRACK_SIZE;
+<a href='../S/68.html#L78'>buf</a>                78 bsp/drv/dev/block/ramdisk.c ramdisk_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L86'>buf</a>                86 bsp/drv/dev/block/ramdisk.c 		 buf, *nbyte, blkno));
+<a href='../S/68.html#L98'>buf</a>                98 bsp/drv/dev/block/ramdisk.c 	if ((kbuf = kmem_map(buf, nr_read)) == NULL) {
+<a href='../S/68.html#L109'>buf</a>               109 bsp/drv/dev/block/ramdisk.c ramdisk_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L117'>buf</a>               117 bsp/drv/dev/block/ramdisk.c 		 buf, *nbyte, blkno));
+<a href='../S/68.html#L127'>buf</a>               127 bsp/drv/dev/block/ramdisk.c 	if ((kbuf = kmem_map(buf, nr_write)) == NULL)
+<a href='../S/77.html#L194'>buf</a>               194 bsp/drv/dev/input/psaux.c psaux_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L63'>buf</a>                63 bsp/drv/dev/misc/null.c null_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L74'>buf</a>                74 bsp/drv/dev/misc/null.c null_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/80.html#L59'>buf</a>                59 bsp/drv/dev/misc/random.c random_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L63'>buf</a>                63 bsp/drv/dev/misc/zero.c zero_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L68'>buf</a>                68 bsp/drv/dev/misc/zero.c 	if ((p = kmem_map(buf, *nbyte)) == NULL)
+<a href='../S/81.html#L79'>buf</a>                79 bsp/drv/dev/misc/zero.c zero_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L95'>buf</a>                95 bsp/drv/dev/serial/serial.c serial_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L99'>buf</a>                99 bsp/drv/dev/serial/serial.c 	return tty_read(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/89.html#L103'>buf</a>               103 bsp/drv/dev/serial/serial.c serial_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L107'>buf</a>               107 bsp/drv/dev/serial/serial.c 	return tty_write(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/94.html#L59'>buf</a>                59 bsp/drv/include/ddi.h 	void	*buf;		/* I/O buffer */
+<a href='../S/134.html#L157'>buf</a>               157 bsp/hal/arm/gba/diag.c diag_puts(char *buf)
+<a href='../S/134.html#L160'>buf</a>               160 bsp/hal/arm/gba/diag.c 	while (*buf)
+<a href='../S/134.html#L161'>buf</a>               161 bsp/hal/arm/gba/diag.c 		screen_putc(*buf++);
+<a href='../S/147.html#L57'>buf</a>                57 bsp/hal/arm/integrator/diag.c diag_puts(char *buf)
+<a href='../S/147.html#L60'>buf</a>                60 bsp/hal/arm/integrator/diag.c 	while (*buf) {
+<a href='../S/147.html#L61'>buf</a>                61 bsp/hal/arm/integrator/diag.c 		if (*buf == '\n')
+<a href='../S/147.html#L63'>buf</a>                63 bsp/hal/arm/integrator/diag.c 		serial_putc(*buf++);
+<a href='../S/218.html#L53'>buf</a>                53 include/ipc/exec.h 	char	buf[ARG_MAX];		/* string for arg/env */
+<a href='../S/219.html#L114'>buf</a>               114 include/ipc/fs.h 	char	*buf;			/* i/o buffer */
+<a href='../S/219.html#L155'>buf</a>               155 include/ipc/fs.h 	char	buf[IOCPARM_MAX];	/* parameter buffer */
+<a href='../S/248.html#L40'>buf</a>                40 include/sys/buf.h struct buf {
+<a href='../S/248.html#L59'>buf</a>                59 include/sys/buf.h struct buf *getblk(dev_t, int);
+<a href='../S/248.html#L60'>buf</a>                60 include/sys/buf.h int	bread(dev_t, int, struct buf **);
+<a href='../S/248.html#L61'>buf</a>                61 include/sys/buf.h int	bwrite(struct buf *);
+<a href='../S/248.html#L62'>buf</a>                62 include/sys/buf.h void	bdwrite(struct buf *);
+<a href='../S/248.html#L64'>buf</a>                64 include/sys/buf.h void	brelse(struct buf *);
+<a href='../S/248.html#L65'>buf</a>                65 include/sys/buf.h void	bflush(struct buf *);
+<a href='../S/267.html#L128'>buf</a>               128 include/sys/prex.h int	device_read(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L129'>buf</a>               129 include/sys/prex.h int	device_write(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L153'>buf</a>               153 include/sys/prex.h int	sys_info(int type, void *buf);
+<a href='../S/326.html#L121'>buf</a>               121 sys/kern/debug.c getlog(char *buf)
+<a href='../S/326.html#L144'>buf</a>               144 sys/kern/debug.c 		if (copyout(&amp;c, buf, 1)) {
+<a href='../S/326.html#L149'>buf</a>               149 sys/kern/debug.c 		buf++;
+<a href='../S/327.html#L362'>buf</a>               362 sys/kern/device.c device_read(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L368'>buf</a>               368 sys/kern/device.c 	if (!user_area(buf))
+<a href='../S/327.html#L381'>buf</a>               381 sys/kern/device.c 	error = (*ops-&gt;read)(dev, buf, &amp;count, blkno);
+<a href='../S/327.html#L395'>buf</a>               395 sys/kern/device.c device_write(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L401'>buf</a>               401 sys/kern/device.c 	if (!user_area(buf))
+<a href='../S/327.html#L414'>buf</a>               414 sys/kern/device.c 	error = (*ops-&gt;write)(dev, buf, &amp;count, blkno);
+<a href='../S/333.html#L56'>buf</a>                56 sys/kern/system.c sysinfo(int type, void *buf)
+<a href='../S/333.html#L64'>buf</a>                64 sys/kern/system.c 		memcpy(buf, &amp;kerninfo, sizeof(kerninfo));
+<a href='../S/333.html#L67'>buf</a>                67 sys/kern/system.c 		page_info(buf);
+<a href='../S/333.html#L70'>buf</a>                70 sys/kern/system.c 		timer_info(buf);
+<a href='../S/333.html#L73'>buf</a>                73 sys/kern/system.c 		error = thread_info(buf);
+<a href='../S/333.html#L76'>buf</a>                76 sys/kern/system.c 		error = device_info(buf);
+<a href='../S/333.html#L79'>buf</a>                79 sys/kern/system.c 		error = task_info(buf);
+<a href='../S/333.html#L82'>buf</a>                82 sys/kern/system.c 		error = vm_info(buf);
+<a href='../S/333.html#L85'>buf</a>                85 sys/kern/system.c 		error = irq_info(buf);
+<a href='../S/333.html#L99'>buf</a>                99 sys/kern/system.c sys_info(int type, void *buf)
+<a href='../S/333.html#L104'>buf</a>               104 sys/kern/system.c 	if (buf == NULL || !user_area(buf))
+<a href='../S/333.html#L139'>buf</a>               139 sys/kern/system.c 	error = copyin(buf, &amp;infobuf, bufsz);
+<a href='../S/333.html#L143'>buf</a>               143 sys/kern/system.c 			error = copyout(&amp;infobuf, buf, bufsz);
+<a href='../S/333.html#L161'>buf</a>               161 sys/kern/system.c 	char buf[DBGMSGSZ];
+<a href='../S/333.html#L163'>buf</a>               163 sys/kern/system.c 	if (copyinstr(str, buf, DBGMSGSZ))
+<a href='../S/333.html#L166'>buf</a>               166 sys/kern/system.c 	printf("%s", buf);
+<a href='../S/333.html#L211'>buf</a>               211 sys/kern/system.c 	char buf[DBGMSGSZ];
+<a href='../S/333.html#L214'>buf</a>               214 sys/kern/system.c 	copyinstr(str, buf, DBGMSGSZ - 20);
+<a href='../S/339.html#L71'>buf</a>                71 sys/lib/vsprintf.c vsprintf(char *buf, const char *fmt, va_list args)
+<a href='../S/339.html#L79'>buf</a>                79 sys/lib/vsprintf.c 	for (p = buf; *fmt; fmt++) {
+<a href='../S/376.html#L44'>buf</a>                44 usr/bin/date/date.c 	char buf[201];
+<a href='../S/376.html#L51'>buf</a>                51 usr/bin/date/date.c 	strftime(buf, sizeof(buf), format, localtime(&amp;tval));
+<a href='../S/376.html#L52'>buf</a>                52 usr/bin/date/date.c 	printf("%s\n", buf);
+<a href='../S/378.html#L44'>buf</a>                44 usr/bin/dmesg/dmesg.c 	char *buf;
+<a href='../S/378.html#L53'>buf</a>                53 usr/bin/dmesg/dmesg.c 	if ((buf = malloc(size)) == NULL)
+<a href='../S/378.html#L56'>buf</a>                56 usr/bin/dmesg/dmesg.c 	if (sys_debug(DBGC_GETLOG, buf) != 0) {
+<a href='../S/378.html#L57'>buf</a>                57 usr/bin/dmesg/dmesg.c 		free(buf);
+<a href='../S/378.html#L61'>buf</a>                61 usr/bin/dmesg/dmesg.c 		if (*buf == '\0')
+<a href='../S/378.html#L63'>buf</a>                63 usr/bin/dmesg/dmesg.c 		putc(*buf, stdout);
+<a href='../S/378.html#L64'>buf</a>                64 usr/bin/dmesg/dmesg.c 		buf++;
+<a href='../S/378.html#L66'>buf</a>                66 usr/bin/dmesg/dmesg.c 	free(buf);
+<a href='../S/390.html#L259'>buf</a>               259 usr/bin/ls/ls.c 	char buf[PATH_MAX];
+<a href='../S/390.html#L279'>buf</a>               279 usr/bin/ls/ls.c 			buf[0] = 0;
+<a href='../S/390.html#L280'>buf</a>               280 usr/bin/ls/ls.c 			strlcpy(buf, path, sizeof(buf));
+<a href='../S/390.html#L281'>buf</a>               281 usr/bin/ls/ls.c 			buf[sizeof(buf) - 1] = '\0';
+<a href='../S/390.html#L287'>buf</a>               287 usr/bin/ls/ls.c 				strlcat(buf, "/", sizeof(buf));
+<a href='../S/390.html#L288'>buf</a>               288 usr/bin/ls/ls.c 				strlcat(buf, entry-&gt;d_name, sizeof(buf));
+<a href='../S/390.html#L290'>buf</a>               290 usr/bin/ls/ls.c 			if (stat(buf, &amp;st) == -1 &amp;&amp; errno != EACCES)
+<a href='../S/470.html#L37'>buf</a>                37 usr/lib/libc/gen/confstr.c confstr(name, buf, len)
+<a href='../S/470.html#L39'>buf</a>                39 usr/lib/libc/gen/confstr.c 	char *buf;
+<a href='../S/470.html#L44'>buf</a>                44 usr/lib/libc/gen/confstr.c 		if (len != 0 &amp;&amp; buf != NULL) {
+<a href='../S/470.html#L45'>buf</a>                45 usr/lib/libc/gen/confstr.c 			strncpy(buf, _PATH_DEFPATH, sizeof(_PATH_DEFPATH));
+<a href='../S/478.html#L50'>buf</a>                50 usr/lib/libc/gen/execvp.c 	char buf[PATH_MAX];
+<a href='../S/478.html#L64'>buf</a>                64 usr/lib/libc/gen/execvp.c 	bp = buf;
+<a href='../S/478.html#L90'>buf</a>                90 usr/lib/libc/gen/execvp.c 		if (lp + ln + 2 &gt; sizeof(buf))
+<a href='../S/478.html#L92'>buf</a>                92 usr/lib/libc/gen/execvp.c 		memcpy(buf, p, lp);
+<a href='../S/478.html#L93'>buf</a>                93 usr/lib/libc/gen/execvp.c 		buf[lp] = '/';
+<a href='../S/478.html#L94'>buf</a>                94 usr/lib/libc/gen/execvp.c 		memcpy(buf + lp + 1, name, ln);
+<a href='../S/478.html#L95'>buf</a>                95 usr/lib/libc/gen/execvp.c 		buf[lp + ln + 1] = '\0';
+<a href='../S/482.html#L47'>buf</a>                47 usr/lib/libc/gen/getpass.c 	static char buf[PASSWORD_LEN + 2];
+<a href='../S/482.html#L69'>buf</a>                69 usr/lib/libc/gen/getpass.c 	for (p = buf; (ch = getc(fp)) != EOF &amp;&amp; ch != '\n';) {
+<a href='../S/482.html#L70'>buf</a>                70 usr/lib/libc/gen/getpass.c 		if (p &lt; buf + PASSWORD_LEN + 1)
+<a href='../S/482.html#L82'>buf</a>                82 usr/lib/libc/gen/getpass.c 	return(buf);
+<a href='../S/504.html#L43'>buf</a>                43 usr/lib/libc/stdio/fgets.c fgets(buf, n, fp)
+<a href='../S/504.html#L44'>buf</a>                44 usr/lib/libc/stdio/fgets.c 	char *buf;
+<a href='../S/504.html#L51'>buf</a>                51 usr/lib/libc/stdio/fgets.c 	s = buf;
+<a href='../S/504.html#L57'>buf</a>                57 usr/lib/libc/stdio/fgets.c 	if (c &lt; 0 &amp;&amp; s == buf)
+<a href='../S/504.html#L60'>buf</a>                60 usr/lib/libc/stdio/fgets.c 	return (buf);
+<a href='../S/513.html#L38'>buf</a>                38 usr/lib/libc/stdio/fread.c fread(buf, size, count, fp)
+<a href='../S/513.html#L39'>buf</a>                39 usr/lib/libc/stdio/fread.c 	void *buf;
+<a href='../S/513.html#L58'>buf</a>                58 usr/lib/libc/stdio/fread.c 	p = buf;
+<a href='../S/522.html#L41'>buf</a>                41 usr/lib/libc/stdio/fwrite.c fwrite(buf, size, count, fp)
+<a href='../S/522.html#L42'>buf</a>                42 usr/lib/libc/stdio/fwrite.c 	const void *buf;
+<a href='../S/522.html#L46'>buf</a>                46 usr/lib/libc/stdio/fwrite.c 	unsigned char *p = (unsigned char *)buf;
+<a href='../S/525.html#L37'>buf</a>                37 usr/lib/libc/stdio/gets.c gets(buf)
+<a href='../S/525.html#L38'>buf</a>                38 usr/lib/libc/stdio/gets.c 	char *buf;
+<a href='../S/525.html#L43'>buf</a>                43 usr/lib/libc/stdio/gets.c 	for (s = buf; (c = getchar()) != '\n';)
+<a href='../S/525.html#L45'>buf</a>                45 usr/lib/libc/stdio/gets.c 			if (s == buf)
+<a href='../S/525.html#L52'>buf</a>                52 usr/lib/libc/stdio/gets.c 	return (buf);
+<a href='../S/541.html#L37'>buf</a>                37 usr/lib/libc/stdio/setbuf.c setbuf(fp, buf)
+<a href='../S/541.html#L39'>buf</a>                39 usr/lib/libc/stdio/setbuf.c 	char *buf;
+<a href='../S/541.html#L41'>buf</a>                41 usr/lib/libc/stdio/setbuf.c 	(void) setvbuf(fp, buf, buf ? _IOFBF : _IONBF, BUFSIZ);
+<a href='../S/542.html#L36'>buf</a>                36 usr/lib/libc/stdio/setbuffer.c setbuffer(fp, buf, size)
+<a href='../S/542.html#L38'>buf</a>                38 usr/lib/libc/stdio/setbuffer.c 	char *buf;
+<a href='../S/542.html#L42'>buf</a>                42 usr/lib/libc/stdio/setbuffer.c 	(void)setvbuf(fp, buf, buf ? _IOFBF : _IONBF, size);
+<a href='../S/543.html#L42'>buf</a>                42 usr/lib/libc/stdio/setvbuf.c setvbuf(fp, buf, mode, size)
+<a href='../S/543.html#L44'>buf</a>                44 usr/lib/libc/stdio/setvbuf.c 	char *buf;
+<a href='../S/543.html#L72'>buf</a>                72 usr/lib/libc/stdio/setvbuf.c 	if (buf != NULL &amp;&amp; (flags &amp; __SMBF))
+<a href='../S/543.html#L87'>buf</a>                87 usr/lib/libc/stdio/setvbuf.c 	if (buf == NULL)
+<a href='../S/543.html#L90'>buf</a>                90 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_bf._base = fp-&gt;_p = (unsigned char *)buf;
+<a href='../S/547.html#L43'>buf</a>                43 usr/lib/libc/stdio/stdio.c __sread(fp, buf, n)
+<a href='../S/547.html#L45'>buf</a>                45 usr/lib/libc/stdio/stdio.c 	char *buf;
+<a href='../S/547.html#L48'>buf</a>                48 usr/lib/libc/stdio/stdio.c 	return (read(fp-&gt;_file, buf, n));
+<a href='../S/547.html#L52'>buf</a>                52 usr/lib/libc/stdio/stdio.c __swrite(fp, buf, n)
+<a href='../S/547.html#L54'>buf</a>                54 usr/lib/libc/stdio/stdio.c 	char const *buf;
+<a href='../S/547.html#L59'>buf</a>                59 usr/lib/libc/stdio/stdio.c 	return (write(fp-&gt;_file, buf, n));
+<a href='../S/549.html#L48'>buf</a>                48 usr/lib/libc/stdio/tmpfile.c 	char buf[sizeof(_PATH_TMP) + sizeof(TRAILER)];
+<a href='../S/549.html#L50'>buf</a>                50 usr/lib/libc/stdio/tmpfile.c 	(void)memcpy(buf, _PATH_TMP, sizeof(_PATH_TMP) - 1);
+<a href='../S/549.html#L51'>buf</a>                51 usr/lib/libc/stdio/tmpfile.c 	(void)memcpy(buf + sizeof(_PATH_TMP) - 1, TRAILER, sizeof(TRAILER));
+<a href='../S/549.html#L56'>buf</a>                56 usr/lib/libc/stdio/tmpfile.c 	fd = mkstemp(buf);
+<a href='../S/549.html#L58'>buf</a>                58 usr/lib/libc/stdio/tmpfile.c 		(void)unlink(buf);
+<a href='../S/550.html#L43'>buf</a>                43 usr/lib/libc/stdio/tmpnam.c 	static char buf[L_tmpnam];
+<a href='../S/550.html#L46'>buf</a>                46 usr/lib/libc/stdio/tmpnam.c 		s = buf;
+<a href='../S/552.html#L79'>buf</a>                79 usr/lib/libc/stdio/vfprintf.c 	unsigned char buf[BUFSIZ];
+<a href='../S/552.html#L86'>buf</a>                86 usr/lib/libc/stdio/vfprintf.c 	fake._bf._base = fake._p = buf;
+<a href='../S/552.html#L87'>buf</a>                87 usr/lib/libc/stdio/vfprintf.c 	fake._bf._size = fake._w = sizeof(buf);
+<a href='../S/552.html#L206'>buf</a>               206 usr/lib/libc/stdio/vfprintf.c 	char buf[BUF];		/* space for %c, %[diouxX], %[eEfgG] */
+<a href='../S/552.html#L366'>buf</a>               366 usr/lib/libc/stdio/vfprintf.c 			*(cp = buf) = va_arg(ap, int);
+<a href='../S/552.html#L466'>buf</a>               466 usr/lib/libc/stdio/vfprintf.c 			cp = buf + BUF;
+<a href='../S/552.html#L470'>buf</a>               470 usr/lib/libc/stdio/vfprintf.c 			size = buf + BUF - cp;
+<a href='../S/552.html#L476'>buf</a>               476 usr/lib/libc/stdio/vfprintf.c 			cp = buf;
+<a href='../S/553.html#L101'>buf</a>               101 usr/lib/libc/stdio/vfscanf.c 	char buf[BUF];		/* buffer for numeric conversions */
+<a href='../S/553.html#L397'>buf</a>               397 usr/lib/libc/stdio/vfscanf.c 			if (width == 0 || width &gt; sizeof(buf) - 1)
+<a href='../S/553.html#L398'>buf</a>               398 usr/lib/libc/stdio/vfscanf.c 				width = sizeof(buf) - 1;
+<a href='../S/553.html#L401'>buf</a>               401 usr/lib/libc/stdio/vfscanf.c 			if (--width &gt; sizeof(buf) - 2)
+<a href='../S/553.html#L402'>buf</a>               402 usr/lib/libc/stdio/vfscanf.c 				width = sizeof(buf) - 2;
+<a href='../S/553.html#L406'>buf</a>               406 usr/lib/libc/stdio/vfscanf.c 			for (p = buf; width; width--) {
+<a href='../S/553.html#L473'>buf</a>               473 usr/lib/libc/stdio/vfscanf.c 					if (flags &amp; PFXOK &amp;&amp; p == buf + 1) {
+<a href='../S/553.html#L503'>buf</a>               503 usr/lib/libc/stdio/vfscanf.c 				if (p &gt; buf)
+<a href='../S/553.html#L516'>buf</a>               516 usr/lib/libc/stdio/vfscanf.c 				res = (*ccfn)(buf, (char **)NULL, base);
+<a href='../S/553.html#L527'>buf</a>               527 usr/lib/libc/stdio/vfscanf.c 			nread += p - buf;
+<a href='../S/635.html#L15'>buf</a>                15 usr/lib/libc/time/asctime_r.c asctime_r(timeptr, buf)
+<a href='../S/635.html#L17'>buf</a>                17 usr/lib/libc/time/asctime_r.c char *				buf;
+<a href='../S/635.html#L36'>buf</a>                36 usr/lib/libc/time/asctime_r.c 	(void)sprintf(buf,
+<a href='../S/635.html#L42'>buf</a>                42 usr/lib/libc/time/asctime_r.c 	return buf;
+<a href='../S/642.html#L249'>buf</a>               249 usr/lib/libc/time/strftime.c 	static char buf[15];
+<a href='../S/642.html#L257'>buf</a>               257 usr/lib/libc/time/strftime.c 	for (p = buf + sizeof(buf) - 2; s &gt; 0 &amp;&amp; p &gt; buf; s /= 10)
+<a href='../S/642.html#L266'>buf</a>               266 usr/lib/libc/time/strftime.c 	static char buf[10];
+<a href='../S/642.html#L269'>buf</a>               269 usr/lib/libc/time/strftime.c 	for (p = buf + sizeof(buf) - 2; n &gt; 0 &amp;&amp; p &gt; buf; n /= 10, --digits)
+<a href='../S/642.html#L271'>buf</a>               271 usr/lib/libc/time/strftime.c 	while (p &gt; buf &amp;&amp; digits-- &gt; 0)
+<a href='../S/652.html#L61'>buf</a>                61 usr/lib/libsa/_stdio.c __console_write(char *buf, size_t len)
+<a href='../S/652.html#L67'>buf</a>                67 usr/lib/libsa/_stdio.c 	device_write(__console_dev, buf, &amp;len, 0);
+<a href='../S/646.html#L35'>buf</a>                35 usr/lib/libsa/printf.c extern void __console_write(char *buf, size_t len);
+<a href='../S/646.html#L45'>buf</a>                45 usr/lib/libsa/printf.c 	char buf[LINE_MAX];
+<a href='../S/646.html#L48'>buf</a>                48 usr/lib/libsa/printf.c 	len = vsprintf(buf, fmt, args);
+<a href='../S/646.html#L49'>buf</a>                49 usr/lib/libsa/printf.c 	__console_write((char *)buf, (size_t)len);
+<a href='../S/647.html#L33'>buf</a>                33 usr/lib/libsa/putchar.c extern void __console_write(char *buf, size_t len);
+<a href='../S/648.html#L34'>buf</a>                34 usr/lib/libsa/puts.c extern void __console_write(char *buf, size_t len);
+<a href='../S/650.html#L87'>buf</a>                87 usr/lib/libsa/vsprintf.c vsprintf(char *buf, const char *fmt, va_list args)
+<a href='../S/650.html#L96'>buf</a>                96 usr/lib/libsa/vsprintf.c 	for (p = buf; *fmt &amp;&amp; (size &lt; LINE_MAX); fmt++, size++) {
+<a href='../S/650.html#L162'>buf</a>               162 usr/lib/libsa/vsprintf.c 	return (p - buf);
+<a href='../S/650.html#L166'>buf</a>               166 usr/lib/libsa/vsprintf.c sprintf(char *buf, const char *fmt, ...)
+<a href='../S/650.html#L172'>buf</a>               172 usr/lib/libsa/vsprintf.c 	i = vsprintf(buf, fmt, args);
+<a href='../S/655.html#L87'>buf</a>                87 usr/lib/posix/exec/execve.c 	dest = msg.buf;
+<a href='../S/671.html#L39'>buf</a>                39 usr/lib/posix/file/getcwd.c getcwd(char *buf, size_t size)
+<a href='../S/671.html#L43'>buf</a>                43 usr/lib/posix/file/getcwd.c 	if (size == 0 || buf == NULL) {
+<a href='../S/671.html#L50'>buf</a>                50 usr/lib/posix/file/getcwd.c 	strlcpy(buf, m.path, PATH_MAX);
+<a href='../S/671.html#L51'>buf</a>                51 usr/lib/posix/file/getcwd.c 	return buf;
+<a href='../S/672.html#L75'>buf</a>                75 usr/lib/posix/file/ioctl.c 			*((int *)m.buf) = (int)argp;
+<a href='../S/672.html#L77'>buf</a>                77 usr/lib/posix/file/ioctl.c 			memcpy(&amp;m.buf, argp, size);
+<a href='../S/672.html#L91'>buf</a>                91 usr/lib/posix/file/ioctl.c 			retval = *((int *)m.buf);
+<a href='../S/672.html#L93'>buf</a>                93 usr/lib/posix/file/ioctl.c 			memcpy(argp, &amp;m.buf, size);
+<a href='../S/684.html#L38'>buf</a>                38 usr/lib/posix/file/read.c read(int fd, void *buf, size_t len)
+<a href='../S/684.html#L44'>buf</a>                44 usr/lib/posix/file/read.c 	m.buf = buf;
+<a href='../S/695.html#L37'>buf</a>                37 usr/lib/posix/file/write.c write(int fd, void *buf, size_t len)
+<a href='../S/695.html#L43'>buf</a>                43 usr/lib/posix/file/write.c 	m.buf = buf;
+<a href='../S/700.html#L36'>buf</a>                36 usr/lib/posix/gen/syslog.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/700.html#L46'>buf</a>                46 usr/lib/posix/gen/syslog.c 	char buf[BUF_LEN];
+<a href='../S/700.html#L50'>buf</a>                50 usr/lib/posix/gen/syslog.c 	vsprintf(buf, fmt, args);
+<a href='../S/700.html#L51'>buf</a>                51 usr/lib/posix/gen/syslog.c 	sys_log(buf);
+<a href='../S/746.html#L36'>buf</a>                36 usr/lib/prex/gen/dassert.c 	char buf[128];
+<a href='../S/746.html#L38'>buf</a>                38 usr/lib/prex/gen/dassert.c 	sprintf(buf, "assertion \"%s\" failed: file \"%s\", line %d\n",
+<a href='../S/746.html#L40'>buf</a>                40 usr/lib/prex/gen/dassert.c 	sys_panic(buf);
+<a href='../S/747.html#L34'>buf</a>                34 usr/lib/prex/gen/dprintf.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/747.html#L39'>buf</a>                39 usr/lib/prex/gen/dprintf.c 	char buf[LINE_MAX];
+<a href='../S/747.html#L43'>buf</a>                43 usr/lib/prex/gen/dprintf.c 	vsprintf(buf, fmt, args);
+<a href='../S/747.html#L44'>buf</a>                44 usr/lib/prex/gen/dprintf.c 	sys_log(buf);
+<a href='../S/749.html#L34'>buf</a>                34 usr/lib/prex/gen/panic.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/749.html#L39'>buf</a>                39 usr/lib/prex/gen/panic.c 	char buf[LINE_MAX];
+<a href='../S/749.html#L43'>buf</a>                43 usr/lib/prex/gen/panic.c 	vsprintf(buf, fmt, args);
+<a href='../S/749.html#L44'>buf</a>                44 usr/lib/prex/gen/panic.c 	sys_panic(buf);
+<a href='../S/866.html#L126'>buf</a>               126 usr/sbin/lock/lock.c 	char buf[PASSWORD_LEN + 1];
+<a href='../S/866.html#L128'>buf</a>               128 usr/sbin/lock/lock.c 	for (buf[0] = '\0';;) {
+<a href='../S/866.html#L139'>buf</a>               139 usr/sbin/lock/lock.c 		strlcpy(buf, p, sizeof(buf));
+<a href='../S/866.html#L140'>buf</a>               140 usr/sbin/lock/lock.c 		if (!strcmp(buf, getpass("Retype new passcode:")))
+<a href='../S/866.html#L148'>buf</a>               148 usr/sbin/lock/lock.c 	fputs(buf, fp);
+<a href='../S/871.html#L209'>buf</a>               209 usr/server/boot/boot.c 	dest = msg.buf;
+<a href='../S/876.html#L198'>buf</a>               198 usr/server/exec/exec_elf.c 	char *buf;
+<a href='../S/876.html#L207'>buf</a>               207 usr/server/exec/exec_elf.c 	if ((buf = malloc(shdr_size)) == NULL) {
+<a href='../S/876.html#L216'>buf</a>               216 usr/server/exec/exec_elf.c 	if (read(fd, buf, shdr_size) &lt; 0) {
+<a href='../S/876.html#L222'>buf</a>               222 usr/server/exec/exec_elf.c 	shdr = (Elf32_Shdr *)buf;
+<a href='../S/876.html#L246'>buf</a>               246 usr/server/exec/exec_elf.c 	shdr = (Elf32_Shdr *)buf;
+<a href='../S/876.html#L296'>buf</a>               296 usr/server/exec/exec_elf.c 	shdr = (Elf32_Shdr *)buf;
+<a href='../S/876.html#L310'>buf</a>               310 usr/server/exec/exec_elf.c 	shdr = (Elf32_Shdr *)buf;
+<a href='../S/876.html#L321'>buf</a>               321 usr/server/exec/exec_elf.c 	free(buf);
+<a href='../S/877.html#L352'>buf</a>               352 usr/server/exec/exec_execve.c 	memcpy((char *)sp, (char *)&amp;msg-&gt;buf, msg-&gt;bufsz);
+<a href='../S/882.html#L74'>buf</a>                74 usr/server/fs/arfs/arfs_vfsops.c 	char *buf;
+<a href='../S/882.html#L79'>buf</a>                79 usr/server/fs/arfs/arfs_vfsops.c 	if ((buf = malloc(BSIZE)) == NULL)
+<a href='../S/882.html#L84'>buf</a>                84 usr/server/fs/arfs/arfs_vfsops.c 	error = device_read((device_t)mp-&gt;m_dev, buf, &amp;size, 0);
+<a href='../S/882.html#L91'>buf</a>                91 usr/server/fs/arfs/arfs_vfsops.c 	if (strncmp(buf, ARMAG, SARMAG)) {
+<a href='../S/882.html#L100'>buf</a>               100 usr/server/fs/arfs/arfs_vfsops.c 	free(buf);
+<a href='../S/883.html#L120'>buf</a>               120 usr/server/fs/arfs/arfs_vnops.c 	struct buf *bp;
+<a href='../S/883.html#L206'>buf</a>               206 usr/server/fs/arfs/arfs_vnops.c arfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/883.html#L212'>buf</a>               212 usr/server/fs/arfs/arfs_vnops.c 	struct buf *bp;
+<a href='../S/883.html#L235'>buf</a>               235 usr/server/fs/arfs/arfs_vnops.c 			 file_pos, buf, size));
+<a href='../S/883.html#L247'>buf</a>               247 usr/server/fs/arfs/arfs_vnops.c 		memcpy(buf, bp-&gt;b_data + buf_pos, nr_copy);
+<a href='../S/883.html#L258'>buf</a>               258 usr/server/fs/arfs/arfs_vnops.c 		buf = (void *)((u_long)buf + nr_copy);
+<a href='../S/886.html#L156'>buf</a>               156 usr/server/fs/devfs/devfs_vnops.c devfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L162'>buf</a>               162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L169'>buf</a>               169 usr/server/fs/devfs/devfs_vnops.c devfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L175'>buf</a>               175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/889.html#L47'>buf</a>                47 usr/server/fs/fatfs/fatfs_fat.c 	char *buf = fmp-&gt;fat_buf;
+<a href='../S/889.html#L49'>buf</a>                49 usr/server/fs/fatfs/fatfs_fat.c 	struct buf *bp;
+<a href='../S/889.html#L69'>buf</a>                69 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L78'>buf</a>                78 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf + SEC_SIZE, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L90'>buf</a>                90 usr/server/fs/fatfs/fatfs_fat.c 	char *buf = fmp-&gt;fat_buf;
+<a href='../S/889.html#L92'>buf</a>                92 usr/server/fs/fatfs/fatfs_fat.c 	struct buf *bp;
+<a href='../S/889.html#L107'>buf</a>               107 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf, SEC_SIZE);
+<a href='../S/889.html#L116'>buf</a>               116 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf + SEC_SIZE, SEC_SIZE);
+<a href='../S/889.html#L170'>buf</a>               170 usr/server/fs/fatfs/fatfs_fat.c 	char *buf = fmp-&gt;fat_buf;
+<a href='../S/889.html#L188'>buf</a>               188 usr/server/fs/fatfs/fatfs_fat.c 		tmp = *((uint16_t *)(buf + offset));
+<a href='../S/889.html#L197'>buf</a>               197 usr/server/fs/fatfs/fatfs_fat.c 	*((uint16_t *)(buf + offset)) = val;
+<a href='../S/890.html#L47'>buf</a>                47 usr/server/fs/fatfs/fatfs_node.c 	struct buf *bp;
+<a href='../S/890.html#L63'>buf</a>                63 usr/server/fs/fatfs/fatfs_node.c 	struct buf *bp;
+<a href='../S/893.html#L165'>buf</a>               165 usr/server/fs/fatfs/fatfs_vnops.c fatfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L211'>buf</a>               211 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(buf, fmp-&gt;io_buf + buf_pos, nr_copy);
+<a href='../S/893.html#L223'>buf</a>               223 usr/server/fs/fatfs/fatfs_vnops.c 		buf = (void *)((u_long)buf + nr_copy);
+<a href='../S/893.html#L236'>buf</a>               236 usr/server/fs/fatfs/fatfs_vnops.c fatfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L301'>buf</a>               301 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(fmp-&gt;io_buf + buf_pos, buf, nr_copy);
+<a href='../S/893.html#L317'>buf</a>               317 usr/server/fs/fatfs/fatfs_vnops.c 		buf = (void *)((u_long)buf + nr_copy);
+<a href='../S/896.html#L219'>buf</a>               219 usr/server/fs/fifofs/fifo_vnops.c fifo_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L222'>buf</a>               222 usr/server/fs/fifofs/fifo_vnops.c 	char *p = buf;
+<a href='../S/896.html#L264'>buf</a>               264 usr/server/fs/fifofs/fifo_vnops.c fifo_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L267'>buf</a>               267 usr/server/fs/fifofs/fifo_vnops.c 	char *p = buf;
+<a href='../S/902.html#L334'>buf</a>               334 usr/server/fs/ramfs/ramfs_vnops.c ramfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L353'>buf</a>               353 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(buf, np-&gt;rn_buf + off, size);
+<a href='../S/902.html#L361'>buf</a>               361 usr/server/fs/ramfs/ramfs_vnops.c ramfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L404'>buf</a>               404 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(np-&gt;rn_buf + file_pos, buf, size);
+<a href='../S/903.html#L217'>buf</a>               217 usr/server/fs/vfs/main.c 	void *buf;
+<a href='../S/903.html#L224'>buf</a>               224 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L227'>buf</a>               227 usr/server/fs/vfs/main.c 	error = sys_read(fp, buf, size, &amp;bytes);
+<a href='../S/903.html#L229'>buf</a>               229 usr/server/fs/vfs/main.c 	vm_free(task_self(), buf);
+<a href='../S/903.html#L237'>buf</a>               237 usr/server/fs/vfs/main.c 	void *buf;
+<a href='../S/903.html#L244'>buf</a>               244 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L247'>buf</a>               247 usr/server/fs/vfs/main.c 	error = sys_write(fp, buf, size, &amp;bytes);
+<a href='../S/903.html#L249'>buf</a>               249 usr/server/fs/vfs/main.c 	vm_free(task_self(), buf);
+<a href='../S/903.html#L261'>buf</a>               261 usr/server/fs/vfs/main.c 	return sys_ioctl(fp, msg-&gt;request, msg-&gt;buf);
+<a href='../S/905.html#L96'>buf</a>                96 usr/server/fs/vfs/vfs.h int	 sys_read(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L97'>buf</a>                97 usr/server/fs/vfs/vfs.h int	 sys_write(file_t fp, void *buf, size_t size, size_t *result);
+<a href='../S/905.html#L99'>buf</a>                99 usr/server/fs/vfs/vfs.h int	 sys_ioctl(file_t fp, u_long request, void *buf);
+<a href='../S/906.html#L75'>buf</a>                75 usr/server/fs/vfs/vfs_bio.c static struct buf buf_table[NBUFS];
+<a href='../S/906.html#L85'>buf</a>                85 usr/server/fs/vfs/vfs_bio.c bio_insert_head(struct buf *bp)
+<a href='../S/906.html#L96'>buf</a>                96 usr/server/fs/vfs/vfs_bio.c bio_insert_tail(struct buf *bp)
+<a href='../S/906.html#L107'>buf</a>               107 usr/server/fs/vfs/vfs_bio.c bio_remove(struct buf *bp)
+<a href='../S/906.html#L118'>buf</a>               118 usr/server/fs/vfs/vfs_bio.c static struct buf *
+<a href='../S/906.html#L121'>buf</a>               121 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L125'>buf</a>               125 usr/server/fs/vfs/vfs_bio.c 	bp = list_entry(list_first(&amp;free_list), struct buf, b_link);
+<a href='../S/906.html#L133'>buf</a>               133 usr/server/fs/vfs/vfs_bio.c static struct buf *
+<a href='../S/906.html#L136'>buf</a>               136 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L156'>buf</a>               156 usr/server/fs/vfs/vfs_bio.c struct buf *
+<a href='../S/906.html#L159'>buf</a>               159 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L200'>buf</a>               200 usr/server/fs/vfs/vfs_bio.c brelse(struct buf *bp)
+<a href='../S/906.html#L226'>buf</a>               226 usr/server/fs/vfs/vfs_bio.c bread(dev_t dev, int blkno, struct buf **bpp)
+<a href='../S/906.html#L228'>buf</a>               228 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L259'>buf</a>               259 usr/server/fs/vfs/vfs_bio.c bwrite(struct buf *bp)
+<a href='../S/906.html#L292'>buf</a>               292 usr/server/fs/vfs/vfs_bio.c bdwrite(struct buf *bp)
+<a href='../S/906.html#L306'>buf</a>               306 usr/server/fs/vfs/vfs_bio.c bflush(struct buf *bp)
+<a href='../S/906.html#L322'>buf</a>               322 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L346'>buf</a>               346 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/906.html#L371'>buf</a>               371 usr/server/fs/vfs/vfs_bio.c 	struct buf *bp;
+<a href='../S/908.html#L152'>buf</a>               152 usr/server/fs/vfs/vfs_lookup.c 	char buf[PATH_MAX];
+<a href='../S/908.html#L163'>buf</a>               163 usr/server/fs/vfs/vfs_lookup.c 	strlcpy(buf, path, sizeof(buf));
+<a href='../S/908.html#L164'>buf</a>               164 usr/server/fs/vfs/vfs_lookup.c 	file = strrchr(buf, '/');
+<a href='../S/908.html#L165'>buf</a>               165 usr/server/fs/vfs/vfs_lookup.c 	if (!buf[0])
+<a href='../S/908.html#L167'>buf</a>               167 usr/server/fs/vfs/vfs_lookup.c 	if (file == buf)
+<a href='../S/908.html#L171'>buf</a>               171 usr/server/fs/vfs/vfs_lookup.c 		dir = buf;
+<a href='../S/911.html#L175'>buf</a>               175 usr/server/fs/vfs/vfs_syscalls.c sys_read(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L181'>buf</a>               181 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)buf, size));
+<a href='../S/911.html#L191'>buf</a>               191 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READ(vp, fp, buf, size, count);
+<a href='../S/911.html#L197'>buf</a>               197 usr/server/fs/vfs/vfs_syscalls.c sys_write(file_t fp, void *buf, size_t size, size_t *count)
+<a href='../S/911.html#L203'>buf</a>               203 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)buf, size));
+<a href='../S/911.html#L213'>buf</a>               213 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_WRITE(vp, fp, buf, size, count);
+<a href='../S/911.html#L267'>buf</a>               267 usr/server/fs/vfs/vfs_syscalls.c sys_ioctl(file_t fp, u_long request, void *buf)
+<a href='../S/911.html#L279'>buf</a>               279 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_IOCTL(vp, fp, request, buf);
+<a href='../S/932.html#L41'>buf</a>                41 usr/test/console/console.c 	char buf[] = "ABCDEFGHIJKLMN";
+<a href='../S/932.html#L54'>buf</a>                54 usr/test/console/console.c 	device_write(console_dev, buf, &amp;len, 0);
+<a href='../S/932.html#L61'>buf</a>                61 usr/test/console/console.c 		device_write(console_dev, buf, &amp;len, 0);
+<a href='../S/964.html#L41'>buf</a>                41 usr/test/kbd/kbd.c 	char buf[] = "?\n";
+<a href='../S/964.html#L52'>buf</a>                52 usr/test/kbd/kbd.c 		device_read(tty_dev, buf, &amp;len, 0);
+<a href='../S/964.html#L53'>buf</a>                53 usr/test/kbd/kbd.c 		sys_log(buf);
+<a href='../S/981.html#L49'>buf</a>                49 usr/test/pipe/pipe.c 	char buf[256];
+<a href='../S/981.html#L58'>buf</a>                58 usr/test/pipe/pipe.c 	read(fd[0], buf, sizeof(buf));
+<a href='../S/981.html#L59'>buf</a>                59 usr/test/pipe/pipe.c 	printf("str=%s\n", buf);
+<a href='../S/981.html#L67'>buf</a>                67 usr/test/pipe/pipe.c 	char buf[256];
+<a href='../S/981.html#L82'>buf</a>                82 usr/test/pipe/pipe.c 		read(fd[0], buf, 256);
+<a href='../S/981.html#L84'>buf</a>                84 usr/test/pipe/pipe.c 		printf("str=%s\n", buf);
+<a href='../S/1008.html#L38'>buf</a>                38 usr/test/zero/zero.c static char buf[100];
+<a href='../S/1008.html#L46'>buf</a>                46 usr/test/zero/zero.c 		putchar(buf[i]);
+<a href='../S/1008.html#L61'>buf</a>                61 usr/test/zero/zero.c 		buf[i] = '0' + i / 10;
+<a href='../S/1008.html#L70'>buf</a>                70 usr/test/zero/zero.c 	error = device_read(zero_dev, buf, &amp;len, 0);
+</pre>
+</body>
+</html>

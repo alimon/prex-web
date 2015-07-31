@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pm_dev</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/966.html#L134'>pm_dev</a>            134 usr/test/kmon/cmd.c 	device_t pm_dev;
+<a href='../S/966.html#L137'>pm_dev</a>            137 usr/test/kmon/cmd.c 	if ((error = device_open("pm", 0, &amp;pm_dev)) == 0) {
+<a href='../S/966.html#L138'>pm_dev</a>            138 usr/test/kmon/cmd.c 		error = device_ioctl(pm_dev, PMIOC_SET_POWER, &amp;state);
+<a href='../S/966.html#L139'>pm_dev</a>            139 usr/test/kmon/cmd.c 		device_close(pm_dev);
+<a href='../S/966.html#L148'>pm_dev</a>            148 usr/test/kmon/cmd.c 	device_t pm_dev;
+<a href='../S/966.html#L151'>pm_dev</a>            151 usr/test/kmon/cmd.c 	if ((error = device_open("pm", 0, &amp;pm_dev)) == 0) {
+<a href='../S/966.html#L152'>pm_dev</a>            152 usr/test/kmon/cmd.c 		error = device_ioctl(pm_dev, PMIOC_SET_POWER, &amp;state);
+<a href='../S/966.html#L153'>pm_dev</a>            153 usr/test/kmon/cmd.c 		device_close(pm_dev);
+<a href='../S/985.html#L43'>pm_dev</a>             43 usr/test/reset/reset.c 	device_t pm_dev;
+<a href='../S/985.html#L50'>pm_dev</a>             50 usr/test/reset/reset.c 	if (device_open("pm", 0, &amp;pm_dev) != 0)
+<a href='../S/985.html#L52'>pm_dev</a>             52 usr/test/reset/reset.c 	device_ioctl(pm_dev, PMIOC_SET_POWER, &amp;state);
+<a href='../S/985.html#L53'>pm_dev</a>             53 usr/test/reset/reset.c 	device_close(pm_dev);
+</pre>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>offset</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/68.html#L81'>offset</a>             81 bsp/drv/dev/block/ramdisk.c 	int offset = blkno * BSIZE;
+<a href='../S/68.html#L89'>offset</a>             89 bsp/drv/dev/block/ramdisk.c 	if (offset &gt; (int)sc-&gt;size) {
+<a href='../S/68.html#L94'>offset</a>             94 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_read &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L95'>offset</a>             95 bsp/drv/dev/block/ramdisk.c 		nr_read = sc-&gt;size - offset;
+<a href='../S/68.html#L103'>offset</a>            103 bsp/drv/dev/block/ramdisk.c 	memcpy(kbuf, sc-&gt;addr + offset, nr_read);
+<a href='../S/68.html#L112'>offset</a>            112 bsp/drv/dev/block/ramdisk.c 	int offset = blkno * BSIZE;
+<a href='../S/68.html#L120'>offset</a>            120 bsp/drv/dev/block/ramdisk.c 	if (offset &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L123'>offset</a>            123 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_write &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L124'>offset</a>            124 bsp/drv/dev/block/ramdisk.c 		nr_write = sc-&gt;size - offset;
+<a href='../S/68.html#L131'>offset</a>            131 bsp/drv/dev/block/ramdisk.c 	memcpy(sc-&gt;addr + offset, kbuf, nr_write);
+<a href='../S/91.html#L194'>offset</a>            194 bsp/drv/dev/video/vga.c 	u_int offset;
+<a href='../S/91.html#L198'>offset</a>            198 bsp/drv/dev/video/vga.c 	offset = crtc_read(0x0e);
+<a href='../S/91.html#L199'>offset</a>            199 bsp/drv/dev/video/vga.c 	offset &lt;&lt;= 8;
+<a href='../S/91.html#L200'>offset</a>            200 bsp/drv/dev/video/vga.c 	offset += crtc_read(0x0f);
+<a href='../S/91.html#L201'>offset</a>            201 bsp/drv/dev/video/vga.c 	*col = (int)offset % sc-&gt;cols;
+<a href='../S/91.html#L202'>offset</a>            202 bsp/drv/dev/video/vga.c 	*row = (int)offset / sc-&gt;cols;
+<a href='../S/343.html#L392'>offset</a>            392 sys/mem/vm.c   	size_t offset;
+<a href='../S/343.html#L409'>offset</a>            409 sys/mem/vm.c   	offset = (size_t)((vaddr_t)addr - start);
+<a href='../S/343.html#L444'>offset</a>            444 sys/mem/vm.c   	tmp = (void *)(cur-&gt;addr + offset);
+<a href='../S/516.html#L48'>offset</a>             48 usr/lib/libc/stdio/fseek.c fseek(fp, offset, whence)
+<a href='../S/516.html#L50'>offset</a>             50 usr/lib/libc/stdio/fseek.c 	long offset;
+<a href='../S/516.html#L82'>offset</a>             82 usr/lib/libc/stdio/fseek.c 		offset += curoff;
+<a href='../S/516.html#L102'>offset</a>            102 usr/lib/libc/stdio/fseek.c 	    __sseek(fp, (fpos_t)offset, whence) == POS_ERR) {
+<a href='../S/547.html#L63'>offset</a>             63 usr/lib/libc/stdio/stdio.c __sseek(fp, offset, whence)
+<a href='../S/547.html#L65'>offset</a>             65 usr/lib/libc/stdio/stdio.c 	fpos_t offset;
+<a href='../S/547.html#L68'>offset</a>             68 usr/lib/libc/stdio/stdio.c 	return (lseek(fp-&gt;_file, (off_t)offset, whence));
+<a href='../S/570.html#L46'>offset</a>             46 usr/lib/libc/stdlib/getenv.c 	int offset;
+<a href='../S/570.html#L48'>offset</a>             48 usr/lib/libc/stdlib/getenv.c 	return (__findenv(name, &amp;offset));
+<a href='../S/570.html#L61'>offset</a>             61 usr/lib/libc/stdlib/getenv.c __findenv(name, offset)
+<a href='../S/570.html#L63'>offset</a>             63 usr/lib/libc/stdlib/getenv.c 	int *offset;
+<a href='../S/570.html#L76'>offset</a>             76 usr/lib/libc/stdlib/getenv.c 			*offset = p - environ;
+<a href='../S/578.html#L51'>offset</a>             51 usr/lib/libc/stdlib/setenv.c 	int l_value, offset;
+<a href='../S/578.html#L56'>offset</a>             56 usr/lib/libc/stdlib/setenv.c 	if ((c = __findenv(name, &amp;offset))) {	/* find if already exists */
+<a href='../S/578.html#L83'>offset</a>             83 usr/lib/libc/stdlib/setenv.c 		offset = cnt;
+<a href='../S/578.html#L86'>offset</a>             86 usr/lib/libc/stdlib/setenv.c 	if (!(environ[offset] =			/* name + `=' + value */
+<a href='../S/578.html#L89'>offset</a>             89 usr/lib/libc/stdlib/setenv.c 	for (c = environ[offset]; (*c = *name++) &amp;&amp; *c != '='; ++c);
+<a href='../S/578.html#L103'>offset</a>            103 usr/lib/libc/stdlib/setenv.c 	int offset;
+<a href='../S/578.html#L105'>offset</a>            105 usr/lib/libc/stdlib/setenv.c 	while (__findenv(name, &amp;offset))	/* if set multiple times */
+<a href='../S/578.html#L106'>offset</a>            106 usr/lib/libc/stdlib/setenv.c 		for (p = &amp;environ[offset];; ++p)
+<a href='../S/675.html#L39'>offset</a>             39 usr/lib/posix/file/lseek.c lseek(int fd, off_t offset, int whence)
+<a href='../S/675.html#L45'>offset</a>             45 usr/lib/posix/file/lseek.c 	m.data[1] = (int)offset;
+<a href='../S/888.html#L189'>offset</a>            189 usr/server/fs/fatfs/fatfs.h 	u_long	offset;		/* offset of directory entry in sector */
+<a href='../S/888.html#L203'>offset</a>            203 usr/server/fs/fatfs/fatfs.h int	 fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L130'>offset</a>            130 usr/server/fs/fatfs/fatfs_fat.c 	u_int offset;
+<a href='../S/889.html#L141'>offset</a>            141 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 2) % SEC_SIZE;
+<a href='../S/889.html#L143'>offset</a>            143 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 3 / 2) % SEC_SIZE;
+<a href='../S/889.html#L146'>offset</a>            146 usr/server/fs/fatfs/fatfs_fat.c 	val = *((uint16_t *)(fmp-&gt;fat_buf + offset));
+<a href='../S/889.html#L169'>offset</a>            169 usr/server/fs/fatfs/fatfs_fat.c 	u_int offset;
+<a href='../S/889.html#L181'>offset</a>            181 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 2) % SEC_SIZE;
+<a href='../S/889.html#L183'>offset</a>            183 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 3 / 2) % SEC_SIZE;
+<a href='../S/889.html#L188'>offset</a>            188 usr/server/fs/fatfs/fatfs_fat.c 		tmp = *((uint16_t *)(buf + offset));
+<a href='../S/889.html#L197'>offset</a>            197 usr/server/fs/fatfs/fatfs_fat.c 	*((uint16_t *)(buf + offset)) = val;
+<a href='../S/889.html#L278'>offset</a>            278 usr/server/fs/fatfs/fatfs_fat.c fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L288'>offset</a>            288 usr/server/fs/fatfs/fatfs_fat.c 	target = offset / fmp-&gt;cluster_size;
+<a href='../S/890.html#L101'>offset</a>            101 usr/server/fs/fatfs/fatfs_node.c 			np-&gt;offset = sizeof(struct fat_dirent) * i;
+<a href='../S/890.html#L194'>offset</a>            194 usr/server/fs/fatfs/fatfs_node.c 				np-&gt;offset = sizeof(struct fat_dirent) * i;
+<a href='../S/890.html#L363'>offset</a>            363 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf + np-&gt;offset, &amp;np-&gt;dirent,
+<a href='../S/903.html#L200'>offset</a>            200 usr/server/fs/vfs/main.c 	off_t offset, org;
+<a href='../S/903.html#L205'>offset</a>            205 usr/server/fs/vfs/main.c 	offset = (off_t)msg-&gt;data[1];
+<a href='../S/903.html#L208'>offset</a>            208 usr/server/fs/vfs/main.c 	error = sys_lseek(fp, offset, type, &amp;org);
+</pre>
+</body>
+</html>

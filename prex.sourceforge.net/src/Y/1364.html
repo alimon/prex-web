@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>new_task</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/877.html#L76'>new_task</a>           76 usr/server/exec/exec_execve.c 	task_t old_task, new_task;
+<a href='../S/877.html#L159'>new_task</a>          159 usr/server/exec/exec_execve.c 	if ((error = task_create(old_task, VM_NEW, &amp;new_task)) != 0) {
+<a href='../S/877.html#L165'>new_task</a>          165 usr/server/exec/exec_execve.c 		task_setname(new_task, basename(exec.path));
+<a href='../S/877.html#L170'>new_task</a>          170 usr/server/exec/exec_execve.c 	bind_cap(exec.path, new_task);
+<a href='../S/877.html#L172'>new_task</a>          172 usr/server/exec/exec_execve.c 	if ((error = thread_create(new_task, &amp;t)) != 0)
+<a href='../S/877.html#L178'>new_task</a>          178 usr/server/exec/exec_execve.c 	error = vm_allocate(new_task, &amp;stack, DFLSTKSZ, 1);
+<a href='../S/877.html#L183'>new_task</a>          183 usr/server/exec/exec_execve.c 	if ((error = build_args(new_task, stack, exec.path, msg,
+<a href='../S/877.html#L191'>new_task</a>          191 usr/server/exec/exec_execve.c 	exec.task = new_task;
+<a href='../S/877.html#L200'>new_task</a>          200 usr/server/exec/exec_execve.c 	notify_server(old_task, new_task, stack);
+<a href='../S/877.html#L216'>new_task</a>          216 usr/server/exec/exec_execve.c 	vm_free(new_task, stack);
+<a href='../S/877.html#L220'>new_task</a>          220 usr/server/exec/exec_execve.c 	task_terminate(new_task);
+<a href='../S/877.html#L412'>new_task</a>          412 usr/server/exec/exec_execve.c notify_server(task_t org_task, task_t new_task, void *stack)
+<a href='../S/877.html#L428'>new_task</a>          428 usr/server/exec/exec_execve.c 		m.data[1] = (int)new_task;
+<a href='../S/877.html#L436'>new_task</a>          436 usr/server/exec/exec_execve.c 		m.data[1] = (int)new_task;
+</pre>
+</body>
+</html>

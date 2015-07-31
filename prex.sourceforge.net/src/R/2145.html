@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>memcpy</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L149'>memcpy</a>            149 bsp/boot/common/elf.c 			memcpy((char *)load_base, img + phdr-&gt;p_offset,
+<a href='../S/13.html#L319'>memcpy</a>            319 bsp/boot/common/elf.c 			memcpy((char *)sect_base, img + shdr-&gt;sh_offset,
+<a href='../S/20.html#L68'>memcpy</a>             68 bsp/boot/include/boot.h void	 *memcpy(void *, const void *, size_t);
+<a href='../S/64.html#L617'>memcpy</a>            617 bsp/drv/dev/base/tty.c 	memcpy(&amp;tp-&gt;t_termios.c_cc, ttydefchars, sizeof(ttydefchars));
+<a href='../S/66.html#L595'>memcpy</a>            595 bsp/drv/dev/block/fdd.c 		memcpy(kbuf, (char *)sc-&gt;rbuf + sect * SECTOR_SIZE,
+<a href='../S/66.html#L647'>memcpy</a>            647 bsp/drv/dev/block/fdd.c 		memcpy(wbuf, kbuf, SECTOR_SIZE);
+<a href='../S/68.html#L103'>memcpy</a>            103 bsp/drv/dev/block/ramdisk.c 	memcpy(kbuf, sc-&gt;addr + offset, nr_read);
+<a href='../S/68.html#L131'>memcpy</a>            131 bsp/drv/dev/block/ramdisk.c 	memcpy(sc-&gt;addr + offset, kbuf, nr_write);
+<a href='../S/70.html#L561'>memcpy</a>            561 bsp/drv/dev/cpufreq/est.c 	memcpy(brand_str, regs, sizeof(regs));
+<a href='../S/70.html#L563'>memcpy</a>            563 bsp/drv/dev/cpufreq/est.c 	memcpy(brand_str + 16, regs, sizeof(regs));
+<a href='../S/70.html#L565'>memcpy</a>            565 bsp/drv/dev/cpufreq/est.c 	memcpy(brand_str + 32, regs, sizeof(regs));
+<a href='../S/85.html#L146'>memcpy</a>            146 bsp/drv/dev/rtc/rtc.c 	memcpy(mthdays, month_days, sizeof(mthdays));
+<a href='../S/91.html#L163'>memcpy</a>            163 bsp/drv/dev/video/vga.c 	memcpy(sc-&gt;vram + dstrow * sc-&gt;cols,
+<a href='../S/94.html#L94'>memcpy</a>             94 bsp/drv/include/ddi.h void	 *memcpy(void *dest, const void *src, size_t count);
+<a href='../S/131.html#L199'>memcpy</a>            199 bsp/hal/arm/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(L1TBL_SIZE - i * 4));
+<a href='../S/155.html#L78'>memcpy</a>             78 bsp/hal/ppc/arch/cpu.c 		memcpy(kaddr, uaddr, len);
+<a href='../S/155.html#L89'>memcpy</a>             89 bsp/hal/ppc/arch/cpu.c 		memcpy(uaddr, kaddr, len);
+<a href='../S/171.html#L157'>memcpy</a>            157 bsp/hal/ppc/prep/machdep.c 	memcpy(vector_offset, &amp;exception_vector, 0x3000);
+<a href='../S/178.html#L172'>memcpy</a>            172 bsp/hal/x86/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(1024 - i));
+<a href='../S/187.html#L56'>memcpy</a>             56 bsp/hal/x86/pc/diag.c 	memcpy(vram, vram + screen_x, (size_t)(screen_x * (screen_y - 1) * 2));
+<a href='../S/313.html#L41'>memcpy</a>             41 sys/include/libkern.h void	*memcpy(void *, const void *, size_t);
+<a href='../S/333.html#L64'>memcpy</a>             64 sys/kern/system.c 		memcpy(buf, &amp;kerninfo, sizeof(kerninfo));
+<a href='../S/335.html#L104'>memcpy</a>            104 sys/kern/thread.c 	memcpy(t-&gt;kstack, curthread-&gt;kstack, KSTACKSZ);
+<a href='../S/343.html#L326'>memcpy</a>            326 sys/mem/vm.c   		memcpy(ptokv(new_pa), ptokv(old_pa), seg-&gt;size);
+<a href='../S/343.html#L608'>memcpy</a>            608 sys/mem/vm.c   				memcpy(ptokv(dest-&gt;phys), ptokv(src-&gt;phys),
+<a href='../S/343.html#L698'>memcpy</a>            698 sys/mem/vm.c   	memcpy(text, src, mod-&gt;textsz);
+<a href='../S/343.html#L712'>memcpy</a>            712 sys/mem/vm.c   			memcpy(data, src, mod-&gt;datasz);
+<a href='../S/443.html#L49'>memcpy</a>             49 usr/include/string.h void	*memcpy(void *, const void *, size_t);
+<a href='../S/469.html#L58'>memcpy</a>             58 usr/lib/libc/gen/basename.c         memcpy(bname, startp, len);
+<a href='../S/471.html#L62'>memcpy</a>             62 usr/lib/libc/gen/dirname.c         memcpy(dname, path, len);
+<a href='../S/478.html#L92'>memcpy</a>             92 usr/lib/libc/gen/execvp.c 		memcpy(buf, p, lp);
+<a href='../S/478.html#L94'>memcpy</a>             94 usr/lib/libc/gen/execvp.c 		memcpy(buf + lp + 1, name, ln);
+<a href='../S/478.html#L112'>memcpy</a>            112 usr/lib/libc/gen/execvp.c 			(void)memcpy(&amp;memp[2], &amp;argv[1], cnt * sizeof(*memp));
+<a href='../S/513.html#L60'>memcpy</a>             60 usr/lib/libc/stdio/fread.c 		(void)memcpy((void *)p, (void *)fp-&gt;_p, (size_t)r);
+<a href='../S/513.html#L70'>memcpy</a>             70 usr/lib/libc/stdio/fread.c 	(void)memcpy((void *)p, (void *)fp-&gt;_p, resid);
+<a href='../S/519.html#L63'>memcpy</a>             63 usr/lib/libc/stdio/fvwrite.c #define	COPY(n)	  (void)memcpy((void *)fp-&gt;_p, (void *)p, (size_t)(n))
+<a href='../S/549.html#L50'>memcpy</a>             50 usr/lib/libc/stdio/tmpfile.c 	(void)memcpy(buf, _PATH_TMP, sizeof(_PATH_TMP) - 1);
+<a href='../S/549.html#L51'>memcpy</a>             51 usr/lib/libc/stdio/tmpfile.c 	(void)memcpy(buf + sizeof(_PATH_TMP) - 1, TRAILER, sizeof(TRAILER));
+<a href='../S/617.html#L55'>memcpy</a>             55 usr/lib/libc/string/strxfrm.c 		(void)memcpy(dst, src, copysize);
+<a href='../S/667.html#L53'>memcpy</a>             53 usr/lib/posix/file/fcntl.c 		memcpy(&amp;m.lock, (char *)arg, sizeof(struct flock));
+<a href='../S/668.html#L47'>memcpy</a>             47 usr/lib/posix/file/fstat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/672.html#L77'>memcpy</a>             77 usr/lib/posix/file/ioctl.c 			memcpy(&amp;m.buf, argp, size);
+<a href='../S/672.html#L93'>memcpy</a>             93 usr/lib/posix/file/ioctl.c 			memcpy(argp, &amp;m.buf, size);
+<a href='../S/685.html#L49'>memcpy</a>             49 usr/lib/posix/file/readdir.c 	memcpy(entry, &amp;m.dirent, sizeof(struct dirent));
+<a href='../S/689.html#L48'>memcpy</a>             48 usr/lib/posix/file/stat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/701.html#L42'>memcpy</a>             42 usr/lib/posix/gen/uname.c 	memcpy(uts, &amp;info, sizeof(*uts));
+<a href='../S/755.html#L52'>memcpy</a>             52 usr/lib/prex/malloc/realloc.c 		memcpy(p, addr, old_size);
+<a href='../S/755.html#L54'>memcpy</a>             54 usr/lib/prex/malloc/realloc.c 		memcpy(p, addr, size);
+<a href='../S/877.html#L352'>memcpy</a>            352 usr/server/exec/exec_execve.c 	memcpy((char *)sp, (char *)&amp;msg-&gt;buf, msg-&gt;bufsz);
+<a href='../S/883.html#L128'>memcpy</a>            128 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L133'>memcpy</a>            133 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf + BSIZE, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L247'>memcpy</a>            247 usr/server/fs/arfs/arfs_vnops.c 		memcpy(buf, bp-&gt;b_data + buf_pos, nr_copy);
+<a href='../S/889.html#L69'>memcpy</a>             69 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L78'>memcpy</a>             78 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(buf + SEC_SIZE, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/889.html#L107'>memcpy</a>            107 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf, SEC_SIZE);
+<a href='../S/889.html#L116'>memcpy</a>            116 usr/server/fs/fatfs/fatfs_fat.c 	memcpy(bp-&gt;b_data, buf + SEC_SIZE, SEC_SIZE);
+<a href='../S/890.html#L52'>memcpy</a>             52 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf, bp-&gt;b_data, SEC_SIZE);
+<a href='../S/890.html#L66'>memcpy</a>             66 usr/server/fs/fatfs/fatfs_node.c 	memcpy(bp-&gt;b_data, fmp-&gt;dir_buf, SEC_SIZE);
+<a href='../S/890.html#L280'>memcpy</a>            280 usr/server/fs/fatfs/fatfs_node.c 	memcpy(de, &amp;np-&gt;dirent, sizeof(struct fat_dirent));
+<a href='../S/890.html#L363'>memcpy</a>            363 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf + np-&gt;offset, &amp;np-&gt;dirent,
+<a href='../S/893.html#L211'>memcpy</a>            211 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(buf, fmp-&gt;io_buf + buf_pos, nr_copy);
+<a href='../S/893.html#L301'>memcpy</a>            301 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(fmp-&gt;io_buf + buf_pos, buf, nr_copy);
+<a href='../S/893.html#L590'>memcpy</a>            590 usr/server/fs/fatfs/fatfs_vnops.c 	memcpy(de-&gt;name, ".          ", 11);
+<a href='../S/893.html#L596'>memcpy</a>            596 usr/server/fs/fatfs/fatfs_vnops.c 	memcpy(de-&gt;name, "..         ", 11);
+<a href='../S/902.html#L304'>memcpy</a>            304 usr/server/fs/ramfs/ramfs_vnops.c 			memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L353'>memcpy</a>            353 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(buf, np-&gt;rn_buf + off, size);
+<a href='../S/902.html#L395'>memcpy</a>            395 usr/server/fs/ramfs/ramfs_vnops.c 				memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L404'>memcpy</a>            404 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(np-&gt;rn_buf + file_pos, buf, size);
+<a href='../S/921.html#L192'>memcpy</a>            192 usr/server/proc/proc_fork.c 	memcpy(stack, p-&gt;p_stackbase, DFLSTKSZ);
+<a href='../S/921.html#L208'>memcpy</a>            208 usr/server/proc/proc_fork.c 	memcpy(p-&gt;p_stackbase, p-&gt;p_stacksaved, DFLSTKSZ);
+</pre>
+</body>
+</html>

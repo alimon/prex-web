@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>b_flags</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/248.html#L42'>b_flags</a>            42 include/sys/buf.h 	int		b_flags;	/* see defines below */
+<a href='../S/906.html#L142'>b_flags</a>           142 usr/server/fs/vfs/vfs_bio.c 		    !ISSET(bp-&gt;b_flags, B_INVAL))
+<a href='../S/906.html#L167'>b_flags</a>           167 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_BUSY)) {
+<a href='../S/906.html#L178'>b_flags</a>           178 usr/server/fs/vfs/vfs_bio.c 		SET(bp-&gt;b_flags, B_BUSY);
+<a href='../S/906.html#L181'>b_flags</a>           181 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_DELWRI)) {
+<a href='../S/906.html#L186'>b_flags</a>           186 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_flags = B_BUSY;
+<a href='../S/906.html#L202'>b_flags</a>           202 usr/server/fs/vfs/vfs_bio.c 	ASSERT(ISSET(bp-&gt;b_flags, B_BUSY));
+<a href='../S/906.html#L207'>b_flags</a>           207 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, B_BUSY);
+<a href='../S/906.html#L209'>b_flags</a>           209 usr/server/fs/vfs/vfs_bio.c 	if (ISSET(bp-&gt;b_flags, B_INVAL))
+<a href='../S/906.html#L235'>b_flags</a>           235 usr/server/fs/vfs/vfs_bio.c 	if (!ISSET(bp-&gt;b_flags, (B_DONE | B_DELWRI))) {
+<a href='../S/906.html#L244'>b_flags</a>           244 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, B_INVAL);
+<a href='../S/906.html#L245'>b_flags</a>           245 usr/server/fs/vfs/vfs_bio.c 	SET(bp-&gt;b_flags, (B_READ | B_DONE));
+<a href='../S/906.html#L264'>b_flags</a>           264 usr/server/fs/vfs/vfs_bio.c 	ASSERT(ISSET(bp-&gt;b_flags, B_BUSY));
+<a href='../S/906.html#L269'>b_flags</a>           269 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, (B_READ | B_DONE | B_DELWRI));
+<a href='../S/906.html#L278'>b_flags</a>           278 usr/server/fs/vfs/vfs_bio.c 	SET(bp-&gt;b_flags, B_DONE);
+<a href='../S/906.html#L296'>b_flags</a>           296 usr/server/fs/vfs/vfs_bio.c 	SET(bp-&gt;b_flags, B_DELWRI);
+<a href='../S/906.html#L297'>b_flags</a>           297 usr/server/fs/vfs/vfs_bio.c 	CLR(bp-&gt;b_flags, B_DONE);
+<a href='../S/906.html#L310'>b_flags</a>           310 usr/server/fs/vfs/vfs_bio.c 	if (ISSET(bp-&gt;b_flags, B_DELWRI))
+<a href='../S/906.html#L329'>b_flags</a>           329 usr/server/fs/vfs/vfs_bio.c 			if (ISSET(bp-&gt;b_flags, B_DELWRI))
+<a href='../S/906.html#L331'>b_flags</a>           331 usr/server/fs/vfs/vfs_bio.c 			else if (ISSET(bp-&gt;b_flags, B_BUSY))
+<a href='../S/906.html#L333'>b_flags</a>           333 usr/server/fs/vfs/vfs_bio.c 			bp-&gt;b_flags = B_INVAL;
+<a href='../S/906.html#L353'>b_flags</a>           353 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_BUSY)) {
+<a href='../S/906.html#L359'>b_flags</a>           359 usr/server/fs/vfs/vfs_bio.c 		if (ISSET(bp-&gt;b_flags, B_DELWRI))
+<a href='../S/906.html#L376'>b_flags</a>           376 usr/server/fs/vfs/vfs_bio.c 		bp-&gt;b_flags = B_INVAL;
+</pre>
+</body>
+</html>

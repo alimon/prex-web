@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mutex_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/248.html#L45'>mutex_t</a>            45 include/sys/buf.h 	mutex_t		b_lock;		/* lock for access */
+<a href='../S/267.html#L77'>mutex_t</a>            77 include/sys/prex.h #define MUTEX_INITIALIZER	(mutex_t)0x4d496e69
+<a href='../S/267.html#L132'>mutex_t</a>           132 include/sys/prex.h int	mutex_init(mutex_t *mp);
+<a href='../S/267.html#L133'>mutex_t</a>           133 include/sys/prex.h int	mutex_destroy(mutex_t *mp);
+<a href='../S/267.html#L134'>mutex_t</a>           134 include/sys/prex.h int	mutex_trylock(mutex_t *mp);
+<a href='../S/267.html#L135'>mutex_t</a>           135 include/sys/prex.h int	mutex_lock(mutex_t *mp);
+<a href='../S/267.html#L136'>mutex_t</a>           136 include/sys/prex.h int	mutex_unlock(mutex_t *mp);
+<a href='../S/267.html#L140'>mutex_t</a>           140 include/sys/prex.h int	cond_wait(cond_t *cp, mutex_t *mp);
+<a href='../S/270.html#L179'>mutex_t</a>           179 include/sys/signal.h extern mutex_t __sig_lock;
+<a href='../S/277.html#L71'>mutex_t</a>            71 include/sys/types.h #define MUTEX_NULL	 ((mutex_t)0)
+<a href='../S/279.html#L72'>mutex_t</a>            72 include/sys/vnode.h 	mutex_t		v_lock;		/* lock for this vnode */
+<a href='../S/316.html#L69'>mutex_t</a>            69 sys/include/sync.h #define MUTEX_INITIALIZER	(mutex_t)0x4d496e69	/* 'MIni' */
+<a href='../S/316.html#L81'>mutex_t</a>            81 sys/include/sync.h int	 mutex_init(mutex_t *);
+<a href='../S/316.html#L82'>mutex_t</a>            82 sys/include/sync.h int	 mutex_destroy(mutex_t *);
+<a href='../S/316.html#L83'>mutex_t</a>            83 sys/include/sync.h int	 mutex_lock(mutex_t *);
+<a href='../S/316.html#L84'>mutex_t</a>            84 sys/include/sync.h int	 mutex_trylock(mutex_t *);
+<a href='../S/316.html#L85'>mutex_t</a>            85 sys/include/sync.h int	 mutex_unlock(mutex_t *);
+<a href='../S/316.html#L92'>mutex_t</a>            92 sys/include/sync.h int	 cond_wait(cond_t *, mutex_t *);
+<a href='../S/319.html#L65'>mutex_t</a>            65 sys/include/thread.h 	mutex_t 	mutex_waiting;	/* mutex pointer currently waiting */
+<a href='../S/345.html#L137'>mutex_t</a>           137 sys/sync/cond.c cond_wait(cond_t *cp, mutex_t *mp)
+<a href='../S/346.html#L80'>mutex_t</a>            80 sys/sync/mutex.c static int	mutex_valid(mutex_t);
+<a href='../S/346.html#L81'>mutex_t</a>            81 sys/sync/mutex.c static int	mutex_copyin(mutex_t *, mutex_t *);
+<a href='../S/346.html#L94'>mutex_t</a>            94 sys/sync/mutex.c mutex_init(mutex_t *mp)
+<a href='../S/346.html#L97'>mutex_t</a>            97 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L126'>mutex_t</a>           126 sys/sync/mutex.c mutex_deallocate(mutex_t m)
+<a href='../S/346.html#L139'>mutex_t</a>           139 sys/sync/mutex.c mutex_destroy(mutex_t *mp)
+<a href='../S/346.html#L141'>mutex_t</a>           141 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L167'>mutex_t</a>           167 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L187'>mutex_t</a>           187 sys/sync/mutex.c mutex_lock(mutex_t *mp)
+<a href='../S/346.html#L189'>mutex_t</a>           189 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L241'>mutex_t</a>           241 sys/sync/mutex.c mutex_trylock(mutex_t *mp)
+<a href='../S/346.html#L243'>mutex_t</a>           243 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L273'>mutex_t</a>           273 sys/sync/mutex.c mutex_unlock(mutex_t *mp)
+<a href='../S/346.html#L275'>mutex_t</a>           275 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L319'>mutex_t</a>           319 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L364'>mutex_t</a>           364 sys/sync/mutex.c mutex_valid(mutex_t m)
+<a href='../S/346.html#L366'>mutex_t</a>           366 sys/sync/mutex.c 	mutex_t tmp;
+<a href='../S/346.html#L383'>mutex_t</a>           383 sys/sync/mutex.c mutex_copyin(mutex_t *ump, mutex_t *kmp)
+<a href='../S/346.html#L385'>mutex_t</a>           385 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/346.html#L420'>mutex_t</a>           420 sys/sync/mutex.c 	mutex_t m = waiter-&gt;mutex_waiting;
+<a href='../S/346.html#L449'>mutex_t</a>           449 sys/sync/mutex.c 		m = (mutex_t)holder-&gt;mutex_waiting;
+<a href='../S/346.html#L473'>mutex_t</a>           473 sys/sync/mutex.c 	mutex_t m;
+<a href='../S/743.html#L47'>mutex_t</a>            47 usr/lib/posix/signal/__exception.c volatile mutex_t __sig_lock;
+<a href='../S/752.html#L40'>mutex_t</a>            40 usr/lib/prex/malloc/malloc.c static mutex_t malloc_lock = MUTEX_INITIALIZER;
+<a href='../S/754.html#L38'>mutex_t</a>            38 usr/lib/prex/malloc/malloc_r.c static mutex_t malloc_r_lock = MUTEX_INITIALIZER;
+<a href='../S/760.html#L33'>mutex_t</a>            33 usr/lib/prex/syscalls/cond_wait.c extern int _cond_wait(cond_t *cond, mutex_t *mu);
+<a href='../S/760.html#L39'>mutex_t</a>            39 usr/lib/prex/syscalls/cond_wait.c cond_wait(cond_t *cond, mutex_t *mu)
+<a href='../S/776.html#L33'>mutex_t</a>            33 usr/lib/prex/syscalls/mutex_lock.c extern int _mutex_lock(mutex_t *mu);
+<a href='../S/776.html#L39'>mutex_t</a>            39 usr/lib/prex/syscalls/mutex_lock.c mutex_lock(mutex_t *mu)
+<a href='../S/841.html#L64'>mutex_t</a>            64 usr/sample/mutex/mutex.c static mutex_t mtx_A, mtx_B;
+<a href='../S/883.html#L86'>mutex_t</a>            86 usr/server/fs/arfs/arfs_vnops.c static mutex_t arfs_lock = MUTEX_INITIALIZER;
+<a href='../S/888.html#L173'>mutex_t</a>           173 usr/server/fs/fatfs/fatfs.h 	mutex_t lock;		/* file system lock */
+<a href='../S/896.html#L59'>mutex_t</a>            59 usr/server/fs/fifofs/fifo_vnops.c 	mutex_t	fn_rmtx;	/* mutex for read */
+<a href='../S/896.html#L60'>mutex_t</a>            60 usr/server/fs/fifofs/fifo_vnops.c 	mutex_t	fn_wmtx;	/* mutex for write */
+<a href='../S/896.html#L100'>mutex_t</a>           100 usr/server/fs/fifofs/fifo_vnops.c static mutex_t fifo_lock = MUTEX_INITIALIZER;
+<a href='../S/902.html#L71'>mutex_t</a>            71 usr/server/fs/ramfs/ramfs_vnops.c static mutex_t ramfs_lock = MUTEX_INITIALIZER;
+<a href='../S/905.html#L88'>mutex_t</a>            88 usr/server/fs/vfs/vfs.h 	mutex_t	    t_lock;		/* lock for this task */
+<a href='../S/906.html#L63'>mutex_t</a>            63 usr/server/fs/vfs/vfs_bio.c static mutex_t bio_lock = MUTEX_INITIALIZER;
+<a href='../S/909.html#L63'>mutex_t</a>            63 usr/server/fs/vfs/vfs_mount.c static mutex_t mount_lock = MUTEX_INITIALIZER;
+<a href='../S/912.html#L57'>mutex_t</a>            57 usr/server/fs/vfs/vfs_task.c static mutex_t task_lock = MUTEX_INITIALIZER;
+<a href='../S/913.html#L76'>mutex_t</a>            76 usr/server/fs/vfs/vfs_vnode.c static mutex_t vnode_lock = MUTEX_INITIALIZER;
+<a href='../S/938.html#L55'>mutex_t</a>            55 usr/test/deadlock/deadlock.c static mutex_t mtx_A, mtx_B;
+<a href='../S/977.html#L37'>mutex_t</a>            37 usr/test/mutex/mutex.c static mutex_t mtx_A = MUTEX_INITIALIZER;
+<a href='../S/977.html#L38'>mutex_t</a>            38 usr/test/mutex/mutex.c static mutex_t mtx_B, mtx_C;
+</pre>
+</body>
+</html>

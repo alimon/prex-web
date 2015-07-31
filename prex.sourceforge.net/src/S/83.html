@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/dev/rtc/mc146818.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1032.html'>dev</a>/<a href='../files/1039.html'>rtc</a>/mc146818.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='83.html#L77'>[^]</a><a href='83.html#L150'>[v]</a>[top]<a href='83.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='83.html#L77' title='Defined at 77.'>mc_read</a></li>
+<li><a href='83.html#L91' title='Defined at 91.'>mc_write</a></li>
+<li><a href='83.html#L103' title='Defined at 103.'>mc146818_gettime</a></li>
+<li><a href='83.html#L144' title='Defined at 144.'>mc146818_settime</a></li>
+<li><a href='83.html#L150' title='Defined at 150.'>mc146818_init</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * mc146818.c - mc146818 and compatible RTC</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='../I/277.html'>sys/time.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='259.html'>sys/ioctl.h</a>&gt;
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='97.html'>driver.h</a>&gt;
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='100.html'>rtc.h</a>&gt;
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/832.html' title='Multiple refered from 2 places.'>RTC_INDEX</a>       (<a href='../Y/74.html' title='Multiple used in 2 places.'>CONFIG_MC146818_BASE</a> + 0)
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='../R/827.html' title='Multiple refered from 2 places.'>RTC_DATA</a>        (<a href='../Y/74.html' title='Multiple used in 2 places.'>CONFIG_MC146818_BASE</a> + 1)
+<a id='L43' name='L43' />  43 
+<a id='L44' name='L44' />  44 <em class='sharp'>#define</em> <a href='83.html#L114' title='Refered from 114 in bsp/drv/dev/rtc/mc146818.c.'>RTC_SEC</a>         0x00
+<a id='L45' name='L45' />  45 <em class='sharp'>#define</em> <a href='83.html#L115' title='Refered from 115 in bsp/drv/dev/rtc/mc146818.c.'>RTC_MIN</a>         0x02
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='83.html#L116' title='Refered from 116 in bsp/drv/dev/rtc/mc146818.c.'>RTC_HOUR</a>        0x04
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> <a href='83.html#L117' title='Refered from 117 in bsp/drv/dev/rtc/mc146818.c.'>RTC_DOW</a>         0x06    <em class='comment'>/* day of week */</em>
+<a id='L48' name='L48' />  48 <em class='sharp'>#define</em> <a href='83.html#L118' title='Refered from 118 in bsp/drv/dev/rtc/mc146818.c.'>RTC_DAY</a>         0x07
+<a id='L49' name='L49' />  49 <em class='sharp'>#define</em> <a href='83.html#L119' title='Refered from 119 in bsp/drv/dev/rtc/mc146818.c.'>RTC_MON</a>         0x08
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='83.html#L120' title='Refered from 120 in bsp/drv/dev/rtc/mc146818.c.'>RTC_YEAR</a>        0x09
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='83.html#L110' title='Refered from 110 in bsp/drv/dev/rtc/mc146818.c.'>RTC_STS_A</a>       0x0a
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='83.html#L110' title='Refered from 110 in bsp/drv/dev/rtc/mc146818.c.'>RTC_UIP</a>           0x80
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> <a href='83.html#L122' title='Refered from 122 in bsp/drv/dev/rtc/mc146818.c.'>RTC_STS_B</a>       0x0b
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> <a href='83.html#L122' title='Refered from 122 in bsp/drv/dev/rtc/mc146818.c.'>RTC_BCD</a>           0x04
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>      <a href='83.html#L150' title='Defined at 150 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *);
+<a id='L57' name='L57' />  57 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>      <a href='83.html#L103' title='Defined at 103 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_gettime</a>(<strong class='reserved'>void</strong> *, <strong class='reserved'>struct</strong> <a href='../Y/2166.html' title='Multiple used in 30 places.'>timeval</a> *);
+<a id='L58' name='L58' />  58 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>      <a href='83.html#L144' title='Defined at 144 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_settime</a>(<strong class='reserved'>void</strong> *, <strong class='reserved'>struct</strong> <a href='../Y/2166.html' title='Multiple used in 30 places.'>timeval</a> *);
+<a id='L59' name='L59' />  59 
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61 <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> <a href='83.html#L61' title='Used at 61 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_driver</a> = <em class='brace'>{</em>
+<a id='L62' name='L62' />  62         <em class='comment'>/* name */</em>      "mc146818",
+<a id='L63' name='L63' />  63         <em class='comment'>/* devops */</em>    <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L64' name='L64' />  64         <em class='comment'>/* devsz */</em>     0,
+<a id='L65' name='L65' />  65         <em class='comment'>/* flags */</em>     0,
+<a id='L66' name='L66' />  66         <em class='comment'>/* probe */</em>     <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L67' name='L67' />  67         <em class='comment'>/* init */</em>      <a href='83.html#L150' title='Defined at 150 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_init</a>,
+<a id='L68' name='L68' />  68         <em class='comment'>/* shutdown */</em>  <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L69' name='L69' />  69 <em class='brace'>}</em>;
+<a id='L70' name='L70' />  70 
+<a id='L71' name='L71' />  71 <strong class='reserved'>struct</strong> <a href='../Y/1790.html' title='Multiple used in 6 places.'>rtc_ops</a> <a href='../Y/1272.html' title='Multiple used in 2 places.'>mc146818_ops</a> = <em class='brace'>{</em>
+<a id='L72' name='L72' />  72         <em class='comment'>/* gettime */</em>   <a href='83.html#L103' title='Defined at 103 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_gettime</a>,
+<a id='L73' name='L73' />  73         <em class='comment'>/* settime */</em>   <a href='83.html#L144' title='Defined at 144 in bsp/drv/dev/rtc/mc146818.c.'>mc146818_settime</a>,
+<a id='L74' name='L74' />  74 <em class='brace'>}</em>;
+<a id='L75' name='L75' />  75 
+<a id='L76' name='L76' />  76 <strong class='reserved'>static</strong> <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>
+<a id='L77' name='L77' />  77 <a href='../R/2140.html' title='Multiple refered from 9 places.'>mc_read</a>(<a href='../Y/2247.html' title='Multiple used in 22 places.'>u_char</a> <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>)
+<a id='L78' name='L78' />  78 <em class='brace'>{</em>
+<a id='L79' name='L79' />  79         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> <a href='../Y/2294.html' title='Multiple used in 187 places.'>val</a>;
+<a id='L80' name='L80' />  80         <strong class='reserved'>int</strong> <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>;
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82         <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = <a href='../D/3494.html' title='Multiple defined in 3 places.'>splhigh</a>();
+<a id='L83' name='L83' />  83         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='83.html#L41' title='Defined at 41 in bsp/drv/dev/rtc/mc146818.c.'>RTC_INDEX</a>, <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>);
+<a id='L84' name='L84' />  84         <a href='../Y/2294.html' title='Multiple used in 187 places.'>val</a> = <a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='83.html#L42' title='Defined at 42 in bsp/drv/dev/rtc/mc146818.c.'>RTC_DATA</a>);
+<a id='L85' name='L85' />  85         <a href='../D/3497.html' title='Multiple defined in 3 places.'>splx</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>);
+<a id='L86' name='L86' />  86         <strong class='reserved'>return</strong> <a href='../Y/2294.html' title='Multiple used in 187 places.'>val</a>;
+<a id='L87' name='L87' />  87 <em class='brace'>}</em>
+<a id='L88' name='L88' />  88 
+<a id='L89' name='L89' />  89 <em class='sharp'>#if</em> 0
+<a id='L90' name='L90' />  90 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L91' name='L91' />  91 mc_write(<a href='../Y/2247.html' title='Multiple used in 22 places.'>u_char</a> <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>, <a href='../Y/2247.html' title='Multiple used in 22 places.'>u_char</a> <a href='../Y/2294.html' title='Multiple used in 187 places.'>val</a>)
+<a id='L92' name='L92' />  92 <em class='brace'>{</em>
+<a id='L93' name='L93' />  93         <strong class='reserved'>int</strong> <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>;
+<a id='L94' name='L94' />  94 
+<a id='L95' name='L95' />  95         <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = <a href='../D/3494.html' title='Multiple defined in 3 places.'>splhigh</a>();
+<a id='L96' name='L96' />  96         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='83.html#L41' title='Defined at 41 in bsp/drv/dev/rtc/mc146818.c.'>RTC_INDEX</a>, <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>);
+<a id='L97' name='L97' />  97         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='83.html#L42' title='Defined at 42 in bsp/drv/dev/rtc/mc146818.c.'>RTC_DATA</a>, <a href='../Y/2294.html' title='Multiple used in 187 places.'>val</a>);
+<a id='L98' name='L98' />  98         <a href='../D/3497.html' title='Multiple defined in 3 places.'>splx</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>);
+<a id='L99' name='L99' />  99 <em class='brace'>}</em>
+<a id='L100' name='L100' /> 100 <em class='sharp'>#endif</em>
+<a id='L101' name='L101' /> 101 
+<a id='L102' name='L102' /> 102 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L103' name='L103' /> 103 <a href='../R/2137.html' title='Multiple refered from 2 places.'>mc146818_gettime</a>(<strong class='reserved'>void</strong> *<a href='../Y/397.html' title='Multiple used in 51 places.'>aux</a>, <strong class='reserved'>struct</strong> <a href='../Y/2166.html' title='Multiple used in 30 places.'>timeval</a> *<a href='../Y/2237.html' title='Multiple used in 34 places.'>tv</a>)
+<a id='L104' name='L104' /> 104 <em class='brace'>{</em>
+<a id='L105' name='L105' /> 105         <strong class='reserved'>struct</strong> <a href='../Y/522.html' title='Multiple used in 6 places.'>clock_ymdhms</a> <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>;
+<a id='L106' name='L106' /> 106         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L107' name='L107' /> 107 
+<a id='L108' name='L108' /> 108         <em class='comment'>/* Wait until data ready */</em>
+<a id='L109' name='L109' /> 109         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; 1000000; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++)
+<a id='L110' name='L110' /> 110                 <strong class='reserved'>if</strong> (!(<a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L51' title='Defined at 51 in bsp/drv/dev/rtc/mc146818.c.'>RTC_STS_A</a>) &amp; <a href='83.html#L52' title='Defined at 52 in bsp/drv/dev/rtc/mc146818.c.'>RTC_UIP</a>))
+<a id='L111' name='L111' /> 111                         <strong class='reserved'>break</strong>;
+<a id='L112' name='L112' /> 112 
+<a id='L113' name='L113' /> 113         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1418.html' title='Multiple used in 2 places.'>nsec</a> = 0;
+<a id='L114' name='L114' /> 114         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L44' title='Defined at 44 in bsp/drv/dev/rtc/mc146818.c.'>RTC_SEC</a>);
+<a id='L115' name='L115' /> 115         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L45' title='Defined at 45 in bsp/drv/dev/rtc/mc146818.c.'>RTC_MIN</a>);
+<a id='L116' name='L116' /> 116         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1023.html' title='Multiple used in 9 places.'>hour</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L46' title='Defined at 46 in bsp/drv/dev/rtc/mc146818.c.'>RTC_HOUR</a>);
+<a id='L117' name='L117' /> 117         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/696.html' title='Multiple used in 3 places.'>dow</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L47' title='Defined at 47 in bsp/drv/dev/rtc/mc146818.c.'>RTC_DOW</a>);
+<a id='L118' name='L118' /> 118         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/623.html' title='Multiple used in 6 places.'>day</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L48' title='Defined at 48 in bsp/drv/dev/rtc/mc146818.c.'>RTC_DAY</a>);
+<a id='L119' name='L119' /> 119         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1297.html' title='Multiple used in 12 places.'>mon</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L49' title='Defined at 49 in bsp/drv/dev/rtc/mc146818.c.'>RTC_MON</a>);
+<a id='L120' name='L120' /> 120         <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a> = <a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L50' title='Defined at 50 in bsp/drv/dev/rtc/mc146818.c.'>RTC_YEAR</a>);
+<a id='L121' name='L121' /> 121 
+<a id='L122' name='L122' /> 122         <strong class='reserved'>if</strong> (!(<a href='83.html#L77' title='Defined at 77 in bsp/drv/dev/rtc/mc146818.c.'>mc_read</a>(<a href='83.html#L53' title='Defined at 53 in bsp/drv/dev/rtc/mc146818.c.'>RTC_STS_B</a>) &amp; <a href='83.html#L54' title='Defined at 54 in bsp/drv/dev/rtc/mc146818.c.'>RTC_BCD</a>)) <em class='brace'>{</em>
+<a id='L123' name='L123' /> 123                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='100.html#L64' title='Defined at 64 in bsp/drv/include/rtc.h.'>FROMBCD</a>(<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L124' name='L124' /> 124                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a> = <a href='100.html#L64' title='Defined at 64 in bsp/drv/include/rtc.h.'>FROMBCD</a>(<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a>);
+<a id='L125' name='L125' /> 125                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1023.html' title='Multiple used in 9 places.'>hour</a> = <a href='100.html#L64' title='Defined at 64 in bsp/drv/include/rtc.h.'>FROMBCD</a>(<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1023.html' title='Multiple used in 9 places.'>hour</a>);
+<a id='L126' name='L126' /> 126                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/623.html' title='Multiple used in 6 places.'>day</a> = <a href='100.html#L64' title='Defined at 64 in bsp/drv/include/rtc.h.'>FROMBCD</a>(<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/623.html' title='Multiple used in 6 places.'>day</a>);
+<a id='L127' name='L127' /> 127                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1297.html' title='Multiple used in 12 places.'>mon</a> = <a href='100.html#L64' title='Defined at 64 in bsp/drv/include/rtc.h.'>FROMBCD</a>(<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1297.html' title='Multiple used in 12 places.'>mon</a>);
+<a id='L128' name='L128' /> 128                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a> = <a href='100.html#L64' title='Defined at 64 in bsp/drv/include/rtc.h.'>FROMBCD</a>(<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a>);
+<a id='L129' name='L129' /> 129         <em class='brace'>}</em>
+<a id='L130' name='L130' /> 130         <strong class='reserved'>if</strong> (<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a> &lt; 80)
+<a id='L131' name='L131' /> 131                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a> += 2000;
+<a id='L132' name='L132' /> 132         <strong class='reserved'>else</strong>
+<a id='L133' name='L133' /> 133                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a> += 1900;
+<a id='L134' name='L134' /> 134 <em class='sharp'>#ifdef</em> <a href='../Y/93.html' title='Multiple used in 63 places.'>DEBUG</a>
+<a id='L135' name='L135' /> 135         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("rtc: system time was %d/%d/%d %d:%d:%d\n",
+<a id='L136' name='L136' /> 136                 <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/2450.html' title='Multiple used in 26 places.'>year</a>, <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1297.html' title='Multiple used in 12 places.'>mon</a>, <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/623.html' title='Multiple used in 6 places.'>day</a>, <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1023.html' title='Multiple used in 9 places.'>hour</a>, <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='575.html#L41' title='Defined at 41 in usr/lib/libc/stdlib/qsort.c.'>min</a>, <a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>.<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L137' name='L137' /> 137 <em class='sharp'>#endif</em>
+<a id='L138' name='L138' /> 138         <a href='../Y/2237.html' title='Multiple used in 34 places.'>tv</a>-&gt;<a href='../Y/2239.html' title='Multiple used in 20 places.'>tv_usec</a> = 0;
+<a id='L139' name='L139' /> 139         <a href='../Y/2237.html' title='Multiple used in 34 places.'>tv</a>-&gt;<a href='../Y/2238.html' title='Multiple used in 23 places.'>tv_sec</a> = <a href='85.html#L106' title='Defined at 106 in bsp/drv/dev/rtc/rtc.c.'>rtc_ymdhms_to_secs</a>(&amp;<a href='../Y/605.html' title='Multiple used in 20 places.'>cy</a>);
+<a id='L140' name='L140' /> 140         <strong class='reserved'>return</strong> 0;
+<a id='L141' name='L141' /> 141 <em class='brace'>}</em>
+<a id='L142' name='L142' /> 142 
+<a id='L143' name='L143' /> 143 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L144' name='L144' /> 144 <a href='../R/2139.html' title='Multiple refered from 2 places.'>mc146818_settime</a>(<strong class='reserved'>void</strong> *<a href='../Y/397.html' title='Multiple used in 51 places.'>aux</a>, <strong class='reserved'>struct</strong> <a href='../Y/2166.html' title='Multiple used in 30 places.'>timeval</a> *<a href='../Y/2225.html' title='Multiple used in 8 places.'>ts</a>)
+<a id='L145' name='L145' /> 145 <em class='brace'>{</em>
+<a id='L146' name='L146' /> 146         <strong class='reserved'>return</strong> 0;
+<a id='L147' name='L147' /> 147 <em class='brace'>}</em>
+<a id='L148' name='L148' /> 148 
+<a id='L149' name='L149' /> 149 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L150' name='L150' /> 150 <a href='../R/2138.html' title='Multiple refered from 2 places.'>mc146818_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/1881.html' title='Multiple used in 99 places.'>self</a>)
+<a id='L151' name='L151' /> 151 <em class='brace'>{</em>
+<a id='L152' name='L152' /> 152 
+<a id='L153' name='L153' /> 153         <a href='85.html#L211' title='Defined at 211 in bsp/drv/dev/rtc/rtc.c.'>rtc_attach</a>(&amp;<a href='../Y/1272.html' title='Multiple used in 2 places.'>mc146818_ops</a>, <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L154' name='L154' /> 154         <strong class='reserved'>return</strong> 0;
+<a id='L155' name='L155' /> 155 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='83.html#L77'>[^]</a><a href='83.html#L150'>[v]</a><a href='83.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

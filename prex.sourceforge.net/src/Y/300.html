@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__sig_pending</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/270.html#L189'>__sig_pending</a>     189 include/sys/signal.h extern sigset_t __sig_pending;
+<a href='../S/705.html#L136'>__sig_pending</a>     136 usr/lib/posix/process/fork.c 		__sig_pending = 0;
+<a href='../S/706.html#L156'>__sig_pending</a>     156 usr/lib/posix/process/fork_nommu.c 		__sig_pending = 0;
+<a href='../S/743.html#L44'>__sig_pending</a>      44 usr/lib/posix/signal/__exception.c sigset_t __sig_pending;
+<a href='../S/743.html#L68'>__sig_pending</a>      68 usr/lib/posix/signal/__exception.c 		active = __sig_pending &amp; ~__sig_mask;
+<a href='../S/743.html#L90'>__sig_pending</a>      90 usr/lib/posix/signal/__exception.c 					__sig_pending &amp;= ~sigmask(sig);
+<a href='../S/743.html#L108'>__sig_pending</a>     108 usr/lib/posix/signal/__exception.c 			__sig_pending &amp;= ~sigmask(sig);
+<a href='../S/743.html#L142'>__sig_pending</a>     142 usr/lib/posix/signal/__exception.c 			__sig_pending |= sigmask(excpt);
+<a href='../S/743.html#L164'>__sig_pending</a>     164 usr/lib/posix/signal/__exception.c 	__sig_pending = 0;
+<a href='../S/743.html#L190'>__sig_pending</a>     190 usr/lib/posix/signal/__exception.c 	__sig_pending = 0;
+<a href='../S/735.html#L51'>__sig_pending</a>      51 usr/lib/posix/signal/pause.c 			    !(__sig_pending &amp; sigmask(sig)))
+<a href='../S/736.html#L64'>__sig_pending</a>      64 usr/lib/posix/signal/sigaction.c 		__sig_pending &amp;= ~sigmask(signum);
+<a href='../S/740.html#L46'>__sig_pending</a>      46 usr/lib/posix/signal/sigpending.c 	pending = __sig_pending;
+</pre>
+</body>
+</html>

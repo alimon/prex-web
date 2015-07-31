@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>context_set</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/308.html#L100'>context_set</a>       100 sys/include/hal.h void	  context_set(context_t, int, register_t);
+<a href='../S/328.html#L347'>context_set</a>       347 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UENTRY, (register_t)handler);
+<a href='../S/328.html#L348'>context_set</a>       348 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UARG, (register_t)excno);
+<a href='../S/335.html#L106'>context_set</a>       106 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L107'>context_set</a>       107 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)&amp;syscall_ret);
+<a href='../S/335.html#L188'>context_set</a>       188 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_UENTRY, (register_t)entry);
+<a href='../S/335.html#L190'>context_set</a>       190 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_USTACK, (register_t)stack);
+<a href='../S/335.html#L541'>context_set</a>       541 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L542'>context_set</a>       542 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)entry);
+<a href='../S/335.html#L543'>context_set</a>       543 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KARG, (register_t)arg);
+<a href='../S/335.html#L588'>context_set</a>       588 sys/kern/thread.c 	context_set(&amp;idle_thread.ctx, CTX_KSTACK, (register_t)sp);
+</pre>
+</body>
+</html>

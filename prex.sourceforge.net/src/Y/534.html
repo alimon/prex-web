@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cmdtab</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/858.html#L61'>cmdtab</a>             61 usr/sbin/diskutil/diskutil.c struct cmdtab {
+<a href='../S/858.html#L67'>cmdtab</a>             67 usr/sbin/diskutil/diskutil.c static const struct cmdtab cmdtab[] = {
+<a href='../S/858.html#L92'>cmdtab</a>             92 usr/sbin/diskutil/diskutil.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/858.html#L93'>cmdtab</a>             93 usr/sbin/diskutil/diskutil.c 		if (cmdtab[i].usage)
+<a href='../S/858.html#L94'>cmdtab</a>             94 usr/sbin/diskutil/diskutil.c 			fputs(cmdtab[i].usage, stderr);
+<a href='../S/858.html#L159'>cmdtab</a>            159 usr/sbin/diskutil/diskutil.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/858.html#L160'>cmdtab</a>            160 usr/sbin/diskutil/diskutil.c 		if (!strncmp(argv[1], cmdtab[i].cmd, LINE_MAX)) {
+<a href='../S/858.html#L161'>cmdtab</a>            161 usr/sbin/diskutil/diskutil.c 			(cmdtab[i].func)(argc, argv);
+<a href='../S/870.html#L61'>cmdtab</a>             61 usr/sbin/pmctrl/pmctrl.c struct cmdtab {
+<a href='../S/870.html#L67'>cmdtab</a>             67 usr/sbin/pmctrl/pmctrl.c static const struct cmdtab cmdtab[] = {
+<a href='../S/870.html#L94'>cmdtab</a>             94 usr/sbin/pmctrl/pmctrl.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/870.html#L95'>cmdtab</a>             95 usr/sbin/pmctrl/pmctrl.c 		if (cmdtab[i].usage)
+<a href='../S/870.html#L96'>cmdtab</a>             96 usr/sbin/pmctrl/pmctrl.c 			fprintf(stderr, " %-8s -- %s\n", cmdtab[i].cmd,
+<a href='../S/870.html#L97'>cmdtab</a>             97 usr/sbin/pmctrl/pmctrl.c 			       cmdtab[i].usage);
+<a href='../S/870.html#L267'>cmdtab</a>            267 usr/sbin/pmctrl/pmctrl.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/870.html#L268'>cmdtab</a>            268 usr/sbin/pmctrl/pmctrl.c 		if (!strncmp(argv[1], cmdtab[i].cmd, LINE_MAX)) {
+<a href='../S/870.html#L269'>cmdtab</a>            269 usr/sbin/pmctrl/pmctrl.c 			(cmdtab[i].func)(argc, argv);
+</pre>
+</body>
+</html>

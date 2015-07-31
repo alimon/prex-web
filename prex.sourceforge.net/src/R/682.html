@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>PAGE_SIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L169'>PAGE_SIZE</a>         169 bsp/hal/arm/arch/mmu.c 		pa += PAGE_SIZE;
+<a href='../S/131.html#L170'>PAGE_SIZE</a>         170 bsp/hal/arm/arch/mmu.c 		va += PAGE_SIZE;
+<a href='../S/131.html#L171'>PAGE_SIZE</a>         171 bsp/hal/arm/arch/mmu.c 		size -= PAGE_SIZE;
+<a href='../S/131.html#L202'>PAGE_SIZE</a>         202 bsp/hal/arm/arch/mmu.c 	mmu_map(pgd, 0, 0, PAGE_SIZE, PG_SYSTEM);
+<a href='../S/131.html#L260'>PAGE_SIZE</a>         260 bsp/hal/arm/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/131.html#L323'>PAGE_SIZE</a>         323 bsp/hal/arm/arch/mmu.c 	if (mmu_map(boot_pgd, 0, CONFIG_ARM_VECTORS, PAGE_SIZE, PG_SYSTEM))
+<a href='../S/178.html#L129'>PAGE_SIZE</a>         129 bsp/hal/x86/arch/mmu.c 			if ((pg = page_alloc(PAGE_SIZE)) == 0) {
+<a href='../S/178.html#L135'>PAGE_SIZE</a>         135 bsp/hal/x86/arch/mmu.c 			memset(pte, 0, PAGE_SIZE);
+<a href='../S/178.html#L141'>PAGE_SIZE</a>         141 bsp/hal/x86/arch/mmu.c 		pa += PAGE_SIZE;
+<a href='../S/178.html#L142'>PAGE_SIZE</a>         142 bsp/hal/x86/arch/mmu.c 		va += PAGE_SIZE;
+<a href='../S/178.html#L143'>PAGE_SIZE</a>         143 bsp/hal/x86/arch/mmu.c 		size -= PAGE_SIZE;
+<a href='../S/178.html#L165'>PAGE_SIZE</a>         165 bsp/hal/x86/arch/mmu.c 	if ((pg = page_alloc(PAGE_SIZE)) == 0)
+<a href='../S/178.html#L168'>PAGE_SIZE</a>         168 bsp/hal/x86/arch/mmu.c 	memset(pgd, 0, PAGE_SIZE);
+<a href='../S/178.html#L192'>PAGE_SIZE</a>         192 bsp/hal/x86/arch/mmu.c 				  PAGE_SIZE);
+<a href='../S/178.html#L195'>PAGE_SIZE</a>         195 bsp/hal/x86/arch/mmu.c 	page_free(kvtop(pgd), PAGE_SIZE);
+<a href='../S/178.html#L230'>PAGE_SIZE</a>         230 bsp/hal/x86/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/264.html#L118'>PAGE_SIZE</a>         118 include/sys/param.h #define USRSTACK	(0 + PAGE_SIZE)	/* base address of user stack */
+<a href='../S/264.html#L142'>PAGE_SIZE</a>         142 include/sys/param.h #define PAGE_MASK	(PAGE_SIZE-1)
+<a href='../S/341.html#L94'>PAGE_SIZE</a>          94 sys/mem/kmem.c #define NR_BLOCK_LIST	(PAGE_SIZE / ALIGN_SIZE)
+<a href='../S/341.html#L101'>PAGE_SIZE</a>         101 sys/mem/kmem.c #define MAX_ALLOC_SIZE	(size_t)(PAGE_SIZE - PGHDR_SIZE)
+<a href='../S/341.html#L104'>PAGE_SIZE</a>         104 sys/mem/kmem.c #define MAX_BLOCK_SIZE	(u_short)(PAGE_SIZE - (PGHDR_SIZE - BLKHDR_SIZE))
+<a href='../S/341.html#L108'>PAGE_SIZE</a>         108 sys/mem/kmem.c 			    ((vaddr_t)(n) &amp; (vaddr_t)~(PAGE_SIZE - 1))
+<a href='../S/341.html#L206'>PAGE_SIZE</a>         206 sys/mem/kmem.c 		if ((pa = page_alloc(PAGE_SIZE)) == 0) {
+<a href='../S/341.html#L304'>PAGE_SIZE</a>         304 sys/mem/kmem.c 		page_free(kvtop(pg), PAGE_SIZE);
+<a href='../S/343.html#L799'>PAGE_SIZE</a>         799 sys/mem/vm.c   	seg-&gt;addr = PAGE_SIZE;
+<a href='../S/343.html#L801'>PAGE_SIZE</a>         801 sys/mem/vm.c   	seg-&gt;size = USERLIMIT - PAGE_SIZE;
+<a href='../S/481.html#L35'>PAGE_SIZE</a>          35 usr/lib/libc/gen/getpagesize.c 	return PAGE_SIZE;
+</pre>
+</body>
+</html>

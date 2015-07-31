@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cpu_regs</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/126.html#L64'>cpu_regs</a>           64 bsp/hal/arm/arch/context.c 	struct cpu_regs *u;
+<a href='../S/126.html#L71'>cpu_regs</a>           71 bsp/hal/arm/arch/context.c 		ctx-&gt;uregs = (struct cpu_regs *)
+<a href='../S/126.html#L72'>cpu_regs</a>           72 bsp/hal/arm/arch/context.c 			((vaddr_t)val - sizeof(struct cpu_regs));
+<a href='../S/126.html#L155'>cpu_regs</a>          155 bsp/hal/arm/arch/context.c 	struct cpu_regs *cur, *sav;
+<a href='../S/126.html#L159'>cpu_regs</a>          159 bsp/hal/arm/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;sp - sizeof(struct cpu_regs));
+<a href='../S/126.html#L174'>cpu_regs</a>          174 bsp/hal/arm/arch/context.c 	struct cpu_regs *cur;
+<a href='../S/132.html#L73'>cpu_regs</a>           73 bsp/hal/arm/arch/trap.c trap_handler(struct cpu_regs *regs)
+<a href='../S/132.html#L108'>cpu_regs</a>          108 bsp/hal/arm/arch/trap.c trap_dump(struct cpu_regs *r)
+<a href='../S/140.html#L66'>cpu_regs</a>           66 bsp/hal/arm/include/context.h struct cpu_regs {
+<a href='../S/140.html#L109'>cpu_regs</a>          109 bsp/hal/arm/include/context.h 	struct cpu_regs	*uregs;		/* user mode registers */
+<a href='../S/140.html#L110'>cpu_regs</a>          110 bsp/hal/arm/include/context.h 	struct cpu_regs	*saved_regs;	/* savecd user mode registers */
+<a href='../S/145.html#L43'>cpu_regs</a>           43 bsp/hal/arm/include/trap.h void	 trap_handler(struct cpu_regs *);
+<a href='../S/145.html#L44'>cpu_regs</a>           44 bsp/hal/arm/include/trap.h void	 trap_dump(struct cpu_regs *);
+<a href='../S/154.html#L65'>cpu_regs</a>           65 bsp/hal/ppc/arch/context.c 	struct cpu_regs *u;
+<a href='../S/154.html#L76'>cpu_regs</a>           76 bsp/hal/ppc/arch/context.c 		ctx-&gt;uregs = (struct cpu_regs *)
+<a href='../S/154.html#L77'>cpu_regs</a>           77 bsp/hal/ppc/arch/context.c 				((uint32_t)val - sizeof(struct cpu_regs));
+<a href='../S/154.html#L161'>cpu_regs</a>          161 bsp/hal/ppc/arch/context.c 	struct cpu_regs *cur, *sav;
+<a href='../S/154.html#L165'>cpu_regs</a>          165 bsp/hal/ppc/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;gr[1] - sizeof(struct cpu_regs));
+<a href='../S/154.html#L180'>cpu_regs</a>          180 bsp/hal/ppc/arch/context.c 	struct cpu_regs *cur;
+<a href='../S/159.html#L98'>cpu_regs</a>           98 bsp/hal/ppc/arch/trap.c trap_handler(struct cpu_regs *regs)
+<a href='../S/159.html#L119'>cpu_regs</a>          119 bsp/hal/ppc/arch/trap.c trap_dump(struct cpu_regs *r)
+<a href='../S/161.html#L44'>cpu_regs</a>           44 bsp/hal/ppc/include/context.h struct cpu_regs {
+<a href='../S/161.html#L72'>cpu_regs</a>           72 bsp/hal/ppc/include/context.h 	struct cpu_regs	*uregs;		/* user mode registers */
+<a href='../S/161.html#L73'>cpu_regs</a>           73 bsp/hal/ppc/include/context.h 	struct cpu_regs	*saved_regs;	/* saved user mode registers */
+<a href='../S/167.html#L57'>cpu_regs</a>           57 bsp/hal/ppc/include/trap.h void	 trap_handler(struct cpu_regs *);
+<a href='../S/167.html#L58'>cpu_regs</a>           58 bsp/hal/ppc/include/trap.h void	 trap_dump(struct cpu_regs *);
+<a href='../S/169.html#L175'>cpu_regs</a>          175 bsp/hal/ppc/prep/interrupt.c interrupt_handler(struct cpu_regs *regs)
+<a href='../S/173.html#L65'>cpu_regs</a>           65 bsp/hal/x86/arch/context.c 	struct cpu_regs *u;
+<a href='../S/173.html#L73'>cpu_regs</a>           73 bsp/hal/x86/arch/context.c 		ctx-&gt;uregs = (struct cpu_regs *)
+<a href='../S/173.html#L74'>cpu_regs</a>           74 bsp/hal/x86/arch/context.c 				((uint32_t)val - sizeof(struct cpu_regs));
+<a href='../S/173.html#L170'>cpu_regs</a>          170 bsp/hal/x86/arch/context.c 	struct cpu_regs *cur, *sav;
+<a href='../S/173.html#L174'>cpu_regs</a>          174 bsp/hal/x86/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;esp - sizeof(*sav));
+<a href='../S/173.html#L190'>cpu_regs</a>          190 bsp/hal/x86/arch/context.c 	struct cpu_regs *cur;
+<a href='../S/179.html#L105'>cpu_regs</a>          105 bsp/hal/x86/arch/trap.c trap_handler(struct cpu_regs *regs)
+<a href='../S/179.html#L151'>cpu_regs</a>          151 bsp/hal/x86/arch/trap.c trap_dump(struct cpu_regs *r)
+<a href='../S/180.html#L45'>cpu_regs</a>           45 bsp/hal/x86/include/context.h struct cpu_regs {
+<a href='../S/180.html#L95'>cpu_regs</a>           95 bsp/hal/x86/include/context.h 	struct cpu_regs	*uregs;		/* user mode registers */
+<a href='../S/180.html#L96'>cpu_regs</a>           96 bsp/hal/x86/include/context.h 	struct cpu_regs	*saved_regs;	/* saved user mode registers */
+<a href='../S/185.html#L36'>cpu_regs</a>           36 bsp/hal/x86/include/trap.h void	 trap_handler(struct cpu_regs *);
+<a href='../S/185.html#L37'>cpu_regs</a>           37 bsp/hal/x86/include/trap.h void	 trap_dump(struct cpu_regs *);
+<a href='../S/188.html#L156'>cpu_regs</a>          156 bsp/hal/x86/pc/interrupt.c interrupt_handler(struct cpu_regs *regs)
+</pre>
+</body>
+</html>

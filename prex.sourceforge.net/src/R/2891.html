@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vm_map_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/318.html#L48'>vm_map_t</a>           48 sys/include/task.h 	vm_map_t	map;		/* address space description */
+<a href='../S/323.html#L81'>vm_map_t</a>           81 sys/include/vm.h vm_map_t vm_dup(vm_map_t);
+<a href='../S/323.html#L82'>vm_map_t</a>           82 sys/include/vm.h vm_map_t vm_create(void);
+<a href='../S/323.html#L83'>vm_map_t</a>           83 sys/include/vm.h int	 vm_reference(vm_map_t);
+<a href='../S/323.html#L84'>vm_map_t</a>           84 sys/include/vm.h void	 vm_terminate(vm_map_t);
+<a href='../S/323.html#L85'>vm_map_t</a>           85 sys/include/vm.h void	 vm_switch(vm_map_t);
+<a href='../S/323.html#L86'>vm_map_t</a>           86 sys/include/vm.h int	 vm_load(vm_map_t, struct module *, void **);
+<a href='../S/334.html#L65'>vm_map_t</a>           65 sys/kern/task.c 	vm_map_t map = NULL;
+<a href='../S/343.html#L64'>vm_map_t</a>           64 sys/mem/vm.c   static int	   do_allocate(vm_map_t, void **, size_t, int);
+<a href='../S/343.html#L65'>vm_map_t</a>           65 sys/mem/vm.c   static int	   do_free(vm_map_t, void *);
+<a href='../S/343.html#L66'>vm_map_t</a>           66 sys/mem/vm.c   static int	   do_attribute(vm_map_t, void *, int);
+<a href='../S/343.html#L67'>vm_map_t</a>           67 sys/mem/vm.c   static int	   do_map(vm_map_t, void *, size_t, void **);
+<a href='../S/343.html#L68'>vm_map_t</a>           68 sys/mem/vm.c   static vm_map_t	   do_dup(vm_map_t);
+<a href='../S/343.html#L119'>vm_map_t</a>          119 sys/mem/vm.c   do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L207'>vm_map_t</a>          207 sys/mem/vm.c   do_free(vm_map_t map, void *addr)
+<a href='../S/343.html#L276'>vm_map_t</a>          276 sys/mem/vm.c   do_attribute(vm_map_t map, void *addr, int attr)
+<a href='../S/343.html#L386'>vm_map_t</a>          386 sys/mem/vm.c   do_map(vm_map_t map, void *addr, size_t size, void **alloc)
+<a href='../S/343.html#L389'>vm_map_t</a>          389 sys/mem/vm.c   	vm_map_t curmap;
+<a href='../S/343.html#L457'>vm_map_t</a>          457 sys/mem/vm.c   vm_map_t
+<a href='../S/343.html#L483'>vm_map_t</a>          483 sys/mem/vm.c   vm_terminate(vm_map_t map)
+<a href='../S/343.html#L533'>vm_map_t</a>          533 sys/mem/vm.c   vm_map_t
+<a href='../S/343.html#L534'>vm_map_t</a>          534 sys/mem/vm.c   vm_dup(vm_map_t org_map)
+<a href='../S/343.html#L536'>vm_map_t</a>          536 sys/mem/vm.c   	vm_map_t new_map;
+<a href='../S/343.html#L544'>vm_map_t</a>          544 sys/mem/vm.c   static vm_map_t
+<a href='../S/343.html#L545'>vm_map_t</a>          545 sys/mem/vm.c   do_dup(vm_map_t org_map)
+<a href='../S/343.html#L547'>vm_map_t</a>          547 sys/mem/vm.c   	vm_map_t new_map;
+<a href='../S/343.html#L651'>vm_map_t</a>          651 sys/mem/vm.c   vm_switch(vm_map_t map)
+<a href='../S/343.html#L662'>vm_map_t</a>          662 sys/mem/vm.c   vm_reference(vm_map_t map)
+<a href='../S/343.html#L674'>vm_map_t</a>          674 sys/mem/vm.c   vm_load(vm_map_t map, struct module *mod, void **stack)
+<a href='../S/343.html#L745'>vm_map_t</a>          745 sys/mem/vm.c   	vm_map_t map;
+<a href='../S/344.html#L58'>vm_map_t</a>           58 sys/mem/vm_nommu.c static int	   do_allocate(vm_map_t, void **, size_t, int);
+<a href='../S/344.html#L59'>vm_map_t</a>           59 sys/mem/vm_nommu.c static int	   do_free(vm_map_t, void *);
+<a href='../S/344.html#L60'>vm_map_t</a>           60 sys/mem/vm_nommu.c static int	   do_attribute(vm_map_t, void *, int);
+<a href='../S/344.html#L61'>vm_map_t</a>           61 sys/mem/vm_nommu.c static int	   do_map(vm_map_t, void *, size_t, void **);
+<a href='../S/344.html#L112'>vm_map_t</a>          112 sys/mem/vm_nommu.c do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L183'>vm_map_t</a>          183 sys/mem/vm_nommu.c do_free(vm_map_t map, void *addr)
+<a href='../S/344.html#L247'>vm_map_t</a>          247 sys/mem/vm_nommu.c do_attribute(vm_map_t map, void *addr, int attr)
+<a href='../S/344.html#L320'>vm_map_t</a>          320 sys/mem/vm_nommu.c do_map(vm_map_t map, void *addr, size_t size, void **alloc)
+<a href='../S/344.html#L323'>vm_map_t</a>          323 sys/mem/vm_nommu.c 	vm_map_t curmap;
+<a href='../S/344.html#L368'>vm_map_t</a>          368 sys/mem/vm_nommu.c vm_map_t
+<a href='../S/344.html#L389'>vm_map_t</a>          389 sys/mem/vm_nommu.c vm_terminate(vm_map_t map)
+<a href='../S/344.html#L418'>vm_map_t</a>          418 sys/mem/vm_nommu.c vm_map_t
+<a href='../S/344.html#L419'>vm_map_t</a>          419 sys/mem/vm_nommu.c vm_dup(vm_map_t org_map)
+<a href='../S/344.html#L431'>vm_map_t</a>          431 sys/mem/vm_nommu.c vm_switch(vm_map_t map)
+<a href='../S/344.html#L439'>vm_map_t</a>          439 sys/mem/vm_nommu.c vm_reference(vm_map_t map)
+<a href='../S/344.html#L454'>vm_map_t</a>          454 sys/mem/vm_nommu.c vm_load(vm_map_t map, struct module *mod, void **stack)
+<a href='../S/344.html#L505'>vm_map_t</a>          505 sys/mem/vm_nommu.c 	vm_map_t map;
+</pre>
+</body>
+</html>

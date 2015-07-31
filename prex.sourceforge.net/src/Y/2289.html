@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>v_type</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L68'>v_type</a>             68 include/sys/vnode.h 	int		v_type;		/* vnode type */
+<a href='../S/883.html#L191'>v_type</a>            191 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_type = VREG;
+<a href='../S/886.html#L214'>v_type</a>            214 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_type = (info.flags &amp; D_CHR) ? VCHR : VBLK;
+<a href='../S/893.html#L153'>v_type</a>            153 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_type = IS_DIR(de) ? VDIR : VREG;
+<a href='../S/893.html#L176'>v_type</a>            176 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/893.html#L178'>v_type</a>            178 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/893.html#L250'>v_type</a>            250 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/893.html#L252'>v_type</a>            252 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/896.html#L346'>v_type</a>            346 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_type = VFIFO;
+<a href='../S/902.html#L231'>v_type</a>            231 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_type = np-&gt;rn_type;
+<a href='../S/902.html#L340'>v_type</a>            340 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/902.html#L342'>v_type</a>            342 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/902.html#L370'>v_type</a>            370 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/902.html#L372'>v_type</a>            372 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/902.html#L436'>v_type</a>            436 usr/server/fs/ramfs/ramfs_vnops.c 		if (vp1-&gt;v_type == VREG) {
+<a href='../S/903.html#L705'>v_type</a>            705 usr/server/fs/vfs/main.c 			if (fp-&gt;f_vnode-&gt;v_type == VDIR) {
+<a href='../S/908.html#L115'>v_type</a>            115 usr/server/fs/vfs/vfs_lookup.c 			if (error || (*p == '/' &amp;&amp; vp-&gt;v_type != VDIR)) {
+<a href='../S/908.html#L131'>v_type</a>            131 usr/server/fs/vfs/vfs_lookup.c 	if (vp-&gt;v_type != VDIR &amp;&amp; sec_vnode_permission(path) != 0) {
+<a href='../S/908.html#L178'>v_type</a>            178 usr/server/fs/vfs/vfs_lookup.c 	if (vp-&gt;v_type != VDIR) {
+<a href='../S/909.html#L155'>v_type</a>            155 usr/server/fs/vfs/vfs_mount.c 		if (vp_covered-&gt;v_type != VDIR) {
+<a href='../S/909.html#L169'>v_type</a>            169 usr/server/fs/vfs/vfs_mount.c 	vp-&gt;v_type = VDIR;
+<a href='../S/911.html#L108'>v_type</a>            108 usr/server/fs/vfs/vfs_syscalls.c 			if (vp-&gt;v_type == VDIR) {
+<a href='../S/911.html#L117'>v_type</a>            117 usr/server/fs/vfs/vfs_syscalls.c 		if (!(flags &amp; FWRITE) || (vp-&gt;v_type == VDIR)) {
+<a href='../S/911.html#L361'>v_type</a>            361 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L382'>v_type</a>            382 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L401'>v_type</a>            401 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L419'>v_type</a>            419 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L435'>v_type</a>            435 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L451'>v_type</a>            451 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L506'>v_type</a>            506 usr/server/fs/vfs/vfs_syscalls.c 	if (vp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L601'>v_type</a>            601 usr/server/fs/vfs/vfs_syscalls.c 		if (vp1-&gt;v_type == VDIR &amp;&amp; vp2-&gt;v_type != VDIR) {
+<a href='../S/911.html#L604'>v_type</a>            604 usr/server/fs/vfs/vfs_syscalls.c 		} else if (vp1-&gt;v_type != VDIR &amp;&amp; vp2-&gt;v_type == VDIR) {
+<a href='../S/911.html#L608'>v_type</a>            608 usr/server/fs/vfs/vfs_syscalls.c 		if (vp2-&gt;v_type == VDIR &amp;&amp; check_dir_empty(dest)) {
+<a href='../S/911.html#L667'>v_type</a>            667 usr/server/fs/vfs/vfs_syscalls.c 	if (vp-&gt;v_type == VDIR) {
+<a href='../S/911.html#L750'>v_type</a>            750 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp-&gt;v_type != VDIR) {
+<a href='../S/913.html#L352'>v_type</a>            352 usr/server/fs/vfs/vfs_vnode.c 	switch (vp-&gt;v_type) {
+<a href='../S/913.html#L382'>v_type</a>            382 usr/server/fs/vfs/vfs_vnode.c 	if (vp-&gt;v_type == VCHR || vp-&gt;v_type == VBLK)
+<a href='../S/913.html#L444'>v_type</a>            444 usr/server/fs/vfs/vfs_vnode.c 				(u_int)mp, type[vp-&gt;v_type], vp-&gt;v_refcnt,
+</pre>
+</body>
+</html>

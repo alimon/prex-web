@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>acc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/114.html#L45'>acc</a>                45 bsp/drv/lib/strtoul.c 	unsigned long acc, cutoff;
+<a href='../S/114.html#L75'>acc</a>                75 bsp/drv/lib/strtoul.c 	for (acc = 0, any = 0;; c = (unsigned char) *s++) {
+<a href='../S/114.html#L86'>acc</a>                86 bsp/drv/lib/strtoul.c 		if (acc &gt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/114.html#L88'>acc</a>                88 bsp/drv/lib/strtoul.c 			acc = ULONG_MAX;
+<a href='../S/114.html#L91'>acc</a>                91 bsp/drv/lib/strtoul.c 			acc *= (unsigned long)base;
+<a href='../S/114.html#L92'>acc</a>                92 bsp/drv/lib/strtoul.c 			acc += c;
+<a href='../S/114.html#L96'>acc</a>                96 bsp/drv/lib/strtoul.c 		acc = -acc;
+<a href='../S/114.html#L100'>acc</a>               100 bsp/drv/lib/strtoul.c 	return (acc);
+<a href='../S/579.html#L49'>acc</a>                49 usr/lib/libc/stdlib/strtol.c 	long acc, cutoff;
+<a href='../S/579.html#L106'>acc</a>               106 usr/lib/libc/stdlib/strtol.c 	for (acc = 0, any = 0;; c = (unsigned char) *s++) {
+<a href='../S/579.html#L118'>acc</a>               118 usr/lib/libc/stdlib/strtol.c 			if (acc &lt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/579.html#L120'>acc</a>               120 usr/lib/libc/stdlib/strtol.c 				acc = LONG_MIN;
+<a href='../S/579.html#L124'>acc</a>               124 usr/lib/libc/stdlib/strtol.c 				acc *= base;
+<a href='../S/579.html#L125'>acc</a>               125 usr/lib/libc/stdlib/strtol.c 				acc -= c;
+<a href='../S/579.html#L128'>acc</a>               128 usr/lib/libc/stdlib/strtol.c 			if (acc &gt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/579.html#L130'>acc</a>               130 usr/lib/libc/stdlib/strtol.c 				acc = LONG_MAX;
+<a href='../S/579.html#L134'>acc</a>               134 usr/lib/libc/stdlib/strtol.c 				acc *= base;
+<a href='../S/579.html#L135'>acc</a>               135 usr/lib/libc/stdlib/strtol.c 				acc += c;
+<a href='../S/579.html#L142'>acc</a>               142 usr/lib/libc/stdlib/strtol.c 	return (acc);
+<a href='../S/580.html#L48'>acc</a>                48 usr/lib/libc/stdlib/strtoul.c 	unsigned long acc, cutoff;
+<a href='../S/580.html#L78'>acc</a>                78 usr/lib/libc/stdlib/strtoul.c 	for (acc = 0, any = 0;; c = (unsigned char) *s++) {
+<a href='../S/580.html#L89'>acc</a>                89 usr/lib/libc/stdlib/strtoul.c 		if (acc &gt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/580.html#L91'>acc</a>                91 usr/lib/libc/stdlib/strtoul.c 			acc = ULONG_MAX;
+<a href='../S/580.html#L95'>acc</a>                95 usr/lib/libc/stdlib/strtoul.c 			acc *= (unsigned long)base;
+<a href='../S/580.html#L96'>acc</a>                96 usr/lib/libc/stdlib/strtoul.c 			acc += c;
+<a href='../S/580.html#L100'>acc</a>               100 usr/lib/libc/stdlib/strtoul.c 		acc = -acc;
+<a href='../S/580.html#L104'>acc</a>               104 usr/lib/libc/stdlib/strtoul.c 	return (acc);
+<a href='../S/903.html#L132'>acc</a>               132 usr/server/fs/vfs/main.c 	int acc;
+<a href='../S/903.html#L138'>acc</a>               138 usr/server/fs/vfs/main.c 	acc = 0;
+<a href='../S/903.html#L141'>acc</a>               141 usr/server/fs/vfs/main.c 		acc = VREAD;
+<a href='../S/903.html#L144'>acc</a>               144 usr/server/fs/vfs/main.c 		acc = VWRITE;
+<a href='../S/903.html#L147'>acc</a>               147 usr/server/fs/vfs/main.c 		acc = VREAD | VWRITE;
+<a href='../S/903.html#L150'>acc</a>               150 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L622'>acc</a>               622 usr/server/fs/vfs/main.c 	int acc, mode, error = 0;
+<a href='../S/903.html#L625'>acc</a>               625 usr/server/fs/vfs/main.c 	acc = 0;
+<a href='../S/903.html#L627'>acc</a>               627 usr/server/fs/vfs/main.c 		acc |= VREAD;
+<a href='../S/903.html#L629'>acc</a>               629 usr/server/fs/vfs/main.c 		acc |= VWRITE;
+<a href='../S/903.html#L631'>acc</a>               631 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/910.html#L160'>acc</a>               160 usr/server/fs/vfs/vfs_security.c sec_file_permission(task_t task, char *path, int acc)
+<a href='../S/910.html#L166'>acc</a>               166 usr/server/fs/vfs/vfs_security.c 	if (acc == 0)
+<a href='../S/910.html#L185'>acc</a>               185 usr/server/fs/vfs/vfs_security.c 		if (acc &amp; VREAD) {
+<a href='../S/910.html#L189'>acc</a>               189 usr/server/fs/vfs/vfs_security.c 		if (acc &amp; VWRITE) {
+<a href='../S/910.html#L203'>acc</a>               203 usr/server/fs/vfs/vfs_security.c 			 acc, task, path));
+<a href='../S/912.html#L224'>acc</a>               224 usr/server/fs/vfs/vfs_task.c task_conv(struct task *t, char *path, int acc, char *full)
+<a href='../S/912.html#L289'>acc</a>               289 usr/server/fs/vfs/vfs_task.c 	return sec_file_permission(t-&gt;t_taskid, full, acc);
+</pre>
+</body>
+</html>

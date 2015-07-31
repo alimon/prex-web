@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>envc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/218.html#L51'>envc</a>               51 include/ipc/exec.h 	int	envc;			/* number of environment string */
+<a href='../S/655.html#L54'>envc</a>               54 usr/lib/posix/exec/execve.c 	int error, i, argc, envc;
+<a href='../S/655.html#L77'>envc</a>               77 usr/lib/posix/exec/execve.c 	envc = 0;
+<a href='../S/655.html#L79'>envc</a>               79 usr/lib/posix/exec/execve.c 		while (envp[envc]) {
+<a href='../S/655.html#L80'>envc</a>               80 usr/lib/posix/exec/execve.c 			bufsz += (strlen(envp[envc]) + 1);
+<a href='../S/655.html#L81'>envc</a>               81 usr/lib/posix/exec/execve.c 			envc++;
+<a href='../S/655.html#L92'>envc</a>               92 usr/lib/posix/exec/execve.c 	for (i = 0; i &lt; envc; i++) {
+<a href='../S/655.html#L100'>envc</a>              100 usr/lib/posix/exec/execve.c 	msg.envc = envc;
+<a href='../S/871.html#L184'>envc</a>              184 usr/server/boot/boot.c 	int error, i, argc, envc;
+<a href='../S/871.html#L198'>envc</a>              198 usr/server/boot/boot.c 	envc = 0;
+<a href='../S/871.html#L199'>envc</a>              199 usr/server/boot/boot.c 	while (initenvs[envc]) {
+<a href='../S/871.html#L200'>envc</a>              200 usr/server/boot/boot.c 		bufsz += (strlen(initenvs[envc]) + 1);
+<a href='../S/871.html#L201'>envc</a>              201 usr/server/boot/boot.c 		envc++;
+<a href='../S/871.html#L214'>envc</a>              214 usr/server/boot/boot.c 	for (i = 0; i &lt; envc; i++) {
+<a href='../S/871.html#L220'>envc</a>              220 usr/server/boot/boot.c 	msg.envc = envc;
+<a href='../S/877.html#L317'>envc</a>              317 usr/server/exec/exec_execve.c 	int argc, envc;
+<a href='../S/877.html#L325'>envc</a>              325 usr/server/exec/exec_execve.c 	envc = msg-&gt;envc;
+<a href='../S/877.html#L326'>envc</a>              326 usr/server/exec/exec_execve.c 	DPRINTF(("exec: argc=%d envc=%d\n", argc, envc));
+<a href='../S/877.html#L374'>envc</a>              374 usr/server/exec/exec_execve.c 	sp -= ((envc + 1) * sizeof(char *));
+<a href='../S/877.html#L396'>envc</a>              396 usr/server/exec/exec_execve.c 	for (i = 0; i &lt; envc; i++) {
+<a href='../S/877.html#L400'>envc</a>              400 usr/server/exec/exec_execve.c 	envp[envc] = NULL;
+</pre>
+</body>
+</html>

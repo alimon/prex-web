@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cmds</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/413.html#L261'>cmds</a>              261 usr/bin/sh/sh.c findcmd(const struct cmdentry cmds[], char *cmd)
+<a href='../S/413.html#L265'>cmds</a>              265 usr/bin/sh/sh.c 	while (cmds[i].cmd != NULL) {
+<a href='../S/413.html#L266'>cmds</a>              266 usr/bin/sh/sh.c 		if (!strcmp(cmd, cmds[i].cmd))
+<a href='../S/413.html#L267'>cmds</a>              267 usr/bin/sh/sh.c 			return cmds[i].func;
+<a href='../S/413.html#L274'>cmds</a>              274 usr/bin/sh/sh.c parsecmd(char *cmds, int *redir, int flags)
+<a href='../S/413.html#L284'>cmds</a>              284 usr/bin/sh/sh.c 	if (cmds[0] != ' ' &amp;&amp; cmds[0] != '\t')
+<a href='../S/413.html#L285'>cmds</a>              285 usr/bin/sh/sh.c 		word = cmds;
+<a href='../S/413.html#L287'>cmds</a>              287 usr/bin/sh/sh.c 	p = cmds;
+<a href='../S/413.html#L353'>cmds</a>              353 usr/bin/sh/sh.c 	char *p, *cmds;
+<a href='../S/413.html#L355'>cmds</a>              355 usr/bin/sh/sh.c 	p = cmds = str;
+<a href='../S/413.html#L356'>cmds</a>              356 usr/bin/sh/sh.c 	while (*cmds) {
+<a href='../S/413.html#L366'>cmds</a>              366 usr/bin/sh/sh.c 			parsecmd(cmds, redir, flags | CMD_PIPE);
+<a href='../S/413.html#L367'>cmds</a>              367 usr/bin/sh/sh.c 			cmds = p + 1;
+<a href='../S/413.html#L372'>cmds</a>              372 usr/bin/sh/sh.c 			parsecmd(cmds, redir, flags);
+<a href='../S/413.html#L382'>cmds</a>              382 usr/bin/sh/sh.c 	char *p, *cmds;
+<a href='../S/413.html#L384'>cmds</a>              384 usr/bin/sh/sh.c 	p = cmds = line;
+<a href='../S/413.html#L385'>cmds</a>              385 usr/bin/sh/sh.c 	while (*cmds) {
+<a href='../S/413.html#L389'>cmds</a>              389 usr/bin/sh/sh.c 			parsepipe(cmds, 0);
+<a href='../S/413.html#L390'>cmds</a>              390 usr/bin/sh/sh.c 			cmds = p + 1;
+<a href='../S/413.html#L394'>cmds</a>              394 usr/bin/sh/sh.c 			parsepipe(cmds, CMD_BACKGND);
+<a href='../S/413.html#L395'>cmds</a>              395 usr/bin/sh/sh.c 			cmds = p + 1;
+<a href='../S/413.html#L401'>cmds</a>              401 usr/bin/sh/sh.c 			parsepipe(cmds, 0);
+</pre>
+</body>
+</html>

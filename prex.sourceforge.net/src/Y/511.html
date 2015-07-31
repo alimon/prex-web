@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>chan</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/72.html#L103'>chan</a>              103 bsp/drv/dev/dma/i8237.c 	int	chan;		/* dma channel */
+<a href='../S/72.html#L150'>chan</a>              150 bsp/drv/dev/dma/i8237.c dma_attach(int chan)
+<a href='../S/72.html#L155'>chan</a>              155 bsp/drv/dev/dma/i8237.c 	ASSERT(chan &gt;= 0 &amp;&amp; chan &lt; NR_DMAS);
+<a href='../S/72.html#L156'>chan</a>              156 bsp/drv/dev/dma/i8237.c 	ASSERT(chan != 4);
+<a href='../S/72.html#L157'>chan</a>              157 bsp/drv/dev/dma/i8237.c 	DPRINTF(("DMA%d attached\n", chan));
+<a href='../S/72.html#L160'>chan</a>              160 bsp/drv/dev/dma/i8237.c 	dma = &amp;dma_table[chan];
+<a href='../S/72.html#L164'>chan</a>              164 bsp/drv/dev/dma/i8237.c 		dma-&gt;chan = chan;
+<a href='../S/72.html#L182'>chan</a>              182 bsp/drv/dev/dma/i8237.c 	DPRINTF(("DMA%d detached\n", dma-&gt;chan));
+<a href='../S/72.html#L194'>chan</a>              194 bsp/drv/dev/dma/i8237.c 	u_int chan, bits, mode;
+<a href='../S/72.html#L206'>chan</a>              206 bsp/drv/dev/dma/i8237.c 	chan = (u_int)dma-&gt;chan;
+<a href='../S/72.html#L207'>chan</a>              207 bsp/drv/dev/dma/i8237.c 	regs = &amp;dma_regs[chan];
+<a href='../S/72.html#L208'>chan</a>              208 bsp/drv/dev/dma/i8237.c 	bits = (chan &lt; 4) ? chan : chan &gt;&gt; 2;
+<a href='../S/72.html#L230'>chan</a>              230 bsp/drv/dev/dma/i8237.c 	u_int chan;
+<a href='../S/72.html#L236'>chan</a>              236 bsp/drv/dev/dma/i8237.c 	chan = (u_int)dma-&gt;chan;
+<a href='../S/72.html#L238'>chan</a>              238 bsp/drv/dev/dma/i8237.c 	bits = (chan &lt; 4) ? chan : chan &gt;&gt; 2;
+<a href='../S/72.html#L239'>chan</a>              239 bsp/drv/dev/dma/i8237.c 	bus_write_8(dma_regs[chan].mask, bits | 0x04);	/* Disable channel */
+<a href='../S/94.html#L83'>chan</a>               83 bsp/drv/include/ddi.h dma_t	 dma_attach(int chan);
+</pre>
+</body>
+</html>

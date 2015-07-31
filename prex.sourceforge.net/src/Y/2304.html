@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vector</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L390'>vector</a>            390 bsp/drv/dev/base/kd.c 			       ii.vector, ii.count, ii.istreq,
+<a href='../S/136.html#L86'>vector</a>             86 bsp/hal/arm/gba/interrupt.c interrupt_unmask(int vector, int level)
+<a href='../S/136.html#L89'>vector</a>             89 bsp/hal/arm/gba/interrupt.c 	uint16_t unmask = (uint16_t)1 &lt;&lt; vector;
+<a href='../S/136.html#L92'>vector</a>             92 bsp/hal/arm/gba/interrupt.c 	ipl_table[vector] = level;
+<a href='../S/136.html#L108'>vector</a>            108 bsp/hal/arm/gba/interrupt.c interrupt_mask(int vector)
+<a href='../S/136.html#L111'>vector</a>            111 bsp/hal/arm/gba/interrupt.c 	u_int mask = (uint16_t)~(1 &lt;&lt; vector);
+<a href='../S/136.html#L113'>vector</a>            113 bsp/hal/arm/gba/interrupt.c 	level = ipl_table[vector];
+<a href='../S/136.html#L116'>vector</a>            116 bsp/hal/arm/gba/interrupt.c 	ipl_table[vector] = IPL_NONE;
+<a href='../S/136.html#L125'>vector</a>            125 bsp/hal/arm/gba/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/136.html#L134'>vector</a>            134 bsp/hal/arm/gba/interrupt.c interrupt_dispatch(int vector)
+<a href='../S/136.html#L140'>vector</a>            140 bsp/hal/arm/gba/interrupt.c 	irq_level = ipl_table[vector];
+<a href='../S/136.html#L144'>vector</a>            144 bsp/hal/arm/gba/interrupt.c 	ICU_IF = (uint16_t)(1 &lt;&lt; vector);
+<a href='../S/136.html#L150'>vector</a>            150 bsp/hal/arm/gba/interrupt.c 	irq_handler(vector);
+<a href='../S/136.html#L166'>vector</a>            166 bsp/hal/arm/gba/interrupt.c 	int vector;
+<a href='../S/136.html#L170'>vector</a>            170 bsp/hal/arm/gba/interrupt.c 	for (vector = 0; vector &lt; NIRQS; vector++) {
+<a href='../S/136.html#L171'>vector</a>            171 bsp/hal/arm/gba/interrupt.c 		if (bits &amp; (uint16_t)(1 &lt;&lt; vector))
+<a href='../S/136.html#L174'>vector</a>            174 bsp/hal/arm/gba/interrupt.c 	if (vector == NIRQS)
+<a href='../S/136.html#L177'>vector</a>            177 bsp/hal/arm/gba/interrupt.c 	interrupt_dispatch(vector);
+<a href='../S/148.html#L86'>vector</a>             86 bsp/hal/arm/integrator/interrupt.c interrupt_unmask(int vector, int level)
+<a href='../S/148.html#L89'>vector</a>             89 bsp/hal/arm/integrator/interrupt.c 	uint32_t unmask = (uint32_t)1 &lt;&lt; vector;
+<a href='../S/148.html#L92'>vector</a>             92 bsp/hal/arm/integrator/interrupt.c 	ipl_table[vector] = level;
+<a href='../S/148.html#L108'>vector</a>            108 bsp/hal/arm/integrator/interrupt.c interrupt_mask(int vector)
+<a href='../S/148.html#L111'>vector</a>            111 bsp/hal/arm/integrator/interrupt.c 	u_int mask = (uint16_t)~(1 &lt;&lt; vector);
+<a href='../S/148.html#L113'>vector</a>            113 bsp/hal/arm/integrator/interrupt.c 	level = ipl_table[vector];
+<a href='../S/148.html#L116'>vector</a>            116 bsp/hal/arm/integrator/interrupt.c 	ipl_table[vector] = IPL_NONE;
+<a href='../S/148.html#L125'>vector</a>            125 bsp/hal/arm/integrator/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/148.html#L137'>vector</a>            137 bsp/hal/arm/integrator/interrupt.c 	int vector, old_ipl, new_ipl;
+<a href='../S/148.html#L141'>vector</a>            141 bsp/hal/arm/integrator/interrupt.c 	for (vector = 0; vector &lt; NIRQS; vector++) {
+<a href='../S/148.html#L142'>vector</a>            142 bsp/hal/arm/integrator/interrupt.c 		if (bits &amp; (uint32_t)(1 &lt;&lt; vector))
+<a href='../S/148.html#L145'>vector</a>            145 bsp/hal/arm/integrator/interrupt.c 	if (vector == NIRQS)
+<a href='../S/148.html#L150'>vector</a>            150 bsp/hal/arm/integrator/interrupt.c 	new_ipl = ipl_table[vector];
+<a href='../S/148.html#L159'>vector</a>            159 bsp/hal/arm/integrator/interrupt.c 	irq_handler(vector);
+<a href='../S/169.html#L88'>vector</a>             88 bsp/hal/ppc/prep/interrupt.c interrupt_unmask(int vector, int level)
+<a href='../S/169.html#L90'>vector</a>             90 bsp/hal/ppc/prep/interrupt.c 	u_int unmask = (u_int)~(1 &lt;&lt; vector);
+<a href='../S/169.html#L94'>vector</a>             94 bsp/hal/ppc/prep/interrupt.c 	ipl_table[vector] = level;
+<a href='../S/169.html#L110'>vector</a>            110 bsp/hal/ppc/prep/interrupt.c interrupt_mask(int vector)
+<a href='../S/169.html#L112'>vector</a>            112 bsp/hal/ppc/prep/interrupt.c 	u_int mask = (u_int)(1 &lt;&lt; vector);
+<a href='../S/169.html#L116'>vector</a>            116 bsp/hal/ppc/prep/interrupt.c 	level = ipl_table[vector];
+<a href='../S/169.html#L119'>vector</a>            119 bsp/hal/ppc/prep/interrupt.c 	ipl_table[vector] = IPL_NONE;
+<a href='../S/169.html#L129'>vector</a>            129 bsp/hal/ppc/prep/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/169.html#L136'>vector</a>            136 bsp/hal/ppc/prep/interrupt.c 	port = vector &lt; 8 ? ELCR : ELCR + 1;
+<a href='../S/169.html#L137'>vector</a>            137 bsp/hal/ppc/prep/interrupt.c 	bit = (u_int)(1 &lt;&lt; (vector &amp; 7));
+<a href='../S/169.html#L177'>vector</a>            177 bsp/hal/ppc/prep/interrupt.c 	int vector;
+<a href='../S/169.html#L187'>vector</a>            187 bsp/hal/ppc/prep/interrupt.c 	vector = interrupt_lookup();
+<a href='../S/169.html#L191'>vector</a>            191 bsp/hal/ppc/prep/interrupt.c 	new_ipl = ipl_table[vector];
+<a href='../S/169.html#L198'>vector</a>            198 bsp/hal/ppc/prep/interrupt.c 	irq_handler(vector);
+<a href='../S/188.html#L86'>vector</a>             86 bsp/hal/x86/pc/interrupt.c interrupt_unmask(int vector, int level)
+<a href='../S/188.html#L88'>vector</a>             88 bsp/hal/x86/pc/interrupt.c 	u_int unmask = (u_int)~(1 &lt;&lt; vector);
+<a href='../S/188.html#L92'>vector</a>             92 bsp/hal/x86/pc/interrupt.c 	ipl_table[vector] = level;
+<a href='../S/188.html#L108'>vector</a>            108 bsp/hal/x86/pc/interrupt.c interrupt_mask(int vector)
+<a href='../S/188.html#L110'>vector</a>            110 bsp/hal/x86/pc/interrupt.c 	u_int mask = (u_int)(1 &lt;&lt; vector);
+<a href='../S/188.html#L114'>vector</a>            114 bsp/hal/x86/pc/interrupt.c 	level = ipl_table[vector];
+<a href='../S/188.html#L117'>vector</a>            117 bsp/hal/x86/pc/interrupt.c 	ipl_table[vector] = IPL_NONE;
+<a href='../S/188.html#L127'>vector</a>            127 bsp/hal/x86/pc/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/188.html#L134'>vector</a>            134 bsp/hal/x86/pc/interrupt.c 	port = vector &lt; 8 ? ELCR : ELCR + 1;
+<a href='../S/188.html#L135'>vector</a>            135 bsp/hal/x86/pc/interrupt.c 	bit = (u_int)(1 &lt;&lt; (vector &amp; 7));
+<a href='../S/188.html#L158'>vector</a>            158 bsp/hal/x86/pc/interrupt.c 	int vector = (int)regs-&gt;trap_no;
+<a href='../S/188.html#L163'>vector</a>            163 bsp/hal/x86/pc/interrupt.c 	new_ipl = ipl_table[vector];
+<a href='../S/188.html#L169'>vector</a>            169 bsp/hal/x86/pc/interrupt.c 	if (vector &amp; 8)			/* Slave ? */
+<a href='../S/188.html#L175'>vector</a>            175 bsp/hal/x86/pc/interrupt.c 	irq_handler(vector);
+<a href='../S/272.html#L156'>vector</a>            156 include/sys/sysinfo.h 	int		vector;		/* vector number */
+<a href='../S/310.html#L40'>vector</a>             40 sys/include/irq.h 	int		vector;		/* vector number */
+<a href='../S/329.html#L82'>vector</a>             82 sys/kern/irq.c irq_attach(int vector, int pri, int shared,
+<a href='../S/329.html#L95'>vector</a>             95 sys/kern/irq.c 	irq-&gt;vector = vector;
+<a href='../S/329.html#L111'>vector</a>            111 sys/kern/irq.c 	irq_table[vector] = irq;
+<a href='../S/329.html#L113'>vector</a>            113 sys/kern/irq.c 	interrupt_setup(vector, mode);
+<a href='../S/329.html#L114'>vector</a>            114 sys/kern/irq.c 	interrupt_unmask(vector, pri);
+<a href='../S/329.html#L117'>vector</a>            117 sys/kern/irq.c 	DPRINTF(("IRQ%d attached priority=%d\n", vector, pri));
+<a href='../S/329.html#L130'>vector</a>            130 sys/kern/irq.c 	ASSERT(irq-&gt;vector &lt; MAXIRQS);
+<a href='../S/329.html#L132'>vector</a>            132 sys/kern/irq.c 	interrupt_mask(irq-&gt;vector);
+<a href='../S/329.html#L133'>vector</a>            133 sys/kern/irq.c 	irq_table[irq-&gt;vector] = NULL;
+<a href='../S/329.html#L190'>vector</a>            190 sys/kern/irq.c irq_handler(int vector)
+<a href='../S/329.html#L195'>vector</a>            195 sys/kern/irq.c 	irq = irq_table[vector];
+<a href='../S/329.html#L242'>vector</a>            242 sys/kern/irq.c 	info-&gt;vector = irq-&gt;vector;
+</pre>
+</body>
+</html>

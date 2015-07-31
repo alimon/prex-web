@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__sig_mask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/270.html#L188'>__sig_mask</a>        188 include/sys/signal.h extern sigset_t __sig_mask;
+<a href='../S/743.html#L43'>__sig_mask</a>         43 usr/lib/posix/signal/__exception.c sigset_t __sig_mask;
+<a href='../S/743.html#L68'>__sig_mask</a>         68 usr/lib/posix/signal/__exception.c 		active = __sig_pending &amp; ~__sig_mask;
+<a href='../S/743.html#L77'>__sig_mask</a>         77 usr/lib/posix/signal/__exception.c 			org_mask = __sig_mask;
+<a href='../S/743.html#L78'>__sig_mask</a>         78 usr/lib/posix/signal/__exception.c 			__sig_mask |= action.sa_mask;
+<a href='../S/743.html#L91'>__sig_mask</a>         91 usr/lib/posix/signal/__exception.c 					__sig_mask = org_mask;
+<a href='../S/743.html#L109'>__sig_mask</a>        109 usr/lib/posix/signal/__exception.c 			__sig_mask = org_mask;
+<a href='../S/743.html#L163'>__sig_mask</a>        163 usr/lib/posix/signal/__exception.c 	__sig_mask = 0;
+<a href='../S/735.html#L50'>__sig_mask</a>         50 usr/lib/posix/signal/pause.c 			if (!(__sig_mask &amp; sigmask(sig)) &amp;&amp;
+<a href='../S/741.html#L47'>__sig_mask</a>         47 usr/lib/posix/signal/sigprocmask.c 		*oldset = __sig_mask;
+<a href='../S/741.html#L52'>__sig_mask</a>         52 usr/lib/posix/signal/sigprocmask.c 			__sig_mask |= newset;
+<a href='../S/741.html#L55'>__sig_mask</a>         55 usr/lib/posix/signal/sigprocmask.c 			__sig_mask &amp;= ~newset;
+<a href='../S/741.html#L58'>__sig_mask</a>         58 usr/lib/posix/signal/sigprocmask.c 			__sig_mask = newset;
+<a href='../S/741.html#L66'>__sig_mask</a>         66 usr/lib/posix/signal/sigprocmask.c 	__sig_mask &amp;= ~(sigmask(SIGSTOP) | sigmask(SIGKILL));
+</pre>
+</body>
+</html>

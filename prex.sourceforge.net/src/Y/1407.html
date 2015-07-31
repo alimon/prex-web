@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>nr_read</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/68.html#L83'>nr_read</a>            83 bsp/drv/dev/block/ramdisk.c 	size_t nr_read;
+<a href='../S/68.html#L93'>nr_read</a>            93 bsp/drv/dev/block/ramdisk.c 	nr_read = *nbyte;
+<a href='../S/68.html#L94'>nr_read</a>            94 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_read &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L95'>nr_read</a>            95 bsp/drv/dev/block/ramdisk.c 		nr_read = sc-&gt;size - offset;
+<a href='../S/68.html#L98'>nr_read</a>            98 bsp/drv/dev/block/ramdisk.c 	if ((kbuf = kmem_map(buf, nr_read)) == NULL) {
+<a href='../S/68.html#L103'>nr_read</a>           103 bsp/drv/dev/block/ramdisk.c 	memcpy(kbuf, sc-&gt;addr + offset, nr_read);
+<a href='../S/68.html#L104'>nr_read</a>           104 bsp/drv/dev/block/ramdisk.c 	*nbyte = nr_read;
+<a href='../S/883.html#L210'>nr_read</a>           210 usr/server/fs/arfs/arfs_vnops.c 	size_t nr_read, nr_copy;
+<a href='../S/883.html#L232'>nr_read</a>           232 usr/server/fs/arfs/arfs_vnops.c 	nr_read = 0;
+<a href='../S/883.html#L254'>nr_read</a>           254 usr/server/fs/arfs/arfs_vnops.c 		nr_read += nr_copy;
+<a href='../S/883.html#L262'>nr_read</a>           262 usr/server/fs/arfs/arfs_vnops.c 	*result = nr_read;
+<a href='../S/893.html#L168'>nr_read</a>           168 usr/server/fs/fatfs/fatfs_vnops.c 	int nr_read, nr_copy, buf_pos, error;
+<a href='../S/893.html#L198'>nr_read</a>           198 usr/server/fs/fatfs/fatfs_vnops.c 	nr_read = 0;
+<a href='../S/893.html#L214'>nr_read</a>           214 usr/server/fs/fatfs/fatfs_vnops.c 		nr_read += nr_copy;
+<a href='../S/893.html#L228'>nr_read</a>           228 usr/server/fs/fatfs/fatfs_vnops.c 	*result = nr_read;
+</pre>
+</body>
+</html>

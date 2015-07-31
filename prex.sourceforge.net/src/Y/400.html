@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>b</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/52.html#L94'>b</a>                  94 bsp/drv/arm/gba/lcd.h #define	RGB(r, g, b)	(((b) &lt;&lt; 10) + ((g) &lt;&lt; 5) + (r))
+<a href='../S/134.html#L54'>b</a>                  54 bsp/hal/arm/gba/diag.c #define	RGB(r, g, b)	(((b) &lt;&lt; 10) + ((g) &lt;&lt; 5) + (r))
+<a href='../S/254.html#L257'>b</a>                 257 include/sys/elf.h #define ELF32_ST_INFO(b,t)	(((b) &lt;&lt; 4) + ((t) &amp; 0xf))
+<a href='../S/264.html#L173'>b</a>                 173 include/sys/param.h #define	MIN(a,b) (((a)&lt;(b))?(a):(b))
+<a href='../S/264.html#L174'>b</a>                 174 include/sys/param.h #define	MAX(a,b) (((a)&gt;(b))?(a):(b))
+<a href='../S/320.html#L60'>b</a>                  60 sys/include/timer.h #define time_after(a,b)		(((long)(b) - (long)(a)) &lt; 0)
+<a href='../S/320.html#L61'>b</a>                  61 sys/include/timer.h #define time_before(a,b)	time_after(b,a)
+<a href='../S/320.html#L63'>b</a>                  63 sys/include/timer.h #define time_after_eq(a,b)	(((long)(a) - (long)(b)) &gt;= 0)
+<a href='../S/320.html#L64'>b</a>                  64 sys/include/timer.h #define time_before_eq(a,b)	time_after_eq(b,a)
+<a href='../S/341.html#L111'>b</a>                 111 sys/mem/kmem.c #define BLKNDX(b)	((u_int)((b)-&gt;size) &gt;&gt; 4)
+<a href='../S/519.html#L62'>b</a>                  62 usr/lib/libc/stdio/fvwrite.c #define	MIN(a, b) ((a) &lt; (b) ? (a) : (b))
+<a href='../S/575.html#L41'>b</a>                  41 usr/lib/libc/stdlib/qsort.c #define min(a, b)	(a) &lt; (b) ? a : b
+<a href='../S/575.html#L61'>b</a>                  61 usr/lib/libc/stdlib/qsort.c swapfunc(a, b, n, swaptype)
+<a href='../S/575.html#L62'>b</a>                  62 usr/lib/libc/stdlib/qsort.c 	char *a, *b;
+<a href='../S/575.html#L67'>b</a>                  67 usr/lib/libc/stdlib/qsort.c 		swapcode(long, a, b, n)
+<a href='../S/575.html#L69'>b</a>                  69 usr/lib/libc/stdlib/qsort.c 		swapcode(char, a, b, n)
+<a href='../S/575.html#L72'>b</a>                  72 usr/lib/libc/stdlib/qsort.c #define swap(a, b)						\
+<a href='../S/575.html#L75'>b</a>                  75 usr/lib/libc/stdlib/qsort.c 		*(long *)(void *)(a) = *(long *)(void *)(b);	\
+<a href='../S/575.html#L76'>b</a>                  76 usr/lib/libc/stdlib/qsort.c 		*(long *)(void *)(b) = t;			\
+<a href='../S/575.html#L78'>b</a>                  78 usr/lib/libc/stdlib/qsort.c 		swapfunc(a, b, es, swaptype)
+<a href='../S/575.html#L80'>b</a>                  80 usr/lib/libc/stdlib/qsort.c #define vecswap(a, b, n) if ((n) &gt; 0) swapfunc((a), (b), (size_t)(n), swaptype)
+<a href='../S/575.html#L83'>b</a>                  83 usr/lib/libc/stdlib/qsort.c med3(a, b, c, cmp)
+<a href='../S/575.html#L84'>b</a>                  84 usr/lib/libc/stdlib/qsort.c 	char *a, *b, *c;
+<a href='../S/575.html#L87'>b</a>                  87 usr/lib/libc/stdlib/qsort.c 	return cmp(a, b) &lt; 0 ?
+<a href='../S/575.html#L88'>b</a>                  88 usr/lib/libc/stdlib/qsort.c 	       (cmp(b, c) &lt; 0 ? b : (cmp(a, c) &lt; 0 ? c : a ))
+<a href='../S/575.html#L89'>b</a>                  89 usr/lib/libc/stdlib/qsort.c               :(cmp(b, c) &gt; 0 ? b : (cmp(a, c) &lt; 0 ? a : c ));
+</pre>
+</body>
+</html>

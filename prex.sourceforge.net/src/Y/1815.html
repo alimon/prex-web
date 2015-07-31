@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sbp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/479.html#L771'>sbp</a>               771 usr/lib/libc/gen/fts.c 	struct stat *sbp, sb;
+<a href='../S/479.html#L775'>sbp</a>               775 usr/lib/libc/gen/fts.c 	sbp = ISSET(FTS_NOSTAT) ? &amp;sb : p-&gt;fts_statp;
+<a href='../S/479.html#L780'>sbp</a>               780 usr/lib/libc/gen/fts.c 		if (sbp != &amp;sb) {
+<a href='../S/479.html#L781'>sbp</a>               781 usr/lib/libc/gen/fts.c 			memset(sbp, '\0', sizeof (*sbp));
+<a href='../S/479.html#L782'>sbp</a>               782 usr/lib/libc/gen/fts.c 			sbp-&gt;st_mode = S_IFWHT;
+<a href='../S/479.html#L794'>sbp</a>               794 usr/lib/libc/gen/fts.c 		if (stat(p-&gt;fts_accpath, sbp)) {
+<a href='../S/479.html#L796'>sbp</a>               796 usr/lib/libc/gen/fts.c 			if (!lstat(p-&gt;fts_accpath, sbp)) {
+<a href='../S/479.html#L803'>sbp</a>               803 usr/lib/libc/gen/fts.c 	} else if (lstat(p-&gt;fts_accpath, sbp)) {
+<a href='../S/479.html#L805'>sbp</a>               805 usr/lib/libc/gen/fts.c err:		memset(sbp, 0, sizeof(struct stat));
+<a href='../S/479.html#L809'>sbp</a>               809 usr/lib/libc/gen/fts.c 	if (S_ISDIR(sbp-&gt;st_mode)) {
+<a href='../S/479.html#L817'>sbp</a>               817 usr/lib/libc/gen/fts.c 		dev = p-&gt;fts_dev = sbp-&gt;st_dev;
+<a href='../S/479.html#L818'>sbp</a>               818 usr/lib/libc/gen/fts.c 		ino = p-&gt;fts_ino = sbp-&gt;st_ino;
+<a href='../S/479.html#L819'>sbp</a>               819 usr/lib/libc/gen/fts.c 		p-&gt;fts_nlink = sbp-&gt;st_nlink;
+<a href='../S/479.html#L838'>sbp</a>               838 usr/lib/libc/gen/fts.c 	if (S_ISLNK(sbp-&gt;st_mode))
+<a href='../S/479.html#L840'>sbp</a>               840 usr/lib/libc/gen/fts.c 	if (S_ISREG(sbp-&gt;st_mode))
+</pre>
+</body>
+</html>

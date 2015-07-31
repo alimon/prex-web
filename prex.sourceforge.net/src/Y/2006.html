@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>st_mode</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/271.html#L45'>st_mode</a>            45 include/sys/stat.h 	mode_t	  st_mode;		/* inode protection mode */
+<a href='../S/374.html#L83'>st_mode</a>            83 usr/bin/cp/cp.c 	if (r == -1 || !S_ISDIR(to_stat.st_mode)) {
+<a href='../S/374.html#L94'>st_mode</a>            94 usr/bin/cp/cp.c 		if (!S_ISREG(tmp_stat.st_mode))
+<a href='../S/374.html#L152'>st_mode</a>           152 usr/bin/cp/cp.c 	mode = stbuf.st_mode;
+<a href='../S/390.html#L193'>st_mode</a>           193 usr/bin/ls/ls.c 	if (S_ISCHR(sp-&gt;st_mode) || S_ISBLK(sp-&gt;st_mode))
+<a href='../S/390.html#L195'>st_mode</a>           195 usr/bin/ls/ls.c 	else if (S_ISDIR(sp-&gt;st_mode))
+<a href='../S/390.html#L197'>st_mode</a>           197 usr/bin/ls/ls.c 	else if (S_ISFIFO(sp-&gt;st_mode))
+<a href='../S/390.html#L199'>st_mode</a>           199 usr/bin/ls/ls.c 	else if (S_ISLNK(sp-&gt;st_mode))
+<a href='../S/390.html#L203'>st_mode</a>           203 usr/bin/ls/ls.c 		printtype(sp-&gt;st_mode);
+<a href='../S/390.html#L204'>st_mode</a>           204 usr/bin/ls/ls.c 		printmode(sp-&gt;st_mode);
+<a href='../S/390.html#L227'>st_mode</a>           227 usr/bin/ls/ls.c 		printtype(sp-&gt;st_mode);
+<a href='../S/390.html#L228'>st_mode</a>           228 usr/bin/ls/ls.c 		if (sp-&gt;st_mode &amp; (S_IXUSR | S_IXGRP | S_IXOTH))
+<a href='../S/390.html#L266'>st_mode</a>           266 usr/bin/ls/ls.c 	if (S_ISDIR(st.st_mode)) {
+<a href='../S/398.html#L61'>st_mode</a>            61 usr/bin/mv/mv.c 	if (!S_ISREG(st1.st_mode)) {
+<a href='../S/398.html#L68'>st_mode</a>            68 usr/bin/mv/mv.c 	if (!rc &amp;&amp; S_ISDIR(st2.st_mode)) {
+<a href='../S/421.html#L343'>st_mode</a>           343 usr/bin/test/test.c 		return S_ISREG(s.st_mode);
+<a href='../S/421.html#L345'>st_mode</a>           345 usr/bin/test/test.c 		return S_ISDIR(s.st_mode);
+<a href='../S/421.html#L347'>st_mode</a>           347 usr/bin/test/test.c 		return S_ISCHR(s.st_mode);
+<a href='../S/421.html#L349'>st_mode</a>           349 usr/bin/test/test.c 		return S_ISBLK(s.st_mode);
+<a href='../S/421.html#L351'>st_mode</a>           351 usr/bin/test/test.c 		return S_ISFIFO(s.st_mode);
+<a href='../S/421.html#L353'>st_mode</a>           353 usr/bin/test/test.c 		return S_ISSOCK(s.st_mode);
+<a href='../S/421.html#L355'>st_mode</a>           355 usr/bin/test/test.c 		return S_ISLNK(s.st_mode);
+<a href='../S/421.html#L357'>st_mode</a>           357 usr/bin/test/test.c 		return (s.st_mode &amp; S_ISUID) != 0;
+<a href='../S/421.html#L359'>st_mode</a>           359 usr/bin/test/test.c 		return (s.st_mode &amp; S_ISGID) != 0;
+<a href='../S/421.html#L361'>st_mode</a>           361 usr/bin/test/test.c 		return (s.st_mode &amp; S_ISVTX) != 0;
+<a href='../S/479.html#L782'>st_mode</a>           782 usr/lib/libc/gen/fts.c 			sbp-&gt;st_mode = S_IFWHT;
+<a href='../S/479.html#L809'>st_mode</a>           809 usr/lib/libc/gen/fts.c 	if (S_ISDIR(sbp-&gt;st_mode)) {
+<a href='../S/479.html#L838'>st_mode</a>           838 usr/lib/libc/gen/fts.c 	if (S_ISLNK(sbp-&gt;st_mode))
+<a href='../S/479.html#L840'>st_mode</a>           840 usr/lib/libc/gen/fts.c 	if (S_ISREG(sbp-&gt;st_mode))
+<a href='../S/528.html#L54'>st_mode</a>            54 usr/lib/libc/stdio/makebuf.c 	*couldbetty = S_ISCHR(st.st_mode);
+<a href='../S/530.html#L84'>st_mode</a>            84 usr/lib/libc/stdio/mktemp.c 			if (!S_ISDIR(sbuf.st_mode)) {
+<a href='../S/538.html#L53'>st_mode</a>            53 usr/lib/libc/stdio/remove.c 	if (S_ISDIR(sb.st_mode))
+<a href='../S/862.html#L78'>st_mode</a>            78 usr/sbin/install/install.c 	if (r == -1 || !S_ISDIR(to_stat.st_mode)) {
+<a href='../S/862.html#L131'>st_mode</a>           131 usr/sbin/install/install.c 	mode = stbuf.st_mode;
+<a href='../S/871.html#L248'>st_mode</a>           248 usr/server/boot/boot.c 	mode = stbuf.st_mode;
+<a href='../S/877.html#L458'>st_mode</a>           458 usr/server/exec/exec_execve.c 	if (!S_ISREG(st.st_mode)) {
+<a href='../S/913.html#L377'>st_mode</a>           377 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_mode = mode;
+</pre>
+</body>
+</html>

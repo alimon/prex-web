@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>irq_level</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/136.html#L67'>irq_level</a>          67 bsp/hal/arm/gba/interrupt.c volatile int irq_level;
+<a href='../S/136.html#L78'>irq_level</a>          78 bsp/hal/arm/gba/interrupt.c #define update_mask()	ICU_IE = mask_table[irq_level]
+<a href='../S/136.html#L139'>irq_level</a>         139 bsp/hal/arm/gba/interrupt.c 	old_ipl = irq_level;
+<a href='../S/136.html#L140'>irq_level</a>         140 bsp/hal/arm/gba/interrupt.c 	irq_level = ipl_table[vector];
+<a href='../S/136.html#L155'>irq_level</a>         155 bsp/hal/arm/gba/interrupt.c 	irq_level = old_ipl;
+<a href='../S/136.html#L199'>irq_level</a>         199 bsp/hal/arm/gba/interrupt.c 	irq_level = IPL_NONE;
+<a href='../S/148.html#L60'>irq_level</a>          60 bsp/hal/arm/integrator/interrupt.c volatile int irq_level;
+<a href='../S/148.html#L74'>irq_level</a>          74 bsp/hal/arm/integrator/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/148.html#L149'>irq_level</a>         149 bsp/hal/arm/integrator/interrupt.c 	old_ipl = irq_level;
+<a href='../S/148.html#L152'>irq_level</a>         152 bsp/hal/arm/integrator/interrupt.c 		irq_level = new_ipl;
+<a href='../S/148.html#L164'>irq_level</a>         164 bsp/hal/arm/integrator/interrupt.c 	irq_level = old_ipl;
+<a href='../S/148.html#L179'>irq_level</a>         179 bsp/hal/arm/integrator/interrupt.c 	irq_level = IPL_NONE;
+<a href='../S/169.html#L62'>irq_level</a>          62 bsp/hal/ppc/prep/interrupt.c static volatile int irq_level;
+<a href='../S/169.html#L76'>irq_level</a>          76 bsp/hal/ppc/prep/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/169.html#L190'>irq_level</a>         190 bsp/hal/ppc/prep/interrupt.c 	old_ipl = irq_level;
+<a href='../S/169.html#L193'>irq_level</a>         193 bsp/hal/ppc/prep/interrupt.c 		irq_level = new_ipl;
+<a href='../S/169.html#L202'>irq_level</a>         202 bsp/hal/ppc/prep/interrupt.c 	irq_level = old_ipl;
+<a href='../S/169.html#L215'>irq_level</a>         215 bsp/hal/ppc/prep/interrupt.c 	irq_level = IPL_NONE;
+<a href='../S/188.html#L60'>irq_level</a>          60 bsp/hal/x86/pc/interrupt.c static volatile int irq_level;
+<a href='../S/188.html#L74'>irq_level</a>          74 bsp/hal/x86/pc/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/188.html#L162'>irq_level</a>         162 bsp/hal/x86/pc/interrupt.c 	old_ipl = irq_level;
+<a href='../S/188.html#L165'>irq_level</a>         165 bsp/hal/x86/pc/interrupt.c 		irq_level = new_ipl;
+<a href='../S/188.html#L179'>irq_level</a>         179 bsp/hal/x86/pc/interrupt.c 	irq_level = old_ipl;
+<a href='../S/188.html#L192'>irq_level</a>         192 bsp/hal/x86/pc/interrupt.c 	irq_level = IPL_NONE;
+</pre>
+</body>
+</html>

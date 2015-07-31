@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>DPRINTF</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L67'>DPRINTF</a>            67 bsp/boot/common/elf.c 		DPRINTF(("Invalid ELF image\n"));
+<a href='../S/13.html#L77'>DPRINTF</a>            77 bsp/boot/common/elf.c 			DPRINTF(("Invalid load address\n"));
+<a href='../S/13.html#L194'>DPRINTF</a>           194 bsp/boot/common/elf.c 			DPRINTF(("Undefined symbol for rela[%x] sym=%lx\n",
+<a href='../S/13.html#L198'>DPRINTF</a>           198 bsp/boot/common/elf.c 			DPRINTF(("Undefined weak symbol for rela[%x]\n", i));
+<a href='../S/13.html#L222'>DPRINTF</a>           222 bsp/boot/common/elf.c 			DPRINTF(("Undefined symbol for rel[%x] sym=%lx\n",
+<a href='../S/13.html#L226'>DPRINTF</a>           226 bsp/boot/common/elf.c 			DPRINTF(("Undefined weak symbol for rel[%x]\n", i));
+<a href='../S/13.html#L366'>DPRINTF</a>           366 bsp/boot/common/elf.c 				DPRINTF(("Relocation error: module=%s\n", m-&gt;name));
+<a href='../S/14.html#L156'>DPRINTF</a>           156 bsp/boot/common/load.c 		DPRINTF(("Invalid image %s\n", hdr-&gt;ar_name));
+<a href='../S/14.html#L165'>DPRINTF</a>           165 bsp/boot/common/load.c  	DPRINTF(("loading: hdr=%lx module=%lx name=%s\n",
+<a href='../S/14.html#L188'>DPRINTF</a>           188 bsp/boot/common/load.c 		DPRINTF(("Invalid bootdisk image\n"));
+<a href='../S/14.html#L194'>DPRINTF</a>           194 bsp/boot/common/load.c 		DPRINTF(("Size of bootdisk is zero\n"));
+<a href='../S/14.html#L211'>DPRINTF</a>           211 bsp/boot/common/load.c 	DPRINTF(("bootdisk base=%lx size=%lx\n",
+<a href='../S/15.html#L63'>DPRINTF</a>            63 bsp/boot/common/main.c 	DPRINTF(("Prex Boot Loader\n"));
+<a href='../S/15.html#L89'>DPRINTF</a>            89 bsp/boot/common/main.c 	DPRINTF(("Entering kernel (at 0x%lx) ...\n\n", (long)entry));
+<a href='../S/15.html#L104'>DPRINTF</a>           104 bsp/boot/common/main.c 	DPRINTF(("Panic: %s\n", msg));
+<a href='../S/59.html#L58'>DPRINTF</a>            58 bsp/drv/dev/base/init.c 	DPRINTF(("Probing devices...\n"));
+<a href='../S/59.html#L92'>DPRINTF</a>            92 bsp/drv/dev/base/init.c 			DPRINTF(("Initializing %s\n", dp-&gt;name));
+<a href='../S/59.html#L108'>DPRINTF</a>           108 bsp/drv/dev/base/init.c 	DPRINTF(("Shutting down...\n"));
+<a href='../S/59.html#L117'>DPRINTF</a>           117 bsp/drv/dev/base/init.c 			DPRINTF(("Unloading %s\n", dp-&gt;name));
+<a href='../S/61.html#L55'>DPRINTF</a>            55 bsp/drv/dev/base/main.c 	DPRINTF(("Prex driver module built: " __DATE__ "\n"));
+<a href='../S/61.html#L65'>DPRINTF</a>            65 bsp/drv/dev/base/main.c 	DPRINTF(("Driver initialized\n"));
+<a href='../S/63.html#L145'>DPRINTF</a>           145 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: connect power server\n"));
+<a href='../S/63.html#L153'>DPRINTF</a>           153 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: query event=%d\n", event));
+<a href='../S/63.html#L175'>DPRINTF</a>           175 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: get policy %d\n", sc-&gt;policy));
+<a href='../S/63.html#L184'>DPRINTF</a>           184 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set policy %d\n", policy));
+<a href='../S/63.html#L208'>DPRINTF</a>           208 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set sustmr=%d\n", sc-&gt;sustime));
+<a href='../S/63.html#L220'>DPRINTF</a>           220 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set dimtmr=%d\n", sc-&gt;dimtime));
+<a href='../S/63.html#L237'>DPRINTF</a>           237 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: stop timer\n"));
+<a href='../S/63.html#L264'>DPRINTF</a>           264 bsp/drv/dev/base/pm.c 			DPRINTF(("pm: start timer\n"));
+<a href='../S/63.html#L277'>DPRINTF</a>           277 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: suspend system...\n"));
+<a href='../S/63.html#L293'>DPRINTF</a>           293 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: resume...\n"));
+<a href='../S/63.html#L304'>DPRINTF</a>           304 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: power off...\n"));
+<a href='../S/63.html#L323'>DPRINTF</a>           323 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: rebooting...\n"));
+<a href='../S/63.html#L339'>DPRINTF</a>           339 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: LCD off\n"));
+<a href='../S/63.html#L354'>DPRINTF</a>           354 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: LCD on\n"));
+<a href='../S/63.html#L373'>DPRINTF</a>           373 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: idlecnt=%d\n", sc-&gt;idlecnt));
+<a href='../S/63.html#L443'>DPRINTF</a>           443 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: notify %d\n", event));
+<a href='../S/63.html#L459'>DPRINTF</a>           459 bsp/drv/dev/base/pm.c 			DPRINTF(("pm: post %d\n", event));
+<a href='../S/63.html#L523'>DPRINTF</a>           523 bsp/drv/dev/base/pm.c 	DPRINTF(("Power policy: %s mode\n",
+<a href='../S/64.html#L190'>DPRINTF</a>           190 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_start\n"));
+<a href='../S/64.html#L205'>DPRINTF</a>           205 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_flush rw=%d\n", rw));
+<a href='../S/64.html#L264'>DPRINTF</a>           264 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_signal sig=%d\n", tp-&gt;t_signo));
+<a href='../S/64.html#L280'>DPRINTF</a>           280 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_input: %d\n", c));
+<a href='../S/64.html#L462'>DPRINTF</a>           462 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_read\n"));
+<a href='../S/64.html#L502'>DPRINTF</a>           502 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_write\n"));
+<a href='../S/66.html#L162'>DPRINTF</a>           162 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: timeout msr=%x\n", bus_read_8(FDC_MSR)));
+<a href='../S/66.html#L179'>DPRINTF</a>           179 bsp/drv/dev/block/fdd.c 				DPRINTF(("fdc: overrun\n"));
+<a href='../S/66.html#L186'>DPRINTF</a>           186 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: timeout\n"));
+<a href='../S/66.html#L196'>DPRINTF</a>           196 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: motor off\n"));
+<a href='../S/66.html#L210'>DPRINTF</a>           210 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: motor on\n"));
+<a href='../S/66.html#L224'>DPRINTF</a>           224 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: error=%d\n", error));
+<a href='../S/66.html#L239'>DPRINTF</a>           239 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: reset\n"));
+<a href='../S/66.html#L256'>DPRINTF</a>           256 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: recalibrate\n"));
+<a href='../S/66.html#L274'>DPRINTF</a>           274 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: seek\n"));
+<a href='../S/66.html#L302'>DPRINTF</a>           302 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: read/write\n"));
+<a href='../S/66.html#L311'>DPRINTF</a>           311 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: hd=%x trk=%x sec=%x size=%d read=%d\n",
+<a href='../S/66.html#L339'>DPRINTF</a>           339 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: wakeup requester\n"));
+<a href='../S/66.html#L355'>DPRINTF</a>           355 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L363'>DPRINTF</a>           363 bsp/drv/dev/block/fdd.c 		DPRINTF(("fdc: reset/recal timeout\n"));
+<a href='../S/66.html#L368'>DPRINTF</a>           368 bsp/drv/dev/block/fdd.c 		DPRINTF(("fdc: seek/io timeout retry=%d\n", irp-&gt;nr_retry));
+<a href='../S/66.html#L392'>DPRINTF</a>           392 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc_stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L404'>DPRINTF</a>           404 bsp/drv/dev/block/fdd.c 			DPRINTF(("fdc: invalid interrupt\n"));
+<a href='../S/66.html#L412'>DPRINTF</a>           412 bsp/drv/dev/block/fdd.c 		DPRINTF(("fdc: unknown interrupt\n"));
+<a href='../S/66.html#L429'>DPRINTF</a>           429 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc_stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L446'>DPRINTF</a>           446 bsp/drv/dev/block/fdd.c 			DPRINTF(("fdc: recal error\n"));
+<a href='../S/66.html#L456'>DPRINTF</a>           456 bsp/drv/dev/block/fdd.c 			DPRINTF(("fdc: seek error\n"));
+<a href='../S/66.html#L474'>DPRINTF</a>           474 bsp/drv/dev/block/fdd.c 		DPRINTF(("fdc: i/o complete\n"));
+<a href='../S/66.html#L523'>DPRINTF</a>           523 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_rw: cmd=%x buf=%x blksz=%d blkno=%x\n",
+<a href='../S/66.html#L565'>DPRINTF</a>           565 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_read: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L621'>DPRINTF</a>           621 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_write: buf=%x nbyte=%d blkno=%x\n", buf, *nbyte, blkno));
+<a href='../S/66.html#L658'>DPRINTF</a>           658 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdd_write: error=%d\n", error));
+<a href='../S/68.html#L85'>DPRINTF</a>            85 bsp/drv/dev/block/ramdisk.c 	DPRINTF(("ramdisk_read: buf=%x nbyte=%d blkno=%x\n",
+<a href='../S/68.html#L90'>DPRINTF</a>            90 bsp/drv/dev/block/ramdisk.c 		DPRINTF(("ramdisk_read: overrun!\n"));
+<a href='../S/68.html#L116'>DPRINTF</a>           116 bsp/drv/dev/block/ramdisk.c 	DPRINTF(("ramdisk_write: buf=%x nbyte=%d blkno=%x\n",
+<a href='../S/69.html#L142'>DPRINTF</a>           142 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: new_workload=%u new_deadline=%u\n",
+<a href='../S/69.html#L144'>DPRINTF</a>           144 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: avg_workload=%u avg_deadline=%u\n",
+<a href='../S/69.html#L146'>DPRINTF</a>           146 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: max_speed=%d\n", max_speed));
+<a href='../S/69.html#L199'>DPRINTF</a>           199 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: run_percent=%d next_excess=%d new_speed=%d\n\n",
+<a href='../S/69.html#L225'>DPRINTF</a>           225 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: run_cycles=%d idle_cycles=%d cur_speed=%d\n",
+<a href='../S/69.html#L258'>DPRINTF</a>           258 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: enable\n"));
+<a href='../S/69.html#L289'>DPRINTF</a>           289 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: disable\n"));
+<a href='../S/69.html#L330'>DPRINTF</a>           330 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: devctl cmd=%d\n", cmd));
+<a href='../S/69.html#L337'>DPRINTF</a>           337 bsp/drv/dev/cpufreq/cpufreq.c 		DPRINTF(("cpufreq: change policy\n"));
+<a href='../S/69.html#L339'>DPRINTF</a>           339 bsp/drv/dev/cpufreq/cpufreq.c 		DPRINTF(("cpufreq: policy=%d\n", policy));
+<a href='../S/69.html#L356'>DPRINTF</a>           356 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: attach ops=%x\n", ops));
+<a href='../S/70.html#L410'>DPRINTF</a>           410 bsp/drv/dev/cpufreq/est.c 	DPRINTF(("setperf: %dMHz %dmV\n", curfreq, curvolts));
+<a href='../S/70.html#L458'>DPRINTF</a>           458 bsp/drv/dev/cpufreq/est.c 	DPRINTF(("CPU brand: %s\n", brand_str));
+<a href='../S/70.html#L496'>DPRINTF</a>           496 bsp/drv/dev/cpufreq/est.c 		DPRINTF(("Unknown EST cpu, no changes possible\n"));
+<a href='../S/70.html#L507'>DPRINTF</a>           507 bsp/drv/dev/cpufreq/est.c 		DPRINTF((" (not in table)\n"));
+<a href='../S/70.html#L542'>DPRINTF</a>           542 bsp/drv/dev/cpufreq/est.c 		DPRINTF(("CPU ID: %08x\n", cpu_id));
+<a href='../S/70.html#L551'>DPRINTF</a>           551 bsp/drv/dev/cpufreq/est.c 	DPRINTF(("CPU ID: %08x\n", cpu_id));
+<a href='../S/70.html#L553'>DPRINTF</a>           553 bsp/drv/dev/cpufreq/est.c 		DPRINTF(("cpu: clock control not supported\n"));
+<a href='../S/72.html#L157'>DPRINTF</a>           157 bsp/drv/dev/dma/i8237.c 	DPRINTF(("DMA%d attached\n", chan));
+<a href='../S/72.html#L182'>DPRINTF</a>           182 bsp/drv/dev/dma/i8237.c 	DPRINTF(("DMA%d detached\n", dma-&gt;chan));
+<a href='../S/77.html#L96'>DPRINTF</a>            96 bsp/drv/dev/input/psaux.c 	DPRINTF(("kmc_send_auxcmd: %x\n", val));
+<a href='../S/77.html#L112'>DPRINTF</a>           112 bsp/drv/dev/input/psaux.c 	DPRINTF(("kmc_write_aux: val=%x\n", val));
+<a href='../S/77.html#L149'>DPRINTF</a>           149 bsp/drv/dev/input/psaux.c 		DPRINTF(("BAT comp"));
+<a href='../S/77.html#L154'>DPRINTF</a>           154 bsp/drv/dev/input/psaux.c 			DPRINTF(("Mouse ID=%x\n", id));
+<a href='../S/77.html#L164'>DPRINTF</a>           164 bsp/drv/dev/input/psaux.c 	DPRINTF(("mouse packet %x:%d:%d\n", sc-&gt;packet[0],
+<a href='../S/77.html#L176'>DPRINTF</a>           176 bsp/drv/dev/input/psaux.c 	DPRINTF(("psaux_open: dev=%x\n", dev));
+<a href='../S/77.html#L186'>DPRINTF</a>           186 bsp/drv/dev/input/psaux.c 	DPRINTF(("psaux_close: dev=%x\n", dev));
+<a href='../S/91.html#L212'>DPRINTF</a>           212 bsp/drv/dev/video/vga.c 	DPRINTF(("vga: devctl cmd=%x\n", cmd));
+<a href='../S/91.html#L218'>DPRINTF</a>           218 bsp/drv/dev/video/vga.c 			DPRINTF(("vga: LCD off\n"));
+<a href='../S/91.html#L227'>DPRINTF</a>           227 bsp/drv/dev/video/vga.c 			DPRINTF(("vga: LCD on\n"));
+<a href='../S/107.html#L72'>DPRINTF</a>            72 bsp/drv/lib/delay.c 	DPRINTF(("Calibrating delay loop... "));
+<a href='../S/107.html#L104'>DPRINTF</a>           104 bsp/drv/lib/delay.c 	DPRINTF(("ok count=%ld\n", delay_count));
+<a href='../S/131.html#L158'>DPRINTF</a>           158 bsp/hal/arm/arch/mmu.c 				DPRINTF(("Error: MMU mapping failed\n"));
+<a href='../S/132.html#L82'>DPRINTF</a>            82 bsp/hal/arm/arch/trap.c 		DPRINTF(("\n*** Detect Fault! address=%x task=%s ***\n",
+<a href='../S/138.html#L49'>DPRINTF</a>            49 bsp/hal/arm/gba/machdep.c 	DPRINTF(("Power down machine\n"));
+<a href='../S/146.html#L103'>DPRINTF</a>           103 bsp/hal/arm/integrator/clock.c 	DPRINTF(("Clock rate: %d ticks/sec\n", CONFIG_HZ));
+<a href='../S/149.html#L125'>DPRINTF</a>           125 bsp/hal/arm/integrator/machdep.c 	DPRINTF(("Power down machine\n"));
+<a href='../S/153.html#L68'>DPRINTF</a>            68 bsp/hal/ppc/arch/clock.c 	DPRINTF(("clock_init\n"));
+<a href='../S/171.html#L106'>DPRINTF</a>           106 bsp/hal/ppc/prep/machdep.c 	DPRINTF(("Power down machine\n"));
+<a href='../S/178.html#L130'>DPRINTF</a>           130 bsp/hal/x86/arch/mmu.c 				DPRINTF(("Error: MMU mapping failed\n"));
+<a href='../S/179.html#L123'>DPRINTF</a>           123 bsp/hal/x86/arch/trap.c 		DPRINTF(("\n*** Detect Fault! address=%x task=%s ***\n",
+<a href='../S/186.html#L85'>DPRINTF</a>            85 bsp/hal/x86/pc/clock.c 	DPRINTF(("Clock rate: %d ticks/sec\n", CONFIG_HZ));
+<a href='../S/189.html#L104'>DPRINTF</a>           104 bsp/hal/x86/pc/machdep.c 	DPRINTF(("Power down machine\n\n"));
+<a href='../S/327.html#L499'>DPRINTF</a>           499 sys/kern/device.c 			DPRINTF(("%s returns error=%d for cmd=%ld\n",
+<a href='../S/327.html#L552'>DPRINTF</a>           552 sys/kern/device.c 		DPRINTF(("Warning: No driver found\n"));
+<a href='../S/327.html#L559'>DPRINTF</a>           559 sys/kern/device.c 	DPRINTF(("Entering driver module (at 0x%x)\n", (int)entry));
+<a href='../S/328.html#L131'>DPRINTF</a>           131 sys/kern/exception.c 				DPRINTF(("Exception cancelled task=%s\n",
+<a href='../S/328.html#L156'>DPRINTF</a>           156 sys/kern/exception.c 		DPRINTF(("Bad exception task=%lx\n", (long)task));
+<a href='../S/328.html#L333'>DPRINTF</a>           333 sys/kern/exception.c 			DPRINTF(("Exception #%d is not handled by task.\n",
+<a href='../S/328.html#L335'>DPRINTF</a>           335 sys/kern/exception.c 			DPRINTF(("Terminate task:%s (id:%lx)\n",
+<a href='../S/329.html#L117'>DPRINTF</a>           117 sys/kern/irq.c 	DPRINTF(("IRQ%d attached priority=%d\n", vector, pri));
+<a href='../S/329.html#L197'>DPRINTF</a>           197 sys/kern/irq.c 		DPRINTF(("Random interrupt ignored\n"));
+<a href='../S/330.html#L67'>DPRINTF</a>            67 sys/kern/main.c 	DPRINTF((BANNER));
+<a href='../S/331.html#L732'>DPRINTF</a>           732 sys/kern/sched.c 	DPRINTF(("Time slice is %d msec\n", CONFIG_TIME_SLICE));
+<a href='../S/334.html#L372'>DPRINTF</a>           372 sys/kern/task.c 		DPRINTF(("Denying capability by %s: task=%s cap=%08x\n",
+<a href='../S/334.html#L392'>DPRINTF</a>           392 sys/kern/task.c 		DPRINTF(("Denying capability by kernel: task=%s cap=%08x\n",
+<a href='../S/334.html#L519'>DPRINTF</a>           519 sys/kern/task.c 		DPRINTF(("task_bootstrap: error=%d\n", error));
+<a href='../S/335.html#L100'>DPRINTF</a>           100 sys/kern/thread.c 		DPRINTF(("Out of text\n"));
+<a href='../S/342.html#L94'>DPRINTF</a>            94 sys/mem/page.c 			DPRINTF(("page_alloc: out of memory\n"));
+<a href='../S/342.html#L301'>DPRINTF</a>           301 sys/mem/page.c 	DPRINTF(("Memory size=%ld\n", total_size));
+<a href='../S/343.html#L680'>DPRINTF</a>           680 sys/mem/vm.c   	DPRINTF(("Loading task: %s\n", mod-&gt;name));
+<a href='../S/344.html#L460'>DPRINTF</a>           460 sys/mem/vm_nommu.c 	DPRINTF(("Loading task:\'%s\'\n", mod-&gt;name));
+<a href='../S/346.html#L432'>DPRINTF</a>           432 sys/sync/mutex.c 			DPRINTF(("Deadlock! mutex=%lx holder=%lx waiter=%lx\n",
+<a href='../S/871.html#L130'>DPRINTF</a>           130 usr/server/boot/boot.c 	DPRINTF(("boot: mounting file systems\n"));
+<a href='../S/871.html#L189'>DPRINTF</a>           189 usr/server/boot/boot.c 	DPRINTF(("boot: execute init\n"));
+<a href='../S/874.html#L63'>DPRINTF</a>            63 usr/server/exec/exec_cap.c 		DPRINTF(("exec: set capability:%08x to %s\n", cap, path));
+<a href='../S/876.html#L125'>DPRINTF</a>           125 usr/server/exec/exec_elf.c 			DPRINTF(("undefined weak symbol for rela[%d]\n", i));
+<a href='../S/876.html#L148'>DPRINTF</a>           148 usr/server/exec/exec_elf.c 			DPRINTF(("undefined weak symbol for rel[%d]\n", i));
+<a href='../S/876.html#L203'>DPRINTF</a>           203 usr/server/exec/exec_elf.c 	DPRINTF(("exec: load_reloc\n"));
+<a href='../S/876.html#L235'>DPRINTF</a>           235 usr/server/exec/exec_elf.c 		DPRINTF(("exec: out of text\n"));
+<a href='../S/876.html#L301'>DPRINTF</a>           301 usr/server/exec/exec_elf.c 				DPRINTF(("exec: relocation failed\n"));
+<a href='../S/876.html#L307'>DPRINTF</a>           307 usr/server/exec/exec_elf.c 	DPRINTF(("exec: entry=%x\n", *entry));
+<a href='../S/876.html#L323'>DPRINTF</a>           323 usr/server/exec/exec_elf.c 	DPRINTF(("exec: load_reloc ret=%d\n", error));
+<a href='../S/876.html#L342'>DPRINTF</a>           342 usr/server/exec/exec_elf.c 		DPRINTF(("exec: no exec access\n"));
+<a href='../S/876.html#L370'>DPRINTF</a>           370 usr/server/exec/exec_elf.c 	DPRINTF(("exec: ELF magic %c %c %c %c\n",
+<a href='../S/877.html#L83'>DPRINTF</a>            83 usr/server/exec/exec_execve.c 	DPRINTF(("exec_execve: path=%s task=%x\n", msg-&gt;path, msg-&gt;hdr.task));
+<a href='../S/877.html#L91'>DPRINTF</a>            91 usr/server/exec/exec_execve.c 		DPRINTF(("exec: invalid path\n"));
+<a href='../S/877.html#L99'>DPRINTF</a>            99 usr/server/exec/exec_execve.c 		DPRINTF(("exec: no exec access\n"));
+<a href='../S/877.html#L113'>DPRINTF</a>           113 usr/server/exec/exec_execve.c 	DPRINTF(("exec: read header for %s\n", exec.path));
+<a href='../S/877.html#L128'>DPRINTF</a>           128 usr/server/exec/exec_execve.c 		DPRINTF(("exec: unsupported file format\n"));
+<a href='../S/877.html#L139'>DPRINTF</a>           139 usr/server/exec/exec_execve.c 	DPRINTF(("exec: loader=%s\n", ldr-&gt;el_name));
+<a href='../S/877.html#L145'>DPRINTF</a>           145 usr/server/exec/exec_execve.c 		DPRINTF(("exec: no exec access\n"));
+<a href='../S/877.html#L160'>DPRINTF</a>           160 usr/server/exec/exec_execve.c 		DPRINTF(("exec: failed to crete task\n"));
+<a href='../S/877.html#L180'>DPRINTF</a>           180 usr/server/exec/exec_execve.c 		DPRINTF(("exec: failed to allocate stack\n"));
+<a href='../S/877.html#L190'>DPRINTF</a>           190 usr/server/exec/exec_execve.c 	DPRINTF(("exec: load file image\n"));
+<a href='../S/877.html#L213'>DPRINTF</a>           213 usr/server/exec/exec_execve.c 	DPRINTF(("exec done\n"));
+<a href='../S/877.html#L222'>DPRINTF</a>           222 usr/server/exec/exec_execve.c 	DPRINTF(("exec failed error=%d\n", error));
+<a href='../S/877.html#L326'>DPRINTF</a>           326 usr/server/exec/exec_execve.c 	DPRINTF(("exec: argc=%d envc=%d\n", argc, envc));
+<a href='../S/877.html#L327'>DPRINTF</a>           327 usr/server/exec/exec_execve.c 	DPRINTF(("exec: xarg1=%s xarg2=%s\n", xarg1, xarg2));
+<a href='../S/877.html#L459'>DPRINTF</a>           459 usr/server/exec/exec_execve.c 		DPRINTF(("exec: not regular file\n"));
+<a href='../S/878.html#L80'>DPRINTF</a>            80 usr/server/exec/exec_script.c 	DPRINTF(("script_probe: found\n"));
+<a href='../S/878.html#L101'>DPRINTF</a>           101 usr/server/exec/exec_script.c 	DPRINTF(("script_probe: interpreter=%s arg=%s script=%s\n",
+<a href='../S/879.html#L131'>DPRINTF</a>           131 usr/server/exec/main.c 	DPRINTF(("exec_shutdown\n"));
+<a href='../S/879.html#L146'>DPRINTF</a>           146 usr/server/exec/main.c 		DPRINTF(("Initialize \'%s\' loader\n", ldr-&gt;el_name));
+<a href='../S/879.html#L221'>DPRINTF</a>           221 usr/server/exec/main.c 			DPRINTF(("exec: msg error=%d code=%x\n",
+<a href='../S/882.html#L77'>DPRINTF</a>            77 usr/server/fs/arfs/arfs_vfsops.c 	DPRINTF(("arfs_mount: dev=%s\n", dev));
+<a href='../S/882.html#L86'>DPRINTF</a>            86 usr/server/fs/arfs/arfs_vfsops.c 		DPRINTF(("arfs_mount: read error=%d\n", error));
+<a href='../S/882.html#L92'>DPRINTF</a>            92 usr/server/fs/arfs/arfs_vfsops.c 		DPRINTF(("arfs_mount: invalid archive image!\n"));
+<a href='../S/883.html#L153'>DPRINTF</a>           153 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_lookup: name=%s\n", name));
+<a href='../S/883.html#L201'>DPRINTF</a>           201 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_lookup: error=%d\n\n", error));
+<a href='../S/883.html#L214'>DPRINTF</a>           214 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_read: start size=%d\n", size));
+<a href='../S/883.html#L234'>DPRINTF</a>           234 usr/server/fs/arfs/arfs_vnops.c 		DPRINTF(("arfs_read: file_pos=%d buf=%x size=%d\n",
+<a href='../S/883.html#L251'>DPRINTF</a>           251 usr/server/fs/arfs/arfs_vnops.c 		DPRINTF(("arfs_read: file_pos=%d nr_copy=%d\n",
+<a href='../S/883.html#L266'>DPRINTF</a>           266 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_read: error=%d\n\n", error));
+<a href='../S/883.html#L293'>DPRINTF</a>           293 usr/server/fs/arfs/arfs_vnops.c 	DPRINTF(("arfs_readdir: start\n"));
+<a href='../S/886.html#L121'>DPRINTF</a>           121 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_open: path=%s\n", vp-&gt;v_path));
+<a href='../S/886.html#L128'>DPRINTF</a>           128 usr/server/fs/devfs/devfs_vnops.c 		DPRINTF(("devfs_open: failed to open protected device.\n"));
+<a href='../S/886.html#L135'>DPRINTF</a>           135 usr/server/fs/devfs/devfs_vnops.c 		DPRINTF(("devfs_open: can not open device = %s error=%d\n",
+<a href='../S/886.html#L147'>DPRINTF</a>           147 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_close: fp=%x\n", fp));
+<a href='../S/886.html#L178'>DPRINTF</a>           178 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_write: error=%d len=%d\n", error, len));
+<a href='../S/886.html#L188'>DPRINTF</a>           188 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_ioctl: cmd=%x\n", cmd));
+<a href='../S/886.html#L198'>DPRINTF</a>           198 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_lookup:%s\n", name));
+<a href='../S/886.html#L234'>DPRINTF</a>           234 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_readdir offset=%d\n", fp-&gt;f_offset));
+<a href='../S/886.html#L254'>DPRINTF</a>           254 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_readdir: %s\n", dir-&gt;d_name));
+<a href='../S/889.html#L156'>DPRINTF</a>           156 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_next_cluster: %d =&gt; %d\n", cl, *next));
+<a href='../S/889.html#L220'>DPRINTF</a>           220 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_alloc_cluster: start=%d\n", scan_start));
+<a href='../S/889.html#L228'>DPRINTF</a>           228 usr/server/fs/fatfs/fatfs_fat.c 			DPRINTF(("fat_alloc_cluster: free cluster=%d\n", cl));
+<a href='../S/889.html#L335'>DPRINTF</a>           335 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_expand_file: new size=%d\n", size));
+<a href='../S/890.html#L102'>DPRINTF</a>           102 usr/server/fs/fatfs/fatfs_node.c 			DPRINTF(("fat_lookup_dirent: found sec=%d\n", sec));
+<a href='../S/890.html#L106'>DPRINTF</a>           106 usr/server/fs/fatfs/fatfs_node.c 			DPRINTF(("fat_lookup_dirent: %s\n", de-&gt;name));
+<a href='../S/890.html#L131'>DPRINTF</a>           131 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fat_lookup_denode: cl=%d name=%s\n", dvp-&gt;v_blkno, name));
+<a href='../S/890.html#L195'>DPRINTF</a>           195 usr/server/fs/fatfs/fatfs_node.c 				DPRINTF(("fat_get_dirent: found index=%d\n", *index));
+<a href='../S/890.html#L200'>DPRINTF</a>           200 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fat_get_dirent: %s\n", de-&gt;name));
+<a href='../S/890.html#L224'>DPRINTF</a>           224 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fatfs_get_node: index=%d\n", index));
+<a href='../S/890.html#L273'>DPRINTF</a>           273 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fat_add_dirent: scan %s\n", de-&gt;name));
+<a href='../S/890.html#L279'>DPRINTF</a>           279 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fat_add_dirent: found. sec=%d\n", sec));
+<a href='../S/890.html#L302'>DPRINTF</a>           302 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fatfs_add_node: cl=%d\n", cl));
+<a href='../S/890.html#L327'>DPRINTF</a>           327 usr/server/fs/fatfs/fatfs_node.c 		DPRINTF(("fatfs_add_node: expand dir\n"));
+<a href='../S/892.html#L88'>DPRINTF</a>            88 usr/server/fs/fatfs/fatfs_vfsops.c 		DPRINTF(("fatfs: invalid sector size\n"));
+<a href='../S/892.html#L115'>DPRINTF</a>           115 usr/server/fs/fatfs/fatfs_vfsops.c 		DPRINTF(("fatfs: invalid FAT type\n"));
+<a href='../S/892.html#L121'>DPRINTF</a>           121 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("----- FAT info -----\n"));
+<a href='../S/892.html#L122'>DPRINTF</a>           122 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("drive:%x\n", (int)bpb-&gt;physical_drive));
+<a href='../S/892.html#L123'>DPRINTF</a>           123 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("total_sectors:%d\n", (int)bpb-&gt;total_sectors));
+<a href='../S/892.html#L124'>DPRINTF</a>           124 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("heads       :%d\n", (int)bpb-&gt;heads));
+<a href='../S/892.html#L125'>DPRINTF</a>           125 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("serial      :%x\n", (int)bpb-&gt;serial_no));
+<a href='../S/892.html#L126'>DPRINTF</a>           126 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("cluster size:%u sectors\n", (int)fmp-&gt;sec_per_cl));
+<a href='../S/892.html#L127'>DPRINTF</a>           127 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("fat_type    :FAT%u\n", (int)fmp-&gt;fat_type));
+<a href='../S/892.html#L128'>DPRINTF</a>           128 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("fat_eof     :0x%x\n\n", (int)fmp-&gt;fat_eof));
+<a href='../S/892.html#L142'>DPRINTF</a>           142 usr/server/fs/fatfs/fatfs_vfsops.c 	DPRINTF(("fatfs_mount device=%s\n", dev));
+<a href='../S/893.html#L143'>DPRINTF</a>           143 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_lookup: name=%s\n", name));
+<a href='../S/893.html#L148'>DPRINTF</a>           148 usr/server/fs/fatfs/fatfs_vnops.c 		DPRINTF(("fatfs_lookup: failed!! name=%s\n", name));
+<a href='../S/893.html#L159'>DPRINTF</a>           159 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_lookup: cl=%d\n", de-&gt;cluster));
+<a href='../S/893.html#L171'>DPRINTF</a>           171 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_read: vp=%x\n", vp));
+<a href='../S/893.html#L245'>DPRINTF</a>           245 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_write: vp=%x\n", vp));
+<a href='../S/893.html#L384'>DPRINTF</a>           384 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_create: %s\n", name));
+<a href='../S/896.html#L146'>DPRINTF</a>           146 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_open: path=%s\n", vp-&gt;v_path));
+<a href='../S/896.html#L192'>DPRINTF</a>           192 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_close: fp=%x\n", fp));
+<a href='../S/896.html#L212'>DPRINTF</a>           212 usr/server/fs/fifofs/fifo_vnops.c 		DPRINTF(("fifo_close: remove pipe\n"));
+<a href='../S/896.html#L225'>DPRINTF</a>           225 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_read\n"));
+<a href='../S/896.html#L270'>DPRINTF</a>           270 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_write\n"));
+<a href='../S/896.html#L312'>DPRINTF</a>           312 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_ioctl\n"));
+<a href='../S/896.html#L323'>DPRINTF</a>           323 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_lookup: %s\n", name));
+<a href='../S/896.html#L357'>DPRINTF</a>           357 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("create %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/896.html#L414'>DPRINTF</a>           414 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("remove %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/896.html#L478'>DPRINTF</a>           478 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wait_reader: %x\n", np));
+<a href='../S/896.html#L491'>DPRINTF</a>           491 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wakeup_writer: %x\n", np));
+<a href='../S/896.html#L500'>DPRINTF</a>           500 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wait_writer: %x\n", np));
+<a href='../S/896.html#L513'>DPRINTF</a>           513 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wakeup_reader: %x\n", np));
+<a href='../S/901.html#L65'>DPRINTF</a>            65 usr/server/fs/ramfs/ramfs_vfsops.c 	DPRINTF(("ramfs_mount: dev=%s\n", dev));
+<a href='../S/902.html#L243'>DPRINTF</a>           243 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("mkdir %s\n", name));
+<a href='../S/902.html#L269'>DPRINTF</a>           269 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("remove %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/902.html#L289'>DPRINTF</a>           289 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("truncate %s length=%d\n", vp-&gt;v_path, length));
+<a href='../S/902.html#L323'>DPRINTF</a>           323 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("create %s in %s\n", name, dvp-&gt;v_path));
+<a href='../S/903.html#L647'>DPRINTF</a>           647 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("fs_fork\n"));
+<a href='../S/903.html#L675'>DPRINTF</a>           675 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("fs_fork-complete\n"));
+<a href='../S/903.html#L726'>DPRINTF</a>           726 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("fs_exit\n"));
+<a href='../S/903.html#L752'>DPRINTF</a>           752 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("fs_register\n"));
+<a href='../S/903.html#L766'>DPRINTF</a>           766 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("fs_pipe\n"));
+<a href='../S/903.html#L886'>DPRINTF</a>           886 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("fs_shutdown\n"));
+<a href='../S/903.html#L929'>DPRINTF</a>           929 usr/server/fs/vfs/main.c 		DPRINTF(VFSDB_CORE, ("VFS: initializing %s\n",
+<a href='../S/903.html#L1098'>DPRINTF</a>          1098 usr/server/fs/vfs/main.c 	DPRINTF(VFSDB_CORE, ("VFS: number of fs threads: %d\n",
+<a href='../S/906.html#L161'>DPRINTF</a>           161 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("getblk: dev=%x blkno=%d\n", dev, blkno));
+<a href='../S/906.html#L192'>DPRINTF</a>           192 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("getblk: done bp=%x\n", bp));
+<a href='../S/906.html#L203'>DPRINTF</a>           203 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("brelse: bp=%x dev=%x blkno=%d\n",
+<a href='../S/906.html#L232'>DPRINTF</a>           232 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bread: dev=%x blkno=%d\n", dev, blkno));
+<a href='../S/906.html#L239'>DPRINTF</a>           239 usr/server/fs/vfs/vfs_bio.c 			DPRINTF(VFSDB_BIO, ("bread: i/o error\n"));
+<a href='../S/906.html#L246'>DPRINTF</a>           246 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bread: done bp=%x\n\n", bp));
+<a href='../S/906.html#L265'>DPRINTF</a>           265 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bwrite: dev=%x blkno=%d\n", bp-&gt;b_dev,
+<a href='../S/906.html#L383'>DPRINTF</a>           383 usr/server/fs/vfs/vfs_bio.c 	DPRINTF(VFSDB_BIO, ("bio: Buffer cache size %dK bytes\n",
+<a href='../S/908.html#L60'>DPRINTF</a>            60 usr/server/fs/vfs/vfs_lookup.c 	DPRINTF(VFSDB_VNODE, ("namei: path=%s\n", path));
+<a href='../S/908.html#L158'>DPRINTF</a>           158 usr/server/fs/vfs/vfs_lookup.c 	DPRINTF(VFSDB_VNODE, ("lookup: path=%s\n", path));
+<a href='../S/909.html#L218'>DPRINTF</a>           218 usr/server/fs/vfs/vfs_mount.c 	DPRINTF(VFSDB_SYSCALL, ("sys_umount: path=%s\n", path));
+<a href='../S/910.html#L193'>DPRINTF</a>           193 usr/server/fs/vfs/vfs_security.c 		DPRINTF(VFSDB_CAP,
+<a href='../S/910.html#L200'>DPRINTF</a>           200 usr/server/fs/vfs/vfs_security.c 		DPRINTF(VFSDB_CAP,
+<a href='../S/911.html#L62'>DPRINTF</a>            62 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_open: path=%s flags=%x mode=%x\n",
+<a href='../S/911.html#L153'>DPRINTF</a>           153 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_close: fp=%x count=%d\n",
+<a href='../S/911.html#L180'>DPRINTF</a>           180 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_read: fp=%x buf=%x size=%d\n",
+<a href='../S/911.html#L202'>DPRINTF</a>           202 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_write: fp=%x buf=%x size=%d\n",
+<a href='../S/911.html#L223'>DPRINTF</a>           223 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_seek: fp=%x off=%d type=%d\n",
+<a href='../S/911.html#L272'>DPRINTF</a>           272 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_ioctl: fp=%x request=%x\n", fp, request));
+<a href='../S/911.html#L281'>DPRINTF</a>           281 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_ioctl: comp error=%d\n", error));
+<a href='../S/911.html#L291'>DPRINTF</a>           291 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_fsync: fp=%x\n", fp));
+<a href='../S/911.html#L309'>DPRINTF</a>           309 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_fstat: fp=%x\n", fp));
+<a href='../S/911.html#L328'>DPRINTF</a>           328 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("check_dir_empty\n"));
+<a href='../S/911.html#L354'>DPRINTF</a>           354 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_opendir: path=%s\n", path));
+<a href='../S/911.html#L378'>DPRINTF</a>           378 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_closedir: fp=%x\n", fp));
+<a href='../S/911.html#L397'>DPRINTF</a>           397 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_readdir: fp=%x\n", fp));
+<a href='../S/911.html#L406'>DPRINTF</a>           406 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_readdir: error=%d path=%s\n",
+<a href='../S/911.html#L467'>DPRINTF</a>           467 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_mkdir: path=%s mode=%d\n",	path, mode));
+<a href='../S/911.html#L498'>DPRINTF</a>           498 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_rmdir: path=%s\n", path));
+<a href='../S/911.html#L535'>DPRINTF</a>           535 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_mknod: path=%s mode=%d\n",	path, mode));
+<a href='../S/911.html#L575'>DPRINTF</a>           575 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_rename: src=%s dest=%s\n", src, dest));
+<a href='../S/911.html#L661'>DPRINTF</a>           661 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_unlink: path=%s\n", path));
+<a href='../S/911.html#L696'>DPRINTF</a>           696 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_access: path=%s mode=%x\n", path, mode));
+<a href='../S/911.html#L722'>DPRINTF</a>           722 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_stat: path=%s\n", path));
+<a href='../S/913.html#L138'>DPRINTF</a>           138 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vn_lock:   %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L151'>DPRINTF</a>           151 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vn_unlock: %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L167'>DPRINTF</a>           167 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vget: %s\n", path));
+<a href='../S/913.html#L213'>DPRINTF</a>           213 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vput: ref=%d %s\n", vp-&gt;v_refcnt,
+<a href='../S/913.html#L248'>DPRINTF</a>           248 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vref: ref=%d %s\n", vp-&gt;v_refcnt,
+<a href='../S/913.html#L267'>DPRINTF</a>           267 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vrele: ref=%d %s\n", vp-&gt;v_refcnt,
+<a href='../S/913.html#L296'>DPRINTF</a>           296 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vgone: %s\n", vp-&gt;v_path));
+<a href='../S/916.html#L193'>DPRINTF</a>           193 usr/server/pow/pow.c 		DPRINTF(("set_power_state: state=%d\n", state));
+<a href='../S/916.html#L211'>DPRINTF</a>           211 usr/server/pow/pow.c 		DPRINTF(("SIGPWR!\n"));
+<a href='../S/916.html#L221'>DPRINTF</a>           221 usr/server/pow/pow.c 	DPRINTF(("power_thread: start\n"));
+<a href='../S/916.html#L228'>DPRINTF</a>           228 usr/server/pow/pow.c 		DPRINTF(("power_thread: sig=%d\n", sig));
+<a href='../S/916.html#L235'>DPRINTF</a>           235 usr/server/pow/pow.c 			DPRINTF(("power_thread: event=%d\n", event));
+<a href='../S/916.html#L372'>DPRINTF</a>           372 usr/server/pow/pow.c 	DPRINTF(("pow: shutdown %s\n", name));
+<a href='../S/916.html#L449'>DPRINTF</a>           449 usr/server/pow/pow.c 		DPRINTF(("pow: msg code=%x task=%x\n",
+<a href='../S/916.html#L475'>DPRINTF</a>           475 usr/server/pow/pow.c 			DPRINTF(("pow: msg code=%x error=%d\n",
+<a href='../S/917.html#L286'>DPRINTF</a>           286 usr/server/proc/main.c 	DPRINTF(("proc: exec pid=%x\n", curproc-&gt;p_pid));
+<a href='../S/917.html#L300'>DPRINTF</a>           300 usr/server/proc/main.c 		DPRINTF(("proc: traced!\n"));
+<a href='../S/917.html#L320'>DPRINTF</a>           320 usr/server/proc/main.c 	DPRINTF(("proc: pstat task=%x\n", msg-&gt;data[0]));
+<a href='../S/917.html#L342'>DPRINTF</a>           342 usr/server/proc/main.c 	DPRINTF(("proc: setinit task=%x\n", msg-&gt;hdr.task));
+<a href='../S/917.html#L366'>DPRINTF</a>           366 usr/server/proc/main.c 	DPRINTF(("proc: trace task=%x\n", task));
+<a href='../S/917.html#L384'>DPRINTF</a>           384 usr/server/proc/main.c 	DPRINTF(("proc: register task=%x\n", msg-&gt;hdr.task));
+<a href='../S/917.html#L398'>DPRINTF</a>           398 usr/server/proc/main.c 	DPRINTF(("proc: register pid=%d\n", p-&gt;p_pid));
+<a href='../S/917.html#L411'>DPRINTF</a>           411 usr/server/proc/main.c 	DPRINTF(("proc: boot\n"));
+<a href='../S/917.html#L434'>DPRINTF</a>           434 usr/server/proc/main.c 	DPRINTF(("proc: shutdown\n"));
+<a href='../S/917.html#L555'>DPRINTF</a>           555 usr/server/proc/main.c 		DPRINTF(("proc: msg code=%x task=%x\n",
+<a href='../S/917.html#L577'>DPRINTF</a>           577 usr/server/proc/main.c 			DPRINTF(("proc: msg code=%x error=%d\n",
+<a href='../S/920.html#L57'>DPRINTF</a>            57 usr/server/proc/proc_exit.c 	DPRINTF(("proc: exit pid=%d code=%x\n", curproc-&gt;p_pid, exitcode));
+<a href='../S/920.html#L100'>DPRINTF</a>           100 usr/server/proc/proc_exit.c 	DPRINTF(("proc: exit send SIGCHLD to pid=%d\n",
+<a href='../S/920.html#L117'>DPRINTF</a>           117 usr/server/proc/proc_exit.c 	DPRINTF(("proc: stop code=%x\n", exitcode));
+<a href='../S/920.html#L149'>DPRINTF</a>           149 usr/server/proc/proc_exit.c 	DPRINTF(("proc: wait pid=%d options=%x\n", pid, options));
+<a href='../S/921.html#L131'>DPRINTF</a>           131 usr/server/proc/proc_fork.c 	DPRINTF(("proc: fork child=%x vfork=%d\n", child, vfork));
+<a href='../S/921.html#L134'>DPRINTF</a>           134 usr/server/proc/proc_fork.c 		DPRINTF(("proc: vfork under vfork!\n"));
+<a href='../S/921.html#L139'>DPRINTF</a>           139 usr/server/proc/proc_fork.c 		DPRINTF(("proc: process already exists\n"));
+<a href='../S/921.html#L156'>DPRINTF</a>           156 usr/server/proc/proc_fork.c 	DPRINTF(("proc: fork newpid=%d\n", p-&gt;p_pid));
+<a href='../S/921.html#L169'>DPRINTF</a>           169 usr/server/proc/proc_fork.c 	DPRINTF(("proc: cleanup pid=%d\n", p-&gt;p_pid));
+<a href='../S/921.html#L185'>DPRINTF</a>           185 usr/server/proc/proc_fork.c 	DPRINTF(("proc: vfork_start stack=%x\n", p-&gt;p_stackbase));
+<a href='../S/921.html#L188'>DPRINTF</a>           188 usr/server/proc/proc_fork.c 		DPRINTF(("proc: failed to allocate save stack\n"));
+<a href='../S/921.html#L203'>DPRINTF</a>           203 usr/server/proc/proc_fork.c 	DPRINTF(("proc: vfork_end org=%x saved=%x\n", p-&gt;p_stackbase,
+<a href='../S/923.html#L111'>DPRINTF</a>           111 usr/server/proc/proc_pid.c 	DPRINTF(("proc: getsid sid=%d\n", sid));
+<a href='../S/923.html#L124'>DPRINTF</a>           124 usr/server/proc/proc_pid.c 	DPRINTF(("proc: enter pgrp pid=%d pgid=%d\n", p-&gt;p_pid, pgid));
+<a href='../S/923.html#L129'>DPRINTF</a>           129 usr/server/proc/proc_pid.c 		DPRINTF(("proc: create new pgrp\n"));
+<a href='../S/923.html#L181'>DPRINTF</a>           181 usr/server/proc/proc_pid.c 	DPRINTF(("proc: setpgid pid=%d pgid=%d\n", pid, pgid));
+<a href='../S/923.html#L209'>DPRINTF</a>           209 usr/server/proc/proc_pid.c 	DPRINTF(("proc: setsid sid=%d\n", curproc-&gt;p_pid));
+<a href='../S/924.html#L77'>DPRINTF</a>            77 usr/server/proc/proc_sig.c 	DPRINTF(("proc: sendsig task=%x\n", p-&gt;p_task));
+<a href='../S/924.html#L89'>DPRINTF</a>            89 usr/server/proc/proc_sig.c 	DPRINTF(("proc: killone pid=%d sig=%d\n", pid, sig));
+<a href='../S/924.html#L107'>DPRINTF</a>           107 usr/server/proc/proc_sig.c 	DPRINTF(("proc: killpg pgid=%d sig=%d\n", pgid, sig));
+<a href='../S/924.html#L148'>DPRINTF</a>           148 usr/server/proc/proc_sig.c 	DPRINTF(("proc: kill pid=%d sig=%d\n", pid, sig));
+<a href='../S/924.html#L159'>DPRINTF</a>           159 usr/server/proc/proc_sig.c 			DPRINTF(("proc: EPERM\n"));
+<a href='../S/924.html#L165'>DPRINTF</a>           165 usr/server/proc/proc_sig.c 		DPRINTF(("proc: kill? curproc=%x\n", curproc));
+<a href='../S/924.html#L169'>DPRINTF</a>           169 usr/server/proc/proc_sig.c 		DPRINTF(("proc: kill all!\n"));
+<a href='../S/925.html#L63'>DPRINTF</a>            63 usr/server/proc/proc_tty.c 	DPRINTF(("proc: tty_signal pgid=%d sig=%d\n", pgid, sig));
+<a href='../S/925.html#L116'>DPRINTF</a>           116 usr/server/proc/proc_tty.c 		DPRINTF(("proc: no tty found\n"));
+</pre>
+</body>
+</html>

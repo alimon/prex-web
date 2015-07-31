@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bus_write_8</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L157'>bus_write_8</a>       157 bsp/drv/dev/block/fdd.c 			bus_write_8(FDC_DAT, (u_char)(dat &amp; 0xff));
+<a href='../S/66.html#L200'>bus_write_8</a>       200 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_DOR, 0x0c);
+<a href='../S/66.html#L213'>bus_write_8</a>       213 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_DOR, 0x1c);
+<a href='../S/66.html#L243'>bus_write_8</a>       243 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_DOR, 0x18);	/* motor0 enable, DMA enable */
+<a href='../S/66.html#L245'>bus_write_8</a>       245 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_DOR, 0x1c);	/* clear reset */
+<a href='../S/66.html#L711'>bus_write_8</a>       711 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_DOR, 0x08);
+<a href='../S/66.html#L713'>bus_write_8</a>       713 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_DOR, 0x0C);
+<a href='../S/66.html#L717'>bus_write_8</a>       717 bsp/drv/dev/block/fdd.c 	bus_write_8(FDC_CCR, 0x00);
+<a href='../S/72.html#L212'>bus_write_8</a>       212 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits | 0x04);	/* Disable channel */
+<a href='../S/72.html#L213'>bus_write_8</a>       213 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;clear, 0x00);		/* Clear byte pointer flip-flop */
+<a href='../S/72.html#L214'>bus_write_8</a>       214 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mode, bits | mode);	/* Set mode */
+<a href='../S/72.html#L215'>bus_write_8</a>       215 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 0) &amp; 0xff));	/* Address low */
+<a href='../S/72.html#L216'>bus_write_8</a>       216 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 8) &amp; 0xff));	/* Address high */
+<a href='../S/72.html#L217'>bus_write_8</a>       217 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;page, (u_char)((paddr &gt;&gt; 16) &amp; 0xff));	/* Page address */
+<a href='../S/72.html#L218'>bus_write_8</a>       218 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;clear, 0x00);		/* Clear byte pointer flip-flop */
+<a href='../S/72.html#L219'>bus_write_8</a>       219 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;count, (u_char)((count &gt;&gt; 0) &amp; 0xff));	/* Count low */
+<a href='../S/72.html#L220'>bus_write_8</a>       220 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;count, (u_char)((count &gt;&gt; 8) &amp; 0xff));	/* Count high */
+<a href='../S/72.html#L221'>bus_write_8</a>       221 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits);		/* Enable channel */
+<a href='../S/72.html#L239'>bus_write_8</a>       239 bsp/drv/dev/dma/i8237.c 	bus_write_8(dma_regs[chan].mask, bits | 0x04);	/* Disable channel */
+<a href='../S/76.html#L115'>bus_write_8</a>       115 bsp/drv/dev/input/pckbd.c 	bus_write_8(KMC_CMD, cmd);
+<a href='../S/76.html#L131'>bus_write_8</a>       131 bsp/drv/dev/input/pckbd.c 		bus_write_8(KMC_DATA, 0xed);
+<a href='../S/76.html#L133'>bus_write_8</a>       133 bsp/drv/dev/input/pckbd.c 		bus_write_8(KMC_DATA, val);
+<a href='../S/76.html#L154'>bus_write_8</a>       154 bsp/drv/dev/input/pckbd.c 	bus_write_8(KMC_PORTB, val | 0x80);
+<a href='../S/76.html#L155'>bus_write_8</a>       155 bsp/drv/dev/input/pckbd.c 	bus_write_8(KMC_PORTB, val);
+<a href='../S/77.html#L98'>bus_write_8</a>        98 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_CMD, 0x60);
+<a href='../S/77.html#L100'>bus_write_8</a>       100 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_DATA, val);
+<a href='../S/77.html#L117'>bus_write_8</a>       117 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_CMD, 0xd4);
+<a href='../S/77.html#L119'>bus_write_8</a>       119 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_DATA, val);
+<a href='../S/77.html#L220'>bus_write_8</a>       220 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_CMD, 0xa8);	/* Enable aux */
+<a href='../S/83.html#L83'>bus_write_8</a>        83 bsp/drv/dev/rtc/mc146818.c 	bus_write_8(RTC_INDEX, index);
+<a href='../S/83.html#L96'>bus_write_8</a>        96 bsp/drv/dev/rtc/mc146818.c 	bus_write_8(RTC_INDEX, index);
+<a href='../S/83.html#L97'>bus_write_8</a>        97 bsp/drv/dev/rtc/mc146818.c 	bus_write_8(RTC_DATA, val);
+<a href='../S/87.html#L126'>bus_write_8</a>       126 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_THR, c);
+<a href='../S/87.html#L144'>bus_write_8</a>       144 bsp/drv/dev/serial/ns16550.c 		bus_write_8(COM_IER, 0x00);
+<a href='../S/87.html#L147'>bus_write_8</a>       147 bsp/drv/dev/serial/ns16550.c 		bus_write_8(COM_IER, IER_RDA|IER_THRE|IER_RLS);
+<a href='../S/87.html#L178'>bus_write_8</a>       178 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_IER, 0x00);	/* Disable interrupt */
+<a href='../S/87.html#L179'>bus_write_8</a>       179 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_LCR, 0x80);	/* Access baud rate */
+<a href='../S/87.html#L180'>bus_write_8</a>       180 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_DLL, 0x01);	/* 115200 baud */
+<a href='../S/87.html#L181'>bus_write_8</a>       181 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_DLM, 0x00);
+<a href='../S/87.html#L182'>bus_write_8</a>       182 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_LCR, 0x03);	/* N, 8, 1 */
+<a href='../S/87.html#L183'>bus_write_8</a>       183 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_FCR, 0x06);	/* Disable &amp; clear FIFO */
+<a href='../S/87.html#L189'>bus_write_8</a>       189 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_MCR, 0x0b);  /* Enable OUT2 interrupt */
+<a href='../S/87.html#L190'>bus_write_8</a>       190 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_IER, IER_RDA|IER_THRE|IER_RLS);  /* Enable interrupt */
+<a href='../S/87.html#L200'>bus_write_8</a>       200 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_IER, 0x00);
+<a href='../S/91.html#L104'>bus_write_8</a>       104 bsp/drv/dev/video/vga.c 	bus_write_8(CRTC_INDEX, index);
+<a href='../S/91.html#L112'>bus_write_8</a>       112 bsp/drv/dev/video/vga.c 	bus_write_8(CRTC_INDEX, index);
+<a href='../S/91.html#L113'>bus_write_8</a>       113 bsp/drv/dev/video/vga.c 	bus_write_8(CRTC_DATA, val);
+<a href='../S/91.html#L121'>bus_write_8</a>       121 bsp/drv/dev/video/vga.c 	bus_write_8(SEQ_INDEX, 1);
+<a href='../S/91.html#L123'>bus_write_8</a>       123 bsp/drv/dev/video/vga.c 	bus_write_8(SEQ_DATA, val &amp; ~0x20);
+<a href='../S/91.html#L131'>bus_write_8</a>       131 bsp/drv/dev/video/vga.c 	bus_write_8(SEQ_INDEX, 1);
+<a href='../S/91.html#L133'>bus_write_8</a>       133 bsp/drv/dev/video/vga.c 	bus_write_8(SEQ_DATA, val | 0x20);
+<a href='../S/123.html#L41'>bus_write_8</a>        41 bsp/drv/x86/include/busio.h void	 bus_write_8(int addr, uint8_t val);
+</pre>
+</body>
+</html>

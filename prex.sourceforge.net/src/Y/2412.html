@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>wbuf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L111'>wbuf</a>              111 bsp/drv/dev/block/fdd.c 	void		*wbuf;		/* DMA buffer for write (1 sector) */
+<a href='../S/66.html#L617'>wbuf</a>              617 bsp/drv/dev/block/fdd.c 	char *kbuf, *wbuf;
+<a href='../S/66.html#L643'>wbuf</a>              643 bsp/drv/dev/block/fdd.c 			wbuf = (char *)sc-&gt;rbuf + sect * SECTOR_SIZE;
+<a href='../S/66.html#L645'>wbuf</a>              645 bsp/drv/dev/block/fdd.c 			wbuf = sc-&gt;wbuf;
+<a href='../S/66.html#L647'>wbuf</a>              647 bsp/drv/dev/block/fdd.c 		memcpy(wbuf, kbuf, SECTOR_SIZE);
+<a href='../S/66.html#L648'>wbuf</a>              648 bsp/drv/dev/block/fdd.c 		error = fdd_rw(sc, IO_WRITE, wbuf, 1, blkno);
+<a href='../S/66.html#L699'>wbuf</a>              699 bsp/drv/dev/block/fdd.c 	sc-&gt;wbuf = buf + TRACK_SIZE;
+</pre>
+</body>
+</html>

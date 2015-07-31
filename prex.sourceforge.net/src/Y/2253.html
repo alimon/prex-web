@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>uio</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/519.html#L45'>uio</a>                45 usr/lib/libc/stdio/fvwrite.c __sfvwrite(fp, uio)
+<a href='../S/519.html#L47'>uio</a>                47 usr/lib/libc/stdio/fvwrite.c 	struct __suio *uio;
+<a href='../S/519.html#L56'>uio</a>                56 usr/lib/libc/stdio/fvwrite.c 	if ((len = uio-&gt;uio_resid) == 0)
+<a href='../S/519.html#L65'>uio</a>                65 usr/lib/libc/stdio/fvwrite.c 	iov = uio-&gt;uio_iov;
+<a href='../S/519.html#L87'>uio</a>                87 usr/lib/libc/stdio/fvwrite.c 		} while ((uio-&gt;uio_resid -= w) != 0);
+<a href='../S/519.html#L131'>uio</a>               131 usr/lib/libc/stdio/fvwrite.c 		} while ((uio-&gt;uio_resid -= w) != 0);
+<a href='../S/519.html#L175'>uio</a>               175 usr/lib/libc/stdio/fvwrite.c 		} while ((uio-&gt;uio_resid -= w) != 0);
+<a href='../S/552.html#L55'>uio</a>                55 usr/lib/libc/stdio/vfprintf.c __sprint(FILE *fp, struct __suio *uio)
+<a href='../S/552.html#L59'>uio</a>                59 usr/lib/libc/stdio/vfprintf.c 	if (uio-&gt;uio_resid == 0) {
+<a href='../S/552.html#L60'>uio</a>                60 usr/lib/libc/stdio/vfprintf.c 		uio-&gt;uio_iovcnt = 0;
+<a href='../S/552.html#L63'>uio</a>                63 usr/lib/libc/stdio/vfprintf.c 	error = __sfvwrite(fp, uio);
+<a href='../S/552.html#L64'>uio</a>                64 usr/lib/libc/stdio/vfprintf.c 	uio-&gt;uio_resid = 0;
+<a href='../S/552.html#L65'>uio</a>                65 usr/lib/libc/stdio/vfprintf.c 	uio-&gt;uio_iovcnt = 0;
+<a href='../S/552.html#L204'>uio</a>               204 usr/lib/libc/stdio/vfprintf.c 	struct __suio uio;	/* output information: summary */
+<a href='../S/552.html#L226'>uio</a>               226 usr/lib/libc/stdio/vfprintf.c 	uio.uio_resid += (len); \
+<a href='../S/552.html#L228'>uio</a>               228 usr/lib/libc/stdio/vfprintf.c 	if (++uio.uio_iovcnt &gt;= NIOV) { \
+<a href='../S/552.html#L229'>uio</a>               229 usr/lib/libc/stdio/vfprintf.c 		if (__sprint(fp, &amp;uio)) \
+<a href='../S/552.html#L244'>uio</a>               244 usr/lib/libc/stdio/vfprintf.c 	if (uio.uio_resid &amp;&amp; __sprint(fp, &amp;uio)) \
+<a href='../S/552.html#L246'>uio</a>               246 usr/lib/libc/stdio/vfprintf.c 	uio.uio_iovcnt = 0; \
+<a href='../S/552.html#L273'>uio</a>               273 usr/lib/libc/stdio/vfprintf.c 	uio.uio_iov = iovp = iov;
+<a href='../S/552.html#L274'>uio</a>               274 usr/lib/libc/stdio/vfprintf.c 	uio.uio_resid = 0;
+<a href='../S/552.html#L275'>uio</a>               275 usr/lib/libc/stdio/vfprintf.c 	uio.uio_iovcnt = 0;
+</pre>
+</body>
+</html>

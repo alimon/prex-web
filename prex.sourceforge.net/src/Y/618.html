@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>data</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L52'>data</a>               52 bsp/boot/common/bootinfo.c 	       m-&gt;text, m-&gt;data, m-&gt;textsz,
+<a href='../S/13.html#L142'>data</a>              142 bsp/boot/common/elf.c 			m-&gt;data = phdr-&gt;p_vaddr;
+<a href='../S/13.html#L146'>data</a>              146 bsp/boot/common/elf.c 			load_base = phys_base + (m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L164'>data</a>              164 bsp/boot/common/elf.c 	if (m-&gt;data == 0)
+<a href='../S/13.html#L306'>data</a>              306 bsp/boot/common/elf.c 				if (m-&gt;data == 0) {
+<a href='../S/13.html#L307'>data</a>              307 bsp/boot/common/elf.c 					m-&gt;data = (vaddr_t)ptokv(load_base +
+<a href='../S/13.html#L350'>data</a>              350 bsp/boot/common/elf.c 	m-&gt;textsz = (size_t)(m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L351'>data</a>              351 bsp/boot/common/elf.c 	m-&gt;datasz = (size_t)((char *)ptokv(bss_base) - m-&gt;data);
+<a href='../S/64.html#L530'>data</a>              530 bsp/drv/dev/base/tty.c tty_ioctl(struct tty *tp, u_long cmd, void *data)
+<a href='../S/64.html#L537'>data</a>              537 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_termios, data,
+<a href='../S/64.html#L548'>data</a>              548 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_termios,
+<a href='../S/64.html#L553'>data</a>              553 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_pgid, sizeof(pid_t)))
+<a href='../S/64.html#L557'>data</a>              557 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_pgid, data, sizeof(pid_t)))
+<a href='../S/64.html#L561'>data</a>              561 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;flags, sizeof(flags)))
+<a href='../S/64.html#L581'>data</a>              581 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_winsize, data,
+<a href='../S/64.html#L586'>data</a>              586 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_winsize,
+<a href='../S/64.html#L591'>data</a>              591 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_sigtask, sizeof(task_t)))
+<a href='../S/64.html#L596'>data</a>              596 bsp/drv/dev/base/tty.c 		if (copyout(&amp;qp-&gt;tq_count, data, sizeof(int)))
+<a href='../S/64.html#L600'>data</a>              600 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_outq.tq_count, data, sizeof(int)))
+<a href='../S/219.html#L94'>data</a>               94 include/ipc/fs.h 	char	data[64];		/* file system specific data */
+<a href='../S/219.html#L136'>data</a>              136 include/ipc/fs.h 	int	data[4];
+<a href='../S/220.html#L63'>data</a>               63 include/ipc/ipc.h 	int	data[4];		/* integer data */
+<a href='../S/247.html#L66'>data</a>               66 include/sys/bootinfo.h 	vaddr_t		data;		/* data address */
+<a href='../S/267.html#L155'>data</a>              155 include/sys/prex.h int	sys_debug(int cmd, void *data);
+<a href='../S/310.html#L43'>data</a>               43 sys/include/irq.h 	void		*data;		/* data to be passed for isr/ist */
+<a href='../S/326.html#L159'>data</a>              159 sys/kern/debug.c dbgctl(int cmd, void *data)
+<a href='../S/326.html#L170'>data</a>              170 sys/kern/debug.c 		error = copyout(&amp;size, data, sizeof(size));
+<a href='../S/326.html#L174'>data</a>              174 sys/kern/debug.c 		error = getlog(data);
+<a href='../S/326.html#L178'>data</a>              178 sys/kern/debug.c 		task = (task_t)data;
+<a href='../S/326.html#L189'>data</a>              189 sys/kern/debug.c 		dops = data;
+<a href='../S/326.html#L194'>data</a>              194 sys/kern/debug.c 		aops = data;
+<a href='../S/329.html#L83'>data</a>               83 sys/kern/irq.c 	   int (*isr)(void *), void (*ist)(void *), void *data)
+<a href='../S/329.html#L99'>data</a>               99 sys/kern/irq.c 	irq-&gt;data = data;
+<a href='../S/329.html#L148'>data</a>              148 sys/kern/irq.c 	void *data;
+<a href='../S/329.html#L155'>data</a>              155 sys/kern/irq.c 	data = irq-&gt;data;
+<a href='../S/329.html#L176'>data</a>              176 sys/kern/irq.c 		(*fn)(data);
+<a href='../S/329.html#L208'>data</a>              208 sys/kern/irq.c 	rc = (*irq-&gt;isr)(irq-&gt;data);
+<a href='../S/333.html#L177'>data</a>              177 sys/kern/system.c sys_debug(int cmd, void *data)
+<a href='../S/333.html#L186'>data</a>              186 sys/kern/system.c 		error = dbgctl(cmd, data);
+<a href='../S/333.html#L189'>data</a>              189 sys/kern/system.c 		task = (task_t)data;
+<a href='../S/343.html#L677'>data</a>              677 sys/mem/vm.c   	void *text, *data;
+<a href='../S/343.html#L690'>data</a>              690 sys/mem/vm.c   	data = (void *)mod-&gt;data;
+<a href='../S/343.html#L707'>data</a>              707 sys/mem/vm.c   		error = do_allocate(map, &amp;data, mod-&gt;datasz + mod-&gt;bsssz, 0);
+<a href='../S/343.html#L711'>data</a>              711 sys/mem/vm.c   			src = src + (mod-&gt;data - mod-&gt;text);
+<a href='../S/343.html#L712'>data</a>              712 sys/mem/vm.c   			memcpy(data, src, mod-&gt;datasz);
+<a href='../S/344.html#L480'>data</a>              480 sys/mem/vm_nommu.c 		memset((void *)(mod-&gt;data + mod-&gt;datasz), 0, mod-&gt;bsssz);
+<a href='../S/404.html#L62'>data</a>               62 usr/bin/ps/ps.c 		m.data[0] = (int)task;
+<a href='../S/404.html#L73'>data</a>               73 usr/bin/ps/ps.c 	pi-&gt;pid = m.data[0];
+<a href='../S/404.html#L74'>data</a>               74 usr/bin/ps/ps.c 	pi-&gt;ppid = m.data[1];
+<a href='../S/404.html#L75'>data</a>               75 usr/bin/ps/ps.c 	pi-&gt;stat = m.data[2];
+<a href='../S/657.html#L41'>data</a>               41 usr/lib/posix/file/access.c 	m.data[0] = mode;
+<a href='../S/661.html#L41'>data</a>               41 usr/lib/posix/file/close.c 	m.data[0] = fd;
+<a href='../S/662.html#L44'>data</a>               44 usr/lib/posix/file/closedir.c 	m.data[0] = dir-&gt;dd_fd;
+<a href='../S/664.html#L41'>data</a>               41 usr/lib/posix/file/dup.c 	m.data[0] = oldfd;
+<a href='../S/664.html#L44'>data</a>               44 usr/lib/posix/file/dup.c 	return m.data[0];
+<a href='../S/665.html#L43'>data</a>               43 usr/lib/posix/file/dup2.c 	m.data[0] = oldfd;
+<a href='../S/665.html#L44'>data</a>               44 usr/lib/posix/file/dup2.c 	m.data[1] = newfd;
+<a href='../S/665.html#L47'>data</a>               47 usr/lib/posix/file/dup2.c 	return m.data[0];
+<a href='../S/666.html#L43'>data</a>               43 usr/lib/posix/file/fchdir.c 	m.data[0] = fd;
+<a href='../S/669.html#L41'>data</a>               41 usr/lib/posix/file/fsync.c 	m.data[0] = fd;
+<a href='../S/670.html#L41'>data</a>               41 usr/lib/posix/file/ftruncate.c 	m.data[0] = fd;
+<a href='../S/670.html#L42'>data</a>               42 usr/lib/posix/file/ftruncate.c 	m.data[1] = length;
+<a href='../S/673.html#L41'>data</a>               41 usr/lib/posix/file/isatty.c 	m.data[0] = fd;
+<a href='../S/673.html#L44'>data</a>               44 usr/lib/posix/file/isatty.c 	return m.data[0];
+<a href='../S/675.html#L44'>data</a>               44 usr/lib/posix/file/lseek.c 	m.data[0] = fd;
+<a href='../S/675.html#L45'>data</a>               45 usr/lib/posix/file/lseek.c 	m.data[1] = (int)offset;
+<a href='../S/675.html#L46'>data</a>               46 usr/lib/posix/file/lseek.c 	m.data[2] = whence;
+<a href='../S/675.html#L49'>data</a>               49 usr/lib/posix/file/lseek.c 	return (off_t)m.data[0];
+<a href='../S/680.html#L40'>data</a>               40 usr/lib/posix/file/mount.c       const void *data)
+<a href='../S/680.html#L47'>data</a>               47 usr/lib/posix/file/mount.c 	if (data != NULL)
+<a href='../S/680.html#L48'>data</a>               48 usr/lib/posix/file/mount.c 		strlcpy(m.data, (char *)data, 64);
+<a href='../S/683.html#L43'>data</a>               43 usr/lib/posix/file/pipe.c 	fd[0] = m.data[0];
+<a href='../S/683.html#L44'>data</a>               44 usr/lib/posix/file/pipe.c 	fd[1] = m.data[1];
+<a href='../S/687.html#L44'>data</a>               44 usr/lib/posix/file/rewinddir.c 	m.data[0] = dir-&gt;dd_fd;
+<a href='../S/691.html#L43'>data</a>               43 usr/lib/posix/file/truncate.c 	m.data[0] = length;
+<a href='../S/733.html#L61'>data</a>               61 usr/lib/posix/process/__process.c 		m.data[0] = signo ? signo : ((status &amp; 0xff) &lt;&lt; 8);
+<a href='../S/705.html#L110'>data</a>              110 usr/lib/posix/process/fork.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/705.html#L111'>data</a>              111 usr/lib/posix/process/fork.c 		m.data[1] = 0;			/* fork type */
+<a href='../S/705.html#L114'>data</a>              114 usr/lib/posix/process/fork.c 		pid = m.data[0];
+<a href='../S/705.html#L120'>data</a>              120 usr/lib/posix/process/fork.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L111'>data</a>              111 usr/lib/posix/process/fork_nommu.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L119'>data</a>              119 usr/lib/posix/process/fork_nommu.c 		m.data[0] = tsk;		/* child task */
+<a href='../S/706.html#L120'>data</a>              120 usr/lib/posix/process/fork_nommu.c 		m.data[1] = 1;			/* fork type */
+<a href='../S/706.html#L123'>data</a>              123 usr/lib/posix/process/fork_nommu.c 		__child_pid = m.data[0];
+<a href='../S/710.html#L44'>data</a>               44 usr/lib/posix/process/getpgid.c 	m.data[0] = pid;
+<a href='../S/710.html#L48'>data</a>               48 usr/lib/posix/process/getpgid.c 	return m.data[0];
+<a href='../S/712.html#L49'>data</a>               49 usr/lib/posix/process/getpid.c 	return m.data[0];
+<a href='../S/713.html#L50'>data</a>               50 usr/lib/posix/process/getppid.c 	return m.data[0];
+<a href='../S/715.html#L44'>data</a>               44 usr/lib/posix/process/getsid.c 	m.data[0] = pid;
+<a href='../S/715.html#L47'>data</a>               47 usr/lib/posix/process/getsid.c 	return m.data[0];
+<a href='../S/717.html#L50'>data</a>               50 usr/lib/posix/process/kill.c 	m.data[0] = pid;
+<a href='../S/717.html#L51'>data</a>               51 usr/lib/posix/process/kill.c 	m.data[1] = sig;
+<a href='../S/724.html#L45'>data</a>               45 usr/lib/posix/process/setpgid.c 	m.data[0] = pid;
+<a href='../S/724.html#L46'>data</a>               46 usr/lib/posix/process/setpgid.c 	m.data[1] = pgid;
+<a href='../S/727.html#L47'>data</a>               47 usr/lib/posix/process/setsid.c 	return m.data[0];
+<a href='../S/731.html#L60'>data</a>               60 usr/lib/posix/process/waitpid.c 		m.data[0] = pid;
+<a href='../S/731.html#L61'>data</a>               61 usr/lib/posix/process/waitpid.c 		m.data[1] = options;
+<a href='../S/731.html#L70'>data</a>               70 usr/lib/posix/process/waitpid.c 		child = m.data[0];
+<a href='../S/731.html#L83'>data</a>               83 usr/lib/posix/process/waitpid.c 		*status = m.data[1];
+<a href='../S/870.html#L128'>data</a>              128 usr/sbin/pmctrl/pmctrl.c 	m.data[0] = PWR_OFF;
+<a href='../S/870.html#L143'>data</a>              143 usr/sbin/pmctrl/pmctrl.c 	m.data[0] = PWR_REBOOT;
+<a href='../S/870.html#L158'>data</a>              158 usr/sbin/pmctrl/pmctrl.c 	m.data[0] = PWR_SUSPEND;
+<a href='../S/870.html#L173'>data</a>              173 usr/sbin/pmctrl/pmctrl.c 	policy = m.data[0];
+<a href='../S/870.html#L179'>data</a>              179 usr/sbin/pmctrl/pmctrl.c 	timeout = m.data[0];
+<a href='../S/870.html#L184'>data</a>              184 usr/sbin/pmctrl/pmctrl.c 	timeout = m.data[0];
+<a href='../S/870.html#L199'>data</a>              199 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = PM_PERFORMANCE;
+<a href='../S/870.html#L201'>data</a>              201 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = PM_POWERSAVE;
+<a href='../S/870.html#L222'>data</a>              222 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = timeout;
+<a href='../S/870.html#L239'>data</a>              239 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = timeout;
+<a href='../S/877.html#L427'>data</a>              427 usr/server/exec/exec_execve.c 		m.data[0] = (int)org_task;
+<a href='../S/877.html#L428'>data</a>              428 usr/server/exec/exec_execve.c 		m.data[1] = (int)new_task;
+<a href='../S/877.html#L435'>data</a>              435 usr/server/exec/exec_execve.c 		m.data[0] = (int)org_task;
+<a href='../S/877.html#L436'>data</a>              436 usr/server/exec/exec_execve.c 		m.data[1] = (int)new_task;
+<a href='../S/877.html#L437'>data</a>              437 usr/server/exec/exec_execve.c 		m.data[2] = (int)stack;
+<a href='../S/882.html#L49'>data</a>               49 usr/server/fs/arfs/arfs_vfsops.c static int arfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/882.html#L71'>data</a>               71 usr/server/fs/arfs/arfs_vfsops.c arfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/892.html#L47'>data</a>               47 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/892.html#L136'>data</a>              136 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/901.html#L39'>data</a>               39 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_mount(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/901.html#L61'>data</a>               61 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/903.html#L99'>data</a>               99 usr/server/fs/vfs/main.c 				(void *)msg-&gt;data);
+<a href='../S/903.html#L168'>data</a>              168 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L203'>data</a>              203 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L205'>data</a>              205 usr/server/fs/vfs/main.c 	offset = (off_t)msg-&gt;data[1];
+<a href='../S/903.html#L206'>data</a>              206 usr/server/fs/vfs/main.c 	type = msg-&gt;data[2];
+<a href='../S/903.html#L209'>data</a>              209 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = (int)org;
+<a href='../S/903.html#L269'>data</a>              269 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L318'>data</a>              318 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L347'>data</a>              347 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L359'>data</a>              359 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L361'>data</a>              361 usr/server/fs/vfs/main.c 	loc = msg-&gt;data[1];
+<a href='../S/903.html#L373'>data</a>              373 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L375'>data</a>              375 usr/server/fs/vfs/main.c 	loc = msg-&gt;data[1];
+<a href='../S/903.html#L379'>data</a>              379 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = loc;
+<a href='../S/903.html#L456'>data</a>              456 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L519'>data</a>              519 usr/server/fs/vfs/main.c 	old_fd = msg-&gt;data[0];
+<a href='../S/903.html#L533'>data</a>              533 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = new_fd;
+<a href='../S/903.html#L547'>data</a>              547 usr/server/fs/vfs/main.c 	old_fd = msg-&gt;data[0];
+<a href='../S/903.html#L548'>data</a>              548 usr/server/fs/vfs/main.c 	new_fd = msg-&gt;data[1];
+<a href='../S/903.html#L565'>data</a>              565 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = new_fd;
+<a href='../S/903.html#L624'>data</a>              624 usr/server/fs/vfs/main.c 	mode = msg-&gt;data[0];
+<a href='../S/903.html#L649'>data</a>              649 usr/server/fs/vfs/main.c 	if ((error = task_alloc((task_t)msg-&gt;data[0], &amp;newtask)) != 0)
+<a href='../S/903.html#L692'>data</a>              692 usr/server/fs/vfs/main.c 	old_id = (task_t)msg-&gt;data[0];
+<a href='../S/903.html#L693'>data</a>              693 usr/server/fs/vfs/main.c 	new_id = (task_t)msg-&gt;data[1];
+<a href='../S/903.html#L789'>data</a>              789 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = rfd;
+<a href='../S/903.html#L790'>data</a>              790 usr/server/fs/vfs/main.c 	msg-&gt;data[1] = wfd;
+<a href='../S/903.html#L810'>data</a>              810 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L815'>data</a>              815 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = istty;
+<a href='../S/903.html#L830'>data</a>              830 usr/server/fs/vfs/main.c 	return sys_truncate(path, msg-&gt;data[0]);
+<a href='../S/903.html#L838'>data</a>              838 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L841'>data</a>              841 usr/server/fs/vfs/main.c 	return sys_ftruncate(fp, msg-&gt;data[1]);
+<a href='../S/905.html#L121'>data</a>              121 usr/server/fs/vfs/vfs.h int	 sys_mount(char *dev, char *dir, char *fsname, int flags, void *data);
+<a href='../S/909.html#L89'>data</a>               89 usr/server/fs/vfs/vfs_mount.c sys_mount(char *dev, char *dir, char *fsname, int flags, void *data)
+<a href='../S/909.html#L177'>data</a>              177 usr/server/fs/vfs/vfs_mount.c 	if ((error = VFS_MOUNT(mp, dev, flags, data)) != 0)
+<a href='../S/916.html#L116'>data</a>              116 usr/server/pow/pow.c 	state = msg-&gt;data[0];
+<a href='../S/916.html#L127'>data</a>              127 usr/server/pow/pow.c 	msg-&gt;data[0] = policy;
+<a href='../S/916.html#L136'>data</a>              136 usr/server/pow/pow.c 	policy = msg-&gt;data[0];
+<a href='../S/916.html#L147'>data</a>              147 usr/server/pow/pow.c 	msg-&gt;data[0] = timeout;
+<a href='../S/916.html#L156'>data</a>              156 usr/server/pow/pow.c 	timeout = msg-&gt;data[0];
+<a href='../S/916.html#L167'>data</a>              167 usr/server/pow/pow.c 	msg-&gt;data[0] = timeout;
+<a href='../S/916.html#L176'>data</a>              176 usr/server/pow/pow.c 	timeout = msg-&gt;data[0];
+<a href='../S/917.html#L133'>data</a>              133 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pid;
+<a href='../S/917.html#L144'>data</a>              144 usr/server/proc/main.c 	msg-&gt;data[0] = (int)ppid;
+<a href='../S/917.html#L154'>data</a>              154 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L160'>data</a>              160 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pgid;
+<a href='../S/917.html#L169'>data</a>              169 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L170'>data</a>              170 usr/server/proc/main.c 	pgid = (pid_t)msg-&gt;data[1];
+<a href='../S/917.html#L181'>data</a>              181 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L187'>data</a>              187 usr/server/proc/main.c 	msg-&gt;data[0] = (int)sid;
+<a href='../S/917.html#L201'>data</a>              201 usr/server/proc/main.c 	msg-&gt;data[0] = (int)sid;
+<a href='../S/917.html#L213'>data</a>              213 usr/server/proc/main.c 	child = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L214'>data</a>              214 usr/server/proc/main.c 	vfork = msg-&gt;data[1];
+<a href='../S/917.html#L220'>data</a>              220 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pid;
+<a href='../S/917.html#L229'>data</a>              229 usr/server/proc/main.c 	exitcode = msg-&gt;data[0];
+<a href='../S/917.html#L239'>data</a>              239 usr/server/proc/main.c 	exitcode = msg-&gt;data[0];
+<a href='../S/917.html#L250'>data</a>              250 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L251'>data</a>              251 usr/server/proc/main.c 	options = msg-&gt;data[1];
+<a href='../S/917.html#L257'>data</a>              257 usr/server/proc/main.c 	msg-&gt;data[0] = pid_child;
+<a href='../S/917.html#L258'>data</a>              258 usr/server/proc/main.c 	msg-&gt;data[1] = status;
+<a href='../S/917.html#L269'>data</a>              269 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L270'>data</a>              270 usr/server/proc/main.c 	sig = msg-&gt;data[1];
+<a href='../S/917.html#L288'>data</a>              288 usr/server/proc/main.c 	orgtask = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L289'>data</a>              289 usr/server/proc/main.c 	newtask = (task_t)msg-&gt;data[1];
+<a href='../S/917.html#L297'>data</a>              297 usr/server/proc/main.c 	p-&gt;p_stackbase = (void *)msg-&gt;data[2];
+<a href='../S/917.html#L320'>data</a>              320 usr/server/proc/main.c 	DPRINTF(("proc: pstat task=%x\n", msg-&gt;data[0]));
+<a href='../S/917.html#L322'>data</a>              322 usr/server/proc/main.c 	task = (task_t)msg-&gt;data[0];
+<a href='../S/917.html#L326'>data</a>              326 usr/server/proc/main.c 	msg-&gt;data[0] = (int)p-&gt;p_pid;
+<a href='../S/917.html#L327'>data</a>              327 usr/server/proc/main.c 	msg-&gt;data[2] = (int)p-&gt;p_stat;
+<a href='../S/917.html#L329'>data</a>              329 usr/server/proc/main.c 		msg-&gt;data[1] = (int)0;
+<a href='../S/917.html#L331'>data</a>              331 usr/server/proc/main.c 		msg-&gt;data[1] = (int)p-&gt;p_parent-&gt;p_pid;
+<a href='../S/948.html#L40'>data</a>               40 usr/test/fault/fault.c 	volatile int data;	/* prevent optimization from gcc */
+<a href='../S/948.html#L51'>data</a>               51 usr/test/fault/fault.c 	data = *ptr;
+<a href='../S/990.html#L102'>data</a>              102 usr/test/shutdown/shutdown.c 	m.data[0] = reboot ? PWR_REBOOT : PWR_OFF;
+</pre>
+</body>
+</html>

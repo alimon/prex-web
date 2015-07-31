@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>virt</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L298'>virt</a>              298 bsp/drv/dev/base/kd.c 				       (long)vi.virt, (long)vi.phys,
+<a href='../S/131.html#L250'>virt</a>              250 bsp/hal/arm/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t virt, size_t size)
+<a href='../S/131.html#L256'>virt</a>              256 bsp/hal/arm/arch/mmu.c 	start = trunc_page(virt);
+<a href='../S/131.html#L257'>virt</a>              257 bsp/hal/arm/arch/mmu.c 	end = trunc_page(virt + size - 1);
+<a href='../S/131.html#L271'>virt</a>              271 bsp/hal/arm/arch/mmu.c 	return pa + (paddr_t)(virt - start);
+<a href='../S/131.html#L278'>virt</a>              278 bsp/hal/arm/arch/mmu.c mmu_premap(paddr_t phys, vaddr_t virt)
+<a href='../S/131.html#L283'>virt</a>              283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/131.html#L284'>virt</a>              284 bsp/hal/arm/arch/mmu.c 	pte[PAGE_TABLE(virt)] = (uint32_t)phys | PTE_PRESENT | PTE_SYSTEM;
+<a href='../S/131.html#L316'>virt</a>              316 bsp/hal/arm/arch/mmu.c 		if (mmu_map(boot_pgd, map-&gt;phys, map-&gt;virt,
+<a href='../S/144.html#L62'>virt</a>               62 bsp/hal/arm/include/mmu.h #define PAGE_DIR(virt)      (int)((((vaddr_t)(virt)) &gt;&gt; 20) &amp; 0xfff)
+<a href='../S/144.html#L63'>virt</a>               63 bsp/hal/arm/include/mmu.h #define PAGE_TABLE(virt)    (int)((((vaddr_t)(virt)) &gt;&gt; 12) &amp; 0xff)
+<a href='../S/144.html#L65'>virt</a>               65 bsp/hal/arm/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/144.html#L67'>virt</a>               67 bsp/hal/arm/include/mmu.h #define page_present(pte, virt) (pte[PAGE_TABLE(virt)] &amp; PTE_PRESENT)
+<a href='../S/144.html#L69'>virt</a>               69 bsp/hal/arm/include/mmu.h #define vtopte(pgd, virt) \
+<a href='../S/144.html#L70'>virt</a>               70 bsp/hal/arm/include/mmu.h             (pte_t)ptokv((pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/144.html#L72'>virt</a>               72 bsp/hal/arm/include/mmu.h #define ptetopg(pte, virt) \
+<a href='../S/144.html#L73'>virt</a>               73 bsp/hal/arm/include/mmu.h             ((pte)[PAGE_TABLE(virt)] &amp; PTE_ADDRESS)
+<a href='../S/166.html#L63'>virt</a>               63 bsp/hal/ppc/include/mmu.h #define PAGE_DIR(virt)
+<a href='../S/166.html#L64'>virt</a>               64 bsp/hal/ppc/include/mmu.h #define PAGE_TABLE(virt)
+<a href='../S/166.html#L66'>virt</a>               66 bsp/hal/ppc/include/mmu.h #define pte_present(pgd, virt)
+<a href='../S/166.html#L68'>virt</a>               68 bsp/hal/ppc/include/mmu.h #define page_present(pte, virt)
+<a href='../S/166.html#L70'>virt</a>               70 bsp/hal/ppc/include/mmu.h #define vtopte(pgd, virt)
+<a href='../S/166.html#L72'>virt</a>               72 bsp/hal/ppc/include/mmu.h #define ptetopg(pte, virt)
+<a href='../S/178.html#L277'>virt</a>              277 bsp/hal/x86/arch/mmu.c 		if (mmu_map(boot_pgd, map-&gt;phys, map-&gt;virt,
+<a href='../S/184.html#L67'>virt</a>               67 bsp/hal/x86/include/mmu.h #define PAGE_DIR(virt)      (int)((((vaddr_t)(virt)) &gt;&gt; 22) &amp; 0x3ff)
+<a href='../S/184.html#L68'>virt</a>               68 bsp/hal/x86/include/mmu.h #define PAGE_TABLE(virt)    (int)((((vaddr_t)(virt)) &gt;&gt; 12) &amp; 0x3ff)
+<a href='../S/184.html#L70'>virt</a>               70 bsp/hal/x86/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/184.html#L72'>virt</a>               72 bsp/hal/x86/include/mmu.h #define page_present(pte, virt) (pte[PAGE_TABLE(virt)] &amp; PTE_PRESENT)
+<a href='../S/184.html#L74'>virt</a>               74 bsp/hal/x86/include/mmu.h #define vtopte(pgd, virt) \
+<a href='../S/184.html#L75'>virt</a>               75 bsp/hal/x86/include/mmu.h             (pte_t)ptokv(((uint32_t *)pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/184.html#L77'>virt</a>               77 bsp/hal/x86/include/mmu.h #define ptetopg(pte, virt) \
+<a href='../S/184.html#L78'>virt</a>               78 bsp/hal/x86/include/mmu.h             ((pte)[PAGE_TABLE(virt)] &amp; PTE_ADDRESS)
+<a href='../S/272.html#L118'>virt</a>              118 include/sys/sysinfo.h 	vaddr_t		virt;		/* virtual address */
+<a href='../S/308.html#L64'>virt</a>               64 sys/include/hal.h 	vaddr_t		virt;		/* virtual address */
+<a href='../S/343.html#L759'>virt</a>              759 sys/mem/vm.c   			info-&gt;virt = seg-&gt;addr;
+<a href='../S/344.html#L519'>virt</a>              519 sys/mem/vm_nommu.c 			info-&gt;virt = seg-&gt;addr;
+</pre>
+</body>
+</html>

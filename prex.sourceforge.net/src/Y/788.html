@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>est_fqlist</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/70.html#L375'>est_fqlist</a>        375 bsp/drv/dev/cpufreq/est.c static const struct fqlist *est_fqlist;
+<a href='../S/70.html#L397'>est_fqlist</a>        397 bsp/drv/dev/cpufreq/est.c 	max_mhz = est_fqlist-&gt;table[0].mhz;
+<a href='../S/70.html#L400'>est_fqlist</a>        400 bsp/drv/dev/cpufreq/est.c 	for (i = est_fqlist-&gt;n - 1; i &gt; 0; i--)
+<a href='../S/70.html#L401'>est_fqlist</a>        401 bsp/drv/dev/cpufreq/est.c 		if (est_fqlist-&gt;table[i].mhz &gt;= fq)
+<a href='../S/70.html#L404'>est_fqlist</a>        404 bsp/drv/dev/cpufreq/est.c 	if (est_fqlist-&gt;table[i].mhz == curfreq)
+<a href='../S/70.html#L407'>est_fqlist</a>        407 bsp/drv/dev/cpufreq/est.c 	curfreq = est_fqlist-&gt;table[i].mhz;
+<a href='../S/70.html#L408'>est_fqlist</a>        408 bsp/drv/dev/cpufreq/est.c 	curvolts = est_fqlist-&gt;table[i].mv;
+<a href='../S/70.html#L418'>est_fqlist</a>        418 bsp/drv/dev/cpufreq/est.c 		MSRVALUE(est_fqlist-&gt;table[i].mhz, est_fqlist-&gt;table[i].mv);
+<a href='../S/70.html#L432'>est_fqlist</a>        432 bsp/drv/dev/cpufreq/est.c 	max_mhz = est_fqlist-&gt;table[0].mhz;
+<a href='../S/70.html#L464'>est_fqlist</a>        464 bsp/drv/dev/cpufreq/est.c 		est_fqlist = &amp;cpu-&gt;list[7];
+<a href='../S/70.html#L479'>est_fqlist</a>        479 bsp/drv/dev/cpufreq/est.c 	for (i = 0; est_fqlist == NULL &amp;&amp; i &lt; NESTCPUS; i++) {
+<a href='../S/70.html#L490'>est_fqlist</a>        490 bsp/drv/dev/cpufreq/est.c 				est_fqlist = fql;
+<a href='../S/70.html#L495'>est_fqlist</a>        495 bsp/drv/dev/cpufreq/est.c 	if (est_fqlist == NULL) {
+<a href='../S/70.html#L503'>est_fqlist</a>        503 bsp/drv/dev/cpufreq/est.c 	for (i = est_fqlist-&gt;n - 1; i &gt;= 0; i--)
+<a href='../S/70.html#L504'>est_fqlist</a>        504 bsp/drv/dev/cpufreq/est.c 		if (est_fqlist-&gt;table[i].mhz == mhz)
+<a href='../S/70.html#L516'>est_fqlist</a>        516 bsp/drv/dev/cpufreq/est.c 	maxfreq = est_fqlist-&gt;table[0].mhz;
+<a href='../S/70.html#L517'>est_fqlist</a>        517 bsp/drv/dev/cpufreq/est.c 	maxvolts = est_fqlist-&gt;table[0].mv;
+<a href='../S/70.html#L590'>est_fqlist</a>        590 bsp/drv/dev/cpufreq/est.c 	for (i = 0; i &lt; est_fqlist-&gt;n; i++)
+<a href='../S/70.html#L591'>est_fqlist</a>        591 bsp/drv/dev/cpufreq/est.c 		printf("%d%s", est_fqlist-&gt;table[i].mhz,
+<a href='../S/70.html#L592'>est_fqlist</a>        592 bsp/drv/dev/cpufreq/est.c 		       i &lt; est_fqlist-&gt;n - 1 ? ", " : " MHz\n");
+</pre>
+</body>
+</html>

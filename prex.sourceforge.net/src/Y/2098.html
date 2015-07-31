@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_outq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L227'>t_outq</a>            227 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_outq.tq_count == 0)
+<a href='../S/64.html#L244'>t_outq</a>            244 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_outq.tq_count &gt; 0) &amp;&amp; tp-&gt;t_oproc) {
+<a href='../S/64.html#L407'>t_outq</a>            407 bsp/drv/dev/base/tty.c 		tty_putc(c, &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L415'>t_outq</a>            415 bsp/drv/dev/base/tty.c 			tty_putc(' ', &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L421'>t_outq</a>            421 bsp/drv/dev/base/tty.c 		tty_putc('\r', &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L423'>t_outq</a>            423 bsp/drv/dev/base/tty.c 	tty_putc(c, &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L506'>t_outq</a>            506 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_outq.tq_count &gt; TTYQ_HIWAT) {
+<a href='../S/64.html#L508'>t_outq</a>            508 bsp/drv/dev/base/tty.c 			if (tp-&gt;t_outq.tq_count &lt;= TTYQ_HIWAT)
+<a href='../S/64.html#L600'>t_outq</a>            600 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_outq.tq_count, data, sizeof(int)))
+<a href='../S/65.html#L407'>t_outq</a>            407 bsp/drv/dev/base/wscons.c 	while ((c = tty_getc(&amp;tp-&gt;t_outq)) &gt;= 0)
+<a href='../S/89.html#L128'>t_outq</a>            128 bsp/drv/dev/serial/serial.c 	while ((c = tty_getc(&amp;tp-&gt;t_outq)) &gt;= 0)
+<a href='../S/102.html#L60'>t_outq</a>             60 bsp/drv/include/tty.h 	struct tty_queue t_outq;	/* ouput queue */
+</pre>
+</body>
+</html>

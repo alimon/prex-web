@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>curproc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/917.html#L123'>curproc</a>           123 usr/server/proc/main.c struct proc *curproc;		/* current (caller) process */
+<a href='../S/917.html#L286'>curproc</a>           286 usr/server/proc/main.c 	DPRINTF(("proc: exec pid=%x\n", curproc-&gt;p_pid));
+<a href='../S/917.html#L351'>curproc</a>           351 usr/server/proc/main.c 	curproc = &amp;proc0;
+<a href='../S/917.html#L394'>curproc</a>           394 usr/server/proc/main.c 	curproc = &amp;proc0;
+<a href='../S/917.html#L564'>curproc</a>           564 usr/server/proc/main.c 				curproc = task_to_proc(msg.hdr.task);
+<a href='../S/919.html#L118'>curproc</a>           118 usr/server/proc/proc.h extern struct proc *curproc;		/* current (caller) process */
+<a href='../S/920.html#L57'>curproc</a>            57 usr/server/proc/proc_exit.c 	DPRINTF(("proc: exit pid=%d code=%x\n", curproc-&gt;p_pid, exitcode));
+<a href='../S/920.html#L59'>curproc</a>            59 usr/server/proc/proc_exit.c 	if (curproc-&gt;p_stat == SZOMB)
+<a href='../S/920.html#L65'>curproc</a>            65 usr/server/proc/proc_exit.c 	curproc-&gt;p_stat = SZOMB;
+<a href='../S/920.html#L66'>curproc</a>            66 usr/server/proc/proc_exit.c 	curproc-&gt;p_exitcode = exitcode;
+<a href='../S/920.html#L67'>curproc</a>            67 usr/server/proc/proc_exit.c 	p_remove(curproc);
+<a href='../S/920.html#L72'>curproc</a>            72 usr/server/proc/proc_exit.c 	head = &amp;curproc-&gt;p_children;
+<a href='../S/920.html#L86'>curproc</a>            86 usr/server/proc/proc_exit.c 	parent = curproc-&gt;p_parent;
+<a href='../S/920.html#L94'>curproc</a>            94 usr/server/proc/proc_exit.c 		error = task_terminate(curproc-&gt;p_task);
+<a href='../S/920.html#L101'>curproc</a>           101 usr/server/proc/proc_exit.c 		 curproc-&gt;p_parent-&gt;p_pid));
+<a href='../S/920.html#L102'>curproc</a>           102 usr/server/proc/proc_exit.c 	exception_raise(curproc-&gt;p_parent-&gt;p_task, SIGCHLD);
+<a href='../S/920.html#L119'>curproc</a>           119 usr/server/proc/proc_exit.c 	if (curproc-&gt;p_stat == SZOMB)
+<a href='../S/920.html#L122'>curproc</a>           122 usr/server/proc/proc_exit.c 	curproc-&gt;p_stat = SSTOP;
+<a href='../S/920.html#L123'>curproc</a>           123 usr/server/proc/proc_exit.c 	curproc-&gt;p_exitcode = exitcode;
+<a href='../S/920.html#L126'>curproc</a>           126 usr/server/proc/proc_exit.c 	exception_raise(curproc-&gt;p_parent-&gt;p_task, SIGCHLD);
+<a href='../S/920.html#L151'>curproc</a>           151 usr/server/proc/proc_exit.c 	if (list_empty(&amp;curproc-&gt;p_children))
+<a href='../S/920.html#L162'>curproc</a>           162 usr/server/proc/proc_exit.c 	head = &amp;curproc-&gt;p_children;
+<a href='../S/920.html#L180'>curproc</a>           180 usr/server/proc/proc_exit.c 			if (p-&gt;p_pgrp-&gt;pg_pgid == curproc-&gt;p_pgrp-&gt;pg_pgid)
+<a href='../S/921.html#L88'>curproc</a>            88 usr/server/proc/proc_fork.c 	pg = curproc-&gt;p_pgrp;
+<a href='../S/921.html#L100'>curproc</a>           100 usr/server/proc/proc_fork.c 	p-&gt;p_parent = curproc;
+<a href='../S/921.html#L111'>curproc</a>           111 usr/server/proc/proc_fork.c 	list_insert(&amp;curproc-&gt;p_children, &amp;p-&gt;p_sibling);
+<a href='../S/921.html#L133'>curproc</a>           133 usr/server/proc/proc_fork.c 	if (vfork &amp;&amp; curproc-&gt;p_invfork) {
+<a href='../S/921.html#L152'>curproc</a>           152 usr/server/proc/proc_fork.c 		vfork_start(curproc);
+<a href='../S/923.html#L53'>curproc</a>            53 usr/server/proc/proc_pid.c 	ASSERT(curproc);
+<a href='../S/923.html#L54'>curproc</a>            54 usr/server/proc/proc_pid.c 	return curproc-&gt;p_pid;
+<a href='../S/923.html#L64'>curproc</a>            64 usr/server/proc/proc_pid.c 	ASSERT(curproc);
+<a href='../S/923.html#L65'>curproc</a>            65 usr/server/proc/proc_pid.c 	return curproc-&gt;p_parent-&gt;p_pid;
+<a href='../S/923.html#L79'>curproc</a>            79 usr/server/proc/proc_pid.c 	ASSERT(curproc);
+<a href='../S/923.html#L82'>curproc</a>            82 usr/server/proc/proc_pid.c 		p = curproc;
+<a href='../S/923.html#L100'>curproc</a>           100 usr/server/proc/proc_pid.c 	ASSERT(curproc);
+<a href='../S/923.html#L103'>curproc</a>           103 usr/server/proc/proc_pid.c 		p = curproc;
+<a href='../S/923.html#L143'>curproc</a>           143 usr/server/proc/proc_pid.c 	pgrp-&gt;pg_session = curproc-&gt;p_pgrp-&gt;pg_session;
+<a href='../S/923.html#L184'>curproc</a>           184 usr/server/proc/proc_pid.c 		p = curproc;
+<a href='../S/923.html#L209'>curproc</a>           209 usr/server/proc/proc_pid.c 	DPRINTF(("proc: setsid sid=%d\n", curproc-&gt;p_pid));
+<a href='../S/923.html#L211'>curproc</a>           211 usr/server/proc/proc_pid.c 	p = curproc;
+<a href='../S/924.html#L51'>curproc</a>            51 usr/server/proc/proc_sig.c 	if (task_chkcap(curproc-&gt;p_task, CAP_KILL) == 0)
+<a href='../S/924.html#L158'>curproc</a>           158 usr/server/proc/proc_sig.c 		if (pid != curproc-&gt;p_pid &amp;&amp; !kill_capable()) {
+<a href='../S/924.html#L165'>curproc</a>           165 usr/server/proc/proc_sig.c 		DPRINTF(("proc: kill? curproc=%x\n", curproc));
+<a href='../S/924.html#L182'>curproc</a>           182 usr/server/proc/proc_sig.c 			    p-&gt;p_pid != curproc-&gt;p_pid)
+<a href='../S/924.html#L191'>curproc</a>           191 usr/server/proc/proc_sig.c 		error = kill_pg(curproc-&gt;p_pgrp-&gt;pg_pgid, sig);
+<a href='../S/924.html#L194'>curproc</a>           194 usr/server/proc/proc_sig.c 		if (curproc-&gt;p_pgrp-&gt;pg_pgid != -pid &amp;&amp; !kill_capable())
+</pre>
+</body>
+</html>

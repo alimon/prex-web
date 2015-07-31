@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>q</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L73'>q</a>                  73 bsp/drv/dev/base/tty.c #define ttyq_full(q)	((q)-&gt;tq_count &gt;= TTYQ_SIZE)
+<a href='../S/64.html#L74'>q</a>                  74 bsp/drv/dev/base/tty.c #define ttyq_empty(q)	((q)-&gt;tq_count == 0)
+<a href='../S/70.html#L528'>q</a>                 528 bsp/drv/dev/cpufreq/est.c 	char *p, *q;
+<a href='../S/70.html#L568'>q</a>                 568 bsp/drv/dev/cpufreq/est.c 	p = q = brand_str;
+<a href='../S/70.html#L572'>q</a>                 572 bsp/drv/dev/cpufreq/est.c 		*q++ = *p++;
+<a href='../S/70.html#L573'>q</a>                 573 bsp/drv/dev/cpufreq/est.c 	*q = '\0';
+<a href='../S/268.html#L43'>q</a>                  43 include/sys/queue.h #define queue_next(q)		((q)-&gt;next)
+<a href='../S/268.html#L44'>q</a>                  44 include/sys/queue.h #define queue_prev(q)		((q)-&gt;prev)
+<a href='../S/268.html#L47'>q</a>                  47 include/sys/queue.h #define queue_end(head,q)	((q) == (head))
+<a href='../S/268.html#L50'>q</a>                  50 include/sys/queue.h #define queue_entry(q, type, member) \
+<a href='../S/268.html#L51'>q</a>                  51 include/sys/queue.h     ((type *)((char *)(q) - (unsigned long)(&amp;((type *)0)-&gt;member)))
+<a href='../S/324.html#L385'>q</a>                 385 sys/ipc/msg.c  	queue_t q;
+<a href='../S/324.html#L394'>q</a>                 394 sys/ipc/msg.c  		q = dequeue(&amp;obj-&gt;sendq);
+<a href='../S/324.html#L395'>q</a>                 395 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L402'>q</a>                 402 sys/ipc/msg.c  		q = dequeue(&amp;obj-&gt;recvq);
+<a href='../S/324.html#L403'>q</a>                 403 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L416'>q</a>                 416 sys/ipc/msg.c  	queue_t q;
+<a href='../S/324.html#L419'>q</a>                 419 sys/ipc/msg.c  	q = queue_first(head);
+<a href='../S/324.html#L420'>q</a>                 420 sys/ipc/msg.c  	top = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L422'>q</a>                 422 sys/ipc/msg.c  	while (!queue_end(head, q)) {
+<a href='../S/324.html#L423'>q</a>                 423 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L426'>q</a>                 426 sys/ipc/msg.c  		q = queue_next(q);
+<a href='../S/331.html#L148'>q</a>                 148 sys/kern/sched.c 	queue_t q;
+<a href='../S/331.html#L151'>q</a>                 151 sys/kern/sched.c 	q = dequeue(&amp;runq[maxpri]);
+<a href='../S/331.html#L152'>q</a>                 152 sys/kern/sched.c 	t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L176'>q</a>                 176 sys/kern/sched.c 	queue_t q;
+<a href='../S/331.html#L183'>q</a>                 183 sys/kern/sched.c 		q = dequeue(&amp;wakeq);
+<a href='../S/331.html#L184'>q</a>                 184 sys/kern/sched.c 		t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L309'>q</a>                 309 sys/kern/sched.c 	queue_t q;
+<a href='../S/331.html#L318'>q</a>                 318 sys/kern/sched.c 		q = dequeue(&amp;evt-&gt;sleepq);
+<a href='../S/331.html#L319'>q</a>                 319 sys/kern/sched.c 		t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L337'>q</a>                 337 sys/kern/sched.c 	queue_t head, q;
+<a href='../S/331.html#L349'>q</a>                 349 sys/kern/sched.c 		q = queue_first(head);
+<a href='../S/331.html#L350'>q</a>                 350 sys/kern/sched.c 		top = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L351'>q</a>                 351 sys/kern/sched.c 		while (!queue_end(head, q)) {
+<a href='../S/331.html#L352'>q</a>                 352 sys/kern/sched.c 			t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L355'>q</a>                 355 sys/kern/sched.c 			q = queue_next(q);
+<a href='../S/331.html#L683'>q</a>                 683 sys/kern/sched.c 	queue_t q;
+<a href='../S/331.html#L695'>q</a>                 695 sys/kern/sched.c 			q = dequeue(&amp;dpcq);
+<a href='../S/331.html#L696'>q</a>                 696 sys/kern/sched.c 			dpc = queue_entry(q, struct dpc, link);
+<a href='../S/971.html#L44'>q</a>                  44 usr/test/malloc/malloc.c 	char *p, *q;
+<a href='../S/971.html#L54'>q</a>                  54 usr/test/malloc/malloc.c 	for (q = p, i = 0; i &lt; buflen; i++)
+<a href='../S/971.html#L55'>q</a>                  55 usr/test/malloc/malloc.c 		*(q++) = '@';
+<a href='../S/971.html#L57'>q</a>                  57 usr/test/malloc/malloc.c 	for (q = p, i = 0; i &lt; buflen; i++)
+<a href='../S/971.html#L58'>q</a>                  58 usr/test/malloc/malloc.c 		putchar(*(q++));
+</pre>
+</body>
+</html>

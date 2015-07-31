@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mutex_lock</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L135'>mutex_lock</a>        135 include/sys/prex.h int	mutex_lock(mutex_t *mp);
+<a href='../S/270.html#L180'>mutex_lock</a>        180 include/sys/signal.h #define SIGNAL_LOCK()	mutex_lock(&amp;__sig_lock)
+<a href='../S/316.html#L83'>mutex_lock</a>         83 sys/include/sync.h int	 mutex_lock(mutex_t *);
+<a href='../S/332.html#L124'>mutex_lock</a>        124 sys/kern/sysent.c 	/* 41 */ SYSENT(1, mutex_lock),
+<a href='../S/345.html#L172'>mutex_lock</a>        172 sys/sync/cond.c 		error = mutex_lock(mp);
+<a href='../S/753.html#L38'>mutex_lock</a>         38 usr/lib/prex/malloc/malloc.h #define MALLOC_LOCK()	mutex_lock(&amp;malloc_lock);
+<a href='../S/754.html#L45'>mutex_lock</a>         45 usr/lib/prex/malloc/malloc_r.c 	mutex_lock(&amp;malloc_r_lock);
+<a href='../S/754.html#L54'>mutex_lock</a>         54 usr/lib/prex/malloc/malloc_r.c 	mutex_lock(&amp;malloc_r_lock);
+<a href='../S/841.html#L111'>mutex_lock</a>        111 usr/sample/mutex/mutex.c 	mutex_lock(&amp;mtx_B);
+<a href='../S/841.html#L139'>mutex_lock</a>        139 usr/sample/mutex/mutex.c 	mutex_lock(&amp;mtx_B);
+<a href='../S/841.html#L149'>mutex_lock</a>        149 usr/sample/mutex/mutex.c 	mutex_lock(&amp;mtx_A);
+<a href='../S/841.html#L185'>mutex_lock</a>        185 usr/sample/mutex/mutex.c 	mutex_lock(&amp;mtx_A);
+<a href='../S/883.html#L157'>mutex_lock</a>        157 usr/server/fs/arfs/arfs_vnops.c 	mutex_lock(&amp;arfs_lock);
+<a href='../S/883.html#L215'>mutex_lock</a>        215 usr/server/fs/arfs/arfs_vnops.c 	mutex_lock(&amp;arfs_lock);
+<a href='../S/883.html#L294'>mutex_lock</a>        294 usr/server/fs/arfs/arfs_vnops.c 	mutex_lock(&amp;arfs_lock);
+<a href='../S/893.html#L141'>mutex_lock</a>        141 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L186'>mutex_lock</a>        186 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L255'>mutex_lock</a>        255 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L347'>mutex_lock</a>        347 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L393'>mutex_lock</a>        393 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L428'>mutex_lock</a>        428 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L466'>mutex_lock</a>        466 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L568'>mutex_lock</a>        568 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L628'>mutex_lock</a>        628 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L686'>mutex_lock</a>        686 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_lock(&amp;fmp-&gt;lock);
+<a href='../S/896.html#L328'>mutex_lock</a>        328 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;fifo_lock);
+<a href='../S/896.html#L389'>mutex_lock</a>        389 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;fifo_lock);
+<a href='../S/896.html#L400'>mutex_lock</a>        400 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;fifo_lock);
+<a href='../S/896.html#L430'>mutex_lock</a>        430 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;fifo_lock);
+<a href='../S/896.html#L480'>mutex_lock</a>        480 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L502'>mutex_lock</a>        502 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;np-&gt;fn_wmtx);
+<a href='../S/902.html#L136'>mutex_lock</a>        136 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_lock(&amp;ramfs_lock);
+<a href='../S/902.html#L159'>mutex_lock</a>        159 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_lock(&amp;ramfs_lock);
+<a href='../S/902.html#L213'>mutex_lock</a>        213 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_lock(&amp;ramfs_lock);
+<a href='../S/902.html#L457'>mutex_lock</a>        457 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_lock(&amp;ramfs_lock);
+<a href='../S/906.html#L64'>mutex_lock</a>         64 usr/server/fs/vfs/vfs_bio.c #define BIO_LOCK()	mutex_lock(&amp;bio_lock)
+<a href='../S/906.html#L172'>mutex_lock</a>        172 usr/server/fs/vfs/vfs_bio.c 			mutex_lock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L190'>mutex_lock</a>        190 usr/server/fs/vfs/vfs_bio.c 	mutex_lock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L355'>mutex_lock</a>        355 usr/server/fs/vfs/vfs_bio.c 			mutex_lock(&amp;bp-&gt;b_lock);
+<a href='../S/909.html#L64'>mutex_lock</a>         64 usr/server/fs/vfs/vfs_mount.c #define MOUNT_LOCK()	mutex_lock(&amp;mount_lock)
+<a href='../S/912.html#L58'>mutex_lock</a>         58 usr/server/fs/vfs/vfs_task.c #define TASK_LOCK()	mutex_lock(&amp;task_lock)
+<a href='../S/912.html#L85'>mutex_lock</a>         85 usr/server/fs/vfs/vfs_task.c 			mutex_lock(&amp;t-&gt;t_lock);
+<a href='../S/913.html#L77'>mutex_lock</a>         77 usr/server/fs/vfs/vfs_vnode.c #define VNODE_LOCK()	mutex_lock(&amp;vnode_lock)
+<a href='../S/913.html#L118'>mutex_lock</a>        118 usr/server/fs/vfs/vfs_vnode.c 			mutex_lock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L136'>mutex_lock</a>        136 usr/server/fs/vfs/vfs_vnode.c 	mutex_lock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L195'>mutex_lock</a>        195 usr/server/fs/vfs/vfs_vnode.c 	mutex_lock(&amp;vp-&gt;v_lock);
+<a href='../S/938.html#L88'>mutex_lock</a>         88 usr/test/deadlock/deadlock.c 	error = mutex_lock(&amp;mtx_B);
+<a href='../S/938.html#L97'>mutex_lock</a>         97 usr/test/deadlock/deadlock.c 	error = mutex_lock(&amp;mtx_A);
+<a href='../S/938.html#L118'>mutex_lock</a>        118 usr/test/deadlock/deadlock.c 	error = mutex_lock(&amp;mtx_A);
+<a href='../S/938.html#L133'>mutex_lock</a>        133 usr/test/deadlock/deadlock.c 	error = mutex_lock(&amp;mtx_B);
+<a href='../S/977.html#L55'>mutex_lock</a>         55 usr/test/mutex/mutex.c 	error = mutex_lock(&amp;mtx_A);
+<a href='../S/977.html#L58'>mutex_lock</a>         58 usr/test/mutex/mutex.c 	error = mutex_lock(&amp;mtx_B);
+<a href='../S/977.html#L62'>mutex_lock</a>         62 usr/test/mutex/mutex.c 	error = mutex_lock(&amp;mtx_C);
+<a href='../S/977.html#L88'>mutex_lock</a>         88 usr/test/mutex/mutex.c 	error = mutex_lock(&amp;mtx_B);
+<a href='../S/977.html#L94'>mutex_lock</a>         94 usr/test/mutex/mutex.c 	error = mutex_lock(&amp;mtx_A);
+<a href='../S/977.html#L98'>mutex_lock</a>         98 usr/test/mutex/mutex.c 	error = mutex_lock(&amp;mtx_A);
+</pre>
+</body>
+</html>

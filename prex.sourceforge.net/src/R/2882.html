@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vm_allocate</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L108'>vm_allocate</a>       108 include/sys/prex.h int	vm_allocate(task_t task, void **addr, size_t size, int anywhere);
+<a href='../S/323.html#L77'>vm_allocate</a>        77 sys/include/vm.h int	 vm_allocate(task_t, void **, size_t, int);
+<a href='../S/332.html#L103'>vm_allocate</a>       103 sys/kern/sysent.c 	/* 20 */ SYSENT(4, vm_allocate),
+<a href='../S/752.html#L110'>vm_allocate</a>       110 usr/lib/prex/malloc/malloc.c 	if (vm_allocate(task_self(), (void *)&amp;p, size, 1))
+<a href='../S/831.html#L75'>vm_allocate</a>        75 usr/sample/bench/bench.c 	error = vm_allocate(task, (void **)&amp;thread,
+<a href='../S/876.html#L79'>vm_allocate</a>        79 usr/server/exec/exec_elf.c 		if (vm_allocate(task, &amp;addr, size, 0) != 0)
+<a href='../S/876.html#L234'>vm_allocate</a>       234 usr/server/exec/exec_elf.c 	if (vm_allocate(task, &amp;base, total_size, 1) != 0) {
+<a href='../S/877.html#L178'>vm_allocate</a>       178 usr/server/exec/exec_execve.c 	error = vm_allocate(new_task, &amp;stack, DFLSTKSZ, 1);
+<a href='../S/902.html#L301'>vm_allocate</a>       301 usr/server/fs/ramfs/ramfs_vnops.c 		if (vm_allocate(task, &amp;new_buf, new_size, 1))
+<a href='../S/902.html#L392'>vm_allocate</a>       392 usr/server/fs/ramfs/ramfs_vnops.c 			if (vm_allocate(task, &amp;new_buf, new_size, 1))
+<a href='../S/903.html#L955'>vm_allocate</a>       955 usr/server/fs/vfs/main.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/916.html#L276'>vm_allocate</a>       276 usr/server/pow/pow.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/921.html#L187'>vm_allocate</a>       187 usr/server/proc/proc_fork.c 	if (vm_allocate(p-&gt;p_task, &amp;stack, DFLSTKSZ, 1) != 0) {
+<a href='../S/928.html#L88'>vm_allocate</a>        88 usr/test/attack/attack.c 	vm_allocate(self, addr, size, 1);
+<a href='../S/928.html#L89'>vm_allocate</a>        89 usr/test/attack/attack.c 	vm_allocate(self, &amp;addr, size, 1);
+</pre>
+</body>
+</html>

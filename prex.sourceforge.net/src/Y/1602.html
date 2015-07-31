@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>phdr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L56'>phdr</a>               56 bsp/boot/common/elf.c 	Elf32_Phdr *phdr;
+<a href='../S/13.html#L71'>phdr</a>               71 bsp/boot/common/elf.c 	phdr = (Elf32_Phdr *)((paddr_t)ehdr + ehdr-&gt;e_ehsize);
+<a href='../S/13.html#L75'>phdr</a>               75 bsp/boot/common/elf.c 		load_base = (vaddr_t)ptokv(phdr-&gt;p_paddr);
+<a href='../S/13.html#L113'>phdr</a>              113 bsp/boot/common/elf.c 	Elf32_Phdr *phdr;
+<a href='../S/13.html#L119'>phdr</a>              119 bsp/boot/common/elf.c 	phdr = (Elf32_Phdr *)((paddr_t)ehdr + ehdr-&gt;e_phoff);
+<a href='../S/13.html#L124'>phdr</a>              124 bsp/boot/common/elf.c 	for (i = 0; i &lt; (int)ehdr-&gt;e_phnum; i++, phdr++) {
+<a href='../S/13.html#L125'>phdr</a>              125 bsp/boot/common/elf.c 		if (phdr-&gt;p_type != PT_LOAD)
+<a href='../S/13.html#L128'>phdr</a>              128 bsp/boot/common/elf.c 		ELFDBG(("p_flags=%x\n", (int)phdr-&gt;p_flags));
+<a href='../S/13.html#L129'>phdr</a>              129 bsp/boot/common/elf.c 		ELFDBG(("p_align=%x\n", (int)phdr-&gt;p_align));
+<a href='../S/13.html#L130'>phdr</a>              130 bsp/boot/common/elf.c 		ELFDBG(("p_paddr=%x\n", phdr-&gt;p_paddr));
+<a href='../S/13.html#L136'>phdr</a>              136 bsp/boot/common/elf.c 		if (phdr-&gt;p_flags &amp; PF_X) {
+<a href='../S/13.html#L138'>phdr</a>              138 bsp/boot/common/elf.c 			m-&gt;text = phdr-&gt;p_vaddr;
+<a href='../S/13.html#L139'>phdr</a>              139 bsp/boot/common/elf.c 			m-&gt;textsz = (size_t)phdr-&gt;p_memsz;
+<a href='../S/13.html#L142'>phdr</a>              142 bsp/boot/common/elf.c 			m-&gt;data = phdr-&gt;p_vaddr;
+<a href='../S/13.html#L143'>phdr</a>              143 bsp/boot/common/elf.c 			m-&gt;datasz = (size_t)phdr-&gt;p_filesz;
+<a href='../S/13.html#L145'>phdr</a>              145 bsp/boot/common/elf.c 				(size_t)(phdr-&gt;p_memsz - phdr-&gt;p_filesz);
+<a href='../S/13.html#L148'>phdr</a>              148 bsp/boot/common/elf.c 		if (phdr-&gt;p_filesz &gt; 0) {
+<a href='../S/13.html#L149'>phdr</a>              149 bsp/boot/common/elf.c 			memcpy((char *)load_base, img + phdr-&gt;p_offset,
+<a href='../S/13.html#L150'>phdr</a>              150 bsp/boot/common/elf.c 			       (size_t)phdr-&gt;p_filesz);
+<a href='../S/13.html#L152'>phdr</a>              152 bsp/boot/common/elf.c 				 load_base, (int)phdr-&gt;p_filesz));
+<a href='../S/13.html#L154'>phdr</a>              154 bsp/boot/common/elf.c 		if (!(phdr-&gt;p_flags &amp; PF_X)) {
+<a href='../S/13.html#L160'>phdr</a>              160 bsp/boot/common/elf.c 			load_base += phdr-&gt;p_memsz;
+<a href='../S/876.html#L61'>phdr</a>               61 usr/server/exec/exec_elf.c 	Elf32_Phdr *phdr;
+<a href='../S/876.html#L66'>phdr</a>               66 usr/server/exec/exec_elf.c 	phdr = (Elf32_Phdr *)((u_long)ehdr + ehdr-&gt;e_phoff);
+<a href='../S/876.html#L67'>phdr</a>               67 usr/server/exec/exec_elf.c 	if (phdr == NULL)
+<a href='../S/876.html#L70'>phdr</a>               70 usr/server/exec/exec_elf.c 	for (i = 0; i &lt; (int)ehdr-&gt;e_phnum; i++, phdr++) {
+<a href='../S/876.html#L71'>phdr</a>               71 usr/server/exec/exec_elf.c 		if (phdr-&gt;p_type != PT_LOAD)
+<a href='../S/876.html#L74'>phdr</a>               74 usr/server/exec/exec_elf.c 		addr = (void *)phdr-&gt;p_vaddr;
+<a href='../S/876.html#L75'>phdr</a>               75 usr/server/exec/exec_elf.c 		size = phdr-&gt;p_memsz;
+<a href='../S/876.html#L82'>phdr</a>               82 usr/server/exec/exec_elf.c 		if (vm_map(task, (void *)phdr-&gt;p_vaddr, size, &amp;mapped) != 0)
+<a href='../S/876.html#L84'>phdr</a>               84 usr/server/exec/exec_elf.c 		if (phdr-&gt;p_filesz &gt; 0) {
+<a href='../S/876.html#L85'>phdr</a>               85 usr/server/exec/exec_elf.c 			if (lseek(fd, (off_t)phdr-&gt;p_offset, SEEK_SET)
+<a href='../S/876.html#L88'>phdr</a>               88 usr/server/exec/exec_elf.c 			if (read(fd, mapped, phdr-&gt;p_filesz) &lt; 0)
+<a href='../S/876.html#L95'>phdr</a>               95 usr/server/exec/exec_elf.c 		if (phdr-&gt;p_flags &amp; PF_X) {
+</pre>
+</body>
+</html>

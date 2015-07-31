@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mk/gcc.mk</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1077.html'>mk</a>/gcc.mk</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='294.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' /># gcc specifc flags
+<a id='L2' name='L2' />
+<a id='L3' name='L3' />ifndef _GCC_MK_
+<a id='L4' name='L4' />_GCC_MK_:=      1
+<a id='L5' name='L5' />
+<a id='L6' name='L6' />OUTPUT_OPTION=  -o $@
+<a id='L7' name='L7' />
+<a id='L8' name='L8' />DEFINES=        $(addprefix -D,$(DEFS))
+<a id='L9' name='L9' />
+<a id='L10' name='L10' />CFLAGS+=        -c -Os -ansi -pedantic -Wall -Wundef -Wstrict-prototypes \
+<a id='L11' name='L11' />                -Wpointer-arith -nostdinc -fno-strict-aliasing $(GCCFLAGS)
+<a id='L12' name='L12' />CPPFLAGS+=      $(DEFINES) -I. $(addprefix -I,$(INCSDIR))
+<a id='L13' name='L13' />ACPPFLAGS+=     -D__ASSEMBLY__
+<a id='L14' name='L14' />LDFLAGS+=       -static -nostdlib $(addprefix -L,$(LIBSDIR))
+<a id='L15' name='L15' />
+<a id='L16' name='L16' />ifeq ($(_DEBUG_),1)
+<a id='L17' name='L17' />CFLAGS+=        -fno-omit-frame-pointer -g
+<a id='L18' name='L18' />else
+<a id='L19' name='L19' />CFLAGS+=        -fomit-frame-pointer
+<a id='L20' name='L20' />endif
+<a id='L21' name='L21' />
+<a id='L22' name='L22' />ifeq ($(_KERNEL_),1)
+<a id='L23' name='L23' />CFLAGS+=        -fno-builtin
+<a id='L24' name='L24' />endif
+<a id='L25' name='L25' />
+<a id='L26' name='L26' />ifeq ($(_STRICT_),1)
+<a id='L27' name='L27' />CFLAGS+=        -Werror
+<a id='L28' name='L28' />endif
+<a id='L29' name='L29' />
+<a id='L30' name='L30' />ifdef LDSCRIPT
+<a id='L31' name='L31' />LDFLAGS+=       -T $(LDSCRIPT)
+<a id='L32' name='L32' />endif
+<a id='L33' name='L33' />
+<a id='L34' name='L34' />ifdef MAP
+<a id='L35' name='L35' />LDFLAGS+=       -Map $(MAP)
+<a id='L36' name='L36' />endif
+<a id='L37' name='L37' />
+<a id='L38' name='L38' />ifeq ($(_RELOC_OBJ_),1)
+<a id='L39' name='L39' />LDFLAGS_S:=     $(LDFLAGS) --error-unresolved-symbols
+<a id='L40' name='L40' />LDFLAGS+=       -r -d
+<a id='L41' name='L41' />endif
+<a id='L42' name='L42' />
+<a id='L43' name='L43' />ifndef LIBGCC_PATH
+<a id='L44' name='L44' />LIBGCC_PATH := $(dir $(shell $(RAWCC) -print-libgcc-file-name))
+<a id='L45' name='L45' />export LIBGCC_PATH
+<a id='L46' name='L46' />endif
+<a id='L47' name='L47' />PLATFORM_LIBS+= -L$(LIBGCC_PATH) -lgcc
+<a id='L48' name='L48' />
+<a id='L49' name='L49' />endif # !_GCC_MK_
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='294.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

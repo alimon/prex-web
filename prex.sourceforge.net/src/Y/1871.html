@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sector</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L188'>sector</a>            188 usr/server/fs/fatfs/fatfs.h 	u_long	sector;		/* sector# for directory entry */
+<a href='../S/890.html#L100'>sector</a>            100 usr/server/fs/fatfs/fatfs_node.c 			np-&gt;sector = sec;
+<a href='../S/890.html#L193'>sector</a>            193 usr/server/fs/fatfs/fatfs_node.c 				np-&gt;sector = sec;
+<a href='../S/890.html#L359'>sector</a>            359 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, np-&gt;sector);
+<a href='../S/890.html#L366'>sector</a>            366 usr/server/fs/fatfs/fatfs_node.c 	error = fat_write_dirent(fmp, np-&gt;sector);
+<a href='../S/950.html#L40'>sector</a>             40 usr/test/fdd/fdd.c test_read(int sector)
+<a href='../S/950.html#L56'>sector</a>             56 usr/test/fdd/fdd.c 	printf("fdd read: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/950.html#L58'>sector</a>             58 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L64'>sector</a>             64 usr/test/fdd/fdd.c 	printf("read comp: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/950.html#L89'>sector</a>             89 usr/test/fdd/fdd.c test_write(int sector)
+<a href='../S/950.html#L105'>sector</a>            105 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L111'>sector</a>            111 usr/test/fdd/fdd.c 	printf("read comp sector=%d\n", sector);
+<a href='../S/950.html#L114'>sector</a>            114 usr/test/fdd/fdd.c 	error = device_write(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L120'>sector</a>            120 usr/test/fdd/fdd.c 	printf("write comp sector=%d\n", sector);
+<a href='../S/983.html#L42'>sector</a>             42 usr/test/ramdisk/ramdisk.c test_read(int sector)
+<a href='../S/983.html#L58'>sector</a>             58 usr/test/ramdisk/ramdisk.c 	printf("ramdisk read: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/983.html#L60'>sector</a>             60 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L66'>sector</a>             66 usr/test/ramdisk/ramdisk.c 	printf("read comp: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/983.html#L91'>sector</a>             91 usr/test/ramdisk/ramdisk.c test_write(int sector)
+<a href='../S/983.html#L107'>sector</a>            107 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L113'>sector</a>            113 usr/test/ramdisk/ramdisk.c 	printf("read comp sector=%d\n", sector);
+<a href='../S/983.html#L118'>sector</a>            118 usr/test/ramdisk/ramdisk.c 	error = device_write(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L124'>sector</a>            124 usr/test/ramdisk/ramdisk.c 	printf("write comp sector=%d\n", sector);
+</pre>
+</body>
+</html>

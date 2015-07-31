@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>datasz</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/12.html#L53'>datasz</a>             53 bsp/boot/common/bootinfo.c 	       m-&gt;datasz, m-&gt;bsssz, m-&gt;name);
+<a href='../S/13.html#L143'>datasz</a>            143 bsp/boot/common/elf.c 			m-&gt;datasz = (size_t)phdr-&gt;p_filesz;
+<a href='../S/13.html#L157'>datasz</a>            157 bsp/boot/common/elf.c 				memset((char *)load_base + m-&gt;datasz,
+<a href='../S/13.html#L351'>datasz</a>            351 bsp/boot/common/elf.c 	m-&gt;datasz = (size_t)((char *)ptokv(bss_base) - m-&gt;data);
+<a href='../S/247.html#L68'>datasz</a>             68 include/sys/bootinfo.h 	size_t		datasz;		/* data size */
+<a href='../S/343.html#L706'>datasz</a>            706 sys/mem/vm.c   	if (mod-&gt;datasz + mod-&gt;bsssz != 0) {
+<a href='../S/343.html#L707'>datasz</a>            707 sys/mem/vm.c   		error = do_allocate(map, &amp;data, mod-&gt;datasz + mod-&gt;bsssz, 0);
+<a href='../S/343.html#L710'>datasz</a>            710 sys/mem/vm.c   		if (mod-&gt;datasz &gt; 0) {
+<a href='../S/343.html#L712'>datasz</a>            712 sys/mem/vm.c   			memcpy(data, src, mod-&gt;datasz);
+<a href='../S/344.html#L466'>datasz</a>            466 sys/mem/vm_nommu.c 	size = mod-&gt;textsz + mod-&gt;datasz + mod-&gt;bsssz;
+<a href='../S/344.html#L480'>datasz</a>            480 sys/mem/vm_nommu.c 		memset((void *)(mod-&gt;data + mod-&gt;datasz), 0, mod-&gt;bsssz);
+</pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>PDE_PRESENT</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L161'>PDE_PRESENT</a>       161 bsp/hal/arm/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | PDE_PRESENT;
+<a href='../S/131.html#L283'>PDE_PRESENT</a>       283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/144.html#L65'>PDE_PRESENT</a>        65 bsp/hal/arm/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/178.html#L99'>PDE_PRESENT</a>        99 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE | PDE_USER);
+<a href='../S/178.html#L103'>PDE_PRESENT</a>       103 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE | PDE_USER);
+<a href='../S/178.html#L107'>PDE_PRESENT</a>       107 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE | PDE_USER);
+<a href='../S/178.html#L110'>PDE_PRESENT</a>       110 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE);
+<a href='../S/178.html#L114'>PDE_PRESENT</a>       114 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE);
+<a href='../S/184.html#L70'>PDE_PRESENT</a>        70 bsp/hal/x86/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+</pre>
+</body>
+</html>

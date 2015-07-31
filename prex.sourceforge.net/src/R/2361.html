@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ptokv</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/2.html#L46'>ptokv</a>              46 bsp/boot/arm/arch/elf_reloc.c 		*where += (vaddr_t)ptokv(sym_val);
+<a href='../S/13.html#L75'>ptokv</a>              75 bsp/boot/common/elf.c 		load_base = (vaddr_t)ptokv(phdr-&gt;p_paddr);
+<a href='../S/13.html#L302'>ptokv</a>             302 bsp/boot/common/elf.c 				m-&gt;text = (vaddr_t)ptokv(load_base);
+<a href='../S/13.html#L307'>ptokv</a>             307 bsp/boot/common/elf.c 					m-&gt;data = (vaddr_t)ptokv(load_base +
+<a href='../S/13.html#L351'>ptokv</a>             351 bsp/boot/common/elf.c 	m-&gt;datasz = (size_t)((char *)ptokv(bss_base) - m-&gt;data);
+<a href='../S/13.html#L358'>ptokv</a>             358 bsp/boot/common/elf.c 	m-&gt;entry = (vaddr_t)ptokv(ehdr-&gt;e_entry + m-&gt;phys);
+<a href='../S/37.html#L45'>ptokv</a>              45 bsp/boot/x86/arch/elf_reloc.c 		*where += (vaddr_t)ptokv(sym_val);
+<a href='../S/68.html#L168'>ptokv</a>             168 bsp/drv/dev/block/ramdisk.c 	sc-&gt;addr = (char *)ptokv(phys-&gt;base);
+<a href='../S/72.html#L277'>ptokv</a>             277 bsp/drv/dev/dma/i8237.c 	return ptokv(base);
+<a href='../S/91.html#L247'>ptokv</a>             247 bsp/drv/dev/video/vga.c 	sc-&gt;vram = ptokv(VID_RAM);
+<a href='../S/131.html#L162'>ptokv</a>             162 bsp/hal/arm/arch/mmu.c 			pte = (pte_t)ptokv(pg);
+<a href='../S/131.html#L194'>ptokv</a>             194 bsp/hal/arm/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/144.html#L70'>ptokv</a>              70 bsp/hal/arm/include/mmu.h             (pte_t)ptokv((pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/149.html#L179'>ptokv</a>             179 bsp/hal/arm/integrator/machdep.c 	vector_copy((vaddr_t)ptokv(CONFIG_ARM_VECTORS));
+<a href='../S/178.html#L134'>ptokv</a>             134 bsp/hal/x86/arch/mmu.c 			pte = (pte_t)ptokv(pg);
+<a href='../S/178.html#L167'>ptokv</a>             167 bsp/hal/x86/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/184.html#L75'>ptokv</a>              75 bsp/hal/x86/include/mmu.h             (pte_t)ptokv(((uint32_t *)pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/187.html#L131'>ptokv</a>             131 bsp/hal/x86/pc/diag.c 	vram = ptokv(VID_RAM);
+<a href='../S/341.html#L210'>ptokv</a>             210 sys/mem/kmem.c 		pg = ptokv(pa);
+<a href='../S/341.html#L321'>ptokv</a>             321 sys/mem/kmem.c 	return ptokv(pa);
+<a href='../S/342.html#L139'>ptokv</a>             139 sys/mem/page.c 	blk = ptokv(paddr);
+<a href='../S/342.html#L191'>ptokv</a>             191 sys/mem/page.c 	start = trunc_page((vaddr_t)ptokv(paddr));
+<a href='../S/342.html#L192'>ptokv</a>             192 sys/mem/page.c 	end = round_page((vaddr_t)ptokv(paddr + psize));
+<a href='../S/343.html#L159'>ptokv</a>             159 sys/mem/vm.c   	memset(ptokv(pa), 0, seg-&gt;size);
+<a href='../S/343.html#L326'>ptokv</a>             326 sys/mem/vm.c   		memcpy(ptokv(new_pa), ptokv(old_pa), seg-&gt;size);
+<a href='../S/343.html#L608'>ptokv</a>             608 sys/mem/vm.c   				memcpy(ptokv(dest-&gt;phys), ptokv(src-&gt;phys),
+<a href='../S/343.html#L688'>ptokv</a>             688 sys/mem/vm.c   	src = ptokv(mod-&gt;phys);
+</pre>
+</body>
+</html>

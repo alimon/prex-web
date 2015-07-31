@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/boot/arm/arch/elf_reloc.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1010.html'>boot</a>/<a href='../files/1011.html'>arm</a>/<a href='../files/1012.html'>arch</a>/elf_reloc.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='2.html#L35'>[^]</a><a href='2.html#L73'>[v]</a>[top]<a href='2.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='2.html#L35' title='Defined at 35.'>relocate_rel</a></li>
+<li><a href='2.html#L73' title='Defined at 73.'>relocate_rela</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2006, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='264.html'>sys/param.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='../I/209.html'>sys/elf.h</a>&gt;
+<a id='L32' name='L32' />  32 <em class='sharp'>#include</em> &lt;<a href='20.html'>boot.h</a>&gt;
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <strong class='reserved'>int</strong>
+<a id='L35' name='L35' />  35 <a href='../R/2428.html' title='Multiple refered from 4 places.'>relocate_rel</a>(<a href='../Y/133.html' title='Multiple used in 10 places.'>Elf32_Rel</a> *<a href='../Y/1734.html' title='Multiple used in 25 places.'>rel</a>, <a href='../Y/130.html' title='Multiple used in 16 places.'>Elf32_Addr</a> <a href='../Y/2067.html' title='Multiple used in 34 places.'>sym_val</a>, <strong class='reserved'>char</strong> *<a href='../Y/2116.html' title='Multiple used in 29 places.'>target_sect</a>)
+<a id='L36' name='L36' />  36 <em class='brace'>{</em>
+<a id='L37' name='L37' />  37         <a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a> *<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a>, <a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a>;
+<a id='L38' name='L38' />  38         <a href='254.html#L44' title='Defined at 44 in include/sys/elf.h.'>Elf32_Sword</a> <a href='../Y/346.html' title='Multiple used in 10 places.'>addend</a>;
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40         <a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a> = (<a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a> *)(<a href='../Y/2116.html' title='Multiple used in 29 places.'>target_sect</a> + <a href='../Y/1734.html' title='Multiple used in 25 places.'>rel</a>-&gt;<a href='../Y/1702.html' title='Multiple used in 8 places.'>r_offset</a>);
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42         <strong class='reserved'>switch</strong> (<a href='254.html#L294' title='Defined at 294 in include/sys/elf.h.'>ELF32_R_TYPE</a>(<a href='../Y/1734.html' title='Multiple used in 25 places.'>rel</a>-&gt;<a href='../Y/1701.html' title='Multiple used in 17 places.'>r_info</a>)) <em class='brace'>{</em>
+<a id='L43' name='L43' />  43         <strong class='reserved'>case</strong> <a href='208.html#L36' title='Defined at 36 in include/arm/elf.h.'>R_ARM_NONE</a>:
+<a id='L44' name='L44' />  44                 <strong class='reserved'>break</strong>;
+<a id='L45' name='L45' />  45         <strong class='reserved'>case</strong> <a href='208.html#L38' title='Defined at 38 in include/arm/elf.h.'>R_ARM_ABS32</a>:
+<a id='L46' name='L46' />  46                 *<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a> += (<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='264.html#L128' title='Defined at 128 in include/sys/param.h.'>ptokv</a>(<a href='../Y/2067.html' title='Multiple used in 34 places.'>sym_val</a>);
+<a id='L47' name='L47' />  47                 <a href='../D/419.html' title='Multiple defined in 2 places.'>ELFDBG</a>(("R_ARM_ABS32: %lx -&gt; %lx\n",
+<a id='L48' name='L48' />  48                         (<strong class='reserved'>long</strong>)<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a>, (<strong class='reserved'>long</strong>)*<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a>));
+<a id='L49' name='L49' />  49                 <strong class='reserved'>break</strong>;
+<a id='L50' name='L50' />  50         <strong class='reserved'>case</strong> <a href='208.html#L37' title='Defined at 37 in include/arm/elf.h.'>R_ARM_PC24</a>:
+<a id='L51' name='L51' />  51         <strong class='reserved'>case</strong> <a href='208.html#L39' title='Defined at 39 in include/arm/elf.h.'>R_ARM_PLT32</a>:
+<a id='L52' name='L52' />  52         <strong class='reserved'>case</strong> <a href='208.html#L40' title='Defined at 40 in include/arm/elf.h.'>R_ARM_CALL</a>:
+<a id='L53' name='L53' />  53         <strong class='reserved'>case</strong> <a href='208.html#L41' title='Defined at 41 in include/arm/elf.h.'>R_ARM_JUMP24</a>:
+<a id='L54' name='L54' />  54                 <a href='../Y/346.html' title='Multiple used in 10 places.'>addend</a> = (<a href='254.html#L44' title='Defined at 44 in include/sys/elf.h.'>Elf32_Sword</a>)(*<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a> &amp; 0x00ffffff);
+<a id='L55' name='L55' />  55                 <strong class='reserved'>if</strong> (<a href='../Y/346.html' title='Multiple used in 10 places.'>addend</a> &amp; 0x00800000)
+<a id='L56' name='L56' />  56                         <a href='../Y/346.html' title='Multiple used in 10 places.'>addend</a> |= 0xff000000;
+<a id='L57' name='L57' />  57                 <a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a> = <a href='../Y/2067.html' title='Multiple used in 34 places.'>sym_val</a> - (<a href='254.html#L42' title='Defined at 42 in include/sys/elf.h.'>Elf32_Addr</a>)<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a> + (<a href='../Y/346.html' title='Multiple used in 10 places.'>addend</a> &lt;&lt; 2);
+<a id='L58' name='L58' />  58                 <a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a> &gt;&gt;= 2;
+<a id='L59' name='L59' />  59                 *<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a> = (*<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a> &amp; 0xff000000) | (<a href='../Y/2178.html' title='Multiple used in 155 places.'>tmp</a> &amp; 0x00ffffff);
+<a id='L60' name='L60' />  60                 <a href='../D/419.html' title='Multiple defined in 2 places.'>ELFDBG</a>(("R_ARM_PC24: %lx -&gt; %lx\n",
+<a id='L61' name='L61' />  61                         (<strong class='reserved'>long</strong>)<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a>, (<strong class='reserved'>long</strong>)*<a href='../Y/2419.html' title='Multiple used in 44 places.'>where</a>));
+<a id='L62' name='L62' />  62                 <strong class='reserved'>break</strong>;
+<a id='L63' name='L63' />  63         <strong class='reserved'>default</strong>:
+<a id='L64' name='L64' />  64                 <a href='../D/419.html' title='Multiple defined in 2 places.'>ELFDBG</a>(("Unkown relocation type=%d\n",
+<a id='L65' name='L65' />  65                         <a href='254.html#L294' title='Defined at 294 in include/sys/elf.h.'>ELF32_R_TYPE</a>(<a href='../Y/1734.html' title='Multiple used in 25 places.'>rel</a>-&gt;<a href='../Y/1701.html' title='Multiple used in 17 places.'>r_info</a>)));
+<a id='L66' name='L66' />  66                 <a href='../D/3147.html' title='Multiple defined in 4 places.'>panic</a>("relocation fail");
+<a id='L67' name='L67' />  67                 <strong class='reserved'>return</strong> -1;
+<a id='L68' name='L68' />  68         <em class='brace'>}</em>
+<a id='L69' name='L69' />  69         <strong class='reserved'>return</strong> 0;
+<a id='L70' name='L70' />  70 <em class='brace'>}</em>
+<a id='L71' name='L71' />  71 
+<a id='L72' name='L72' />  72 <strong class='reserved'>int</strong>
+<a id='L73' name='L73' />  73 <a href='../R/2429.html' title='Multiple refered from 4 places.'>relocate_rela</a>(<a href='../Y/134.html' title='Multiple used in 10 places.'>Elf32_Rela</a> *<a href='../Y/1736.html' title='Multiple used in 22 places.'>rela</a>, <a href='../Y/130.html' title='Multiple used in 16 places.'>Elf32_Addr</a> <a href='../Y/2067.html' title='Multiple used in 34 places.'>sym_val</a>, <strong class='reserved'>char</strong> *<a href='../Y/2115.html' title='Multiple used in 5 places.'>target_sec</a>)
+<a id='L74' name='L74' />  74 <em class='brace'>{</em>
+<a id='L75' name='L75' />  75 
+<a id='L76' name='L76' />  76         <a href='../D/3147.html' title='Multiple defined in 4 places.'>panic</a>("invalid relocation type");
+<a id='L77' name='L77' />  77         <strong class='reserved'>return</strong> -1;
+<a id='L78' name='L78' />  78 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='2.html#L35'>[^]</a><a href='2.html#L73'>[v]</a><a href='2.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

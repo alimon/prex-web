@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>device_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L65'>device_t</a>           65 bsp/drv/arm/gba/keypad.c 	device_t	dev;
+<a href='../S/50.html#L131'>device_t</a>          131 bsp/drv/arm/gba/keypad.c 	device_t dev;
+<a href='../S/51.html#L48'>device_t</a>           48 bsp/drv/arm/gba/lcd.c 	device_t	dev;
+<a href='../S/51.html#L181'>device_t</a>          181 bsp/drv/arm/gba/lcd.c 	device_t dev;
+<a href='../S/54.html#L83'>device_t</a>           83 bsp/drv/arm/gba/swkbd.c 	device_t	dev;		/* device object */
+<a href='../S/54.html#L485'>device_t</a>          485 bsp/drv/arm/gba/swkbd.c 	device_t dev;
+<a href='../S/58.html#L38'>device_t</a>           38 bsp/drv/dev/base/cons.c static int cons_open(device_t, int);
+<a href='../S/58.html#L39'>device_t</a>           39 bsp/drv/dev/base/cons.c static int cons_close(device_t);
+<a href='../S/58.html#L40'>device_t</a>           40 bsp/drv/dev/base/cons.c static int cons_read(device_t, char *, size_t *, int);
+<a href='../S/58.html#L41'>device_t</a>           41 bsp/drv/dev/base/cons.c static int cons_write(device_t, char *, size_t *, int);
+<a href='../S/58.html#L42'>device_t</a>           42 bsp/drv/dev/base/cons.c static int cons_ioctl(device_t, u_long, void *);
+<a href='../S/58.html#L43'>device_t</a>           43 bsp/drv/dev/base/cons.c static int cons_devctl(device_t, u_long, void *);
+<a href='../S/58.html#L72'>device_t</a>           72 bsp/drv/dev/base/cons.c cons_open(device_t dev, int mode)
+<a href='../S/58.html#L81'>device_t</a>           81 bsp/drv/dev/base/cons.c cons_close(device_t dev)
+<a href='../S/58.html#L90'>device_t</a>           90 bsp/drv/dev/base/cons.c cons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L99'>device_t</a>           99 bsp/drv/dev/base/cons.c cons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/58.html#L108'>device_t</a>          108 bsp/drv/dev/base/cons.c cons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L117'>device_t</a>          117 bsp/drv/dev/base/cons.c cons_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/63.html#L52'>device_t</a>           52 bsp/drv/dev/base/pm.c 	device_t	dev;		/* device object */
+<a href='../S/63.html#L62'>device_t</a>           62 bsp/drv/dev/base/pm.c 	device_t	lcd_dev;	/* lcd device */
+<a href='../S/63.html#L66'>device_t</a>           66 bsp/drv/dev/base/pm.c static int	pm_open(device_t, int);
+<a href='../S/63.html#L67'>device_t</a>           67 bsp/drv/dev/base/pm.c static int	pm_close(device_t);
+<a href='../S/63.html#L68'>device_t</a>           68 bsp/drv/dev/base/pm.c static int	pm_ioctl(device_t, u_long, void *);
+<a href='../S/63.html#L100'>device_t</a>          100 bsp/drv/dev/base/pm.c pm_open(device_t dev, int mode)
+<a href='../S/63.html#L115'>device_t</a>          115 bsp/drv/dev/base/pm.c pm_close(device_t dev)
+<a href='../S/63.html#L130'>device_t</a>          130 bsp/drv/dev/base/pm.c pm_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/63.html#L491'>device_t</a>          491 bsp/drv/dev/base/pm.c pm_attach_lcd(device_t dev)
+<a href='../S/63.html#L503'>device_t</a>          503 bsp/drv/dev/base/pm.c 	device_t dev;
+<a href='../S/65.html#L57'>device_t</a>           57 bsp/drv/dev/base/wscons.c 	device_t	dev;		/* our device */
+<a href='../S/65.html#L72'>device_t</a>           72 bsp/drv/dev/base/wscons.c static int	wscons_read(device_t, char *, size_t *, int);
+<a href='../S/65.html#L73'>device_t</a>           73 bsp/drv/dev/base/wscons.c static int	wscons_write(device_t, char *, size_t *, int);
+<a href='../S/65.html#L74'>device_t</a>           74 bsp/drv/dev/base/wscons.c static int	wscons_ioctl(device_t, u_long, void *);
+<a href='../S/65.html#L76'>device_t</a>           76 bsp/drv/dev/base/wscons.c static int	wscons_cngetc(device_t);
+<a href='../S/65.html#L77'>device_t</a>           77 bsp/drv/dev/base/wscons.c static void	wscons_cnputc(device_t, int);
+<a href='../S/65.html#L78'>device_t</a>           78 bsp/drv/dev/base/wscons.c static void	wscons_cnpollc(device_t, int);
+<a href='../S/65.html#L117'>device_t</a>          117 bsp/drv/dev/base/wscons.c wscons_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L125'>device_t</a>          125 bsp/drv/dev/base/wscons.c wscons_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/65.html#L133'>device_t</a>          133 bsp/drv/dev/base/wscons.c wscons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/65.html#L415'>device_t</a>          415 bsp/drv/dev/base/wscons.c wscons_cngetc(device_t dev)
+<a href='../S/65.html#L424'>device_t</a>          424 bsp/drv/dev/base/wscons.c wscons_cnputc(device_t dev, int c)
+<a href='../S/65.html#L433'>device_t</a>          433 bsp/drv/dev/base/wscons.c wscons_cnpollc(device_t dev, int on)
+<a href='../S/65.html#L480'>device_t</a>          480 bsp/drv/dev/base/wscons.c 	device_t dev;
+<a href='../S/66.html#L102'>device_t</a>          102 bsp/drv/dev/block/fdd.c 	device_t	dev;		/* device object */
+<a href='../S/66.html#L117'>device_t</a>          117 bsp/drv/dev/block/fdd.c static int	fdd_open(device_t, int);
+<a href='../S/66.html#L118'>device_t</a>          118 bsp/drv/dev/block/fdd.c static int	fdd_close(device_t);
+<a href='../S/66.html#L119'>device_t</a>          119 bsp/drv/dev/block/fdd.c static int	fdd_read(device_t, char *, size_t *, int);
+<a href='../S/66.html#L120'>device_t</a>          120 bsp/drv/dev/block/fdd.c static int	fdd_write(device_t, char *, size_t *, int);
+<a href='../S/66.html#L487'>device_t</a>          487 bsp/drv/dev/block/fdd.c fdd_open(device_t dev, int mode)
+<a href='../S/66.html#L500'>device_t</a>          500 bsp/drv/dev/block/fdd.c fdd_close(device_t dev)
+<a href='../S/66.html#L558'>device_t</a>          558 bsp/drv/dev/block/fdd.c fdd_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L614'>device_t</a>          614 bsp/drv/dev/block/fdd.c fdd_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/66.html#L678'>device_t</a>          678 bsp/drv/dev/block/fdd.c 	device_t dev;
+<a href='../S/68.html#L48'>device_t</a>           48 bsp/drv/dev/block/ramdisk.c 	device_t	dev;		/* device object */
+<a href='../S/68.html#L53'>device_t</a>           53 bsp/drv/dev/block/ramdisk.c static int ramdisk_read(device_t, char *, size_t *, int);
+<a href='../S/68.html#L54'>device_t</a>           54 bsp/drv/dev/block/ramdisk.c static int ramdisk_write(device_t, char *, size_t *, int);
+<a href='../S/68.html#L78'>device_t</a>           78 bsp/drv/dev/block/ramdisk.c ramdisk_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L109'>device_t</a>          109 bsp/drv/dev/block/ramdisk.c ramdisk_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/68.html#L159'>device_t</a>          159 bsp/drv/dev/block/ramdisk.c 	device_t dev;
+<a href='../S/69.html#L69'>device_t</a>           69 bsp/drv/dev/cpufreq/cpufreq.c 	device_t	dev;		/* device object */
+<a href='../S/69.html#L74'>device_t</a>           74 bsp/drv/dev/cpufreq/cpufreq.c static int cpufreq_ioctl(device_t, u_long, void *);
+<a href='../S/69.html#L75'>device_t</a>           75 bsp/drv/dev/cpufreq/cpufreq.c static int cpufreq_devctl(device_t, u_long, void *);
+<a href='../S/69.html#L303'>device_t</a>          303 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L324'>device_t</a>          324 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L353'>device_t</a>          353 bsp/drv/dev/cpufreq/cpufreq.c 	device_t dev;
+<a href='../S/76.html#L45'>device_t</a>           45 bsp/drv/dev/input/pckbd.c 	device_t	dev;		/* device object */
+<a href='../S/76.html#L271'>device_t</a>          271 bsp/drv/dev/input/pckbd.c 	device_t dev;
+<a href='../S/77.html#L59'>device_t</a>           59 bsp/drv/dev/input/psaux.c 	device_t	dev;		/* device object */
+<a href='../S/77.html#L66'>device_t</a>           66 bsp/drv/dev/input/psaux.c static int psaux_open(device_t, int);
+<a href='../S/77.html#L67'>device_t</a>           67 bsp/drv/dev/input/psaux.c static int psaux_close(device_t);
+<a href='../S/77.html#L68'>device_t</a>           68 bsp/drv/dev/input/psaux.c static int psaux_read(device_t, char *, size_t *, int);
+<a href='../S/77.html#L173'>device_t</a>          173 bsp/drv/dev/input/psaux.c psaux_open(device_t dev, int mode)
+<a href='../S/77.html#L184'>device_t</a>          184 bsp/drv/dev/input/psaux.c psaux_close(device_t dev)
+<a href='../S/77.html#L194'>device_t</a>          194 bsp/drv/dev/input/psaux.c psaux_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/77.html#L204'>device_t</a>          204 bsp/drv/dev/input/psaux.c 	device_t dev;
+<a href='../S/79.html#L36'>device_t</a>           36 bsp/drv/dev/misc/null.c static int null_read(device_t, char *, size_t *, int);
+<a href='../S/79.html#L37'>device_t</a>           37 bsp/drv/dev/misc/null.c static int null_write(device_t, char *, size_t *, int);
+<a href='../S/79.html#L63'>device_t</a>           63 bsp/drv/dev/misc/null.c null_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/79.html#L74'>device_t</a>           74 bsp/drv/dev/misc/null.c null_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/80.html#L36'>device_t</a>           36 bsp/drv/dev/misc/random.c static int random_read(device_t, char *, size_t *, int);
+<a href='../S/80.html#L59'>device_t</a>           59 bsp/drv/dev/misc/random.c random_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L36'>device_t</a>           36 bsp/drv/dev/misc/zero.c static int zero_read(device_t, char *, size_t *, int);
+<a href='../S/81.html#L37'>device_t</a>           37 bsp/drv/dev/misc/zero.c static int zero_write(device_t, char *, size_t *, int);
+<a href='../S/81.html#L63'>device_t</a>           63 bsp/drv/dev/misc/zero.c zero_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/81.html#L79'>device_t</a>           79 bsp/drv/dev/misc/zero.c zero_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/85.html#L56'>device_t</a>           56 bsp/drv/dev/rtc/rtc.c 	device_t	dev;		/* device object */
+<a href='../S/85.html#L63'>device_t</a>           63 bsp/drv/dev/rtc/rtc.c static int rtc_ioctl(device_t, u_long, void *);
+<a href='../S/85.html#L178'>device_t</a>          178 bsp/drv/dev/rtc/rtc.c rtc_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/85.html#L214'>device_t</a>          214 bsp/drv/dev/rtc/rtc.c 	device_t dev;
+<a href='../S/89.html#L49'>device_t</a>           49 bsp/drv/dev/serial/serial.c 	device_t	dev;		/* device object */
+<a href='../S/89.html#L57'>device_t</a>           57 bsp/drv/dev/serial/serial.c static int	serial_read(device_t, char *, size_t *, int);
+<a href='../S/89.html#L58'>device_t</a>           58 bsp/drv/dev/serial/serial.c static int	serial_write(device_t, char *, size_t *, int);
+<a href='../S/89.html#L59'>device_t</a>           59 bsp/drv/dev/serial/serial.c static int	serial_ioctl(device_t, u_long, void *);
+<a href='../S/89.html#L61'>device_t</a>           61 bsp/drv/dev/serial/serial.c static int	serial_cngetc(device_t);
+<a href='../S/89.html#L62'>device_t</a>           62 bsp/drv/dev/serial/serial.c static void	serial_cnputc(device_t, int);
+<a href='../S/89.html#L63'>device_t</a>           63 bsp/drv/dev/serial/serial.c static void	serial_cnpollc(device_t, int);
+<a href='../S/89.html#L95'>device_t</a>           95 bsp/drv/dev/serial/serial.c serial_read(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L103'>device_t</a>          103 bsp/drv/dev/serial/serial.c serial_write(device_t dev, char *buf, size_t *nbyte, int blkno)
+<a href='../S/89.html#L111'>device_t</a>          111 bsp/drv/dev/serial/serial.c serial_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/89.html#L153'>device_t</a>          153 bsp/drv/dev/serial/serial.c serial_cngetc(device_t dev)
+<a href='../S/89.html#L162'>device_t</a>          162 bsp/drv/dev/serial/serial.c serial_cnputc(device_t dev, int c)
+<a href='../S/89.html#L171'>device_t</a>          171 bsp/drv/dev/serial/serial.c serial_cnpollc(device_t dev, int on)
+<a href='../S/89.html#L183'>device_t</a>          183 bsp/drv/dev/serial/serial.c 	device_t dev;
+<a href='../S/91.html#L55'>device_t</a>           55 bsp/drv/dev/video/vga.c 	device_t	dev;
+<a href='../S/91.html#L62'>device_t</a>           62 bsp/drv/dev/video/vga.c static int	vga_devctl(device_t, u_long, void *);
+<a href='../S/91.html#L207'>device_t</a>          207 bsp/drv/dev/video/vga.c vga_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/91.html#L238'>device_t</a>          238 bsp/drv/dev/video/vga.c 	device_t dev;
+<a href='../S/92.html#L36'>device_t</a>           36 bsp/drv/include/cons.h 	device_t	dev;		/* device */
+<a href='../S/92.html#L38'>device_t</a>           38 bsp/drv/include/cons.h 	int	(*cngetc)(device_t dev);          /* kernel getchar */
+<a href='../S/92.html#L39'>device_t</a>           39 bsp/drv/include/cons.h 	void	(*cnputc)(device_t dev, int ch);  /* kernel putchar */
+<a href='../S/92.html#L40'>device_t</a>           40 bsp/drv/include/cons.h 	void	(*cnpollc)(device_t dev, int on); /* polling control */
+<a href='../S/96.html#L107'>device_t</a>          107 bsp/drv/include/dki.h device_t device_create(struct driver *, const char *, int);
+<a href='../S/96.html#L108'>device_t</a>          108 bsp/drv/include/dki.h int	 device_destroy(device_t);
+<a href='../S/96.html#L109'>device_t</a>          109 bsp/drv/include/dki.h device_t device_lookup(const char *);
+<a href='../S/96.html#L110'>device_t</a>          110 bsp/drv/include/dki.h int	 device_control(device_t, u_long, void *);
+<a href='../S/96.html#L112'>device_t</a>          112 bsp/drv/include/dki.h void	*device_private(device_t);
+<a href='../S/99.html#L40'>device_t</a>           40 bsp/drv/include/pm.h void	pm_attach_lcd(device_t);
+<a href='../S/102.html#L66'>device_t</a>           66 bsp/drv/include/tty.h 	device_t	t_dev;		/* device */
+<a href='../S/252.html#L54'>device_t</a>           54 include/sys/device.h 	int (*open)	(device_t, int);
+<a href='../S/252.html#L55'>device_t</a>           55 include/sys/device.h 	int (*close)	(device_t);
+<a href='../S/252.html#L56'>device_t</a>           56 include/sys/device.h 	int (*read)	(device_t, char *, size_t *, int);
+<a href='../S/252.html#L57'>device_t</a>           57 include/sys/device.h 	int (*write)	(device_t, char *, size_t *, int);
+<a href='../S/252.html#L58'>device_t</a>           58 include/sys/device.h 	int (*ioctl)	(device_t, u_long, void *);
+<a href='../S/252.html#L59'>device_t</a>           59 include/sys/device.h 	int (*devctl)	(device_t, u_long, void *);
+<a href='../S/267.html#L126'>device_t</a>          126 include/sys/prex.h int	device_open(const char *name, int mode, device_t *dev);
+<a href='../S/267.html#L127'>device_t</a>          127 include/sys/prex.h int	device_close(device_t dev);
+<a href='../S/267.html#L128'>device_t</a>          128 include/sys/prex.h int	device_read(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L129'>device_t</a>          129 include/sys/prex.h int	device_write(device_t dev, void *buf, size_t *nbyte, int blkno);
+<a href='../S/267.html#L130'>device_t</a>          130 include/sys/prex.h int	device_ioctl(device_t dev, u_long cmd, void *arg);
+<a href='../S/272.html#L137'>device_t</a>          137 include/sys/sysinfo.h 	device_t	id;		/* device id */
+<a href='../S/277.html#L74'>device_t</a>           74 include/sys/types.h #define NODEV		((device_t)0)
+<a href='../S/305.html#L51'>device_t</a>           51 sys/include/device.h int	 device_open(const char *, int, device_t *);
+<a href='../S/305.html#L52'>device_t</a>           52 sys/include/device.h int	 device_close(device_t);
+<a href='../S/305.html#L53'>device_t</a>           53 sys/include/device.h int	 device_read(device_t, void *, size_t *, int);
+<a href='../S/305.html#L54'>device_t</a>           54 sys/include/device.h int	 device_write(device_t, void *, size_t *, int);
+<a href='../S/305.html#L55'>device_t</a>           55 sys/include/device.h int	 device_ioctl(device_t, u_long, void *);
+<a href='../S/327.html#L58'>device_t</a>           58 sys/kern/device.c static device_t	device_create(struct driver *, const char *, int);
+<a href='../S/327.html#L59'>device_t</a>           59 sys/kern/device.c static int	device_destroy(device_t);
+<a href='../S/327.html#L60'>device_t</a>           60 sys/kern/device.c static device_t	device_lookup(const char *);
+<a href='../S/327.html#L61'>device_t</a>           61 sys/kern/device.c static int	device_valid(device_t);
+<a href='../S/327.html#L62'>device_t</a>           62 sys/kern/device.c static int	device_reference(device_t);
+<a href='../S/327.html#L63'>device_t</a>           63 sys/kern/device.c static void	device_release(device_t);
+<a href='../S/327.html#L64'>device_t</a>           64 sys/kern/device.c static void	*device_private(device_t);
+<a href='../S/327.html#L65'>device_t</a>           65 sys/kern/device.c static int	device_control(device_t, u_long, void *);
+<a href='../S/327.html#L129'>device_t</a>          129 sys/kern/device.c static device_t
+<a href='../S/327.html#L132'>device_t</a>          132 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L179'>device_t</a>          179 sys/kern/device.c device_destroy(device_t dev)
+<a href='../S/327.html#L196'>device_t</a>          196 sys/kern/device.c static device_t
+<a href='../S/327.html#L199'>device_t</a>          199 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L212'>device_t</a>          212 sys/kern/device.c device_private(device_t dev)
+<a href='../S/327.html#L224'>device_t</a>          224 sys/kern/device.c device_valid(device_t dev)
+<a href='../S/327.html#L226'>device_t</a>          226 sys/kern/device.c 	device_t tmp;
+<a href='../S/327.html#L244'>device_t</a>          244 sys/kern/device.c device_reference(device_t dev)
+<a href='../S/327.html#L266'>device_t</a>          266 sys/kern/device.c device_release(device_t dev)
+<a href='../S/327.html#L268'>device_t</a>          268 sys/kern/device.c 	device_t *tmp;
+<a href='../S/327.html#L299'>device_t</a>          299 sys/kern/device.c device_open(const char *name, int mode, device_t *devp)
+<a href='../S/327.html#L302'>device_t</a>          302 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L339'>device_t</a>          339 sys/kern/device.c device_close(device_t dev)
+<a href='../S/327.html#L362'>device_t</a>          362 sys/kern/device.c device_read(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L395'>device_t</a>          395 sys/kern/device.c device_write(device_t dev, void *buf, size_t *nbyte, int blkno)
+<a href='../S/327.html#L430'>device_t</a>          430 sys/kern/device.c device_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L451'>device_t</a>          451 sys/kern/device.c device_control(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L482'>device_t</a>          482 sys/kern/device.c 	device_t dev;
+<a href='../S/327.html#L521'>device_t</a>          521 sys/kern/device.c 	device_t dev;
+<a href='../S/652.html#L38'>device_t</a>           38 usr/lib/libsa/_stdio.c static device_t __console_dev;
+<a href='../S/829.html#L110'>device_t</a>          110 usr/sample/balls/balls.c 	device_t cons;
+<a href='../S/833.html#L43'>device_t</a>           43 usr/sample/cpumon/cpumon.c 	device_t dev;
+<a href='../S/882.html#L84'>device_t</a>           84 usr/server/fs/arfs/arfs_vfsops.c 	error = device_read((device_t)mp-&gt;m_dev, buf, &amp;size, 0);
+<a href='../S/886.html#L118'>device_t</a>          118 usr/server/fs/devfs/devfs_vnops.c 	device_t dev;
+<a href='../S/886.html#L152'>device_t</a>          152 usr/server/fs/devfs/devfs_vnops.c 	return device_close((device_t)vp-&gt;v_data);
+<a href='../S/886.html#L162'>device_t</a>          162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L175'>device_t</a>          175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L187'>device_t</a>          187 usr/server/fs/devfs/devfs_vnops.c 	error = device_ioctl((device_t)vp-&gt;v_data, cmd, arg);
+<a href='../S/906.html#L237'>device_t</a>          237 usr/server/fs/vfs/vfs_bio.c 		error = device_read((device_t)dev, bp-&gt;b_data, &amp;size, blkno);
+<a href='../S/906.html#L273'>device_t</a>          273 usr/server/fs/vfs/vfs_bio.c 	error = device_write((device_t)bp-&gt;b_dev, bp-&gt;b_data, &amp;size,
+<a href='../S/909.html#L94'>device_t</a>           94 usr/server/fs/vfs/vfs_mount.c 	device_t device;
+<a href='../S/909.html#L254'>device_t</a>          254 usr/server/fs/vfs/vfs_mount.c 		device_close((device_t)mp-&gt;m_dev);
+<a href='../S/916.html#L103'>device_t</a>          103 usr/server/pow/pow.c static device_t pmdev;
+<a href='../S/925.html#L46'>device_t</a>           46 usr/server/proc/proc_tty.c static device_t ttydev;
+<a href='../S/932.html#L40'>device_t</a>           40 usr/test/console/console.c 	device_t console_dev;
+<a href='../S/950.html#L42'>device_t</a>           42 usr/test/fdd/fdd.c 	device_t fdd;
+<a href='../S/950.html#L91'>device_t</a>           91 usr/test/fdd/fdd.c 	device_t fdd;
+<a href='../S/964.html#L39'>device_t</a>           39 usr/test/kbd/kbd.c 	device_t tty_dev;
+<a href='../S/966.html#L134'>device_t</a>          134 usr/test/kmon/cmd.c 	device_t pm_dev;
+<a href='../S/966.html#L148'>device_t</a>          148 usr/test/kmon/cmd.c 	device_t pm_dev;
+<a href='../S/983.html#L44'>device_t</a>           44 usr/test/ramdisk/ramdisk.c 	device_t ramdev;
+<a href='../S/983.html#L93'>device_t</a>           93 usr/test/ramdisk/ramdisk.c 	device_t ramdev;
+<a href='../S/985.html#L43'>device_t</a>           43 usr/test/reset/reset.c 	device_t pm_dev;
+<a href='../S/1002.html#L40'>device_t</a>           40 usr/test/time/time.c 	device_t rtc_dev;
+<a href='../S/1008.html#L53'>device_t</a>           53 usr/test/zero/zero.c 	device_t zero_dev;
+</pre>
+</body>
+</html>

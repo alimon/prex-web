@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fsobj</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/871.html#L268'>fsobj</a>             268 usr/server/boot/boot.c 	object_t execobj, procobj, fsobj;
+<a href='../S/871.html#L281'>fsobj</a>             281 usr/server/boot/boot.c 	wait_server("!fs", &amp;fsobj);
+<a href='../S/871.html#L291'>fsobj</a>             291 usr/server/boot/boot.c 	send_bootmsg(fsobj);
+<a href='../S/877.html#L416'>fsobj</a>             416 usr/server/exec/exec_execve.c 	object_t fsobj, procobj;
+<a href='../S/877.html#L418'>fsobj</a>             418 usr/server/exec/exec_execve.c 	if (object_lookup("!fs", &amp;fsobj) != 0)
+<a href='../S/877.html#L429'>fsobj</a>             429 usr/server/exec/exec_execve.c 		error = msg_send(fsobj, &amp;m, sizeof(m));
+<a href='../S/903.html#L86'>fsobj</a>              86 usr/server/fs/vfs/main.c static object_t fsobj;
+<a href='../S/903.html#L1043'>fsobj</a>            1043 usr/server/fs/vfs/main.c 		if ((error = msg_receive(fsobj, msg, MAX_FSMSG)) != 0)
+<a href='../S/903.html#L1084'>fsobj</a>            1084 usr/server/fs/vfs/main.c 		msg_reply(fsobj, msg, MAX_FSMSG);
+<a href='../S/903.html#L1111'>fsobj</a>            1111 usr/server/fs/vfs/main.c 	if (object_create("!fs", &amp;fsobj))
+<a href='../S/954.html#L89'>fsobj</a>              89 usr/test/fileio/fileio.c 	object_t fsobj;
+<a href='../S/954.html#L92'>fsobj</a>              92 usr/test/fileio/fileio.c 	object_lookup("!fs", &amp;fsobj);
+<a href='../S/954.html#L94'>fsobj</a>              94 usr/test/fileio/fileio.c 	msg_send(fsobj, &amp;m, sizeof(m));
+</pre>
+</body>
+</html>

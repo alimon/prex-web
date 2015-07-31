@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/server/fs/ramfs/ramfs_vfsops.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1162.html'>server</a>/<a href='../files/1165.html'>fs</a>/<a href='../files/1170.html'>ramfs</a>/ramfs_vfsops.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='901.html#L61'>[^]</a><a href='901.html#L83'>[v]</a>[top]<a href='901.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='901.html#L61' title='Defined at 61.'>ramfs_mount</a></li>
+<li><a href='901.html#L83' title='Defined at 83.'>ramfs_unmount</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2006-2007, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='279.html'>sys/vnode.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='263.html'>sys/mount.h</a>&gt;
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> "<a href='900.html'>ramfs.h</a>"
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <strong class='reserved'>extern</strong> <strong class='reserved'>struct</strong> <a href='../Y/2361.html' title='Multiple used in 12 places.'>vnops</a> <a href='../Y/1712.html' title='Multiple used in 3 places.'>ramfs_vnops</a>;
+<a id='L38' name='L38' />  38 
+<a id='L39' name='L39' />  39 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='901.html#L61' title='Defined at 61 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_mount</a>(<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>, <strong class='reserved'>char</strong> *<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>int</strong> <a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>, <strong class='reserved'>void</strong> *<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>);
+<a id='L40' name='L40' />  40 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='901.html#L83' title='Defined at 83 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_unmount</a>(<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>);
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='901.html#L51' title='Refered from 51 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_sync</a>      ((<a href='../Y/2320.html' title='Multiple used in 6 places.'>vfsop_sync_t</a>)<a href='909.html#L369' title='Defined at 369 in usr/server/fs/vfs/vfs_mount.c.'>vfs_nullop</a>)
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='901.html#L52' title='Refered from 52 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_vget</a>      ((<a href='../Y/2322.html' title='Multiple used in 5 places.'>vfsop_vget_t</a>)<a href='909.html#L369' title='Defined at 369 in usr/server/fs/vfs/vfs_mount.c.'>vfs_nullop</a>)
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> <a href='901.html#L53' title='Refered from 53 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_statfs</a>    ((<a href='../Y/2319.html' title='Multiple used in 6 places.'>vfsop_statfs_t</a>)<a href='909.html#L369' title='Defined at 369 in usr/server/fs/vfs/vfs_mount.c.'>vfs_nullop</a>)
+<a id='L44' name='L44' />  44 
+<a id='L45' name='L45' />  45 <em class='comment'>/*</em>
+<a id='L46' name='L46' />  46 <em class='comment'> * File system operations</em>
+<a id='L47' name='L47' />  47 <em class='comment'> */</em>
+<a id='L48' name='L48' />  48 <strong class='reserved'>struct</strong> <a href='../Y/2323.html' title='Multiple used in 14 places.'>vfsops</a> <a href='../Y/1711.html' title='Multiple used in 3 places.'>ramfs_vfsops</a> = <em class='brace'>{</em>
+<a id='L49' name='L49' />  49         <a href='901.html#L61' title='Defined at 61 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_mount</a>,            <em class='comment'>/* mount */</em>
+<a id='L50' name='L50' />  50         <a href='901.html#L83' title='Defined at 83 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_unmount</a>,          <em class='comment'>/* unmount */</em>
+<a id='L51' name='L51' />  51         <a href='901.html#L41' title='Defined at 41 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_sync</a>,             <em class='comment'>/* sync */</em>
+<a id='L52' name='L52' />  52         <a href='901.html#L42' title='Defined at 42 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_vget</a>,             <em class='comment'>/* vget */</em>
+<a id='L53' name='L53' />  53         <a href='901.html#L43' title='Defined at 43 in usr/server/fs/ramfs/ramfs_vfsops.c.'>ramfs_statfs</a>,           <em class='comment'>/* statfs */</em>
+<a id='L54' name='L54' />  54         &amp;<a href='../Y/1712.html' title='Multiple used in 3 places.'>ramfs_vnops</a>,           <em class='comment'>/* vnops */</em>
+<a id='L55' name='L55' />  55 <em class='brace'>}</em>;
+<a id='L56' name='L56' />  56 
+<a id='L57' name='L57' />  57 <em class='comment'>/*</em>
+<a id='L58' name='L58' />  58 <em class='comment'> * Mount a file system.</em>
+<a id='L59' name='L59' />  59 <em class='comment'> */</em>
+<a id='L60' name='L60' />  60 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L61' name='L61' />  61 <a href='../R/2394.html' title='Multiple refered from 2 places.'>ramfs_mount</a>(<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>, <strong class='reserved'>char</strong> *<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>int</strong> <a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>, <strong class='reserved'>void</strong> *<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>)
+<a id='L62' name='L62' />  62 <em class='brace'>{</em>
+<a id='L63' name='L63' />  63         <strong class='reserved'>struct</strong> <a href='../Y/1710.html' title='Multiple used in 26 places.'>ramfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>;
+<a id='L64' name='L64' />  64 
+<a id='L65' name='L65' />  65         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("ramfs_mount: dev=%s\n", <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>));
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67         <em class='comment'>/* Create a root node */</em>
+<a id='L68' name='L68' />  68         <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a> = <a href='902.html#L99' title='Defined at 99 in usr/server/fs/ramfs/ramfs_vnops.c.'>ramfs_allocate_node</a>("/", <a href='../Y/232.html' title='Multiple used in 30 places.'>VDIR</a>);
+<a id='L69' name='L69' />  69         <strong class='reserved'>if</strong> (<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L70' name='L70' />  70                 <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L71' name='L71' />  71         <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>-&gt;<a href='../Y/1238.html' title='Multiple used in 5 places.'>m_root</a>-&gt;<a href='../Y/2278.html' title='Multiple used in 42 places.'>v_data</a> = <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>;
+<a id='L72' name='L72' />  72         <strong class='reserved'>return</strong> 0;
+<a id='L73' name='L73' />  73 <em class='brace'>}</em>
+<a id='L74' name='L74' />  74 
+<a id='L75' name='L75' />  75 <em class='comment'>/*</em>
+<a id='L76' name='L76' />  76 <em class='comment'> * Unmount a file system.</em>
+<a id='L77' name='L77' />  77 <em class='comment'> *</em>
+<a id='L78' name='L78' />  78 <em class='comment'> * NOTE: Currently, we don't support unmounting of the RAMFS. This is</em>
+<a id='L79' name='L79' />  79 <em class='comment'> *       because we have to deallocate all nodes included in all sub</em>
+<a id='L80' name='L80' />  80 <em class='comment'> *       directories, and it requires more work...</em>
+<a id='L81' name='L81' />  81 <em class='comment'> */</em>
+<a id='L82' name='L82' />  82 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L83' name='L83' />  83 <a href='../R/2408.html' title='Multiple refered from 2 places.'>ramfs_unmount</a>(<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>)
+<a id='L84' name='L84' />  84 <em class='brace'>{</em>
+<a id='L85' name='L85' />  85 
+<a id='L86' name='L86' />  86         <strong class='reserved'>return</strong> <a href='256.html#L56' title='Defined at 56 in include/sys/errno.h.'>EBUSY</a>;
+<a id='L87' name='L87' />  87 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='901.html#L61'>[^]</a><a href='901.html#L83'>[v]</a><a href='901.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

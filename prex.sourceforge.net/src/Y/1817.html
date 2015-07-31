@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/50.html#L130'>sc</a>                130 bsp/drv/arm/gba/keypad.c 	struct keypad_softc *sc;
+<a href='../S/50.html#L134'>sc</a>                134 bsp/drv/arm/gba/keypad.c 	sc = device_private(dev);
+<a href='../S/50.html#L140'>sc</a>                140 bsp/drv/arm/gba/keypad.c 	sc-&gt;irq = irq_attach(KEYPAD_IRQ, IPL_INPUT, 0, keypad_isr,
+<a href='../S/50.html#L141'>sc</a>                141 bsp/drv/arm/gba/keypad.c 			     IST_NONE, sc);
+<a href='../S/51.html#L98'>sc</a>                 98 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc = aux;
+<a href='../S/51.html#L100'>sc</a>                100 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram[row * VSCR_COLS + col] = ch;
+<a href='../S/51.html#L106'>sc</a>                106 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc = aux;
+<a href='../S/51.html#L110'>sc</a>                110 bsp/drv/arm/gba/lcd.c 		sc-&gt;vram[dstrow * VSCR_COLS + i] =
+<a href='../S/51.html#L111'>sc</a>                111 bsp/drv/arm/gba/lcd.c 			sc-&gt;vram[srcrow * VSCR_COLS + i];
+<a href='../S/51.html#L118'>sc</a>                118 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc = aux;
+<a href='../S/51.html#L125'>sc</a>                125 bsp/drv/arm/gba/lcd.c 		sc-&gt;vram[i] = ' ';
+<a href='../S/51.html#L182'>sc</a>                182 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc;
+<a href='../S/51.html#L186'>sc</a>                186 bsp/drv/arm/gba/lcd.c 	sc = device_private(dev);
+<a href='../S/51.html#L187'>sc</a>                187 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram = CONSOLE_MAP;
+<a href='../S/51.html#L192'>sc</a>                192 bsp/drv/arm/gba/lcd.c 	wscons_attach_video(&amp;wscons_lcd_ops, sc);
+<a href='../S/54.html#L155'>sc</a>                155 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc = swkbd_softc;
+<a href='../S/54.html#L158'>sc</a>                158 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;kbd_page == 0)
+<a href='../S/54.html#L160'>sc</a>                160 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;capslk)
+<a href='../S/54.html#L161'>sc</a>                161 bsp/drv/arm/gba/swkbd.c 		page = sc-&gt;shift ? 1 : 2;
+<a href='../S/54.html#L163'>sc</a>                163 bsp/drv/arm/gba/swkbd.c 		page = sc-&gt;shift ? 2 : 1;
+<a href='../S/54.html#L174'>sc</a>                174 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc = arg;
+<a href='../S/54.html#L176'>sc</a>                176 bsp/drv/arm/gba/swkbd.c 	sc-&gt;ignore_key = 0;
+<a href='../S/54.html#L185'>sc</a>                185 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc = swkbd_softc;
+<a href='../S/54.html#L192'>sc</a>                192 bsp/drv/arm/gba/swkbd.c 	curcur = sc-&gt;cursor_type;
+<a href='../S/54.html#L194'>sc</a>                194 bsp/drv/arm/gba/swkbd.c 	ki = (struct _key_info *)&amp;key_info[sc-&gt;pos_y][sc-&gt;pos_x];
+<a href='../S/54.html#L196'>sc</a>                196 bsp/drv/arm/gba/swkbd.c 	y = sc-&gt;pos_y * 8 + 11;
+<a href='../S/54.html#L212'>sc</a>                212 bsp/drv/arm/gba/swkbd.c 		sc-&gt;cursor_type = newcur;
+<a href='../S/54.html#L224'>sc</a>                224 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc = swkbd_softc;
+<a href='../S/54.html#L228'>sc</a>                228 bsp/drv/arm/gba/swkbd.c 	ki = (struct _key_info *)&amp;key_info[sc-&gt;pos_y][sc-&gt;pos_x];
+<a href='../S/54.html#L234'>sc</a>                234 bsp/drv/arm/gba/swkbd.c 		sc-&gt;shift = !sc-&gt;shift;
+<a href='../S/54.html#L238'>sc</a>                238 bsp/drv/arm/gba/swkbd.c 		sc-&gt;ctrl = !sc-&gt;ctrl;
+<a href='../S/54.html#L241'>sc</a>                241 bsp/drv/arm/gba/swkbd.c 		sc-&gt;alt = !sc-&gt;alt;
+<a href='../S/54.html#L244'>sc</a>                244 bsp/drv/arm/gba/swkbd.c 		sc-&gt;capslk = !sc-&gt;capslk;
+<a href='../S/54.html#L249'>sc</a>                249 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;ctrl) {
+<a href='../S/54.html#L256'>sc</a>                256 bsp/drv/arm/gba/swkbd.c 	} else if (sc-&gt;kbd_page == 2)
+<a href='../S/54.html#L263'>sc</a>                263 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;capslk) {
+<a href='../S/54.html#L271'>sc</a>                271 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;alt)
+<a href='../S/54.html#L279'>sc</a>                279 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;shift) {
+<a href='../S/54.html#L280'>sc</a>                280 bsp/drv/arm/gba/swkbd.c 		sc-&gt;shift = 0;
+<a href='../S/54.html#L283'>sc</a>                283 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;ctrl)
+<a href='../S/54.html#L284'>sc</a>                284 bsp/drv/arm/gba/swkbd.c 		sc-&gt;ctrl = 0;
+<a href='../S/54.html#L285'>sc</a>                285 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;alt)
+<a href='../S/54.html#L286'>sc</a>                286 bsp/drv/arm/gba/swkbd.c 		sc-&gt;alt = 0;
+<a href='../S/54.html#L296'>sc</a>                296 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc = swkbd_softc;
+<a href='../S/54.html#L300'>sc</a>                300 bsp/drv/arm/gba/swkbd.c 	if (sc-&gt;ignore_key)
+<a href='../S/54.html#L305'>sc</a>                305 bsp/drv/arm/gba/swkbd.c 		sc-&gt;kbd_on = !sc-&gt;kbd_on;
+<a href='../S/54.html#L306'>sc</a>                306 bsp/drv/arm/gba/swkbd.c 		swkbd_select_page(sc-&gt;kbd_on);
+<a href='../S/54.html#L309'>sc</a>                309 bsp/drv/arm/gba/swkbd.c 		sc-&gt;shift = 0;
+<a href='../S/54.html#L310'>sc</a>                310 bsp/drv/arm/gba/swkbd.c 		sc-&gt;alt = 0;
+<a href='../S/54.html#L311'>sc</a>                311 bsp/drv/arm/gba/swkbd.c 		sc-&gt;ctrl = 0;
+<a href='../S/54.html#L312'>sc</a>                312 bsp/drv/arm/gba/swkbd.c 		sc-&gt;capslk = 0;
+<a href='../S/54.html#L317'>sc</a>                317 bsp/drv/arm/gba/swkbd.c 	if (!sc-&gt;kbd_on) {
+<a href='../S/54.html#L324'>sc</a>                324 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_x &gt; 0) {
+<a href='../S/54.html#L325'>sc</a>                325 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_y == 4 &amp;&amp; sc-&gt;pos_x &gt;=4 &amp;&amp; sc-&gt;pos_x &lt;= 8)
+<a href='../S/54.html#L326'>sc</a>                326 bsp/drv/arm/gba/swkbd.c 				sc-&gt;pos_x = 3;
+<a href='../S/54.html#L327'>sc</a>                327 bsp/drv/arm/gba/swkbd.c 			sc-&gt;pos_x--;
+<a href='../S/54.html#L332'>sc</a>                332 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_x &lt; max_x[sc-&gt;pos_y]) {
+<a href='../S/54.html#L333'>sc</a>                333 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_y == 4 &amp;&amp; sc-&gt;pos_x &gt; 3 &amp;&amp; sc-&gt;pos_x &lt;= 7)
+<a href='../S/54.html#L334'>sc</a>                334 bsp/drv/arm/gba/swkbd.c 				sc-&gt;pos_x = 8;
+<a href='../S/54.html#L335'>sc</a>                335 bsp/drv/arm/gba/swkbd.c 			sc-&gt;pos_x++;
+<a href='../S/54.html#L340'>sc</a>                340 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_y &gt; 0 ) {
+<a href='../S/54.html#L341'>sc</a>                341 bsp/drv/arm/gba/swkbd.c 			sc-&gt;pos_y--;
+<a href='../S/54.html#L343'>sc</a>                343 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_x &gt; max_x[sc-&gt;pos_y])
+<a href='../S/54.html#L344'>sc</a>                344 bsp/drv/arm/gba/swkbd.c 				sc-&gt;pos_x = max_x[sc-&gt;pos_y];
+<a href='../S/54.html#L348'>sc</a>                348 bsp/drv/arm/gba/swkbd.c 		if (sc-&gt;pos_y &lt; 4) {
+<a href='../S/54.html#L349'>sc</a>                349 bsp/drv/arm/gba/swkbd.c 			sc-&gt;pos_y++;
+<a href='../S/54.html#L351'>sc</a>                351 bsp/drv/arm/gba/swkbd.c 			if (sc-&gt;pos_x &gt; max_x[sc-&gt;pos_y])
+<a href='../S/54.html#L352'>sc</a>                352 bsp/drv/arm/gba/swkbd.c 				sc-&gt;pos_x = max_x[sc-&gt;pos_y];
+<a href='../S/54.html#L363'>sc</a>                363 bsp/drv/arm/gba/swkbd.c 		sc-&gt;shift = sc-&gt;shift ? 0 : 1;
+<a href='../S/54.html#L372'>sc</a>                372 bsp/drv/arm/gba/swkbd.c 	sc-&gt;ignore_key = 1;
+<a href='../S/54.html#L373'>sc</a>                373 bsp/drv/arm/gba/swkbd.c 	timer_callout(&amp;sc-&gt;timer, timeout, &amp;swkbd_timeout, sc);
+<a href='../S/54.html#L484'>sc</a>                484 bsp/drv/arm/gba/swkbd.c 	struct swkbd_softc *sc;
+<a href='../S/54.html#L489'>sc</a>                489 bsp/drv/arm/gba/swkbd.c 	sc = device_private(dev);
+<a href='../S/54.html#L490'>sc</a>                490 bsp/drv/arm/gba/swkbd.c 	sc-&gt;dev = dev;
+<a href='../S/54.html#L491'>sc</a>                491 bsp/drv/arm/gba/swkbd.c 	sc-&gt;kbd_on = 1;
+<a href='../S/54.html#L493'>sc</a>                493 bsp/drv/arm/gba/swkbd.c 	swkbd_softc = sc;
+<a href='../S/63.html#L102'>sc</a>                102 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L107'>sc</a>                107 bsp/drv/dev/base/pm.c 	if (sc-&gt;isopen &gt; 0)
+<a href='../S/63.html#L110'>sc</a>                110 bsp/drv/dev/base/pm.c 	sc-&gt;isopen++;
+<a href='../S/63.html#L117'>sc</a>                117 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L122'>sc</a>                122 bsp/drv/dev/base/pm.c 	if (sc-&gt;isopen != 1)
+<a href='../S/63.html#L125'>sc</a>                125 bsp/drv/dev/base/pm.c 	sc-&gt;isopen--;
+<a href='../S/63.html#L132'>sc</a>                132 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L143'>sc</a>                143 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;powtask, sizeof(task_t)))
+<a href='../S/63.html#L149'>sc</a>                149 bsp/drv/dev/base/pm.c 		event = sc-&gt;lastevt;
+<a href='../S/63.html#L150'>sc</a>                150 bsp/drv/dev/base/pm.c 		sc-&gt;lastevt = PME_NO_EVENT;
+<a href='../S/63.html#L173'>sc</a>                173 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;policy, arg, sizeof(int)))
+<a href='../S/63.html#L175'>sc</a>                175 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: get policy %d\n", sc-&gt;policy));
+<a href='../S/63.html#L186'>sc</a>                186 bsp/drv/dev/base/pm.c 		if (policy == sc-&gt;policy) {
+<a href='../S/63.html#L193'>sc</a>                193 bsp/drv/dev/base/pm.c 		sc-&gt;policy = policy;
+<a href='../S/63.html#L201'>sc</a>                201 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;sustime, arg, sizeof(u_long)))
+<a href='../S/63.html#L206'>sc</a>                206 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;sustime, sizeof(u_long)))
+<a href='../S/63.html#L208'>sc</a>                208 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set sustmr=%d\n", sc-&gt;sustime));
+<a href='../S/63.html#L213'>sc</a>                213 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;dimtime, arg, sizeof(u_long)))
+<a href='../S/63.html#L218'>sc</a>                218 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;sc-&gt;dimtime, sizeof(u_long)))
+<a href='../S/63.html#L220'>sc</a>                220 bsp/drv/dev/base/pm.c 		DPRINTF(("pm: set dimtmr=%d\n", sc-&gt;dimtime));
+<a href='../S/63.html#L234'>sc</a>                234 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L240'>sc</a>                240 bsp/drv/dev/base/pm.c 	if (sc-&gt;timer_active) {
+<a href='../S/63.html#L241'>sc</a>                241 bsp/drv/dev/base/pm.c 		timer_stop(&amp;sc-&gt;timer);
+<a href='../S/63.html#L242'>sc</a>                242 bsp/drv/dev/base/pm.c 		sc-&gt;idlecnt = 0;
+<a href='../S/63.html#L243'>sc</a>                243 bsp/drv/dev/base/pm.c 		sc-&gt;timer_active = 0;
+<a href='../S/63.html#L251'>sc</a>                251 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L254'>sc</a>                254 bsp/drv/dev/base/pm.c 	if (sc-&gt;policy != PM_POWERSAVE)
+<a href='../S/63.html#L258'>sc</a>                258 bsp/drv/dev/base/pm.c 	sc-&gt;idlecnt = 0;
+<a href='../S/63.html#L259'>sc</a>                259 bsp/drv/dev/base/pm.c 	if (sc-&gt;timer_active) {
+<a href='../S/63.html#L260'>sc</a>                260 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime == 0 &amp;&amp; sc-&gt;dimtime == 0)
+<a href='../S/63.html#L261'>sc</a>                261 bsp/drv/dev/base/pm.c 			timer_stop(&amp;sc-&gt;timer);
+<a href='../S/63.html#L263'>sc</a>                263 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime != 0 || sc-&gt;dimtime != 0) {
+<a href='../S/63.html#L265'>sc</a>                265 bsp/drv/dev/base/pm.c 			timer_callout(&amp;sc-&gt;timer, 1000, &amp;pm_timeout, sc);
+<a href='../S/63.html#L266'>sc</a>                266 bsp/drv/dev/base/pm.c 		      	sc-&gt;timer_active = 1;
+<a href='../S/63.html#L337'>sc</a>                337 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L341'>sc</a>                341 bsp/drv/dev/base/pm.c 	if (sc-&gt;lcd_dev != NODEV &amp;&amp; sc-&gt;lcd_on) {
+<a href='../S/63.html#L342'>sc</a>                342 bsp/drv/dev/base/pm.c 		device_control(sc-&gt;lcd_dev, DEVCTL_PM_LCDOFF, NULL);
+<a href='../S/63.html#L343'>sc</a>                343 bsp/drv/dev/base/pm.c 		if (sc-&gt;sustime == 0)
+<a href='../S/63.html#L345'>sc</a>                345 bsp/drv/dev/base/pm.c 		sc-&gt;lcd_on = 0;
+<a href='../S/63.html#L352'>sc</a>                352 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L356'>sc</a>                356 bsp/drv/dev/base/pm.c 	if (sc-&gt;lcd_dev != NODEV &amp;&amp; !sc-&gt;lcd_on) {
+<a href='../S/63.html#L357'>sc</a>                357 bsp/drv/dev/base/pm.c 		device_control(sc-&gt;lcd_dev, DEVCTL_PM_LCDON, NULL);
+<a href='../S/63.html#L359'>sc</a>                359 bsp/drv/dev/base/pm.c 		sc-&gt;lcd_on = 1;
+<a href='../S/63.html#L366'>sc</a>                366 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = arg;
+<a href='../S/63.html#L370'>sc</a>                370 bsp/drv/dev/base/pm.c 	sc-&gt;idlecnt++;
+<a href='../S/63.html#L373'>sc</a>                373 bsp/drv/dev/base/pm.c 	DPRINTF(("pm: idlecnt=%d\n", sc-&gt;idlecnt));
+<a href='../S/63.html#L375'>sc</a>                375 bsp/drv/dev/base/pm.c 	if (sc-&gt;sustime != 0 &amp;&amp; sc-&gt;idlecnt &gt;= sc-&gt;sustime) {
+<a href='../S/63.html#L382'>sc</a>                382 bsp/drv/dev/base/pm.c 		if (sc-&gt;dimtime != 0 &amp;&amp; sc-&gt;idlecnt &gt;= sc-&gt;dimtime) {
+<a href='../S/63.html#L384'>sc</a>                384 bsp/drv/dev/base/pm.c 			if (sc-&gt;sustime != 0)
+<a href='../S/63.html#L390'>sc</a>                390 bsp/drv/dev/base/pm.c 			timer_callout(&amp;sc-&gt;timer, 1000, &amp;pm_timeout, sc);
+<a href='../S/63.html#L427'>sc</a>                427 bsp/drv/dev/base/pm.c 	struct pm_softc *sc = pm_softc;
+<a href='../S/63.html#L435'>sc</a>                435 bsp/drv/dev/base/pm.c 		sc-&gt;idlecnt = 0;
+<a href='../S/63.html#L438'>sc</a>                438 bsp/drv/dev/base/pm.c 		if (!sc-&gt;lcd_on)
+<a href='../S/63.html#L445'>sc</a>                445 bsp/drv/dev/base/pm.c 	if (sc-&gt;powtask != TASK_NULL) {
+<a href='../S/63.html#L458'>sc</a>                458 bsp/drv/dev/base/pm.c 			sc-&gt;lastevt = event;
+<a href='../S/63.html#L460'>sc</a>                460 bsp/drv/dev/base/pm.c 			exception_post(sc-&gt;powtask, SIGPWR);
+<a href='../S/63.html#L463'>sc</a>                463 bsp/drv/dev/base/pm.c 			sc-&gt;lastevt = PME_NO_EVENT;
+<a href='../S/63.html#L502'>sc</a>                502 bsp/drv/dev/base/pm.c 	struct pm_softc *sc;
+<a href='../S/63.html#L508'>sc</a>                508 bsp/drv/dev/base/pm.c 	sc = device_private(dev);
+<a href='../S/63.html#L509'>sc</a>                509 bsp/drv/dev/base/pm.c 	sc-&gt;dev = dev;
+<a href='../S/63.html#L510'>sc</a>                510 bsp/drv/dev/base/pm.c 	sc-&gt;isopen = 0;
+<a href='../S/63.html#L511'>sc</a>                511 bsp/drv/dev/base/pm.c 	sc-&gt;policy = DEFAULT_POWER_POLICY;
+<a href='../S/63.html#L512'>sc</a>                512 bsp/drv/dev/base/pm.c 	sc-&gt;idlecnt = 0;
+<a href='../S/63.html#L513'>sc</a>                513 bsp/drv/dev/base/pm.c 	sc-&gt;dimtime = 0;
+<a href='../S/63.html#L514'>sc</a>                514 bsp/drv/dev/base/pm.c 	sc-&gt;sustime = 0;
+<a href='../S/63.html#L515'>sc</a>                515 bsp/drv/dev/base/pm.c 	sc-&gt;timer_active = 0;
+<a href='../S/63.html#L516'>sc</a>                516 bsp/drv/dev/base/pm.c 	sc-&gt;powtask = TASK_NULL;
+<a href='../S/63.html#L517'>sc</a>                517 bsp/drv/dev/base/pm.c 	sc-&gt;lcd_dev = NODEV;
+<a href='../S/63.html#L518'>sc</a>                518 bsp/drv/dev/base/pm.c 	sc-&gt;lcd_on = 1;
+<a href='../S/63.html#L519'>sc</a>                519 bsp/drv/dev/base/pm.c 	sc-&gt;lastevt = PME_NO_EVENT;
+<a href='../S/63.html#L521'>sc</a>                521 bsp/drv/dev/base/pm.c 	pm_softc = sc;
+<a href='../S/63.html#L524'>sc</a>                524 bsp/drv/dev/base/pm.c 		 (sc-&gt;policy == PM_POWERSAVE) ? "power save" : "performance"));
+<a href='../S/65.html#L141'>sc</a>                141 bsp/drv/dev/base/wscons.c wscons_move_cursor(struct wscons_softc *sc)
+<a href='../S/65.html#L143'>sc</a>                143 bsp/drv/dev/base/wscons.c 	struct wscons_video_ops *vops = sc-&gt;vid_ops;
+<a href='../S/65.html#L145'>sc</a>                145 bsp/drv/dev/base/wscons.c 	vops-&gt;cursor(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col);
+<a href='../S/65.html#L149'>sc</a>                149 bsp/drv/dev/base/wscons.c wscons_set_attr(struct wscons_softc *sc)
+<a href='../S/65.html#L151'>sc</a>                151 bsp/drv/dev/base/wscons.c 	struct wscons_video_ops *vops = sc-&gt;vid_ops;
+<a href='../S/65.html#L153'>sc</a>                153 bsp/drv/dev/base/wscons.c 	vops-&gt;set_attr(sc-&gt;vid_aux, sc-&gt;attr);
+<a href='../S/65.html#L157'>sc</a>                157 bsp/drv/dev/base/wscons.c wscons_clear(struct wscons_softc *sc)
+<a href='../S/65.html#L159'>sc</a>                159 bsp/drv/dev/base/wscons.c 	struct wscons_video_ops *vops = sc-&gt;vid_ops;
+<a href='../S/65.html#L161'>sc</a>                161 bsp/drv/dev/base/wscons.c 	vops-&gt;eraserows(sc-&gt;vid_aux, 0, sc-&gt;nrows);
+<a href='../S/65.html#L162'>sc</a>                162 bsp/drv/dev/base/wscons.c 	sc-&gt;col = 0;
+<a href='../S/65.html#L163'>sc</a>                163 bsp/drv/dev/base/wscons.c 	sc-&gt;row = 0;
+<a href='../S/65.html#L164'>sc</a>                164 bsp/drv/dev/base/wscons.c 	wscons_move_cursor(sc);
+<a href='../S/65.html#L168'>sc</a>                168 bsp/drv/dev/base/wscons.c wscons_scrollup(struct wscons_softc *sc)
+<a href='../S/65.html#L170'>sc</a>                170 bsp/drv/dev/base/wscons.c 	struct wscons_video_ops *vops = sc-&gt;vid_ops;
+<a href='../S/65.html#L172'>sc</a>                172 bsp/drv/dev/base/wscons.c 	vops-&gt;copyrows(sc-&gt;vid_aux, 1, 0, sc-&gt;nrows - 1);
+<a href='../S/65.html#L173'>sc</a>                173 bsp/drv/dev/base/wscons.c 	vops-&gt;eraserows(sc-&gt;vid_aux, sc-&gt;nrows - 1, 1);
+<a href='../S/65.html#L177'>sc</a>                177 bsp/drv/dev/base/wscons.c wscons_newline(struct wscons_softc *sc)
+<a href='../S/65.html#L180'>sc</a>                180 bsp/drv/dev/base/wscons.c 	sc-&gt;col = 0;
+<a href='../S/65.html#L181'>sc</a>                181 bsp/drv/dev/base/wscons.c 	sc-&gt;row++;
+<a href='../S/65.html#L182'>sc</a>                182 bsp/drv/dev/base/wscons.c 	if (sc-&gt;row &gt;= sc-&gt;nrows) {
+<a href='../S/65.html#L183'>sc</a>                183 bsp/drv/dev/base/wscons.c 		sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L184'>sc</a>                184 bsp/drv/dev/base/wscons.c 		wscons_scrollup(sc);
+<a href='../S/65.html#L207'>sc</a>                207 bsp/drv/dev/base/wscons.c wscons_check_escape(struct wscons_softc *sc, char c)
+<a href='../S/65.html#L209'>sc</a>                209 bsp/drv/dev/base/wscons.c 	struct esc_state *esc = &amp;sc-&gt;esc;
+<a href='../S/65.html#L256'>sc</a>                256 bsp/drv/dev/base/wscons.c 			esc-&gt;saved_col = sc-&gt;col;
+<a href='../S/65.html#L257'>sc</a>                257 bsp/drv/dev/base/wscons.c 			esc-&gt;saved_row = sc-&gt;row;
+<a href='../S/65.html#L258'>sc</a>                258 bsp/drv/dev/base/wscons.c 			printf("TTY: save %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L261'>sc</a>                261 bsp/drv/dev/base/wscons.c 			sc-&gt;col = esc-&gt;saved_col;
+<a href='../S/65.html#L262'>sc</a>                262 bsp/drv/dev/base/wscons.c 			sc-&gt;row = esc-&gt;saved_row;
+<a href='../S/65.html#L263'>sc</a>                263 bsp/drv/dev/base/wscons.c 			printf("TTY: restore %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L264'>sc</a>                264 bsp/drv/dev/base/wscons.c 			wscons_move_cursor(sc);
+<a href='../S/65.html#L273'>sc</a>                273 bsp/drv/dev/base/wscons.c 			sc-&gt;row -= esc-&gt;arg1;
+<a href='../S/65.html#L274'>sc</a>                274 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &lt; 0)
+<a href='../S/65.html#L275'>sc</a>                275 bsp/drv/dev/base/wscons.c 				sc-&gt;row = 0;
+<a href='../S/65.html#L279'>sc</a>                279 bsp/drv/dev/base/wscons.c 			sc-&gt;row += esc-&gt;arg1;
+<a href='../S/65.html#L280'>sc</a>                280 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &gt;= sc-&gt;nrows)
+<a href='../S/65.html#L281'>sc</a>                281 bsp/drv/dev/base/wscons.c 				sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L285'>sc</a>                285 bsp/drv/dev/base/wscons.c 			sc-&gt;col += esc-&gt;arg1;
+<a href='../S/65.html#L286'>sc</a>                286 bsp/drv/dev/base/wscons.c 			if (sc-&gt;col &gt;= sc-&gt;ncols)
+<a href='../S/65.html#L287'>sc</a>                287 bsp/drv/dev/base/wscons.c 				sc-&gt;col = sc-&gt;ncols - 1;
+<a href='../S/65.html#L291'>sc</a>                291 bsp/drv/dev/base/wscons.c 			sc-&gt;col -= esc-&gt;arg1;
+<a href='../S/65.html#L292'>sc</a>                292 bsp/drv/dev/base/wscons.c 			if (sc-&gt;col &lt; 0)
+<a href='../S/65.html#L293'>sc</a>                293 bsp/drv/dev/base/wscons.c 				sc-&gt;col = 0;
+<a href='../S/65.html#L302'>sc</a>                302 bsp/drv/dev/base/wscons.c 				wscons_clear(sc);
+<a href='../S/65.html#L307'>sc</a>                307 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = 0x0F;
+<a href='../S/65.html#L310'>sc</a>                310 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = 0x0F;
+<a href='../S/65.html#L315'>sc</a>                315 bsp/drv/dev/base/wscons.c 				sc-&gt;attr |= 0x80;
+<a href='../S/65.html#L320'>sc</a>                320 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = (sc-&gt;attr &amp; 0xf0) | color;
+<a href='../S/65.html#L325'>sc</a>                325 bsp/drv/dev/base/wscons.c 				sc-&gt;attr = (sc-&gt;attr &amp; 0x0f) | (color &lt;&lt; 4);
+<a href='../S/65.html#L328'>sc</a>                328 bsp/drv/dev/base/wscons.c 			wscons_set_attr(sc);
+<a href='../S/65.html#L333'>sc</a>                333 bsp/drv/dev/base/wscons.c 			wscons_move_cursor(sc);
+<a href='../S/65.html#L339'>sc</a>                339 bsp/drv/dev/base/wscons.c 			sc-&gt;row = esc-&gt;arg1;
+<a href='../S/65.html#L340'>sc</a>                340 bsp/drv/dev/base/wscons.c 			sc-&gt;col = esc-&gt;arg2;
+<a href='../S/65.html#L341'>sc</a>                341 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &gt;= sc-&gt;nrows)
+<a href='../S/65.html#L342'>sc</a>                342 bsp/drv/dev/base/wscons.c 				sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L343'>sc</a>                343 bsp/drv/dev/base/wscons.c 			if (sc-&gt;col &gt;= sc-&gt;ncols)
+<a href='../S/65.html#L344'>sc</a>                344 bsp/drv/dev/base/wscons.c 				sc-&gt;col = sc-&gt;ncols - 1;
+<a href='../S/65.html#L345'>sc</a>                345 bsp/drv/dev/base/wscons.c 			wscons_move_cursor(sc);
+<a href='../S/65.html#L365'>sc</a>                365 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L366'>sc</a>                366 bsp/drv/dev/base/wscons.c 	struct wscons_video_ops *vops = sc-&gt;vid_ops;
+<a href='../S/65.html#L368'>sc</a>                368 bsp/drv/dev/base/wscons.c 	if (wscons_check_escape(sc, c))
+<a href='../S/65.html#L373'>sc</a>                373 bsp/drv/dev/base/wscons.c 		wscons_newline(sc);
+<a href='../S/65.html#L376'>sc</a>                376 bsp/drv/dev/base/wscons.c 		sc-&gt;col = 0;
+<a href='../S/65.html#L379'>sc</a>                379 bsp/drv/dev/base/wscons.c 		if (sc-&gt;col == 0)
+<a href='../S/65.html#L381'>sc</a>                381 bsp/drv/dev/base/wscons.c 		sc-&gt;col--;
+<a href='../S/65.html#L385'>sc</a>                385 bsp/drv/dev/base/wscons.c 	vops-&gt;putc(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col, c);
+<a href='../S/65.html#L387'>sc</a>                387 bsp/drv/dev/base/wscons.c 	sc-&gt;col++;
+<a href='../S/65.html#L388'>sc</a>                388 bsp/drv/dev/base/wscons.c 	if (sc-&gt;col &gt;= sc-&gt;ncols) {
+<a href='../S/65.html#L389'>sc</a>                389 bsp/drv/dev/base/wscons.c 		sc-&gt;col = 0;
+<a href='../S/65.html#L390'>sc</a>                390 bsp/drv/dev/base/wscons.c 		sc-&gt;row++;
+<a href='../S/65.html#L391'>sc</a>                391 bsp/drv/dev/base/wscons.c 		if (sc-&gt;row &gt;= sc-&gt;nrows) {
+<a href='../S/65.html#L392'>sc</a>                392 bsp/drv/dev/base/wscons.c 			sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L393'>sc</a>                393 bsp/drv/dev/base/wscons.c 			wscons_scrollup(sc);
+<a href='../S/65.html#L404'>sc</a>                404 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L410'>sc</a>                410 bsp/drv/dev/base/wscons.c 	wscons_move_cursor(sc);
+<a href='../S/65.html#L417'>sc</a>                417 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L418'>sc</a>                418 bsp/drv/dev/base/wscons.c 	struct wscons_kbd_ops *kops = sc-&gt;kbd_ops;
+<a href='../S/65.html#L420'>sc</a>                420 bsp/drv/dev/base/wscons.c 	return kops-&gt;getc(sc-&gt;kbd_aux);
+<a href='../S/65.html#L426'>sc</a>                426 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L429'>sc</a>                429 bsp/drv/dev/base/wscons.c 	wscons_move_cursor(sc);
+<a href='../S/65.html#L435'>sc</a>                435 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L436'>sc</a>                436 bsp/drv/dev/base/wscons.c 	struct wscons_kbd_ops *kops = sc-&gt;kbd_ops;
+<a href='../S/65.html#L438'>sc</a>                438 bsp/drv/dev/base/wscons.c 	kops-&gt;set_poll(sc-&gt;kbd_aux, on);
+<a href='../S/65.html#L444'>sc</a>                444 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L446'>sc</a>                446 bsp/drv/dev/base/wscons.c 	tty_input(c, &amp;sc-&gt;tty);
+<a href='../S/65.html#L452'>sc</a>                452 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L455'>sc</a>                455 bsp/drv/dev/base/wscons.c 	sc-&gt;vid_ops = ops;
+<a href='../S/65.html#L456'>sc</a>                456 bsp/drv/dev/base/wscons.c 	sc-&gt;vid_aux = aux;
+<a href='../S/65.html#L457'>sc</a>                457 bsp/drv/dev/base/wscons.c 	ops-&gt;get_cursor(aux, &amp;sc-&gt;col, &amp;sc-&gt;row);
+<a href='../S/65.html#L462'>sc</a>                462 bsp/drv/dev/base/wscons.c 	wsconsdev.dev = sc-&gt;dev;
+<a href='../S/65.html#L469'>sc</a>                469 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc = wscons_softc;
+<a href='../S/65.html#L471'>sc</a>                471 bsp/drv/dev/base/wscons.c 	sc-&gt;kbd_ops = ops;
+<a href='../S/65.html#L472'>sc</a>                472 bsp/drv/dev/base/wscons.c 	sc-&gt;kbd_aux = aux;
+<a href='../S/65.html#L479'>sc</a>                479 bsp/drv/dev/base/wscons.c 	struct wscons_softc *sc;
+<a href='../S/65.html#L484'>sc</a>                484 bsp/drv/dev/base/wscons.c 	sc = device_private(dev);
+<a href='../S/65.html#L485'>sc</a>                485 bsp/drv/dev/base/wscons.c 	sc-&gt;dev = dev;
+<a href='../S/65.html#L486'>sc</a>                486 bsp/drv/dev/base/wscons.c 	sc-&gt;esc.index = 0;
+<a href='../S/65.html#L487'>sc</a>                487 bsp/drv/dev/base/wscons.c 	sc-&gt;attr = 0x0f;
+<a href='../S/65.html#L488'>sc</a>                488 bsp/drv/dev/base/wscons.c 	wscons_softc = sc;
+<a href='../S/65.html#L490'>sc</a>                490 bsp/drv/dev/base/wscons.c 	tty_attach(&amp;sc-&gt;tty);
+<a href='../S/65.html#L491'>sc</a>                491 bsp/drv/dev/base/wscons.c 	sc-&gt;tty.t_dev = dev;
+<a href='../S/65.html#L492'>sc</a>                492 bsp/drv/dev/base/wscons.c 	sc-&gt;tty.t_oproc = wscons_start;
+<a href='../S/65.html#L495'>sc</a>                495 bsp/drv/dev/base/wscons.c 	sc-&gt;nrows = bi-&gt;video.text_y;
+<a href='../S/65.html#L496'>sc</a>                496 bsp/drv/dev/base/wscons.c 	sc-&gt;ncols = bi-&gt;video.text_x;
+<a href='../S/66.html#L168'>sc</a>                168 bsp/drv/dev/block/fdd.c fdc_result(struct fdd_softc *sc)
+<a href='../S/66.html#L182'>sc</a>                182 bsp/drv/dev/block/fdd.c 			sc-&gt;result[index++] = bus_read_8(FDC_DAT);
+<a href='../S/66.html#L194'>sc</a>                194 bsp/drv/dev/block/fdd.c fdc_off(struct fdd_softc *sc)
+<a href='../S/66.html#L198'>sc</a>                198 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_OFF;
+<a href='../S/66.html#L199'>sc</a>                199 bsp/drv/dev/block/fdd.c 	timer_stop(&amp;sc-&gt;tmr);
+<a href='../S/66.html#L208'>sc</a>                208 bsp/drv/dev/block/fdd.c fdc_on(struct fdd_softc *sc)
+<a href='../S/66.html#L212'>sc</a>                212 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_ON;
+<a href='../S/66.html#L216'>sc</a>                216 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 250, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L220'>sc</a>                220 bsp/drv/dev/block/fdd.c fdc_error(struct fdd_softc *sc, int error)
+<a href='../S/66.html#L222'>sc</a>                222 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L226'>sc</a>                226 bsp/drv/dev/block/fdd.c 	dma_stop(sc-&gt;dma);
+<a href='../S/66.html#L229'>sc</a>                229 bsp/drv/dev/block/fdd.c 	fdc_off(sc);
+<a href='../S/66.html#L237'>sc</a>                237 bsp/drv/dev/block/fdd.c fdc_reset(struct fdd_softc *sc)
+<a href='../S/66.html#L241'>sc</a>                241 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_RESET;
+<a href='../S/66.html#L242'>sc</a>                242 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 500, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L254'>sc</a>                254 bsp/drv/dev/block/fdd.c fdc_recal(struct fdd_softc *sc)
+<a href='../S/66.html#L258'>sc</a>                258 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_RECAL;
+<a href='../S/66.html#L259'>sc</a>                259 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 5000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L269'>sc</a>                269 bsp/drv/dev/block/fdd.c fdc_seek(struct fdd_softc *sc)
+<a href='../S/66.html#L271'>sc</a>                271 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L275'>sc</a>                275 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_SEEK;
+<a href='../S/66.html#L279'>sc</a>                279 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 4000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L295'>sc</a>                295 bsp/drv/dev/block/fdd.c fdc_io(struct fdd_softc *sc)
+<a href='../S/66.html#L297'>sc</a>                297 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L303'>sc</a>                303 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_IO;
+<a href='../S/66.html#L314'>sc</a>                314 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 2000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L316'>sc</a>                316 bsp/drv/dev/block/fdd.c 	dma_setup(sc-&gt;dma, irp-&gt;buf, io_size, read);
+<a href='../S/66.html#L335'>sc</a>                335 bsp/drv/dev/block/fdd.c fdc_ready(struct fdd_softc *sc)
+<a href='../S/66.html#L337'>sc</a>                337 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L341'>sc</a>                341 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_READY;
+<a href='../S/66.html#L343'>sc</a>                343 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 5000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L352'>sc</a>                352 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = arg;
+<a href='../S/66.html#L353'>sc</a>                353 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L355'>sc</a>                355 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L357'>sc</a>                357 bsp/drv/dev/block/fdd.c 	switch (sc-&gt;stat) {
+<a href='../S/66.html#L359'>sc</a>                359 bsp/drv/dev/block/fdd.c 		fdc_reset(sc);
+<a href='../S/66.html#L364'>sc</a>                364 bsp/drv/dev/block/fdd.c 		fdc_error(sc, EIO);
+<a href='../S/66.html#L370'>sc</a>                370 bsp/drv/dev/block/fdd.c 			fdc_reset(sc);
+<a href='../S/66.html#L372'>sc</a>                372 bsp/drv/dev/block/fdd.c 			fdc_error(sc, EIO);
+<a href='../S/66.html#L375'>sc</a>                375 bsp/drv/dev/block/fdd.c 		fdc_off(sc);
+<a href='../S/66.html#L389'>sc</a>                389 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = arg;
+<a href='../S/66.html#L390'>sc</a>                390 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L392'>sc</a>                392 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc_stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L394'>sc</a>                394 bsp/drv/dev/block/fdd.c 	timer_stop(&amp;sc-&gt;tmr);
+<a href='../S/66.html#L396'>sc</a>                396 bsp/drv/dev/block/fdd.c 	switch (sc-&gt;stat) {
+<a href='../S/66.html#L398'>sc</a>                398 bsp/drv/dev/block/fdd.c 		dma_stop(sc-&gt;dma);
+<a href='../S/66.html#L405'>sc</a>                405 bsp/drv/dev/block/fdd.c 			timer_stop(&amp;sc-&gt;tmr);
+<a href='../S/66.html#L425'>sc</a>                425 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = arg;
+<a href='../S/66.html#L426'>sc</a>                426 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L429'>sc</a>                429 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc_stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L433'>sc</a>                433 bsp/drv/dev/block/fdd.c 	switch (sc-&gt;stat) {
+<a href='../S/66.html#L438'>sc</a>                438 bsp/drv/dev/block/fdd.c 			fdc_result(sc);
+<a href='../S/66.html#L440'>sc</a>                440 bsp/drv/dev/block/fdd.c 		fdc_recal(sc);
+<a href='../S/66.html#L444'>sc</a>                444 bsp/drv/dev/block/fdd.c 		fdc_result(sc);
+<a href='../S/66.html#L445'>sc</a>                445 bsp/drv/dev/block/fdd.c 		if ((sc-&gt;result[0] &amp; 0xf8) != 0x20) {
+<a href='../S/66.html#L447'>sc</a>                447 bsp/drv/dev/block/fdd.c 			fdc_error(sc, EIO);
+<a href='../S/66.html#L450'>sc</a>                450 bsp/drv/dev/block/fdd.c 		fdc_seek(sc);
+<a href='../S/66.html#L454'>sc</a>                454 bsp/drv/dev/block/fdd.c 		fdc_result(sc);
+<a href='../S/66.html#L455'>sc</a>                455 bsp/drv/dev/block/fdd.c 		if ((sc-&gt;result[0] &amp; 0xf8) != 0x20) {
+<a href='../S/66.html#L458'>sc</a>                458 bsp/drv/dev/block/fdd.c 				fdc_reset(sc);
+<a href='../S/66.html#L460'>sc</a>                460 bsp/drv/dev/block/fdd.c 				fdc_error(sc, EIO);
+<a href='../S/66.html#L463'>sc</a>                463 bsp/drv/dev/block/fdd.c 		fdc_io(sc);
+<a href='../S/66.html#L466'>sc</a>                466 bsp/drv/dev/block/fdd.c 		fdc_result(sc);
+<a href='../S/66.html#L467'>sc</a>                467 bsp/drv/dev/block/fdd.c 		if ((sc-&gt;result[0] &amp; 0xd8) != 0x00) {
+<a href='../S/66.html#L469'>sc</a>                469 bsp/drv/dev/block/fdd.c 				fdc_reset(sc);
+<a href='../S/66.html#L471'>sc</a>                471 bsp/drv/dev/block/fdd.c 				fdc_error(sc, EIO);
+<a href='../S/66.html#L475'>sc</a>                475 bsp/drv/dev/block/fdd.c 		fdc_ready(sc);
+<a href='../S/66.html#L489'>sc</a>                489 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L491'>sc</a>                491 bsp/drv/dev/block/fdd.c 	if (sc-&gt;isopen &gt; 0)
+<a href='../S/66.html#L494'>sc</a>                494 bsp/drv/dev/block/fdd.c 	sc-&gt;isopen++;
+<a href='../S/66.html#L495'>sc</a>                495 bsp/drv/dev/block/fdd.c 	sc-&gt;irp.cmd = IO_NONE;
+<a href='../S/66.html#L502'>sc</a>                502 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L504'>sc</a>                504 bsp/drv/dev/block/fdd.c 	if (sc-&gt;isopen != 1)
+<a href='../S/66.html#L507'>sc</a>                507 bsp/drv/dev/block/fdd.c 	sc-&gt;isopen--;
+<a href='../S/66.html#L508'>sc</a>                508 bsp/drv/dev/block/fdd.c 	sc-&gt;irp.cmd = IO_NONE;
+<a href='../S/66.html#L510'>sc</a>                510 bsp/drv/dev/block/fdd.c 	fdc_off(sc);
+<a href='../S/66.html#L518'>sc</a>                518 bsp/drv/dev/block/fdd.c fdd_rw(struct fdd_softc *sc, int cmd, char *buf, u_long blksz, int blkno)
+<a href='../S/66.html#L520'>sc</a>                520 bsp/drv/dev/block/fdd.c 	struct irp *irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L534'>sc</a>                534 bsp/drv/dev/block/fdd.c 	if (sc-&gt;stat == FDS_OFF)
+<a href='../S/66.html#L535'>sc</a>                535 bsp/drv/dev/block/fdd.c 		fdc_on(sc);
+<a href='../S/66.html#L537'>sc</a>                537 bsp/drv/dev/block/fdd.c 		fdc_seek(sc);
+<a href='../S/66.html#L560'>sc</a>                560 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L586'>sc</a>                586 bsp/drv/dev/block/fdd.c 		if (track != sc-&gt;track) {
+<a href='../S/66.html#L587'>sc</a>                587 bsp/drv/dev/block/fdd.c 			error = fdd_rw(sc, IO_READ, sc-&gt;rbuf, FDG_SECTORS,
+<a href='../S/66.html#L590'>sc</a>                590 bsp/drv/dev/block/fdd.c 				sc-&gt;track = INVALID_TRACK;
+<a href='../S/66.html#L593'>sc</a>                593 bsp/drv/dev/block/fdd.c 			sc-&gt;track = track;
+<a href='../S/66.html#L595'>sc</a>                595 bsp/drv/dev/block/fdd.c 		memcpy(kbuf, (char *)sc-&gt;rbuf + sect * SECTOR_SIZE,
+<a href='../S/66.html#L616'>sc</a>                616 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc = device_private(dev);
+<a href='../S/66.html#L642'>sc</a>                642 bsp/drv/dev/block/fdd.c 		if (track == sc-&gt;track)
+<a href='../S/66.html#L643'>sc</a>                643 bsp/drv/dev/block/fdd.c 			wbuf = (char *)sc-&gt;rbuf + sect * SECTOR_SIZE;
+<a href='../S/66.html#L645'>sc</a>                645 bsp/drv/dev/block/fdd.c 			wbuf = sc-&gt;wbuf;
+<a href='../S/66.html#L648'>sc</a>                648 bsp/drv/dev/block/fdd.c 		error = fdd_rw(sc, IO_WRITE, wbuf, 1, blkno);
+<a href='../S/66.html#L650'>sc</a>                650 bsp/drv/dev/block/fdd.c 			sc-&gt;track = INVALID_TRACK;
+<a href='../S/66.html#L676'>sc</a>                676 bsp/drv/dev/block/fdd.c 	struct fdd_softc *sc;
+<a href='../S/66.html#L683'>sc</a>                683 bsp/drv/dev/block/fdd.c 	sc = device_private(dev);
+<a href='../S/66.html#L684'>sc</a>                684 bsp/drv/dev/block/fdd.c 	sc-&gt;dev = dev;
+<a href='../S/66.html#L685'>sc</a>                685 bsp/drv/dev/block/fdd.c 	sc-&gt;isopen = 0;
+<a href='../S/66.html#L688'>sc</a>                688 bsp/drv/dev/block/fdd.c 	irp = &amp;sc-&gt;irp;
+<a href='../S/66.html#L698'>sc</a>                698 bsp/drv/dev/block/fdd.c 	sc-&gt;rbuf = buf;
+<a href='../S/66.html#L699'>sc</a>                699 bsp/drv/dev/block/fdd.c 	sc-&gt;wbuf = buf + TRACK_SIZE;
+<a href='../S/66.html#L700'>sc</a>                700 bsp/drv/dev/block/fdd.c 	sc-&gt;dma = dma_attach(FDC_DMA);
+<a href='../S/66.html#L705'>sc</a>                705 bsp/drv/dev/block/fdd.c 	sc-&gt;irq = irq_attach(FDC_IRQ, IPL_BLOCK, 0, fdc_isr, fdc_ist, sc);
+<a href='../S/66.html#L707'>sc</a>                707 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_OFF;
+<a href='../S/66.html#L708'>sc</a>                708 bsp/drv/dev/block/fdd.c 	sc-&gt;track = INVALID_TRACK;
+<a href='../S/66.html#L722'>sc</a>                722 bsp/drv/dev/block/fdd.c 		fdc_result(sc);
+<a href='../S/68.html#L80'>sc</a>                 80 bsp/drv/dev/block/ramdisk.c 	struct ramdisk_softc *sc = device_private(dev);
+<a href='../S/68.html#L89'>sc</a>                 89 bsp/drv/dev/block/ramdisk.c 	if (offset &gt; (int)sc-&gt;size) {
+<a href='../S/68.html#L94'>sc</a>                 94 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_read &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L95'>sc</a>                 95 bsp/drv/dev/block/ramdisk.c 		nr_read = sc-&gt;size - offset;
+<a href='../S/68.html#L103'>sc</a>                103 bsp/drv/dev/block/ramdisk.c 	memcpy(kbuf, sc-&gt;addr + offset, nr_read);
+<a href='../S/68.html#L111'>sc</a>                111 bsp/drv/dev/block/ramdisk.c 	struct ramdisk_softc *sc = device_private(dev);
+<a href='../S/68.html#L120'>sc</a>                120 bsp/drv/dev/block/ramdisk.c 	if (offset &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L123'>sc</a>                123 bsp/drv/dev/block/ramdisk.c 	if (offset + nr_write &gt; (int)sc-&gt;size)
+<a href='../S/68.html#L124'>sc</a>                124 bsp/drv/dev/block/ramdisk.c 		nr_write = sc-&gt;size - offset;
+<a href='../S/68.html#L131'>sc</a>                131 bsp/drv/dev/block/ramdisk.c 	memcpy(sc-&gt;addr + offset, kbuf, nr_write);
+<a href='../S/68.html#L156'>sc</a>                156 bsp/drv/dev/block/ramdisk.c 	struct ramdisk_softc *sc;
+<a href='../S/68.html#L166'>sc</a>                166 bsp/drv/dev/block/ramdisk.c 	sc = device_private(dev);
+<a href='../S/68.html#L167'>sc</a>                167 bsp/drv/dev/block/ramdisk.c 	sc-&gt;dev = dev;
+<a href='../S/68.html#L168'>sc</a>                168 bsp/drv/dev/block/ramdisk.c 	sc-&gt;addr = (char *)ptokv(phys-&gt;base);
+<a href='../S/68.html#L169'>sc</a>                169 bsp/drv/dev/block/ramdisk.c 	sc-&gt;size = (size_t)phys-&gt;size;
+<a href='../S/68.html#L173'>sc</a>                173 bsp/drv/dev/block/ramdisk.c 	       (u_int)sc-&gt;addr, sc-&gt;size/1024);
+<a href='../S/69.html#L213'>sc</a>                213 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc = arg;
+<a href='../S/69.html#L238'>sc</a>                238 bsp/drv/dev/cpufreq/cpufreq.c 		sc-&gt;ops-&gt;setperf(new_speed);
+<a href='../S/69.html#L239'>sc</a>                239 bsp/drv/dev/cpufreq/cpufreq.c 		cur_speed = sc-&gt;ops-&gt;getperf();
+<a href='../S/69.html#L245'>sc</a>                245 bsp/drv/dev/cpufreq/cpufreq.c 	timer_callout(&amp;sc-&gt;timer, SAMPLING_RATE, &amp;cpufreq_timeout, sc);
+<a href='../S/69.html#L252'>sc</a>                252 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_enable(struct cpufreq_softc *sc)
+<a href='../S/69.html#L256'>sc</a>                256 bsp/drv/dev/cpufreq/cpufreq.c 	ASSERT(sc-&gt;ops != NULL);
+<a href='../S/69.html#L260'>sc</a>                260 bsp/drv/dev/cpufreq/cpufreq.c 	if (sc-&gt;enable)
+<a href='../S/69.html#L262'>sc</a>                262 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;enable = 1;
+<a href='../S/69.html#L273'>sc</a>                273 bsp/drv/dev/cpufreq/cpufreq.c 	cur_speed = sc-&gt;ops-&gt;getperf();
+<a href='../S/69.html#L279'>sc</a>                279 bsp/drv/dev/cpufreq/cpufreq.c 	timer_callout(&amp;sc-&gt;timer, SAMPLING_RATE, &amp;cpufreq_timeout, sc);
+<a href='../S/69.html#L286'>sc</a>                286 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_disable(struct cpufreq_softc *sc)
+<a href='../S/69.html#L291'>sc</a>                291 bsp/drv/dev/cpufreq/cpufreq.c 	if (!sc-&gt;enable)
+<a href='../S/69.html#L293'>sc</a>                293 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;enable = 0;
+<a href='../S/69.html#L295'>sc</a>                295 bsp/drv/dev/cpufreq/cpufreq.c 	timer_stop(&amp;sc-&gt;timer);
+<a href='../S/69.html#L298'>sc</a>                298 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;ops-&gt;setperf(100);
+<a href='../S/69.html#L305'>sc</a>                305 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc = device_private(dev);
+<a href='../S/69.html#L308'>sc</a>                308 bsp/drv/dev/cpufreq/cpufreq.c 	if (sc-&gt;ops == NULL)
+<a href='../S/69.html#L313'>sc</a>                313 bsp/drv/dev/cpufreq/cpufreq.c 		sc-&gt;ops-&gt;getinfo(&amp;info);
+<a href='../S/69.html#L326'>sc</a>                326 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc = device_private(dev);
+<a href='../S/69.html#L332'>sc</a>                332 bsp/drv/dev/cpufreq/cpufreq.c 	if (sc-&gt;ops == NULL)
+<a href='../S/69.html#L341'>sc</a>                341 bsp/drv/dev/cpufreq/cpufreq.c 			cpufreq_enable(sc);
+<a href='../S/69.html#L343'>sc</a>                343 bsp/drv/dev/cpufreq/cpufreq.c 			cpufreq_disable(sc);
+<a href='../S/69.html#L352'>sc</a>                352 bsp/drv/dev/cpufreq/cpufreq.c 	struct cpufreq_softc *sc;
+<a href='../S/69.html#L360'>sc</a>                360 bsp/drv/dev/cpufreq/cpufreq.c 	sc = device_private(dev);
+<a href='../S/69.html#L361'>sc</a>                361 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;dev = dev;
+<a href='../S/69.html#L362'>sc</a>                362 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;enable = 0;
+<a href='../S/69.html#L363'>sc</a>                363 bsp/drv/dev/cpufreq/cpufreq.c 	sc-&gt;ops = ops;
+<a href='../S/69.html#L368'>sc</a>                368 bsp/drv/dev/cpufreq/cpufreq.c 		cpufreq_enable(sc);
+<a href='../S/76.html#L122'>sc</a>                122 bsp/drv/dev/input/pckbd.c pckbd_set_leds(struct pckbd_softc *sc)
+<a href='../S/76.html#L127'>sc</a>                127 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;capslk)
+<a href='../S/76.html#L129'>sc</a>                129 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;led_sts != val) {
+<a href='../S/76.html#L130'>sc</a>                130 bsp/drv/dev/input/pckbd.c 		sc-&gt;led_sts = val;
+<a href='../S/76.html#L142'>sc</a>                142 bsp/drv/dev/input/pckbd.c pckbd_scan_key(struct pckbd_softc *sc)
+<a href='../S/76.html#L167'>sc</a>                167 bsp/drv/dev/input/pckbd.c 		sc-&gt;shift = press;
+<a href='../S/76.html#L170'>sc</a>                170 bsp/drv/dev/input/pckbd.c 		sc-&gt;ctrl = press;
+<a href='../S/76.html#L173'>sc</a>                173 bsp/drv/dev/input/pckbd.c 		sc-&gt;alt = press;
+<a href='../S/76.html#L176'>sc</a>                176 bsp/drv/dev/input/pckbd.c 		sc-&gt;capslk = !sc-&gt;capslk;
+<a href='../S/76.html#L177'>sc</a>                177 bsp/drv/dev/input/pckbd.c 		pckbd_set_leds(sc);
+<a href='../S/76.html#L189'>sc</a>                189 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;alt &amp;&amp; sc-&gt;ctrl &amp;&amp; ascii == 0x7f) {
+<a href='../S/76.html#L198'>sc</a>                198 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;ctrl) {
+<a href='../S/76.html#L205'>sc</a>                205 bsp/drv/dev/input/pckbd.c 	} else if (sc-&gt;shift)
+<a href='../S/76.html#L212'>sc</a>                212 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;capslk) {
+<a href='../S/76.html#L220'>sc</a>                220 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;alt)
+<a href='../S/76.html#L233'>sc</a>                233 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc = arg;
+<a href='../S/76.html#L236'>sc</a>                236 bsp/drv/dev/input/pckbd.c 	c = pckbd_scan_key(sc);
+<a href='../S/76.html#L245'>sc</a>                245 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc = aux;
+<a href='../S/76.html#L249'>sc</a>                249 bsp/drv/dev/input/pckbd.c 	sc-&gt;alt = 0;
+<a href='../S/76.html#L250'>sc</a>                250 bsp/drv/dev/input/pckbd.c 	sc-&gt;ctrl = 0;
+<a href='../S/76.html#L251'>sc</a>                251 bsp/drv/dev/input/pckbd.c 	sc-&gt;shift = 0;
+<a href='../S/76.html#L254'>sc</a>                254 bsp/drv/dev/input/pckbd.c 	while ((c = pckbd_scan_key(sc)) == 0) ;
+<a href='../S/76.html#L262'>sc</a>                262 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc = aux;
+<a href='../S/76.html#L264'>sc</a>                264 bsp/drv/dev/input/pckbd.c 	sc-&gt;polling = on;
+<a href='../S/76.html#L270'>sc</a>                270 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc;
+<a href='../S/76.html#L275'>sc</a>                275 bsp/drv/dev/input/pckbd.c 	sc = device_private(dev);
+<a href='../S/76.html#L276'>sc</a>                276 bsp/drv/dev/input/pckbd.c 	sc-&gt;dev = dev;
+<a href='../S/76.html#L277'>sc</a>                277 bsp/drv/dev/input/pckbd.c 	sc-&gt;polling = 0;
+<a href='../S/76.html#L278'>sc</a>                278 bsp/drv/dev/input/pckbd.c 	sc-&gt;led_sts = 0;
+<a href='../S/76.html#L283'>sc</a>                283 bsp/drv/dev/input/pckbd.c 	sc-&gt;irq = irq_attach(KBD_IRQ, IPL_INPUT, 0, pckbd_isr, IST_NONE, sc);
+<a href='../S/76.html#L292'>sc</a>                292 bsp/drv/dev/input/pckbd.c 	wscons_attach_kbd(&amp;wscons_pckbd_ops, sc);
+<a href='../S/77.html#L141'>sc</a>                141 bsp/drv/dev/input/psaux.c 	struct psaux_softc *sc = arg;
+<a href='../S/77.html#L150'>sc</a>                150 bsp/drv/dev/input/psaux.c 		sc-&gt;index = 0;
+<a href='../S/77.html#L160'>sc</a>                160 bsp/drv/dev/input/psaux.c 	sc-&gt;packet[sc-&gt;index++] = dat;
+<a href='../S/77.html#L161'>sc</a>                161 bsp/drv/dev/input/psaux.c 	if (sc-&gt;index &lt; 3)
+<a href='../S/77.html#L163'>sc</a>                163 bsp/drv/dev/input/psaux.c 	sc-&gt;index = 0;
+<a href='../S/77.html#L164'>sc</a>                164 bsp/drv/dev/input/psaux.c 	DPRINTF(("mouse packet %x:%d:%d\n", sc-&gt;packet[0],
+<a href='../S/77.html#L165'>sc</a>                165 bsp/drv/dev/input/psaux.c 		 sc-&gt;packet[1], sc-&gt;packet[2]));
+<a href='../S/77.html#L203'>sc</a>                203 bsp/drv/dev/input/psaux.c 	struct psaux_softc *sc;
+<a href='../S/77.html#L211'>sc</a>                211 bsp/drv/dev/input/psaux.c 	sc = device_private(dev);
+<a href='../S/77.html#L212'>sc</a>                212 bsp/drv/dev/input/psaux.c 	sc-&gt;dev = dev;
+<a href='../S/77.html#L213'>sc</a>                213 bsp/drv/dev/input/psaux.c 	sc-&gt;index = 0;
+<a href='../S/77.html#L216'>sc</a>                216 bsp/drv/dev/input/psaux.c 	sc-&gt;irq = irq_attach(MOUSE_IRQ, IPL_INPUT, 0, psaux_isr,
+<a href='../S/77.html#L217'>sc</a>                217 bsp/drv/dev/input/psaux.c 			     IST_NONE, sc);
+<a href='../S/85.html#L180'>sc</a>                180 bsp/drv/dev/rtc/rtc.c 	struct rtc_softc *sc = device_private(dev);
+<a href='../S/85.html#L191'>sc</a>                191 bsp/drv/dev/rtc/rtc.c 		msec = hztoms(timer_ticks() - sc-&gt;boot_ticks);
+<a href='../S/85.html#L192'>sc</a>                192 bsp/drv/dev/rtc/rtc.c 		tv.tv_sec = sc-&gt;boot_sec + (msec / 1000);
+<a href='../S/85.html#L213'>sc</a>                213 bsp/drv/dev/rtc/rtc.c 	struct rtc_softc *sc;
+<a href='../S/85.html#L219'>sc</a>                219 bsp/drv/dev/rtc/rtc.c 	sc = device_private(dev);
+<a href='../S/85.html#L220'>sc</a>                220 bsp/drv/dev/rtc/rtc.c 	sc-&gt;dev = dev;
+<a href='../S/85.html#L221'>sc</a>                221 bsp/drv/dev/rtc/rtc.c 	sc-&gt;ops = ops;
+<a href='../S/85.html#L222'>sc</a>                222 bsp/drv/dev/rtc/rtc.c 	sc-&gt;aux = aux;
+<a href='../S/85.html#L226'>sc</a>                226 bsp/drv/dev/rtc/rtc.c 	sc-&gt;boot_sec = tv.tv_sec;
+<a href='../S/85.html#L227'>sc</a>                227 bsp/drv/dev/rtc/rtc.c 	sc-&gt;boot_ticks = timer_ticks();
+<a href='../S/89.html#L97'>sc</a>                 97 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L99'>sc</a>                 99 bsp/drv/dev/serial/serial.c 	return tty_read(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/89.html#L105'>sc</a>                105 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L107'>sc</a>                107 bsp/drv/dev/serial/serial.c 	return tty_write(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/89.html#L113'>sc</a>                113 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L115'>sc</a>                115 bsp/drv/dev/serial/serial.c 	return tty_ioctl(&amp;sc-&gt;tty, cmd, arg);
+<a href='../S/89.html#L124'>sc</a>                124 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(tp-&gt;t_dev);
+<a href='../S/89.html#L125'>sc</a>                125 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L129'>sc</a>                129 bsp/drv/dev/serial/serial.c 		sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L155'>sc</a>                155 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L156'>sc</a>                156 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L158'>sc</a>                158 bsp/drv/dev/serial/serial.c 	return sc-&gt;ops-&gt;rcv_char(port);
+<a href='../S/89.html#L164'>sc</a>                164 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L165'>sc</a>                165 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L167'>sc</a>                167 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L173'>sc</a>                173 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc = device_private(dev);
+<a href='../S/89.html#L174'>sc</a>                174 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L176'>sc</a>                176 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;set_poll(port, on);
+<a href='../S/89.html#L182'>sc</a>                182 bsp/drv/dev/serial/serial.c 	struct serial_softc *sc;
+<a href='../S/89.html#L188'>sc</a>                188 bsp/drv/dev/serial/serial.c 	sc = device_private(dev);
+<a href='../S/89.html#L189'>sc</a>                189 bsp/drv/dev/serial/serial.c 	sc-&gt;dev = dev;
+<a href='../S/89.html#L190'>sc</a>                190 bsp/drv/dev/serial/serial.c 	sc-&gt;ops = ops;
+<a href='../S/89.html#L191'>sc</a>                191 bsp/drv/dev/serial/serial.c 	sc-&gt;port = port;
+<a href='../S/89.html#L193'>sc</a>                193 bsp/drv/dev/serial/serial.c 	tty_attach(&amp;sc-&gt;tty);
+<a href='../S/89.html#L194'>sc</a>                194 bsp/drv/dev/serial/serial.c 	sc-&gt;tty.t_dev = dev;
+<a href='../S/89.html#L195'>sc</a>                195 bsp/drv/dev/serial/serial.c 	sc-&gt;tty.t_oproc = serial_start;
+<a href='../S/89.html#L198'>sc</a>                198 bsp/drv/dev/serial/serial.c 	port-&gt;tty = &amp;sc-&gt;tty;
+<a href='../S/91.html#L139'>sc</a>                139 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L142'>sc</a>                142 bsp/drv/dev/video/vga.c 	pos = row * sc-&gt;cols + col;
+<a href='../S/91.html#L153'>sc</a>                153 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L155'>sc</a>                155 bsp/drv/dev/video/vga.c 	sc-&gt;vram[row * sc-&gt;cols + col] = ch | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L161'>sc</a>                161 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L163'>sc</a>                163 bsp/drv/dev/video/vga.c 	memcpy(sc-&gt;vram + dstrow * sc-&gt;cols,
+<a href='../S/91.html#L164'>sc</a>                164 bsp/drv/dev/video/vga.c 	       sc-&gt;vram + srcrow * sc-&gt;cols,
+<a href='../S/91.html#L165'>sc</a>                165 bsp/drv/dev/video/vga.c 	       (size_t)nrows * sc-&gt;cols * 2);
+<a href='../S/91.html#L171'>sc</a>                171 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L174'>sc</a>                174 bsp/drv/dev/video/vga.c 	start = row * sc-&gt;cols;
+<a href='../S/91.html#L175'>sc</a>                175 bsp/drv/dev/video/vga.c 	end = start + nrows * sc-&gt;cols;
+<a href='../S/91.html#L178'>sc</a>                178 bsp/drv/dev/video/vga.c 		sc-&gt;vram[i] = ' ' | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L184'>sc</a>                184 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L186'>sc</a>                186 bsp/drv/dev/video/vga.c 	sc-&gt;attr = attr;
+<a href='../S/91.html#L193'>sc</a>                193 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L201'>sc</a>                201 bsp/drv/dev/video/vga.c 	*col = (int)offset % sc-&gt;cols;
+<a href='../S/91.html#L202'>sc</a>                202 bsp/drv/dev/video/vga.c 	*row = (int)offset / sc-&gt;cols;
+<a href='../S/91.html#L209'>sc</a>                209 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = device_private(dev);
+<a href='../S/91.html#L217'>sc</a>                217 bsp/drv/dev/video/vga.c 		if (!sc-&gt;blank) {
+<a href='../S/91.html#L220'>sc</a>                220 bsp/drv/dev/video/vga.c 			sc-&gt;blank = 1;
+<a href='../S/91.html#L224'>sc</a>                224 bsp/drv/dev/video/vga.c 		if (sc-&gt;blank) {
+<a href='../S/91.html#L226'>sc</a>                226 bsp/drv/dev/video/vga.c 			sc-&gt;blank = 0;
+<a href='../S/91.html#L240'>sc</a>                240 bsp/drv/dev/video/vga.c 	struct vga_softc *sc;
+<a href='../S/91.html#L246'>sc</a>                246 bsp/drv/dev/video/vga.c 	sc = device_private(dev);
+<a href='../S/91.html#L247'>sc</a>                247 bsp/drv/dev/video/vga.c 	sc-&gt;vram = ptokv(VID_RAM);
+<a href='../S/91.html#L248'>sc</a>                248 bsp/drv/dev/video/vga.c 	sc-&gt;cols = bi-&gt;video.text_x;
+<a href='../S/91.html#L249'>sc</a>                249 bsp/drv/dev/video/vga.c 	sc-&gt;attr = 0x0f;
+<a href='../S/91.html#L250'>sc</a>                250 bsp/drv/dev/video/vga.c 	sc-&gt;blank = 0;
+<a href='../S/91.html#L252'>sc</a>                252 bsp/drv/dev/video/vga.c 	wscons_attach_video(&amp;wscons_vga_ops, sc);
+<a href='../S/244.html#L37'>sc</a>                 37 include/ppc/systrap.h 	sc; \
+<a href='../S/600.html#L45'>sc</a>                 45 usr/lib/libc/string/strcspn.c 	char c, sc;
+<a href='../S/600.html#L55'>sc</a>                 55 usr/lib/libc/string/strcspn.c 			if ((sc = *spanp++) == c)
+<a href='../S/600.html#L57'>sc</a>                 57 usr/lib/libc/string/strcspn.c 		} while (sc != 0);
+<a href='../S/610.html#L41'>sc</a>                 41 usr/lib/libc/string/strpbrk.c 	int c, sc;
+<a href='../S/610.html#L44'>sc</a>                 44 usr/lib/libc/string/strpbrk.c 		for (scanp = s2; (sc = *scanp++) != 0;)
+<a href='../S/610.html#L45'>sc</a>                 45 usr/lib/libc/string/strpbrk.c 			if (sc == c)
+<a href='../S/612.html#L52'>sc</a>                 52 usr/lib/libc/string/strsep.c 	int c, sc;
+<a href='../S/612.html#L61'>sc</a>                 61 usr/lib/libc/string/strsep.c 			if ((sc = *spanp++) == c) {
+<a href='../S/612.html#L69'>sc</a>                 69 usr/lib/libc/string/strsep.c 		} while (sc != 0);
+<a href='../S/613.html#L42'>sc</a>                 42 usr/lib/libc/string/strspn.c 	char c, sc;
+<a href='../S/613.html#L49'>sc</a>                 49 usr/lib/libc/string/strspn.c 	for (spanp = s2; (sc = *spanp++) != 0;)
+<a href='../S/613.html#L50'>sc</a>                 50 usr/lib/libc/string/strspn.c 		if (sc == c)
+<a href='../S/614.html#L43'>sc</a>                 43 usr/lib/libc/string/strstr.c 	char c, sc;
+<a href='../S/614.html#L50'>sc</a>                 50 usr/lib/libc/string/strstr.c 				if ((sc = *s++) == 0)
+<a href='../S/614.html#L52'>sc</a>                 52 usr/lib/libc/string/strstr.c 			} while (sc != c);
+<a href='../S/616.html#L42'>sc</a>                 42 usr/lib/libc/string/strtok_r.c 	int c, sc;
+<a href='../S/616.html#L53'>sc</a>                 53 usr/lib/libc/string/strtok_r.c 	for (spanp = delim; (sc = *spanp++) != 0;) {
+<a href='../S/616.html#L54'>sc</a>                 54 usr/lib/libc/string/strtok_r.c 		if (c == sc)
+<a href='../S/616.html#L72'>sc</a>                 72 usr/lib/libc/string/strtok_r.c 			if ((sc = *spanp++) == c) {
+<a href='../S/616.html#L80'>sc</a>                 80 usr/lib/libc/string/strtok_r.c 		} while (sc != 0);
+</pre>
+</body>
+</html>

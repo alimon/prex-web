@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__proc_obj</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/265.html#L36'>__proc_obj</a>         36 include/sys/posix.h extern object_t __proc_obj;
+<a href='../S/733.html#L40'>__proc_obj</a>         40 usr/lib/posix/process/__process.c object_t __proc_obj;
+<a href='../S/733.html#L48'>__proc_obj</a>         48 usr/lib/posix/process/__process.c 	error = object_lookup("!proc", &amp;__proc_obj);
+<a href='../S/733.html#L50'>__proc_obj</a>         50 usr/lib/posix/process/__process.c 		__proc_obj = 0;
+<a href='../S/733.html#L59'>__proc_obj</a>         59 usr/lib/posix/process/__process.c 	if (__proc_obj != 0) {
+<a href='../S/733.html#L62'>__proc_obj</a>         62 usr/lib/posix/process/__process.c 		msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/705.html#L112'>__proc_obj</a>        112 usr/lib/posix/process/fork.c 		if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/706.html#L121'>__proc_obj</a>        121 usr/lib/posix/process/fork_nommu.c 		if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/710.html#L45'>__proc_obj</a>         45 usr/lib/posix/process/getpgid.c 	if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1))
+<a href='../S/712.html#L45'>__proc_obj</a>         45 usr/lib/posix/process/getpid.c 	__posix_call(__proc_obj, &amp;m, sizeof(m), 1);
+<a href='../S/713.html#L45'>__proc_obj</a>         45 usr/lib/posix/process/getppid.c 	__posix_call(__proc_obj, &amp;m, sizeof(m), 1);
+<a href='../S/715.html#L45'>__proc_obj</a>         45 usr/lib/posix/process/getsid.c 	if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1))
+<a href='../S/717.html#L52'>__proc_obj</a>         52 usr/lib/posix/process/kill.c 	error = msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/724.html#L47'>__proc_obj</a>         47 usr/lib/posix/process/setpgid.c 	return __posix_call(__proc_obj, &amp;m, sizeof(m), 1);
+<a href='../S/727.html#L45'>__proc_obj</a>         45 usr/lib/posix/process/setsid.c 	if (__posix_call(__proc_obj, &amp;m, sizeof(m), 1))
+<a href='../S/731.html#L62'>__proc_obj</a>         62 usr/lib/posix/process/waitpid.c 		error = msg_send(__proc_obj, &amp;m, sizeof(m));
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>SEG_WRITE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/343.html#L145'>SEG_WRITE</a>         145 sys/mem/vm.c   	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/343.html#L302'>SEG_WRITE</a>         302 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_WRITE) {
+<a href='../S/343.html#L307'>SEG_WRITE</a>         307 sys/mem/vm.c   			new_flags = SEG_READ | SEG_WRITE;
+<a href='../S/343.html#L312'>SEG_WRITE</a>         312 sys/mem/vm.c   	map_type = (new_flags &amp; SEG_WRITE) ? PG_WRITE : PG_READ;
+<a href='../S/343.html#L430'>SEG_WRITE</a>         430 sys/mem/vm.c   	if (tgt-&gt;flags &amp; SEG_WRITE)
+<a href='../S/343.html#L596'>SEG_WRITE</a>         596 sys/mem/vm.c   			if (!(src-&gt;flags &amp; SEG_WRITE) &amp;&amp;
+<a href='../S/343.html#L612'>SEG_WRITE</a>         612 sys/mem/vm.c   			if (dest-&gt;flags &amp; SEG_WRITE)
+<a href='../S/344.html#L138'>SEG_WRITE</a>         138 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/344.html#L271'>SEG_WRITE</a>         271 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_WRITE) {
+<a href='../S/344.html#L276'>SEG_WRITE</a>         276 sys/mem/vm_nommu.c 			new_flags = SEG_READ | SEG_WRITE;
+<a href='../S/344.html#L477'>SEG_WRITE</a>         477 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_READ | SEG_WRITE;
+</pre>
+</body>
+</html>

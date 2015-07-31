@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vi</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L271'>vi</a>                271 bsp/drv/dev/base/kd.c 	struct vminfo vi;
+<a href='../S/60.html#L279'>vi</a>                279 bsp/drv/dev/base/kd.c 	vi.cookie = 0;
+<a href='../S/60.html#L282'>vi</a>                282 bsp/drv/dev/base/kd.c 		vi.task = task;
+<a href='../S/60.html#L283'>vi</a>                283 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_VM, &amp;vi);
+<a href='../S/60.html#L285'>vi</a>                285 bsp/drv/dev/base/kd.c 			if (vi.flags != VF_FREE) {
+<a href='../S/60.html#L287'>vi</a>                287 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_READ)
+<a href='../S/60.html#L289'>vi</a>                289 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_WRITE)
+<a href='../S/60.html#L291'>vi</a>                291 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_EXEC)
+<a href='../S/60.html#L293'>vi</a>                293 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_SHARED)
+<a href='../S/60.html#L295'>vi</a>                295 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_MAPPED)
+<a href='../S/60.html#L298'>vi</a>                298 bsp/drv/dev/base/kd.c 				       (long)vi.virt, (long)vi.phys,
+<a href='../S/60.html#L299'>vi</a>                299 bsp/drv/dev/base/kd.c 				       vi.size, flags);
+</pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__SLBF</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/501.html#L73'>__SLBF</a>             73 usr/lib/libc/stdio/fflush.c 	fp-&gt;_w = t &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/510.html#L55'>__SLBF</a>             55 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/519.html#L88'>__SLBF</a>             88 usr/lib/libc/stdio/fvwrite.c 	} else if ((fp-&gt;_flags &amp; __SLBF) == 0) {
+<a href='../S/528.html#L91'>__SLBF</a>             91 usr/lib/libc/stdio/makebuf.c 		flags |= __SLBF;
+<a href='../S/533.html#L69'>__SLBF</a>             69 usr/lib/libc/stdio/putc.c 	if (++n == fp-&gt;_bf._size || (fp-&gt;_flags &amp; __SLBF &amp;&amp; c == '\n'))
+<a href='../S/537.html#L42'>__SLBF</a>             42 usr/lib/libc/stdio/refill.c 	if ((fp-&gt;_flags &amp; (__SLBF|__SWR)) == (__SLBF|__SWR))
+<a href='../S/537.html#L104'>__SLBF</a>            104 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_flags &amp; (__SLBF|__SNBF))
+<a href='../S/543.html#L74'>__SLBF</a>             74 usr/lib/libc/stdio/setvbuf.c 	flags &amp;= ~(__SLBF | __SNBF | __SMBF | __SEOF);
+<a href='../S/543.html#L81'>__SLBF</a>             81 usr/lib/libc/stdio/setvbuf.c 		flags |= __SLBF;
+<a href='../S/559.html#L74'>__SLBF</a>             74 usr/lib/libc/stdio/wsetup.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SNBF|__SLBF) ? 0 : fp-&gt;_bf._size;
+</pre>
+</body>
+</html>

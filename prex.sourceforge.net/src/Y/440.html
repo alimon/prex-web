@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>boot_pgd</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L54'>boot_pgd</a>           54 bsp/hal/arm/arch/mmu.c static pgd_t boot_pgd = (pgd_t)BOOT_PGD;
+<a href='../S/131.html#L199'>boot_pgd</a>          199 bsp/hal/arm/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(L1TBL_SIZE - i * 4));
+<a href='../S/131.html#L283'>boot_pgd</a>          283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/131.html#L316'>boot_pgd</a>          316 bsp/hal/arm/arch/mmu.c 		if (mmu_map(boot_pgd, map-&gt;phys, map-&gt;virt,
+<a href='../S/131.html#L323'>boot_pgd</a>          323 bsp/hal/arm/arch/mmu.c 	if (mmu_map(boot_pgd, 0, CONFIG_ARM_VECTORS, PAGE_SIZE, PG_SYSTEM))
+<a href='../S/178.html#L51'>boot_pgd</a>           51 bsp/hal/x86/arch/mmu.c static pgd_t boot_pgd = (pgd_t)BOOT_PGD;
+<a href='../S/178.html#L172'>boot_pgd</a>          172 bsp/hal/x86/arch/mmu.c 	memcpy(&amp;pgd[i], &amp;boot_pgd[i], (size_t)(1024 - i));
+<a href='../S/178.html#L277'>boot_pgd</a>          277 bsp/hal/x86/arch/mmu.c 		if (mmu_map(boot_pgd, map-&gt;phys, map-&gt;virt,
+</pre>
+</body>
+</html>

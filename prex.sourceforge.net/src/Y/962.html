@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>func</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/57.html#L33'>func</a>               33 bsp/drv/arm/include/dkient.h #define STUB(index, func) .global func;\
+<a href='../S/57.html#L34'>func</a>               34 bsp/drv/arm/include/dkient.h ENTRY(func) \
+<a href='../S/60.html#L67'>func</a>               67 bsp/drv/dev/base/kd.c 	int		(*func)(int, char **);
+<a href='../S/60.html#L588'>func</a>              588 bsp/drv/dev/base/kd.c 			error = (cmd_table[i].func)(argc, argv);
+<a href='../S/118.html#L33'>func</a>               33 bsp/drv/ppc/include/dkient.h #define STUB(index, func) .global func;\
+<a href='../S/118.html#L34'>func</a>               34 bsp/drv/ppc/include/dkient.h ENTRY(func) \
+<a href='../S/125.html#L33'>func</a>               33 bsp/drv/x86/include/dkient.h #define STUB(index, func) .global func;\
+<a href='../S/125.html#L34'>func</a>               34 bsp/drv/x86/include/dkient.h ENTRY(func) \
+<a href='../S/315.html#L56'>func</a>               56 sys/include/sched.h 	void		(*func)(void *); /* callback routine */
+<a href='../S/320.html#L47'>func</a>               47 sys/include/timer.h 	void		(*func)(void *); /* function to call */
+<a href='../S/327.html#L68'>func</a>               68 sys/kern/device.c #define DKIENT(func)	(dkifn_t)(func)
+<a href='../S/331.html#L659'>func</a>              659 sys/kern/sched.c 	dpc-&gt;func = fn;
+<a href='../S/331.html#L703'>func</a>              703 sys/kern/sched.c 			(*dpc-&gt;func)(dpc-&gt;arg);
+<a href='../S/336.html#L131'>func</a>              131 sys/kern/timer.c 	tmr-&gt;func = fn;
+<a href='../S/336.html#L368'>func</a>              368 sys/kern/timer.c 			(*tmr-&gt;func)(tmr-&gt;arg);
+<a href='../S/370.html#L35'>func</a>               35 usr/bin/cmdbox/cmdbox.h 	int (*func) (int, char **);
+<a href='../S/372.html#L147'>func</a>              147 usr/bin/cmdbox/main.c 			exit(entry-&gt;func(argc, argv));
+<a href='../S/413.html#L267'>func</a>              267 usr/bin/sh/sh.c 			return cmds[i].func;
+<a href='../S/414.html#L37'>func</a>               37 usr/bin/sh/sh.h 	cmdfn_t func;
+<a href='../S/837.html#L54'>func</a>               54 usr/sample/ipc/ipc.c start_client(void (*func)(void), char *stack)
+<a href='../S/837.html#L68'>func</a>               68 usr/sample/ipc/ipc.c 	if (thread_load(t, func, stack) != 0)
+<a href='../S/845.html#L44'>func</a>               44 usr/sample/task/task.c task_run(void (*func)(void))
+<a href='../S/845.html#L57'>func</a>               57 usr/sample/task/task.c 	if (thread_load(t, func, stack + 1024) != 0)
+<a href='../S/858.html#L63'>func</a>               63 usr/sbin/diskutil/diskutil.c 	void		(*func)(int, char **);
+<a href='../S/858.html#L161'>func</a>              161 usr/sbin/diskutil/diskutil.c 			(cmdtab[i].func)(argc, argv);
+<a href='../S/870.html#L63'>func</a>               63 usr/sbin/pmctrl/pmctrl.c 	void		(*func)(int, char **);
+<a href='../S/870.html#L269'>func</a>              269 usr/sbin/pmctrl/pmctrl.c 			(cmdtab[i].func)(argc, argv);
+<a href='../S/879.html#L64'>func</a>               64 usr/server/exec/main.c 	int	(*func)(struct msg *);
+<a href='../S/879.html#L214'>func</a>              214 usr/server/exec/main.c 				error = (*map-&gt;func)(msg);
+<a href='../S/903.html#L80'>func</a>               80 usr/server/fs/vfs/main.c 	int	(*func)(struct task *, struct msg *);
+<a href='../S/903.html#L1068'>func</a>             1068 usr/server/fs/vfs/main.c 				error = (*map-&gt;func)(t, msg);
+<a href='../S/916.html#L86'>func</a>               86 usr/server/pow/pow.c 	int	(*func)(struct msg *);
+<a href='../S/916.html#L462'>func</a>              462 usr/server/pow/pow.c 					error = (*map-&gt;func)(&amp;msg);
+<a href='../S/917.html#L92'>func</a>               92 usr/server/proc/main.c 	int	(*func)(struct msg *);
+<a href='../S/917.html#L565'>func</a>              565 usr/server/proc/main.c 				error = (*map-&gt;func)(&amp;msg);
+<a href='../S/966.html#L54'>func</a>               54 usr/test/kmon/cmd.c 	void	   (*func)(int, char **);
+<a href='../S/966.html#L166'>func</a>              166 usr/test/kmon/cmd.c 			(cmd_table[i].func)(argc, argv);
+</pre>
+</body>
+</html>

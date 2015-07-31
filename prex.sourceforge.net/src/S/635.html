@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/lib/libc/time/asctime_r.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1119.html'>lib</a>/<a href='../files/1121.html'>libc</a>/<a href='../files/1129.html'>time</a>/asctime_r.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='635.html#L15'>[^]</a>[v][top]<a href='635.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='635.html#L15' title='Defined at 15.'>asctime_r</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'>** This file is in the public domain, so clarified as of</em>
+<a id='L3' name='L3' />   3 <em class='comment'>** 1996-06-05 by Arthur David Olson (arthur_david_olson@nih.gov).</em>
+<a id='L4' name='L4' />   4 <em class='comment'>*/</em>
+<a id='L5' name='L5' />   5 
+<a id='L6' name='L6' />   6 <em class='sharp'>#include</em> &lt;<a href='../I/277.html'>sys/time.h</a>&gt;
+<a id='L7' name='L7' />   7 <em class='sharp'>#include</em> &lt;<a href='441.html'>stdio.h</a>&gt;
+<a id='L8' name='L8' />   8 <em class='sharp'>#include</em> &lt;<a href='../I/277.html'>time.h</a>&gt;
+<a id='L9' name='L9' />   9 
+<a id='L10' name='L10' />  10 <em class='comment'>/*</em>
+<a id='L11' name='L11' />  11 <em class='comment'>** A la ISO/IEC 9945-1, ANSI/IEEE Std 1003.1, Second Edition, 1996-07-12.</em>
+<a id='L12' name='L12' />  12 <em class='comment'>*/</em>
+<a id='L13' name='L13' />  13 
+<a id='L14' name='L14' />  14 <strong class='reserved'>char</strong> *
+<a id='L15' name='L15' />  15 <a href='../R/1492.html' title='Multiple refered from 2 places.'>asctime_r</a>(<a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>, <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>)
+<a id='L16' name='L16' />  16 <strong class='reserved'>register</strong> <strong class='reserved'>const</strong> <strong class='reserved'>struct</strong> <a href='../Y/2168.html' title='Multiple used in 28 places.'>tm</a> *      <a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>;
+<a id='L17' name='L17' />  17 <strong class='reserved'>char</strong> *                          <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>;
+<a id='L18' name='L18' />  18 <em class='brace'>{</em>
+<a id='L19' name='L19' />  19         <strong class='reserved'>static</strong> <strong class='reserved'>const</strong> <strong class='reserved'>char</strong>       <a href='../Y/2415.html' title='Multiple used in 2 places.'>wday_name</a>[][3] = <em class='brace'>{</em>
+<a id='L20' name='L20' />  20                 "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+<a id='L21' name='L21' />  21         <em class='brace'>}</em>;
+<a id='L22' name='L22' />  22         <strong class='reserved'>static</strong> <strong class='reserved'>const</strong> <strong class='reserved'>char</strong>       <a href='../Y/1298.html' title='Multiple used in 2 places.'>mon_name</a>[][3] = <em class='brace'>{</em>
+<a id='L23' name='L23' />  23                 "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+<a id='L24' name='L24' />  24                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+<a id='L25' name='L25' />  25         <em class='brace'>}</em>;
+<a id='L26' name='L26' />  26         <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *<a href='../Y/2426.html' title='Multiple used in 3 places.'>wn</a>;
+<a id='L27' name='L27' />  27         <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *<a href='../Y/1292.html' title='Multiple used in 3 places.'>mn</a>;
+<a id='L28' name='L28' />  28 
+<a id='L29' name='L29' />  29         <a href='../Y/2426.html' title='Multiple used in 3 places.'>wn</a> = <a href='../Y/2415.html' title='Multiple used in 2 places.'>wday_name</a>[<a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2175.html' title='Multiple used in 10 places.'>tm_wday</a>];
+<a id='L30' name='L30' />  30         <a href='../Y/1292.html' title='Multiple used in 3 places.'>mn</a> = <a href='../Y/1298.html' title='Multiple used in 2 places.'>mon_name</a>[<a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2173.html' title='Multiple used in 8 places.'>tm_mon</a>];
+<a id='L31' name='L31' />  31         <em class='comment'>/*</em>
+<a id='L32' name='L32' />  32 <em class='comment'>        ** The X3J11-suggested format is</em>
+<a id='L33' name='L33' />  33 <em class='comment'>        **      "%.3s %.3s%3d %02.2d:%02.2d:%02.2d %d\n"</em>
+<a id='L34' name='L34' />  34 <em class='comment'>        ** Since the .2 in 02.2d is ignored, we drop it.</em>
+<a id='L35' name='L35' />  35 <em class='comment'>        */</em>
+<a id='L36' name='L36' />  36         (<strong class='reserved'>void</strong>)<a href='../D/3498.html' title='Multiple defined in 3 places.'>sprintf</a>(<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>,
+<a id='L37' name='L37' />  37                 "%.3s %.3s%3d %02d:%02d:%02d %d\n",
+<a id='L38' name='L38' />  38                 <a href='../Y/2426.html' title='Multiple used in 3 places.'>wn</a>, <a href='../Y/1292.html' title='Multiple used in 3 places.'>mn</a>,
+<a id='L39' name='L39' />  39                 <a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2171.html' title='Multiple used in 5 places.'>tm_mday</a>, <a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2169.html' title='Multiple used in 11 places.'>tm_hour</a>,
+<a id='L40' name='L40' />  40                 <a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2172.html' title='Multiple used in 5 places.'>tm_min</a>, <a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2174.html' title='Multiple used in 5 places.'>tm_sec</a>,
+<a id='L41' name='L41' />  41                 1900 + <a href='../Y/2159.html' title='Multiple used in 10 places.'>timeptr</a>-&gt;<a href='../Y/2177.html' title='Multiple used in 6 places.'>tm_year</a>);
+<a id='L42' name='L42' />  42         <strong class='reserved'>return</strong> <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>;
+<a id='L43' name='L43' />  43 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^]<a href='635.html#L15'>[v]</a><a href='635.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

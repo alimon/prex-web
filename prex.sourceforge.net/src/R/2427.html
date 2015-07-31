@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>register_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/126.html#L61'>register_t</a>         61 bsp/hal/arm/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/154.html#L62'>register_t</a>         62 bsp/hal/ppc/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/173.html#L62'>register_t</a>         62 bsp/hal/x86/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/241.html#L39'>register_t</a>         39 include/ppc/signal.h 	register_t fixreg[32];
+<a href='../S/241.html#L40'>register_t</a>         40 include/ppc/signal.h 	register_t lr;
+<a href='../S/241.html#L43'>register_t</a>         43 include/ppc/signal.h 	register_t ctr;
+<a href='../S/241.html#L44'>register_t</a>         44 include/ppc/signal.h 	register_t srr0;
+<a href='../S/241.html#L45'>register_t</a>         45 include/ppc/signal.h 	register_t srr1;
+<a href='../S/308.html#L100'>register_t</a>        100 sys/include/hal.h void	  context_set(context_t, int, register_t);
+<a href='../S/328.html#L347'>register_t</a>        347 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UENTRY, (register_t)handler);
+<a href='../S/328.html#L348'>register_t</a>        348 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UARG, (register_t)excno);
+<a href='../S/332.html#L45'>register_t</a>         45 sys/kern/sysent.c typedef register_t (*sysfn_t)(register_t, register_t, register_t, register_t);
+<a href='../S/332.html#L48'>register_t</a>         48 sys/kern/sysent.c static void strace_entry(register_t, register_t, register_t, register_t,
+<a href='../S/332.html#L49'>register_t</a>         49 sys/kern/sysent.c 			 register_t);
+<a href='../S/332.html#L50'>register_t</a>         50 sys/kern/sysent.c static void strace_return(register_t, register_t);
+<a href='../S/332.html#L151'>register_t</a>        151 sys/kern/sysent.c register_t
+<a href='../S/332.html#L152'>register_t</a>        152 sys/kern/sysent.c syscall_handler(register_t a1, register_t a2, register_t a3, register_t a4,
+<a href='../S/332.html#L153'>register_t</a>        153 sys/kern/sysent.c 		register_t id)
+<a href='../S/332.html#L155'>register_t</a>        155 sys/kern/sysent.c 	register_t retval = EINVAL;
+<a href='../S/332.html#L178'>register_t</a>        178 sys/kern/sysent.c strace_entry(register_t a1, register_t a2, register_t a3, register_t a4,
+<a href='../S/332.html#L179'>register_t</a>        179 sys/kern/sysent.c 	     register_t id)
+<a href='../S/332.html#L223'>register_t</a>        223 sys/kern/sysent.c strace_return(register_t retval, register_t id)
+<a href='../S/335.html#L106'>register_t</a>        106 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L107'>register_t</a>        107 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)&amp;syscall_ret);
+<a href='../S/335.html#L188'>register_t</a>        188 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_UENTRY, (register_t)entry);
+<a href='../S/335.html#L190'>register_t</a>        190 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_USTACK, (register_t)stack);
+<a href='../S/335.html#L541'>register_t</a>        541 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L542'>register_t</a>        542 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)entry);
+<a href='../S/335.html#L543'>register_t</a>        543 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KARG, (register_t)arg);
+<a href='../S/335.html#L588'>register_t</a>        588 sys/kern/thread.c 	context_set(&amp;idle_thread.ctx, CTX_KSTACK, (register_t)sp);
+</pre>
+</body>
+</html>

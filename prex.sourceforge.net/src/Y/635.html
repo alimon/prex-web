@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>delay_count</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/107.html#L42'>delay_count</a>        42 bsp/drv/lib/delay.c static u_long delay_count;	/* Loop count for 1ms */
+<a href='../S/107.html#L60'>delay_count</a>        60 bsp/drv/lib/delay.c 	delay_loop(delay_count * usec / 1000);
+<a href='../S/107.html#L73'>delay_count</a>        73 bsp/drv/lib/delay.c 	delay_count = 1;
+<a href='../S/107.html#L75'>delay_count</a>        75 bsp/drv/lib/delay.c 		delay_count &lt;&lt;= 1;
+<a href='../S/107.html#L81'>delay_count</a>        81 bsp/drv/lib/delay.c 		delay_loop(delay_count);
+<a href='../S/107.html#L85'>delay_count</a>        85 bsp/drv/lib/delay.c 	delay_count &gt;&gt;= 1;
+<a href='../S/107.html#L86'>delay_count</a>        86 bsp/drv/lib/delay.c 	test_bit = delay_count;
+<a href='../S/107.html#L92'>delay_count</a>        92 bsp/drv/lib/delay.c 		delay_count |= test_bit;
+<a href='../S/107.html#L98'>delay_count</a>        98 bsp/drv/lib/delay.c 		delay_loop(delay_count);
+<a href='../S/107.html#L100'>delay_count</a>       100 bsp/drv/lib/delay.c 			delay_count &amp;= ~test_bit;
+<a href='../S/107.html#L102'>delay_count</a>       102 bsp/drv/lib/delay.c 	delay_count *= 1000;	/* count per 1sec */
+<a href='../S/107.html#L103'>delay_count</a>       103 bsp/drv/lib/delay.c 	delay_count /= 1000;	/* count per 1ms */
+<a href='../S/107.html#L104'>delay_count</a>       104 bsp/drv/lib/delay.c 	DPRINTF(("ok count=%ld\n", delay_count));
+</pre>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>line</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L605'>line</a>              605 bsp/drv/dev/base/kd.c kd_parse_line(char *line)
+<a href='../S/60.html#L612'>line</a>              612 bsp/drv/dev/base/kd.c 	if (line[0] != ' ' &amp;&amp; line[0] != '\t')
+<a href='../S/60.html#L613'>line</a>              613 bsp/drv/dev/base/kd.c 		word = line;
+<a href='../S/60.html#L615'>line</a>              615 bsp/drv/dev/base/kd.c 	p = line;
+<a href='../S/60.html#L646'>line</a>              646 bsp/drv/dev/base/kd.c kd_read_line(char *line)
+<a href='../S/60.html#L649'>line</a>              649 bsp/drv/dev/base/kd.c 	char *p = line;
+<a href='../S/60.html#L688'>line</a>              688 bsp/drv/dev/base/kd.c 	static char line[LINE_MAX];
+<a href='../S/60.html#L703'>line</a>              703 bsp/drv/dev/base/kd.c 		kd_read_line(line);
+<a href='../S/60.html#L704'>line</a>              704 bsp/drv/dev/base/kd.c 		if (kd_parse_line(line))
+<a href='../S/105.html#L44'>line</a>               44 bsp/drv/lib/assert.c assert(const char *file, int line, const char *exp)
+<a href='../S/105.html#L48'>line</a>               48 bsp/drv/lib/assert.c 	printf("\nAssertion failed: %s line:%d '%s'\n", file, line, exp);
+<a href='../S/326.html#L95'>line</a>               95 sys/kern/debug.c assert(const char *file, int line, const char *exp)
+<a href='../S/326.html#L98'>line</a>               98 sys/kern/debug.c 	printf("Assertion failed: %s line:%d '%s'\n", file, line, exp);
+<a href='../S/413.html#L380'>line</a>              380 usr/bin/sh/sh.c parseline(char *line)
+<a href='../S/413.html#L384'>line</a>              384 usr/bin/sh/sh.c 	p = cmds = line;
+<a href='../S/413.html#L409'>line</a>              409 usr/bin/sh/sh.c readline(int fd, char *line, int len)
+<a href='../S/413.html#L411'>line</a>              411 usr/bin/sh/sh.c 	char *p = line;
+<a href='../S/413.html#L420'>line</a>              420 usr/bin/sh/sh.c 			if (p == line)
+<a href='../S/413.html#L429'>line</a>              429 usr/bin/sh/sh.c 	return line;
+<a href='../S/413.html#L435'>line</a>              435 usr/bin/sh/sh.c 	static char line[LINE_MAX];
+<a href='../S/413.html#L442'>line</a>              442 usr/bin/sh/sh.c 		line[0] = '\0';
+<a href='../S/413.html#L443'>line</a>              443 usr/bin/sh/sh.c 		p = readline(fd, line, sizeof(line));
+<a href='../S/413.html#L448'>line</a>              448 usr/bin/sh/sh.c 		parseline(line);
+<a href='../S/468.html#L36'>line</a>               36 usr/lib/libc/gen/assert.c __assert(file, line, failedexpr)
+<a href='../S/468.html#L38'>line</a>               38 usr/lib/libc/gen/assert.c 	int line;
+<a href='../S/468.html#L42'>line</a>               42 usr/lib/libc/gen/assert.c 	    failedexpr, file, line);
+<a href='../S/643.html#L35'>line</a>               35 usr/lib/libsa/assert.c __assert(const char *file, int line, const char *exp)
+<a href='../S/643.html#L39'>line</a>               39 usr/lib/libsa/assert.c 	       exp, file, line);
+<a href='../S/746.html#L34'>line</a>               34 usr/lib/prex/gen/dassert.c __dassert(const char *file, int line, const char *exp)
+<a href='../S/746.html#L39'>line</a>               39 usr/lib/prex/gen/dassert.c 		exp, file, line);
+<a href='../S/871.html#L124'>line</a>              124 usr/server/boot/boot.c 	char line[128];
+<a href='../S/871.html#L161'>line</a>              161 usr/server/boot/boot.c 		if ((p = fgets(line, sizeof(line), fp)) == NULL)
+<a href='../S/967.html#L48'>line</a>               48 usr/test/kmon/kmon.c parse_line(char *line)
+<a href='../S/967.html#L55'>line</a>               55 usr/test/kmon/kmon.c 	if (line[0] != ' ' &amp;&amp; line[0] != '\t')
+<a href='../S/967.html#L56'>line</a>               56 usr/test/kmon/kmon.c 		word = line;
+<a href='../S/967.html#L58'>line</a>               58 usr/test/kmon/kmon.c 	p = line;
+<a href='../S/967.html#L89'>line</a>               89 usr/test/kmon/kmon.c read_line(char *line)
+<a href='../S/967.html#L92'>line</a>               92 usr/test/kmon/kmon.c 	char *p = line;
+<a href='../S/967.html#L109'>line</a>              109 usr/test/kmon/kmon.c 	static char line[LINE_MAX];
+<a href='../S/967.html#L115'>line</a>              115 usr/test/kmon/kmon.c 		read_line(line);
+<a href='../S/967.html#L116'>line</a>              116 usr/test/kmon/kmon.c 		if (parse_line(line))
+</pre>
+</body>
+</html>

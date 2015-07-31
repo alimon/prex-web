@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>task_link</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/309.html#L42'>task_link</a>          42 sys/include/ipc.h 	struct list	task_link;	/* linkage on object list in task */
+<a href='../S/316.html#L40'>task_link</a>          40 sys/include/sync.h 	struct list	task_link;	/* linkage on semaphore list in task */
+<a href='../S/316.html#L48'>task_link</a>          48 sys/include/sync.h 	struct list	task_link;	/* linkage on mutex list in task */
+<a href='../S/316.html#L58'>task_link</a>          58 sys/include/sync.h 	struct list	task_link;	/* linkage on cv list in task */
+<a href='../S/319.html#L47'>task_link</a>          47 sys/include/thread.h 	struct list 	task_link;	/* linkage on thread list in task */
+<a href='../S/325.html#L126'>task_link</a>         126 sys/ipc/object.c 	list_insert(&amp;curtask-&gt;objects, &amp;obj-&gt;task_link);
+<a href='../S/325.html#L201'>task_link</a>         201 sys/ipc/object.c 	list_remove(&amp;obj-&gt;task_link);
+<a href='../S/325.html#L240'>task_link</a>         240 sys/ipc/object.c 				 struct object, task_link);
+<a href='../S/328.html#L122'>task_link</a>         122 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L199'>task_link</a>         199 sys/kern/exception.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L213'>task_link</a>         213 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L198'>task_link</a>         198 sys/kern/task.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L248'>task_link</a>         248 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L290'>task_link</a>         290 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/335.html#L429'>task_link</a>         429 sys/kern/thread.c 	list_insert(&amp;task-&gt;threads, &amp;t-&gt;task_link);
+<a href='../S/335.html#L447'>task_link</a>         447 sys/kern/thread.c 	list_remove(&amp;t-&gt;task_link);
+<a href='../S/335.html#L597'>task_link</a>         597 sys/kern/thread.c 	list_insert(&amp;kernel_task.threads, &amp;idle_thread.task_link);
+<a href='../S/345.html#L71'>task_link</a>          71 sys/sync/cond.c 	list_insert(&amp;self-&gt;conds, &amp;c-&gt;task_link);
+<a href='../S/345.html#L82'>task_link</a>          82 sys/sync/cond.c 	list_remove(&amp;c-&gt;task_link);
+<a href='../S/345.html#L121'>task_link</a>         121 sys/sync/cond.c 			       struct cond, task_link);
+<a href='../S/345.html#L225'>task_link</a>         225 sys/sync/cond.c 		tmp = list_entry(n, struct cond, task_link);
+<a href='../S/346.html#L116'>task_link</a>         116 sys/sync/mutex.c 	list_insert(&amp;self-&gt;mutexes, &amp;m-&gt;task_link);
+<a href='../S/346.html#L130'>task_link</a>         130 sys/sync/mutex.c 	list_remove(&amp;m-&gt;task_link);
+<a href='../S/346.html#L171'>task_link</a>         171 sys/sync/mutex.c 			       struct mutex, task_link);
+<a href='../S/346.html#L371'>task_link</a>         371 sys/sync/mutex.c 		tmp = list_entry(n, struct mutex, task_link);
+<a href='../S/347.html#L112'>task_link</a>         112 sys/sync/sem.c 		list_insert(&amp;self-&gt;sems, &amp;s-&gt;task_link);
+<a href='../S/347.html#L293'>task_link</a>         293 sys/sync/sem.c 	list_remove(&amp;s-&gt;task_link);
+<a href='../S/347.html#L313'>task_link</a>         313 sys/sync/sem.c 		s = list_entry(n, struct sem, task_link);
+</pre>
+</body>
+</html>

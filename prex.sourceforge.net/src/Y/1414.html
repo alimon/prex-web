@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>nrows</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L104'>nrows</a>             104 bsp/drv/arm/gba/lcd.c lcd_copyrows(void *aux, int srcrow, int dstrow, int nrows)
+<a href='../S/51.html#L109'>nrows</a>             109 bsp/drv/arm/gba/lcd.c 	for (i = 0; i &lt; nrows * VSCR_COLS; i++) {
+<a href='../S/51.html#L116'>nrows</a>             116 bsp/drv/arm/gba/lcd.c lcd_eraserows(void *aux, int row, int nrows)
+<a href='../S/51.html#L122'>nrows</a>             122 bsp/drv/arm/gba/lcd.c 	end = start + nrows * VSCR_COLS;
+<a href='../S/65.html#L61'>nrows</a>              61 bsp/drv/dev/base/wscons.c 	int		nrows;		/* number of rows */
+<a href='../S/65.html#L161'>nrows</a>             161 bsp/drv/dev/base/wscons.c 	vops-&gt;eraserows(sc-&gt;vid_aux, 0, sc-&gt;nrows);
+<a href='../S/65.html#L172'>nrows</a>             172 bsp/drv/dev/base/wscons.c 	vops-&gt;copyrows(sc-&gt;vid_aux, 1, 0, sc-&gt;nrows - 1);
+<a href='../S/65.html#L173'>nrows</a>             173 bsp/drv/dev/base/wscons.c 	vops-&gt;eraserows(sc-&gt;vid_aux, sc-&gt;nrows - 1, 1);
+<a href='../S/65.html#L182'>nrows</a>             182 bsp/drv/dev/base/wscons.c 	if (sc-&gt;row &gt;= sc-&gt;nrows) {
+<a href='../S/65.html#L183'>nrows</a>             183 bsp/drv/dev/base/wscons.c 		sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L280'>nrows</a>             280 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &gt;= sc-&gt;nrows)
+<a href='../S/65.html#L281'>nrows</a>             281 bsp/drv/dev/base/wscons.c 				sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L341'>nrows</a>             341 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &gt;= sc-&gt;nrows)
+<a href='../S/65.html#L342'>nrows</a>             342 bsp/drv/dev/base/wscons.c 				sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L391'>nrows</a>             391 bsp/drv/dev/base/wscons.c 		if (sc-&gt;row &gt;= sc-&gt;nrows) {
+<a href='../S/65.html#L392'>nrows</a>             392 bsp/drv/dev/base/wscons.c 			sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L495'>nrows</a>             495 bsp/drv/dev/base/wscons.c 	sc-&gt;nrows = bi-&gt;video.text_y;
+<a href='../S/91.html#L159'>nrows</a>             159 bsp/drv/dev/video/vga.c vga_copyrows(void *aux, int srcrow, int dstrow, int nrows)
+<a href='../S/91.html#L165'>nrows</a>             165 bsp/drv/dev/video/vga.c 	       (size_t)nrows * sc-&gt;cols * 2);
+<a href='../S/91.html#L169'>nrows</a>             169 bsp/drv/dev/video/vga.c vga_eraserows(void *aux, int row, int nrows)
+<a href='../S/91.html#L175'>nrows</a>             175 bsp/drv/dev/video/vga.c 	end = start + nrows * sc-&gt;cols;
+<a href='../S/104.html#L41'>nrows</a>              41 bsp/drv/include/wscons.h 	void	(*copyrows)  (void *aux, int srcrow, int dstrow, int nrows);
+<a href='../S/104.html#L42'>nrows</a>              42 bsp/drv/include/wscons.h 	void	(*eraserows) (void *aux, int row, int nrows);
+</pre>
+</body>
+</html>

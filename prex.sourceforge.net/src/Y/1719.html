@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>rc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L146'>rc</a>                146 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L148'>rc</a>                148 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L151'>rc</a>                151 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_TASK, &amp;ti);
+<a href='../S/60.html#L152'>rc</a>                152 bsp/drv/dev/base/kd.c 		if (!rc &amp;&amp; !strncmp(ti.taskname, name, MAXTASKNAME)) {
+<a href='../S/60.html#L155'>rc</a>                155 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L217'>rc</a>                217 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L225'>rc</a>                225 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L229'>rc</a>                229 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_THREAD, &amp;ti);
+<a href='../S/60.html#L230'>rc</a>                230 bsp/drv/dev/base/kd.c 		if (!rc) {
+<a href='../S/60.html#L237'>rc</a>                237 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L246'>rc</a>                246 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L252'>rc</a>                252 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L256'>rc</a>                256 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_TASK, &amp;ti);
+<a href='../S/60.html#L257'>rc</a>                257 bsp/drv/dev/base/kd.c 		if (!rc) {
+<a href='../S/60.html#L263'>rc</a>                263 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L273'>rc</a>                273 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L278'>rc</a>                278 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L283'>rc</a>                283 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_VM, &amp;vi);
+<a href='../S/60.html#L284'>rc</a>                284 bsp/drv/dev/base/kd.c 		if (!rc) {
+<a href='../S/60.html#L302'>rc</a>                302 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L309'>rc</a>                309 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L313'>rc</a>                313 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L317'>rc</a>                317 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_TASK, &amp;ti);
+<a href='../S/60.html#L318'>rc</a>                318 bsp/drv/dev/base/kd.c 		if (!rc) {
+<a href='../S/60.html#L325'>rc</a>                325 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L335'>rc</a>                335 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L341'>rc</a>                341 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L345'>rc</a>                345 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_DEVICE, &amp;di);
+<a href='../S/60.html#L346'>rc</a>                346 bsp/drv/dev/base/kd.c 		if (!rc) {
+<a href='../S/60.html#L361'>rc</a>                361 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L378'>rc</a>                378 bsp/drv/dev/base/kd.c 	int rc;
+<a href='../S/60.html#L384'>rc</a>                384 bsp/drv/dev/base/kd.c 	rc = 0;
+<a href='../S/60.html#L387'>rc</a>                387 bsp/drv/dev/base/kd.c 		rc = sysinfo(INFO_IRQ, &amp;ii);
+<a href='../S/60.html#L388'>rc</a>                388 bsp/drv/dev/base/kd.c 		if (!rc) {
+<a href='../S/60.html#L393'>rc</a>                393 bsp/drv/dev/base/kd.c 	} while (rc == 0);
+<a href='../S/60.html#L610'>rc</a>                610 bsp/drv/dev/base/kd.c 	int rc = 0;
+<a href='../S/60.html#L640'>rc</a>                640 bsp/drv/dev/base/kd.c 			rc = 1;
+<a href='../S/60.html#L642'>rc</a>                642 bsp/drv/dev/base/kd.c 	return rc;
+<a href='../S/64.html#L457'>rc</a>                457 bsp/drv/dev/base/tty.c 	int rc, tmp;
+<a href='../S/64.html#L470'>rc</a>                470 bsp/drv/dev/base/tty.c 		rc = sched_sleep(&amp;tp-&gt;t_input);
+<a href='../S/64.html#L471'>rc</a>                471 bsp/drv/dev/base/tty.c 		if (rc == SLP_INTR || tp-&gt;t_state &amp; TS_ISIG) {
+<a href='../S/77.html#L109'>rc</a>                109 bsp/drv/dev/input/psaux.c 	int rc = -1;
+<a href='../S/77.html#L125'>rc</a>                125 bsp/drv/dev/input/psaux.c 			rc = 0;
+<a href='../S/77.html#L129'>rc</a>                129 bsp/drv/dev/input/psaux.c 	if (rc)
+<a href='../S/77.html#L132'>rc</a>                132 bsp/drv/dev/input/psaux.c 	return rc;
+<a href='../S/324.html#L86'>rc</a>                 86 sys/ipc/msg.c  	int rc;
+<a href='../S/324.html#L145'>rc</a>                145 sys/ipc/msg.c  	rc = sched_sleep(&amp;ipc_event);
+<a href='../S/324.html#L146'>rc</a>                146 sys/ipc/msg.c  	if (rc == SLP_INTR)
+<a href='../S/324.html#L155'>rc</a>                155 sys/ipc/msg.c  	switch (rc) {
+<a href='../S/324.html#L192'>rc</a>                192 sys/ipc/msg.c  	int rc, error = 0;
+<a href='../S/324.html#L226'>rc</a>                226 sys/ipc/msg.c  		rc = sched_sleep(&amp;ipc_event);
+<a href='../S/324.html#L227'>rc</a>                227 sys/ipc/msg.c  		if (rc != 0) {
+<a href='../S/324.html#L231'>rc</a>                231 sys/ipc/msg.c  			switch (rc) {
+<a href='../S/328.html#L243'>rc</a>                243 sys/kern/exception.c 	int i, rc, s;
+<a href='../S/328.html#L258'>rc</a>                258 sys/kern/exception.c 	rc = sched_sleep(&amp;exception_event);
+<a href='../S/328.html#L259'>rc</a>                259 sys/kern/exception.c 	if (rc == SLP_BREAK) {
+<a href='../S/329.html#L193'>rc</a>                193 sys/kern/irq.c 	int rc;
+<a href='../S/329.html#L208'>rc</a>                208 sys/kern/irq.c 	rc = (*irq-&gt;isr)(irq-&gt;data);
+<a href='../S/329.html#L210'>rc</a>                210 sys/kern/irq.c 	if (rc == INT_CONTINUE) {
+<a href='../S/336.html#L151'>rc</a>                151 sys/kern/timer.c 	int rc;
+<a href='../S/336.html#L153'>rc</a>                153 sys/kern/timer.c 	rc = sched_tsleep(&amp;delay_event, msec);
+<a href='../S/336.html#L154'>rc</a>                154 sys/kern/timer.c 	if (rc != SLP_TIMEOUT) {
+<a href='../S/336.html#L309'>rc</a>                309 sys/kern/timer.c 	int rc;
+<a href='../S/336.html#L319'>rc</a>                319 sys/kern/timer.c 		rc = sched_sleep(&amp;tmr-&gt;event);
+<a href='../S/336.html#L320'>rc</a>                320 sys/kern/timer.c 		if (rc != SLP_SUCCESS)
+<a href='../S/345.html#L140'>rc</a>                140 sys/sync/cond.c 	int error, rc;
+<a href='../S/345.html#L165'>rc</a>                165 sys/sync/cond.c 	rc = sched_sleep(&amp;c-&gt;event);
+<a href='../S/345.html#L166'>rc</a>                166 sys/sync/cond.c 	if (rc == SLP_INTR)
+<a href='../S/346.html#L190'>rc</a>                190 sys/sync/mutex.c 	int error, rc;
+<a href='../S/346.html#L222'>rc</a>                222 sys/sync/mutex.c 			rc = sched_sleep(&amp;m-&gt;event);
+<a href='../S/346.html#L224'>rc</a>                224 sys/sync/mutex.c 			if (rc == SLP_INTR) {
+<a href='../S/347.html#L165'>rc</a>                165 sys/sync/sem.c 	int rc, error = 0;
+<a href='../S/347.html#L175'>rc</a>                175 sys/sync/sem.c 		rc = sched_tsleep(&amp;s-&gt;event, timeout);
+<a href='../S/347.html#L176'>rc</a>                176 sys/sync/sem.c 		if (rc == SLP_TIMEOUT) {
+<a href='../S/347.html#L180'>rc</a>                180 sys/sync/sem.c 		if (rc == SLP_INTR) {
+<a href='../S/390.html#L69'>rc</a>                 69 usr/bin/ls/ls.c 	int ch, rc;
+<a href='../S/390.html#L115'>rc</a>                115 usr/bin/ls/ls.c 		rc = do_ls(".");
+<a href='../S/390.html#L118'>rc</a>                118 usr/bin/ls/ls.c 			rc = do_ls(*argv);
+<a href='../S/390.html#L122'>rc</a>                122 usr/bin/ls/ls.c 	if (rc)
+<a href='../S/398.html#L49'>rc</a>                 49 usr/bin/mv/mv.c 	int rc;
+<a href='../S/398.html#L67'>rc</a>                 67 usr/bin/mv/mv.c 	rc = stat(dest, &amp;st2);
+<a href='../S/398.html#L68'>rc</a>                 68 usr/bin/mv/mv.c 	if (!rc &amp;&amp; S_ISDIR(st2.st_mode)) {
+<a href='../S/404.html#L58'>rc</a>                 58 usr/bin/ps/ps.c 	int rc;
+<a href='../S/404.html#L63'>rc</a>                 63 usr/bin/ps/ps.c 		rc = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/404.html#L64'>rc</a>                 64 usr/bin/ps/ps.c 	} while (rc == EINTR);
+<a href='../S/404.html#L66'>rc</a>                 66 usr/bin/ps/ps.c 	if (rc || m.hdr.status) {
+<a href='../S/404.html#L86'>rc</a>                 86 usr/bin/ps/ps.c 	int ch, rc, ps_flag = 0;
+<a href='../S/404.html#L114'>rc</a>                114 usr/bin/ps/ps.c 	rc = 0;
+<a href='../S/404.html#L120'>rc</a>                120 usr/bin/ps/ps.c 		rc = sys_info(INFO_THREAD, &amp;ti);
+<a href='../S/404.html#L121'>rc</a>                121 usr/bin/ps/ps.c 		if (!rc) {
+<a href='../S/404.html#L151'>rc</a>                151 usr/bin/ps/ps.c 	} while (rc == 0);
+<a href='../S/408.html#L51'>rc</a>                 51 usr/bin/rm/rm.c 	int ch, rc;
+<a href='../S/408.html#L66'>rc</a>                 66 usr/bin/rm/rm.c 	rc = 0;
+<a href='../S/408.html#L68'>rc</a>                 68 usr/bin/rm/rm.c 		if ((rc = unlink(*argv)) &lt; 0)
+<a href='../S/408.html#L73'>rc</a>                 73 usr/bin/rm/rm.c 	if (rc &lt; 0)
+<a href='../S/408.html#L76'>rc</a>                 76 usr/bin/rm/rm.c 	exit(rc);
+<a href='../S/410.html#L50'>rc</a>                 50 usr/bin/rmdir/rmdir.c 	int ch, rc;
+<a href='../S/410.html#L64'>rc</a>                 64 usr/bin/rmdir/rmdir.c 	rc = 0;
+<a href='../S/410.html#L66'>rc</a>                 66 usr/bin/rmdir/rmdir.c 		if ((rc = rmdir(*argv)) &lt; 0)
+<a href='../S/410.html#L71'>rc</a>                 71 usr/bin/rmdir/rmdir.c 	if (rc &lt; 0)
+<a href='../S/410.html#L73'>rc</a>                 73 usr/bin/rmdir/rmdir.c 	exit(rc);
+<a href='../S/743.html#L63'>rc</a>                 63 usr/lib/posix/signal/__exception.c 	int rc = -1;
+<a href='../S/743.html#L121'>rc</a>                121 usr/lib/posix/signal/__exception.c 				rc = 0;	/* Signal is processed */
+<a href='../S/743.html#L127'>rc</a>                127 usr/lib/posix/signal/__exception.c 	return rc;
+<a href='../S/877.html#L81'>rc</a>                 81 usr/server/exec/exec_execve.c 	int rc;
+<a href='../S/877.html#L120'>rc</a>                120 usr/server/exec/exec_execve.c 	rc = PROBE_ERROR;
+<a href='../S/877.html#L123'>rc</a>                123 usr/server/exec/exec_execve.c 		if ((rc = ldr-&gt;el_probe(&amp;exec)) != PROBE_ERROR) {
+<a href='../S/877.html#L127'>rc</a>                127 usr/server/exec/exec_execve.c 	if (rc == PROBE_ERROR) {
+<a href='../S/877.html#L136'>rc</a>                136 usr/server/exec/exec_execve.c 	if (rc == PROBE_INDIRECT)
+<a href='../S/967.html#L53'>rc</a>                 53 usr/test/kmon/kmon.c 	int rc = 0;
+<a href='../S/967.html#L83'>rc</a>                 83 usr/test/kmon/kmon.c 			rc = 1;
+<a href='../S/967.html#L85'>rc</a>                 85 usr/test/kmon/kmon.c 	return rc;
+</pre>
+</body>
+</html>

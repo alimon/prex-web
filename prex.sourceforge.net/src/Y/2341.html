@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vnode_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/263.html#L134'>vnode_t</a>           134 include/sys/mount.h typedef int (*vfsop_vget_t)(mount_t, vnode_t);
+<a href='../S/279.html#L124'>vnode_t</a>           124 include/sys/vnode.h typedef	int (*vnop_open_t)	(vnode_t, int);
+<a href='../S/279.html#L125'>vnode_t</a>           125 include/sys/vnode.h typedef	int (*vnop_close_t)	(vnode_t, file_t);
+<a href='../S/279.html#L126'>vnode_t</a>           126 include/sys/vnode.h typedef	int (*vnop_read_t)	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/279.html#L127'>vnode_t</a>           127 include/sys/vnode.h typedef	int (*vnop_write_t)	(vnode_t, file_t, void *, size_t, size_t *);
+<a href='../S/279.html#L128'>vnode_t</a>           128 include/sys/vnode.h typedef	int (*vnop_seek_t)	(vnode_t, file_t, off_t, off_t);
+<a href='../S/279.html#L129'>vnode_t</a>           129 include/sys/vnode.h typedef	int (*vnop_ioctl_t)	(vnode_t, file_t, u_long, void *);
+<a href='../S/279.html#L130'>vnode_t</a>           130 include/sys/vnode.h typedef	int (*vnop_fsync_t)	(vnode_t, file_t);
+<a href='../S/279.html#L131'>vnode_t</a>           131 include/sys/vnode.h typedef	int (*vnop_readdir_t)	(vnode_t, file_t, struct dirent *);
+<a href='../S/279.html#L132'>vnode_t</a>           132 include/sys/vnode.h typedef	int (*vnop_lookup_t)	(vnode_t, char *, vnode_t);
+<a href='../S/279.html#L133'>vnode_t</a>           133 include/sys/vnode.h typedef	int (*vnop_create_t)	(vnode_t, char *, mode_t);
+<a href='../S/279.html#L134'>vnode_t</a>           134 include/sys/vnode.h typedef	int (*vnop_remove_t)	(vnode_t, vnode_t, char *);
+<a href='../S/279.html#L135'>vnode_t</a>           135 include/sys/vnode.h typedef	int (*vnop_rename_t)	(vnode_t, vnode_t, char *, vnode_t, vnode_t, char *);
+<a href='../S/279.html#L136'>vnode_t</a>           136 include/sys/vnode.h typedef	int (*vnop_mkdir_t)	(vnode_t, char *, mode_t);
+<a href='../S/279.html#L137'>vnode_t</a>           137 include/sys/vnode.h typedef	int (*vnop_rmdir_t)	(vnode_t, vnode_t, char *);
+<a href='../S/279.html#L138'>vnode_t</a>           138 include/sys/vnode.h typedef	int (*vnop_getattr_t)	(vnode_t, struct vattr *);
+<a href='../S/279.html#L139'>vnode_t</a>           139 include/sys/vnode.h typedef	int (*vnop_setattr_t)	(vnode_t, struct vattr *);
+<a href='../S/279.html#L140'>vnode_t</a>           140 include/sys/vnode.h typedef	int (*vnop_inactive_t)	(vnode_t);
+<a href='../S/279.html#L141'>vnode_t</a>           141 include/sys/vnode.h typedef	int (*vnop_truncate_t)	(vnode_t, off_t);
+</pre>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>_r</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L101'>_r</a>                101 usr/include/stdio.h 	int	_r;		/* read space left for getc() */
+<a href='../S/497.html#L56'>_r</a>                 56 usr/lib/libc/stdio/fclose.c 	fp-&gt;_r = fp-&gt;_w = 0;	/* Mess up if reaccessed. */
+<a href='../S/510.html#L54'>_r</a>                 54 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_r = 0;
+<a href='../S/513.html#L55'>_r</a>                 55 usr/lib/libc/stdio/fread.c 	if (fp-&gt;_r &lt; 0)
+<a href='../S/513.html#L56'>_r</a>                 56 usr/lib/libc/stdio/fread.c 		fp-&gt;_r = 0;
+<a href='../S/513.html#L59'>_r</a>                 59 usr/lib/libc/stdio/fread.c 	while (resid &gt; (size_t)(r = fp-&gt;_r)) {
+<a href='../S/513.html#L71'>_r</a>                 71 usr/lib/libc/stdio/fread.c 	fp-&gt;_r -= resid;
+<a href='../S/514.html#L109'>_r</a>                109 usr/lib/libc/stdio/freopen.c 	fp-&gt;_r = 0;
+<a href='../S/516.html#L76'>_r</a>                 76 usr/lib/libc/stdio/fseek.c 			curoff -= fp-&gt;_r;
+<a href='../S/516.html#L109'>_r</a>                109 usr/lib/libc/stdio/fseek.c 	fp-&gt;_r = 0;
+<a href='../S/518.html#L60'>_r</a>                 60 usr/lib/libc/stdio/ftell.c 		pos -= fp-&gt;_r;
+<a href='../S/523.html#L40'>_r</a>                 40 usr/lib/libc/stdio/getc.c 	if (--(fp-&gt;_r) &lt; 0) {
+<a href='../S/523.html#L42'>_r</a>                 42 usr/lib/libc/stdio/getc.c 			fp-&gt;_r--;
+<a href='../S/537.html#L60'>_r</a>                 60 usr/lib/libc/stdio/refill.c 	fp-&gt;_r = 0;		/* largely a convenience for callers */
+<a href='../S/537.html#L89'>_r</a>                 89 usr/lib/libc/stdio/refill.c 			if ((fp-&gt;_r = fp-&gt;_ur) != 0) {
+<a href='../S/537.html#L107'>_r</a>                107 usr/lib/libc/stdio/refill.c 	fp-&gt;_r = __sread(fp, (char *)fp-&gt;_p, fp-&gt;_bf._size);
+<a href='../S/537.html#L108'>_r</a>                108 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_r &lt;= 0) {
+<a href='../S/537.html#L109'>_r</a>                109 usr/lib/libc/stdio/refill.c 		if (fp-&gt;_r == 0)
+<a href='../S/537.html#L112'>_r</a>                112 usr/lib/libc/stdio/refill.c 			fp-&gt;_r = 0;
+<a href='../S/543.html#L70'>_r</a>                 70 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_r = 0;
+<a href='../S/546.html#L47'>_r</a>                 47 usr/lib/libc/stdio/sscanf.c 	f._bf._size = f._r = strlen(str);
+<a href='../S/551.html#L68'>_r</a>                 68 usr/lib/libc/stdio/ungetc.c 		if (fp-&gt;_r &gt;= fp-&gt;_ub._size)
+<a href='../S/551.html#L71'>_r</a>                 71 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_r++;
+<a href='../S/551.html#L84'>_r</a>                 84 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_r++;
+<a href='../S/551.html#L92'>_r</a>                 92 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ur = fp-&gt;_r;
+<a href='../S/551.html#L98'>_r</a>                 98 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_r = 1;
+<a href='../S/553.html#L117'>_r</a>                117 usr/lib/libc/stdio/vfscanf.c 				if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L121'>_r</a>                121 usr/lib/libc/stdio/vfscanf.c 				nread++, fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L137'>_r</a>                137 usr/lib/libc/stdio/vfscanf.c 			if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L141'>_r</a>                141 usr/lib/libc/stdio/vfscanf.c 			fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L261'>_r</a>                261 usr/lib/libc/stdio/vfscanf.c 		if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L271'>_r</a>                271 usr/lib/libc/stdio/vfscanf.c 				if (--fp-&gt;_r &gt; 0)
+<a href='../S/553.html#L295'>_r</a>                295 usr/lib/libc/stdio/vfscanf.c 					if ((size_t)(n = fp-&gt;_r) &lt; width) {
+<a href='../S/553.html#L306'>_r</a>                306 usr/lib/libc/stdio/vfscanf.c 						fp-&gt;_r -= width;
+<a href='../S/553.html#L331'>_r</a>                331 usr/lib/libc/stdio/vfscanf.c 					n++, fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L334'>_r</a>                334 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp)) {
+<a href='../S/553.html#L345'>_r</a>                345 usr/lib/libc/stdio/vfscanf.c 					fp-&gt;_r--;
+<a href='../S/553.html#L349'>_r</a>                349 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp)) {
+<a href='../S/553.html#L371'>_r</a>                371 usr/lib/libc/stdio/vfscanf.c 					n++, fp-&gt;_r--, fp-&gt;_p++;
+<a href='../S/553.html#L374'>_r</a>                374 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L381'>_r</a>                381 usr/lib/libc/stdio/vfscanf.c 					fp-&gt;_r--;
+<a href='../S/553.html#L385'>_r</a>                385 usr/lib/libc/stdio/vfscanf.c 					if (fp-&gt;_r &lt;= 0 &amp;&amp; __srefill(fp))
+<a href='../S/553.html#L491'>_r</a>                491 usr/lib/libc/stdio/vfscanf.c 				if (--fp-&gt;_r &gt; 0)
+<a href='../S/558.html#L46'>_r</a>                 46 usr/lib/libc/stdio/vsscanf.c 	f._bf._size = f._r = strlen(str);
+<a href='../S/559.html#L62'>_r</a>                 62 usr/lib/libc/stdio/wsetup.c 			fp-&gt;_r = 0;
+</pre>
+</body>
+</html>

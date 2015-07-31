@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/server/fs/arfs/arfs_vfsops.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1162.html'>server</a>/<a href='../files/1165.html'>fs</a>/<a href='../files/1166.html'>arfs</a>/arfs_vfsops.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='882.html#L71'>[^]</a><a href='882.html#L105'>[v]</a>[top]<a href='882.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='882.html#L71' title='Defined at 71.'>arfs_mount</a></li>
+<li><a href='882.html#L105' title='Defined at 105.'>arfs_unmount</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2006-2007, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * arfs_vfsops.c - vfs operations for archive file system.</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='279.html'>sys/vnode.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='263.html'>sys/mount.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='264.html'>sys/param.h</a>&gt;
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='248.html'>sys/buf.h</a>&gt;
+<a id='L38' name='L38' />  38 
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L40' name='L40' />  40 <em class='sharp'>#include</em> &lt;<a href='443.html'>string.h</a>&gt;
+<a id='L41' name='L41' />  41 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L42' name='L42' />  42 <em class='sharp'>#include</em> &lt;<a href='../I/247.html'>ar.h</a>&gt;
+<a id='L43' name='L43' />  43 
+<a id='L44' name='L44' />  44 <em class='sharp'>#include</em> "<a href='881.html'>arfs.h</a>"
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <strong class='reserved'>extern</strong> <strong class='reserved'>struct</strong> <a href='../Y/2361.html' title='Multiple used in 12 places.'>vnops</a> <a href='../Y/374.html' title='Multiple used in 3 places.'>arfs_vnops</a>;
+<a id='L47' name='L47' />  47 
+<a id='L48' name='L48' />  48 
+<a id='L49' name='L49' />  49 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='882.html#L71' title='Defined at 71 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_mount</a>   (<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>, <strong class='reserved'>char</strong> *<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>int</strong> <a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>, <strong class='reserved'>void</strong> *<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>);
+<a id='L50' name='L50' />  50 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='882.html#L105' title='Defined at 105 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_unmount</a> (<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>);
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='882.html#L61' title='Refered from 61 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_sync</a>       ((<a href='../Y/2320.html' title='Multiple used in 6 places.'>vfsop_sync_t</a>)<a href='909.html#L369' title='Defined at 369 in usr/server/fs/vfs/vfs_mount.c.'>vfs_nullop</a>)
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='882.html#L62' title='Refered from 62 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_vget</a>       ((<a href='../Y/2322.html' title='Multiple used in 5 places.'>vfsop_vget_t</a>)<a href='909.html#L369' title='Defined at 369 in usr/server/fs/vfs/vfs_mount.c.'>vfs_nullop</a>)
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> <a href='882.html#L63' title='Refered from 63 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_statfs</a>     ((<a href='../Y/2319.html' title='Multiple used in 6 places.'>vfsop_statfs_t</a>)<a href='909.html#L369' title='Defined at 369 in usr/server/fs/vfs/vfs_mount.c.'>vfs_nullop</a>)
+<a id='L54' name='L54' />  54 
+<a id='L55' name='L55' />  55 <em class='comment'>/*</em>
+<a id='L56' name='L56' />  56 <em class='comment'> * File system operations</em>
+<a id='L57' name='L57' />  57 <em class='comment'> */</em>
+<a id='L58' name='L58' />  58 <strong class='reserved'>const</strong> <strong class='reserved'>struct</strong> <a href='../Y/2323.html' title='Multiple used in 14 places.'>vfsops</a> <a href='../Y/373.html' title='Multiple used in 3 places.'>arfs_vfsops</a> = <em class='brace'>{</em>
+<a id='L59' name='L59' />  59         <a href='882.html#L71' title='Defined at 71 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_mount</a>,             <em class='comment'>/* mount */</em>
+<a id='L60' name='L60' />  60         <a href='882.html#L105' title='Defined at 105 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_unmount</a>,           <em class='comment'>/* unmount */</em>
+<a id='L61' name='L61' />  61         <a href='882.html#L51' title='Defined at 51 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_sync</a>,              <em class='comment'>/* sync */</em>
+<a id='L62' name='L62' />  62         <a href='882.html#L52' title='Defined at 52 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_vget</a>,              <em class='comment'>/* vget */</em>
+<a id='L63' name='L63' />  63         <a href='882.html#L53' title='Defined at 53 in usr/server/fs/arfs/arfs_vfsops.c.'>arfs_statfs</a>,            <em class='comment'>/* statfs */</em>
+<a id='L64' name='L64' />  64         &amp;<a href='../Y/374.html' title='Multiple used in 3 places.'>arfs_vnops</a>,            <em class='comment'>/* vnops */</em>
+<a id='L65' name='L65' />  65 <em class='brace'>}</em>;
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67 <em class='comment'>/*</em>
+<a id='L68' name='L68' />  68 <em class='comment'> * Mount a file system.</em>
+<a id='L69' name='L69' />  69 <em class='comment'> */</em>
+<a id='L70' name='L70' />  70 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L71' name='L71' />  71 <a href='../R/1475.html' title='Multiple refered from 2 places.'>arfs_mount</a>(<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>, <strong class='reserved'>char</strong> *<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <strong class='reserved'>int</strong> <a href='../Y/881.html' title='Multiple used in 302 places.'>flags</a>, <strong class='reserved'>void</strong> *<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>)
+<a id='L72' name='L72' />  72 <em class='brace'>{</em>
+<a id='L73' name='L73' />  73         <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L74' name='L74' />  74         <strong class='reserved'>char</strong> *<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>;
+<a id='L75' name='L75' />  75         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = 0;
+<a id='L76' name='L76' />  76 
+<a id='L77' name='L77' />  77         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("arfs_mount: dev=%s\n", <a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>));
+<a id='L78' name='L78' />  78 
+<a id='L79' name='L79' />  79         <strong class='reserved'>if</strong> ((<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a> = <a href='../D/3029.html' title='Multiple defined in 7 places.'>malloc</a>(<a href='../D/83.html' title='Multiple defined in 2 places.'>BSIZE</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L80' name='L80' />  80                 <strong class='reserved'>return</strong> <a href='256.html#L52' title='Defined at 52 in include/sys/errno.h.'>ENOMEM</a>;
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82         <em class='comment'>/* Read first block */</em>
+<a id='L83' name='L83' />  83         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='../D/83.html' title='Multiple defined in 2 places.'>BSIZE</a>;
+<a id='L84' name='L84' />  84         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='327.html#L362' title='Defined at 362 in sys/kern/device.c.'>device_read</a>((<a href='../D/2544.html' title='Multiple defined in 3 places.'>device_t</a>)<a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>-&gt;<a href='../Y/1233.html' title='Multiple used in 12 places.'>m_dev</a>, <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>, &amp;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, 0);
+<a id='L85' name='L85' />  85         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>) <em class='brace'>{</em>
+<a id='L86' name='L86' />  86                 <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("arfs_mount: read error=%d\n", <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>));
+<a id='L87' name='L87' />  87                 <strong class='reserved'>goto</strong> <a href='../Y/1502.html' title='Multiple used in 92 places.'>out</a>;
+<a id='L88' name='L88' />  88         <em class='brace'>}</em>
+<a id='L89' name='L89' />  89 
+<a id='L90' name='L90' />  90         <em class='comment'>/* Check if the device includes valid archive image. */</em>
+<a id='L91' name='L91' />  91         <strong class='reserved'>if</strong> (<a href='../D/3529.html' title='Multiple defined in 4 places.'>strncmp</a>(<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>, <a href='246.html#L47' title='Defined at 47 in include/sys/ar.h.'>ARMAG</a>, <a href='246.html#L48' title='Defined at 48 in include/sys/ar.h.'>SARMAG</a>)) <em class='brace'>{</em>
+<a id='L92' name='L92' />  92                 <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("arfs_mount: invalid archive image!\n"));
+<a id='L93' name='L93' />  93                 <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='256.html#L62' title='Defined at 62 in include/sys/errno.h.'>EINVAL</a>;
+<a id='L94' name='L94' />  94                 <strong class='reserved'>goto</strong> <a href='../Y/1502.html' title='Multiple used in 92 places.'>out</a>;
+<a id='L95' name='L95' />  95         <em class='brace'>}</em>
+<a id='L96' name='L96' />  96 
+<a id='L97' name='L97' />  97         <em class='comment'>/* Ok, we find the archive */</em>
+<a id='L98' name='L98' />  98         <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>-&gt;<a href='../Y/1234.html' title='Multiple used in 5 places.'>m_flags</a> |= <a href='263.html#L81' title='Defined at 81 in include/sys/mount.h.'>MNT_RDONLY</a>;
+<a id='L99' name='L99' />  99  <a href='../Y/1502.html' title='Multiple used in 92 places.'>out</a>:
+<a id='L100' name='L100' /> 100         <a href='../D/2761.html' title='Multiple defined in 7 places.'>free</a>(<a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a>);
+<a id='L101' name='L101' /> 101         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L102' name='L102' /> 102 <em class='brace'>}</em>
+<a id='L103' name='L103' /> 103 
+<a id='L104' name='L104' /> 104 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L105' name='L105' /> 105 <a href='../R/1488.html' title='Multiple refered from 2 places.'>arfs_unmount</a>(<a href='263.html#L73' title='Defined at 73 in include/sys/mount.h.'>mount_t</a> <a href='../Y/1311.html' title='Multiple used in 118 places.'>mp</a>)
+<a id='L106' name='L106' /> 106 <em class='brace'>{</em>
+<a id='L107' name='L107' /> 107         <strong class='reserved'>return</strong> 0;
+<a id='L108' name='L108' /> 108 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='882.html#L71'>[^]</a><a href='882.html#L105'>[v]</a><a href='882.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

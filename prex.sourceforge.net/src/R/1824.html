@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fdc_out</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L260'>fdc_out</a>           260 bsp/drv/dev/block/fdd.c 	fdc_out(CMD_RECAL);
+<a href='../S/66.html#L261'>fdc_out</a>           261 bsp/drv/dev/block/fdd.c 	fdc_out(0);		/* Drive 0 */
+<a href='../S/66.html#L281'>fdc_out</a>           281 bsp/drv/dev/block/fdd.c 	fdc_out(CMD_SPECIFY);	/* specify command parameter */
+<a href='../S/66.html#L282'>fdc_out</a>           282 bsp/drv/dev/block/fdd.c 	fdc_out(0xd1);		/* Step rate = 3msec, Head unload time = 16msec */
+<a href='../S/66.html#L283'>fdc_out</a>           283 bsp/drv/dev/block/fdd.c 	fdc_out(0x02);		/* Head load time = 2msec, Dma on (0) */
+<a href='../S/66.html#L285'>fdc_out</a>           285 bsp/drv/dev/block/fdd.c 	fdc_out(CMD_SEEK);
+<a href='../S/66.html#L286'>fdc_out</a>           286 bsp/drv/dev/block/fdd.c 	fdc_out(head &lt;&lt; 2);
+<a href='../S/66.html#L287'>fdc_out</a>           287 bsp/drv/dev/block/fdd.c 	fdc_out(track);
+<a href='../S/66.html#L319'>fdc_out</a>           319 bsp/drv/dev/block/fdd.c 	fdc_out(read ? CMD_READ : CMD_WRITE);
+<a href='../S/66.html#L320'>fdc_out</a>           320 bsp/drv/dev/block/fdd.c 	fdc_out(head &lt;&lt; 2);
+<a href='../S/66.html#L321'>fdc_out</a>           321 bsp/drv/dev/block/fdd.c 	fdc_out(track);
+<a href='../S/66.html#L322'>fdc_out</a>           322 bsp/drv/dev/block/fdd.c 	fdc_out(head);
+<a href='../S/66.html#L323'>fdc_out</a>           323 bsp/drv/dev/block/fdd.c 	fdc_out(sect);
+<a href='../S/66.html#L324'>fdc_out</a>           324 bsp/drv/dev/block/fdd.c 	fdc_out(2);		/* sector size = 512 bytes */
+<a href='../S/66.html#L325'>fdc_out</a>           325 bsp/drv/dev/block/fdd.c 	fdc_out(FDG_SECTORS);
+<a href='../S/66.html#L326'>fdc_out</a>           326 bsp/drv/dev/block/fdd.c 	fdc_out(FDG_GAP3RW);
+<a href='../S/66.html#L327'>fdc_out</a>           327 bsp/drv/dev/block/fdd.c 	fdc_out(0xff);
+<a href='../S/66.html#L437'>fdc_out</a>           437 bsp/drv/dev/block/fdd.c 			fdc_out(CMD_SENSE);
+<a href='../S/66.html#L443'>fdc_out</a>           443 bsp/drv/dev/block/fdd.c 		fdc_out(CMD_SENSE);
+<a href='../S/66.html#L453'>fdc_out</a>           453 bsp/drv/dev/block/fdd.c 		fdc_out(CMD_SENSE);
+<a href='../S/66.html#L721'>fdc_out</a>           721 bsp/drv/dev/block/fdd.c 		fdc_out(CMD_SENSE);
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>anywhere</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L108'>anywhere</a>          108 include/sys/prex.h int	vm_allocate(task_t task, void **addr, size_t size, int anywhere);
+<a href='../S/343.html#L85'>anywhere</a>           85 sys/mem/vm.c   vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L104'>anywhere</a>          104 sys/mem/vm.c   	if (anywhere == 0 &amp;&amp; !user_area(*addr)) {
+<a href='../S/343.html#L109'>anywhere</a>          109 sys/mem/vm.c   	error = do_allocate(task-&gt;map, &amp;uaddr, size, anywhere);
+<a href='../S/343.html#L119'>anywhere</a>          119 sys/mem/vm.c   do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/343.html#L133'>anywhere</a>          133 sys/mem/vm.c   	if (anywhere) {
+<a href='../S/344.html#L78'>anywhere</a>           78 sys/mem/vm_nommu.c vm_allocate(task_t task, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L97'>anywhere</a>           97 sys/mem/vm_nommu.c 	if (anywhere == 0 &amp;&amp; !user_area(*addr)) {
+<a href='../S/344.html#L102'>anywhere</a>          102 sys/mem/vm_nommu.c 	error = do_allocate(task-&gt;map, &amp;uaddr, size, anywhere);
+<a href='../S/344.html#L112'>anywhere</a>          112 sys/mem/vm_nommu.c do_allocate(vm_map_t map, void **addr, size_t size, int anywhere)
+<a href='../S/344.html#L125'>anywhere</a>          125 sys/mem/vm_nommu.c 	if (anywhere) {
+</pre>
+</body>
+</html>

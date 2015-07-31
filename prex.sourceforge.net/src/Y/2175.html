@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tm_wday</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/445.html#L68'>tm_wday</a>            68 usr/include/time.h 	int	tm_wday;	/* days since Sunday [0-6] */
+<a href='../S/635.html#L29'>tm_wday</a>            29 usr/lib/libc/time/asctime_r.c 	wn = wday_name[timeptr-&gt;tm_wday];
+<a href='../S/637.html#L70'>tm_wday</a>            70 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_wday = (int) ((1970 + days) % DAYSPERWEEK);
+<a href='../S/642.html#L88'>tm_wday</a>            88 usr/lib/libc/time/strftime.c 				if (t-&gt;tm_wday &lt; 0 || t-&gt;tm_wday &gt; 6)
+<a href='../S/642.html#L90'>tm_wday</a>            90 usr/lib/libc/time/strftime.c 				if (!_add(Afmt[t-&gt;tm_wday]))
+<a href='../S/642.html#L94'>tm_wday</a>            94 usr/lib/libc/time/strftime.c 				if (t-&gt;tm_wday &lt; 0 || t-&gt;tm_wday &gt; 6)
+<a href='../S/642.html#L96'>tm_wday</a>            96 usr/lib/libc/time/strftime.c 				if (!_add(afmt[t-&gt;tm_wday]))
+<a href='../S/642.html#L196'>tm_wday</a>           196 usr/lib/libc/time/strftime.c 				if (!_conv((t-&gt;tm_yday + 7 - t-&gt;tm_wday) / 7,
+<a href='../S/642.html#L202'>tm_wday</a>           202 usr/lib/libc/time/strftime.c 				    (t-&gt;tm_wday ? (t-&gt;tm_wday - 1) : 6))
+<a href='../S/642.html#L207'>tm_wday</a>           207 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_wday, 1, '0'))
+</pre>
+</body>
+</html>

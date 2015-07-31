@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/59.html#L55'>dp</a>                 55 bsp/drv/dev/base/init.c 	struct driver *dp;
+<a href='../S/59.html#L61'>dp</a>                 61 bsp/drv/dev/base/init.c 		dp = driver_table[i];
+<a href='../S/59.html#L62'>dp</a>                 62 bsp/drv/dev/base/init.c 		ASSERT(dp != NULL);
+<a href='../S/59.html#L64'>dp</a>                 64 bsp/drv/dev/base/init.c 		if (dp-&gt;probe != NULL) {
+<a href='../S/59.html#L65'>dp</a>                 65 bsp/drv/dev/base/init.c 			if (dp-&gt;probe(dp) == 0)
+<a href='../S/59.html#L66'>dp</a>                 66 bsp/drv/dev/base/init.c 				dp-&gt;flags |= DS_ALIVE;
+<a href='../S/59.html#L71'>dp</a>                 71 bsp/drv/dev/base/init.c 			dp-&gt;flags |= DS_ALIVE;
+<a href='../S/59.html#L82'>dp</a>                 82 bsp/drv/dev/base/init.c 	struct driver *dp;
+<a href='../S/59.html#L86'>dp</a>                 86 bsp/drv/dev/base/init.c 		dp = driver_table[i];
+<a href='../S/59.html#L89'>dp</a>                 89 bsp/drv/dev/base/init.c 		ASSERT(dp-&gt;init != NULL);
+<a href='../S/59.html#L91'>dp</a>                 91 bsp/drv/dev/base/init.c 		if (dp-&gt;flags &amp; DS_ALIVE) {
+<a href='../S/59.html#L92'>dp</a>                 92 bsp/drv/dev/base/init.c 			DPRINTF(("Initializing %s\n", dp-&gt;name));
+<a href='../S/59.html#L93'>dp</a>                 93 bsp/drv/dev/base/init.c 			if (dp-&gt;init(dp) == 0)
+<a href='../S/59.html#L94'>dp</a>                 94 bsp/drv/dev/base/init.c 				dp-&gt;flags |= DS_ACTIVE;
+<a href='../S/59.html#L105'>dp</a>                105 bsp/drv/dev/base/init.c 	struct driver *dp;
+<a href='../S/59.html#L110'>dp</a>                110 bsp/drv/dev/base/init.c 		dp = driver_table[i];
+<a href='../S/59.html#L111'>dp</a>                111 bsp/drv/dev/base/init.c 		if (dp == NULL)
+<a href='../S/59.html#L116'>dp</a>                116 bsp/drv/dev/base/init.c 		if (dp-&gt;flags &amp; DS_ACTIVE) {
+<a href='../S/59.html#L117'>dp</a>                117 bsp/drv/dev/base/init.c 			DPRINTF(("Unloading %s\n", dp-&gt;name));
+<a href='../S/59.html#L118'>dp</a>                118 bsp/drv/dev/base/init.c 			if (dp-&gt;unload != NULL)
+<a href='../S/59.html#L119'>dp</a>                119 bsp/drv/dev/base/init.c 				dp-&gt;unload(dp);
+<a href='../S/59.html#L128'>dp</a>                128 bsp/drv/dev/base/init.c 	struct driver *dp;
+<a href='../S/59.html#L136'>dp</a>                136 bsp/drv/dev/base/init.c 		dp = driver_table[i];
+<a href='../S/59.html#L138'>dp</a>                138 bsp/drv/dev/base/init.c 		       (long)dp-&gt;probe, (long)dp-&gt;init, (long)dp-&gt;unload,
+<a href='../S/59.html#L139'>dp</a>                139 bsp/drv/dev/base/init.c 		       (long)dp-&gt;devops,(long) dp-&gt;flags, dp-&gt;name);
+<a href='../S/479.html#L538'>dp</a>                538 usr/lib/libc/gen/fts.c 	struct dirent *dp;
+<a href='../S/479.html#L639'>dp</a>                639 usr/lib/libc/gen/fts.c 	for (head = tail = NULL, nitems = 0; (dp = readdir(dirp)) != NULL;) {
+<a href='../S/479.html#L641'>dp</a>                641 usr/lib/libc/gen/fts.c 		if (!ISSET(FTS_SEEDOT) &amp;&amp; ISDOT(dp-&gt;d_name))
+<a href='../S/479.html#L644'>dp</a>                644 usr/lib/libc/gen/fts.c 		if ((p = fts_alloc(sp, dp-&gt;d_name, (int)dp-&gt;d_namlen)) == NULL)
+<a href='../S/479.html#L646'>dp</a>                646 usr/lib/libc/gen/fts.c 		if (dp-&gt;d_namlen &gt; maxlen) {
+<a href='../S/479.html#L647'>dp</a>                647 usr/lib/libc/gen/fts.c 			if (fts_palloc(sp, (size_t)dp-&gt;d_namlen)) {
+<a href='../S/479.html#L667'>dp</a>                667 usr/lib/libc/gen/fts.c 		p-&gt;fts_pathlen = len + dp-&gt;d_namlen + 1;
+<a href='../S/479.html#L672'>dp</a>                672 usr/lib/libc/gen/fts.c 		if (dp-&gt;d_type == DT_WHT)
+<a href='../S/479.html#L686'>dp</a>                686 usr/lib/libc/gen/fts.c 			dp-&gt;d_type != DT_DIR &amp;&amp; dp-&gt;d_type != DT_UNKNOWN)
+</pre>
+</body>
+</html>

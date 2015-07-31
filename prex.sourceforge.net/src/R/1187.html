@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>VSCR_COLS</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L100'>VSCR_COLS</a>         100 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram[row * VSCR_COLS + col] = ch;
+<a href='../S/51.html#L109'>VSCR_COLS</a>         109 bsp/drv/arm/gba/lcd.c 	for (i = 0; i &lt; nrows * VSCR_COLS; i++) {
+<a href='../S/51.html#L110'>VSCR_COLS</a>         110 bsp/drv/arm/gba/lcd.c 		sc-&gt;vram[dstrow * VSCR_COLS + i] =
+<a href='../S/51.html#L111'>VSCR_COLS</a>         111 bsp/drv/arm/gba/lcd.c 			sc-&gt;vram[srcrow * VSCR_COLS + i];
+<a href='../S/51.html#L121'>VSCR_COLS</a>         121 bsp/drv/arm/gba/lcd.c 	start = row * VSCR_COLS;
+<a href='../S/51.html#L122'>VSCR_COLS</a>         122 bsp/drv/arm/gba/lcd.c 	end = start + nrows * VSCR_COLS;
+<a href='../S/134.html#L65'>VSCR_COLS</a>          65 bsp/hal/arm/gba/diag.c 	for (i = 0; i &lt; VSCR_COLS * (SCR_ROWS - 1); i++)
+<a href='../S/134.html#L66'>VSCR_COLS</a>          66 bsp/hal/arm/gba/diag.c 		vram[i] = vram[i + VSCR_COLS];
+<a href='../S/134.html#L67'>VSCR_COLS</a>          67 bsp/hal/arm/gba/diag.c 	for (i = 0; i &lt; VSCR_COLS; i++)
+<a href='../S/134.html#L68'>VSCR_COLS</a>          68 bsp/hal/arm/gba/diag.c 		vram[VSCR_COLS * (SCR_ROWS - 1) + i] = ' ';
+<a href='../S/134.html#L100'>VSCR_COLS</a>         100 bsp/hal/arm/gba/diag.c 	vram[pos_y * VSCR_COLS + pos_x] = c;
+</pre>
+</body>
+</html>

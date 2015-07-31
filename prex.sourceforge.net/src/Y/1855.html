@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>scan</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/76.html#L144'>scan</a>              144 bsp/drv/dev/input/pckbd.c 	u_char scan, ascii, val;
+<a href='../S/76.html#L150'>scan</a>              150 bsp/drv/dev/input/pckbd.c 	scan = bus_read_8(KMC_DATA);
+<a href='../S/76.html#L158'>scan</a>              158 bsp/drv/dev/input/pckbd.c 	press = scan &amp; 0x80 ? 0 : 1;
+<a href='../S/76.html#L159'>scan</a>              159 bsp/drv/dev/input/pckbd.c 	scan = scan &amp; 0x7f;
+<a href='../S/76.html#L160'>scan</a>              160 bsp/drv/dev/input/pckbd.c 	if (scan &gt;= KEY_MAX)
+<a href='../S/76.html#L162'>scan</a>              162 bsp/drv/dev/input/pckbd.c 	ascii = key_map[scan];
+<a href='../S/76.html#L206'>scan</a>              206 bsp/drv/dev/input/pckbd.c 		ascii = shift_map[scan];
+</pre>
+</body>
+</html>

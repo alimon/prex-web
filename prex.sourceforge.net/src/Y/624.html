@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>days</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/85.html#L109'>days</a>              109 bsp/drv/dev/rtc/rtc.c 	u_int i, year, days;
+<a href='../S/85.html#L117'>days</a>              117 bsp/drv/dev/rtc/rtc.c 	days = 0;
+<a href='../S/85.html#L119'>days</a>              119 bsp/drv/dev/rtc/rtc.c 		days += days_in_year(i);
+<a href='../S/85.html#L121'>days</a>              121 bsp/drv/dev/rtc/rtc.c 		days++;
+<a href='../S/85.html#L125'>days</a>              125 bsp/drv/dev/rtc/rtc.c 	  	days += days_in_month(i);
+<a href='../S/85.html#L126'>days</a>              126 bsp/drv/dev/rtc/rtc.c 	days += (dt-&gt;day - 1);
+<a href='../S/85.html#L129'>days</a>              129 bsp/drv/dev/rtc/rtc.c 	secs = (time_t)(((days * 24 + dt-&gt;hour) * 60 + dt-&gt;min)
+<a href='../S/85.html#L143'>days</a>              143 bsp/drv/dev/rtc/rtc.c 	u_int i, days;
+<a href='../S/85.html#L148'>days</a>              148 bsp/drv/dev/rtc/rtc.c 	days = secs / SECDAY;
+<a href='../S/85.html#L152'>days</a>              152 bsp/drv/dev/rtc/rtc.c 	dt-&gt;dow = (days + 4) % 7;
+<a href='../S/85.html#L155'>days</a>              155 bsp/drv/dev/rtc/rtc.c 	for (i = POSIX_BASE_YEAR; days &gt;= days_in_year(i); i++)
+<a href='../S/85.html#L156'>days</a>              156 bsp/drv/dev/rtc/rtc.c 		days -= days_in_year(i);
+<a href='../S/85.html#L162'>days</a>              162 bsp/drv/dev/rtc/rtc.c 	for (i = 1; days &gt;= days_in_month(i); i++)
+<a href='../S/85.html#L163'>days</a>              163 bsp/drv/dev/rtc/rtc.c 		days -= days_in_month(i);
+<a href='../S/85.html#L167'>days</a>              167 bsp/drv/dev/rtc/rtc.c 	dt-&gt;day = days + 1;
+<a href='../S/637.html#L46'>days</a>               46 usr/lib/libc/time/gmtime_r.c 	int days, year, mon;
+<a href='../S/637.html#L50'>days</a>               50 usr/lib/libc/time/gmtime_r.c 	days = t / 60 / 60 / 24;
+<a href='../S/637.html#L53'>days</a>               53 usr/lib/libc/time/gmtime_r.c 	     days &gt;= i;
+<a href='../S/637.html#L55'>days</a>               55 usr/lib/libc/time/gmtime_r.c 		days -= i;
+<a href='../S/637.html#L58'>days</a>               58 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_yday = days;
+<a href='../S/637.html#L64'>days</a>               64 usr/lib/libc/time/gmtime_r.c 		if (days &lt; i)
+<a href='../S/637.html#L66'>days</a>               66 usr/lib/libc/time/gmtime_r.c 		days -= i;
+<a href='../S/637.html#L69'>days</a>               69 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_mday = days + 1;
+<a href='../S/637.html#L70'>days</a>               70 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_wday = (int) ((1970 + days) % DAYSPERWEEK);
+<a href='../S/641.html#L36'>days</a>               36 usr/lib/libc/time/mktime.c 	unsigned int days, year;
+<a href='../S/641.html#L39'>days</a>               39 usr/lib/libc/time/mktime.c 	days = 0;
+<a href='../S/641.html#L41'>days</a>               41 usr/lib/libc/time/mktime.c 		days += DAYSPERNYEAR + (isleap(year) ? 1 : 0);
+<a href='../S/641.html#L43'>days</a>               43 usr/lib/libc/time/mktime.c 	days += tmp-&gt;tm_yday;
+<a href='../S/641.html#L45'>days</a>               45 usr/lib/libc/time/mktime.c 	time = (((days * 24 + tmp-&gt;tm_hour) * 60) + tmp-&gt;tm_min) * 60
+</pre>
+</body>
+</html>

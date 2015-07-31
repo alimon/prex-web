@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bit</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L146'>bit</a>               146 bsp/drv/arm/gba/lcd.c 	int i, row, col, bit, val = 0;
+<a href='../S/51.html#L152'>bit</a>               152 bsp/drv/arm/gba/lcd.c 				bit = (font_bitmap[i][row] &amp; (1 &lt;&lt; col)) ? 2 : 1;
+<a href='../S/51.html#L154'>bit</a>               154 bsp/drv/arm/gba/lcd.c 					val = bit;
+<a href='../S/51.html#L157'>bit</a>               157 bsp/drv/arm/gba/lcd.c 						val + (bit &lt;&lt; 8);
+<a href='../S/54.html#L383'>bit</a>               383 bsp/drv/arm/gba/swkbd.c 	uint8_t bit;
+<a href='../S/54.html#L397'>bit</a>               397 bsp/drv/arm/gba/swkbd.c 		bit = 0x01;
+<a href='../S/54.html#L399'>bit</a>               399 bsp/drv/arm/gba/swkbd.c 			val1 = kbd1_bitmap[i] &amp; bit ? 0xff : 0x03;
+<a href='../S/54.html#L400'>bit</a>               400 bsp/drv/arm/gba/swkbd.c 			val2 = kbd2_bitmap[i] &amp; bit ? 0xff : 0x03;
+<a href='../S/54.html#L401'>bit</a>               401 bsp/drv/arm/gba/swkbd.c 			bit = bit &lt;&lt; 1;
+<a href='../S/54.html#L402'>bit</a>               402 bsp/drv/arm/gba/swkbd.c 			val1 |= kbd1_bitmap[i] &amp; bit ? 0xff00 : 0x0300;
+<a href='../S/54.html#L403'>bit</a>               403 bsp/drv/arm/gba/swkbd.c 			val2 |= kbd2_bitmap[i] &amp; bit ? 0xff00 : 0x0300;
+<a href='../S/54.html#L404'>bit</a>               404 bsp/drv/arm/gba/swkbd.c 			bit = bit &lt;&lt; 1;
+<a href='../S/54.html#L438'>bit</a>               438 bsp/drv/arm/gba/swkbd.c 	uint8_t bit;
+<a href='../S/54.html#L452'>bit</a>               452 bsp/drv/arm/gba/swkbd.c 		bit = 0x01;
+<a href='../S/54.html#L454'>bit</a>               454 bsp/drv/arm/gba/swkbd.c 			val = cursor_bitmap[i] &amp; bit ? 0xff : 0;
+<a href='../S/54.html#L455'>bit</a>               455 bsp/drv/arm/gba/swkbd.c 			bit = bit &lt;&lt; 1;
+<a href='../S/54.html#L456'>bit</a>               456 bsp/drv/arm/gba/swkbd.c 			val |= cursor_bitmap[i] &amp; bit ? 0xff00 : 0;
+<a href='../S/54.html#L457'>bit</a>               457 bsp/drv/arm/gba/swkbd.c 			bit = bit &lt;&lt; 1;
+<a href='../S/134.html#L118'>bit</a>               118 bsp/hal/arm/gba/diag.c 	int i, row, col, bit, val = 0;
+<a href='../S/134.html#L124'>bit</a>               124 bsp/hal/arm/gba/diag.c 				bit = (font_bitmap[i][row] &amp;
+<a href='../S/134.html#L127'>bit</a>               127 bsp/hal/arm/gba/diag.c 					val = bit;
+<a href='../S/134.html#L131'>bit</a>               131 bsp/hal/arm/gba/diag.c 						val + (bit &lt;&lt; 8);
+<a href='../S/169.html#L132'>bit</a>               132 bsp/hal/ppc/prep/interrupt.c 	u_int bit;
+<a href='../S/169.html#L137'>bit</a>               137 bsp/hal/ppc/prep/interrupt.c 	bit = (u_int)(1 &lt;&lt; (vector &amp; 7));
+<a href='../S/169.html#L141'>bit</a>               141 bsp/hal/ppc/prep/interrupt.c 		val |= bit;
+<a href='../S/169.html#L143'>bit</a>               143 bsp/hal/ppc/prep/interrupt.c 		val &amp;= ~bit;
+<a href='../S/188.html#L130'>bit</a>               130 bsp/hal/x86/pc/interrupt.c 	u_int bit;
+<a href='../S/188.html#L135'>bit</a>               135 bsp/hal/x86/pc/interrupt.c 	bit = (u_int)(1 &lt;&lt; (vector &amp; 7));
+<a href='../S/188.html#L139'>bit</a>               139 bsp/hal/x86/pc/interrupt.c 		val |= bit;
+<a href='../S/188.html#L141'>bit</a>               141 bsp/hal/x86/pc/interrupt.c 		val &amp;= ~bit;
+<a href='../S/584.html#L39'>bit</a>                39 usr/lib/libc/string/ffs.c 	int bit;
+<a href='../S/584.html#L43'>bit</a>                43 usr/lib/libc/string/ffs.c 	for (bit = 1; !(mask &amp; 1); bit++)
+<a href='../S/584.html#L45'>bit</a>                45 usr/lib/libc/string/ffs.c 	return(bit);
+</pre>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>len</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/14.html#L64'>len</a>                64 bsp/boot/common/load.c 	long len;
+<a href='../S/14.html#L90'>len</a>                90 bsp/boot/common/load.c 	len = atol((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_size);
+<a href='../S/14.html#L91'>len</a>                91 bsp/boot/common/load.c 	len += len % 2;	/* even alignment */
+<a href='../S/14.html#L92'>len</a>                92 bsp/boot/common/load.c 	if (len == 0)
+<a href='../S/14.html#L94'>len</a>                94 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L105'>len</a>               105 bsp/boot/common/load.c 		len = atol((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_size);
+<a href='../S/14.html#L106'>len</a>               106 bsp/boot/common/load.c 		len += len % 2;	/* even alignment */
+<a href='../S/14.html#L107'>len</a>               107 bsp/boot/common/load.c 		if (len == 0)
+<a href='../S/14.html#L109'>len</a>               109 bsp/boot/common/load.c 		hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/60.html#L443'>len</a>               443 bsp/drv/dev/base/kd.c 	static u_long len = 16;
+<a href='../S/60.html#L457'>len</a>               457 bsp/drv/dev/base/kd.c 		len = 16;
+<a href='../S/60.html#L472'>len</a>               472 bsp/drv/dev/base/kd.c 		len = strtoul(p, NULL, 16);
+<a href='../S/60.html#L473'>len</a>               473 bsp/drv/dev/base/kd.c 		if (len == ULONG_MAX)
+<a href='../S/60.html#L486'>len</a>               486 bsp/drv/dev/base/kd.c 	if ((kp = kmem_map((void *)addr, (size_t)len)) == NULL)
+<a href='../S/60.html#L489'>len</a>               489 bsp/drv/dev/base/kd.c 	for (cnt = 0; cnt &lt; len;) {
+<a href='../S/70.html#L452'>len</a>               452 bsp/drv/dev/cpufreq/est.c 	size_t len;
+<a href='../S/70.html#L481'>len</a>               481 bsp/drv/dev/cpufreq/est.c 		len = strnlen(cpu-&gt;brand_prefix, 48);
+<a href='../S/70.html#L482'>len</a>               482 bsp/drv/dev/cpufreq/est.c 		if (strncmp(cpu-&gt;brand_prefix, brand_str, len) != 0)
+<a href='../S/70.html#L484'>len</a>               484 bsp/drv/dev/cpufreq/est.c 		tag = brand_str + len;
+<a href='../S/70.html#L487'>len</a>               487 bsp/drv/dev/cpufreq/est.c 			len = strnlen(fql-&gt;brand_tag, 48);
+<a href='../S/70.html#L488'>len</a>               488 bsp/drv/dev/cpufreq/est.c 			if (!strncmp(fql-&gt;brand_tag, tag, len) &amp;&amp;
+<a href='../S/70.html#L489'>len</a>               489 bsp/drv/dev/cpufreq/est.c 			    !strncmp(cpu-&gt;brand_suffix, tag + len, 48)) {
+<a href='../S/155.html#L74'>len</a>                74 bsp/hal/ppc/arch/cpu.c copyin(const void *uaddr, void *kaddr, size_t len)
+<a href='../S/155.html#L77'>len</a>                77 bsp/hal/ppc/arch/cpu.c 	if (user_area(uaddr) &amp;&amp; user_area(uaddr + len)) {
+<a href='../S/155.html#L78'>len</a>                78 bsp/hal/ppc/arch/cpu.c 		memcpy(kaddr, uaddr, len);
+<a href='../S/155.html#L85'>len</a>                85 bsp/hal/ppc/arch/cpu.c copyout(const void *kaddr, void *uaddr, size_t len)
+<a href='../S/155.html#L88'>len</a>                88 bsp/hal/ppc/arch/cpu.c 	if (user_area(uaddr) &amp;&amp; user_area(uaddr + len)) {
+<a href='../S/155.html#L89'>len</a>                89 bsp/hal/ppc/arch/cpu.c 		memcpy(uaddr, kaddr, len);
+<a href='../S/155.html#L96'>len</a>                96 bsp/hal/ppc/arch/cpu.c copyinstr(const void *uaddr, void *kaddr, size_t len)
+<a href='../S/155.html#L99'>len</a>                99 bsp/hal/ppc/arch/cpu.c 	if (user_area(uaddr) &amp;&amp; user_area(uaddr + len)) {
+<a href='../S/155.html#L100'>len</a>               100 bsp/hal/ppc/arch/cpu.c 		strlcpy(kaddr, uaddr, len);
+<a href='../S/259.html#L59'>len</a>                59 include/sys/ioctl.h #define	_IOC(inout,group,num,len) \
+<a href='../S/259.html#L60'>len</a>                60 include/sys/ioctl.h 	(u_long)(inout | ((len &amp; IOCPARM_MASK) &lt;&lt; 16) | ((group) &lt;&lt; 8) | (num))
+<a href='../S/324.html#L191'>len</a>               191 sys/ipc/msg.c  	size_t len;
+<a href='../S/324.html#L262'>len</a>               262 sys/ipc/msg.c  	len = MIN(size, t-&gt;msgsize);
+<a href='../S/324.html#L263'>len</a>               263 sys/ipc/msg.c  	if (len &gt; 0) {
+<a href='../S/324.html#L264'>len</a>               264 sys/ipc/msg.c  		if (copyout(t-&gt;msgaddr, msg, len)) {
+<a href='../S/324.html#L291'>len</a>               291 sys/ipc/msg.c  	size_t len;
+<a href='../S/324.html#L315'>len</a>               315 sys/ipc/msg.c  	len = MIN(size, t-&gt;msgsize);
+<a href='../S/324.html#L316'>len</a>               316 sys/ipc/msg.c  	if (len &gt; 0) {
+<a href='../S/324.html#L317'>len</a>               317 sys/ipc/msg.c  		if (copyin(msg, t-&gt;msgaddr, len)) {
+<a href='../S/326.html#L123'>len</a>               123 sys/kern/debug.c 	u_long cnt, len, i;
+<a href='../S/326.html#L129'>len</a>               129 sys/kern/debug.c 	len = log_len;
+<a href='../S/326.html#L130'>len</a>               130 sys/kern/debug.c 	if (len &gt;= LOGBUFSZ) {
+<a href='../S/326.html#L134'>len</a>               134 sys/kern/debug.c 		while (len &gt; 0 &amp;&amp; log_buf[LOGINDEX(i)] != '\n') {
+<a href='../S/326.html#L136'>len</a>               136 sys/kern/debug.c 			len--;
+<a href='../S/326.html#L140'>len</a>               140 sys/kern/debug.c 		if (cnt &lt; len)
+<a href='../S/327.html#L133'>len</a>               133 sys/kern/device.c 	size_t len;
+<a href='../S/327.html#L139'>len</a>               139 sys/kern/device.c 	len = strnlen(name, MAXDEVNAME);
+<a href='../S/327.html#L140'>len</a>               140 sys/kern/device.c 	if (len == 0 || len &gt;= MAXDEVNAME)
+<a href='../S/327.html#L160'>len</a>               160 sys/kern/device.c 	strlcpy(dev-&gt;name, name, len + 1);
+<a href='../S/390.html#L183'>len</a>               183 usr/bin/ls/ls.c 	int len;
+<a href='../S/390.html#L235'>len</a>               235 usr/bin/ls/ls.c 		len = strlen(name);
+<a href='../S/390.html#L236'>len</a>               236 usr/bin/ls/ls.c 		cols += len;
+<a href='../S/390.html#L241'>len</a>               241 usr/bin/ls/ls.c 			if (len &gt; 8) {
+<a href='../S/390.html#L245'>len</a>               245 usr/bin/ls/ls.c 				for (; len &lt;= 9; len++) {
+<a href='../S/396.html#L87'>len</a>                87 usr/bin/more/more.c 	int c, len, lines = 0;
+<a href='../S/396.html#L91'>len</a>                91 usr/bin/more/more.c 			len = printf("\n--More-- ");
+<a href='../S/396.html#L97'>len</a>                97 usr/bin/more/more.c 			while (--len &gt;= 0)
+<a href='../S/396.html#L100'>len</a>               100 usr/bin/more/more.c 			len = 0;
+<a href='../S/402.html#L54'>len</a>                54 usr/bin/printenv/printenv.c 	size_t len;
+<a href='../S/402.html#L71'>len</a>                71 usr/bin/printenv/printenv.c 	len = strlen(*argv);
+<a href='../S/402.html#L73'>len</a>                73 usr/bin/printenv/printenv.c 		if (!memcmp(*ep, *argv, len)) {
+<a href='../S/402.html#L74'>len</a>                74 usr/bin/printenv/printenv.c 			cp = *ep + len;
+<a href='../S/413.html#L409'>len</a>               409 usr/bin/sh/sh.c readline(int fd, char *line, int len)
+<a href='../S/413.html#L412'>len</a>               412 usr/bin/sh/sh.c 	int nleft = len;
+<a href='../S/469.html#L26'>len</a>                26 usr/lib/libc/gen/basename.c         size_t len;
+<a href='../S/469.html#L53'>len</a>                53 usr/lib/libc/gen/basename.c         len = endp - startp + 1;
+<a href='../S/469.html#L54'>len</a>                54 usr/lib/libc/gen/basename.c         if (len &gt;= sizeof(bname)) {
+<a href='../S/469.html#L58'>len</a>                58 usr/lib/libc/gen/basename.c         memcpy(bname, startp, len);
+<a href='../S/469.html#L59'>len</a>                59 usr/lib/libc/gen/basename.c         bname[len] = '\0';
+<a href='../S/470.html#L37'>len</a>                37 usr/lib/libc/gen/confstr.c confstr(name, buf, len)
+<a href='../S/470.html#L40'>len</a>                40 usr/lib/libc/gen/confstr.c 	size_t len;
+<a href='../S/470.html#L44'>len</a>                44 usr/lib/libc/gen/confstr.c 		if (len != 0 &amp;&amp; buf != NULL) {
+<a href='../S/471.html#L26'>len</a>                26 usr/lib/libc/gen/dirname.c         size_t len;
+<a href='../S/471.html#L57'>len</a>                57 usr/lib/libc/gen/dirname.c         len = endp - path + 1;
+<a href='../S/471.html#L58'>len</a>                58 usr/lib/libc/gen/dirname.c         if (len &gt;= sizeof(dname)) {
+<a href='../S/471.html#L62'>len</a>                62 usr/lib/libc/gen/dirname.c         memcpy(dname, path, len);
+<a href='../S/471.html#L63'>len</a>                63 usr/lib/libc/gen/dirname.c         dname[len] = '\0';
+<a href='../S/479.html#L76'>len</a>                76 usr/lib/libc/gen/fts.c 	int len;
+<a href='../S/479.html#L110'>len</a>               110 usr/lib/libc/gen/fts.c 		if ((len = strlen(*argv)) == 0) {
+<a href='../S/479.html#L115'>len</a>               115 usr/lib/libc/gen/fts.c 		p = fts_alloc(sp, *argv, len);
+<a href='../S/479.html#L177'>len</a>               177 usr/lib/libc/gen/fts.c 	int len;
+<a href='../S/479.html#L187'>len</a>               187 usr/lib/libc/gen/fts.c 	len = p-&gt;fts_pathlen = p-&gt;fts_namelen;
+<a href='../S/479.html#L188'>len</a>               188 usr/lib/libc/gen/fts.c 	memmove(sp-&gt;fts_path, p-&gt;fts_name, len + 1);
+<a href='../S/479.html#L190'>len</a>               190 usr/lib/libc/gen/fts.c 		len = strlen(++cp);
+<a href='../S/479.html#L191'>len</a>               191 usr/lib/libc/gen/fts.c 		memmove(p-&gt;fts_name, cp, len + 1);
+<a href='../S/479.html#L192'>len</a>               192 usr/lib/libc/gen/fts.c 		p-&gt;fts_namelen = len;
+<a href='../S/479.html#L544'>len</a>               544 usr/lib/libc/gen/fts.c 	int cderrno, descend, len, level, maxlen, nlinks, saved_errno;
+<a href='../S/479.html#L629'>len</a>               629 usr/lib/libc/gen/fts.c 	len = NAPPEND(cur);
+<a href='../S/479.html#L631'>len</a>               631 usr/lib/libc/gen/fts.c 		cp = sp-&gt;fts_path + len;
+<a href='../S/479.html#L667'>len</a>               667 usr/lib/libc/gen/fts.c 		p-&gt;fts_pathlen = len + dp-&gt;d_namlen + 1;
+<a href='../S/479.html#L880'>len</a>               880 usr/lib/libc/gen/fts.c 	size_t len;
+<a href='../S/479.html#L890'>len</a>               890 usr/lib/libc/gen/fts.c 	len = sizeof(FTSENT) + namelen;
+<a href='../S/479.html#L892'>len</a>               892 usr/lib/libc/gen/fts.c 		len += sizeof(struct stat) + ALIGNBYTES;
+<a href='../S/479.html#L893'>len</a>               893 usr/lib/libc/gen/fts.c 	if ((p = malloc(len)) == NULL)
+<a href='../S/479.html#L965'>len</a>               965 usr/lib/libc/gen/fts.c 	size_t len, max;
+<a href='../S/479.html#L968'>len</a>               968 usr/lib/libc/gen/fts.c 		if ((len = strlen(*argv)) &gt; max)
+<a href='../S/479.html#L969'>len</a>               969 usr/lib/libc/gen/fts.c 			max = len;
+<a href='../S/519.html#L49'>len</a>                49 usr/lib/libc/stdio/fvwrite.c 	size_t len;
+<a href='../S/519.html#L56'>len</a>                56 usr/lib/libc/stdio/fvwrite.c 	if ((len = uio-&gt;uio_resid) == 0)
+<a href='../S/519.html#L67'>len</a>                67 usr/lib/libc/stdio/fvwrite.c 	len = iov-&gt;iov_len;
+<a href='../S/519.html#L70'>len</a>                70 usr/lib/libc/stdio/fvwrite.c 	while (len == 0) { \
+<a href='../S/519.html#L73'>len</a>                73 usr/lib/libc/stdio/fvwrite.c 		len = iov-&gt;iov_len; \
+<a href='../S/519.html#L82'>len</a>                82 usr/lib/libc/stdio/fvwrite.c 			w = __swrite(fp, p, MIN(len, BUFSIZ));
+<a href='../S/519.html#L86'>len</a>                86 usr/lib/libc/stdio/fvwrite.c 			len -= w;
+<a href='../S/519.html#L104'>len</a>               104 usr/lib/libc/stdio/fvwrite.c 				if (len &lt; w)
+<a href='../S/519.html#L105'>len</a>               105 usr/lib/libc/stdio/fvwrite.c 					w = len;
+<a href='../S/519.html#L109'>len</a>               109 usr/lib/libc/stdio/fvwrite.c 				w = len;	/* but pretend copied all */
+<a href='../S/519.html#L110'>len</a>               110 usr/lib/libc/stdio/fvwrite.c 			} else if (fp-&gt;_p &gt; fp-&gt;_bf._base &amp;&amp; len &gt; w) {
+<a href='../S/519.html#L117'>len</a>               117 usr/lib/libc/stdio/fvwrite.c 			} else if (len &gt;= (w = fp-&gt;_bf._size)) {
+<a href='../S/519.html#L124'>len</a>               124 usr/lib/libc/stdio/fvwrite.c 				w = len;
+<a href='../S/519.html#L130'>len</a>               130 usr/lib/libc/stdio/fvwrite.c 			len -= w;
+<a href='../S/519.html#L145'>len</a>               145 usr/lib/libc/stdio/fvwrite.c 				nl = memchr((void *)p, '\n', len);
+<a href='../S/519.html#L146'>len</a>               146 usr/lib/libc/stdio/fvwrite.c 				nldist = nl ? nl + 1 - p : len + 1;
+<a href='../S/519.html#L149'>len</a>               149 usr/lib/libc/stdio/fvwrite.c 			s = MIN(len, nldist);
+<a href='../S/519.html#L174'>len</a>               174 usr/lib/libc/stdio/fvwrite.c 			len -= w;
+<a href='../S/522.html#L47'>len</a>                47 usr/lib/libc/stdio/fwrite.c 	size_t len = count * size;
+<a href='../S/522.html#L50'>len</a>                50 usr/lib/libc/stdio/fwrite.c 	while (n &lt; len) {
+<a href='../S/552.html#L223'>len</a>               223 usr/lib/libc/stdio/vfprintf.c #define	PRINT(ptr, len) { \
+<a href='../S/552.html#L225'>len</a>               225 usr/lib/libc/stdio/vfprintf.c 	iovp-&gt;iov_len = (len); \
+<a href='../S/552.html#L226'>len</a>               226 usr/lib/libc/stdio/vfprintf.c 	uio.uio_resid += (len); \
+<a href='../S/570.html#L65'>len</a>                65 usr/lib/libc/stdlib/getenv.c 	size_t len;
+<a href='../S/570.html#L73'>len</a>                73 usr/lib/libc/stdlib/getenv.c 	len = np - name;
+<a href='../S/570.html#L75'>len</a>                75 usr/lib/libc/stdlib/getenv.c 		if (strncmp(c, name, len) == 0 &amp;&amp; c[len] == '=') {
+<a href='../S/570.html#L77'>len</a>                77 usr/lib/libc/stdlib/getenv.c 			return (c + len + 1);
+<a href='../S/601.html#L40'>len</a>                40 usr/lib/libc/string/strdup.c 	size_t len;
+<a href='../S/601.html#L43'>len</a>                43 usr/lib/libc/string/strdup.c 	len = strlen(str) + 1;
+<a href='../S/601.html#L44'>len</a>                44 usr/lib/libc/string/strdup.c 	if (!(copy = malloc((u_int)len)))
+<a href='../S/601.html#L46'>len</a>                46 usr/lib/libc/string/strdup.c 	bcopy(str, copy, len);
+<a href='../S/614.html#L44'>len</a>                44 usr/lib/libc/string/strstr.c 	size_t len;
+<a href='../S/614.html#L47'>len</a>                47 usr/lib/libc/string/strstr.c 		len = strlen(find);
+<a href='../S/614.html#L53'>len</a>                53 usr/lib/libc/string/strstr.c 		} while (strncmp(s, find, len) != 0);
+<a href='../S/618.html#L36'>len</a>                36 usr/lib/libc/string/swab.c swab(const void *from, void *to, size_t len)
+<a href='../S/618.html#L42'>len</a>                42 usr/lib/libc/string/swab.c 	len = (len / 2) + 1;
+<a href='../S/618.html#L46'>len</a>                46 usr/lib/libc/string/swab.c 	while (len-- != 0) {
+<a href='../S/631.html#L37'>len</a>                37 usr/lib/libc/termios/tcsendbreak.c tcsendbreak(fd, len)
+<a href='../S/631.html#L38'>len</a>                38 usr/lib/libc/termios/tcsendbreak.c 	int fd, len;
+<a href='../S/652.html#L61'>len</a>                61 usr/lib/libsa/_stdio.c __console_write(char *buf, size_t len)
+<a href='../S/652.html#L67'>len</a>                67 usr/lib/libsa/_stdio.c 	device_write(__console_dev, buf, &amp;len, 0);
+<a href='../S/652.html#L74'>len</a>                74 usr/lib/libsa/_stdio.c 	size_t len = 1;
+<a href='../S/652.html#L79'>len</a>                79 usr/lib/libsa/_stdio.c 	device_read(__console_dev, &amp;ch, &amp;len, 0);
+<a href='../S/646.html#L35'>len</a>                35 usr/lib/libsa/printf.c extern void __console_write(char *buf, size_t len);
+<a href='../S/646.html#L44'>len</a>                44 usr/lib/libsa/printf.c 	int len = LINE_MAX;
+<a href='../S/646.html#L48'>len</a>                48 usr/lib/libsa/printf.c 	len = vsprintf(buf, fmt, args);
+<a href='../S/646.html#L49'>len</a>                49 usr/lib/libsa/printf.c 	__console_write((char *)buf, (size_t)len);
+<a href='../S/646.html#L51'>len</a>                51 usr/lib/libsa/printf.c 	return len;
+<a href='../S/647.html#L33'>len</a>                33 usr/lib/libsa/putchar.c extern void __console_write(char *buf, size_t len);
+<a href='../S/648.html#L34'>len</a>                34 usr/lib/libsa/puts.c extern void __console_write(char *buf, size_t len);
+<a href='../S/684.html#L38'>len</a>                38 usr/lib/posix/file/read.c read(int fd, void *buf, size_t len)
+<a href='../S/684.html#L45'>len</a>                45 usr/lib/posix/file/read.c 	m.size = len;
+<a href='../S/695.html#L37'>len</a>                37 usr/lib/posix/file/write.c write(int fd, void *buf, size_t len)
+<a href='../S/695.html#L44'>len</a>                44 usr/lib/posix/file/write.c 	m.size = len;
+<a href='../S/877.html#L236'>len</a>               236 usr/server/exec/exec_execve.c 	size_t len = 0;
+<a href='../S/877.html#L239'>len</a>               239 usr/server/exec/exec_execve.c 	len = strlen(path);
+<a href='../S/877.html#L240'>len</a>               240 usr/server/exec/exec_execve.c 	if (len &gt;= PATH_MAX)
+<a href='../S/877.html#L242'>len</a>               242 usr/server/exec/exec_execve.c 	if (strlen(cwd) + len &gt;= PATH_MAX)
+<a href='../S/877.html#L246'>len</a>               246 usr/server/exec/exec_execve.c 	end = src + len;
+<a href='../S/877.html#L249'>len</a>               249 usr/server/exec/exec_execve.c 		len++;
+<a href='../S/877.html#L252'>len</a>               252 usr/server/exec/exec_execve.c 		len = strlen(cwd);
+<a href='../S/877.html#L253'>len</a>               253 usr/server/exec/exec_execve.c 		tgt += len;
+<a href='../S/877.html#L254'>len</a>               254 usr/server/exec/exec_execve.c 		if (len &gt; 1 &amp;&amp; path[0] != '.') {
+<a href='../S/877.html#L257'>len</a>               257 usr/server/exec/exec_execve.c 			len++;
+<a href='../S/877.html#L266'>len</a>               266 usr/server/exec/exec_execve.c 			if (len &gt;= 2) {
+<a href='../S/877.html#L267'>len</a>               267 usr/server/exec/exec_execve.c 				len -= 2;
+<a href='../S/877.html#L271'>len</a>               271 usr/server/exec/exec_execve.c 					len--;
+<a href='../S/877.html#L273'>len</a>               273 usr/server/exec/exec_execve.c 				if (len == 0) {
+<a href='../S/877.html#L275'>len</a>               275 usr/server/exec/exec_execve.c 					len++;
+<a href='../S/877.html#L283'>len</a>               283 usr/server/exec/exec_execve.c 				len++;
+<a href='../S/877.html#L288'>len</a>               288 usr/server/exec/exec_execve.c 		if (len &gt; 0 &amp;&amp; *(tgt - 1) != '/') {
+<a href='../S/877.html#L290'>len</a>               290 usr/server/exec/exec_execve.c 			len++;
+<a href='../S/877.html#L322'>len</a>               322 usr/server/exec/exec_execve.c 	int len;
+<a href='../S/877.html#L359'>len</a>               359 usr/server/exec/exec_execve.c 		len = strlen(xarg2);
+<a href='../S/877.html#L360'>len</a>               360 usr/server/exec/exec_execve.c 		sp -= (len + 1);
+<a href='../S/877.html#L361'>len</a>               361 usr/server/exec/exec_execve.c 		strlcpy((char *)sp, xarg2, len + 1);
+<a href='../S/877.html#L366'>len</a>               366 usr/server/exec/exec_execve.c 		len = strlen(xarg1);
+<a href='../S/877.html#L367'>len</a>               367 usr/server/exec/exec_execve.c 		sp -= (len + 1);
+<a href='../S/877.html#L368'>len</a>               368 usr/server/exec/exec_execve.c 		strlcpy((char *)sp, xarg1, len + 1);
+<a href='../S/886.html#L159'>len</a>               159 usr/server/fs/devfs/devfs_vnops.c 	size_t len;
+<a href='../S/886.html#L161'>len</a>               161 usr/server/fs/devfs/devfs_vnops.c 	len = size;
+<a href='../S/886.html#L162'>len</a>               162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L164'>len</a>               164 usr/server/fs/devfs/devfs_vnops.c 		*result = len;
+<a href='../S/886.html#L172'>len</a>               172 usr/server/fs/devfs/devfs_vnops.c 	size_t len;
+<a href='../S/886.html#L174'>len</a>               174 usr/server/fs/devfs/devfs_vnops.c 	len = size;
+<a href='../S/886.html#L175'>len</a>               175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L177'>len</a>               177 usr/server/fs/devfs/devfs_vnops.c 		*result = len;
+<a href='../S/886.html#L178'>len</a>               178 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_write: error=%d len=%d\n", error, len));
+<a href='../S/891.html#L115'>len</a>               115 usr/server/fs/fatfs/fatfs_subr.c 	int len = 0;
+<a href='../S/891.html#L132'>len</a>               132 usr/server/fs/fatfs/fatfs_subr.c 		if (++len &gt; 8)
+<a href='../S/891.html#L141'>len</a>               141 usr/server/fs/fatfs/fatfs_subr.c 	len = 0;
+<a href='../S/891.html#L147'>len</a>               147 usr/server/fs/fatfs/fatfs_subr.c 		if (++len &gt; 3)
+<a href='../S/896.html#L355'>len</a>               355 usr/server/fs/fifofs/fifo_vnops.c 	size_t len;
+<a href='../S/896.html#L371'>len</a>               371 usr/server/fs/fifofs/fifo_vnops.c 	len = strlen(name) + 1;
+<a href='../S/896.html#L372'>len</a>               372 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_name = malloc(len);
+<a href='../S/896.html#L379'>len</a>               379 usr/server/fs/fifofs/fifo_vnops.c 	strlcpy(np-&gt;fn_name, name, len);
+<a href='../S/902.html#L183'>len</a>               183 usr/server/fs/ramfs/ramfs_vnops.c 	size_t len;
+<a href='../S/902.html#L186'>len</a>               186 usr/server/fs/ramfs/ramfs_vnops.c 	len = strlen(name);
+<a href='../S/902.html#L187'>len</a>               187 usr/server/fs/ramfs/ramfs_vnops.c 	if (len &lt;= np-&gt;rn_namelen) {
+<a href='../S/902.html#L192'>len</a>               192 usr/server/fs/ramfs/ramfs_vnops.c 		tmp = malloc(len + 1);
+<a href='../S/902.html#L195'>len</a>               195 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy(tmp, name, len + 1);
+<a href='../S/902.html#L199'>len</a>               199 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_namelen = len;
+<a href='../S/902.html#L207'>len</a>               207 usr/server/fs/ramfs/ramfs_vnops.c 	size_t len;
+<a href='../S/902.html#L215'>len</a>               215 usr/server/fs/ramfs/ramfs_vnops.c 	len = strlen(name);
+<a href='../S/902.html#L219'>len</a>               219 usr/server/fs/ramfs/ramfs_vnops.c 		if (np-&gt;rn_namelen == len &amp;&amp;
+<a href='../S/902.html#L220'>len</a>               220 usr/server/fs/ramfs/ramfs_vnops.c 		    memcmp(name, np-&gt;rn_name, len) == 0) {
+<a href='../S/909.html#L287'>len</a>               287 usr/server/fs/vfs/vfs_mount.c 	size_t len = 0;
+<a href='../S/909.html#L292'>len</a>               292 usr/server/fs/vfs/vfs_mount.c 		len++;
+<a href='../S/909.html#L297'>len</a>               297 usr/server/fs/vfs/vfs_mount.c 	if (len == 1 &amp;&amp; *(path - 1) == '/')
+<a href='../S/909.html#L301'>len</a>               301 usr/server/fs/vfs/vfs_mount.c 		return len;
+<a href='../S/909.html#L316'>len</a>               316 usr/server/fs/vfs/vfs_mount.c 	size_t len, max_len = 0;
+<a href='../S/909.html#L327'>len</a>               327 usr/server/fs/vfs/vfs_mount.c 		len = count_match(path, tmp-&gt;m_path);
+<a href='../S/909.html#L328'>len</a>               328 usr/server/fs/vfs/vfs_mount.c 		if (len &gt; max_len) {
+<a href='../S/909.html#L329'>len</a>               329 usr/server/fs/vfs/vfs_mount.c 			max_len = len;
+<a href='../S/910.html#L114'>len</a>               114 usr/server/fs/vfs/vfs_security.c 	size_t	len;			/* length of directory name */
+<a href='../S/910.html#L174'>len</a>               174 usr/server/fs/vfs/vfs_security.c 		if (!strncmp(path, map-&gt;path, map-&gt;len)) {
+<a href='../S/910.html#L222'>len</a>               222 usr/server/fs/vfs/vfs_security.c 		if (!strncmp(path, map-&gt;path, map-&gt;len)) {
+<a href='../S/911.html#L572'>len</a>               572 usr/server/fs/vfs/vfs_syscalls.c 	size_t len;
+<a href='../S/911.html#L587'>len</a>               587 usr/server/fs/vfs/vfs_syscalls.c 	len = strlen(dest);
+<a href='../S/911.html#L588'>len</a>               588 usr/server/fs/vfs/vfs_syscalls.c 	if (!strncmp(src, dest, len)) {
+<a href='../S/912.html#L227'>len</a>               227 usr/server/fs/vfs/vfs_task.c 	size_t len = 0;
+<a href='../S/912.html#L231'>len</a>               231 usr/server/fs/vfs/vfs_task.c 	len = strlen(path);
+<a href='../S/912.html#L232'>len</a>               232 usr/server/fs/vfs/vfs_task.c 	if (len &gt;= PATH_MAX)
+<a href='../S/912.html#L234'>len</a>               234 usr/server/fs/vfs/vfs_task.c 	if (strlen(cwd) + len &gt;= PATH_MAX)
+<a href='../S/912.html#L238'>len</a>               238 usr/server/fs/vfs/vfs_task.c 	end = src + len;
+<a href='../S/912.html#L241'>len</a>               241 usr/server/fs/vfs/vfs_task.c 		len++;
+<a href='../S/912.html#L244'>len</a>               244 usr/server/fs/vfs/vfs_task.c 		len = strlen(cwd);
+<a href='../S/912.html#L245'>len</a>               245 usr/server/fs/vfs/vfs_task.c 		tgt += len;
+<a href='../S/912.html#L246'>len</a>               246 usr/server/fs/vfs/vfs_task.c 		if (len &gt; 1 &amp;&amp; path[0] != '.') {
+<a href='../S/912.html#L249'>len</a>               249 usr/server/fs/vfs/vfs_task.c 			len++;
+<a href='../S/912.html#L258'>len</a>               258 usr/server/fs/vfs/vfs_task.c 			if (len &gt;= 2) {
+<a href='../S/912.html#L259'>len</a>               259 usr/server/fs/vfs/vfs_task.c 				len -= 2;
+<a href='../S/912.html#L263'>len</a>               263 usr/server/fs/vfs/vfs_task.c 					len--;
+<a href='../S/912.html#L265'>len</a>               265 usr/server/fs/vfs/vfs_task.c 				if (len == 0) {
+<a href='../S/912.html#L267'>len</a>               267 usr/server/fs/vfs/vfs_task.c 					len++;
+<a href='../S/912.html#L275'>len</a>               275 usr/server/fs/vfs/vfs_task.c 				len++;
+<a href='../S/912.html#L280'>len</a>               280 usr/server/fs/vfs/vfs_task.c 		if (len &gt; 0 &amp;&amp; *(tgt - 1) != '/') {
+<a href='../S/912.html#L282'>len</a>               282 usr/server/fs/vfs/vfs_task.c 			len++;
+<a href='../S/913.html#L165'>len</a>               165 usr/server/fs/vfs/vfs_vnode.c 	size_t len;
+<a href='../S/913.html#L173'>len</a>               173 usr/server/fs/vfs/vfs_vnode.c 	len = strlen(path) + 1;
+<a href='../S/913.html#L174'>len</a>               174 usr/server/fs/vfs/vfs_vnode.c 	if (!(vp-&gt;v_path = malloc(len))) {
+<a href='../S/913.html#L181'>len</a>               181 usr/server/fs/vfs/vfs_vnode.c 	strlcpy(vp-&gt;v_path, path, len);
+<a href='../S/932.html#L43'>len</a>                43 usr/test/console/console.c 	size_t len;
+<a href='../S/932.html#L53'>len</a>                53 usr/test/console/console.c 	len = 5;
+<a href='../S/932.html#L54'>len</a>                54 usr/test/console/console.c 	device_write(console_dev, buf, &amp;len, 0);
+<a href='../S/932.html#L59'>len</a>                59 usr/test/console/console.c 	len = 1;
+<a href='../S/932.html#L61'>len</a>                61 usr/test/console/console.c 		device_write(console_dev, buf, &amp;len, 0);
+<a href='../S/932.html#L68'>len</a>                68 usr/test/console/console.c 	len = 100;
+<a href='../S/932.html#L69'>len</a>                69 usr/test/console/console.c 	error = device_write(console_dev, 0, &amp;len, 0);
+<a href='../S/952.html#L47'>len</a>                47 usr/test/fifo/fifo.c 	int pid, fd1, fd2, len;
+<a href='../S/952.html#L72'>len</a>                72 usr/test/fifo/fifo.c 			len = read(fd1, buf1, sizeof(buf1) - 1);
+<a href='../S/952.html#L73'>len</a>                73 usr/test/fifo/fifo.c 			if (len == 0)
+<a href='../S/952.html#L75'>len</a>                75 usr/test/fifo/fifo.c 			buf1[len] = '\0';
+<a href='../S/952.html#L76'>len</a>                76 usr/test/fifo/fifo.c 			printf("child: length=%d data=%s\n", len, buf1);
+<a href='../S/964.html#L42'>len</a>                42 usr/test/kbd/kbd.c 	size_t len;
+<a href='../S/964.html#L51'>len</a>                51 usr/test/kbd/kbd.c 		len = 1;
+<a href='../S/964.html#L52'>len</a>                52 usr/test/kbd/kbd.c 		device_read(tty_dev, buf, &amp;len, 0);
+<a href='../S/967.html#L91'>len</a>                91 usr/test/kmon/kmon.c 	int c, len = 0;
+<a href='../S/967.html#L96'>len</a>                96 usr/test/kmon/kmon.c 		if (c == '\n' || len &gt; LINE_MAX) {
+<a href='../S/967.html#L102'>len</a>               102 usr/test/kmon/kmon.c 		len++;
+<a href='../S/1002.html#L43'>len</a>                43 usr/test/time/time.c 	size_t len;
+<a href='../S/1002.html#L50'>len</a>                50 usr/test/time/time.c 	len = sizeof(sec);
+<a href='../S/1002.html#L51'>len</a>                51 usr/test/time/time.c 	error = device_read(rtc_dev, &amp;sec, &amp;len, 0);
+<a href='../S/1008.html#L55'>len</a>                55 usr/test/zero/zero.c 	size_t len;
+<a href='../S/1008.html#L69'>len</a>                69 usr/test/zero/zero.c 	len = 50;
+<a href='../S/1008.html#L70'>len</a>                70 usr/test/zero/zero.c 	error = device_read(zero_dev, buf, &amp;len, 0);
+</pre>
+</body>
+</html>

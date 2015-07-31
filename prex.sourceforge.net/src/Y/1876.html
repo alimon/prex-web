@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>seg</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L96'>seg</a>                96 bsp/hal/x86/arch/cpu.c 	struct seg_desc *seg = &amp;gdt[vec];
+<a href='../S/174.html#L102'>seg</a>               102 bsp/hal/x86/arch/cpu.c 	seg-&gt;limit_lo = limit;
+<a href='../S/174.html#L103'>seg</a>               103 bsp/hal/x86/arch/cpu.c 	seg-&gt;base_lo = (u_int)base &amp; 0xffff;
+<a href='../S/174.html#L104'>seg</a>               104 bsp/hal/x86/arch/cpu.c 	seg-&gt;base_mid = ((u_int)base &gt;&gt; 16) &amp; 0xff;
+<a href='../S/174.html#L105'>seg</a>               105 bsp/hal/x86/arch/cpu.c 	seg-&gt;limit_hi = limit &gt;&gt; 16;
+<a href='../S/174.html#L106'>seg</a>               106 bsp/hal/x86/arch/cpu.c 	seg-&gt;base_hi = (u_int)base &gt;&gt; 24;
+<a href='../S/174.html#L107'>seg</a>               107 bsp/hal/x86/arch/cpu.c 	seg-&gt;type = (u_int)type | ST_PRESENT;
+<a href='../S/174.html#L108'>seg</a>               108 bsp/hal/x86/arch/cpu.c 	seg-&gt;size = size;
+<a href='../S/323.html#L41'>seg</a>                41 sys/include/vm.h struct seg {
+<a href='../S/323.html#L42'>seg</a>                42 sys/include/vm.h 	struct seg	*prev;		/* segment list sorted by address */
+<a href='../S/323.html#L43'>seg</a>                43 sys/include/vm.h 	struct seg	*next;
+<a href='../S/323.html#L44'>seg</a>                44 sys/include/vm.h 	struct seg	*sh_prev;	/* link for all shared segments */
+<a href='../S/323.html#L45'>seg</a>                45 sys/include/vm.h 	struct seg	*sh_next;
+<a href='../S/323.html#L70'>seg</a>                70 sys/include/vm.h 	struct seg	head;		/* list head of segements */
+<a href='../S/343.html#L57'>seg</a>                57 sys/mem/vm.c   static void	   seg_init(struct seg *);
+<a href='../S/343.html#L58'>seg</a>                58 sys/mem/vm.c   static struct seg *seg_create(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L59'>seg</a>                59 sys/mem/vm.c   static void	   seg_delete(struct seg *, struct seg *);
+<a href='../S/343.html#L60'>seg</a>                60 sys/mem/vm.c   static struct seg *seg_lookup(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L61'>seg</a>                61 sys/mem/vm.c   static struct seg *seg_alloc(struct seg *, size_t);
+<a href='../S/343.html#L62'>seg</a>                62 sys/mem/vm.c   static void	   seg_free(struct seg *, struct seg *);
+<a href='../S/343.html#L63'>seg</a>                63 sys/mem/vm.c   static struct seg *seg_reserve(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L121'>seg</a>               121 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L135'>seg</a>               135 sys/mem/vm.c   		if ((seg = seg_alloc(&amp;map-&gt;head, size)) == NULL)
+<a href='../S/343.html#L142'>seg</a>               142 sys/mem/vm.c   		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/343.html#L145'>seg</a>               145 sys/mem/vm.c   	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/343.html#L153'>seg</a>               153 sys/mem/vm.c   	if (mmu_map(map-&gt;pgd, pa, seg-&gt;addr, size, PG_WRITE))
+<a href='../S/343.html#L156'>seg</a>               156 sys/mem/vm.c   	seg-&gt;phys = pa;
+<a href='../S/343.html#L159'>seg</a>               159 sys/mem/vm.c   	memset(ptokv(pa), 0, seg-&gt;size);
+<a href='../S/343.html#L160'>seg</a>               160 sys/mem/vm.c   	*addr = (void *)seg-&gt;addr;
+<a href='../S/343.html#L167'>seg</a>               167 sys/mem/vm.c   	seg_free(&amp;map-&gt;head, seg);
+<a href='../S/343.html#L209'>seg</a>               209 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L217'>seg</a>               217 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/343.html#L218'>seg</a>               218 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L224'>seg</a>               224 sys/mem/vm.c   	mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,	seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L229'>seg</a>               229 sys/mem/vm.c   	if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp; !(seg-&gt;flags &amp; SEG_MAPPED))
+<a href='../S/343.html#L230'>seg</a>               230 sys/mem/vm.c   		page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/343.html#L232'>seg</a>               232 sys/mem/vm.c   	map-&gt;total -= seg-&gt;size;
+<a href='../S/343.html#L233'>seg</a>               233 sys/mem/vm.c   	seg_free(&amp;map-&gt;head, seg);
+<a href='../S/343.html#L278'>seg</a>               278 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L288'>seg</a>               288 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/343.html#L289'>seg</a>               289 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L295'>seg</a>               295 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_MAPPED)
+<a href='../S/343.html#L302'>seg</a>               302 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_WRITE) {
+<a href='../S/343.html#L317'>seg</a>               317 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L319'>seg</a>               319 sys/mem/vm.c   		old_pa = seg-&gt;phys;
+<a href='../S/343.html#L322'>seg</a>               322 sys/mem/vm.c   		if ((new_pa = page_alloc(seg-&gt;size)) == 0)
+<a href='../S/343.html#L326'>seg</a>               326 sys/mem/vm.c   		memcpy(ptokv(new_pa), ptokv(old_pa), seg-&gt;size);
+<a href='../S/343.html#L329'>seg</a>               329 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, new_pa, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L331'>seg</a>               331 sys/mem/vm.c   			page_free(new_pa, seg-&gt;size);
+<a href='../S/343.html#L334'>seg</a>               334 sys/mem/vm.c   		seg-&gt;phys = new_pa;
+<a href='../S/343.html#L337'>seg</a>               337 sys/mem/vm.c   		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/343.html#L338'>seg</a>               338 sys/mem/vm.c   		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/343.html#L339'>seg</a>               339 sys/mem/vm.c   		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/343.html#L340'>seg</a>               340 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L341'>seg</a>               341 sys/mem/vm.c   		seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/343.html#L343'>seg</a>               343 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L347'>seg</a>               347 sys/mem/vm.c   	seg-&gt;flags = new_flags;
+<a href='../S/343.html#L388'>seg</a>               388 sys/mem/vm.c   	struct seg *seg, *cur, *tgt;
+<a href='../S/343.html#L414'>seg</a>               414 sys/mem/vm.c   	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/343.html#L415'>seg</a>               415 sys/mem/vm.c   	if (seg == NULL || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L417'>seg</a>               417 sys/mem/vm.c   	tgt = seg;
+<a href='../S/343.html#L423'>seg</a>               423 sys/mem/vm.c   	if ((seg = seg_alloc(&amp;curmap-&gt;head, size)) == NULL)
+<a href='../S/343.html#L425'>seg</a>               425 sys/mem/vm.c   	cur = seg;
+<a href='../S/343.html#L437'>seg</a>               437 sys/mem/vm.c   		seg_free(&amp;curmap-&gt;head, seg);
+<a href='../S/343.html#L485'>seg</a>               485 sys/mem/vm.c   	struct seg *seg, *tmp;
+<a href='../S/343.html#L491'>seg</a>               491 sys/mem/vm.c   	seg = &amp;map-&gt;head;
+<a href='../S/343.html#L493'>seg</a>               493 sys/mem/vm.c   		if (seg-&gt;flags != SEG_FREE) {
+<a href='../S/343.html#L495'>seg</a>               495 sys/mem/vm.c   			mmu_map(map-&gt;pgd, seg-&gt;phys, seg-&gt;addr,
+<a href='../S/343.html#L496'>seg</a>               496 sys/mem/vm.c   				seg-&gt;size, PG_UNMAP);
+<a href='../S/343.html#L499'>seg</a>               499 sys/mem/vm.c   			if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp;
+<a href='../S/343.html#L500'>seg</a>               500 sys/mem/vm.c   			    !(seg-&gt;flags &amp; SEG_MAPPED)) {
+<a href='../S/343.html#L501'>seg</a>               501 sys/mem/vm.c   				page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/343.html#L504'>seg</a>               504 sys/mem/vm.c   		tmp = seg;
+<a href='../S/343.html#L505'>seg</a>               505 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L507'>seg</a>               507 sys/mem/vm.c   	} while (seg != &amp;map-&gt;head);
+<a href='../S/343.html#L548'>seg</a>               548 sys/mem/vm.c   	struct seg *tmp, *src, *dest;
+<a href='../S/343.html#L746'>seg</a>               746 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L754'>seg</a>               754 sys/mem/vm.c   	seg = &amp;map-&gt;head;
+<a href='../S/343.html#L759'>seg</a>               759 sys/mem/vm.c   			info-&gt;virt = seg-&gt;addr;
+<a href='../S/343.html#L760'>seg</a>               760 sys/mem/vm.c   			info-&gt;size = seg-&gt;size;
+<a href='../S/343.html#L761'>seg</a>               761 sys/mem/vm.c   			info-&gt;flags = seg-&gt;flags;
+<a href='../S/343.html#L762'>seg</a>               762 sys/mem/vm.c   			info-&gt;phys = seg-&gt;phys;
+<a href='../S/343.html#L766'>seg</a>               766 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L767'>seg</a>               767 sys/mem/vm.c   	} while (seg != &amp;map-&gt;head);
+<a href='../S/343.html#L794'>seg</a>               794 sys/mem/vm.c   seg_init(struct seg *seg)
+<a href='../S/343.html#L797'>seg</a>               797 sys/mem/vm.c   	seg-&gt;next = seg-&gt;prev = seg;
+<a href='../S/343.html#L798'>seg</a>               798 sys/mem/vm.c   	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/343.html#L799'>seg</a>               799 sys/mem/vm.c   	seg-&gt;addr = PAGE_SIZE;
+<a href='../S/343.html#L800'>seg</a>               800 sys/mem/vm.c   	seg-&gt;phys = 0;
+<a href='../S/343.html#L801'>seg</a>               801 sys/mem/vm.c   	seg-&gt;size = USERLIMIT - PAGE_SIZE;
+<a href='../S/343.html#L802'>seg</a>               802 sys/mem/vm.c   	seg-&gt;flags = SEG_FREE;
+<a href='../S/343.html#L809'>seg</a>               809 sys/mem/vm.c   static struct seg *
+<a href='../S/343.html#L810'>seg</a>               810 sys/mem/vm.c   seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/343.html#L812'>seg</a>               812 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L814'>seg</a>               814 sys/mem/vm.c   	if ((seg = kmem_alloc(sizeof(*seg))) == NULL)
+<a href='../S/343.html#L817'>seg</a>               817 sys/mem/vm.c   	seg-&gt;addr = addr;
+<a href='../S/343.html#L818'>seg</a>               818 sys/mem/vm.c   	seg-&gt;size = size;
+<a href='../S/343.html#L819'>seg</a>               819 sys/mem/vm.c   	seg-&gt;phys = 0;
+<a href='../S/343.html#L820'>seg</a>               820 sys/mem/vm.c   	seg-&gt;flags = SEG_FREE;
+<a href='../S/343.html#L821'>seg</a>               821 sys/mem/vm.c   	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/343.html#L823'>seg</a>               823 sys/mem/vm.c   	seg-&gt;next = prev-&gt;next;
+<a href='../S/343.html#L824'>seg</a>               824 sys/mem/vm.c   	seg-&gt;prev = prev;
+<a href='../S/343.html#L825'>seg</a>               825 sys/mem/vm.c   	prev-&gt;next-&gt;prev = seg;
+<a href='../S/343.html#L826'>seg</a>               826 sys/mem/vm.c   	prev-&gt;next = seg;
+<a href='../S/343.html#L828'>seg</a>               828 sys/mem/vm.c   	return seg;
+<a href='../S/343.html#L835'>seg</a>               835 sys/mem/vm.c   seg_delete(struct seg *head, struct seg *seg)
+<a href='../S/343.html#L841'>seg</a>               841 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L842'>seg</a>               842 sys/mem/vm.c   		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/343.html#L843'>seg</a>               843 sys/mem/vm.c   		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/343.html#L844'>seg</a>               844 sys/mem/vm.c   		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/343.html#L845'>seg</a>               845 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L847'>seg</a>               847 sys/mem/vm.c   	if (head != seg)
+<a href='../S/343.html#L848'>seg</a>               848 sys/mem/vm.c   		kmem_free(seg);
+<a href='../S/343.html#L854'>seg</a>               854 sys/mem/vm.c   static struct seg *
+<a href='../S/343.html#L855'>seg</a>               855 sys/mem/vm.c   seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L857'>seg</a>               857 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L859'>seg</a>               859 sys/mem/vm.c   	seg = head;
+<a href='../S/343.html#L861'>seg</a>               861 sys/mem/vm.c   		if (seg-&gt;addr &lt;= addr &amp;&amp;
+<a href='../S/343.html#L862'>seg</a>               862 sys/mem/vm.c   		    seg-&gt;addr + seg-&gt;size &gt;= addr + size) {
+<a href='../S/343.html#L863'>seg</a>               863 sys/mem/vm.c   			return seg;
+<a href='../S/343.html#L865'>seg</a>               865 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L866'>seg</a>               866 sys/mem/vm.c   	} while (seg != head);
+<a href='../S/343.html#L873'>seg</a>               873 sys/mem/vm.c   static struct seg *
+<a href='../S/343.html#L874'>seg</a>               874 sys/mem/vm.c   seg_alloc(struct seg *head, size_t size)
+<a href='../S/343.html#L876'>seg</a>               876 sys/mem/vm.c   	struct seg *seg;
+<a href='../S/343.html#L878'>seg</a>               878 sys/mem/vm.c   	seg = head;
+<a href='../S/343.html#L880'>seg</a>               880 sys/mem/vm.c   		if ((seg-&gt;flags &amp; SEG_FREE) &amp;&amp; seg-&gt;size &gt;= size) {
+<a href='../S/343.html#L881'>seg</a>               881 sys/mem/vm.c   			if (seg-&gt;size != size) {
+<a href='../S/343.html#L885'>seg</a>               885 sys/mem/vm.c   				if (seg_create(seg,
+<a href='../S/343.html#L886'>seg</a>               886 sys/mem/vm.c   					       seg-&gt;addr + size,
+<a href='../S/343.html#L887'>seg</a>               887 sys/mem/vm.c   					       seg-&gt;size - size) == NULL)
+<a href='../S/343.html#L890'>seg</a>               890 sys/mem/vm.c   			seg-&gt;size = size;
+<a href='../S/343.html#L891'>seg</a>               891 sys/mem/vm.c   			return seg;
+<a href='../S/343.html#L893'>seg</a>               893 sys/mem/vm.c   		seg = seg-&gt;next;
+<a href='../S/343.html#L894'>seg</a>               894 sys/mem/vm.c   	} while (seg != head);
+<a href='../S/343.html#L902'>seg</a>               902 sys/mem/vm.c   seg_free(struct seg *head, struct seg *seg)
+<a href='../S/343.html#L904'>seg</a>               904 sys/mem/vm.c   	struct seg *prev, *next;
+<a href='../S/343.html#L906'>seg</a>               906 sys/mem/vm.c   	ASSERT(seg-&gt;flags != SEG_FREE);
+<a href='../S/343.html#L908'>seg</a>               908 sys/mem/vm.c   	seg-&gt;flags = SEG_FREE;
+<a href='../S/343.html#L913'>seg</a>               913 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L914'>seg</a>               914 sys/mem/vm.c   		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/343.html#L915'>seg</a>               915 sys/mem/vm.c   		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/343.html#L916'>seg</a>               916 sys/mem/vm.c   		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/343.html#L917'>seg</a>               917 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L922'>seg</a>               922 sys/mem/vm.c   	next = seg-&gt;next;
+<a href='../S/343.html#L924'>seg</a>               924 sys/mem/vm.c   		seg-&gt;next = next-&gt;next;
+<a href='../S/343.html#L925'>seg</a>               925 sys/mem/vm.c   		next-&gt;next-&gt;prev = seg;
+<a href='../S/343.html#L926'>seg</a>               926 sys/mem/vm.c   		seg-&gt;size += next-&gt;size;
+<a href='../S/343.html#L932'>seg</a>               932 sys/mem/vm.c   	prev = seg-&gt;prev;
+<a href='../S/343.html#L933'>seg</a>               933 sys/mem/vm.c   	if (seg != head &amp;&amp; (prev-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L934'>seg</a>               934 sys/mem/vm.c   		prev-&gt;next = seg-&gt;next;
+<a href='../S/343.html#L935'>seg</a>               935 sys/mem/vm.c   		seg-&gt;next-&gt;prev = prev;
+<a href='../S/343.html#L936'>seg</a>               936 sys/mem/vm.c   		prev-&gt;size += seg-&gt;size;
+<a href='../S/343.html#L937'>seg</a>               937 sys/mem/vm.c   		kmem_free(seg);
+<a href='../S/343.html#L944'>seg</a>               944 sys/mem/vm.c   static struct seg *
+<a href='../S/343.html#L945'>seg</a>               945 sys/mem/vm.c   seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L947'>seg</a>               947 sys/mem/vm.c   	struct seg *seg, *prev, *next;
+<a href='../S/343.html#L953'>seg</a>               953 sys/mem/vm.c   	seg = seg_lookup(head, addr, size);
+<a href='../S/343.html#L954'>seg</a>               954 sys/mem/vm.c   	if (seg == NULL || !(seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L961'>seg</a>               961 sys/mem/vm.c   	if (seg-&gt;addr != addr) {
+<a href='../S/343.html#L962'>seg</a>               962 sys/mem/vm.c   		prev = seg;
+<a href='../S/343.html#L963'>seg</a>               963 sys/mem/vm.c   		diff = (size_t)(addr - seg-&gt;addr);
+<a href='../S/343.html#L964'>seg</a>               964 sys/mem/vm.c   		seg = seg_create(prev, addr, prev-&gt;size - diff);
+<a href='../S/343.html#L965'>seg</a>               965 sys/mem/vm.c   		if (seg == NULL)
+<a href='../S/343.html#L972'>seg</a>               972 sys/mem/vm.c   	if (seg-&gt;size != size) {
+<a href='../S/343.html#L973'>seg</a>               973 sys/mem/vm.c   		next = seg_create(seg, seg-&gt;addr + size, seg-&gt;size - size);
+<a href='../S/343.html#L977'>seg</a>               977 sys/mem/vm.c   				seg_free(head, seg);
+<a href='../S/343.html#L981'>seg</a>               981 sys/mem/vm.c   		seg-&gt;size = size;
+<a href='../S/343.html#L983'>seg</a>               983 sys/mem/vm.c   	seg-&gt;flags = 0;
+<a href='../S/343.html#L984'>seg</a>               984 sys/mem/vm.c   	return seg;
+<a href='../S/344.html#L51'>seg</a>                51 sys/mem/vm_nommu.c static void	   seg_init(struct seg *);
+<a href='../S/344.html#L52'>seg</a>                52 sys/mem/vm_nommu.c static struct seg *seg_create(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L53'>seg</a>                53 sys/mem/vm_nommu.c static void	   seg_delete(struct seg *, struct seg *);
+<a href='../S/344.html#L54'>seg</a>                54 sys/mem/vm_nommu.c static struct seg *seg_lookup(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L55'>seg</a>                55 sys/mem/vm_nommu.c static struct seg *seg_alloc(struct seg *, size_t);
+<a href='../S/344.html#L56'>seg</a>                56 sys/mem/vm_nommu.c static void	   seg_free(struct seg *, struct seg *);
+<a href='../S/344.html#L57'>seg</a>                57 sys/mem/vm_nommu.c static struct seg *seg_reserve(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L114'>seg</a>               114 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L127'>seg</a>               127 sys/mem/vm_nommu.c 		if ((seg = seg_alloc(&amp;map-&gt;head, size)) == NULL)
+<a href='../S/344.html#L129'>seg</a>               129 sys/mem/vm_nommu.c 		start = seg-&gt;addr;
+<a href='../S/344.html#L135'>seg</a>               135 sys/mem/vm_nommu.c 		if ((seg = seg_reserve(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L138'>seg</a>               138 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/344.html#L142'>seg</a>               142 sys/mem/vm_nommu.c 	*addr = (void *)seg-&gt;addr;
+<a href='../S/344.html#L185'>seg</a>               185 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L193'>seg</a>               193 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/344.html#L194'>seg</a>               194 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/344.html#L200'>seg</a>               200 sys/mem/vm_nommu.c 	if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp; !(seg-&gt;flags &amp; SEG_MAPPED))
+<a href='../S/344.html#L201'>seg</a>               201 sys/mem/vm_nommu.c 		page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/344.html#L203'>seg</a>               203 sys/mem/vm_nommu.c 	map-&gt;total -= seg-&gt;size;
+<a href='../S/344.html#L204'>seg</a>               204 sys/mem/vm_nommu.c 	seg_free(&amp;map-&gt;head, seg);
+<a href='../S/344.html#L249'>seg</a>               249 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L258'>seg</a>               258 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, va, 1);
+<a href='../S/344.html#L259'>seg</a>               259 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/344.html#L265'>seg</a>               265 sys/mem/vm_nommu.c 	if ((seg-&gt;flags &amp; SEG_MAPPED) || (seg-&gt;flags &amp; SEG_SHARED))
+<a href='../S/344.html#L271'>seg</a>               271 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_WRITE) {
+<a href='../S/344.html#L280'>seg</a>               280 sys/mem/vm_nommu.c 	seg-&gt;flags = new_flags;
+<a href='../S/344.html#L322'>seg</a>               322 sys/mem/vm_nommu.c 	struct seg *seg, *tgt;
+<a href='../S/344.html#L344'>seg</a>               344 sys/mem/vm_nommu.c 	seg = seg_lookup(&amp;map-&gt;head, start, size);
+<a href='../S/344.html#L345'>seg</a>               345 sys/mem/vm_nommu.c 	if (seg == NULL || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/344.html#L347'>seg</a>               347 sys/mem/vm_nommu.c 	tgt = seg;
+<a href='../S/344.html#L353'>seg</a>               353 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;curmap-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L355'>seg</a>               355 sys/mem/vm_nommu.c 	seg-&gt;flags = tgt-&gt;flags | SEG_MAPPED;
+<a href='../S/344.html#L391'>seg</a>               391 sys/mem/vm_nommu.c 	struct seg *seg, *tmp;
+<a href='../S/344.html#L397'>seg</a>               397 sys/mem/vm_nommu.c 	seg = &amp;map-&gt;head;
+<a href='../S/344.html#L399'>seg</a>               399 sys/mem/vm_nommu.c 		if (seg-&gt;flags != SEG_FREE) {
+<a href='../S/344.html#L401'>seg</a>               401 sys/mem/vm_nommu.c 			if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp;
+<a href='../S/344.html#L402'>seg</a>               402 sys/mem/vm_nommu.c 			    !(seg-&gt;flags &amp; SEG_MAPPED)) {
+<a href='../S/344.html#L403'>seg</a>               403 sys/mem/vm_nommu.c 				page_free(seg-&gt;phys, seg-&gt;size);
+<a href='../S/344.html#L406'>seg</a>               406 sys/mem/vm_nommu.c 		tmp = seg;
+<a href='../S/344.html#L407'>seg</a>               407 sys/mem/vm_nommu.c 		seg = seg-&gt;next;
+<a href='../S/344.html#L409'>seg</a>               409 sys/mem/vm_nommu.c 	} while (seg != &amp;map-&gt;head);
+<a href='../S/344.html#L456'>seg</a>               456 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L474'>seg</a>               474 sys/mem/vm_nommu.c 	if ((seg = seg_create(&amp;map-&gt;head, start, size)) == NULL)
+<a href='../S/344.html#L477'>seg</a>               477 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/344.html#L506'>seg</a>               506 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L514'>seg</a>               514 sys/mem/vm_nommu.c 	seg = &amp;map-&gt;head;
+<a href='../S/344.html#L519'>seg</a>               519 sys/mem/vm_nommu.c 			info-&gt;virt = seg-&gt;addr;
+<a href='../S/344.html#L520'>seg</a>               520 sys/mem/vm_nommu.c 			info-&gt;size = seg-&gt;size;
+<a href='../S/344.html#L521'>seg</a>               521 sys/mem/vm_nommu.c 			info-&gt;flags = seg-&gt;flags;
+<a href='../S/344.html#L522'>seg</a>               522 sys/mem/vm_nommu.c 			info-&gt;phys = seg-&gt;phys;
+<a href='../S/344.html#L526'>seg</a>               526 sys/mem/vm_nommu.c 		seg = seg-&gt;next;
+<a href='../S/344.html#L527'>seg</a>               527 sys/mem/vm_nommu.c 	} while (seg != &amp;map-&gt;head);
+<a href='../S/344.html#L544'>seg</a>               544 sys/mem/vm_nommu.c seg_init(struct seg *seg)
+<a href='../S/344.html#L547'>seg</a>               547 sys/mem/vm_nommu.c 	seg-&gt;next = seg-&gt;prev = seg;
+<a href='../S/344.html#L548'>seg</a>               548 sys/mem/vm_nommu.c 	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/344.html#L549'>seg</a>               549 sys/mem/vm_nommu.c 	seg-&gt;addr = 0;
+<a href='../S/344.html#L550'>seg</a>               550 sys/mem/vm_nommu.c 	seg-&gt;phys = 0;
+<a href='../S/344.html#L551'>seg</a>               551 sys/mem/vm_nommu.c 	seg-&gt;size = 0;
+<a href='../S/344.html#L552'>seg</a>               552 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_FREE;
+<a href='../S/344.html#L559'>seg</a>               559 sys/mem/vm_nommu.c static struct seg *
+<a href='../S/344.html#L560'>seg</a>               560 sys/mem/vm_nommu.c seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/344.html#L562'>seg</a>               562 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L564'>seg</a>               564 sys/mem/vm_nommu.c 	if ((seg = kmem_alloc(sizeof(*seg))) == NULL)
+<a href='../S/344.html#L567'>seg</a>               567 sys/mem/vm_nommu.c 	seg-&gt;addr = addr;
+<a href='../S/344.html#L568'>seg</a>               568 sys/mem/vm_nommu.c 	seg-&gt;size = size;
+<a href='../S/344.html#L569'>seg</a>               569 sys/mem/vm_nommu.c 	seg-&gt;phys = (paddr_t)addr;
+<a href='../S/344.html#L570'>seg</a>               570 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_FREE;
+<a href='../S/344.html#L571'>seg</a>               571 sys/mem/vm_nommu.c 	seg-&gt;sh_next = seg-&gt;sh_prev = seg;
+<a href='../S/344.html#L573'>seg</a>               573 sys/mem/vm_nommu.c 	seg-&gt;next = prev-&gt;next;
+<a href='../S/344.html#L574'>seg</a>               574 sys/mem/vm_nommu.c 	seg-&gt;prev = prev;
+<a href='../S/344.html#L575'>seg</a>               575 sys/mem/vm_nommu.c 	prev-&gt;next-&gt;prev = seg;
+<a href='../S/344.html#L576'>seg</a>               576 sys/mem/vm_nommu.c 	prev-&gt;next = seg;
+<a href='../S/344.html#L578'>seg</a>               578 sys/mem/vm_nommu.c 	return seg;
+<a href='../S/344.html#L585'>seg</a>               585 sys/mem/vm_nommu.c seg_delete(struct seg *head, struct seg *seg)
+<a href='../S/344.html#L591'>seg</a>               591 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/344.html#L592'>seg</a>               592 sys/mem/vm_nommu.c 		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/344.html#L593'>seg</a>               593 sys/mem/vm_nommu.c 		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/344.html#L594'>seg</a>               594 sys/mem/vm_nommu.c 		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/344.html#L595'>seg</a>               595 sys/mem/vm_nommu.c 			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/344.html#L597'>seg</a>               597 sys/mem/vm_nommu.c 	if (head != seg)
+<a href='../S/344.html#L598'>seg</a>               598 sys/mem/vm_nommu.c 		kmem_free(seg);
+<a href='../S/344.html#L604'>seg</a>               604 sys/mem/vm_nommu.c static struct seg *
+<a href='../S/344.html#L605'>seg</a>               605 sys/mem/vm_nommu.c seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L607'>seg</a>               607 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L609'>seg</a>               609 sys/mem/vm_nommu.c 	seg = head;
+<a href='../S/344.html#L611'>seg</a>               611 sys/mem/vm_nommu.c 		if (seg-&gt;addr &lt;= addr &amp;&amp;
+<a href='../S/344.html#L612'>seg</a>               612 sys/mem/vm_nommu.c 		    seg-&gt;addr + seg-&gt;size &gt;= addr + size) {
+<a href='../S/344.html#L613'>seg</a>               613 sys/mem/vm_nommu.c 			return seg;
+<a href='../S/344.html#L615'>seg</a>               615 sys/mem/vm_nommu.c 		seg = seg-&gt;next;
+<a href='../S/344.html#L616'>seg</a>               616 sys/mem/vm_nommu.c 	} while (seg != head);
+<a href='../S/344.html#L623'>seg</a>               623 sys/mem/vm_nommu.c static struct seg *
+<a href='../S/344.html#L624'>seg</a>               624 sys/mem/vm_nommu.c seg_alloc(struct seg *head, size_t size)
+<a href='../S/344.html#L626'>seg</a>               626 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L632'>seg</a>               632 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L636'>seg</a>               636 sys/mem/vm_nommu.c 	return seg;
+<a href='../S/344.html#L643'>seg</a>               643 sys/mem/vm_nommu.c seg_free(struct seg *head, struct seg *seg)
+<a href='../S/344.html#L645'>seg</a>               645 sys/mem/vm_nommu.c 	ASSERT(seg-&gt;flags != SEG_FREE);
+<a href='../S/344.html#L650'>seg</a>               650 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/344.html#L651'>seg</a>               651 sys/mem/vm_nommu.c 		seg-&gt;sh_prev-&gt;sh_next = seg-&gt;sh_next;
+<a href='../S/344.html#L652'>seg</a>               652 sys/mem/vm_nommu.c 		seg-&gt;sh_next-&gt;sh_prev = seg-&gt;sh_prev;
+<a href='../S/344.html#L653'>seg</a>               653 sys/mem/vm_nommu.c 		if (seg-&gt;sh_prev == seg-&gt;sh_next)
+<a href='../S/344.html#L654'>seg</a>               654 sys/mem/vm_nommu.c 			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/344.html#L656'>seg</a>               656 sys/mem/vm_nommu.c 	seg-&gt;prev-&gt;next = seg-&gt;next;
+<a href='../S/344.html#L657'>seg</a>               657 sys/mem/vm_nommu.c 	seg-&gt;next-&gt;prev = seg-&gt;prev;
+<a href='../S/344.html#L659'>seg</a>               659 sys/mem/vm_nommu.c 	kmem_free(seg);
+<a href='../S/344.html#L665'>seg</a>               665 sys/mem/vm_nommu.c static struct seg *
+<a href='../S/344.html#L666'>seg</a>               666 sys/mem/vm_nommu.c seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L668'>seg</a>               668 sys/mem/vm_nommu.c 	struct seg *seg;
+<a href='../S/344.html#L676'>seg</a>               676 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L680'>seg</a>               680 sys/mem/vm_nommu.c 	return seg;
+</pre>
+</body>
+</html>

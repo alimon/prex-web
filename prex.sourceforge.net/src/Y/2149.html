@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>threads</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/318.html#L54'>threads</a>            54 sys/include/task.h 	struct list	threads;	/* list of threads */
+<a href='../S/328.html#L115'>threads</a>           115 sys/kern/exception.c 		head = &amp;self-&gt;threads;
+<a href='../S/328.html#L197'>threads</a>           197 sys/kern/exception.c 	head = &amp;task-&gt;threads;
+<a href='../S/328.html#L211'>threads</a>           211 sys/kern/exception.c 		if (!list_empty(&amp;task-&gt;threads)) {
+<a href='../S/328.html#L212'>threads</a>           212 sys/kern/exception.c 			n = list_first(&amp;task-&gt;threads);
+<a href='../S/334.html#L140'>threads</a>           140 sys/kern/task.c 	list_init(&amp;task-&gt;threads);
+<a href='../S/334.html#L196'>threads</a>           196 sys/kern/task.c 	head = &amp;task-&gt;threads;
+<a href='../S/334.html#L246'>threads</a>           246 sys/kern/task.c 		head = &amp;task-&gt;threads;
+<a href='../S/334.html#L288'>threads</a>           288 sys/kern/task.c 		head = &amp;task-&gt;threads;
+<a href='../S/334.html#L539'>threads</a>           539 sys/kern/task.c 	list_init(&amp;kernel_task.threads);
+<a href='../S/335.html#L429'>threads</a>           429 sys/kern/thread.c 	list_insert(&amp;task-&gt;threads, &amp;t-&gt;task_link);
+<a href='../S/335.html#L597'>threads</a>           597 sys/kern/thread.c 	list_insert(&amp;kernel_task.threads, &amp;idle_thread.task_link);
+</pre>
+</body>
+</html>

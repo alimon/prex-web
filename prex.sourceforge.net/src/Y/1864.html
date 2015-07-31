@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sec</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/83.html#L114'>sec</a>               114 bsp/drv/dev/rtc/mc146818.c 	cy.sec = mc_read(RTC_SEC);
+<a href='../S/83.html#L123'>sec</a>               123 bsp/drv/dev/rtc/mc146818.c 		cy.sec = FROMBCD(cy.sec);
+<a href='../S/83.html#L136'>sec</a>               136 bsp/drv/dev/rtc/mc146818.c 		cy.year, cy.mon, cy.day, cy.hour, cy.min, cy.sec);
+<a href='../S/85.html#L130'>sec</a>               130 bsp/drv/dev/rtc/rtc.c 			* 60 + dt-&gt;sec);
+<a href='../S/85.html#L174'>sec</a>               174 bsp/drv/dev/rtc/rtc.c 	dt-&gt;sec  = rsec;
+<a href='../S/100.html#L57'>sec</a>                57 bsp/drv/include/rtc.h         u_char		sec;
+<a href='../S/889.html#L46'>sec</a>                46 usr/server/fs/fatfs/fatfs_fat.c 	u_long sec;
+<a href='../S/889.html#L53'>sec</a>                53 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 2) / SEC_SIZE;
+<a href='../S/889.html#L55'>sec</a>                55 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 3 / 2) / SEC_SIZE;
+<a href='../S/889.html#L64'>sec</a>                64 usr/server/fs/fatfs/fatfs_fat.c 	sec += fmp-&gt;fat_start;
+<a href='../S/889.html#L67'>sec</a>                67 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/889.html#L76'>sec</a>                76 usr/server/fs/fatfs/fatfs_fat.c 	if ((error = bread(fmp-&gt;dev, sec + 1, &amp;bp)) != 0)
+<a href='../S/889.html#L89'>sec</a>                89 usr/server/fs/fatfs/fatfs_fat.c 	u_long sec;
+<a href='../S/889.html#L96'>sec</a>                96 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 2) / SEC_SIZE;
+<a href='../S/889.html#L98'>sec</a>                98 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 3 / 2) / SEC_SIZE;
+<a href='../S/889.html#L103'>sec</a>               103 usr/server/fs/fatfs/fatfs_fat.c 	sec += fmp-&gt;fat_start;
+<a href='../S/889.html#L106'>sec</a>               106 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/889.html#L115'>sec</a>               115 usr/server/fs/fatfs/fatfs_fat.c 	bp = getblk(fmp-&gt;dev, sec + 1);
+<a href='../S/890.html#L45'>sec</a>                45 usr/server/fs/fatfs/fatfs_node.c fat_read_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L50'>sec</a>                50 usr/server/fs/fatfs/fatfs_node.c 	if ((error = bread(fmp-&gt;dev, sec, &amp;bp)) != 0)
+<a href='../S/890.html#L61'>sec</a>                61 usr/server/fs/fatfs/fatfs_node.c fat_write_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L65'>sec</a>                65 usr/server/fs/fatfs/fatfs_node.c 	bp = getblk(fmp-&gt;dev, sec);
+<a href='../S/890.html#L80'>sec</a>                80 usr/server/fs/fatfs/fatfs_node.c fat_lookup_dirent(struct fatfsmount *fmp, u_long sec, char *name,
+<a href='../S/890.html#L86'>sec</a>                86 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, sec);
+<a href='../S/890.html#L100'>sec</a>               100 usr/server/fs/fatfs/fatfs_node.c 			np-&gt;sector = sec;
+<a href='../S/890.html#L102'>sec</a>               102 usr/server/fs/fatfs/fatfs_node.c 			DPRINTF(("fat_lookup_dirent: found sec=%d\n", sec));
+<a href='../S/890.html#L125'>sec</a>               125 usr/server/fs/fatfs/fatfs_node.c 	u_long cl, sec;
+<a href='../S/890.html#L140'>sec</a>               140 usr/server/fs/fatfs/fatfs_node.c 		for (sec = fmp-&gt;root_start; sec &lt; fmp-&gt;data_start; sec++) {
+<a href='../S/890.html#L141'>sec</a>               141 usr/server/fs/fatfs/fatfs_node.c 			error = fat_lookup_dirent(fmp, sec, fat_name, np);
+<a href='../S/890.html#L148'>sec</a>               148 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L150'>sec</a>               150 usr/server/fs/fatfs/fatfs_node.c 				error = fat_lookup_dirent(fmp, sec, fat_name,
+<a href='../S/890.html#L154'>sec</a>               154 usr/server/fs/fatfs/fatfs_node.c 				sec++;
+<a href='../S/890.html#L175'>sec</a>               175 usr/server/fs/fatfs/fatfs_node.c fat_get_dirent(struct fatfsmount *fmp, u_long sec, int target, int *index,
+<a href='../S/890.html#L181'>sec</a>               181 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, sec);
+<a href='../S/890.html#L193'>sec</a>               193 usr/server/fs/fatfs/fatfs_node.c 				np-&gt;sector = sec;
+<a href='../S/890.html#L217'>sec</a>               217 usr/server/fs/fatfs/fatfs_node.c 	u_long cl, sec;
+<a href='../S/890.html#L228'>sec</a>               228 usr/server/fs/fatfs/fatfs_node.c 		for (sec = fmp-&gt;root_start; sec &lt; fmp-&gt;data_start; sec++) {
+<a href='../S/890.html#L229'>sec</a>               229 usr/server/fs/fatfs/fatfs_node.c 			error = fat_get_dirent(fmp, sec, index, &amp;cur_index, np);
+<a href='../S/890.html#L236'>sec</a>               236 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L238'>sec</a>               238 usr/server/fs/fatfs/fatfs_node.c 				error = fat_get_dirent(fmp, sec, index,
+<a href='../S/890.html#L242'>sec</a>               242 usr/server/fs/fatfs/fatfs_node.c 				sec++;
+<a href='../S/890.html#L260'>sec</a>               260 usr/server/fs/fatfs/fatfs_node.c fat_add_dirent(struct fatfsmount *fmp, u_long sec, struct fatfs_node *np)
+<a href='../S/890.html#L265'>sec</a>               265 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, sec);
+<a href='../S/890.html#L279'>sec</a>               279 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fat_add_dirent: found. sec=%d\n", sec));
+<a href='../S/890.html#L281'>sec</a>               281 usr/server/fs/fatfs/fatfs_node.c 	error = fat_write_dirent(fmp, sec);
+<a href='../S/890.html#L295'>sec</a>               295 usr/server/fs/fatfs/fatfs_node.c 	u_long cl, sec;
+<a href='../S/890.html#L306'>sec</a>               306 usr/server/fs/fatfs/fatfs_node.c 		for (sec = fmp-&gt;root_start; sec &lt; fmp-&gt;data_start; sec++) {
+<a href='../S/890.html#L307'>sec</a>               307 usr/server/fs/fatfs/fatfs_node.c 			error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L314'>sec</a>               314 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L316'>sec</a>               316 usr/server/fs/fatfs/fatfs_node.c 				error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L319'>sec</a>               319 usr/server/fs/fatfs/fatfs_node.c 				sec++;
+<a href='../S/890.html#L334'>sec</a>               334 usr/server/fs/fatfs/fatfs_node.c 		sec = cl_to_sec(fmp, next);
+<a href='../S/890.html#L336'>sec</a>               336 usr/server/fs/fatfs/fatfs_node.c 			error = fat_write_dirent(fmp, sec);
+<a href='../S/890.html#L339'>sec</a>               339 usr/server/fs/fatfs/fatfs_node.c 			sec++;
+<a href='../S/890.html#L342'>sec</a>               342 usr/server/fs/fatfs/fatfs_node.c 		sec = cl_to_sec(fmp, next);
+<a href='../S/890.html#L343'>sec</a>               343 usr/server/fs/fatfs/fatfs_node.c 		error = fat_add_dirent(fmp, sec, np);
+<a href='../S/893.html#L103'>sec</a>               103 usr/server/fs/fatfs/fatfs_vnops.c 	u_long sec;
+<a href='../S/893.html#L106'>sec</a>               106 usr/server/fs/fatfs/fatfs_vnops.c 	sec = cl_to_sec(fmp, cluster);
+<a href='../S/893.html#L108'>sec</a>               108 usr/server/fs/fatfs/fatfs_vnops.c 	return device_read(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/893.html#L117'>sec</a>               117 usr/server/fs/fatfs/fatfs_vnops.c 	u_long sec;
+<a href='../S/893.html#L120'>sec</a>               120 usr/server/fs/fatfs/fatfs_vnops.c 	sec = cl_to_sec(fmp, cluster);
+<a href='../S/893.html#L122'>sec</a>               122 usr/server/fs/fatfs/fatfs_vnops.c 	return device_write(fmp-&gt;dev, fmp-&gt;io_buf, &amp;size, sec);
+<a href='../S/1002.html#L42'>sec</a>                42 usr/test/time/time.c 	u_long sec;
+<a href='../S/1002.html#L50'>sec</a>                50 usr/test/time/time.c 	len = sizeof(sec);
+<a href='../S/1002.html#L51'>sec</a>                51 usr/test/time/time.c 	error = device_read(rtc_dev, &amp;sec, &amp;len, 0);
+<a href='../S/1002.html#L58'>sec</a>                58 usr/test/time/time.c 	return sec;
+<a href='../S/1002.html#L65'>sec</a>                65 usr/test/time/time.c 	u_long sec, min, hour;
+<a href='../S/1002.html#L73'>sec</a>                73 usr/test/time/time.c 	sec = sys_time % 60;
+<a href='../S/1002.html#L76'>sec</a>                76 usr/test/time/time.c 	printf("Current time: %lu:%lu:%lu\n", hour, min, sec);
+</pre>
+</body>
+</html>

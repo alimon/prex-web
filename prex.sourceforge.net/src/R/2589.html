@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>stat</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L109'>stat</a>              109 bsp/drv/dev/block/fdd.c 	int		stat;		/* current state */
+<a href='../S/66.html#L198'>stat</a>              198 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_OFF;
+<a href='../S/66.html#L212'>stat</a>              212 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_ON;
+<a href='../S/66.html#L241'>stat</a>              241 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_RESET;
+<a href='../S/66.html#L258'>stat</a>              258 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_RECAL;
+<a href='../S/66.html#L275'>stat</a>              275 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_SEEK;
+<a href='../S/66.html#L303'>stat</a>              303 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_IO;
+<a href='../S/66.html#L341'>stat</a>              341 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_READY;
+<a href='../S/66.html#L355'>stat</a>              355 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L357'>stat</a>              357 bsp/drv/dev/block/fdd.c 	switch (sc-&gt;stat) {
+<a href='../S/66.html#L392'>stat</a>              392 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc_stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L396'>stat</a>              396 bsp/drv/dev/block/fdd.c 	switch (sc-&gt;stat) {
+<a href='../S/66.html#L429'>stat</a>              429 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc_stat=%d\n", sc-&gt;stat));
+<a href='../S/66.html#L433'>stat</a>              433 bsp/drv/dev/block/fdd.c 	switch (sc-&gt;stat) {
+<a href='../S/66.html#L534'>stat</a>              534 bsp/drv/dev/block/fdd.c 	if (sc-&gt;stat == FDS_OFF)
+<a href='../S/66.html#L707'>stat</a>              707 bsp/drv/dev/block/fdd.c 	sc-&gt;stat = FDS_OFF;
+<a href='../S/271.html#L118'>stat</a>              118 include/sys/stat.h int	stat(const char *, struct stat *);
+<a href='../S/374.html#L80'>stat</a>               80 usr/bin/cp/cp.c 	r = stat(target, &amp;to_stat);
+<a href='../S/374.html#L90'>stat</a>               90 usr/bin/cp/cp.c 		if (stat(argv[0], &amp;tmp_stat) == -1) {
+<a href='../S/390.html#L263'>stat</a>              263 usr/bin/ls/ls.c 	if (stat(path, &amp;st) == -1)
+<a href='../S/390.html#L290'>stat</a>              290 usr/bin/ls/ls.c 			if (stat(buf, &amp;st) == -1 &amp;&amp; errno != EACCES)
+<a href='../S/394.html#L97'>stat</a>               97 usr/bin/mkdir/mkdir.c 		if (stat(path, &amp;sb)) {
+<a href='../S/398.html#L59'>stat</a>               59 usr/bin/mv/mv.c 	if (stat(src, &amp;st1) &lt; 0)
+<a href='../S/398.html#L67'>stat</a>               67 usr/bin/mv/mv.c 	rc = stat(dest, &amp;st2);
+<a href='../S/404.html#L49'>stat</a>               49 usr/bin/ps/ps.c 	int	stat;
+<a href='../S/404.html#L69'>stat</a>               69 usr/bin/ps/ps.c 		pi-&gt;stat = 1;
+<a href='../S/404.html#L75'>stat</a>               75 usr/bin/ps/ps.c 	pi-&gt;stat = m.data[2];
+<a href='../S/404.html#L82'>stat</a>               82 usr/bin/ps/ps.c 	static const char stat[][2] = { "R", "Z", "S" };
+<a href='../S/404.html#L136'>stat</a>              136 usr/bin/ps/ps.c 				       ti.priority, stat[pi.stat-1],
+<a href='../S/421.html#L330'>stat</a>              330 usr/bin/test/test.c 	if (mode == FILSYM ? lstat(nm, &amp;s) : stat(nm, &amp;s))
+<a href='../S/421.html#L445'>stat</a>              445 usr/bin/test/test.c 	return (stat(f1, &amp;b1) == 0 &amp;&amp;
+<a href='../S/421.html#L446'>stat</a>              446 usr/bin/test/test.c 		stat(f2, &amp;b2) == 0 &amp;&amp;
+<a href='../S/421.html#L455'>stat</a>              455 usr/bin/test/test.c 	return (stat(f1, &amp;b1) == 0 &amp;&amp;
+<a href='../S/421.html#L456'>stat</a>              456 usr/bin/test/test.c 		stat(f2, &amp;b2) == 0 &amp;&amp;
+<a href='../S/421.html#L465'>stat</a>              465 usr/bin/test/test.c 	return (stat(f1, &amp;b1) == 0 &amp;&amp;
+<a href='../S/421.html#L466'>stat</a>              466 usr/bin/test/test.c 		stat(f2, &amp;b2) == 0 &amp;&amp;
+<a href='../S/423.html#L95'>stat</a>               95 usr/bin/touch/touch.c 	if (stat(file, &amp;st) &lt; 0) {
+<a href='../S/433.html#L112'>stat</a>              112 usr/include/fts.h 	struct stat *fts_statp;		/* stat(2) information */
+<a href='../S/479.html#L794'>stat</a>              794 usr/lib/libc/gen/fts.c 		if (stat(p-&gt;fts_accpath, sbp)) {
+<a href='../S/530.html#L82'>stat</a>               82 usr/lib/libc/stdio/mktemp.c 			if (stat(path, &amp;sbuf))
+<a href='../S/530.html#L101'>stat</a>              101 usr/lib/libc/stdio/mktemp.c 		else if (stat(path, &amp;sbuf))
+<a href='../S/676.html#L42'>stat</a>               42 usr/lib/posix/file/lstat.c 	return stat(path, st);
+<a href='../S/862.html#L75'>stat</a>               75 usr/sbin/install/install.c 	r = stat(target, &amp;to_stat);
+<a href='../S/917.html#L451'>stat</a>              451 usr/server/proc/main.c 	char stat[][5] = { "    ", "RUN ", "ZOMB", "STOP" };
+<a href='../S/917.html#L464'>stat</a>              464 usr/server/proc/main.c 			stat[p-&gt;p_stat], p-&gt;p_task);
+</pre>
+</body>
+</html>

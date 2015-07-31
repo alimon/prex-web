@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/sys/errno.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1070.html'>include</a>/<a href='../files/1075.html'>sys</a>/errno.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='256.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/257.html' title='Multiple included from 178 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1982, 1986, 1989, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> * (c) UNIX System Laboratories, Inc.</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * All or some portions of this file are derived from material licensed</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * to the University of California by American Telephone and Telegraph</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * Co. or Unix System Laboratories, Inc. and are reproduced herein with</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * the permission of UNIX System Laboratories, Inc.</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L12' name='L12' />  12 <em class='comment'> * are met:</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L15' name='L15' />  15 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L20' name='L20' />  20 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L21' name='L21' />  21 <em class='comment'> *</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L32' name='L32' />  32 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L33' name='L33' />  33 <em class='comment'> *</em>
+<a id='L34' name='L34' />  34 <em class='comment'> *      @(#)errno.h     8.5 (Berkeley) 1/21/94</em>
+<a id='L35' name='L35' />  35 <em class='comment'> */</em>
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='sharp'>#ifndef</em> <a href='256.html#L38' title='Defined at 38 in include/sys/errno.h.'>_SYS_ERRNO_H_</a>
+<a id='L38' name='L38' />  38 <em class='sharp'>#define</em> <a href='256.html#L37' title='Refered from 37 in include/sys/errno.h.'>_SYS_ERRNO_H_</a>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='sharp'>#define</em> <a href='../R/263.html' title='Multiple refered from 61 places.'>EPERM</a>           1               <em class='comment'>/* Operation not permitted */</em>
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/252.html' title='Multiple refered from 50 places.'>ENOENT</a>          2               <em class='comment'>/* No such file or directory */</em>
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='../R/266.html' title='Multiple refered from 37 places.'>ESRCH</a>           3               <em class='comment'>/* No such process */</em>
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> <a href='../R/223.html' title='Multiple refered from 27 places.'>EINTR</a>           4               <em class='comment'>/* Interrupted system call */</em>
+<a id='L44' name='L44' />  44 <em class='sharp'>#define</em> <a href='../R/225.html' title='Multiple refered from 33 places.'>EIO</a>             5               <em class='comment'>/* Input/output error */</em>
+<a id='L45' name='L45' />  45 <em class='sharp'>#define</em> <a href='../R/260.html' title='Multiple refered from 8 places.'>ENXIO</a>           6               <em class='comment'>/* Device not configured */</em>
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='655.html#L85' title='Refered from 85 in usr/lib/posix/exec/execve.c.'>E2BIG</a>           7               <em class='comment'>/* Argument list too long */</em>
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> <a href='../R/253.html' title='Multiple refered from 6 places.'>ENOEXEC</a>         8               <em class='comment'>/* Exec format error */</em>
+<a id='L48' name='L48' />  48 <em class='sharp'>#define</em> <a href='../R/211.html' title='Multiple refered from 36 places.'>EBADF</a>           9               <em class='comment'>/* Bad file descriptor */</em>
+<a id='L49' name='L49' />  49 <em class='sharp'>#define</em> <a href='920.html#L152' title='Refered from 152 in usr/server/proc/proc_exit.c.'>ECHILD</a>          10              <em class='comment'>/* No child processes */</em>
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='../R/218.html' title='Multiple refered from 3 places.'>EDEADLK</a>         11              <em class='comment'>/* Resource deadlock avoided */</em>
+<a id='L51' name='L51' />  51                                         <em class='comment'>/* 11 was EAGAIN */</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/254.html' title='Multiple refered from 55 places.'>ENOMEM</a>          12              <em class='comment'>/* Cannot allocate memory */</em>
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> <a href='../R/209.html' title='Multiple refered from 16 places.'>EACCES</a>          13              <em class='comment'>/* Permission denied */</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> <a href='../R/220.html' title='Multiple refered from 77 places.'>EFAULT</a>          14              <em class='comment'>/* Bad address */</em>
+<a id='L55' name='L55' />  55 <em class='sharp'>#define</em> <a href='909.html#L113' title='Refered from 113 in usr/server/fs/vfs/vfs_mount.c.'>ENOTBLK</a>         15              <em class='comment'>/* Block device required */</em>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> <a href='../R/212.html' title='Multiple refered from 17 places.'>EBUSY</a>           16              <em class='comment'>/* Device busy */</em>
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> <a href='../R/219.html' title='Multiple refered from 7 places.'>EEXIST</a>          17              <em class='comment'>/* File exists */</em>
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> <a href='911.html#L638' title='Refered from 638 in usr/server/fs/vfs/vfs_syscalls.c.'>EXDEV</a>           18              <em class='comment'>/* Cross-device link */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> <a href='../R/251.html' title='Multiple refered from 4 places.'>ENODEV</a>          19              <em class='comment'>/* Operation not supported by device */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> <a href='../R/258.html' title='Multiple refered from 15 places.'>ENOTDIR</a>         20              <em class='comment'>/* Not a directory */</em>
+<a id='L61' name='L61' />  61 <em class='sharp'>#define</em> <a href='../R/226.html' title='Multiple refered from 7 places.'>EISDIR</a>          21              <em class='comment'>/* Is a directory */</em>
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> <a href='../R/224.html' title='Multiple refered from 141 places.'>EINVAL</a>          22              <em class='comment'>/* Invalid argument */</em>
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> <a href='514.html#L91' title='Refered from 91 in usr/lib/libc/stdio/freopen.c.'>ENFILE</a>          23              <em class='comment'>/* Too many open files in system */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/247.html' title='Multiple refered from 7 places.'>EMFILE</a>          24              <em class='comment'>/* Too many open files */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> ENOTTY          25              <em class='comment'>/* Inappropriate ioctl for device */</em>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> <a href='478.html#L116' title='Refered from 116 in usr/lib/libc/gen/execvp.c.'>ETXTBSY</a>         26              <em class='comment'>/* Text file busy */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> EFBIG           27              <em class='comment'>/* File too large */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> <a href='../R/255.html' title='Multiple refered from 2 places.'>ENOSPC</a>          28              <em class='comment'>/* No space left on device */</em>
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> ESPIPE          29              <em class='comment'>/* Illegal seek */</em>
+<a id='L70' name='L70' />  70 <em class='sharp'>#define</em> <a href='913.html#L406' title='Refered from 406 in usr/server/fs/vfs/vfs_vnode.c.'>EROFS</a>           30              <em class='comment'>/* Read-only file system */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> EMLINK          31              <em class='comment'>/* Too many links */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> EPIPE           32              <em class='comment'>/* Broken pipe */</em>
+<a id='L73' name='L73' />  73 
+<a id='L74' name='L74' />  74 <em class='comment'>/* math software */</em>
+<a id='L75' name='L75' />  75 <em class='sharp'>#define</em> EDOM            33              <em class='comment'>/* Numerical argument out of domain */</em>
+<a id='L76' name='L76' />  76 <em class='sharp'>#define</em> <a href='../R/264.html' title='Multiple refered from 4 places.'>ERANGE</a>          34              <em class='comment'>/* Result too large */</em>
+<a id='L77' name='L77' />  77 
+<a id='L78' name='L78' />  78 <em class='comment'>/* non-blocking and interrupt i/o */</em>
+<a id='L79' name='L79' />  79 <em class='sharp'>#define</em> <a href='../R/210.html' title='Multiple refered from 16 places.'>EAGAIN</a>          35              <em class='comment'>/* Resource temporarily unavailable */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> EWOULDBLOCK     <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>          <em class='comment'>/* Operation would block */</em>
+<a id='L81' name='L81' />  81 
+<a id='L82' name='L82' />  82 <em class='sharp'>#define</em> <a href='347.html#L177' title='Refered from 177 in sys/sync/sem.c.'>ETIMEDOUT</a>       36              <em class='comment'>/* Operation timed out */</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> <a href='../R/249.html' title='Multiple refered from 6 places.'>ENAMETOOLONG</a>    37              <em class='comment'>/* File name too long */</em>
+<a id='L84' name='L84' />  84 <em class='sharp'>#define</em> ENOTEMPTY       38              <em class='comment'>/* Directory not empty */</em>
+<a id='L85' name='L85' />  85 
+<a id='L86' name='L86' />  86 <em class='comment'>/* quotas &amp; mush */</em>
+<a id='L87' name='L87' />  87 <em class='sharp'>#define</em> EPROCLIM        39              <em class='comment'>/* Too many processes */</em>
+<a id='L88' name='L88' />  88 <em class='sharp'>#define</em> <a href='../R/256.html' title='Multiple refered from 9 places.'>ENOSYS</a>          40              <em class='comment'>/* Function not implemented */</em>
+<a id='L89' name='L89' />  89 
+<a id='L90' name='L90' />  90 <em class='sharp'>#endif</em> <em class='comment'>/* !_SYS_ERRNO_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='256.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

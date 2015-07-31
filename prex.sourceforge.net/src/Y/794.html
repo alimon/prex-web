@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>evt</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/315.html#L64'>evt</a>                64 sys/include/sched.h #define sched_sleep(evt)	sched_tsleep((evt), 0)
+<a href='../S/331.html#L268'>evt</a>               268 sys/kern/sched.c sched_tsleep(struct event *evt, u_long msec)
+<a href='../S/331.html#L272'>evt</a>               272 sys/kern/sched.c 	ASSERT(evt != NULL);
+<a href='../S/331.html#L280'>evt</a>               280 sys/kern/sched.c 	curthread-&gt;slpevt = evt;
+<a href='../S/331.html#L282'>evt</a>               282 sys/kern/sched.c 	enqueue(&amp;evt-&gt;sleepq, &amp;curthread-&gt;sched_link);
+<a href='../S/331.html#L307'>evt</a>               307 sys/kern/sched.c sched_wakeup(struct event *evt)
+<a href='../S/331.html#L313'>evt</a>               313 sys/kern/sched.c 	ASSERT(evt != NULL);
+<a href='../S/331.html#L317'>evt</a>               317 sys/kern/sched.c 	while (!queue_empty(&amp;evt-&gt;sleepq)) {
+<a href='../S/331.html#L318'>evt</a>               318 sys/kern/sched.c 		q = dequeue(&amp;evt-&gt;sleepq);
+<a href='../S/331.html#L335'>evt</a>               335 sys/kern/sched.c sched_wakeone(struct event *evt)
+<a href='../S/331.html#L343'>evt</a>               343 sys/kern/sched.c 	head = &amp;evt-&gt;sleepq;
+</pre>
+</body>
+</html>

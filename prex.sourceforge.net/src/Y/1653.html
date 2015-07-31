@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>proc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/917.html#L118'>proc</a>              118 usr/server/proc/main.c static struct proc proc0;	/* process data of this server (pid=0) */
+<a href='../S/917.html#L122'>proc</a>              122 usr/server/proc/main.c struct proc initproc;		/* process slot for init process (pid=1) */
+<a href='../S/917.html#L123'>proc</a>              123 usr/server/proc/main.c struct proc *curproc;		/* current (caller) process */
+<a href='../S/917.html#L284'>proc</a>              284 usr/server/proc/main.c 	struct proc *p, *parent;
+<a href='../S/917.html#L318'>proc</a>              318 usr/server/proc/main.c 	struct proc *p;
+<a href='../S/917.html#L364'>proc</a>              364 usr/server/proc/main.c 	struct proc *p;
+<a href='../S/917.html#L382'>proc</a>              382 usr/server/proc/main.c 	struct proc *p;
+<a href='../S/917.html#L390'>proc</a>              390 usr/server/proc/main.c 	if ((p = malloc(sizeof(struct proc))) == NULL)
+<a href='../S/917.html#L392'>proc</a>              392 usr/server/proc/main.c 	memset(p, 0, sizeof(struct proc));
+<a href='../S/917.html#L449'>proc</a>              449 usr/server/proc/main.c 	struct proc *p;
+<a href='../S/917.html#L460'>proc</a>              460 usr/server/proc/main.c 		p = list_entry(n, struct proc, p_link);
+<a href='../S/917.html#L487'>proc</a>              487 usr/server/proc/main.c 	struct proc *p;
+<a href='../S/919.html#L60'>proc</a>               60 usr/server/proc/proc.h struct proc;
+<a href='../S/919.html#L67'>proc</a>               67 usr/server/proc/proc.h 	struct proc	*s_leader;	/* session leader */
+<a href='../S/919.html#L85'>proc</a>               85 usr/server/proc/proc.h struct proc {
+<a href='../S/919.html#L87'>proc</a>               87 usr/server/proc/proc.h 	struct proc 	*p_parent;	/* pointer to parent process */
+<a href='../S/919.html#L116'>proc</a>              116 usr/server/proc/proc.h extern struct proc initproc;		/* process slot for init */
+<a href='../S/919.html#L118'>proc</a>              118 usr/server/proc/proc.h extern struct proc *curproc;		/* current (caller) process */
+<a href='../S/919.html#L132'>proc</a>              132 usr/server/proc/proc.h int	newproc(struct proc *, pid_t, task_t);
+<a href='../S/919.html#L134'>proc</a>              134 usr/server/proc/proc.h void	cleanup(struct proc *);
+<a href='../S/919.html#L135'>proc</a>              135 usr/server/proc/proc.h void	vfork_end(struct proc *);
+<a href='../S/919.html#L147'>proc</a>              147 usr/server/proc/proc.h struct proc *p_find(pid_t);
+<a href='../S/919.html#L149'>proc</a>              149 usr/server/proc/proc.h struct proc *task_to_proc(task_t);
+<a href='../S/919.html#L150'>proc</a>              150 usr/server/proc/proc.h void	p_add(struct proc *);
+<a href='../S/919.html#L151'>proc</a>              151 usr/server/proc/proc.h void	p_remove(struct proc *);
+<a href='../S/920.html#L53'>proc</a>               53 usr/server/proc/proc_exit.c 	struct proc *child, *parent;
+<a href='../S/920.html#L75'>proc</a>               75 usr/server/proc/proc_exit.c 		child = list_entry(n, struct proc, p_sibling);
+<a href='../S/920.html#L146'>proc</a>              146 usr/server/proc/proc_exit.c 	struct proc *p;
+<a href='../S/920.html#L164'>proc</a>              164 usr/server/proc/proc_exit.c 		p = list_entry(n, struct proc, p_sibling);
+<a href='../S/921.html#L45'>proc</a>               45 usr/server/proc/proc_fork.c static int vfork_start(struct proc *);
+<a href='../S/921.html#L84'>proc</a>               84 usr/server/proc/proc_fork.c newproc(struct proc *p, pid_t pid, task_t task)
+<a href='../S/921.html#L128'>proc</a>              128 usr/server/proc/proc_fork.c 	struct proc *p;
+<a href='../S/921.html#L143'>proc</a>              143 usr/server/proc/proc_fork.c 	if ((p = malloc(sizeof(struct proc))) == NULL)
+<a href='../S/921.html#L165'>proc</a>              165 usr/server/proc/proc_fork.c cleanup(struct proc *p)
+<a href='../S/921.html#L167'>proc</a>              167 usr/server/proc/proc_fork.c 	struct proc *pp;
+<a href='../S/921.html#L178'>proc</a>              178 usr/server/proc/proc_fork.c vfork_start(struct proc *p)
+<a href='../S/921.html#L200'>proc</a>              200 usr/server/proc/proc_fork.c vfork_end(struct proc *p)
+<a href='../S/922.html#L52'>proc</a>               52 usr/server/proc/proc_hash.c struct proc *
+<a href='../S/922.html#L56'>proc</a>               56 usr/server/proc/proc_hash.c 	struct proc *p = NULL;
+<a href='../S/922.html#L61'>proc</a>               61 usr/server/proc/proc_hash.c 		p = list_entry(n, struct proc, p_pid_link);
+<a href='../S/922.html#L92'>proc</a>               92 usr/server/proc/proc_hash.c struct proc *
+<a href='../S/922.html#L96'>proc</a>               96 usr/server/proc/proc_hash.c 	struct proc *p = NULL;
+<a href='../S/922.html#L102'>proc</a>              102 usr/server/proc/proc_hash.c 		p = list_entry(n, struct proc, p_task_link);
+<a href='../S/922.html#L115'>proc</a>              115 usr/server/proc/proc_hash.c p_add(struct proc *p)
+<a href='../S/922.html#L126'>proc</a>              126 usr/server/proc/proc_hash.c p_remove(struct proc *p)
+<a href='../S/923.html#L77'>proc</a>               77 usr/server/proc/proc_pid.c 	struct proc *p;
+<a href='../S/923.html#L98'>proc</a>               98 usr/server/proc/proc_pid.c 	struct proc *p, *leader;
+<a href='../S/923.html#L120'>proc</a>              120 usr/server/proc/proc_pid.c enterpgrp(struct proc *p, pid_t pgid)
+<a href='../S/923.html#L152'>proc</a>              152 usr/server/proc/proc_pid.c leavepgrp(struct proc *p)
+<a href='../S/923.html#L179'>proc</a>              179 usr/server/proc/proc_pid.c 	struct proc *p;
+<a href='../S/923.html#L204'>proc</a>              204 usr/server/proc/proc_pid.c 	struct proc *p;
+<a href='../S/924.html#L60'>proc</a>               60 usr/server/proc/proc_sig.c sendsig(struct proc *p, int sig)
+<a href='../S/924.html#L87'>proc</a>               87 usr/server/proc/proc_sig.c 	struct proc *p;
+<a href='../S/924.html#L102'>proc</a>              102 usr/server/proc/proc_sig.c 	struct proc *p;
+<a href='../S/924.html#L114'>proc</a>              114 usr/server/proc/proc_sig.c 		p = list_entry(n, struct proc, p_pgrp_link);
+<a href='../S/924.html#L144'>proc</a>              144 usr/server/proc/proc_sig.c 	struct proc *p;
+<a href='../S/924.html#L172'>proc</a>              172 usr/server/proc/proc_sig.c 			p = list_entry(n, struct proc, p_link);
+</pre>
+</body>
+</html>

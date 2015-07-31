@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>BAUD_RATE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/9.html#L109'>BAUD_RATE</a>         109 bsp/boot/arm/integrator/debug.c 	divider = UART_CLK / (16 * BAUD_RATE);
+<a href='../S/9.html#L110'>BAUD_RATE</a>         110 bsp/boot/arm/integrator/debug.c 	remainder = UART_CLK % (16 * BAUD_RATE);
+<a href='../S/9.html#L111'>BAUD_RATE</a>         111 bsp/boot/arm/integrator/debug.c 	fraction = (8 * remainder / BAUD_RATE) &gt;&gt; 1;
+<a href='../S/9.html#L112'>BAUD_RATE</a>         112 bsp/boot/arm/integrator/debug.c 	fraction += (8 * remainder / BAUD_RATE) &amp; 1;
+<a href='../S/88.html#L200'>BAUD_RATE</a>         200 bsp/drv/dev/serial/pl011.c 	divider = UART_CLK / (16 * BAUD_RATE);
+<a href='../S/88.html#L201'>BAUD_RATE</a>         201 bsp/drv/dev/serial/pl011.c 	remainder = UART_CLK % (16 * BAUD_RATE);
+<a href='../S/88.html#L202'>BAUD_RATE</a>         202 bsp/drv/dev/serial/pl011.c 	fraction = (8 * remainder / BAUD_RATE) &gt;&gt; 1;
+<a href='../S/88.html#L203'>BAUD_RATE</a>         203 bsp/drv/dev/serial/pl011.c 	fraction += (8 * remainder / BAUD_RATE) &amp; 1;
+</pre>
+</body>
+</html>

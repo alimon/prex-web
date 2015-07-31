@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>on</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L144'>on</a>                144 bsp/drv/dev/base/cons.c cons_pollc(int on)
+<a href='../S/58.html#L148'>on</a>                148 bsp/drv/dev/base/cons.c 	consdev-&gt;cnpollc(consdev-&gt;dev, on);
+<a href='../S/65.html#L433'>on</a>                433 bsp/drv/dev/base/wscons.c wscons_cnpollc(device_t dev, int on)
+<a href='../S/65.html#L438'>on</a>                438 bsp/drv/dev/base/wscons.c 	kops-&gt;set_poll(sc-&gt;kbd_aux, on);
+<a href='../S/76.html#L260'>on</a>                260 bsp/drv/dev/input/pckbd.c pckbd_set_poll(void *aux, int on)
+<a href='../S/76.html#L264'>on</a>                264 bsp/drv/dev/input/pckbd.c 	sc-&gt;polling = on;
+<a href='../S/87.html#L139'>on</a>                139 bsp/drv/dev/serial/ns16550.c ns16550_set_poll(struct serial_port *sp, int on)
+<a href='../S/87.html#L142'>on</a>                142 bsp/drv/dev/serial/ns16550.c 	if (on) {
+<a href='../S/88.html#L140'>on</a>                140 bsp/drv/dev/serial/pl011.c pl011_set_poll(struct serial_port *sp, int on)
+<a href='../S/88.html#L143'>on</a>                143 bsp/drv/dev/serial/pl011.c 	if (on) {
+<a href='../S/89.html#L171'>on</a>                171 bsp/drv/dev/serial/serial.c serial_cnpollc(device_t dev, int on)
+<a href='../S/89.html#L176'>on</a>                176 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;set_poll(port, on);
+<a href='../S/92.html#L40'>on</a>                 40 bsp/drv/include/cons.h 	void	(*cnpollc)(device_t dev, int on); /* polling control */
+<a href='../S/101.html#L44'>on</a>                 44 bsp/drv/include/serial.h 	void	(*set_poll)(struct serial_port *port, int on);
+<a href='../S/104.html#L52'>on</a>                 52 bsp/drv/include/wscons.h 	void	(*set_poll) (void *aux, int on);
+</pre>
+</body>
+</html>

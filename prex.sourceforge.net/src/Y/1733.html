@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>regs</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/70.html#L526'>regs</a>              526 bsp/drv/dev/cpufreq/est.c 	u_int regs[4];
+<a href='../S/70.html#L549'>regs</a>              549 bsp/drv/dev/cpufreq/est.c 	cpuid(1, regs);
+<a href='../S/70.html#L550'>regs</a>              550 bsp/drv/dev/cpufreq/est.c 	cpu_id = regs[0];
+<a href='../S/70.html#L552'>regs</a>              552 bsp/drv/dev/cpufreq/est.c 	if ((regs[2] &amp; 0x80) == 0) {
+<a href='../S/70.html#L560'>regs</a>              560 bsp/drv/dev/cpufreq/est.c 	cpuid(0x80000002, regs);
+<a href='../S/70.html#L561'>regs</a>              561 bsp/drv/dev/cpufreq/est.c 	memcpy(brand_str, regs, sizeof(regs));
+<a href='../S/70.html#L562'>regs</a>              562 bsp/drv/dev/cpufreq/est.c 	cpuid(0x80000003, regs);
+<a href='../S/70.html#L563'>regs</a>              563 bsp/drv/dev/cpufreq/est.c 	memcpy(brand_str + 16, regs, sizeof(regs));
+<a href='../S/70.html#L564'>regs</a>              564 bsp/drv/dev/cpufreq/est.c 	cpuid(0x80000004, regs);
+<a href='../S/70.html#L565'>regs</a>              565 bsp/drv/dev/cpufreq/est.c 	memcpy(brand_str + 32, regs, sizeof(regs));
+<a href='../S/72.html#L193'>regs</a>              193 bsp/drv/dev/dma/i8237.c 	const struct dma_port *regs;
+<a href='../S/72.html#L207'>regs</a>              207 bsp/drv/dev/dma/i8237.c 	regs = &amp;dma_regs[chan];
+<a href='../S/72.html#L212'>regs</a>              212 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits | 0x04);	/* Disable channel */
+<a href='../S/72.html#L213'>regs</a>              213 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;clear, 0x00);		/* Clear byte pointer flip-flop */
+<a href='../S/72.html#L214'>regs</a>              214 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mode, bits | mode);	/* Set mode */
+<a href='../S/72.html#L215'>regs</a>              215 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 0) &amp; 0xff));	/* Address low */
+<a href='../S/72.html#L216'>regs</a>              216 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 8) &amp; 0xff));	/* Address high */
+<a href='../S/72.html#L217'>regs</a>              217 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;page, (u_char)((paddr &gt;&gt; 16) &amp; 0xff));	/* Page address */
+<a href='../S/72.html#L218'>regs</a>              218 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;clear, 0x00);		/* Clear byte pointer flip-flop */
+<a href='../S/72.html#L219'>regs</a>              219 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;count, (u_char)((count &gt;&gt; 0) &amp; 0xff));	/* Count low */
+<a href='../S/72.html#L220'>regs</a>              220 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;count, (u_char)((count &gt;&gt; 8) &amp; 0xff));	/* Count high */
+<a href='../S/72.html#L221'>regs</a>              221 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits);		/* Enable channel */
+<a href='../S/132.html#L73'>regs</a>               73 bsp/hal/arm/arch/trap.c trap_handler(struct cpu_regs *regs)
+<a href='../S/132.html#L75'>regs</a>               75 bsp/hal/arm/arch/trap.c 	u_long trap_no = regs-&gt;r0;
+<a href='../S/132.html#L77'>regs</a>               77 bsp/hal/arm/arch/trap.c 	if ((regs-&gt;cpsr &amp; PSR_MODE) == PSR_SVC_MODE &amp;&amp;
+<a href='../S/132.html#L79'>regs</a>               79 bsp/hal/arm/arch/trap.c 	    (regs-&gt;pc - 4 == (uint32_t)known_fault1 ||
+<a href='../S/132.html#L80'>regs</a>               80 bsp/hal/arm/arch/trap.c 	     regs-&gt;pc - 4 == (uint32_t)known_fault2 ||
+<a href='../S/132.html#L81'>regs</a>               81 bsp/hal/arm/arch/trap.c 	     regs-&gt;pc - 4 == (uint32_t)known_fault3)) {
+<a href='../S/132.html#L84'>regs</a>               84 bsp/hal/arm/arch/trap.c 		regs-&gt;pc = (uint32_t)copy_fault;
+<a href='../S/132.html#L93'>regs</a>               93 bsp/hal/arm/arch/trap.c 		printf(" Fault address=%x\n", regs-&gt;pc);
+<a href='../S/132.html#L96'>regs</a>               96 bsp/hal/arm/arch/trap.c 	trap_dump(regs);
+<a href='../S/132.html#L99'>regs</a>               99 bsp/hal/arm/arch/trap.c 	if ((regs-&gt;cpsr &amp; PSR_MODE) != PSR_USR_MODE)
+<a href='../S/159.html#L98'>regs</a>               98 bsp/hal/ppc/arch/trap.c trap_handler(struct cpu_regs *regs)
+<a href='../S/159.html#L100'>regs</a>              100 bsp/hal/ppc/arch/trap.c 	uint32_t trap_no = regs-&gt;trap_no;
+<a href='../S/159.html#L107'>regs</a>              107 bsp/hal/ppc/arch/trap.c 	trap_dump(regs);
+<a href='../S/159.html#L110'>regs</a>              110 bsp/hal/ppc/arch/trap.c 	if ((regs-&gt;srr1 &amp; MSR_PR) != MSR_PR)
+<a href='../S/169.html#L175'>regs</a>              175 bsp/hal/ppc/prep/interrupt.c interrupt_handler(struct cpu_regs *regs)
+<a href='../S/169.html#L181'>regs</a>              181 bsp/hal/ppc/prep/interrupt.c 	if (regs-&gt;trap_no == TRAP_DECREMENTER) {
+<a href='../S/179.html#L105'>regs</a>              105 bsp/hal/x86/arch/trap.c trap_handler(struct cpu_regs *regs)
+<a href='../S/179.html#L107'>regs</a>              107 bsp/hal/x86/arch/trap.c 	u_long trap_no = regs-&gt;trap_no;
+<a href='../S/179.html#L119'>regs</a>              119 bsp/hal/x86/arch/trap.c 	if (trap_no == 14 &amp;&amp; regs-&gt;cs == KERNEL_CS &amp;&amp;
+<a href='../S/179.html#L120'>regs</a>              120 bsp/hal/x86/arch/trap.c 	    (regs-&gt;eip == (uint32_t)known_fault1 ||
+<a href='../S/179.html#L121'>regs</a>              121 bsp/hal/x86/arch/trap.c 	     regs-&gt;eip == (uint32_t)known_fault2 ||
+<a href='../S/179.html#L122'>regs</a>              122 bsp/hal/x86/arch/trap.c 	     regs-&gt;eip == (uint32_t)known_fault3)) {
+<a href='../S/179.html#L125'>regs</a>              125 bsp/hal/x86/arch/trap.c 		regs-&gt;eip = (uint32_t)copy_fault;
+<a href='../S/179.html#L134'>regs</a>              134 bsp/hal/x86/arch/trap.c 	trap_dump(regs);
+<a href='../S/179.html#L135'>regs</a>              135 bsp/hal/x86/arch/trap.c 	if (regs-&gt;cs == KERNEL_CS) {
+<a href='../S/179.html#L142'>regs</a>              142 bsp/hal/x86/arch/trap.c 	if (regs-&gt;cs == KERNEL_CS)
+<a href='../S/188.html#L156'>regs</a>              156 bsp/hal/x86/pc/interrupt.c interrupt_handler(struct cpu_regs *regs)
+<a href='../S/188.html#L158'>regs</a>              158 bsp/hal/x86/pc/interrupt.c 	int vector = (int)regs-&gt;trap_no;
+</pre>
+</body>
+</html>

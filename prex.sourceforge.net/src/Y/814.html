@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>expire</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/320.html#L45'>expire</a>             45 sys/include/timer.h 	u_long		expire;		/* expiration time, in ticks */
+<a href='../S/336.html#L57'>expire</a>             57 sys/kern/timer.c time_remain(u_long expire)
+<a href='../S/336.html#L60'>expire</a>             60 sys/kern/timer.c 	if (time_before(lbolt, expire))
+<a href='../S/336.html#L61'>expire</a>             61 sys/kern/timer.c 		return expire - lbolt;
+<a href='../S/336.html#L77'>expire</a>             77 sys/kern/timer.c 	tmr-&gt;expire = lbolt + ticks;
+<a href='../S/336.html#L87'>expire</a>             87 sys/kern/timer.c 		if (time_before(tmr-&gt;expire, t-&gt;expire))
+<a href='../S/336.html#L156'>expire</a>            156 sys/kern/timer.c 		remain = hztoms(time_remain(tmr-&gt;expire));
+<a href='../S/336.html#L218'>expire</a>            218 sys/kern/timer.c 		left = hztoms(time_remain(tmr-&gt;expire));
+<a href='../S/336.html#L315'>expire</a>            315 sys/kern/timer.c 	if (time_before(lbolt, tmr-&gt;expire)) {
+<a href='../S/336.html#L408'>expire</a>            408 sys/kern/timer.c 		if (time_before(lbolt, tmr-&gt;expire))
+<a href='../S/336.html#L416'>expire</a>            416 sys/kern/timer.c 			ticks = time_remain(tmr-&gt;expire + tmr-&gt;interval);
+</pre>
+</body>
+</html>

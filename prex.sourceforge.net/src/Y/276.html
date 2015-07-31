@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__fs_obj</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/265.html#L37'>__fs_obj</a>           37 include/sys/posix.h extern object_t __fs_obj;
+<a href='../S/696.html#L37'>__fs_obj</a>           37 usr/lib/posix/file/__file.c object_t __fs_obj;
+<a href='../S/696.html#L50'>__fs_obj</a>           50 usr/lib/posix/file/__file.c 	error = object_lookup("!fs", &amp;__fs_obj);
+<a href='../S/696.html#L52'>__fs_obj</a>           52 usr/lib/posix/file/__file.c 		__fs_obj = 0;
+<a href='../S/696.html#L64'>__fs_obj</a>           64 usr/lib/posix/file/__file.c 	if (__fs_obj != 0) {
+<a href='../S/696.html#L66'>__fs_obj</a>           66 usr/lib/posix/file/__file.c 		msg_send(__fs_obj, &amp;m, sizeof(m));
+<a href='../S/696.html#L79'>__fs_obj</a>           79 usr/lib/posix/file/__file.c 	if (__fs_obj == 0)
+<a href='../S/696.html#L83'>__fs_obj</a>           83 usr/lib/posix/file/__file.c 	msg_send(__fs_obj, &amp;m, sizeof(m));
+<a href='../S/657.html#L43'>__fs_obj</a>           43 usr/lib/posix/file/access.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/658.html#L49'>__fs_obj</a>           49 usr/lib/posix/file/chdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/661.html#L42'>__fs_obj</a>           42 usr/lib/posix/file/close.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/662.html#L45'>__fs_obj</a>           45 usr/lib/posix/file/closedir.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/664.html#L42'>__fs_obj</a>           42 usr/lib/posix/file/dup.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/665.html#L45'>__fs_obj</a>           45 usr/lib/posix/file/dup2.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/666.html#L44'>__fs_obj</a>           44 usr/lib/posix/file/fchdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/667.html#L57'>__fs_obj</a>           57 usr/lib/posix/file/fcntl.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/668.html#L45'>__fs_obj</a>           45 usr/lib/posix/file/fstat.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/669.html#L42'>__fs_obj</a>           42 usr/lib/posix/file/fsync.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/670.html#L43'>__fs_obj</a>           43 usr/lib/posix/file/ftruncate.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/671.html#L48'>__fs_obj</a>           48 usr/lib/posix/file/getcwd.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/672.html#L83'>__fs_obj</a>           83 usr/lib/posix/file/ioctl.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/673.html#L42'>__fs_obj</a>           42 usr/lib/posix/file/isatty.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/674.html#L56'>__fs_obj</a>           56 usr/lib/posix/file/link.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/675.html#L47'>__fs_obj</a>           47 usr/lib/posix/file/lseek.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/678.html#L48'>__fs_obj</a>           48 usr/lib/posix/file/mkdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/679.html#L48'>__fs_obj</a>           48 usr/lib/posix/file/mknod.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/680.html#L51'>__fs_obj</a>           51 usr/lib/posix/file/mount.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/681.html#L54'>__fs_obj</a>           54 usr/lib/posix/file/open.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/682.html#L51'>__fs_obj</a>           51 usr/lib/posix/file/opendir.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/683.html#L41'>__fs_obj</a>           41 usr/lib/posix/file/pipe.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/684.html#L46'>__fs_obj</a>           46 usr/lib/posix/file/read.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/685.html#L47'>__fs_obj</a>           47 usr/lib/posix/file/readdir.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/686.html#L55'>__fs_obj</a>           55 usr/lib/posix/file/rename.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/687.html#L45'>__fs_obj</a>           45 usr/lib/posix/file/rewinddir.c 	__posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/688.html#L53'>__fs_obj</a>           53 usr/lib/posix/file/rmdir.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/689.html#L46'>__fs_obj</a>           46 usr/lib/posix/file/stat.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/690.html#L43'>__fs_obj</a>           43 usr/lib/posix/file/sync.c 	__posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/691.html#L45'>__fs_obj</a>           45 usr/lib/posix/file/truncate.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/693.html#L46'>__fs_obj</a>           46 usr/lib/posix/file/umount.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/694.html#L49'>__fs_obj</a>           49 usr/lib/posix/file/unlink.c 	return __posix_call(__fs_obj, &amp;m, sizeof(m), 1);
+<a href='../S/695.html#L45'>__fs_obj</a>           45 usr/lib/posix/file/write.c 	if (__posix_call(__fs_obj, &amp;m, sizeof(m), 0) != 0)
+<a href='../S/705.html#L121'>__fs_obj</a>          121 usr/lib/posix/process/fork.c 		if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+<a href='../S/706.html#L112'>__fs_obj</a>          112 usr/lib/posix/process/fork_nommu.c 		if (__posix_call(__fs_obj, &amp;m, sizeof(m), 1) != 0)
+</pre>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dpc</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/96.html#L90'>dpc</a>                90 bsp/drv/include/dki.h struct dpc {
+<a href='../S/96.html#L94'>dpc</a>                94 bsp/drv/include/dki.h typedef struct dpc	dpc_t;
+<a href='../S/96.html#L142'>dpc</a>               142 bsp/drv/include/dki.h void	 sched_dpc(struct dpc *, void (*)(void *), void *);
+<a href='../S/102.html#L72'>dpc</a>                72 bsp/drv/include/tty.h 	struct dpc	t_dpc;		/* dpc for tty */
+<a href='../S/315.html#L53'>dpc</a>                53 sys/include/sched.h struct dpc {
+<a href='../S/315.html#L83'>dpc</a>                83 sys/include/sched.h void	 sched_dpc(struct dpc *, void (*)(void *), void *);
+<a href='../S/331.html#L649'>dpc</a>               649 sys/kern/sched.c sched_dpc(struct dpc *dpc, void (*fn)(void *), void *arg)
+<a href='../S/331.html#L653'>dpc</a>               653 sys/kern/sched.c 	ASSERT(dpc != NULL);
+<a href='../S/331.html#L659'>dpc</a>               659 sys/kern/sched.c 	dpc-&gt;func = fn;
+<a href='../S/331.html#L660'>dpc</a>               660 sys/kern/sched.c 	dpc-&gt;arg = arg;
+<a href='../S/331.html#L661'>dpc</a>               661 sys/kern/sched.c 	if (dpc-&gt;state != DPC_PENDING)
+<a href='../S/331.html#L662'>dpc</a>               662 sys/kern/sched.c 		enqueue(&amp;dpcq, &amp;dpc-&gt;link);
+<a href='../S/331.html#L663'>dpc</a>               663 sys/kern/sched.c 	dpc-&gt;state = DPC_PENDING;
+<a href='../S/331.html#L684'>dpc</a>               684 sys/kern/sched.c 	struct dpc *dpc;
+<a href='../S/331.html#L696'>dpc</a>               696 sys/kern/sched.c 			dpc = queue_entry(q, struct dpc, link);
+<a href='../S/331.html#L697'>dpc</a>               697 sys/kern/sched.c 			dpc-&gt;state = DPC_FREE;
+<a href='../S/331.html#L703'>dpc</a>               703 sys/kern/sched.c 			(*dpc-&gt;func)(dpc-&gt;arg);
+</pre>
+</body>
+</html>

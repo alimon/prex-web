@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/hal/x86/arch/locore.S</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1050.html'>hal</a>/<a href='../files/1060.html'>x86</a>/<a href='../files/1061.html'>arch</a>/locore.S</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='177.html#L95'>[^]</a><a href='177.html#L541'>[v]</a>[top]<a href='177.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='177.html#L95' title='Defined at 95.'>kernel_start</a></li>
+<li><a href='177.html#L192' title='Defined at 192.'>interrupt_common</a></li>
+<li><a href='177.html#L252' title='Defined at 252.'>trap_common</a></li>
+<li><a href='177.html#L266' title='Defined at 266.'>trap_default</a></li>
+<li><a href='177.html#L311' title='Defined at 311.'>syscall_entry</a></li>
+<li><a href='177.html#L335' title='Defined at 335.'>cpu_switch</a></li>
+<li><a href='177.html#L361' title='Defined at 361.'>copyin</a></li>
+<li><a href='177.html#L393' title='Defined at 393.'>copyout</a></li>
+<li><a href='177.html#L427' title='Defined at 427.'>copyinstr</a></li>
+<li><a href='177.html#L469' title='Defined at 469.'>copy_fault</a></li>
+<li><a href='177.html#L479' title='Defined at 479.'>cpu_reset</a></li>
+<li><a href='177.html#L494' title='Defined at 494.'>cache_init</a></li>
+<li><a href='177.html#L503' title='Defined at 503.'>splx</a></li>
+<li><a href='177.html#L516' title='Defined at 516.'>splhigh</a></li>
+<li><a href='177.html#L525' title='Defined at 525.'>spl0</a></li>
+<li><a href='177.html#L534' title='Defined at 534.'>sploff</a></li>
+<li><a href='177.html#L541' title='Defined at 541.'>splon</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2008, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * locore.S - low level platform support</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;conf/config.h&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='../I/208.html'>machine/asm.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='../I/216.html'>machine/syspage.h</a>&gt;
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='../I/212.html'>machine/memory.h</a>&gt;
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>sys/errno.h</a>&gt;
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> &lt;<a href='../I/144.html'>cpu.h</a>&gt;
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='comment'>/*</em>
+<a id='L42' name='L42' />  42 <em class='comment'> * Macro to save/restore registers</em>
+<a id='L43' name='L43' />  43 <em class='comment'> *</em>
+<a id='L44' name='L44' />  44 <em class='comment'> * This macro builds the trap frame by pushing registers.</em>
+<a id='L45' name='L45' />  45 <em class='comment'> * If you change the push order of these macro, you must change the</em>
+<a id='L46' name='L46' />  46 <em class='comment'> * trap frame structure in arch.h. In addition, the system call stub</em>
+<a id='L47' name='L47' />  47 <em class='comment'> * will depend on this register format.</em>
+<a id='L48' name='L48' />  48 <em class='comment'> */</em>
+<a id='L49' name='L49' />  49 <em class='sharp'>#define</em> SAVE_ALL \
+<a id='L50' name='L50' />  50         cld; \
+<a id='L51' name='L51' />  51         pushl   %es; \
+<a id='L52' name='L52' />  52         pushl   %ds; \
+<a id='L53' name='L53' />  53         pushl   %ebp; \
+<a id='L54' name='L54' />  54         pushl   %edi; \
+<a id='L55' name='L55' />  55         pushl   %eax; \
+<a id='L56' name='L56' />  56         pushl   %esi; \
+<a id='L57' name='L57' />  57         pushl   %edx; \
+<a id='L58' name='L58' />  58         pushl   %ecx; \
+<a id='L59' name='L59' />  59         pushl   %ebx;
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61 <em class='sharp'>#define</em> RESTORE_ALL \
+<a id='L62' name='L62' />  62         popl    %ebx; \
+<a id='L63' name='L63' />  63         popl    %ecx; \
+<a id='L64' name='L64' />  64         popl    %edx; \
+<a id='L65' name='L65' />  65         popl    %esi; \
+<a id='L66' name='L66' />  66         popl    %eax; \
+<a id='L67' name='L67' />  67         popl    %edi; \
+<a id='L68' name='L68' />  68         popl    %ebp; \
+<a id='L69' name='L69' />  69         popl    %ds; \
+<a id='L70' name='L70' />  70         popl    %es;
+<a id='L71' name='L71' />  71 
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> SETUP_SEG \
+<a id='L73' name='L73' />  73         movl    $(KERNEL_DS), %edx; \
+<a id='L74' name='L74' />  74         movl    %edx, %ds; \
+<a id='L75' name='L75' />  75         movl    %edx, %es;
+<a id='L76' name='L76' />  76 
+<a id='L77' name='L77' />  77         .section ".text"
+<a id='L78' name='L78' />  78 
+<a id='L79' name='L79' />  79 <em class='comment'>/*</em>
+<a id='L80' name='L80' />  80 <em class='comment'> * Kernel start point</em>
+<a id='L81' name='L81' />  81 <em class='comment'> *</em>
+<a id='L82' name='L82' />  82 <em class='comment'> * The kernel assumes that the following state is already set by</em>
+<a id='L83' name='L83' />  83 <em class='comment'> * the kernel loader.</em>
+<a id='L84' name='L84' />  84 <em class='comment'> * - CPU is in protected mode</em>
+<a id='L85' name='L85' />  85 <em class='comment'> * - Segment registers are set as 32-bit flat segment</em>
+<a id='L86' name='L86' />  86 <em class='comment'> * - A20 line is enabled for 32-bit addressing</em>
+<a id='L87' name='L87' />  87 <em class='comment'> * - Paging is turned off</em>
+<a id='L88' name='L88' />  88 <em class='comment'> * - The boot information is loaded to address 1000h-1fffh</em>
+<a id='L89' name='L89' />  89 <em class='comment'> */</em>
+<a id='L90' name='L90' />  90 <em class='comment'>/*</em>
+<a id='L91' name='L91' />  91 <em class='comment'> * Note: The linker will generate an address for kernel_start as 0x80010000.</em>
+<a id='L92' name='L92' />  92 <em class='comment'> * But, the loader will load the kernel to 0x10000 (physical address).</em>
+<a id='L93' name='L93' />  93 <em class='comment'> * So, the linear address pointer can not be used until paging is enabled.</em>
+<a id='L94' name='L94' />  94 <em class='comment'> */</em>
+<a id='L95' name='L95' />  95 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(kernel_start)
+<a id='L96' name='L96' />  96         cli                             <em class='comment'>/* Disable interrupt */</em>
+<a id='L97' name='L97' />  97         cld
+<a id='L98' name='L98' />  98 
+<a id='L99' name='L99' />  99         <em class='comment'>/*</em>
+<a id='L100' name='L100' /> 100 <em class='comment'>         * Setup CPU registers.</em>
+<a id='L101' name='L101' /> 101 <em class='comment'>         */</em>
+<a id='L102' name='L102' /> 102         movl    %cr0, %eax              <em class='comment'>/* Enable kernel write protection */</em>
+<a id='L103' name='L103' /> 103         orl     $(CR0_WP), %eax
+<a id='L104' name='L104' /> 104         movl    %eax, %cr0
+<a id='L105' name='L105' /> 105 
+<a id='L106' name='L106' /> 106         pushfl                          <em class='comment'>/* Clear nested task, iopl = 0 */</em>
+<a id='L107' name='L107' /> 107         popl    %eax
+<a id='L108' name='L108' /> 108         andl    $~(EFL_IOPL|EFL_NT), %eax
+<a id='L109' name='L109' /> 109         pushl   %eax
+<a id='L110' name='L110' /> 110         popfl
+<a id='L111' name='L111' /> 111 
+<a id='L112' name='L112' /> 112 <em class='sharp'>#ifdef</em> CONFIG_MMU
+<a id='L113' name='L113' /> 113         <em class='comment'>/*</em>
+<a id='L114' name='L114' /> 114 <em class='comment'>         * Initialize page table.</em>
+<a id='L115' name='L115' /> 115 <em class='comment'>         * The physical address 0-4M is mapped on virtual address 2G.</em>
+<a id='L116' name='L116' /> 116 <em class='comment'>         */</em>
+<a id='L117' name='L117' /> 117         movl    $(BOOT_PGD_PHYS), %edi  <em class='comment'>/* Setup kernel page directory */</em>
+<a id='L118' name='L118' /> 118         xorl    %eax, %eax              <em class='comment'>/* Invalidate all address */</em>
+<a id='L119' name='L119' /> 119         movl    $0x1000, %ecx
+<a id='L120' name='L120' /> 120         rep
+<a id='L121' name='L121' /> 121         stosb
+<a id='L122' name='L122' /> 122         movl    $(BOOT_PGD_PHYS+0x800), %edi
+<a id='L123' name='L123' /> 123         movl    $(BOOT_PTE0_PHYS+0x07), (%edi)
+<a id='L124' name='L124' /> 124         movl    $1024, %ecx             <em class='comment'>/* Fill boot page table entry */</em>
+<a id='L125' name='L125' /> 125         movl    $(BOOT_PTE0_PHYS), %edi
+<a id='L126' name='L126' /> 126         movl    $0007, %eax
+<a id='L127' name='L127' /> 127 fill_pte0:
+<a id='L128' name='L128' /> 128         stosl
+<a id='L129' name='L129' /> 129         add     $0x1000, %eax           <em class='comment'>/* Process next page */</em>
+<a id='L130' name='L130' /> 130         loop    fill_pte0
+<a id='L131' name='L131' /> 131 
+<a id='L132' name='L132' /> 132         <em class='comment'>/*</em>
+<a id='L133' name='L133' /> 133 <em class='comment'>         * Enable paging.</em>
+<a id='L134' name='L134' /> 134 <em class='comment'>         * The physical address 0-4M is temporarily mapped to virtial</em>
+<a id='L135' name='L135' /> 135 <em class='comment'>         * address 0-4M. This is needed to enable paging.</em>
+<a id='L136' name='L136' /> 136 <em class='comment'>         */</em>
+<a id='L137' name='L137' /> 137         movl    $(BOOT_PGD_PHYS), %edi  <em class='comment'>/* Map address 0-4M */</em>
+<a id='L138' name='L138' /> 138         movl    $(BOOT_PTE0_PHYS+0x07), (%edi)
+<a id='L139' name='L139' /> 139         movl    $(BOOT_PGD_PHYS), %eax  <em class='comment'>/* Set page directory pointer */</em>
+<a id='L140' name='L140' /> 140         movl    %eax, %cr3
+<a id='L141' name='L141' /> 141         movl    %cr0, %eax              <em class='comment'>/* Enable paging bit */</em>
+<a id='L142' name='L142' /> 142         orl     $(CR0_PG), %eax
+<a id='L143' name='L143' /> 143         movl    %eax, %cr0
+<a id='L144' name='L144' /> 144         jmp     pipeline_flush          <em class='comment'>/* Flush processor pipeline */</em>
+<a id='L145' name='L145' /> 145 pipeline_flush:
+<a id='L146' name='L146' /> 146         movl    $cs_reset, %eax
+<a id='L147' name='L147' /> 147         jmp     *%eax
+<a id='L148' name='L148' /> 148 cs_reset:
+<a id='L149' name='L149' /> 149         movl    $(BOOT_PGD), %edi       <em class='comment'>/* Unmap 0-4M */</em>
+<a id='L150' name='L150' /> 150         movl    $0, (%edi)
+<a id='L151' name='L151' /> 151         movl    %cr3, %eax
+<a id='L152' name='L152' /> 152         movl    %eax, %cr3
+<a id='L153' name='L153' /> 153 
+<a id='L154' name='L154' /> 154 <em class='sharp'>#endif</em> <em class='comment'>/* CONFIG_MMU */</em>
+<a id='L155' name='L155' /> 155 
+<a id='L156' name='L156' /> 156         <em class='comment'>/*</em>
+<a id='L157' name='L157' /> 157 <em class='comment'>         * Clear kernel BSS</em>
+<a id='L158' name='L158' /> 158 <em class='comment'>         */</em>
+<a id='L159' name='L159' /> 159         xorl    %eax, %eax
+<a id='L160' name='L160' /> 160         movl    $__bss, %edi
+<a id='L161' name='L161' /> 161         movl    $__end, %ecx
+<a id='L162' name='L162' /> 162         subl    %edi, %ecx
+<a id='L163' name='L163' /> 163         rep
+<a id='L164' name='L164' /> 164         stosb
+<a id='L165' name='L165' /> 165 
+<a id='L166' name='L166' /> 166         <em class='comment'>/*</em>
+<a id='L167' name='L167' /> 167 <em class='comment'>         * Setup boot stack</em>
+<a id='L168' name='L168' /> 168 <em class='comment'>         */</em>
+<a id='L169' name='L169' /> 169         movl    $(BOOTSTK), %edi
+<a id='L170' name='L170' /> 170         movl    $(BOOTSTKSZ), %ecx
+<a id='L171' name='L171' /> 171         rep
+<a id='L172' name='L172' /> 172         stosb
+<a id='L173' name='L173' /> 173         movl    $(BOOTSTKTOP), %esp
+<a id='L174' name='L174' /> 174         movl    %esp, %ebp
+<a id='L175' name='L175' /> 175 
+<a id='L176' name='L176' /> 176         movl    $15, curspl
+<a id='L177' name='L177' /> 177 
+<a id='L178' name='L178' /> 178         <em class='comment'>/*</em>
+<a id='L179' name='L179' /> 179 <em class='comment'>         * Call kernel main routine</em>
+<a id='L180' name='L180' /> 180 <em class='comment'>         */</em>
+<a id='L181' name='L181' /> 181         call    main
+<a id='L182' name='L182' /> 182         <em class='comment'>/* NOTREACHED */</em>
+<a id='L183' name='L183' /> 183         cli
+<a id='L184' name='L184' /> 184         hlt
+<a id='L185' name='L185' /> 185 
+<a id='L186' name='L186' /> 186 <em class='comment'>/*</em>
+<a id='L187' name='L187' /> 187 <em class='comment'> * Common entry for all interrupts</em>
+<a id='L188' name='L188' /> 188 <em class='comment'> * Setup interrupt stack for outermost interrupt.</em>
+<a id='L189' name='L189' /> 189 <em class='comment'> * The code should be written to prevent the stack overflow</em>
+<a id='L190' name='L190' /> 190 <em class='comment'> * by continuous interrupt as much as it can.</em>
+<a id='L191' name='L191' /> 191 <em class='comment'> */</em>
+<a id='L192' name='L192' /> 192 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(interrupt_common)
+<a id='L193' name='L193' /> 193         SAVE_ALL
+<a id='L194' name='L194' /> 194         SETUP_SEG
+<a id='L195' name='L195' /> 195         incl    irq_nesting             <em class='comment'>/* Increment nesting level */</em>
+<a id='L196' name='L196' /> 196         cmpl    $1, irq_nesting         <em class='comment'>/* Outermost interrupt ? */</em>
+<a id='L197' name='L197' /> 197         jne     nested_irq
+<a id='L198' name='L198' /> 198         mov     %esp, %ebp              <em class='comment'>/* Save current stack */</em>
+<a id='L199' name='L199' /> 199         movl    $(INTSTKTOP), %esp      <em class='comment'>/* Switch stack */</em>
+<a id='L200' name='L200' /> 200         call    sched_lock              <em class='comment'>/* Lock scheduler */</em>
+<a id='L201' name='L201' /> 201         pushl   %ebp                    <em class='comment'>/* Push trap frame */</em>
+<a id='L202' name='L202' /> 202         call    interrupt_handler       <em class='comment'>/* Process interrupt */</em>
+<a id='L203' name='L203' /> 203         movl    %ebp, %esp              <em class='comment'>/* Restore original stack */</em>
+<a id='L204' name='L204' /> 204         decl    irq_nesting
+<a id='L205' name='L205' /> 205         call    sched_unlock            <em class='comment'>/* Try to preempt */</em>
+<a id='L206' name='L206' /> 206         testl   $3, 0x30(%esp)          <em class='comment'>/* Return to kernel mode ? */</em>
+<a id='L207' name='L207' /> 207         jz      interrupt_ret           <em class='comment'>/* Skip exception if kernel mode */</em>
+<a id='L208' name='L208' /> 208         sti
+<a id='L209' name='L209' /> 209         call    exception_deliver       <em class='comment'>/* Check exception */</em>
+<a id='L210' name='L210' /> 210 interrupt_ret:
+<a id='L211' name='L211' /> 211         cli
+<a id='L212' name='L212' /> 212         RESTORE_ALL
+<a id='L213' name='L213' /> 213         addl    $8, %esp
+<a id='L214' name='L214' /> 214         iret
+<a id='L215' name='L215' /> 215 nested_irq:
+<a id='L216' name='L216' /> 216         push    %esp                    <em class='comment'>/* Push trap frame */</em>
+<a id='L217' name='L217' /> 217         call    interrupt_handler       <em class='comment'>/* Process interrupt */</em>
+<a id='L218' name='L218' /> 218         addl    $4, %esp
+<a id='L219' name='L219' /> 219         decl    irq_nesting
+<a id='L220' name='L220' /> 220         jmp     interrupt_ret
+<a id='L221' name='L221' /> 221 
+<a id='L222' name='L222' /> 222 <em class='comment'>/*</em>
+<a id='L223' name='L223' /> 223 <em class='comment'> * Macro to build interrupt entry</em>
+<a id='L224' name='L224' /> 224 <em class='comment'> */</em>
+<a id='L225' name='L225' /> 225 <em class='sharp'>#define</em> INTR_ENTRY(irq) \
+<a id='L226' name='L226' /> 226 ENTRY(intr_##irq) \
+<a id='L227' name='L227' /> 227         pushl   $0; \
+<a id='L228' name='L228' /> 228         pushl   $(irq); \
+<a id='L229' name='L229' /> 229         jmp     interrupt_common
+<a id='L230' name='L230' /> 230 
+<a id='L231' name='L231' /> 231 INTR_ENTRY(0)
+<a id='L232' name='L232' /> 232 INTR_ENTRY(1)
+<a id='L233' name='L233' /> 233 INTR_ENTRY(2)
+<a id='L234' name='L234' /> 234 INTR_ENTRY(3)
+<a id='L235' name='L235' /> 235 INTR_ENTRY(4)
+<a id='L236' name='L236' /> 236 INTR_ENTRY(5)
+<a id='L237' name='L237' /> 237 INTR_ENTRY(6)
+<a id='L238' name='L238' /> 238 INTR_ENTRY(7)
+<a id='L239' name='L239' /> 239 INTR_ENTRY(8)
+<a id='L240' name='L240' /> 240 INTR_ENTRY(9)
+<a id='L241' name='L241' /> 241 INTR_ENTRY(10)
+<a id='L242' name='L242' /> 242 INTR_ENTRY(11)
+<a id='L243' name='L243' /> 243 INTR_ENTRY(12)
+<a id='L244' name='L244' /> 244 INTR_ENTRY(13)
+<a id='L245' name='L245' /> 245 INTR_ENTRY(14)
+<a id='L246' name='L246' /> 246 INTR_ENTRY(15)
+<a id='L247' name='L247' /> 247 
+<a id='L248' name='L248' /> 248 <em class='comment'>/*</em>
+<a id='L249' name='L249' /> 249 <em class='comment'> * Common entry for all traps</em>
+<a id='L250' name='L250' /> 250 <em class='comment'> * New thread will start from trap_ret.</em>
+<a id='L251' name='L251' /> 251 <em class='comment'> */</em>
+<a id='L252' name='L252' /> 252 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(trap_common)
+<a id='L253' name='L253' /> 253         SAVE_ALL
+<a id='L254' name='L254' /> 254         SETUP_SEG
+<a id='L255' name='L255' /> 255         pushl   %esp
+<a id='L256' name='L256' /> 256         call    trap_handler
+<a id='L257' name='L257' /> 257         addl    $4, %esp
+<a id='L258' name='L258' /> 258 trap_ret:
+<a id='L259' name='L259' /> 259         RESTORE_ALL
+<a id='L260' name='L260' /> 260         addl    $8, %esp
+<a id='L261' name='L261' /> 261         iret
+<a id='L262' name='L262' /> 262 
+<a id='L263' name='L263' /> 263 <em class='comment'>/*</em>
+<a id='L264' name='L264' /> 264 <em class='comment'> * Default trap entry</em>
+<a id='L265' name='L265' /> 265 <em class='comment'> */</em>
+<a id='L266' name='L266' /> 266 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2800.html' title='Multiple refered from 2 places.'>trap_default</a>)
+<a id='L267' name='L267' /> 267         pushl   $0
+<a id='L268' name='L268' /> 268         pushl   $(INVALID_INT)
+<a id='L269' name='L269' /> 269         jmp     trap_common
+<a id='L270' name='L270' /> 270 
+<a id='L271' name='L271' /> 271 <em class='comment'>/*</em>
+<a id='L272' name='L272' /> 272 <em class='comment'> * Macro to build trap entry</em>
+<a id='L273' name='L273' /> 273 <em class='comment'> * Some trap will push the error code into stack.</em>
+<a id='L274' name='L274' /> 274 <em class='comment'> */</em>
+<a id='L275' name='L275' /> 275 <em class='sharp'>#define</em> TRAP_ENTRY(id) \
+<a id='L276' name='L276' /> 276 ENTRY(trap_##id) \
+<a id='L277' name='L277' /> 277         pushl   $0; \
+<a id='L278' name='L278' /> 278         pushl   $(id); \
+<a id='L279' name='L279' /> 279         jmp     trap_common;
+<a id='L280' name='L280' /> 280 
+<a id='L281' name='L281' /> 281 <em class='sharp'>#define</em> TRAP_ERR_ENTRY(id) \
+<a id='L282' name='L282' /> 282 ENTRY(trap_##id) \
+<a id='L283' name='L283' /> 283         pushl   $(id); \
+<a id='L284' name='L284' /> 284         jmp     trap_common;
+<a id='L285' name='L285' /> 285 
+<a id='L286' name='L286' /> 286 TRAP_ENTRY    ( 0)              <em class='comment'>/* Divide error */</em>
+<a id='L287' name='L287' /> 287 TRAP_ENTRY    ( 1)              <em class='comment'>/* Debug trap */</em>
+<a id='L288' name='L288' /> 288 TRAP_ENTRY    ( 2)              <em class='comment'>/* NMI */</em>
+<a id='L289' name='L289' /> 289 TRAP_ENTRY    ( 3)              <em class='comment'>/* Breakpoint */</em>
+<a id='L290' name='L290' /> 290 TRAP_ENTRY    ( 4)              <em class='comment'>/* Overflow */</em>
+<a id='L291' name='L291' /> 291 TRAP_ENTRY    ( 5)              <em class='comment'>/* Bounds check */</em>
+<a id='L292' name='L292' /> 292 TRAP_ENTRY    ( 6)              <em class='comment'>/* Invalid opecode */</em>
+<a id='L293' name='L293' /> 293 TRAP_ENTRY    ( 7)              <em class='comment'>/* Device not available */</em>
+<a id='L294' name='L294' /> 294 TRAP_ERR_ENTRY( 8)              <em class='comment'>/* Double fault */</em>
+<a id='L295' name='L295' /> 295 TRAP_ERR_ENTRY( 9)              <em class='comment'>/* Coprocessor overrun */</em>
+<a id='L296' name='L296' /> 296 TRAP_ERR_ENTRY(10)              <em class='comment'>/* Invalid TSS */</em>
+<a id='L297' name='L297' /> 297 TRAP_ERR_ENTRY(11)              <em class='comment'>/* Segment not present */</em>
+<a id='L298' name='L298' /> 298 TRAP_ERR_ENTRY(12)              <em class='comment'>/* Stack bounds */</em>
+<a id='L299' name='L299' /> 299 TRAP_ERR_ENTRY(13)              <em class='comment'>/* General Protection */</em>
+<a id='L300' name='L300' /> 300 TRAP_ERR_ENTRY(14)              <em class='comment'>/* Page fault */</em>
+<a id='L301' name='L301' /> 301 TRAP_ENTRY    (15)              <em class='comment'>/* (reserved) */</em>
+<a id='L302' name='L302' /> 302 TRAP_ENTRY    (16)              <em class='comment'>/* Coprocessor error */</em>
+<a id='L303' name='L303' /> 303 TRAP_ERR_ENTRY(17)              <em class='comment'>/* Alignment check */</em>
+<a id='L304' name='L304' /> 304 TRAP_ERR_ENTRY(18)              <em class='comment'>/* Cache flush denied */</em>
+<a id='L305' name='L305' /> 305 
+<a id='L306' name='L306' /> 306 
+<a id='L307' name='L307' /> 307 <em class='comment'>/*</em>
+<a id='L308' name='L308' /> 308 <em class='comment'> * System call entry</em>
+<a id='L309' name='L309' /> 309 <em class='comment'> */</em>
+<a id='L310' name='L310' /> 310         .global syscall_ret
+<a id='L311' name='L311' /> 311 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2684.html' title='Multiple refered from 3 places.'>syscall_entry</a>)
+<a id='L312' name='L312' /> 312         pushl   $0                      <em class='comment'>/* Dummy for error code */</em>
+<a id='L313' name='L313' /> 313         pushl   $(SYSCALL_INT)          <em class='comment'>/* Trap number */</em>
+<a id='L314' name='L314' /> 314         SAVE_ALL
+<a id='L315' name='L315' /> 315         SETUP_SEG
+<a id='L316' name='L316' /> 316         call    syscall_handler
+<a id='L317' name='L317' /> 317         cmpl    $0, 0x10(%esp)          <em class='comment'>/* Skip setting eax if exception_return */</em>
+<a id='L318' name='L318' /> 318         je      1f
+<a id='L319' name='L319' /> 319         movl    %eax, 0x10(%esp)        <em class='comment'>/* Set return value to eax */</em>
+<a id='L320' name='L320' /> 320 1:
+<a id='L321' name='L321' /> 321         call    exception_deliver       <em class='comment'>/* Check exception */</em>
+<a id='L322' name='L322' /> 322 syscall_ret:
+<a id='L323' name='L323' /> 323         RESTORE_ALL
+<a id='L324' name='L324' /> 324         addl    $8, %esp                <em class='comment'>/* Discard err/trap no */</em>
+<a id='L325' name='L325' /> 325         iret
+<a id='L326' name='L326' /> 326 
+<a id='L327' name='L327' /> 327 <em class='comment'>/*</em>
+<a id='L328' name='L328' /> 328 <em class='comment'> * Switch register context.</em>
+<a id='L329' name='L329' /> 329 <em class='comment'> * Interrupts must be disabled by caller.</em>
+<a id='L330' name='L330' /> 330 <em class='comment'> *</em>
+<a id='L331' name='L331' /> 331 <em class='comment'> * syntax - void cpu_switch(kern_regs *prev, kern_regs *next)</em>
+<a id='L332' name='L332' /> 332 <em class='comment'> *</em>
+<a id='L333' name='L333' /> 333 <em class='comment'> * Note: GCC assumes ebx,ebp,edi,esi registers are not changed in each routine.</em>
+<a id='L334' name='L334' /> 334 <em class='comment'> */</em>
+<a id='L335' name='L335' /> 335 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1609.html' title='Multiple refered from 6 places.'>cpu_switch</a>)
+<a id='L336' name='L336' /> 336         movl    4(%esp), %ecx           <em class='comment'>/* Point ecx to previous registers */</em>
+<a id='L337' name='L337' /> 337         movl    (%esp), %eax            <em class='comment'>/* Get return address */</em>
+<a id='L338' name='L338' /> 338         movl    %eax, 0(%ecx)           <em class='comment'>/* Save it as eip */</em>
+<a id='L339' name='L339' /> 339         movl    %ebx, 4(%ecx)           <em class='comment'>/* Save ebx */</em>
+<a id='L340' name='L340' /> 340         movl    %edi, 8(%ecx)           <em class='comment'>/* Save edi */</em>
+<a id='L341' name='L341' /> 341         movl    %esi, 12(%ecx)          <em class='comment'>/* Save esi */</em>
+<a id='L342' name='L342' /> 342         movl    %ebp, 16(%ecx)          <em class='comment'>/* Save ebp */</em>
+<a id='L343' name='L343' /> 343         movl    %esp, 20(%ecx)          <em class='comment'>/* Save esp */</em>
+<a id='L344' name='L344' /> 344         movl    8(%esp), %ecx           <em class='comment'>/* Point ecx to next registers */</em>
+<a id='L345' name='L345' /> 345         movl    4(%ecx), %ebx           <em class='comment'>/* Restore ebx */</em>
+<a id='L346' name='L346' /> 346         movl    8(%ecx), %edi           <em class='comment'>/* Restore edi */</em>
+<a id='L347' name='L347' /> 347         movl    12(%ecx), %esi          <em class='comment'>/* Restore esp */</em>
+<a id='L348' name='L348' /> 348         movl    16(%ecx), %ebp          <em class='comment'>/* Restore ebp */</em>
+<a id='L349' name='L349' /> 349         movl    20(%ecx), %esp          <em class='comment'>/* Restore esp */</em>
+<a id='L350' name='L350' /> 350         movl    0(%ecx), %eax           <em class='comment'>/* Get eip */</em>
+<a id='L351' name='L351' /> 351         movl    %eax, (%esp)            <em class='comment'>/* Restore it as return address */</em>
+<a id='L352' name='L352' /> 352         ret
+<a id='L353' name='L353' /> 353 
+<a id='L354' name='L354' /> 354 <em class='comment'>/*</em>
+<a id='L355' name='L355' /> 355 <em class='comment'> * Copy data from user to kernel space.</em>
+<a id='L356' name='L356' /> 356 <em class='comment'> * Returns 0 on success, or EFAULT on page fault.</em>
+<a id='L357' name='L357' /> 357 <em class='comment'> *</em>
+<a id='L358' name='L358' /> 358 <em class='comment'> *  syntax - int copyin(const void *uaddr, void *kaddr, size_t len)</em>
+<a id='L359' name='L359' /> 359 <em class='comment'> */</em>
+<a id='L360' name='L360' /> 360         .global known_fault1
+<a id='L361' name='L361' /> 361 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1602.html' title='Multiple refered from 33 places.'>copyin</a>)
+<a id='L362' name='L362' /> 362         pushl   %esi
+<a id='L363' name='L363' /> 363         pushl   %edi
+<a id='L364' name='L364' /> 364         pushl   $(EFAULT)               <em class='comment'>/* Set EFAULT as default return */</em>
+<a id='L365' name='L365' /> 365 
+<a id='L366' name='L366' /> 366         movl    16(%esp), %esi
+<a id='L367' name='L367' /> 367         movl    20(%esp), %edi
+<a id='L368' name='L368' /> 368         movl    24(%esp), %ecx
+<a id='L369' name='L369' /> 369 
+<a id='L370' name='L370' /> 370         movl    %esi, %edx              <em class='comment'>/* Check if valid user address */</em>
+<a id='L371' name='L371' /> 371         addl    %ecx, %edx
+<a id='L372' name='L372' /> 372         jc      copy_fault
+<a id='L373' name='L373' /> 373         cmpl    $(USERLIMIT), %edx      <em class='comment'>/* User area? */</em>
+<a id='L374' name='L374' /> 374         jae     copy_fault
+<a id='L375' name='L375' /> 375         cld
+<a id='L376' name='L376' /> 376 known_fault1:                           <em class='comment'>/* May be fault here */</em>
+<a id='L377' name='L377' /> 377         rep
+<a id='L378' name='L378' /> 378         movsb
+<a id='L379' name='L379' /> 379 
+<a id='L380' name='L380' /> 380         popl    %eax
+<a id='L381' name='L381' /> 381         xorl    %eax, %eax              <em class='comment'>/* Set no error */</em>
+<a id='L382' name='L382' /> 382         popl    %edi
+<a id='L383' name='L383' /> 383         popl    %esi
+<a id='L384' name='L384' /> 384         ret
+<a id='L385' name='L385' /> 385 
+<a id='L386' name='L386' /> 386 <em class='comment'>/*</em>
+<a id='L387' name='L387' /> 387 <em class='comment'> * Copy data to user from kernel space.</em>
+<a id='L388' name='L388' /> 388 <em class='comment'> * Returns 0 on success, or EFAULT on page fault.</em>
+<a id='L389' name='L389' /> 389 <em class='comment'> *</em>
+<a id='L390' name='L390' /> 390 <em class='comment'> *  syntax - int copyout(const void *kaddr, void *uaddr, size_t len)</em>
+<a id='L391' name='L391' /> 391 <em class='comment'> */</em>
+<a id='L392' name='L392' /> 392         .global known_fault2
+<a id='L393' name='L393' /> 393 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1604.html' title='Multiple refered from 51 places.'>copyout</a>)
+<a id='L394' name='L394' /> 394         pushl   %esi
+<a id='L395' name='L395' /> 395         pushl   %edi
+<a id='L396' name='L396' /> 396         pushl   $(EFAULT)               <em class='comment'>/* Set EFAULT as default return */</em>
+<a id='L397' name='L397' /> 397 
+<a id='L398' name='L398' /> 398         movl    16(%esp), %esi
+<a id='L399' name='L399' /> 399         movl    20(%esp), %edi
+<a id='L400' name='L400' /> 400         movl    24(%esp), %ecx
+<a id='L401' name='L401' /> 401 
+<a id='L402' name='L402' /> 402         movl    %edi, %edx
+<a id='L403' name='L403' /> 403         addl    %ecx, %edx
+<a id='L404' name='L404' /> 404         jc      copy_fault
+<a id='L405' name='L405' /> 405         cmpl    $(USERLIMIT), %edx      <em class='comment'>/* User area? */</em>
+<a id='L406' name='L406' /> 406         jae     copy_fault
+<a id='L407' name='L407' /> 407         cld
+<a id='L408' name='L408' /> 408 known_fault2:                           <em class='comment'>/* May be fault here */</em>
+<a id='L409' name='L409' /> 409         rep
+<a id='L410' name='L410' /> 410         movsb
+<a id='L411' name='L411' /> 411 
+<a id='L412' name='L412' /> 412         popl    %eax
+<a id='L413' name='L413' /> 413         xorl    %eax, %eax              <em class='comment'>/* Set no error */</em>
+<a id='L414' name='L414' /> 414         popl    %edi
+<a id='L415' name='L415' /> 415         popl    %esi
+<a id='L416' name='L416' /> 416         ret
+<a id='L417' name='L417' /> 417 
+<a id='L418' name='L418' /> 418 <em class='comment'>/**</em>
+<a id='L419' name='L419' /> 419 <em class='comment'> * copyinstr - Copy string from user space.</em>
+<a id='L420' name='L420' /> 420 <em class='comment'> * Returns 0 on success, or EFAULT on page fault, or ENAMETOOLONG.</em>
+<a id='L421' name='L421' /> 421 <em class='comment'> *</em>
+<a id='L422' name='L422' /> 422 <em class='comment'> *  syntax - int copyinstr(const char *uaddr, void *kaddr, size_t len);</em>
+<a id='L423' name='L423' /> 423 <em class='comment'> *</em>
+<a id='L424' name='L424' /> 424 <em class='comment'> * Note: The returned length value does NOT include the NULL terminator.</em>
+<a id='L425' name='L425' /> 425 <em class='comment'> */</em>
+<a id='L426' name='L426' /> 426         .global known_fault3
+<a id='L427' name='L427' /> 427 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1603.html' title='Multiple refered from 9 places.'>copyinstr</a>)
+<a id='L428' name='L428' /> 428         pushl   %esi
+<a id='L429' name='L429' /> 429         pushl   %edi
+<a id='L430' name='L430' /> 430         pushl   $(EFAULT)               <em class='comment'>/* Set EFAULT as default return */</em>
+<a id='L431' name='L431' /> 431 
+<a id='L432' name='L432' /> 432         movl    16(%esp), %esi
+<a id='L433' name='L433' /> 433         movl    20(%esp), %edi
+<a id='L434' name='L434' /> 434         movl    24(%esp), %ecx
+<a id='L435' name='L435' /> 435 
+<a id='L436' name='L436' /> 436         movl    %esi, %edx              <em class='comment'>/* Check if valid user address */</em>
+<a id='L437' name='L437' /> 437         addl    %ecx, %edx
+<a id='L438' name='L438' /> 438         jc      copy_fault
+<a id='L439' name='L439' /> 439         cmpl    $(USERLIMIT), %edx      <em class='comment'>/* User area? */</em>
+<a id='L440' name='L440' /> 440         jae     copy_fault
+<a id='L441' name='L441' /> 441         cld
+<a id='L442' name='L442' /> 442         jmp     2f
+<a id='L443' name='L443' /> 443 1:
+<a id='L444' name='L444' /> 444         decl    %ecx
+<a id='L445' name='L445' /> 445         jz      copyin_toolong
+<a id='L446' name='L446' /> 446 2:
+<a id='L447' name='L447' /> 447 known_fault3:                           <em class='comment'>/* May be fault here */</em>
+<a id='L448' name='L448' /> 448         lodsb
+<a id='L449' name='L449' /> 449         stosb
+<a id='L450' name='L450' /> 450         testb   %al, %al
+<a id='L451' name='L451' /> 451         jnz     1b
+<a id='L452' name='L452' /> 452 
+<a id='L453' name='L453' /> 453         popl    %eax
+<a id='L454' name='L454' /> 454         xorl    %eax, %eax              <em class='comment'>/* Set no error */</em>
+<a id='L455' name='L455' /> 455         popl    %edi
+<a id='L456' name='L456' /> 456         popl    %esi
+<a id='L457' name='L457' /> 457         ret
+<a id='L458' name='L458' /> 458 
+<a id='L459' name='L459' /> 459 copyin_toolong:
+<a id='L460' name='L460' /> 460         popl    %eax
+<a id='L461' name='L461' /> 461         movl    $(ENAMETOOLONG), %eax
+<a id='L462' name='L462' /> 462         popl    %edi
+<a id='L463' name='L463' /> 463         popl    %esi
+<a id='L464' name='L464' /> 464         ret
+<a id='L465' name='L465' /> 465 
+<a id='L466' name='L466' /> 466 <em class='comment'>/*</em>
+<a id='L467' name='L467' /> 467 <em class='comment'> * Fault entry for user access</em>
+<a id='L468' name='L468' /> 468 <em class='comment'> */</em>
+<a id='L469' name='L469' /> 469 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1600.html' title='Multiple refered from 4 places.'>copy_fault</a>)
+<a id='L470' name='L470' /> 470         popl    %eax                    <em class='comment'>/* Get return value from stack */</em>
+<a id='L471' name='L471' /> 471         popl    %edi
+<a id='L472' name='L472' /> 472         popl    %esi
+<a id='L473' name='L473' /> 473         ret
+<a id='L474' name='L474' /> 474 
+<a id='L475' name='L475' /> 475 <em class='comment'>/*</em>
+<a id='L476' name='L476' /> 476 <em class='comment'> * Reset cpu</em>
+<a id='L477' name='L477' /> 477 <em class='comment'> * Use triple fault</em>
+<a id='L478' name='L478' /> 478 <em class='comment'> */</em>
+<a id='L479' name='L479' /> 479 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1608.html' title='Multiple refered from 3 places.'>cpu_reset</a>)
+<a id='L480' name='L480' /> 480         cli
+<a id='L481' name='L481' /> 481         movl    $null_idt, %eax         <em class='comment'>/* Reset by triple fault */</em>
+<a id='L482' name='L482' /> 482         lidt    (%eax)
+<a id='L483' name='L483' /> 483         int     $3
+<a id='L484' name='L484' /> 484         hlt
+<a id='L485' name='L485' /> 485 
+<a id='L486' name='L486' /> 486         .align 4
+<a id='L487' name='L487' /> 487 null_idt:
+<a id='L488' name='L488' /> 488         .word   0
+<a id='L489' name='L489' /> 489         .long   0
+<a id='L490' name='L490' /> 490 
+<a id='L491' name='L491' /> 491 <em class='comment'>/*</em>
+<a id='L492' name='L492' /> 492 <em class='comment'> * Initialize cache.</em>
+<a id='L493' name='L493' /> 493 <em class='comment'> */</em>
+<a id='L494' name='L494' /> 494 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/1525.html' title='Multiple refered from 4 places.'>cache_init</a>)
+<a id='L495' name='L495' /> 495         movl    %cr0, %eax              <em class='comment'>/* Clear cache disable bit */</em>
+<a id='L496' name='L496' /> 496         andl    $~(CR0_CD), %eax
+<a id='L497' name='L497' /> 497         movl    %eax, %cr0
+<a id='L498' name='L498' /> 498         ret
+<a id='L499' name='L499' /> 499 
+<a id='L500' name='L500' /> 500 <em class='comment'>/*</em>
+<a id='L501' name='L501' /> 501 <em class='comment'> * void splx(int s);</em>
+<a id='L502' name='L502' /> 502 <em class='comment'> */</em>
+<a id='L503' name='L503' /> 503 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2582.html' title='Multiple refered from 54 places.'>splx</a>)
+<a id='L504' name='L504' /> 504         cli
+<a id='L505' name='L505' /> 505         movl    4(%esp), %eax
+<a id='L506' name='L506' /> 506         movl    %eax, curspl
+<a id='L507' name='L507' /> 507         cmpl    $0, %eax
+<a id='L508' name='L508' /> 508         ja      1f
+<a id='L509' name='L509' /> 509         sti
+<a id='L510' name='L510' /> 510 1:
+<a id='L511' name='L511' /> 511         ret
+<a id='L512' name='L512' /> 512 
+<a id='L513' name='L513' /> 513 <em class='comment'>/*</em>
+<a id='L514' name='L514' /> 514 <em class='comment'> * int splhigh(void);</em>
+<a id='L515' name='L515' /> 515 <em class='comment'> */</em>
+<a id='L516' name='L516' /> 516 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2579.html' title='Multiple refered from 64 places.'>splhigh</a>)
+<a id='L517' name='L517' /> 517         cli
+<a id='L518' name='L518' /> 518         movl    curspl, %eax
+<a id='L519' name='L519' /> 519         movl    $15, curspl
+<a id='L520' name='L520' /> 520         ret
+<a id='L521' name='L521' /> 521 
+<a id='L522' name='L522' /> 522 <em class='comment'>/*</em>
+<a id='L523' name='L523' /> 523 <em class='comment'> * int spl0(void);</em>
+<a id='L524' name='L524' /> 524 <em class='comment'> */</em>
+<a id='L525' name='L525' /> 525 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2577.html' title='Multiple refered from 11 places.'>spl0</a>)
+<a id='L526' name='L526' /> 526         movl    curspl, %eax
+<a id='L527' name='L527' /> 527         movl    $0, curspl
+<a id='L528' name='L528' /> 528         sti
+<a id='L529' name='L529' /> 529         ret
+<a id='L530' name='L530' /> 530 
+<a id='L531' name='L531' /> 531 <em class='comment'>/*</em>
+<a id='L532' name='L532' /> 532 <em class='comment'> * Disable interrupts</em>
+<a id='L533' name='L533' /> 533 <em class='comment'> */</em>
+<a id='L534' name='L534' /> 534 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2580.html' title='Multiple refered from 9 places.'>sploff</a>)
+<a id='L535' name='L535' /> 535         cli
+<a id='L536' name='L536' /> 536         ret
+<a id='L537' name='L537' /> 537 
+<a id='L538' name='L538' /> 538 <em class='comment'>/*</em>
+<a id='L539' name='L539' /> 539 <em class='comment'> * Enable interrupts</em>
+<a id='L540' name='L540' /> 540 <em class='comment'> */</em>
+<a id='L541' name='L541' /> 541 <a href='../D/510.html' title='Multiple defined in 11 places.'>ENTRY</a>(<a href='../R/2581.html' title='Multiple refered from 9 places.'>splon</a>)
+<a id='L542' name='L542' /> 542         sti
+<a id='L543' name='L543' /> 543         ret
+<a id='L544' name='L544' /> 544 
+<a id='L545' name='L545' /> 545 <em class='comment'>/*</em>
+<a id='L546' name='L546' /> 546 <em class='comment'> * Interrupt nest counter.</em>
+<a id='L547' name='L547' /> 547 <em class='comment'> *</em>
+<a id='L548' name='L548' /> 548 <em class='comment'> * This counter is incremented in the entry of interrupt handler</em>
+<a id='L549' name='L549' /> 549 <em class='comment'> * to switch the interrupt stack. Since all interrupt handlers</em>
+<a id='L550' name='L550' /> 550 <em class='comment'> * share same one interrupt stack, each handler must pay attention</em>
+<a id='L551' name='L551' /> 551 <em class='comment'> * to the stack overflow.</em>
+<a id='L552' name='L552' /> 552 <em class='comment'> */</em>
+<a id='L553' name='L553' /> 553         .section ".bss"
+<a id='L554' name='L554' /> 554 irq_nesting:
+<a id='L555' name='L555' /> 555         .long   0
+<a id='L556' name='L556' /> 556 
+<a id='L557' name='L557' /> 557 <em class='comment'>/*</em>
+<a id='L558' name='L558' /> 558 <em class='comment'> * Current spl</em>
+<a id='L559' name='L559' /> 559 <em class='comment'> */</em>
+<a id='L560' name='L560' /> 560 curspl:
+<a id='L561' name='L561' /> 561         .long   0
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='177.html#L95'>[^]</a><a href='177.html#L541'>[v]</a><a href='177.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/dev/serial/ns16550.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1032.html'>dev</a>/<a href='../files/1040.html'>serial</a>/ns16550.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='87.html#L121'>[^]</a><a href='87.html#L214'>[v]</a>[top]<a href='87.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='87.html#L121' title='Defined at 121.'>ns16550_xmt_char</a></li>
+<li><a href='87.html#L130' title='Defined at 130.'>ns16550_rcv_char</a></li>
+<li><a href='87.html#L139' title='Defined at 139.'>ns16550_set_poll</a></li>
+<li><a href='87.html#L152' title='Defined at 152.'>ns16550_isr</a></li>
+<li><a href='87.html#L174' title='Defined at 174.'>ns16550_start</a></li>
+<li><a href='87.html#L196' title='Defined at 196.'>ns16550_stop</a></li>
+<li><a href='87.html#L205' title='Defined at 205.'>ns16550_probe</a></li>
+<li><a href='87.html#L214' title='Defined at 214.'>ns16550_init</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * ns16550.c - NS16550 serial driver</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='97.html'>driver.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='102.html'>tty.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='101.html'>serial.h</a>&gt;
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='comment'>/* #define DEBUG_NS16550 1 */</em>
+<a id='L39' name='L39' />  39 
+<a id='L40' name='L40' />  40 <em class='sharp'>#ifdef</em> <a href='87.html#L40' title='Used at 40 in bsp/drv/dev/serial/ns16550.c.'>DEBUG_NS16550</a>
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/191.html' title='Multiple refered from 331 places.'>DPRINTF</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>) <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a> <a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>
+<a id='L42' name='L42' />  42 <em class='sharp'>#else</em>
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> <a href='../R/191.html' title='Multiple refered from 331 places.'>DPRINTF</a>(<a href='../Y/332.html' title='Multiple used in 117 places.'>a</a>)
+<a id='L44' name='L44' />  44 <em class='sharp'>#endif</em>
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='../R/110.html' title='Multiple refered from 37 places.'>COM_BASE</a>        <a href='../Y/76.html' title='Multiple used in 5 places.'>CONFIG_NS16550_BASE</a>
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> <a href='87.html#L185' title='Refered from 185 in bsp/drv/dev/serial/ns16550.c.'>COM_IRQ</a>         <a href='87.html#L47' title='Used at 47 in bsp/drv/dev/serial/ns16550.c.'>CONFIG_NS16550_IRQ</a>
+<a id='L48' name='L48' />  48 
+<a id='L49' name='L49' />  49 <em class='comment'>/* Register offsets */</em>
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='../R/120.html' title='Multiple refered from 6 places.'>COM_RBR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x00)       <em class='comment'>/* receive buffer register */</em>
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='../R/121.html' title='Multiple refered from 5 places.'>COM_THR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x00)       <em class='comment'>/* transmit holding register */</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/114.html' title='Multiple refered from 7 places.'>COM_IER</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x01)       <em class='comment'>/* interrupt enable register */</em>
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> <a href='../R/113.html' title='Multiple refered from 3 places.'>COM_FCR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x02)       <em class='comment'>/* FIFO control register */</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> <a href='../R/115.html' title='Multiple refered from 2 places.'>COM_IIR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x02)       <em class='comment'>/* interrupt identification register */</em>
+<a id='L55' name='L55' />  55 <em class='sharp'>#define</em> <a href='../R/117.html' title='Multiple refered from 6 places.'>COM_LCR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x03)       <em class='comment'>/* line control register */</em>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> <a href='../R/119.html' title='Multiple refered from 3 places.'>COM_MCR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x04)       <em class='comment'>/* modem control register */</em>
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> <a href='../R/118.html' title='Multiple refered from 11 places.'>COM_LSR</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x05)       <em class='comment'>/* line status register */</em>
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> COM_MSR         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x06)       <em class='comment'>/* modem status register */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> <a href='../R/111.html' title='Multiple refered from 3 places.'>COM_DLL</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x00)       <em class='comment'>/* divisor latch LSB (LCR[7] = 1) */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> <a href='../R/112.html' title='Multiple refered from 3 places.'>COM_DLM</a>         (<a href='../D/166.html' title='Multiple defined in 5 places.'>COM_BASE</a> + 0x01)       <em class='comment'>/* divisor latch MSB (LCR[7] = 1) */</em>
+<a id='L61' name='L61' />  61 
+<a id='L62' name='L62' />  62 <em class='comment'>/* Interrupt enable register */</em>
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> <a href='../R/401.html' title='Multiple refered from 2 places.'>IER_RDA</a>         0x01    <em class='comment'>/* enable receive data available */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> <a href='../R/403.html' title='Multiple refered from 2 places.'>IER_THRE</a>        0x02    <em class='comment'>/* enable transmitter holding register empty */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> <a href='../R/402.html' title='Multiple refered from 2 places.'>IER_RLS</a>         0x04    <em class='comment'>/* enable recieve line status */</em>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> IER_RMS         0x08    <em class='comment'>/* enable receive modem status */</em>
+<a id='L67' name='L67' />  67 
+<a id='L68' name='L68' />  68 <em class='comment'>/* Interrupt identification register */</em>
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> <a href='87.html#L157' title='Refered from 157 in bsp/drv/dev/serial/ns16550.c.'>IIR_MSR</a>         0x00    <em class='comment'>/* modem status change */</em>
+<a id='L70' name='L70' />  70 <em class='sharp'>#define</em> IIR_IP          0x01    <em class='comment'>/* 0 when interrupt pending */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> <a href='87.html#L162' title='Refered from 162 in bsp/drv/dev/serial/ns16550.c.'>IIR_TXB</a>         0x02    <em class='comment'>/* transmitter holding register empty */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <a href='87.html#L165' title='Refered from 165 in bsp/drv/dev/serial/ns16550.c.'>IIR_RXB</a>         0x04    <em class='comment'>/* received data available */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#define</em> <a href='87.html#L159' title='Refered from 159 in bsp/drv/dev/serial/ns16550.c.'>IIR_LSR</a>         0x06    <em class='comment'>/* line status change */</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#define</em> <a href='87.html#L156' title='Refered from 156 in bsp/drv/dev/serial/ns16550.c.'>IIR_MASK</a>        0x07    <em class='comment'>/* mask off just the meaningful bits */</em>
+<a id='L75' name='L75' />  75 
+<a id='L76' name='L76' />  76 <em class='comment'>/* line status register */</em>
+<a id='L77' name='L77' />  77 <em class='sharp'>#define</em> LSR_RCV_FIFO    0x80
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> LSR_TSRE        0x40    <em class='comment'>/* Transmitter empty: byte sent */</em>
+<a id='L79' name='L79' />  79 <em class='sharp'>#define</em> <a href='87.html#L124' title='Refered from 124 in bsp/drv/dev/serial/ns16550.c.'>LSR_TXRDY</a>       0x20    <em class='comment'>/* Transmitter buffer empty */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> LSR_BI          0x10    <em class='comment'>/* Break detected */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> LSR_FE          0x08    <em class='comment'>/* Framing error: bad stop bit */</em>
+<a id='L82' name='L82' />  82 <em class='sharp'>#define</em> LSR_PE          0x04    <em class='comment'>/* Parity error */</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> LSR_OE          0x02    <em class='comment'>/* Overrun, lost incoming byte */</em>
+<a id='L84' name='L84' />  84 <em class='sharp'>#define</em> <a href='87.html#L133' title='Refered from 133 in bsp/drv/dev/serial/ns16550.c.'>LSR_RXRDY</a>       0x01    <em class='comment'>/* Byte ready in Receive Buffer */</em>
+<a id='L85' name='L85' />  85 <em class='sharp'>#define</em> LSR_RCV_MASK    0x1f    <em class='comment'>/* Mask for incoming data or error */</em>
+<a id='L86' name='L86' />  86 
+<a id='L87' name='L87' />  87 <em class='comment'>/* Forward functions */</em>
+<a id='L88' name='L88' />  88 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>      <a href='87.html#L205' title='Defined at 205 in bsp/drv/dev/serial/ns16550.c.'>ns16550_probe</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *);
+<a id='L89' name='L89' />  89 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>      <a href='87.html#L214' title='Defined at 214 in bsp/drv/dev/serial/ns16550.c.'>ns16550_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *);
+<a id='L90' name='L90' />  90 
+<a id='L91' name='L91' />  91 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>     <a href='87.html#L121' title='Defined at 121 in bsp/drv/dev/serial/ns16550.c.'>ns16550_xmt_char</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *, <strong class='reserved'>char</strong>);
+<a id='L92' name='L92' />  92 <strong class='reserved'>static</strong> <strong class='reserved'>char</strong>     <a href='87.html#L130' title='Defined at 130 in bsp/drv/dev/serial/ns16550.c.'>ns16550_rcv_char</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *);
+<a id='L93' name='L93' />  93 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>     <a href='87.html#L139' title='Defined at 139 in bsp/drv/dev/serial/ns16550.c.'>ns16550_set_poll</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *, <strong class='reserved'>int</strong>);
+<a id='L94' name='L94' />  94 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>     <a href='87.html#L174' title='Defined at 174 in bsp/drv/dev/serial/ns16550.c.'>ns16550_start</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *);
+<a id='L95' name='L95' />  95 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>     <a href='87.html#L196' title='Defined at 196 in bsp/drv/dev/serial/ns16550.c.'>ns16550_stop</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *);
+<a id='L96' name='L96' />  96 
+<a id='L97' name='L97' />  97 
+<a id='L98' name='L98' />  98 <strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> <a href='87.html#L98' title='Used at 98 in bsp/drv/dev/serial/ns16550.c.'>ns16550_driver</a> = <em class='brace'>{</em>
+<a id='L99' name='L99' />  99         <em class='comment'>/* name */</em>      "ns16550",
+<a id='L100' name='L100' /> 100         <em class='comment'>/* devops */</em>    <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L101' name='L101' /> 101         <em class='comment'>/* devsz */</em>     0,
+<a id='L102' name='L102' /> 102         <em class='comment'>/* flags */</em>     0,
+<a id='L103' name='L103' /> 103         <em class='comment'>/* probe */</em>     <a href='87.html#L205' title='Defined at 205 in bsp/drv/dev/serial/ns16550.c.'>ns16550_probe</a>,
+<a id='L104' name='L104' /> 104         <em class='comment'>/* init */</em>      <a href='87.html#L214' title='Defined at 214 in bsp/drv/dev/serial/ns16550.c.'>ns16550_init</a>,
+<a id='L105' name='L105' /> 105         <em class='comment'>/* unload */</em>    <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>,
+<a id='L106' name='L106' /> 106 <em class='brace'>}</em>;
+<a id='L107' name='L107' /> 107 
+<a id='L108' name='L108' /> 108 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1892.html' title='Multiple used in 6 places.'>serial_ops</a> <a href='../Y/1416.html' title='Multiple used in 2 places.'>ns16550_ops</a> = <em class='brace'>{</em>
+<a id='L109' name='L109' /> 109         <em class='comment'>/* xmt_char */</em>  <a href='87.html#L121' title='Defined at 121 in bsp/drv/dev/serial/ns16550.c.'>ns16550_xmt_char</a>,
+<a id='L110' name='L110' /> 110         <em class='comment'>/* rcv_char */</em>  <a href='87.html#L130' title='Defined at 130 in bsp/drv/dev/serial/ns16550.c.'>ns16550_rcv_char</a>,
+<a id='L111' name='L111' /> 111         <em class='comment'>/* set_poll */</em>  <a href='87.html#L139' title='Defined at 139 in bsp/drv/dev/serial/ns16550.c.'>ns16550_set_poll</a>,
+<a id='L112' name='L112' /> 112         <em class='comment'>/* start */</em>     <a href='87.html#L174' title='Defined at 174 in bsp/drv/dev/serial/ns16550.c.'>ns16550_start</a>,
+<a id='L113' name='L113' /> 113         <em class='comment'>/* stop */</em>      <a href='87.html#L196' title='Defined at 196 in bsp/drv/dev/serial/ns16550.c.'>ns16550_stop</a>,
+<a id='L114' name='L114' /> 114 <em class='brace'>}</em>;
+<a id='L115' name='L115' /> 115 
+<a id='L116' name='L116' /> 116 
+<a id='L117' name='L117' /> 117 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> <a href='../Y/1417.html' title='Multiple used in 2 places.'>ns16550_port</a>;
+<a id='L118' name='L118' /> 118 
+<a id='L119' name='L119' /> 119 
+<a id='L120' name='L120' /> 120 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L121' name='L121' /> 121 <a href='../R/2211.html' title='Multiple refered from 2 places.'>ns16550_xmt_char</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>, <strong class='reserved'>char</strong> <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>)
+<a id='L122' name='L122' /> 122 <em class='brace'>{</em>
+<a id='L123' name='L123' /> 123 
+<a id='L124' name='L124' /> 124         <strong class='reserved'>while</strong> (!(<a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/174.html' title='Multiple defined in 5 places.'>COM_LSR</a>) &amp; <a href='87.html#L79' title='Defined at 79 in bsp/drv/dev/serial/ns16550.c.'>LSR_TXRDY</a>))
+<a id='L125' name='L125' /> 125                 ;
+<a id='L126' name='L126' /> 126         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/178.html' title='Multiple defined in 5 places.'>COM_THR</a>, <a href='../Y/469.html' title='Multiple used in 503 places.'>c</a>);
+<a id='L127' name='L127' /> 127 <em class='brace'>}</em>
+<a id='L128' name='L128' /> 128 
+<a id='L129' name='L129' /> 129 <strong class='reserved'>static</strong> <strong class='reserved'>char</strong>
+<a id='L130' name='L130' /> 130 <a href='../R/2207.html' title='Multiple refered from 2 places.'>ns16550_rcv_char</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>)
+<a id='L131' name='L131' /> 131 <em class='brace'>{</em>
+<a id='L132' name='L132' /> 132 
+<a id='L133' name='L133' /> 133         <strong class='reserved'>while</strong> (!(<a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/174.html' title='Multiple defined in 5 places.'>COM_LSR</a>) &amp; <a href='87.html#L84' title='Defined at 84 in bsp/drv/dev/serial/ns16550.c.'>LSR_RXRDY</a>))
+<a id='L134' name='L134' /> 134                 ;
+<a id='L135' name='L135' /> 135         <strong class='reserved'>return</strong> <a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/177.html' title='Multiple defined in 3 places.'>COM_RBR</a>);
+<a id='L136' name='L136' /> 136 <em class='brace'>}</em>
+<a id='L137' name='L137' /> 137 
+<a id='L138' name='L138' /> 138 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L139' name='L139' /> 139 <a href='../R/2208.html' title='Multiple refered from 2 places.'>ns16550_set_poll</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>, <strong class='reserved'>int</strong> <a href='../Y/1470.html' title='Multiple used in 15 places.'>on</a>)
+<a id='L140' name='L140' /> 140 <em class='brace'>{</em>
+<a id='L141' name='L141' /> 141 
+<a id='L142' name='L142' /> 142         <strong class='reserved'>if</strong> (<a href='../Y/1470.html' title='Multiple used in 15 places.'>on</a>) <em class='brace'>{</em>
+<a id='L143' name='L143' /> 143                 <em class='comment'>/* Disable interrupt for polling mode. */</em>
+<a id='L144' name='L144' /> 144                 <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/170.html' title='Multiple defined in 3 places.'>COM_IER</a>, 0x00);
+<a id='L145' name='L145' /> 145         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L146' name='L146' /> 146                 <em class='comment'>/* enable interrupt again */</em>
+<a id='L147' name='L147' /> 147                 <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/170.html' title='Multiple defined in 3 places.'>COM_IER</a>, <a href='87.html#L63' title='Defined at 63 in bsp/drv/dev/serial/ns16550.c.'>IER_RDA</a>|<a href='87.html#L64' title='Defined at 64 in bsp/drv/dev/serial/ns16550.c.'>IER_THRE</a>|<a href='87.html#L65' title='Defined at 65 in bsp/drv/dev/serial/ns16550.c.'>IER_RLS</a>);
+<a id='L148' name='L148' /> 148         <em class='brace'>}</em>
+<a id='L149' name='L149' /> 149 <em class='brace'>}</em>
+<a id='L150' name='L150' /> 150 
+<a id='L151' name='L151' /> 151 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L152' name='L152' /> 152 <a href='87.html#L185' title='Refered from 185 in bsp/drv/dev/serial/ns16550.c.'>ns16550_isr</a>(<strong class='reserved'>void</strong> *<a href='../Y/375.html' title='Multiple used in 114 places.'>arg</a>)
+<a id='L153' name='L153' /> 153 <em class='brace'>{</em>
+<a id='L154' name='L154' /> 154         <strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a> = <a href='../Y/375.html' title='Multiple used in 114 places.'>arg</a>;
+<a id='L155' name='L155' /> 155 
+<a id='L156' name='L156' /> 156         <strong class='reserved'>switch</strong> (<a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/171.html' title='Multiple defined in 3 places.'>COM_IIR</a>) &amp; <a href='87.html#L74' title='Defined at 74 in bsp/drv/dev/serial/ns16550.c.'>IIR_MASK</a>) <em class='brace'>{</em>
+<a id='L157' name='L157' /> 157         <strong class='reserved'>case</strong> <a href='87.html#L69' title='Defined at 69 in bsp/drv/dev/serial/ns16550.c.'>IIR_MSR</a>:           <em class='comment'>/* Modem status change */</em>
+<a id='L158' name='L158' /> 158                 <strong class='reserved'>break</strong>;
+<a id='L159' name='L159' /> 159         <strong class='reserved'>case</strong> <a href='87.html#L73' title='Defined at 73 in bsp/drv/dev/serial/ns16550.c.'>IIR_LSR</a>:           <em class='comment'>/* Line status change */</em>
+<a id='L160' name='L160' /> 160                 <a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/174.html' title='Multiple defined in 5 places.'>COM_LSR</a>);
+<a id='L161' name='L161' /> 161                 <strong class='reserved'>break</strong>;
+<a id='L162' name='L162' /> 162         <strong class='reserved'>case</strong> <a href='87.html#L71' title='Defined at 71 in bsp/drv/dev/serial/ns16550.c.'>IIR_TXB</a>:           <em class='comment'>/* Transmitter holding register empty */</em>
+<a id='L163' name='L163' /> 163                 <a href='89.html#L136' title='Defined at 136 in bsp/drv/dev/serial/serial.c.'>serial_xmt_done</a>(<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>);
+<a id='L164' name='L164' /> 164                 <strong class='reserved'>break</strong>;
+<a id='L165' name='L165' /> 165         <strong class='reserved'>case</strong> <a href='87.html#L72' title='Defined at 72 in bsp/drv/dev/serial/ns16550.c.'>IIR_RXB</a>:           <em class='comment'>/* Received data available */</em>
+<a id='L166' name='L166' /> 166                 <a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/174.html' title='Multiple defined in 5 places.'>COM_LSR</a>);
+<a id='L167' name='L167' /> 167                 <a href='89.html#L146' title='Defined at 146 in bsp/drv/dev/serial/serial.c.'>serial_rcv_char</a>(<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>, <a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/177.html' title='Multiple defined in 3 places.'>COM_RBR</a>));
+<a id='L168' name='L168' /> 168                 <strong class='reserved'>break</strong>;
+<a id='L169' name='L169' /> 169         <em class='brace'>}</em>
+<a id='L170' name='L170' /> 170         <strong class='reserved'>return</strong> 0;
+<a id='L171' name='L171' /> 171 <em class='brace'>}</em>
+<a id='L172' name='L172' /> 172 
+<a id='L173' name='L173' /> 173 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L174' name='L174' /> 174 <a href='../R/2209.html' title='Multiple refered from 2 places.'>ns16550_start</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>)
+<a id='L175' name='L175' /> 175 <em class='brace'>{</em>
+<a id='L176' name='L176' /> 176         <strong class='reserved'>int</strong> <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>;
+<a id='L177' name='L177' /> 177 
+<a id='L178' name='L178' /> 178         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/170.html' title='Multiple defined in 3 places.'>COM_IER</a>, 0x00);     <em class='comment'>/* Disable interrupt */</em>
+<a id='L179' name='L179' /> 179         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/173.html' title='Multiple defined in 3 places.'>COM_LCR</a>, 0x80);     <em class='comment'>/* Access baud rate */</em>
+<a id='L180' name='L180' /> 180         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/167.html' title='Multiple defined in 3 places.'>COM_DLL</a>, 0x01);     <em class='comment'>/* 115200 baud */</em>
+<a id='L181' name='L181' /> 181         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/168.html' title='Multiple defined in 3 places.'>COM_DLM</a>, 0x00);
+<a id='L182' name='L182' /> 182         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/173.html' title='Multiple defined in 3 places.'>COM_LCR</a>, 0x03);     <em class='comment'>/* N, 8, 1 */</em>
+<a id='L183' name='L183' /> 183         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/169.html' title='Multiple defined in 3 places.'>COM_FCR</a>, 0x06);     <em class='comment'>/* Disable &amp; clear FIFO */</em>
+<a id='L184' name='L184' /> 184 
+<a id='L185' name='L185' /> 185         <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>-&gt;<a href='../Y/1100.html' title='Multiple used in 66 places.'>irq</a> = <a href='329.html#L82' title='Defined at 82 in sys/kern/irq.c.'>irq_attach</a>(<a href='87.html#L47' title='Defined at 47 in bsp/drv/dev/serial/ns16550.c.'>COM_IRQ</a>, <a href='260.html#L42' title='Defined at 42 in include/sys/ipl.h.'>IPL_COMM</a>, 0, <a href='87.html#L152' title='Defined at 152 in bsp/drv/dev/serial/ns16550.c.'>ns16550_isr</a>,
+<a id='L186' name='L186' /> 186                              <a href='../D/806.html' title='Multiple defined in 3 places.'>IST_NONE</a>, <a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>);
+<a id='L187' name='L187' /> 187 
+<a id='L188' name='L188' /> 188         <a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a> = <a href='../D/3494.html' title='Multiple defined in 3 places.'>splhigh</a>();
+<a id='L189' name='L189' /> 189         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/175.html' title='Multiple defined in 3 places.'>COM_MCR</a>, 0x0b);  <em class='comment'>/* Enable OUT2 interrupt */</em>
+<a id='L190' name='L190' /> 190         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/170.html' title='Multiple defined in 3 places.'>COM_IER</a>, <a href='87.html#L63' title='Defined at 63 in bsp/drv/dev/serial/ns16550.c.'>IER_RDA</a>|<a href='87.html#L64' title='Defined at 64 in bsp/drv/dev/serial/ns16550.c.'>IER_THRE</a>|<a href='87.html#L65' title='Defined at 65 in bsp/drv/dev/serial/ns16550.c.'>IER_RLS</a>);  <em class='comment'>/* Enable interrupt */</em>
+<a id='L191' name='L191' /> 191         <a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/171.html' title='Multiple defined in 3 places.'>COM_IIR</a>);
+<a id='L192' name='L192' /> 192         <a href='../D/3497.html' title='Multiple defined in 3 places.'>splx</a>(<a href='../Y/1799.html' title='Multiple used in 419 places.'>s</a>);
+<a id='L193' name='L193' /> 193 <em class='brace'>}</em>
+<a id='L194' name='L194' /> 194 
+<a id='L195' name='L195' /> 195 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L196' name='L196' /> 196 <a href='../R/2210.html' title='Multiple refered from 2 places.'>ns16550_stop</a>(<strong class='reserved'>struct</strong> <a href='../Y/1893.html' title='Multiple used in 41 places.'>serial_port</a> *<a href='../Y/1970.html' title='Multiple used in 233 places.'>sp</a>)
+<a id='L197' name='L197' /> 197 <em class='brace'>{</em>
+<a id='L198' name='L198' /> 198 
+<a id='L199' name='L199' /> 199         <em class='comment'>/* Disable all interrupts */</em>
+<a id='L200' name='L200' /> 200         <a href='../D/2391.html' title='Multiple defined in 3 places.'>bus_write_8</a>(<a href='../D/170.html' title='Multiple defined in 3 places.'>COM_IER</a>, 0x00);
+<a id='L201' name='L201' /> 201 <em class='brace'>}</em>
+<a id='L202' name='L202' /> 202 
+<a id='L203' name='L203' /> 203 
+<a id='L204' name='L204' /> 204 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L205' name='L205' /> 205 <a href='../R/2206.html' title='Multiple refered from 2 places.'>ns16550_probe</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/1881.html' title='Multiple used in 99 places.'>self</a>)
+<a id='L206' name='L206' /> 206 <em class='brace'>{</em>
+<a id='L207' name='L207' /> 207 
+<a id='L208' name='L208' /> 208         <strong class='reserved'>if</strong> (<a href='../D/2388.html' title='Multiple defined in 3 places.'>bus_read_8</a>(<a href='../D/174.html' title='Multiple defined in 5 places.'>COM_LSR</a>) == 0xff)
+<a id='L209' name='L209' /> 209                 <strong class='reserved'>return</strong> <a href='256.html#L45' title='Defined at 45 in include/sys/errno.h.'>ENXIO</a>;   <em class='comment'>/* Port is disabled */</em>
+<a id='L210' name='L210' /> 210         <strong class='reserved'>return</strong> 0;
+<a id='L211' name='L211' /> 211 <em class='brace'>}</em>
+<a id='L212' name='L212' /> 212 
+<a id='L213' name='L213' /> 213 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L214' name='L214' /> 214 <a href='../R/2204.html' title='Multiple refered from 2 places.'>ns16550_init</a>(<strong class='reserved'>struct</strong> <a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a> *<a href='../Y/1881.html' title='Multiple used in 99 places.'>self</a>)
+<a id='L215' name='L215' /> 215 <em class='brace'>{</em>
+<a id='L216' name='L216' /> 216 
+<a id='L217' name='L217' /> 217         <a href='89.html#L180' title='Defined at 180 in bsp/drv/dev/serial/serial.c.'>serial_attach</a>(&amp;<a href='../Y/1416.html' title='Multiple used in 2 places.'>ns16550_ops</a>, &amp;<a href='../Y/1417.html' title='Multiple used in 2 places.'>ns16550_port</a>);
+<a id='L218' name='L218' /> 218         <strong class='reserved'>return</strong> 0;
+<a id='L219' name='L219' /> 219 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='87.html#L121'>[^]</a><a href='87.html#L214'>[v]</a><a href='87.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

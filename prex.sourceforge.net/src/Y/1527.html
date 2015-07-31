@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>p_pid</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/917.html#L286'>p_pid</a>             286 usr/server/proc/main.c 	DPRINTF(("proc: exec pid=%x\n", curproc-&gt;p_pid));
+<a href='../S/917.html#L326'>p_pid</a>             326 usr/server/proc/main.c 	msg-&gt;data[0] = (int)p-&gt;p_pid;
+<a href='../S/917.html#L331'>p_pid</a>             331 usr/server/proc/main.c 		msg-&gt;data[1] = (int)p-&gt;p_parent-&gt;p_pid;
+<a href='../S/917.html#L398'>p_pid</a>             398 usr/server/proc/main.c 	DPRINTF(("proc: register pid=%d\n", p-&gt;p_pid));
+<a href='../S/917.html#L461'>p_pid</a>             461 usr/server/proc/main.c 		dprintf(" %6d %6d %6d %6d %s %08x\n", p-&gt;p_pid,
+<a href='../S/917.html#L462'>p_pid</a>             462 usr/server/proc/main.c 			p-&gt;p_parent-&gt;p_pid, p-&gt;p_pgrp-&gt;pg_pgid,
+<a href='../S/917.html#L463'>p_pid</a>             463 usr/server/proc/main.c 			p-&gt;p_pgrp-&gt;pg_session-&gt;s_leader-&gt;p_pid,
+<a href='../S/917.html#L508'>p_pid</a>             508 usr/server/proc/main.c 	p-&gt;p_pid = 0;
+<a href='../S/919.html#L99'>p_pid</a>              99 usr/server/proc/proc.h 	pid_t		p_pid;		/* process id */
+<a href='../S/920.html#L57'>p_pid</a>              57 usr/server/proc/proc_exit.c 	DPRINTF(("proc: exit pid=%d code=%x\n", curproc-&gt;p_pid, exitcode));
+<a href='../S/920.html#L101'>p_pid</a>             101 usr/server/proc/proc_exit.c 		 curproc-&gt;p_parent-&gt;p_pid));
+<a href='../S/920.html#L174'>p_pid</a>             174 usr/server/proc/proc_exit.c 			if (p-&gt;p_pid == pid)
+<a href='../S/920.html#L199'>p_pid</a>             199 usr/server/proc/proc_exit.c 				pid_child = p-&gt;p_pid;
+<a href='../S/920.html#L203'>p_pid</a>             203 usr/server/proc/proc_exit.c 				pid_child = p-&gt;p_pid;
+<a href='../S/921.html#L104'>p_pid</a>             104 usr/server/proc/proc_fork.c 	p-&gt;p_pid = pid;
+<a href='../S/921.html#L156'>p_pid</a>             156 usr/server/proc/proc_fork.c 	DPRINTF(("proc: fork newpid=%d\n", p-&gt;p_pid));
+<a href='../S/921.html#L157'>p_pid</a>             157 usr/server/proc/proc_fork.c 	*retval = p-&gt;p_pid;
+<a href='../S/921.html#L169'>p_pid</a>             169 usr/server/proc/proc_fork.c 	DPRINTF(("proc: cleanup pid=%d\n", p-&gt;p_pid));
+<a href='../S/922.html#L62'>p_pid</a>              62 usr/server/proc/proc_hash.c 		if (p-&gt;p_pid == pid)
+<a href='../S/922.html#L118'>p_pid</a>             118 usr/server/proc/proc_hash.c 	list_insert(&amp;pid_table[IDHASH(p-&gt;p_pid)], &amp;p-&gt;p_pid_link);
+<a href='../S/923.html#L54'>p_pid</a>              54 usr/server/proc/proc_pid.c 	return curproc-&gt;p_pid;
+<a href='../S/923.html#L65'>p_pid</a>              65 usr/server/proc/proc_pid.c 	return curproc-&gt;p_parent-&gt;p_pid;
+<a href='../S/923.html#L109'>p_pid</a>             109 usr/server/proc/proc_pid.c 	sid = leader-&gt;p_pid;
+<a href='../S/923.html#L124'>p_pid</a>             124 usr/server/proc/proc_pid.c 	DPRINTF(("proc: enter pgrp pid=%d pgid=%d\n", p-&gt;p_pid, pgid));
+<a href='../S/923.html#L192'>p_pid</a>             192 usr/server/proc/proc_pid.c 		pgid = p-&gt;p_pid;
+<a href='../S/923.html#L209'>p_pid</a>             209 usr/server/proc/proc_pid.c 	DPRINTF(("proc: setsid sid=%d\n", curproc-&gt;p_pid));
+<a href='../S/923.html#L212'>p_pid</a>             212 usr/server/proc/proc_pid.c 	if (p-&gt;p_pid == p-&gt;p_pgrp-&gt;pg_pgid)	/* already leader */
+<a href='../S/923.html#L222'>p_pid</a>             222 usr/server/proc/proc_pid.c 	if ((error = enterpgrp(p, p-&gt;p_pid)) != 0) {
+<a href='../S/923.html#L236'>p_pid</a>             236 usr/server/proc/proc_pid.c 	*retval = p-&gt;p_pid;
+<a href='../S/924.html#L67'>p_pid</a>              67 usr/server/proc/proc_sig.c 	if (p-&gt;p_pid == 0)
+<a href='../S/924.html#L74'>p_pid</a>              74 usr/server/proc/proc_sig.c 	if (p-&gt;p_pid == 1 &amp;&amp; sig != SIGCHLD)
+<a href='../S/924.html#L158'>p_pid</a>             158 usr/server/proc/proc_sig.c 		if (pid != curproc-&gt;p_pid &amp;&amp; !kill_capable()) {
+<a href='../S/924.html#L181'>p_pid</a>             181 usr/server/proc/proc_sig.c 			if (p-&gt;p_pid != 0 &amp;&amp; p-&gt;p_pid != 1 &amp;&amp;
+<a href='../S/924.html#L182'>p_pid</a>             182 usr/server/proc/proc_sig.c 			    p-&gt;p_pid != curproc-&gt;p_pid)
+<a href='../S/924.html#L184'>p_pid</a>             184 usr/server/proc/proc_sig.c 				error = kill_one(p-&gt;p_pid, sig);
+</pre>
+</body>
+</html>

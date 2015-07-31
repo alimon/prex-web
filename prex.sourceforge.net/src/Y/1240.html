@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>magic</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/14.html#L62'>magic</a>              62 bsp/boot/common/load.c 	char *magic;
+<a href='../S/14.html#L76'>magic</a>              76 bsp/boot/common/load.c 	magic = (char *)kvtop(CONFIG_BOOTIMG_BASE);
+<a href='../S/14.html#L77'>magic</a>              77 bsp/boot/common/load.c 	if (strncmp(magic, ARMAG, 8))
+<a href='../S/14.html#L83'>magic</a>              83 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)magic + 8);
+<a href='../S/341.html#L68'>magic</a>              68 sys/mem/kmem.c 	u_short		 magic;		/* magic number */
+<a href='../S/341.html#L83'>magic</a>              83 sys/mem/kmem.c 	u_short		 magic;		/* magic number */
+<a href='../S/341.html#L212'>magic</a>             212 sys/mem/kmem.c 		pg-&gt;magic = PAGE_MAGIC;
+<a href='../S/341.html#L218'>magic</a>             218 sys/mem/kmem.c 		blk-&gt;magic = BLOCK_MAGIC;
+<a href='../S/341.html#L226'>magic</a>             226 sys/mem/kmem.c 	if (pg-&gt;magic != PAGE_MAGIC || blk-&gt;magic != BLOCK_MAGIC)
+<a href='../S/341.html#L237'>magic</a>             237 sys/mem/kmem.c 		newblk-&gt;magic = BLOCK_MAGIC;
+<a href='../S/341.html#L281'>magic</a>             281 sys/mem/kmem.c 	if (blk-&gt;magic != BLOCK_MAGIC)
+<a href='../S/341.html#L303'>magic</a>             303 sys/mem/kmem.c 		pg-&gt;magic = 0;
+<a href='../S/752.html#L81'>magic</a>              81 usr/lib/prex/malloc/malloc.c 			p-&gt;magic = MALLOC_MAGIC;
+<a href='../S/752.html#L137'>magic</a>             137 usr/lib/prex/malloc/malloc.c 	if (p-&gt;magic != MALLOC_MAGIC)
+<a href='../S/752.html#L139'>magic</a>             139 usr/lib/prex/malloc/malloc.c 	p-&gt;magic = 0;
+<a href='../S/753.html#L54'>magic</a>              54 usr/lib/prex/malloc/malloc.h 	int magic;
+<a href='../S/755.html#L45'>magic</a>              45 usr/lib/prex/malloc/realloc.c 	if (old-&gt;magic != MALLOC_MAGIC)
+</pre>
+</body>
+</html>

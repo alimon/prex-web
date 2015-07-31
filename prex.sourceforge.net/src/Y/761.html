@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>environ</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/402.html#L35'>environ</a>            35 usr/bin/printenv/printenv.c extern char	**environ;
+<a href='../S/402.html#L67'>environ</a>            67 usr/bin/printenv/printenv.c 		for (ep = environ; *ep; ep++)
+<a href='../S/402.html#L72'>environ</a>            72 usr/bin/printenv/printenv.c 	for (ep = environ; *ep; ep++)
+<a href='../S/411.html#L42'>environ</a>            42 usr/bin/sh/cmds.c extern char **environ;
+<a href='../S/411.html#L95'>environ</a>            95 usr/bin/sh/cmds.c 	char **envp = environ;
+<a href='../S/415.html#L36'>environ</a>            36 usr/bin/sh/var.c extern char **environ;
+<a href='../S/415.html#L221'>environ</a>           221 usr/bin/sh/var.c 	for (envp = environ; *envp; envp++) {
+<a href='../S/448.html#L44'>environ</a>            44 usr/lib/crt/crt1.c char	**environ;
+<a href='../S/448.html#L52'>environ</a>            52 usr/lib/crt/crt1.c 	environ = envp;
+<a href='../S/474.html#L37'>environ</a>            37 usr/lib/libc/gen/execl.c extern char **environ;
+<a href='../S/474.html#L44'>environ</a>            44 usr/lib/libc/gen/execl.c 	r = execve(name, (char **) &amp;arg, environ);
+<a href='../S/474.html#L64'>environ</a>            64 usr/lib/libc/gen/execl.c 	r = execve(name, argv, environ);
+<a href='../S/477.html#L33'>environ</a>            33 usr/lib/libc/gen/execv.c extern char **environ;
+<a href='../S/477.html#L42'>environ</a>            42 usr/lib/libc/gen/execv.c 	r = execve(name, argv, environ);
+<a href='../S/478.html#L40'>environ</a>            40 usr/lib/libc/gen/execvp.c extern char **environ;
+<a href='../S/478.html#L97'>environ</a>            97 usr/lib/libc/gen/execvp.c retry:		(void)execve(bp, argv, environ);
+<a href='../S/478.html#L114'>environ</a>           114 usr/lib/libc/gen/execvp.c 			    environ);
+<a href='../S/570.html#L34'>environ</a>            34 usr/lib/libc/stdlib/getenv.c extern char **environ;
+<a href='../S/570.html#L69'>environ</a>            69 usr/lib/libc/stdlib/getenv.c 	if (name == NULL || environ == NULL)
+<a href='../S/570.html#L74'>environ</a>            74 usr/lib/libc/stdlib/getenv.c 	for (p = environ; (c = *p) != NULL; ++p)
+<a href='../S/570.html#L76'>environ</a>            76 usr/lib/libc/stdlib/getenv.c 			*offset = p - environ;
+<a href='../S/578.html#L34'>environ</a>            34 usr/lib/libc/stdlib/setenv.c extern char **environ;
+<a href='../S/578.html#L67'>environ</a>            67 usr/lib/libc/stdlib/setenv.c 		for (p = environ, cnt = 0; *p; ++p, ++cnt);
+<a href='../S/578.html#L69'>environ</a>            69 usr/lib/libc/stdlib/setenv.c 			environ = (char **)realloc((char *)environ,
+<a href='../S/578.html#L71'>environ</a>            71 usr/lib/libc/stdlib/setenv.c 			if (!environ)
+<a href='../S/578.html#L79'>environ</a>            79 usr/lib/libc/stdlib/setenv.c 			bcopy(environ, p, cnt * sizeof(char *));
+<a href='../S/578.html#L80'>environ</a>            80 usr/lib/libc/stdlib/setenv.c 			environ = p;
+<a href='../S/578.html#L82'>environ</a>            82 usr/lib/libc/stdlib/setenv.c 		environ[cnt + 1] = NULL;
+<a href='../S/578.html#L86'>environ</a>            86 usr/lib/libc/stdlib/setenv.c 	if (!(environ[offset] =			/* name + `=' + value */
+<a href='../S/578.html#L89'>environ</a>            89 usr/lib/libc/stdlib/setenv.c 	for (c = environ[offset]; (*c = *name++) &amp;&amp; *c != '='; ++c);
+<a href='../S/578.html#L106'>environ</a>           106 usr/lib/libc/stdlib/setenv.c 		for (p = &amp;environ[offset];; ++p)
+<a href='../S/926.html#L38'>environ</a>            38 usr/test/args/args.c extern char **environ;
+<a href='../S/926.html#L44'>environ</a>            44 usr/test/args/args.c 	char **envp = environ;
+<a href='../S/942.html#L38'>environ</a>            38 usr/test/environ/environ.c extern char **environ;
+<a href='../S/942.html#L50'>environ</a>            50 usr/test/environ/environ.c 	char **envp = environ;
+</pre>
+</body>
+</html>

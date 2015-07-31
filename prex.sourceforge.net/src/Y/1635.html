@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>port</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/28.html#L56'>port</a>               56 bsp/boot/ppc/prep/debug.c outb(int port, u_char val)
+<a href='../S/28.html#L59'>port</a>               59 bsp/boot/ppc/prep/debug.c 	ISA_io[port] = val;
+<a href='../S/28.html#L63'>port</a>               63 bsp/boot/ppc/prep/debug.c inb(int port)
+<a href='../S/28.html#L66'>port</a>               66 bsp/boot/ppc/prep/debug.c 	return (ISA_io[port]);
+<a href='../S/89.html#L51'>port</a>               51 bsp/drv/dev/serial/serial.c 	struct serial_port *port;	/* port setting */
+<a href='../S/89.html#L125'>port</a>              125 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L129'>port</a>              129 bsp/drv/dev/serial/serial.c 		sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L136'>port</a>              136 bsp/drv/dev/serial/serial.c serial_xmt_done(struct serial_port *port)
+<a href='../S/89.html#L139'>port</a>              139 bsp/drv/dev/serial/serial.c 	tty_done(port-&gt;tty);
+<a href='../S/89.html#L146'>port</a>              146 bsp/drv/dev/serial/serial.c serial_rcv_char(struct serial_port *port, char c)
+<a href='../S/89.html#L149'>port</a>              149 bsp/drv/dev/serial/serial.c 	tty_input(c, port-&gt;tty);
+<a href='../S/89.html#L156'>port</a>              156 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L158'>port</a>              158 bsp/drv/dev/serial/serial.c 	return sc-&gt;ops-&gt;rcv_char(port);
+<a href='../S/89.html#L165'>port</a>              165 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L167'>port</a>              167 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L174'>port</a>              174 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L176'>port</a>              176 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;set_poll(port, on);
+<a href='../S/89.html#L180'>port</a>              180 bsp/drv/dev/serial/serial.c serial_attach(struct serial_ops *ops, struct serial_port *port)
+<a href='../S/89.html#L191'>port</a>              191 bsp/drv/dev/serial/serial.c 	sc-&gt;port = port;
+<a href='../S/89.html#L198'>port</a>              198 bsp/drv/dev/serial/serial.c 	port-&gt;tty = &amp;sc-&gt;tty;
+<a href='../S/89.html#L199'>port</a>              199 bsp/drv/dev/serial/serial.c 	ops-&gt;start(port);
+<a href='../S/101.html#L42'>port</a>               42 bsp/drv/include/serial.h 	void	(*xmt_char)(struct serial_port *port, char c);
+<a href='../S/101.html#L43'>port</a>               43 bsp/drv/include/serial.h 	char	(*rcv_char)(struct serial_port *port);
+<a href='../S/101.html#L44'>port</a>               44 bsp/drv/include/serial.h 	void	(*set_poll)(struct serial_port *port, int on);
+<a href='../S/101.html#L45'>port</a>               45 bsp/drv/include/serial.h 	void	(*start)(struct serial_port *port);
+<a href='../S/101.html#L46'>port</a>               46 bsp/drv/include/serial.h 	void	(*stop)(struct serial_port *port);
+<a href='../S/169.html#L131'>port</a>              131 bsp/hal/ppc/prep/interrupt.c 	int port, s;
+<a href='../S/169.html#L136'>port</a>              136 bsp/hal/ppc/prep/interrupt.c 	port = vector &lt; 8 ? ELCR : ELCR + 1;
+<a href='../S/169.html#L139'>port</a>              139 bsp/hal/ppc/prep/interrupt.c 	val = inb(port);
+<a href='../S/169.html#L144'>port</a>              144 bsp/hal/ppc/prep/interrupt.c 	outb(port, val);
+<a href='../S/170.html#L39'>port</a>               39 bsp/hal/ppc/prep/io.c outb(int port, u_char val)
+<a href='../S/170.html#L42'>port</a>               42 bsp/hal/ppc/prep/io.c 	ISA_io[port] = val;
+<a href='../S/170.html#L46'>port</a>               46 bsp/hal/ppc/prep/io.c inb(int port)
+<a href='../S/170.html#L49'>port</a>               49 bsp/hal/ppc/prep/io.c 	return (ISA_io[port]);
+<a href='../S/188.html#L129'>port</a>              129 bsp/hal/x86/pc/interrupt.c 	int port, s;
+<a href='../S/188.html#L134'>port</a>              134 bsp/hal/x86/pc/interrupt.c 	port = vector &lt; 8 ? ELCR : ELCR + 1;
+<a href='../S/188.html#L137'>port</a>              137 bsp/hal/x86/pc/interrupt.c 	val = inb(port);
+<a href='../S/188.html#L142'>port</a>              142 bsp/hal/x86/pc/interrupt.c 	outb(port, val);
+</pre>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fmt</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/17.html#L42'>fmt</a>                42 bsp/boot/common/printf.c printf(const char *fmt, ...)
+<a href='../S/17.html#L51'>fmt</a>                51 bsp/boot/common/printf.c 	va_start(ap, fmt);
+<a href='../S/17.html#L52'>fmt</a>                52 bsp/boot/common/printf.c 	while ((c = *fmt++) != 0) {
+<a href='../S/17.html#L54'>fmt</a>                54 bsp/boot/common/printf.c 			c = *fmt++;
+<a href='../S/17.html#L57'>fmt</a>                57 bsp/boot/common/printf.c 				c = *fmt++;
+<a href='../S/60.html#L447'>fmt</a>               447 bsp/drv/dev/base/kd.c 	static char fmt = '*';
+<a href='../S/60.html#L468'>fmt</a>               468 bsp/drv/dev/base/kd.c 			fmt = *p;
+<a href='../S/60.html#L493'>fmt</a>               493 bsp/drv/dev/base/kd.c 		switch (fmt) {
+<a href='../S/267.html#L157'>fmt</a>               157 include/sys/prex.h void	panic(const char *fmt, ...);
+<a href='../S/267.html#L158'>fmt</a>               158 include/sys/prex.h void	dprintf(const char *fmt, ...);
+<a href='../S/326.html#L61'>fmt</a>                61 sys/kern/debug.c printf(const char *fmt, ...)
+<a href='../S/326.html#L68'>fmt</a>                68 sys/kern/debug.c 	va_start(args, fmt);
+<a href='../S/326.html#L69'>fmt</a>                69 sys/kern/debug.c 	vsprintf(db_msg, fmt, args);
+<a href='../S/339.html#L71'>fmt</a>                71 sys/lib/vsprintf.c vsprintf(char *buf, const char *fmt, va_list args)
+<a href='../S/339.html#L79'>fmt</a>                79 sys/lib/vsprintf.c 	for (p = buf; *fmt; fmt++) {
+<a href='../S/339.html#L80'>fmt</a>                80 sys/lib/vsprintf.c 		if (*fmt != '%') {
+<a href='../S/339.html#L81'>fmt</a>                81 sys/lib/vsprintf.c 			*p++ = *fmt;
+<a href='../S/339.html#L85'>fmt</a>                85 sys/lib/vsprintf.c 		++fmt;
+<a href='../S/339.html#L87'>fmt</a>                87 sys/lib/vsprintf.c 		if (*fmt == '0') {
+<a href='../S/339.html#L89'>fmt</a>                89 sys/lib/vsprintf.c 			fmt++;
+<a href='../S/339.html#L93'>fmt</a>                93 sys/lib/vsprintf.c 		if (isdigit(*fmt)) {
+<a href='../S/339.html#L94'>fmt</a>                94 sys/lib/vsprintf.c 			width = atoi(&amp;fmt);
+<a href='../S/339.html#L97'>fmt</a>                97 sys/lib/vsprintf.c 		if (*fmt == 'l')
+<a href='../S/339.html#L98'>fmt</a>                98 sys/lib/vsprintf.c 			fmt++;
+<a href='../S/339.html#L101'>fmt</a>               101 sys/lib/vsprintf.c 		switch (*fmt) {
+<a href='../S/472.html#L35'>fmt</a>                35 usr/lib/libc/gen/err.c err(int eval, const char *fmt, ...)
+<a href='../S/472.html#L39'>fmt</a>                39 usr/lib/libc/gen/err.c 	va_start(ap, fmt);
+<a href='../S/472.html#L40'>fmt</a>                40 usr/lib/libc/gen/err.c 	verr(eval, fmt, ap);
+<a href='../S/473.html#L35'>fmt</a>                35 usr/lib/libc/gen/errx.c errx(int eval, const char *fmt, ...)
+<a href='../S/473.html#L39'>fmt</a>                39 usr/lib/libc/gen/errx.c 	va_start(ap, fmt);
+<a href='../S/473.html#L40'>fmt</a>                40 usr/lib/libc/gen/errx.c 	verrx(eval, fmt, ap);
+<a href='../S/488.html#L40'>fmt</a>                40 usr/lib/libc/gen/verr.c verr(eval, fmt, ap)
+<a href='../S/488.html#L42'>fmt</a>                42 usr/lib/libc/gen/verr.c 	const char *fmt;
+<a href='../S/488.html#L49'>fmt</a>                49 usr/lib/libc/gen/verr.c 	if (fmt != NULL) {
+<a href='../S/488.html#L50'>fmt</a>                50 usr/lib/libc/gen/verr.c 		vfprintf(stderr, fmt, ap);
+<a href='../S/489.html#L40'>fmt</a>                40 usr/lib/libc/gen/verrx.c verrx(eval, fmt, ap)
+<a href='../S/489.html#L42'>fmt</a>                42 usr/lib/libc/gen/verrx.c 	const char *fmt;
+<a href='../S/489.html#L45'>fmt</a>                45 usr/lib/libc/gen/verrx.c 	if (fmt != NULL)
+<a href='../S/489.html#L46'>fmt</a>                46 usr/lib/libc/gen/verrx.c 		vfprintf(stderr, fmt, ap);
+<a href='../S/490.html#L40'>fmt</a>                40 usr/lib/libc/gen/vwarn.c vwarn(fmt, ap)
+<a href='../S/490.html#L41'>fmt</a>                41 usr/lib/libc/gen/vwarn.c 	const char *fmt;
+<a href='../S/490.html#L47'>fmt</a>                47 usr/lib/libc/gen/vwarn.c 	if (fmt != NULL) {
+<a href='../S/490.html#L48'>fmt</a>                48 usr/lib/libc/gen/vwarn.c 		vfprintf(stderr, fmt, ap);
+<a href='../S/491.html#L40'>fmt</a>                40 usr/lib/libc/gen/vwarnx.c vwarnx(fmt, ap)
+<a href='../S/491.html#L41'>fmt</a>                41 usr/lib/libc/gen/vwarnx.c 	const char *fmt;
+<a href='../S/491.html#L44'>fmt</a>                44 usr/lib/libc/gen/vwarnx.c 	if (fmt != NULL)
+<a href='../S/491.html#L45'>fmt</a>                45 usr/lib/libc/gen/vwarnx.c 		vfprintf(stderr, fmt, ap);
+<a href='../S/492.html#L34'>fmt</a>                34 usr/lib/libc/gen/warn.c warn(const char *fmt, ...)
+<a href='../S/492.html#L38'>fmt</a>                38 usr/lib/libc/gen/warn.c 	va_start(ap, fmt);
+<a href='../S/492.html#L39'>fmt</a>                39 usr/lib/libc/gen/warn.c 	vwarn(fmt, ap);
+<a href='../S/493.html#L34'>fmt</a>                34 usr/lib/libc/gen/warnx.c warnx(const char *fmt, ...)
+<a href='../S/493.html#L38'>fmt</a>                38 usr/lib/libc/gen/warnx.c 	va_start(ap, fmt);
+<a href='../S/493.html#L39'>fmt</a>                39 usr/lib/libc/gen/warnx.c 	vwarnx(fmt, ap);
+<a href='../S/509.html#L37'>fmt</a>                37 usr/lib/libc/stdio/fprintf.c fprintf(FILE *fp, const char *fmt, ...)
+<a href='../S/509.html#L42'>fmt</a>                42 usr/lib/libc/stdio/fprintf.c 	va_start(ap, fmt);
+<a href='../S/509.html#L43'>fmt</a>                43 usr/lib/libc/stdio/fprintf.c 	ret = vfprintf(fp, fmt, ap);
+<a href='../S/515.html#L37'>fmt</a>                37 usr/lib/libc/stdio/fscanf.c fscanf(FILE *fp, char const *fmt, ...) {
+<a href='../S/515.html#L41'>fmt</a>                41 usr/lib/libc/stdio/fscanf.c 	va_start(ap, fmt);
+<a href='../S/515.html#L42'>fmt</a>                42 usr/lib/libc/stdio/fscanf.c 	ret = __svfscanf(fp, fmt, ap);
+<a href='../S/532.html#L37'>fmt</a>                37 usr/lib/libc/stdio/printf.c printf(char const *fmt, ...)
+<a href='../S/532.html#L42'>fmt</a>                42 usr/lib/libc/stdio/printf.c 	va_start(ap, fmt);
+<a href='../S/532.html#L43'>fmt</a>                43 usr/lib/libc/stdio/printf.c 	ret = vfprintf(stdout, fmt, ap);
+<a href='../S/540.html#L37'>fmt</a>                37 usr/lib/libc/stdio/scanf.c scanf(char const *fmt, ...)
+<a href='../S/540.html#L42'>fmt</a>                42 usr/lib/libc/stdio/scanf.c 	va_start(ap, fmt);
+<a href='../S/540.html#L43'>fmt</a>                43 usr/lib/libc/stdio/scanf.c 	ret = __svfscanf(stdin, fmt, ap);
+<a href='../S/544.html#L37'>fmt</a>                37 usr/lib/libc/stdio/snprintf.c snprintf(char *str, size_t n, char const *fmt, ...)
+<a href='../S/544.html#L45'>fmt</a>                45 usr/lib/libc/stdio/snprintf.c 	va_start(ap, fmt);
+<a href='../S/544.html#L49'>fmt</a>                49 usr/lib/libc/stdio/snprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/545.html#L39'>fmt</a>                39 usr/lib/libc/stdio/sprintf.c sprintf(char *str, char const *fmt, ...)
+<a href='../S/545.html#L48'>fmt</a>                48 usr/lib/libc/stdio/sprintf.c 	va_start(ap, fmt);
+<a href='../S/545.html#L49'>fmt</a>                49 usr/lib/libc/stdio/sprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/546.html#L39'>fmt</a>                39 usr/lib/libc/stdio/sscanf.c sscanf(const char *str, char const *fmt, ...)
+<a href='../S/546.html#L49'>fmt</a>                49 usr/lib/libc/stdio/sscanf.c 	va_start(ap, fmt);
+<a href='../S/546.html#L50'>fmt</a>                50 usr/lib/libc/stdio/sscanf.c 	ret = __svfscanf(&amp;f, fmt, ap);
+<a href='../S/552.html#L75'>fmt</a>                75 usr/lib/libc/stdio/vfprintf.c __sbprintf(FILE *fp, const char *fmt, va_list ap)
+<a href='../S/552.html#L90'>fmt</a>                90 usr/lib/libc/stdio/vfprintf.c 	ret = vfprintf(&amp;fake, fmt, ap);
+<a href='../S/552.html#L186'>fmt</a>               186 usr/lib/libc/stdio/vfprintf.c 	char *fmt;		/* format string */
+<a href='../S/552.html#L272'>fmt</a>               272 usr/lib/libc/stdio/vfprintf.c 	fmt = (char *)fmt0;
+<a href='../S/552.html#L282'>fmt</a>               282 usr/lib/libc/stdio/vfprintf.c 		for (cp = fmt; (ch = *fmt) != '\0' &amp;&amp; ch != '%'; fmt++)
+<a href='../S/552.html#L284'>fmt</a>               284 usr/lib/libc/stdio/vfprintf.c 		if ((n = fmt - cp) != 0) {
+<a href='../S/552.html#L290'>fmt</a>               290 usr/lib/libc/stdio/vfprintf.c 		fmt++;		/* skip over '%' */
+<a href='../S/552.html#L298'>fmt</a>               298 usr/lib/libc/stdio/vfprintf.c rflag:		ch = *fmt++;
+<a href='../S/552.html#L330'>fmt</a>               330 usr/lib/libc/stdio/vfprintf.c 			if ((ch = *fmt++) == '*') {
+<a href='../S/552.html#L338'>fmt</a>               338 usr/lib/libc/stdio/vfprintf.c 				ch = *fmt++;
+<a href='../S/552.html#L355'>fmt</a>               355 usr/lib/libc/stdio/vfprintf.c 				ch = *fmt++;
+<a href='../S/553.html#L88'>fmt</a>                88 usr/lib/libc/stdio/vfscanf.c 	u_char *fmt = (u_char *)fmt0;
+<a href='../S/553.html#L112'>fmt</a>               112 usr/lib/libc/stdio/vfscanf.c 		c = *fmt++;
+<a href='../S/553.html#L133'>fmt</a>               133 usr/lib/libc/stdio/vfscanf.c again:		c = *fmt++;
+<a href='../S/553.html#L215'>fmt</a>               215 usr/lib/libc/stdio/vfscanf.c 			fmt = __sccl(ccltab, fmt);
+<a href='../S/553.html#L545'>fmt</a>               545 usr/lib/libc/stdio/vfscanf.c __sccl(tab, fmt)
+<a href='../S/553.html#L547'>fmt</a>               547 usr/lib/libc/stdio/vfscanf.c 	u_char *fmt;
+<a href='../S/553.html#L552'>fmt</a>               552 usr/lib/libc/stdio/vfscanf.c 	c = *fmt++;		/* first char hat =&gt; negated scanset */
+<a href='../S/553.html#L555'>fmt</a>               555 usr/lib/libc/stdio/vfscanf.c 		c = *fmt++;	/* get new first char */
+<a href='../S/553.html#L562'>fmt</a>               562 usr/lib/libc/stdio/vfscanf.c 		return (fmt - 1);/* format ended before closing ] */
+<a href='../S/553.html#L575'>fmt</a>               575 usr/lib/libc/stdio/vfscanf.c 		n = *fmt++;		/* and examine the next */
+<a href='../S/553.html#L579'>fmt</a>               579 usr/lib/libc/stdio/vfscanf.c 			return (fmt - 1);
+<a href='../S/553.html#L600'>fmt</a>               600 usr/lib/libc/stdio/vfscanf.c 			n = *fmt;
+<a href='../S/553.html#L605'>fmt</a>               605 usr/lib/libc/stdio/vfscanf.c 			fmt++;
+<a href='../S/553.html#L617'>fmt</a>               617 usr/lib/libc/stdio/vfscanf.c 			c = *fmt++;
+<a href='../S/553.html#L619'>fmt</a>               619 usr/lib/libc/stdio/vfscanf.c 				return (fmt - 1);
+<a href='../S/553.html#L621'>fmt</a>               621 usr/lib/libc/stdio/vfscanf.c 				return (fmt);
+<a href='../S/553.html#L626'>fmt</a>               626 usr/lib/libc/stdio/vfscanf.c 			return (fmt);
+<a href='../S/554.html#L36'>fmt</a>                36 usr/lib/libc/stdio/vprintf.c vprintf(fmt, ap)
+<a href='../S/554.html#L37'>fmt</a>                37 usr/lib/libc/stdio/vprintf.c 	char const *fmt;
+<a href='../S/554.html#L40'>fmt</a>                40 usr/lib/libc/stdio/vprintf.c 	return (vfprintf(stdout, fmt, ap));
+<a href='../S/555.html#L36'>fmt</a>                36 usr/lib/libc/stdio/vscanf.c vscanf(fmt, ap)
+<a href='../S/555.html#L37'>fmt</a>                37 usr/lib/libc/stdio/vscanf.c 	const char *fmt;
+<a href='../S/555.html#L41'>fmt</a>                41 usr/lib/libc/stdio/vscanf.c 	return (__svfscanf(stdin, fmt, ap));
+<a href='../S/556.html#L36'>fmt</a>                36 usr/lib/libc/stdio/vsnprintf.c vsnprintf(str, n, fmt, ap)
+<a href='../S/556.html#L39'>fmt</a>                39 usr/lib/libc/stdio/vsnprintf.c 	const char *fmt;
+<a href='../S/556.html#L50'>fmt</a>                50 usr/lib/libc/stdio/vsnprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/557.html#L37'>fmt</a>                37 usr/lib/libc/stdio/vsprintf.c vsprintf(str, fmt, ap)
+<a href='../S/557.html#L39'>fmt</a>                39 usr/lib/libc/stdio/vsprintf.c 	const char *fmt;
+<a href='../S/557.html#L48'>fmt</a>                48 usr/lib/libc/stdio/vsprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/558.html#L37'>fmt</a>                37 usr/lib/libc/stdio/vsscanf.c vsscanf(str, fmt, ap)
+<a href='../S/558.html#L39'>fmt</a>                39 usr/lib/libc/stdio/vsscanf.c 	const char *fmt;
+<a href='../S/558.html#L47'>fmt</a>                47 usr/lib/libc/stdio/vsscanf.c 	return (__svfscanf(&amp;f, fmt, ap));
+<a href='../S/646.html#L41'>fmt</a>                41 usr/lib/libsa/printf.c printf(const char *fmt, ...)
+<a href='../S/646.html#L47'>fmt</a>                47 usr/lib/libsa/printf.c 	va_start(args, fmt);
+<a href='../S/646.html#L48'>fmt</a>                48 usr/lib/libsa/printf.c 	len = vsprintf(buf, fmt, args);
+<a href='../S/649.html#L38'>fmt</a>                38 usr/lib/libsa/sprintf.c sprintf(char *str, char const *fmt, ...)
+<a href='../S/649.html#L47'>fmt</a>                47 usr/lib/libsa/sprintf.c 	va_start(ap, fmt);
+<a href='../S/649.html#L48'>fmt</a>                48 usr/lib/libsa/sprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/650.html#L87'>fmt</a>                87 usr/lib/libsa/vsprintf.c vsprintf(char *buf, const char *fmt, va_list args)
+<a href='../S/650.html#L96'>fmt</a>                96 usr/lib/libsa/vsprintf.c 	for (p = buf; *fmt &amp;&amp; (size &lt; LINE_MAX); fmt++, size++) {
+<a href='../S/650.html#L97'>fmt</a>                97 usr/lib/libsa/vsprintf.c 		if (*fmt != '%') {
+<a href='../S/650.html#L98'>fmt</a>                98 usr/lib/libsa/vsprintf.c 			*p++ = *fmt;
+<a href='../S/650.html#L102'>fmt</a>               102 usr/lib/libsa/vsprintf.c 		++fmt;
+<a href='../S/650.html#L104'>fmt</a>               104 usr/lib/libsa/vsprintf.c 		if (*fmt == '0') {
+<a href='../S/650.html#L106'>fmt</a>               106 usr/lib/libsa/vsprintf.c 			fmt++;
+<a href='../S/650.html#L108'>fmt</a>               108 usr/lib/libsa/vsprintf.c 		if (*fmt == 'l')
+<a href='../S/650.html#L109'>fmt</a>               109 usr/lib/libsa/vsprintf.c 			fmt++;
+<a href='../S/650.html#L112'>fmt</a>               112 usr/lib/libsa/vsprintf.c 		if (isdigit((int)*fmt)) {
+<a href='../S/650.html#L113'>fmt</a>               113 usr/lib/libsa/vsprintf.c 			width = atoi(&amp;fmt);
+<a href='../S/650.html#L117'>fmt</a>               117 usr/lib/libsa/vsprintf.c 		switch (*fmt) {
+<a href='../S/650.html#L166'>fmt</a>               166 usr/lib/libsa/vsprintf.c sprintf(char *buf, const char *fmt, ...)
+<a href='../S/650.html#L171'>fmt</a>               171 usr/lib/libsa/vsprintf.c 	va_start(args, fmt);
+<a href='../S/650.html#L172'>fmt</a>               172 usr/lib/libsa/vsprintf.c 	i = vsprintf(buf, fmt, args);
+<a href='../S/700.html#L36'>fmt</a>                36 usr/lib/posix/gen/syslog.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/700.html#L44'>fmt</a>                44 usr/lib/posix/gen/syslog.c syslog(int pri, const char *fmt, ...)
+<a href='../S/700.html#L49'>fmt</a>                49 usr/lib/posix/gen/syslog.c 	va_start(args, fmt);
+<a href='../S/700.html#L50'>fmt</a>                50 usr/lib/posix/gen/syslog.c 	vsprintf(buf, fmt, args);
+<a href='../S/747.html#L34'>fmt</a>                34 usr/lib/prex/gen/dprintf.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/747.html#L37'>fmt</a>                37 usr/lib/prex/gen/dprintf.c dprintf(const char *fmt, ...)
+<a href='../S/747.html#L42'>fmt</a>                42 usr/lib/prex/gen/dprintf.c 	va_start(args, fmt);
+<a href='../S/747.html#L43'>fmt</a>                43 usr/lib/prex/gen/dprintf.c 	vsprintf(buf, fmt, args);
+<a href='../S/749.html#L34'>fmt</a>                34 usr/lib/prex/gen/panic.c extern int vsprintf(char *buf, const char *fmt, va_list args);
+<a href='../S/749.html#L37'>fmt</a>                37 usr/lib/prex/gen/panic.c panic(const char *fmt, ...)
+<a href='../S/749.html#L42'>fmt</a>                42 usr/lib/prex/gen/panic.c 	va_start(args, fmt);
+<a href='../S/749.html#L43'>fmt</a>                43 usr/lib/prex/gen/panic.c 	vsprintf(buf, fmt, args);
+</pre>
+</body>
+</html>

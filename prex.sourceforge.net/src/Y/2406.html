@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>waiter</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/346.html#L418'>waiter</a>            418 sys/sync/mutex.c prio_inherit(thread_t waiter)
+<a href='../S/346.html#L420'>waiter</a>            420 sys/sync/mutex.c 	mutex_t m = waiter-&gt;mutex_waiting;
+<a href='../S/346.html#L431'>waiter</a>            431 sys/sync/mutex.c 		if (holder == waiter) {
+<a href='../S/346.html#L433'>waiter</a>            433 sys/sync/mutex.c 				 (long)m, (long)holder, (long)waiter));
+<a href='../S/346.html#L441'>waiter</a>            441 sys/sync/mutex.c 		if (holder-&gt;priority &gt; waiter-&gt;priority) {
+<a href='../S/346.html#L442'>waiter</a>            442 sys/sync/mutex.c 			sched_setpri(holder, holder-&gt;basepri, waiter-&gt;priority);
+<a href='../S/346.html#L443'>waiter</a>            443 sys/sync/mutex.c 			m-&gt;priority = waiter-&gt;priority;
+</pre>
+</body>
+</html>

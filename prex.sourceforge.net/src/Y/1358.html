@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>new_ipl</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/148.html#L137'>new_ipl</a>           137 bsp/hal/arm/integrator/interrupt.c 	int vector, old_ipl, new_ipl;
+<a href='../S/148.html#L150'>new_ipl</a>           150 bsp/hal/arm/integrator/interrupt.c 	new_ipl = ipl_table[vector];
+<a href='../S/148.html#L151'>new_ipl</a>           151 bsp/hal/arm/integrator/interrupt.c 	if (new_ipl &gt; old_ipl)		/* Ignore spurious interrupt */
+<a href='../S/148.html#L152'>new_ipl</a>           152 bsp/hal/arm/integrator/interrupt.c 		irq_level = new_ipl;
+<a href='../S/169.html#L178'>new_ipl</a>           178 bsp/hal/ppc/prep/interrupt.c 	int old_ipl, new_ipl;
+<a href='../S/169.html#L191'>new_ipl</a>           191 bsp/hal/ppc/prep/interrupt.c 	new_ipl = ipl_table[vector];
+<a href='../S/169.html#L192'>new_ipl</a>           192 bsp/hal/ppc/prep/interrupt.c 	if (new_ipl &gt; old_ipl)		/* Ignore spurious interrupt */
+<a href='../S/169.html#L193'>new_ipl</a>           193 bsp/hal/ppc/prep/interrupt.c 		irq_level = new_ipl;
+<a href='../S/188.html#L159'>new_ipl</a>           159 bsp/hal/x86/pc/interrupt.c 	int old_ipl, new_ipl;
+<a href='../S/188.html#L163'>new_ipl</a>           163 bsp/hal/x86/pc/interrupt.c 	new_ipl = ipl_table[vector];
+<a href='../S/188.html#L164'>new_ipl</a>           164 bsp/hal/x86/pc/interrupt.c 	if (new_ipl &gt; old_ipl)		/* Ignore spurious interrupt */
+<a href='../S/188.html#L165'>new_ipl</a>           165 bsp/hal/x86/pc/interrupt.c 		irq_level = new_ipl;
+</pre>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tmr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L108'>tmr</a>               108 bsp/drv/dev/block/fdd.c 	timer_t		tmr;		/* timer id */
+<a href='../S/66.html#L199'>tmr</a>               199 bsp/drv/dev/block/fdd.c 	timer_stop(&amp;sc-&gt;tmr);
+<a href='../S/66.html#L216'>tmr</a>               216 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 250, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L242'>tmr</a>               242 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 500, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L259'>tmr</a>               259 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 5000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L279'>tmr</a>               279 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 4000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L314'>tmr</a>               314 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 2000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L343'>tmr</a>               343 bsp/drv/dev/block/fdd.c 	timer_callout(&amp;sc-&gt;tmr, 5000, &amp;fdc_timeout, sc);
+<a href='../S/66.html#L394'>tmr</a>               394 bsp/drv/dev/block/fdd.c 	timer_stop(&amp;sc-&gt;tmr);
+<a href='../S/66.html#L405'>tmr</a>               405 bsp/drv/dev/block/fdd.c 			timer_stop(&amp;sc-&gt;tmr);
+<a href='../S/336.html#L69'>tmr</a>                69 sys/kern/timer.c timer_add(struct timer *tmr, u_long ticks)
+<a href='../S/336.html#L77'>tmr</a>                77 sys/kern/timer.c 	tmr-&gt;expire = lbolt + ticks;
+<a href='../S/336.html#L78'>tmr</a>                78 sys/kern/timer.c 	tmr-&gt;state = TM_ACTIVE;
+<a href='../S/336.html#L87'>tmr</a>                87 sys/kern/timer.c 		if (time_before(tmr-&gt;expire, t-&gt;expire))
+<a href='../S/336.html#L90'>tmr</a>                90 sys/kern/timer.c 	list_insert(list_prev(n), &amp;tmr-&gt;link);
+<a href='../S/336.html#L97'>tmr</a>                97 sys/kern/timer.c timer_stop(struct timer *tmr)
+<a href='../S/336.html#L101'>tmr</a>               101 sys/kern/timer.c 	ASSERT(tmr != NULL);
+<a href='../S/336.html#L104'>tmr</a>               104 sys/kern/timer.c 	if (tmr-&gt;state == TM_ACTIVE) {
+<a href='../S/336.html#L105'>tmr</a>               105 sys/kern/timer.c 		list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L106'>tmr</a>               106 sys/kern/timer.c 		tmr-&gt;state = TM_STOP;
+<a href='../S/336.html#L119'>tmr</a>               119 sys/kern/timer.c timer_callout(struct timer *tmr, u_long msec, void (*fn)(void *), void *arg)
+<a href='../S/336.html#L123'>tmr</a>               123 sys/kern/timer.c 	ASSERT(tmr != NULL);
+<a href='../S/336.html#L128'>tmr</a>               128 sys/kern/timer.c 	if (tmr-&gt;state == TM_ACTIVE)
+<a href='../S/336.html#L129'>tmr</a>               129 sys/kern/timer.c 		list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L131'>tmr</a>               131 sys/kern/timer.c 	tmr-&gt;func = fn;
+<a href='../S/336.html#L132'>tmr</a>               132 sys/kern/timer.c 	tmr-&gt;arg = arg;
+<a href='../S/336.html#L133'>tmr</a>               133 sys/kern/timer.c 	tmr-&gt;interval = 0;
+<a href='../S/336.html#L134'>tmr</a>               134 sys/kern/timer.c 	timer_add(tmr, mstohz(msec));
+<a href='../S/336.html#L149'>tmr</a>               149 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L155'>tmr</a>               155 sys/kern/timer.c 		tmr = &amp;curthread-&gt;timeout;
+<a href='../S/336.html#L156'>tmr</a>               156 sys/kern/timer.c 		remain = hztoms(time_remain(tmr-&gt;expire));
+<a href='../S/336.html#L206'>tmr</a>               206 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L211'>tmr</a>               211 sys/kern/timer.c 	tmr = &amp;curtask-&gt;alarm;
+<a href='../S/336.html#L217'>tmr</a>               217 sys/kern/timer.c 	if (tmr-&gt;state == TM_ACTIVE)
+<a href='../S/336.html#L218'>tmr</a>               218 sys/kern/timer.c 		left = hztoms(time_remain(tmr-&gt;expire));
+<a href='../S/336.html#L221'>tmr</a>               221 sys/kern/timer.c 		timer_stop(tmr);
+<a href='../S/336.html#L223'>tmr</a>               223 sys/kern/timer.c 		timer_callout(tmr, msec, &amp;alarm_expire, curtask);
+<a href='../S/336.html#L242'>tmr</a>               242 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L258'>tmr</a>               258 sys/kern/timer.c 	tmr = t-&gt;periodic;
+<a href='../S/336.html#L263'>tmr</a>               263 sys/kern/timer.c 		if (tmr == NULL || tmr-&gt;state != TM_ACTIVE) {
+<a href='../S/336.html#L267'>tmr</a>               267 sys/kern/timer.c 		timer_stop(tmr);
+<a href='../S/336.html#L269'>tmr</a>               269 sys/kern/timer.c 		if (tmr == NULL) {
+<a href='../S/336.html#L275'>tmr</a>               275 sys/kern/timer.c 			if ((tmr = kmem_alloc(sizeof(tmr))) == NULL) {
+<a href='../S/336.html#L279'>tmr</a>               279 sys/kern/timer.c 			memset(tmr, 0, sizeof(*tmr));
+<a href='../S/336.html#L280'>tmr</a>               280 sys/kern/timer.c 			event_init(&amp;tmr-&gt;event, "periodic");
+<a href='../S/336.html#L281'>tmr</a>               281 sys/kern/timer.c 			t-&gt;periodic = tmr;
+<a href='../S/336.html#L287'>tmr</a>               287 sys/kern/timer.c 		tmr-&gt;interval = mstohz(period);
+<a href='../S/336.html#L288'>tmr</a>               288 sys/kern/timer.c 		if (tmr-&gt;interval == 0)
+<a href='../S/336.html#L289'>tmr</a>               289 sys/kern/timer.c 			tmr-&gt;interval = 1;
+<a href='../S/336.html#L290'>tmr</a>               290 sys/kern/timer.c 		timer_add(tmr, mstohz(start));
+<a href='../S/336.html#L308'>tmr</a>               308 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L311'>tmr</a>               311 sys/kern/timer.c 	tmr = curthread-&gt;periodic;
+<a href='../S/336.html#L312'>tmr</a>               312 sys/kern/timer.c 	if (tmr == NULL || tmr-&gt;state != TM_ACTIVE)
+<a href='../S/336.html#L315'>tmr</a>               315 sys/kern/timer.c 	if (time_before(lbolt, tmr-&gt;expire)) {
+<a href='../S/336.html#L319'>tmr</a>               319 sys/kern/timer.c 		rc = sched_sleep(&amp;tmr-&gt;event);
+<a href='../S/336.html#L349'>tmr</a>               349 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L363'>tmr</a>               363 sys/kern/timer.c 			tmr = timer_next(&amp;expire_list);
+<a href='../S/336.html#L364'>tmr</a>               364 sys/kern/timer.c 			list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L365'>tmr</a>               365 sys/kern/timer.c 			tmr-&gt;state = TM_STOP;
+<a href='../S/336.html#L368'>tmr</a>               368 sys/kern/timer.c 			(*tmr-&gt;func)(tmr-&gt;arg);
+<a href='../S/336.html#L391'>tmr</a>               391 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L407'>tmr</a>               407 sys/kern/timer.c 		tmr = timer_next(&amp;timer_list);
+<a href='../S/336.html#L408'>tmr</a>               408 sys/kern/timer.c 		if (time_before(lbolt, tmr-&gt;expire))
+<a href='../S/336.html#L411'>tmr</a>               411 sys/kern/timer.c 		list_remove(&amp;tmr-&gt;link);
+<a href='../S/336.html#L412'>tmr</a>               412 sys/kern/timer.c 		if (tmr-&gt;interval != 0) {
+<a href='../S/336.html#L416'>tmr</a>               416 sys/kern/timer.c 			ticks = time_remain(tmr-&gt;expire + tmr-&gt;interval);
+<a href='../S/336.html#L417'>tmr</a>               417 sys/kern/timer.c 			timer_add(tmr, ticks);
+<a href='../S/336.html#L418'>tmr</a>               418 sys/kern/timer.c 			sched_wakeup(&amp;tmr-&gt;event);
+<a href='../S/336.html#L423'>tmr</a>               423 sys/kern/timer.c 			list_insert(&amp;expire_list, &amp;tmr-&gt;link);
+</pre>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>exec</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/873.html#L58'>exec</a>               58 usr/server/exec/exec.h struct exec {
+<a href='../S/873.html#L73'>exec</a>               73 usr/server/exec/exec.h 	int	(*el_probe)(struct exec *);	/* probe routine */
+<a href='../S/873.html#L74'>exec</a>               74 usr/server/exec/exec.h 	int	(*el_load)(struct exec *);	/* load routine */
+<a href='../S/875.html#L41'>exec</a>               41 usr/server/exec/exec_conf.c extern int	elf_probe(struct exec *);
+<a href='../S/875.html#L42'>exec</a>               42 usr/server/exec/exec_conf.c extern int	elf_load(struct exec *);
+<a href='../S/875.html#L45'>exec</a>               45 usr/server/exec/exec_conf.c extern int	script_probe(struct exec *);
+<a href='../S/875.html#L46'>exec</a>               46 usr/server/exec/exec_conf.c extern int	script_load(struct exec *);
+<a href='../S/876.html#L334'>exec</a>              334 usr/server/exec/exec_elf.c elf_load(struct exec *exec)
+<a href='../S/876.html#L341'>exec</a>              341 usr/server/exec/exec_elf.c 	if (access(exec-&gt;path, X_OK) == -1) {
+<a href='../S/876.html#L346'>exec</a>              346 usr/server/exec/exec_elf.c 	if ((fd = open(exec-&gt;path, O_RDONLY)) == -1)
+<a href='../S/876.html#L350'>exec</a>              350 usr/server/exec/exec_elf.c 	error = load_exec((Elf32_Ehdr *)exec-&gt;header, exec-&gt;task,
+<a href='../S/876.html#L351'>exec</a>              351 usr/server/exec/exec_elf.c 			  fd, &amp;exec-&gt;entry);
+<a href='../S/876.html#L353'>exec</a>              353 usr/server/exec/exec_elf.c 	error = load_reloc((Elf32_Ehdr *)exec-&gt;header, exec-&gt;task,
+<a href='../S/876.html#L354'>exec</a>              354 usr/server/exec/exec_elf.c 			  fd, &amp;exec-&gt;entry);
+<a href='../S/876.html#L364'>exec</a>              364 usr/server/exec/exec_elf.c elf_probe(struct exec *exec)
+<a href='../S/876.html#L369'>exec</a>              369 usr/server/exec/exec_elf.c 	ehdr = (Elf32_Ehdr *)exec-&gt;header;
+<a href='../S/877.html#L80'>exec</a>               80 usr/server/exec/exec_execve.c 	struct exec exec;
+<a href='../S/877.html#L104'>exec</a>              104 usr/server/exec/exec_execve.c 	exec.path = path;
+<a href='../S/877.html#L105'>exec</a>              105 usr/server/exec/exec_execve.c 	exec.header = hdrbuf;
+<a href='../S/877.html#L106'>exec</a>              106 usr/server/exec/exec_execve.c 	exec.xarg1 = NULL;
+<a href='../S/877.html#L107'>exec</a>              107 usr/server/exec/exec_execve.c 	exec.xarg2 = NULL;
+<a href='../S/877.html#L113'>exec</a>              113 usr/server/exec/exec_execve.c 	DPRINTF(("exec: read header for %s\n", exec.path));
+<a href='../S/877.html#L114'>exec</a>              114 usr/server/exec/exec_execve.c 	if ((error = read_header(exec.path)) != 0)
+<a href='../S/877.html#L123'>exec</a>              123 usr/server/exec/exec_execve.c 		if ((rc = ldr-&gt;el_probe(&amp;exec)) != PROBE_ERROR) {
+<a href='../S/877.html#L144'>exec</a>              144 usr/server/exec/exec_execve.c 	if (access(exec.path, X_OK) == -1) {
+<a href='../S/877.html#L164'>exec</a>              164 usr/server/exec/exec_execve.c 	if (*exec.path != '\0')
+<a href='../S/877.html#L165'>exec</a>              165 usr/server/exec/exec_execve.c 		task_setname(new_task, basename(exec.path));
+<a href='../S/877.html#L170'>exec</a>              170 usr/server/exec/exec_execve.c 	bind_cap(exec.path, new_task);
+<a href='../S/877.html#L183'>exec</a>              183 usr/server/exec/exec_execve.c 	if ((error = build_args(new_task, stack, exec.path, msg,
+<a href='../S/877.html#L184'>exec</a>              184 usr/server/exec/exec_execve.c 				exec.xarg1, exec.xarg2, &amp;sp)) != 0)
+<a href='../S/877.html#L191'>exec</a>              191 usr/server/exec/exec_execve.c 	exec.task = new_task;
+<a href='../S/877.html#L192'>exec</a>              192 usr/server/exec/exec_execve.c 	if ((error = ldr-&gt;el_load(&amp;exec)) != 0)
+<a href='../S/877.html#L194'>exec</a>              194 usr/server/exec/exec_execve.c 	if ((error = thread_load(t, (void (*)(void))exec.entry, sp)) != 0)
+<a href='../S/878.html#L55'>exec</a>               55 usr/server/exec/exec_script.c script_load(struct exec *exec)
+<a href='../S/878.html#L65'>exec</a>               65 usr/server/exec/exec_script.c script_probe(struct exec *exec)
+<a href='../S/878.html#L67'>exec</a>               67 usr/server/exec/exec_script.c 	char *hdrstr = exec-&gt;header;
+<a href='../S/878.html#L91'>exec</a>               91 usr/server/exec/exec_script.c 		exec-&gt;xarg1 = intarg;
+<a href='../S/878.html#L92'>exec</a>               92 usr/server/exec/exec_script.c 		exec-&gt;xarg2 = script;
+<a href='../S/878.html#L95'>exec</a>               95 usr/server/exec/exec_script.c 		exec-&gt;xarg1 = intarg;
+<a href='../S/878.html#L96'>exec</a>               96 usr/server/exec/exec_script.c 		exec-&gt;xarg2 = NULL;
+<a href='../S/878.html#L98'>exec</a>               98 usr/server/exec/exec_script.c 	strlcpy(script, exec-&gt;path, sizeof(script));
+<a href='../S/878.html#L99'>exec</a>               99 usr/server/exec/exec_script.c 	exec-&gt;path = interp;
+</pre>
+</body>
+</html>

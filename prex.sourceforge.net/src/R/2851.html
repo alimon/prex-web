@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vaddr_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/2.html#L46'>vaddr_t</a>            46 bsp/boot/arm/arch/elf_reloc.c 		*where += (vaddr_t)ptokv(sym_val);
+<a href='../S/13.html#L75'>vaddr_t</a>            75 bsp/boot/common/elf.c 		load_base = (vaddr_t)ptokv(phdr-&gt;p_paddr);
+<a href='../S/13.html#L302'>vaddr_t</a>           302 bsp/boot/common/elf.c 				m-&gt;text = (vaddr_t)ptokv(load_base);
+<a href='../S/13.html#L307'>vaddr_t</a>           307 bsp/boot/common/elf.c 					m-&gt;data = (vaddr_t)ptokv(load_base +
+<a href='../S/13.html#L358'>vaddr_t</a>           358 bsp/boot/common/elf.c 	m-&gt;entry = (vaddr_t)ptokv(ehdr-&gt;e_entry + m-&gt;phys);
+<a href='../S/37.html#L45'>vaddr_t</a>            45 bsp/boot/x86/arch/elf_reloc.c 		*where += (vaddr_t)ptokv(sym_val);
+<a href='../S/60.html#L445'>vaddr_t</a>           445 bsp/drv/dev/base/kd.c 	static vaddr_t addr;
+<a href='../S/60.html#L522'>vaddr_t</a>           522 bsp/drv/dev/base/kd.c 	vaddr_t addr;
+<a href='../S/126.html#L72'>vaddr_t</a>            72 bsp/hal/arm/arch/context.c 			((vaddr_t)val - sizeof(struct cpu_regs));
+<a href='../S/131.html#L111'>vaddr_t</a>           111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L250'>vaddr_t</a>           250 bsp/hal/arm/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t virt, size_t size)
+<a href='../S/131.html#L253'>vaddr_t</a>           253 bsp/hal/arm/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/131.html#L278'>vaddr_t</a>           278 bsp/hal/arm/arch/mmu.c mmu_premap(paddr_t phys, vaddr_t virt)
+<a href='../S/143.html#L41'>vaddr_t</a>            41 bsp/hal/arm/include/locore.h void	 vector_copy(vaddr_t);
+<a href='../S/144.html#L62'>vaddr_t</a>            62 bsp/hal/arm/include/mmu.h #define PAGE_DIR(virt)      (int)((((vaddr_t)(virt)) &gt;&gt; 20) &amp; 0xfff)
+<a href='../S/144.html#L63'>vaddr_t</a>            63 bsp/hal/arm/include/mmu.h #define PAGE_TABLE(virt)    (int)((((vaddr_t)(virt)) &gt;&gt; 12) &amp; 0xff)
+<a href='../S/149.html#L179'>vaddr_t</a>           179 bsp/hal/arm/integrator/machdep.c 	vector_copy((vaddr_t)ptokv(CONFIG_ARM_VECTORS));
+<a href='../S/178.html#L82'>vaddr_t</a>            82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L220'>vaddr_t</a>           220 bsp/hal/x86/arch/mmu.c mmu_extract(pgd_t pgd, vaddr_t va, size_t size)
+<a href='../S/178.html#L223'>vaddr_t</a>           223 bsp/hal/x86/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/184.html#L67'>vaddr_t</a>            67 bsp/hal/x86/include/mmu.h #define PAGE_DIR(virt)      (int)((((vaddr_t)(virt)) &gt;&gt; 22) &amp; 0x3ff)
+<a href='../S/184.html#L68'>vaddr_t</a>            68 bsp/hal/x86/include/mmu.h #define PAGE_TABLE(virt)    (int)((((vaddr_t)(virt)) &gt;&gt; 12) &amp; 0x3ff)
+<a href='../S/247.html#L64'>vaddr_t</a>            64 include/sys/bootinfo.h 	vaddr_t		entry;		/* entry address */
+<a href='../S/247.html#L65'>vaddr_t</a>            65 include/sys/bootinfo.h 	vaddr_t		text;		/* text address */
+<a href='../S/247.html#L66'>vaddr_t</a>            66 include/sys/bootinfo.h 	vaddr_t		data;		/* data address */
+<a href='../S/264.html#L122'>vaddr_t</a>           122 include/sys/param.h #define user_area(a)	((vaddr_t)(a) &lt;  (vaddr_t)USERLIMIT)
+<a href='../S/272.html#L118'>vaddr_t</a>           118 include/sys/sysinfo.h 	vaddr_t		virt;		/* virtual address */
+<a href='../S/308.html#L64'>vaddr_t</a>            64 sys/include/hal.h 	vaddr_t		virt;		/* virtual address */
+<a href='../S/308.html#L107'>vaddr_t</a>           107 sys/include/hal.h void	  mmu_premap(paddr_t, vaddr_t);
+<a href='../S/308.html#L110'>vaddr_t</a>           110 sys/include/hal.h int	  mmu_map(pgd_t, paddr_t, vaddr_t, size_t, int);
+<a href='../S/308.html#L112'>vaddr_t</a>           112 sys/include/hal.h paddr_t	  mmu_extract(pgd_t, vaddr_t, size_t);
+<a href='../S/323.html#L46'>vaddr_t</a>            46 sys/include/vm.h 	vaddr_t		addr;		/* base address */
+<a href='../S/323.html#L87'>vaddr_t</a>            87 sys/include/vm.h paddr_t	 vm_translate(vaddr_t, size_t);
+<a href='../S/335.html#L68'>vaddr_t</a>            68 sys/kern/thread.c 	vaddr_t sp;
+<a href='../S/335.html#L105'>vaddr_t</a>           105 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L528'>vaddr_t</a>           528 sys/kern/thread.c 	vaddr_t sp;
+<a href='../S/335.html#L540'>vaddr_t</a>           540 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L579'>vaddr_t</a>           579 sys/kern/thread.c 	vaddr_t sp;
+<a href='../S/335.html#L587'>vaddr_t</a>           587 sys/kern/thread.c 	sp = (vaddr_t)stack + KSTACKSZ;
+<a href='../S/341.html#L91'>vaddr_t</a>            91 sys/mem/kmem.c 			(((vaddr_t)(n) + ALIGN_MASK) &amp; (vaddr_t)~ALIGN_MASK)
+<a href='../S/341.html#L108'>vaddr_t</a>           108 sys/mem/kmem.c 			    ((vaddr_t)(n) &amp; (vaddr_t)~(PAGE_SIZE - 1))
+<a href='../S/341.html#L236'>vaddr_t</a>           236 sys/mem/kmem.c 		newblk = (struct block_hdr *)((vaddr_t)blk + size);
+<a href='../S/341.html#L252'>vaddr_t</a>           252 sys/mem/kmem.c 	p = (void *)((vaddr_t)blk + BLKHDR_SIZE);
+<a href='../S/341.html#L280'>vaddr_t</a>           280 sys/mem/kmem.c 	blk = (struct block_hdr *)((vaddr_t)ptr - BLKHDR_SIZE);
+<a href='../S/341.html#L318'>vaddr_t</a>           318 sys/mem/kmem.c 	pa = vm_translate((vaddr_t)addr, size);
+<a href='../S/342.html#L109'>vaddr_t</a>           109 sys/mem/page.c 		tmp = (struct page *)((vaddr_t)blk + size);
+<a href='../S/342.html#L163'>vaddr_t</a>           163 sys/mem/page.c 	    ((vaddr_t)blk + blk-&gt;size) == (vaddr_t)blk-&gt;next) {
+<a href='../S/342.html#L169'>vaddr_t</a>           169 sys/mem/page.c 	    (vaddr_t)blk-&gt;prev + blk-&gt;prev-&gt;size == (vaddr_t)blk) {
+<a href='../S/342.html#L185'>vaddr_t</a>           185 sys/mem/page.c 	vaddr_t start, end;
+<a href='../S/342.html#L191'>vaddr_t</a>           191 sys/mem/page.c 	start = trunc_page((vaddr_t)ptokv(paddr));
+<a href='../S/342.html#L192'>vaddr_t</a>           192 sys/mem/page.c 	end = round_page((vaddr_t)ptokv(paddr + psize));
+<a href='../S/342.html#L203'>vaddr_t</a>           203 sys/mem/page.c 		if ((vaddr_t)blk &lt;= start
+<a href='../S/342.html#L204'>vaddr_t</a>           204 sys/mem/page.c 		    &amp;&amp; end &lt;= (vaddr_t)blk + blk-&gt;size)
+<a href='../S/342.html#L208'>vaddr_t</a>           208 sys/mem/page.c 	if ((vaddr_t)blk == start &amp;&amp; blk-&gt;size == size) {
+<a href='../S/342.html#L218'>vaddr_t</a>           218 sys/mem/page.c 		if ((vaddr_t)blk + blk-&gt;size != end) {
+<a href='../S/342.html#L220'>vaddr_t</a>           220 sys/mem/page.c 			tmp-&gt;size = (vaddr_t)blk + blk-&gt;size - end;
+<a href='../S/342.html#L228'>vaddr_t</a>           228 sys/mem/page.c 		if ((vaddr_t)blk == start) {
+<a href='../S/342.html#L232'>vaddr_t</a>           232 sys/mem/page.c 			blk-&gt;size = start - (vaddr_t)blk;
+<a href='../S/343.html#L58'>vaddr_t</a>            58 sys/mem/vm.c   static struct seg *seg_create(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L60'>vaddr_t</a>            60 sys/mem/vm.c   static struct seg *seg_lookup(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L63'>vaddr_t</a>            63 sys/mem/vm.c   static struct seg *seg_reserve(struct seg *, vaddr_t, size_t);
+<a href='../S/343.html#L122'>vaddr_t</a>           122 sys/mem/vm.c   	vaddr_t start, end;
+<a href='../S/343.html#L138'>vaddr_t</a>           138 sys/mem/vm.c   		start = trunc_page((vaddr_t)*addr);
+<a href='../S/343.html#L210'>vaddr_t</a>           210 sys/mem/vm.c   	vaddr_t va;
+<a href='../S/343.html#L212'>vaddr_t</a>           212 sys/mem/vm.c   	va = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L281'>vaddr_t</a>           281 sys/mem/vm.c   	vaddr_t va;
+<a href='../S/343.html#L283'>vaddr_t</a>           283 sys/mem/vm.c   	va = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L390'>vaddr_t</a>           390 sys/mem/vm.c   	vaddr_t start, end;
+<a href='../S/343.html#L406'>vaddr_t</a>           406 sys/mem/vm.c   	start = trunc_page((vaddr_t)addr);
+<a href='../S/343.html#L407'>vaddr_t</a>           407 sys/mem/vm.c   	end = round_page((vaddr_t)addr + size);
+<a href='../S/343.html#L409'>vaddr_t</a>           409 sys/mem/vm.c   	offset = (size_t)((vaddr_t)addr - start);
+<a href='../S/343.html#L733'>vaddr_t</a>           733 sys/mem/vm.c   vm_translate(vaddr_t addr, size_t size)
+<a href='../S/343.html#L810'>vaddr_t</a>           810 sys/mem/vm.c   seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/343.html#L855'>vaddr_t</a>           855 sys/mem/vm.c   seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/343.html#L945'>vaddr_t</a>           945 sys/mem/vm.c   seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L52'>vaddr_t</a>            52 sys/mem/vm_nommu.c static struct seg *seg_create(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L54'>vaddr_t</a>            54 sys/mem/vm_nommu.c static struct seg *seg_lookup(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L57'>vaddr_t</a>            57 sys/mem/vm_nommu.c static struct seg *seg_reserve(struct seg *, vaddr_t, size_t);
+<a href='../S/344.html#L115'>vaddr_t</a>           115 sys/mem/vm_nommu.c 	vaddr_t start, end;
+<a href='../S/344.html#L131'>vaddr_t</a>           131 sys/mem/vm_nommu.c 		start = trunc_page((vaddr_t)*addr);
+<a href='../S/344.html#L186'>vaddr_t</a>           186 sys/mem/vm_nommu.c 	vaddr_t va;
+<a href='../S/344.html#L188'>vaddr_t</a>           188 sys/mem/vm_nommu.c 	va = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L251'>vaddr_t</a>           251 sys/mem/vm_nommu.c 	vaddr_t va;
+<a href='../S/344.html#L253'>vaddr_t</a>           253 sys/mem/vm_nommu.c 	va = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L324'>vaddr_t</a>           324 sys/mem/vm_nommu.c 	vaddr_t start, end;
+<a href='../S/344.html#L337'>vaddr_t</a>           337 sys/mem/vm_nommu.c 	start = trunc_page((vaddr_t)addr);
+<a href='../S/344.html#L338'>vaddr_t</a>           338 sys/mem/vm_nommu.c 	end = round_page((vaddr_t)addr + size);
+<a href='../S/344.html#L457'>vaddr_t</a>           457 sys/mem/vm_nommu.c 	vaddr_t base, start, end;
+<a href='../S/344.html#L493'>vaddr_t</a>           493 sys/mem/vm_nommu.c vm_translate(vaddr_t addr, size_t size)
+<a href='../S/344.html#L560'>vaddr_t</a>           560 sys/mem/vm_nommu.c seg_create(struct seg *prev, vaddr_t addr, size_t size)
+<a href='../S/344.html#L605'>vaddr_t</a>           605 sys/mem/vm_nommu.c seg_lookup(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L632'>vaddr_t</a>           632 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L666'>vaddr_t</a>           666 sys/mem/vm_nommu.c seg_reserve(struct seg *head, vaddr_t addr, size_t size)
+<a href='../S/344.html#L676'>vaddr_t</a>           676 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/873.html#L64'>vaddr_t</a>            64 usr/server/exec/exec.h 	vaddr_t	entry;			/* entry address */
+<a href='../S/876.html#L59'>vaddr_t</a>            59 usr/server/exec/exec_elf.c load_exec(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L100'>vaddr_t</a>           100 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)ehdr-&gt;e_entry;
+<a href='../S/876.html#L195'>vaddr_t</a>           195 usr/server/exec/exec_elf.c load_reloc(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L306'>vaddr_t</a>           306 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)((u_long)mapped + ehdr-&gt;e_entry);
+</pre>
+</body>
+</html>

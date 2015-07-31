@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>termios</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L538'>termios</a>           538 bsp/drv/dev/base/tty.c 				 sizeof(struct termios)))
+<a href='../S/64.html#L549'>termios</a>           549 bsp/drv/dev/base/tty.c 			   sizeof(struct termios)))
+<a href='../S/102.html#L61'>termios</a>            61 bsp/drv/include/tty.h 	struct termios	t_termios;	/* termios state */
+<a href='../S/275.html#L153'>termios</a>           153 include/sys/termios.h struct termios {
+<a href='../S/275.html#L206'>termios</a>           206 include/sys/termios.h speed_t	cfgetispeed(const struct termios *);
+<a href='../S/275.html#L207'>termios</a>           207 include/sys/termios.h speed_t	cfgetospeed(const struct termios *);
+<a href='../S/275.html#L208'>termios</a>           208 include/sys/termios.h int	cfsetispeed(struct termios *, speed_t);
+<a href='../S/275.html#L209'>termios</a>           209 include/sys/termios.h int	cfsetospeed(struct termios *, speed_t);
+<a href='../S/275.html#L210'>termios</a>           210 include/sys/termios.h int	tcgetattr(int, struct termios *);
+<a href='../S/275.html#L211'>termios</a>           211 include/sys/termios.h int	tcsetattr(int, int, const struct termios *);
+<a href='../S/275.html#L218'>termios</a>           218 include/sys/termios.h void	cfmakeraw(struct termios *);
+<a href='../S/275.html#L219'>termios</a>           219 include/sys/termios.h int	cfsetspeed(struct termios *, speed_t);
+<a href='../S/275.html#L247'>termios</a>           247 include/sys/termios.h #define	TIOCGETA	_IOR('t', 19, struct termios) /* get termios struct */
+<a href='../S/275.html#L248'>termios</a>           248 include/sys/termios.h #define	TIOCSETA	_IOW('t', 20, struct termios) /* set termios struct */
+<a href='../S/275.html#L249'>termios</a>           249 include/sys/termios.h #define	TIOCSETAW	_IOW('t', 21, struct termios) /* drain output, set */
+<a href='../S/275.html#L250'>termios</a>           250 include/sys/termios.h #define	TIOCSETAF	_IOW('t', 22, struct termios) /* drn out, fls in, set */
+<a href='../S/482.html#L41'>termios</a>            41 usr/lib/libc/gen/getpass.c 	struct termios term;
+<a href='../S/619.html#L39'>termios</a>            39 usr/lib/libc/termios/cfgetispeed.c 	const struct termios *t;
+<a href='../S/620.html#L39'>termios</a>            39 usr/lib/libc/termios/cfgetospeed.c 	const struct termios *t;
+<a href='../S/621.html#L41'>termios</a>            41 usr/lib/libc/termios/cfmakeraw.c 	struct termios *t;
+<a href='../S/622.html#L39'>termios</a>            39 usr/lib/libc/termios/cfsetispeed.c 	struct termios *t;
+<a href='../S/623.html#L39'>termios</a>            39 usr/lib/libc/termios/cfsetospeed.c 	struct termios *t;
+<a href='../S/624.html#L39'>termios</a>            39 usr/lib/libc/termios/cfsetspeed.c 	struct termios *t;
+<a href='../S/627.html#L41'>termios</a>            41 usr/lib/libc/termios/tcflow.c 	struct termios term;
+<a href='../S/629.html#L38'>termios</a>            38 usr/lib/libc/termios/tcgetattr.c 	struct termios *t;
+<a href='../S/632.html#L41'>termios</a>            41 usr/lib/libc/termios/tcsetattr.c 	const struct termios *t;
+<a href='../S/632.html#L43'>termios</a>            43 usr/lib/libc/termios/tcsetattr.c 	struct termios localterm;
+<a href='../S/849.html#L57'>termios</a>            57 usr/sample/tetris/screen.c static struct termios oldtt;
+<a href='../S/849.html#L82'>termios</a>            82 usr/sample/tetris/screen.c 	struct termios newtt;
+</pre>
+</body>
+</html>

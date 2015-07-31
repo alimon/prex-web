@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mk/own.mk</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1077.html'>mk</a>/own.mk</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='298.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />ifndef _OWN_MK_
+<a id='L2' name='L2' />_OWN_MK_:=      1
+<a id='L3' name='L3' />
+<a id='L4' name='L4' /># Build flavor
+<a id='L5' name='L5' />#_DEBUG_:=      1
+<a id='L6' name='L6' />#_QUICK_:=      1
+<a id='L7' name='L7' />#_STRICT_:=     1
+<a id='L8' name='L8' />#_SILENT_:=     1
+<a id='L9' name='L9' />
+<a id='L10' name='L10' /># Clean the slate
+<a id='L11' name='L11' />CFLAGS=
+<a id='L12' name='L12' />CPPFLAGS=
+<a id='L13' name='L13' />LDFLAGS=
+<a id='L14' name='L14' />ASFLAGS=
+<a id='L15' name='L15' />STRIPFLAG=
+<a id='L16' name='L16' />
+<a id='L17' name='L17' />ifndef _CONFIG_MK_
+<a id='L18' name='L18' />-include $(SRCDIR)/conf/config.mk
+<a id='L19' name='L19' />export SRCDIR
+<a id='L20' name='L20' />endif
+<a id='L21' name='L21' />
+<a id='L22' name='L22' />LINT:=          splint
+<a id='L23' name='L23' />#LINT:=         lint
+<a id='L24' name='L24' />RM:=            rm -f
+<a id='L25' name='L25' />CAT:=           cat
+<a id='L26' name='L26' />ifdef SHELL_PATH
+<a id='L27' name='L27' />SHELL:=         $(SHELL_PATH)
+<a id='L28' name='L28' />endif
+<a id='L29' name='L29' />
+<a id='L30' name='L30' /># We assume GNU make...
+<a id='L31' name='L31' />MAKEFLAGS+=     -rR --no-print-directory
+<a id='L32' name='L32' />
+<a id='L33' name='L33' />ifeq ($(LINT),splint)
+<a id='L34' name='L34' />LINTFLAGS:=     -D__lint__ -weak -nolib -retvalother -fcnuse
+<a id='L35' name='L35' />else
+<a id='L36' name='L36' />LINTFLAGS:=     -D__lint__ -x -u
+<a id='L37' name='L37' />endif
+<a id='L38' name='L38' />
+<a id='L39' name='L39' />INCSDIR:=       $(SRCDIR) $(SRCDIR)/include
+<a id='L40' name='L40' />DEFS+=          __$(ARCH)__ __$(PLATFORM)__
+<a id='L41' name='L41' />
+<a id='L42' name='L42' />ifneq ($(NDEBUG),1)
+<a id='L43' name='L43' />ifeq ($(_DEBUG_),1)
+<a id='L44' name='L44' />DEFS+=          DEBUG
+<a id='L45' name='L45' />DEBUG:=         1
+<a id='L46' name='L46' />endif
+<a id='L47' name='L47' />endif
+<a id='L48' name='L48' />
+<a id='L49' name='L49' />RAWCC:=         $(CC)
+<a id='L50' name='L50' />ifeq ($(_SILENT_),1)
+<a id='L51' name='L51' />CC:=            @$(CC)
+<a id='L52' name='L52' />CPP:=           @$(CPP)
+<a id='L53' name='L53' />AS:=            @$(AS)
+<a id='L54' name='L54' />LD:=            @$(LD)
+<a id='L55' name='L55' />AR:=            @$(AR)
+<a id='L56' name='L56' />STRIP:=         @$(STRIP)
+<a id='L57' name='L57' />OBJCOPY:=       @$(OBJCOPY)
+<a id='L58' name='L58' />OBJDUMP:=       @$(OBJDUMP)
+<a id='L59' name='L59' />RM:=            @$(RM)
+<a id='L60' name='L60' />CAT:=           @$(CAT)
+<a id='L61' name='L61' />endif
+<a id='L62' name='L62' />
+<a id='L63' name='L63' />endif # !_OWN_MK_
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='298.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

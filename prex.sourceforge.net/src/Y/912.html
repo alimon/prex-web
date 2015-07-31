@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fraction</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/9.html#L99'>fraction</a>           99 bsp/boot/arm/integrator/debug.c 	unsigned int fraction;
+<a href='../S/9.html#L111'>fraction</a>          111 bsp/boot/arm/integrator/debug.c 	fraction = (8 * remainder / BAUD_RATE) &gt;&gt; 1;
+<a href='../S/9.html#L112'>fraction</a>          112 bsp/boot/arm/integrator/debug.c 	fraction += (8 * remainder / BAUD_RATE) &amp; 1;
+<a href='../S/9.html#L114'>fraction</a>          114 bsp/boot/arm/integrator/debug.c 	UART_FBRD = fraction;
+<a href='../S/88.html#L190'>fraction</a>          190 bsp/drv/dev/serial/pl011.c 	uint32_t divider, remainder, fraction;
+<a href='../S/88.html#L202'>fraction</a>          202 bsp/drv/dev/serial/pl011.c 	fraction = (8 * remainder / BAUD_RATE) &gt;&gt; 1;
+<a href='../S/88.html#L203'>fraction</a>          203 bsp/drv/dev/serial/pl011.c 	fraction += (8 * remainder / BAUD_RATE) &amp; 1;
+<a href='../S/88.html#L205'>fraction</a>          205 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_FBRD, fraction);
+</pre>
+</body>
+</html>

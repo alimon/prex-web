@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sys/mem/kmem.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1078.html'>sys</a>/<a href='../files/1083.html'>mem</a>/kmem.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='341.html#L150'>[^]</a><a href='341.html#L325'>[v]</a>[top]<a href='341.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='341.html#L150' title='Defined at 150.'>block_find</a></li>
+<li><a href='341.html#L175' title='Defined at 175.'>kmem_alloc</a></li>
+<li><a href='341.html#L269' title='Defined at 269.'>kmem_free</a></li>
+<li><a href='341.html#L314' title='Defined at 314.'>kmem_map</a></li>
+<li><a href='341.html#L325' title='Defined at 325.'>kmem_init</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * kmem.c - kernel memory allocator</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='comment'>/*</em>
+<a id='L35' name='L35' />  35 <em class='comment'> * This is a memory allocator optimized for the low foot print</em>
+<a id='L36' name='L36' />  36 <em class='comment'> * kernel. It works on top of the underlying page allocator, and</em>
+<a id='L37' name='L37' />  37 <em class='comment'> * manages more smaller memory than page size. It will divide one page</em>
+<a id='L38' name='L38' />  38 <em class='comment'> * into two or more blocks, and each page is linked as a kernel page.</em>
+<a id='L39' name='L39' />  39 <em class='comment'> *</em>
+<a id='L40' name='L40' />  40 <em class='comment'> * There are following 3 linked lists to manage used/free blocks.</em>
+<a id='L41' name='L41' />  41 <em class='comment'> *  1) All pages allocated for the kernel memory are linked.</em>
+<a id='L42' name='L42' />  42 <em class='comment'> *  2) All blocks divided in the same page are linked.</em>
+<a id='L43' name='L43' />  43 <em class='comment'> *  3) All free blocks of the same size are linked.</em>
+<a id='L44' name='L44' />  44 <em class='comment'> *</em>
+<a id='L45' name='L45' />  45 <em class='comment'> * Currently, it can not handle the memory size exceeding one page.</em>
+<a id='L46' name='L46' />  46 <em class='comment'> * Instead, a driver can use page_alloc() to allocate larger memory.</em>
+<a id='L47' name='L47' />  47 <em class='comment'> *</em>
+<a id='L48' name='L48' />  48 <em class='comment'> * The kmem functions are used by not only the kernel core but also by</em>
+<a id='L49' name='L49' />  49 <em class='comment'> * the buggy drivers. If such kernel code illegally writes data in</em>
+<a id='L50' name='L50' />  50 <em class='comment'> * exceeding the allocated area, the system will crash easily. In</em>
+<a id='L51' name='L51' />  51 <em class='comment'> * order to detect the memory over run, each free block has a magic</em>
+<a id='L52' name='L52' />  52 <em class='comment'> * ID.</em>
+<a id='L53' name='L53' />  53 <em class='comment'> */</em>
+<a id='L54' name='L54' />  54 
+<a id='L55' name='L55' />  55 <em class='sharp'>#include</em> &lt;<a href='311.html'>kernel.h</a>&gt;
+<a id='L56' name='L56' />  56 <em class='sharp'>#include</em> &lt;<a href='314.html'>page.h</a>&gt;
+<a id='L57' name='L57' />  57 <em class='sharp'>#include</em> &lt;<a href='315.html'>sched.h</a>&gt;
+<a id='L58' name='L58' />  58 <em class='sharp'>#include</em> &lt;<a href='323.html'>vm.h</a>&gt;
+<a id='L59' name='L59' />  59 <em class='sharp'>#include</em> &lt;<a href='312.html'>kmem.h</a>&gt;
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61 <em class='comment'>/*</em>
+<a id='L62' name='L62' />  62 <em class='comment'> * Block header</em>
+<a id='L63' name='L63' />  63 <em class='comment'> *</em>
+<a id='L64' name='L64' />  64 <em class='comment'> * All free blocks that have same size are linked each other.</em>
+<a id='L65' name='L65' />  65 <em class='comment'> * In addition, all free blocks within same page are also linked.</em>
+<a id='L66' name='L66' />  66 <em class='comment'> */</em>
+<a id='L67' name='L67' />  67 <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> <em class='brace'>{</em>
+<a id='L68' name='L68' />  68         <a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>          <a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a>;         <em class='comment'>/* magic number */</em>
+<a id='L69' name='L69' />  69         <a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>          <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;          <em class='comment'>/* size of this block */</em>
+<a id='L70' name='L70' />  70         <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a>      <a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>;          <em class='comment'>/* link to the free list */</em>
+<a id='L71' name='L71' />  71         <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> *<a href='../Y/1594.html' title='Multiple used in 5 places.'>pg_next</a>;      <em class='comment'>/* next block in same page */</em>
+<a id='L72' name='L72' />  72 <em class='brace'>}</em>;
+<a id='L73' name='L73' />  73 
+<a id='L74' name='L74' />  74 <em class='comment'>/*</em>
+<a id='L75' name='L75' />  75 <em class='comment'> * Page header</em>
+<a id='L76' name='L76' />  76 <em class='comment'> *</em>
+<a id='L77' name='L77' />  77 <em class='comment'> * The page header is placed at the top of each page. This</em>
+<a id='L78' name='L78' />  78 <em class='comment'> * header is used in order to free the page when there are no</em>
+<a id='L79' name='L79' />  79 <em class='comment'> * used block left in the page. If 'nallocs' value becomes zero,</em>
+<a id='L80' name='L80' />  80 <em class='comment'> * that page can be removed from kernel page.</em>
+<a id='L81' name='L81' />  81 <em class='comment'> */</em>
+<a id='L82' name='L82' />  82 <strong class='reserved'>struct</strong> <a href='../Y/1543.html' title='Multiple used in 5 places.'>page_hdr</a> <em class='brace'>{</em>
+<a id='L83' name='L83' />  83         <a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>          <a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a>;         <em class='comment'>/* magic number */</em>
+<a id='L84' name='L84' />  84         <a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>          <a href='../Y/1338.html' title='Multiple used in 4 places.'>nallocs</a>;       <em class='comment'>/* number of allocated blocks */</em>
+<a id='L85' name='L85' />  85         <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> <a href='../Y/878.html' title='Multiple used in 3 places.'>first_blk</a>;     <em class='comment'>/* first block in this page */</em>
+<a id='L86' name='L86' />  86 <em class='brace'>}</em>;
+<a id='L87' name='L87' />  87 
+<a id='L88' name='L88' />  88 <em class='sharp'>#define</em> <a href='../R/9.html' title='Multiple refered from 3 places.'>ALIGN_SIZE</a>      16
+<a id='L89' name='L89' />  89 <em class='sharp'>#define</em> <a href='../R/8.html' title='Multiple refered from 2 places.'>ALIGN_MASK</a>      (<a href='../D/12.html' title='Multiple defined in 2 places.'>ALIGN_SIZE</a> - 1)
+<a id='L90' name='L90' />  90 <em class='sharp'>#define</em> <a href='341.html#L191' title='Refered from 191 in sys/mem/kmem.c.'>ALLOC_SIZE</a>(<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>)   (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>) \
+<a id='L91' name='L91' />  91                         (((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)(<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>) + <a href='../D/11.html' title='Multiple defined in 2 places.'>ALIGN_MASK</a>) &amp; (<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)~<a href='../D/11.html' title='Multiple defined in 2 places.'>ALIGN_MASK</a>)
+<a id='L92' name='L92' />  92 
+<a id='L93' name='L93' />  93 <em class='comment'>/* number of free block list */</em>
+<a id='L94' name='L94' />  94 <em class='sharp'>#define</em> <a href='../R/652.html' title='Multiple refered from 4 places.'>NR_BLOCK_LIST</a>   (<a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a> / <a href='../D/12.html' title='Multiple defined in 2 places.'>ALIGN_SIZE</a>)
+<a id='L95' name='L95' />  95 
+<a id='L96' name='L96' />  96 <em class='sharp'>#define</em> <a href='../R/38.html' title='Multiple refered from 4 places.'>BLOCK_MAGIC</a>     0xdead
+<a id='L97' name='L97' />  97 <em class='sharp'>#define</em> <a href='../R/680.html' title='Multiple refered from 2 places.'>PAGE_MAGIC</a>      0xbeef
+<a id='L98' name='L98' />  98 
+<a id='L99' name='L99' />  99 <em class='sharp'>#define</em> <a href='../R/36.html' title='Multiple refered from 5 places.'>BLKHDR_SIZE</a>     (<strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a>))
+<a id='L100' name='L100' /> 100 <em class='sharp'>#define</em> <a href='../R/696.html' title='Multiple refered from 2 places.'>PGHDR_SIZE</a>      (<strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/1543.html' title='Multiple used in 5 places.'>page_hdr</a>))
+<a id='L101' name='L101' /> 101 <em class='sharp'>#define</em> <a href='341.html#L192' title='Refered from 192 in sys/mem/kmem.c.'>MAX_ALLOC_SIZE</a>  (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>)(<a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a> - <a href='341.html#L100' title='Defined at 100 in sys/mem/kmem.c.'>PGHDR_SIZE</a>)
+<a id='L102' name='L102' /> 102 
+<a id='L103' name='L103' /> 103 <em class='sharp'>#define</em> <a href='341.html#L232' title='Refered from 232 in sys/mem/kmem.c.'>MIN_BLOCK_SIZE</a>  (<a href='341.html#L99' title='Defined at 99 in sys/mem/kmem.c.'>BLKHDR_SIZE</a> + 16)
+<a id='L104' name='L104' /> 104 <em class='sharp'>#define</em> <a href='341.html#L219' title='Refered from 219 in sys/mem/kmem.c.'>MAX_BLOCK_SIZE</a>  (<a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>)(<a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a> - (<a href='341.html#L100' title='Defined at 100 in sys/mem/kmem.c.'>PGHDR_SIZE</a> - <a href='341.html#L99' title='Defined at 99 in sys/mem/kmem.c.'>BLKHDR_SIZE</a>))
+<a id='L105' name='L105' /> 105 
+<a id='L106' name='L106' /> 106 <em class='comment'>/* macro to point the page header from specific address. */</em>
+<a id='L107' name='L107' /> 107 <em class='sharp'>#define</em> <a href='../R/678.html' title='Multiple refered from 2 places.'>PAGETOP</a>(<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>)      (<strong class='reserved'>struct</strong> <a href='../Y/1543.html' title='Multiple used in 5 places.'>page_hdr</a> *) \
+<a id='L108' name='L108' /> 108                             ((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)(<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>) &amp; (<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)~(<a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a> - 1))
+<a id='L109' name='L109' /> 109 
+<a id='L110' name='L110' /> 110 <em class='comment'>/* macro to get the index of free block list. */</em>
+<a id='L111' name='L111' /> 111 <em class='sharp'>#define</em> <a href='../R/37.html' title='Multiple refered from 2 places.'>BLKNDX</a>(<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>)       ((<a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a>)((<a href='../Y/400.html' title='Multiple used in 26 places.'>b</a>)-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>) &gt;&gt; 4)
+<a id='L112' name='L112' /> 112 
+<a id='L113' name='L113' /> 113 <em class='comment'>/**</em>
+<a id='L114' name='L114' /> 114 <em class='comment'> * Array of the head block of free block list.</em>
+<a id='L115' name='L115' /> 115 <em class='comment'> *</em>
+<a id='L116' name='L116' /> 116 <em class='comment'> * The index of array is decided by the size of each block.</em>
+<a id='L117' name='L117' /> 117 <em class='comment'> * All block has the size of the multiple of 16.</em>
+<a id='L118' name='L118' /> 118 <em class='comment'> *</em>
+<a id='L119' name='L119' /> 119 <em class='comment'> * ie. free_blocks[0] = list for 16 byte block</em>
+<a id='L120' name='L120' /> 120 <em class='comment'> *     free_blocks[1] = list for 32 byte block</em>
+<a id='L121' name='L121' /> 121 <em class='comment'> *     free_blocks[2] = list for 48 byte block</em>
+<a id='L122' name='L122' /> 122 <em class='comment'> *         .</em>
+<a id='L123' name='L123' /> 123 <em class='comment'> *         .</em>
+<a id='L124' name='L124' /> 124 <em class='comment'> *     free_blocks[255] = list for 4096 byte block</em>
+<a id='L125' name='L125' /> 125 <em class='comment'> *</em>
+<a id='L126' name='L126' /> 126 <em class='comment'> * Generally, only one list is used to search the free block with</em>
+<a id='L127' name='L127' /> 127 <em class='comment'> * a first fit algorithm. Basically, this allocator also uses a</em>
+<a id='L128' name='L128' /> 128 <em class='comment'> * first fit method. However it uses multiple lists corresponding</em>
+<a id='L129' name='L129' /> 129 <em class='comment'> * to each block size. A search is started from the list of the</em>
+<a id='L130' name='L130' /> 130 <em class='comment'> * requested size. So, it is not necessary to search smaller</em>
+<a id='L131' name='L131' /> 131 <em class='comment'> * block's list wastefully.</em>
+<a id='L132' name='L132' /> 132 <em class='comment'> *</em>
+<a id='L133' name='L133' /> 133 <em class='comment'> * Most of kernel memory allocator is using 2^n as block size.</em>
+<a id='L134' name='L134' /> 134 <em class='comment'> * But, these implementation will throw away much memory that</em>
+<a id='L135' name='L135' /> 135 <em class='comment'> * the block size is not fit. This is not suitable for the</em>
+<a id='L136' name='L136' /> 136 <em class='comment'> * embedded system with low foot print.</em>
+<a id='L137' name='L137' /> 137 <em class='comment'> */</em>
+<a id='L138' name='L138' /> 138 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1202.html' title='Multiple used in 53 places.'>list</a> <a href='../Y/914.html' title='Multiple used in 6 places.'>free_blocks</a>[<a href='341.html#L94' title='Defined at 94 in sys/mem/kmem.c.'>NR_BLOCK_LIST</a>];
+<a id='L139' name='L139' /> 139 
+<a id='L140' name='L140' /> 140 <em class='comment'>/*</em>
+<a id='L141' name='L141' /> 141 <em class='comment'> * Find the free block for the specified size.</em>
+<a id='L142' name='L142' /> 142 <em class='comment'> * Returns pointer to free block, or NULL on failure.</em>
+<a id='L143' name='L143' /> 143 <em class='comment'> *</em>
+<a id='L144' name='L144' /> 144 <em class='comment'> * First, it searches from the list of same size. If it does not</em>
+<a id='L145' name='L145' /> 145 <em class='comment'> * exists, then it will search the list of larger one.</em>
+<a id='L146' name='L146' /> 146 <em class='comment'> * It will use the block of smallest size that satisfies the</em>
+<a id='L147' name='L147' /> 147 <em class='comment'> * specified size.</em>
+<a id='L148' name='L148' /> 148 <em class='comment'> */</em>
+<a id='L149' name='L149' /> 149 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> *
+<a id='L150' name='L150' /> 150 <a href='341.html#L195' title='Refered from 195 in sys/mem/kmem.c.'>block_find</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L151' name='L151' /> 151 <em class='brace'>{</em>
+<a id='L152' name='L152' /> 152         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L153' name='L153' /> 153         <a href='262.html#L40' title='Defined at 40 in include/sys/list.h.'>list_t</a> <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>;
+<a id='L154' name='L154' /> 154 
+<a id='L155' name='L155' /> 155         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = (<strong class='reserved'>int</strong>)((<a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a>)<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt;&gt; 4); <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='341.html#L94' title='Defined at 94 in sys/mem/kmem.c.'>NR_BLOCK_LIST</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L156' name='L156' /> 156                 <strong class='reserved'>if</strong> (!<a href='262.html#L45' title='Defined at 45 in include/sys/list.h.'>list_empty</a>(&amp;<a href='../Y/914.html' title='Multiple used in 6 places.'>free_blocks</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>]))
+<a id='L157' name='L157' /> 157                         <strong class='reserved'>break</strong>;
+<a id='L158' name='L158' /> 158         <em class='brace'>}</em>
+<a id='L159' name='L159' /> 159         <strong class='reserved'>if</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &gt;= <a href='341.html#L94' title='Defined at 94 in sys/mem/kmem.c.'>NR_BLOCK_LIST</a>)
+<a id='L160' name='L160' /> 160                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L161' name='L161' /> 161 
+<a id='L162' name='L162' /> 162         <a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a> = <a href='262.html#L46' title='Defined at 46 in include/sys/list.h.'>list_first</a>(&amp;<a href='../Y/914.html' title='Multiple used in 6 places.'>free_blocks</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>]);
+<a id='L163' name='L163' /> 163         <strong class='reserved'>return</strong> <a href='262.html#L53' title='Defined at 53 in include/sys/list.h.'>list_entry</a>(<a href='../Y/1335.html' title='Multiple used in 348 places.'>n</a>, <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a>, <a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>);
+<a id='L164' name='L164' /> 164 <em class='brace'>}</em>
+<a id='L165' name='L165' /> 165 
+<a id='L166' name='L166' /> 166 <em class='comment'>/*</em>
+<a id='L167' name='L167' /> 167 <em class='comment'> * Allocate memory block for kernel</em>
+<a id='L168' name='L168' /> 168 <em class='comment'> *</em>
+<a id='L169' name='L169' /> 169 <em class='comment'> * This function does not fill the allocated block by 0 for performance.</em>
+<a id='L170' name='L170' /> 170 <em class='comment'> * kmem_alloc() returns NULL on failure.</em>
+<a id='L171' name='L171' /> 171 <em class='comment'> *</em>
+<a id='L172' name='L172' /> 172 <em class='comment'> * =&gt; must not be called from interrupt context.</em>
+<a id='L173' name='L173' /> 173 <em class='comment'> */</em>
+<a id='L174' name='L174' /> 174 <strong class='reserved'>void</strong> *
+<a id='L175' name='L175' /> 175 <a href='../R/2081.html' title='Multiple refered from 20 places.'>kmem_alloc</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L176' name='L176' /> 176 <em class='brace'>{</em>
+<a id='L177' name='L177' /> 177         <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> *<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>, *<a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>;
+<a id='L178' name='L178' /> 178         <strong class='reserved'>struct</strong> <a href='../Y/1543.html' title='Multiple used in 5 places.'>page_hdr</a> *<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>;
+<a id='L179' name='L179' /> 179         <a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a> <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>;
+<a id='L180' name='L180' /> 180         <strong class='reserved'>void</strong> *<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>;
+<a id='L181' name='L181' /> 181 
+<a id='L182' name='L182' /> 182         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> != 0);
+<a id='L183' name='L183' /> 183 
+<a id='L184' name='L184' /> 184         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();           <em class='comment'>/* Lock scheduler */</em>
+<a id='L185' name='L185' /> 185 
+<a id='L186' name='L186' /> 186         <em class='comment'>/*</em>
+<a id='L187' name='L187' /> 187 <em class='comment'>         * First, the free block of enough size is searched</em>
+<a id='L188' name='L188' /> 188 <em class='comment'>         * from the page already used. If it does not exist,</em>
+<a id='L189' name='L189' /> 189 <em class='comment'>         * new page is allocated for free block.</em>
+<a id='L190' name='L190' /> 190 <em class='comment'>         */</em>
+<a id='L191' name='L191' /> 191         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='341.html#L90' title='Defined at 90 in sys/mem/kmem.c.'>ALLOC_SIZE</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> + <a href='341.html#L99' title='Defined at 99 in sys/mem/kmem.c.'>BLKHDR_SIZE</a>);
+<a id='L192' name='L192' /> 192         <strong class='reserved'>if</strong> (<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt; <a href='341.html#L101' title='Defined at 101 in sys/mem/kmem.c.'>MAX_ALLOC_SIZE</a>)
+<a id='L193' name='L193' /> 193                 <a href='../D/3147.html' title='Multiple defined in 4 places.'>panic</a>("kmem_alloc: too large allocation");
+<a id='L194' name='L194' /> 194 
+<a id='L195' name='L195' /> 195         <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> = <a href='341.html#L150' title='Defined at 150 in sys/mem/kmem.c.'>block_find</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L196' name='L196' /> 196         <strong class='reserved'>if</strong> (<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>) <em class='brace'>{</em>
+<a id='L197' name='L197' /> 197                 <em class='comment'>/*</em>
+<a id='L198' name='L198' /> 198 <em class='comment'>                 * Block found.</em>
+<a id='L199' name='L199' /> 199 <em class='comment'>                 */</em>
+<a id='L200' name='L200' /> 200                 <a href='262.html#L75' title='Defined at 75 in include/sys/list.h.'>list_remove</a>(&amp;<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>); <em class='comment'>/* Remove from free list */</em>
+<a id='L201' name='L201' /> 201                 <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a> = <a href='341.html#L107' title='Defined at 107 in sys/mem/kmem.c.'>PAGETOP</a>(<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>);       <em class='comment'>/* Get the page address */</em>
+<a id='L202' name='L202' /> 202         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L203' name='L203' /> 203                 <em class='comment'>/*</em>
+<a id='L204' name='L204' /> 204 <em class='comment'>                 * No block found. Allocate new page.</em>
+<a id='L205' name='L205' /> 205 <em class='comment'>                 */</em>
+<a id='L206' name='L206' /> 206                 <strong class='reserved'>if</strong> ((<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> = <a href='342.html#L76' title='Defined at 76 in sys/mem/page.c.'>page_alloc</a>(<a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a>)) == 0) <em class='brace'>{</em>
+<a id='L207' name='L207' /> 207                         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L208' name='L208' /> 208                         <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L209' name='L209' /> 209                 <em class='brace'>}</em>
+<a id='L210' name='L210' /> 210                 <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a> = <a href='264.html#L128' title='Defined at 128 in include/sys/param.h.'>ptokv</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>);
+<a id='L211' name='L211' /> 211                 <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/1338.html' title='Multiple used in 4 places.'>nallocs</a> = 0;
+<a id='L212' name='L212' /> 212                 <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> = <a href='341.html#L97' title='Defined at 97 in sys/mem/kmem.c.'>PAGE_MAGIC</a>;
+<a id='L213' name='L213' /> 213 
+<a id='L214' name='L214' /> 214                 <em class='comment'>/*</em>
+<a id='L215' name='L215' /> 215 <em class='comment'>                 * Setup first block.</em>
+<a id='L216' name='L216' /> 216 <em class='comment'>                 */</em>
+<a id='L217' name='L217' /> 217                 <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> = &amp;<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/878.html' title='Multiple used in 3 places.'>first_blk</a>;
+<a id='L218' name='L218' /> 218                 <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> = <a href='341.html#L96' title='Defined at 96 in sys/mem/kmem.c.'>BLOCK_MAGIC</a>;
+<a id='L219' name='L219' /> 219                 <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='341.html#L104' title='Defined at 104 in sys/mem/kmem.c.'>MAX_BLOCK_SIZE</a>;
+<a id='L220' name='L220' /> 220                 <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1594.html' title='Multiple used in 5 places.'>pg_next</a> = <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L221' name='L221' /> 221         <em class='brace'>}</em>
+<a id='L222' name='L222' /> 222 
+<a id='L223' name='L223' /> 223         <em class='comment'>/*</em>
+<a id='L224' name='L224' /> 224 <em class='comment'>         * Sanity check</em>
+<a id='L225' name='L225' /> 225 <em class='comment'>         */</em>
+<a id='L226' name='L226' /> 226         <strong class='reserved'>if</strong> (<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> != <a href='341.html#L97' title='Defined at 97 in sys/mem/kmem.c.'>PAGE_MAGIC</a> || <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> != <a href='341.html#L96' title='Defined at 96 in sys/mem/kmem.c.'>BLOCK_MAGIC</a>)
+<a id='L227' name='L227' /> 227                 <a href='../D/3147.html' title='Multiple defined in 4 places.'>panic</a>("kmem_alloc: overrun");
+<a id='L228' name='L228' /> 228 
+<a id='L229' name='L229' /> 229         <em class='comment'>/*</em>
+<a id='L230' name='L230' /> 230 <em class='comment'>         * If the found block is large enough, split it.</em>
+<a id='L231' name='L231' /> 231 <em class='comment'>         */</em>
+<a id='L232' name='L232' /> 232         <strong class='reserved'>if</strong> (<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> - <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt;= <a href='341.html#L103' title='Defined at 103 in sys/mem/kmem.c.'>MIN_BLOCK_SIZE</a>) <em class='brace'>{</em>
+<a id='L233' name='L233' /> 233                 <em class='comment'>/*</em>
+<a id='L234' name='L234' /> 234 <em class='comment'>                 * Make new block.</em>
+<a id='L235' name='L235' /> 235 <em class='comment'>                 */</em>
+<a id='L236' name='L236' /> 236                 <a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a> = (<strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> *)((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> + <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L237' name='L237' /> 237                 <a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> = <a href='341.html#L96' title='Defined at 96 in sys/mem/kmem.c.'>BLOCK_MAGIC</a>;
+<a id='L238' name='L238' /> 238                 <a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = (<a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>)(<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> - <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L239' name='L239' /> 239                 <a href='262.html#L63' title='Defined at 63 in include/sys/list.h.'>list_insert</a>(&amp;<a href='../Y/914.html' title='Multiple used in 6 places.'>free_blocks</a>[<a href='341.html#L111' title='Defined at 111 in sys/mem/kmem.c.'>BLKNDX</a>(<a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>)], &amp;<a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>-&gt;<a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>);
+<a id='L240' name='L240' /> 240 
+<a id='L241' name='L241' /> 241                 <em class='comment'>/*</em>
+<a id='L242' name='L242' /> 242 <em class='comment'>                 * Update page list.</em>
+<a id='L243' name='L243' /> 243 <em class='comment'>                 */</em>
+<a id='L244' name='L244' /> 244                 <a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>-&gt;<a href='../Y/1594.html' title='Multiple used in 5 places.'>pg_next</a> = <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1594.html' title='Multiple used in 5 places.'>pg_next</a>;
+<a id='L245' name='L245' /> 245                 <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1594.html' title='Multiple used in 5 places.'>pg_next</a> = <a href='../Y/1366.html' title='Multiple used in 7 places.'>newblk</a>;
+<a id='L246' name='L246' /> 246                 <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = (<a href='277.html#L44' title='Defined at 44 in include/sys/types.h.'>u_short</a>)<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L247' name='L247' /> 247         <em class='brace'>}</em>
+<a id='L248' name='L248' /> 248         <em class='comment'>/*</em>
+<a id='L249' name='L249' /> 249 <em class='comment'>         * Increment allocation count of this page.</em>
+<a id='L250' name='L250' /> 250 <em class='comment'>         */</em>
+<a id='L251' name='L251' /> 251         <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/1338.html' title='Multiple used in 4 places.'>nallocs</a>++;
+<a id='L252' name='L252' /> 252         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = (<strong class='reserved'>void</strong> *)((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> + <a href='341.html#L99' title='Defined at 99 in sys/mem/kmem.c.'>BLKHDR_SIZE</a>);
+<a id='L253' name='L253' /> 253 
+<a id='L254' name='L254' /> 254         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L255' name='L255' /> 255         <strong class='reserved'>return</strong> <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>;
+<a id='L256' name='L256' /> 256 <em class='brace'>}</em>
+<a id='L257' name='L257' /> 257 
+<a id='L258' name='L258' /> 258 <em class='comment'>/*</em>
+<a id='L259' name='L259' /> 259 <em class='comment'> * Free allocated memory block.</em>
+<a id='L260' name='L260' /> 260 <em class='comment'> *</em>
+<a id='L261' name='L261' /> 261 <em class='comment'> * Some kernel does not release the free page for the kernel memory</em>
+<a id='L262' name='L262' /> 262 <em class='comment'> * because it is needed to allocate immediately later. For example,</em>
+<a id='L263' name='L263' /> 263 <em class='comment'> * it is efficient here if the free page is just linked to the list</em>
+<a id='L264' name='L264' /> 264 <em class='comment'> * of the biggest size. However, consider the case where a driver</em>
+<a id='L265' name='L265' /> 265 <em class='comment'> * requires many small memories temporarily. After these pages are</em>
+<a id='L266' name='L266' /> 266 <em class='comment'> * freed, they can not be reused for an application.</em>
+<a id='L267' name='L267' /> 267 <em class='comment'> */</em>
+<a id='L268' name='L268' /> 268 <strong class='reserved'>void</strong>
+<a id='L269' name='L269' /> 269 <a href='../R/2082.html' title='Multiple refered from 28 places.'>kmem_free</a>(<strong class='reserved'>void</strong> *<a href='../Y/1676.html' title='Multiple used in 19 places.'>ptr</a>)
+<a id='L270' name='L270' /> 270 <em class='brace'>{</em>
+<a id='L271' name='L271' /> 271         <strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> *<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>;
+<a id='L272' name='L272' /> 272         <strong class='reserved'>struct</strong> <a href='../Y/1543.html' title='Multiple used in 5 places.'>page_hdr</a> *<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>;
+<a id='L273' name='L273' /> 273 
+<a id='L274' name='L274' /> 274         <a href='../D/24.html' title='Multiple defined in 20 places.'>ASSERT</a>(<a href='../Y/1676.html' title='Multiple used in 19 places.'>ptr</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L275' name='L275' /> 275 
+<a id='L276' name='L276' /> 276         <em class='comment'>/* Lock scheduler */</em>
+<a id='L277' name='L277' /> 277         <a href='331.html#L517' title='Defined at 517 in sys/kern/sched.c.'>sched_lock</a>();
+<a id='L278' name='L278' /> 278 
+<a id='L279' name='L279' /> 279         <em class='comment'>/* Get the block header */</em>
+<a id='L280' name='L280' /> 280         <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> = (<strong class='reserved'>struct</strong> <a href='../Y/434.html' title='Multiple used in 10 places.'>block_hdr</a> *)((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/1676.html' title='Multiple used in 19 places.'>ptr</a> - <a href='341.html#L99' title='Defined at 99 in sys/mem/kmem.c.'>BLKHDR_SIZE</a>);
+<a id='L281' name='L281' /> 281         <strong class='reserved'>if</strong> (<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> != <a href='341.html#L96' title='Defined at 96 in sys/mem/kmem.c.'>BLOCK_MAGIC</a>)
+<a id='L282' name='L282' /> 282                 <a href='../D/3147.html' title='Multiple defined in 4 places.'>panic</a>("kmem_free: invalid address");
+<a id='L283' name='L283' /> 283 
+<a id='L284' name='L284' /> 284         <em class='comment'>/*</em>
+<a id='L285' name='L285' /> 285 <em class='comment'>         * Return the block to free list. Since kernel code will</em>
+<a id='L286' name='L286' /> 286 <em class='comment'>         * request fixed size of memory block, we don't merge the</em>
+<a id='L287' name='L287' /> 287 <em class='comment'>         * blocks to use it as cache.</em>
+<a id='L288' name='L288' /> 288 <em class='comment'>         */</em>
+<a id='L289' name='L289' /> 289         <a href='262.html#L63' title='Defined at 63 in include/sys/list.h.'>list_insert</a>(&amp;<a href='../Y/914.html' title='Multiple used in 6 places.'>free_blocks</a>[<a href='341.html#L111' title='Defined at 111 in sys/mem/kmem.c.'>BLKNDX</a>(<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>)], &amp;<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>);
+<a id='L290' name='L290' /> 290 
+<a id='L291' name='L291' /> 291         <em class='comment'>/*</em>
+<a id='L292' name='L292' /> 292 <em class='comment'>         * Decrement allocation count of this page.</em>
+<a id='L293' name='L293' /> 293 <em class='comment'>         */</em>
+<a id='L294' name='L294' /> 294         <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a> = <a href='341.html#L107' title='Defined at 107 in sys/mem/kmem.c.'>PAGETOP</a>(<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>);
+<a id='L295' name='L295' /> 295         <strong class='reserved'>if</strong> (--<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/1338.html' title='Multiple used in 4 places.'>nallocs</a> == 0) <em class='brace'>{</em>
+<a id='L296' name='L296' /> 296                 <em class='comment'>/*</em>
+<a id='L297' name='L297' /> 297 <em class='comment'>                 * No allocated block in this page.</em>
+<a id='L298' name='L298' /> 298 <em class='comment'>                 * Remove all blocks and deallocate this page.</em>
+<a id='L299' name='L299' /> 299 <em class='comment'>                 */</em>
+<a id='L300' name='L300' /> 300                 <strong class='reserved'>for</strong> (<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> = &amp;<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/878.html' title='Multiple used in 3 places.'>first_blk</a>; <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> != <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>; <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a> = <a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='../Y/1594.html' title='Multiple used in 5 places.'>pg_next</a>) <em class='brace'>{</em>
+<a id='L301' name='L301' /> 301                         <a href='262.html#L75' title='Defined at 75 in include/sys/list.h.'>list_remove</a>(&amp;<a href='../Y/431.html' title='Multiple used in 77 places.'>blk</a>-&gt;<a href='674.html#L39' title='Defined at 39 in usr/lib/posix/file/link.c.'>link</a>); <em class='comment'>/* Remove from free list */</em>
+<a id='L302' name='L302' /> 302                 <em class='brace'>}</em>
+<a id='L303' name='L303' /> 303                 <a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> = 0;
+<a id='L304' name='L304' /> 304                 <a href='342.html#L129' title='Defined at 129 in sys/mem/page.c.'>page_free</a>(<a href='264.html#L129' title='Defined at 129 in include/sys/param.h.'>kvtop</a>(<a href='../Y/1591.html' title='Multiple used in 55 places.'>pg</a>), <a href='../D/1142.html' title='Multiple defined in 6 places.'>PAGE_SIZE</a>);
+<a id='L305' name='L305' /> 305         <em class='brace'>}</em>
+<a id='L306' name='L306' /> 306         <a href='331.html#L532' title='Defined at 532 in sys/kern/sched.c.'>sched_unlock</a>();
+<a id='L307' name='L307' /> 307 <em class='brace'>}</em>
+<a id='L308' name='L308' /> 308 
+<a id='L309' name='L309' /> 309 <em class='comment'>/*</em>
+<a id='L310' name='L310' /> 310 <em class='comment'> * Map specified virtual address to the kernel address</em>
+<a id='L311' name='L311' /> 311 <em class='comment'> * Returns kernel address on success, or NULL if no mapped memory.</em>
+<a id='L312' name='L312' /> 312 <em class='comment'> */</em>
+<a id='L313' name='L313' /> 313 <strong class='reserved'>void</strong> *
+<a id='L314' name='L314' /> 314 <a href='../R/2084.html' title='Multiple refered from 11 places.'>kmem_map</a>(<strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L315' name='L315' /> 315 <em class='brace'>{</em>
+<a id='L316' name='L316' /> 316         <a href='../D/3140.html' title='Multiple defined in 3 places.'>paddr_t</a> <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>;
+<a id='L317' name='L317' /> 317 
+<a id='L318' name='L318' /> 318         <a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> = <a href='../D/3825.html' title='Multiple defined in 2 places.'>vm_translate</a>((<a href='../D/3780.html' title='Multiple defined in 3 places.'>vaddr_t</a>)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L319' name='L319' /> 319         <strong class='reserved'>if</strong> (<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a> == 0)
+<a id='L320' name='L320' /> 320                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L321' name='L321' /> 321         <strong class='reserved'>return</strong> <a href='264.html#L128' title='Defined at 128 in include/sys/param.h.'>ptokv</a>(<a href='../Y/1538.html' title='Multiple used in 51 places.'>pa</a>);
+<a id='L322' name='L322' /> 322 <em class='brace'>}</em>
+<a id='L323' name='L323' /> 323 
+<a id='L324' name='L324' /> 324 <strong class='reserved'>void</strong>
+<a id='L325' name='L325' /> 325 <a href='../R/2083.html' title='Multiple refered from 2 places.'>kmem_init</a>(<strong class='reserved'>void</strong>)
+<a id='L326' name='L326' /> 326 <em class='brace'>{</em>
+<a id='L327' name='L327' /> 327         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L328' name='L328' /> 328 
+<a id='L329' name='L329' /> 329         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='341.html#L94' title='Defined at 94 in sys/mem/kmem.c.'>NR_BLOCK_LIST</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++)
+<a id='L330' name='L330' /> 330                 <a href='262.html#L42' title='Defined at 42 in include/sys/list.h.'>list_init</a>(&amp;<a href='../Y/914.html' title='Multiple used in 6 places.'>free_blocks</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>]);
+<a id='L331' name='L331' /> 331 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='341.html#L150'>[^]</a><a href='341.html#L325'>[v]</a><a href='341.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

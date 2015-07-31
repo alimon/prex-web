@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>numsig</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/388.html#L50'>numsig</a>             50 usr/bin/kill/kill.c 	int errors, numsig, pid;
+<a href='../S/388.html#L56'>numsig</a>             56 usr/bin/kill/kill.c 	numsig = SIGTERM;
+<a href='../S/388.html#L67'>numsig</a>             67 usr/bin/kill/kill.c 			numsig = strtol(*argv, &amp;ep, 10);
+<a href='../S/388.html#L70'>numsig</a>             70 usr/bin/kill/kill.c 			if (numsig &gt;= 128)
+<a href='../S/388.html#L71'>numsig</a>             71 usr/bin/kill/kill.c 				numsig -= 128;
+<a href='../S/388.html#L72'>numsig</a>             72 usr/bin/kill/kill.c 			if (numsig &lt;= 0 || numsig &gt;= NSIG)
+<a href='../S/388.html#L74'>numsig</a>             74 usr/bin/kill/kill.c 			printf("%s\n", sys_signame[numsig]);
+<a href='../S/388.html#L88'>numsig</a>             88 usr/bin/kill/kill.c 			if ((numsig = signame_to_signum(*argv)) &lt; 0)
+<a href='../S/388.html#L91'>numsig</a>             91 usr/bin/kill/kill.c 			numsig = 0;
+<a href='../S/388.html#L96'>numsig</a>             96 usr/bin/kill/kill.c 			if ((numsig = signame_to_signum(*argv)) &lt; 0)
+<a href='../S/388.html#L99'>numsig</a>             99 usr/bin/kill/kill.c 			numsig = strtol(*argv, &amp;ep, 10);
+<a href='../S/388.html#L102'>numsig</a>            102 usr/bin/kill/kill.c 			if (numsig &lt;= 0 || numsig &gt;= NSIG)
+<a href='../S/388.html#L117'>numsig</a>            117 usr/bin/kill/kill.c 		} else if (kill(pid, numsig) == -1) {
+</pre>
+</body>
+</html>

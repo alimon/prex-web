@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dvp2</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/893.html#L458'>dvp2</a>              458 usr/server/fs/fatfs/fatfs_vnops.c 	     vnode_t dvp2, vnode_t vp2, char *name2)
+<a href='../S/893.html#L475'>dvp2</a>              475 usr/server/fs/fatfs/fatfs_vnops.c 		error = fatfs_remove(dvp2, vp1, name2);
+<a href='../S/893.html#L483'>dvp2</a>              483 usr/server/fs/fatfs/fatfs_vnops.c 		if (dvp1 == dvp2) {
+<a href='../S/893.html#L490'>dvp2</a>              490 usr/server/fs/fatfs/fatfs_vnops.c 			error = fatfs_add_node(dvp2, &amp;np1);
+<a href='../S/893.html#L502'>dvp2</a>              502 usr/server/fs/fatfs/fatfs_vnops.c 		error = fatfs_rmdir(dvp2, NULL, name2);
+<a href='../S/893.html#L510'>dvp2</a>              510 usr/server/fs/fatfs/fatfs_vnops.c 		if (dvp1 == dvp2) {
+<a href='../S/893.html#L517'>dvp2</a>              517 usr/server/fs/fatfs/fatfs_vnops.c 			error = fatfs_add_node(dvp2, &amp;np1);
+<a href='../S/893.html#L532'>dvp2</a>              532 usr/server/fs/fatfs/fatfs_vnops.c 			de2-&gt;cluster = dvp2-&gt;v_blkno;
+<a href='../S/902.html#L412'>dvp2</a>              412 usr/server/fs/ramfs/ramfs_vnops.c 	     vnode_t dvp2, vnode_t vp2, char *name2)
+<a href='../S/902.html#L419'>dvp2</a>              419 usr/server/fs/ramfs/ramfs_vnops.c 		error = ramfs_remove_node(dvp2-&gt;v_data, vp2-&gt;v_data);
+<a href='../S/902.html#L424'>dvp2</a>              424 usr/server/fs/ramfs/ramfs_vnops.c 	if (dvp1 == dvp2) {
+<a href='../S/902.html#L432'>dvp2</a>              432 usr/server/fs/ramfs/ramfs_vnops.c 		np = ramfs_add_node(dvp2-&gt;v_data, name2, VREG);
+<a href='../S/911.html#L569'>dvp2</a>              569 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp1, vp2 = 0, dvp1, dvp2;
+<a href='../S/911.html#L633'>dvp2</a>              633 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(dest, &amp;dvp2)) != 0)
+<a href='../S/911.html#L637'>dvp2</a>              637 usr/server/fs/vfs/vfs_syscalls.c 	if (dvp1-&gt;v_mount != dvp2-&gt;v_mount) {
+<a href='../S/911.html#L641'>dvp2</a>              641 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_RENAME(dvp1, vp1, sname, dvp2, vp2, dname);
+<a href='../S/911.html#L643'>dvp2</a>              643 usr/server/fs/vfs/vfs_syscalls.c 	vput(dvp2);
+</pre>
+</body>
+</html>

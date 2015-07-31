@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>msec</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/85.html#L183'>msec</a>              183 bsp/drv/dev/rtc/rtc.c 	u_long msec;
+<a href='../S/85.html#L191'>msec</a>              191 bsp/drv/dev/rtc/rtc.c 		msec = hztoms(timer_ticks() - sc-&gt;boot_ticks);
+<a href='../S/85.html#L192'>msec</a>              192 bsp/drv/dev/rtc/rtc.c 		tv.tv_sec = sc-&gt;boot_sec + (msec / 1000);
+<a href='../S/85.html#L193'>msec</a>              193 bsp/drv/dev/rtc/rtc.c 		tv.tv_usec = (long)((msec * 1000) % 1000000);
+<a href='../S/267.html#L121'>msec</a>              121 include/sys/prex.h int	timer_sleep(u_long msec, u_long *remain);
+<a href='../S/267.html#L122'>msec</a>              122 include/sys/prex.h int	timer_alarm(u_long msec, u_long *remain);
+<a href='../S/331.html#L268'>msec</a>              268 sys/kern/sched.c sched_tsleep(struct event *evt, u_long msec)
+<a href='../S/331.html#L287'>msec</a>              287 sys/kern/sched.c 	if (msec != 0) {
+<a href='../S/331.html#L288'>msec</a>              288 sys/kern/sched.c 		timer_callout(&amp;curthread-&gt;timeout, msec,
+<a href='../S/336.html#L119'>msec</a>              119 sys/kern/timer.c timer_callout(struct timer *tmr, u_long msec, void (*fn)(void *), void *arg)
+<a href='../S/336.html#L134'>msec</a>              134 sys/kern/timer.c 	timer_add(tmr, mstohz(msec));
+<a href='../S/336.html#L147'>msec</a>              147 sys/kern/timer.c timer_delay(u_long msec)
+<a href='../S/336.html#L153'>msec</a>              153 sys/kern/timer.c 	rc = sched_tsleep(&amp;delay_event, msec);
+<a href='../S/336.html#L169'>msec</a>              169 sys/kern/timer.c timer_sleep(u_long msec, u_long *remain)
+<a href='../S/336.html#L173'>msec</a>              173 sys/kern/timer.c 	left = timer_delay(msec);
+<a href='../S/336.html#L204'>msec</a>              204 sys/kern/timer.c timer_alarm(u_long msec, u_long *remain)
+<a href='../S/336.html#L220'>msec</a>              220 sys/kern/timer.c 	if (msec == 0)
+<a href='../S/336.html#L223'>msec</a>              223 sys/kern/timer.c 		timer_callout(tmr, msec, &amp;alarm_expire, curtask);
+<a href='../S/787.html#L39'>msec</a>               39 usr/lib/prex/syscalls/sem_wait.c sem_wait(sem_t *sem, unsigned long msec)
+<a href='../S/787.html#L44'>msec</a>               44 usr/lib/prex/syscalls/sem_wait.c 		error = _sem_wait(sem, msec);
+</pre>
+</body>
+</html>

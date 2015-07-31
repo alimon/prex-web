@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>basepri</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L234'>basepri</a>           234 bsp/drv/dev/base/kd.c 			       pol[ti.policy], ti.priority, ti.basepri,
+<a href='../S/272.html#L88'>basepri</a>            88 include/sys/sysinfo.h 	int		basepri;	/* base priority */
+<a href='../S/319.html#L53'>basepri</a>            53 sys/include/thread.h 	int		basepri;	/* statical base priority */
+<a href='../S/331.html#L477'>basepri</a>           477 sys/kern/sched.c 	t-&gt;basepri = pri;
+<a href='../S/331.html#L581'>basepri</a>           581 sys/kern/sched.c sched_setpri(thread_t t, int basepri, int pri)
+<a href='../S/331.html#L584'>basepri</a>           584 sys/kern/sched.c 	t-&gt;basepri = basepri;
+<a href='../S/334.html#L513'>basepri</a>           513 sys/kern/task.c 		t-&gt;basepri = PRI_REALTIME;
+<a href='../S/335.html#L108'>basepri</a>           108 sys/kern/thread.c 	sched_start(t, curthread-&gt;basepri, SCHED_RR);
+<a href='../S/335.html#L360'>basepri</a>           360 sys/kern/thread.c 		if (t-&gt;priority != t-&gt;basepri &amp;&amp; pri &gt; t-&gt;priority)
+<a href='../S/335.html#L498'>basepri</a>           498 sys/kern/thread.c 			info-&gt;basepri = t-&gt;basepri;
+<a href='../S/346.html#L442'>basepri</a>           442 sys/sync/mutex.c 			sched_setpri(holder, holder-&gt;basepri, waiter-&gt;priority);
+<a href='../S/346.html#L476'>basepri</a>           476 sys/sync/mutex.c 	if (t-&gt;priority == t-&gt;basepri)
+<a href='../S/346.html#L479'>basepri</a>           479 sys/sync/mutex.c 	maxpri = t-&gt;basepri;
+<a href='../S/346.html#L493'>basepri</a>           493 sys/sync/mutex.c 	sched_setpri(t, t-&gt;basepri, maxpri);
+</pre>
+</body>
+</html>

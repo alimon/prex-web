@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>w</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/280.html#L47'>w</a>                  47 include/sys/wait.h #define	_W_INT(w)	(*(int *)&amp;(w))	/* convert union wait to int */
+<a href='../S/519.html#L52'>w</a>                  52 usr/lib/libc/stdio/fvwrite.c 	int w, s;
+<a href='../S/519.html#L82'>w</a>                  82 usr/lib/libc/stdio/fvwrite.c 			w = __swrite(fp, p, MIN(len, BUFSIZ));
+<a href='../S/519.html#L83'>w</a>                  83 usr/lib/libc/stdio/fvwrite.c 			if (w &lt;= 0)
+<a href='../S/519.html#L85'>w</a>                  85 usr/lib/libc/stdio/fvwrite.c 			p += w;
+<a href='../S/519.html#L86'>w</a>                  86 usr/lib/libc/stdio/fvwrite.c 			len -= w;
+<a href='../S/519.html#L87'>w</a>                  87 usr/lib/libc/stdio/fvwrite.c 		} while ((uio-&gt;uio_resid -= w) != 0);
+<a href='../S/519.html#L102'>w</a>                 102 usr/lib/libc/stdio/fvwrite.c 			w = fp-&gt;_w;
+<a href='../S/519.html#L104'>w</a>                 104 usr/lib/libc/stdio/fvwrite.c 				if (len &lt; w)
+<a href='../S/519.html#L105'>w</a>                 105 usr/lib/libc/stdio/fvwrite.c 					w = len;
+<a href='../S/519.html#L106'>w</a>                 106 usr/lib/libc/stdio/fvwrite.c 				COPY(w);	/* copy MIN(fp-&gt;_w,len), */
+<a href='../S/519.html#L107'>w</a>                 107 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L108'>w</a>                 108 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L109'>w</a>                 109 usr/lib/libc/stdio/fvwrite.c 				w = len;	/* but pretend copied all */
+<a href='../S/519.html#L110'>w</a>                 110 usr/lib/libc/stdio/fvwrite.c 			} else if (fp-&gt;_p &gt; fp-&gt;_bf._base &amp;&amp; len &gt; w) {
+<a href='../S/519.html#L112'>w</a>                 112 usr/lib/libc/stdio/fvwrite.c 				COPY(w);
+<a href='../S/519.html#L114'>w</a>                 114 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L117'>w</a>                 117 usr/lib/libc/stdio/fvwrite.c 			} else if (len &gt;= (w = fp-&gt;_bf._size)) {
+<a href='../S/519.html#L119'>w</a>                 119 usr/lib/libc/stdio/fvwrite.c 				w = __swrite(fp, p, w);
+<a href='../S/519.html#L120'>w</a>                 120 usr/lib/libc/stdio/fvwrite.c 				if (w &lt;= 0)
+<a href='../S/519.html#L124'>w</a>                 124 usr/lib/libc/stdio/fvwrite.c 				w = len;
+<a href='../S/519.html#L125'>w</a>                 125 usr/lib/libc/stdio/fvwrite.c 				COPY(w);
+<a href='../S/519.html#L126'>w</a>                 126 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L127'>w</a>                 127 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L129'>w</a>                 129 usr/lib/libc/stdio/fvwrite.c 			p += w;
+<a href='../S/519.html#L130'>w</a>                 130 usr/lib/libc/stdio/fvwrite.c 			len -= w;
+<a href='../S/519.html#L131'>w</a>                 131 usr/lib/libc/stdio/fvwrite.c 		} while ((uio-&gt;uio_resid -= w) != 0);
+<a href='../S/519.html#L150'>w</a>                 150 usr/lib/libc/stdio/fvwrite.c 			w = fp-&gt;_w + fp-&gt;_bf._size;
+<a href='../S/519.html#L151'>w</a>                 151 usr/lib/libc/stdio/fvwrite.c 			if (fp-&gt;_p &gt; fp-&gt;_bf._base &amp;&amp; s &gt; w) {
+<a href='../S/519.html#L152'>w</a>                 152 usr/lib/libc/stdio/fvwrite.c 				COPY(w);
+<a href='../S/519.html#L154'>w</a>                 154 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L157'>w</a>                 157 usr/lib/libc/stdio/fvwrite.c 			} else if (s &gt;= (w = fp-&gt;_bf._size)) {
+<a href='../S/519.html#L158'>w</a>                 158 usr/lib/libc/stdio/fvwrite.c 				w = __swrite(fp, p, w);
+<a href='../S/519.html#L159'>w</a>                 159 usr/lib/libc/stdio/fvwrite.c 				if (w &lt;= 0)
+<a href='../S/519.html#L162'>w</a>                 162 usr/lib/libc/stdio/fvwrite.c 				w = s;
+<a href='../S/519.html#L163'>w</a>                 163 usr/lib/libc/stdio/fvwrite.c 				COPY(w);
+<a href='../S/519.html#L164'>w</a>                 164 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_w -= w;
+<a href='../S/519.html#L165'>w</a>                 165 usr/lib/libc/stdio/fvwrite.c 				fp-&gt;_p += w;
+<a href='../S/519.html#L167'>w</a>                 167 usr/lib/libc/stdio/fvwrite.c 			if ((nldist -= w) == 0) {
+<a href='../S/519.html#L173'>w</a>                 173 usr/lib/libc/stdio/fvwrite.c 			p += w;
+<a href='../S/519.html#L174'>w</a>                 174 usr/lib/libc/stdio/fvwrite.c 			len -= w;
+<a href='../S/519.html#L175'>w</a>                 175 usr/lib/libc/stdio/fvwrite.c 		} while ((uio-&gt;uio_resid -= w) != 0);
+<a href='../S/526.html#L39'>w</a>                  39 usr/lib/libc/stdio/getw.c 	int w;
+<a href='../S/526.html#L41'>w</a>                  41 usr/lib/libc/stdio/getw.c 	char *p = (char *) &amp;w;
+<a href='../S/526.html#L47'>w</a>                  47 usr/lib/libc/stdio/getw.c 	return w;
+<a href='../S/536.html#L36'>w</a>                  36 usr/lib/libc/stdio/putw.c putw(w, fp)
+<a href='../S/536.html#L37'>w</a>                  37 usr/lib/libc/stdio/putw.c 	int w;
+<a href='../S/536.html#L41'>w</a>                  41 usr/lib/libc/stdio/putw.c 	char *p = (char *) &amp;w;
+<a href='../S/536.html#L47'>w</a>                  47 usr/lib/libc/stdio/putw.c 	return w;
+</pre>
+</body>
+</html>

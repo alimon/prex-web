@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bus_read_32</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/84.html#L74'>bus_read_32</a>        74 bsp/drv/dev/rtc/pl030.c 	tv-&gt;tv_sec = bus_read_32(RTC_DR);
+<a href='../S/88.html#L123'>bus_read_32</a>       123 bsp/drv/dev/serial/pl011.c 	while (bus_read_32(UART_FR) &amp; FR_TXFF)
+<a href='../S/88.html#L133'>bus_read_32</a>       133 bsp/drv/dev/serial/pl011.c 	while (bus_read_32(UART_FR) &amp; FR_RXFE)
+<a href='../S/88.html#L135'>bus_read_32</a>       135 bsp/drv/dev/serial/pl011.c 	c = bus_read_32(UART_DR) &amp; 0xff;
+<a href='../S/88.html#L159'>bus_read_32</a>       159 bsp/drv/dev/serial/pl011.c 	mis = bus_read_32(UART_MIS);
+<a href='../S/88.html#L165'>bus_read_32</a>       165 bsp/drv/dev/serial/pl011.c 		while (bus_read_32(UART_FR) &amp; FR_RXFE)
+<a href='../S/88.html#L168'>bus_read_32</a>       168 bsp/drv/dev/serial/pl011.c 			c = bus_read_32(UART_DR);
+<a href='../S/88.html#L170'>bus_read_32</a>       170 bsp/drv/dev/serial/pl011.c 		} while ((bus_read_32(UART_FR) &amp; FR_RXFE) == 0);
+<a href='../S/123.html#L47'>bus_read_32</a>        47 bsp/drv/x86/include/busio.h uint32_t bus_read_32(int addr);
+</pre>
+</body>
+</html>

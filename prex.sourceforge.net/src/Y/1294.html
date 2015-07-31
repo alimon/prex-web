@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mode</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L72'>mode</a>               72 bsp/drv/dev/base/cons.c cons_open(device_t dev, int mode)
+<a href='../S/58.html#L77'>mode</a>               77 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;open(dev, mode);
+<a href='../S/63.html#L100'>mode</a>              100 bsp/drv/dev/base/pm.c pm_open(device_t dev, int mode)
+<a href='../S/66.html#L487'>mode</a>              487 bsp/drv/dev/block/fdd.c fdd_open(device_t dev, int mode)
+<a href='../S/72.html#L112'>mode</a>              112 bsp/drv/dev/dma/i8237.c 	int	mode;
+<a href='../S/72.html#L194'>mode</a>              194 bsp/drv/dev/dma/i8237.c 	u_int chan, bits, mode;
+<a href='../S/72.html#L209'>mode</a>              209 bsp/drv/dev/dma/i8237.c 	mode = read ? 0x44U : 0x48U;
+<a href='../S/72.html#L214'>mode</a>              214 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mode, bits | mode);	/* Set mode */
+<a href='../S/77.html#L173'>mode</a>              173 bsp/drv/dev/input/psaux.c psaux_open(device_t dev, int mode)
+<a href='../S/136.html#L125'>mode</a>              125 bsp/hal/arm/gba/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/148.html#L125'>mode</a>              125 bsp/hal/arm/integrator/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/169.html#L129'>mode</a>              129 bsp/hal/ppc/prep/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/169.html#L140'>mode</a>              140 bsp/hal/ppc/prep/interrupt.c 	if (mode == IMODE_LEVEL)
+<a href='../S/188.html#L127'>mode</a>              127 bsp/hal/x86/pc/interrupt.c interrupt_setup(int vector, int mode)
+<a href='../S/188.html#L138'>mode</a>              138 bsp/hal/x86/pc/interrupt.c 	if (mode == IMODE_LEVEL)
+<a href='../S/219.html#L103'>mode</a>              103 include/ipc/fs.h 	mode_t	mode;			/* open mode */
+<a href='../S/253.html#L73'>mode</a>               73 include/sys/dirent.h #define	IFTODT(mode)	(((mode) &amp; 0170000) &gt;&gt; 12)
+<a href='../S/267.html#L126'>mode</a>              126 include/sys/prex.h int	device_open(const char *name, int mode, device_t *dev);
+<a href='../S/327.html#L299'>mode</a>              299 sys/kern/device.c device_open(const char *name, int mode, device_t *devp)
+<a href='../S/327.html#L324'>mode</a>              324 sys/kern/device.c 	error = (*ops-&gt;open)(dev, mode);
+<a href='../S/329.html#L86'>mode</a>               86 sys/kern/irq.c 	int mode;
+<a href='../S/329.html#L112'>mode</a>              112 sys/kern/irq.c 	mode = shared ? IMODE_LEVEL : IMODE_EDGE;
+<a href='../S/329.html#L113'>mode</a>              113 sys/kern/irq.c 	interrupt_setup(vector, mode);
+<a href='../S/374.html#L134'>mode</a>              134 usr/bin/cp/cp.c 	mode_t mode;
+<a href='../S/374.html#L152'>mode</a>              152 usr/bin/cp/cp.c 	mode = stbuf.st_mode;
+<a href='../S/374.html#L154'>mode</a>              154 usr/bin/cp/cp.c 	if ((fnew = creat(to, mode)) == -1) {
+<a href='../S/390.html#L128'>mode</a>              128 usr/bin/ls/ls.c printtype(u_int mode)
+<a href='../S/390.html#L132'>mode</a>              132 usr/bin/ls/ls.c 	switch (mode &amp; S_IFMT) {
+<a href='../S/390.html#L161'>mode</a>              161 usr/bin/ls/ls.c printmode(u_int mode)
+<a href='../S/390.html#L164'>mode</a>              164 usr/bin/ls/ls.c 	if (mode &amp; S_IRUSR)
+<a href='../S/390.html#L168'>mode</a>              168 usr/bin/ls/ls.c 	if (mode &amp; S_IWUSR)
+<a href='../S/390.html#L172'>mode</a>              172 usr/bin/ls/ls.c 	if (mode &amp; S_IXUSR)
+<a href='../S/421.html#L326'>mode</a>              326 usr/bin/test/test.c filstat(char *nm, enum token mode)
+<a href='../S/421.html#L330'>mode</a>              330 usr/bin/test/test.c 	if (mode == FILSYM ? lstat(nm, &amp;s) : stat(nm, &amp;s))
+<a href='../S/421.html#L333'>mode</a>              333 usr/bin/test/test.c 	switch (mode) {
+<a href='../S/498.html#L41'>mode</a>               41 usr/lib/libc/stdio/fdopen.c fdopen(fd, mode)
+<a href='../S/498.html#L43'>mode</a>               43 usr/lib/libc/stdio/fdopen.c 	const char *mode;
+<a href='../S/498.html#L48'>mode</a>               48 usr/lib/libc/stdio/fdopen.c 	if ((flags = __sflags(mode, &amp;oflags)) == 0)
+<a href='../S/507.html#L44'>mode</a>               44 usr/lib/libc/stdio/flags.c __sflags(char *mode, int *optr)
+<a href='../S/507.html#L48'>mode</a>               48 usr/lib/libc/stdio/flags.c 	switch (*mode++) {
+<a href='../S/507.html#L74'>mode</a>               74 usr/lib/libc/stdio/flags.c 	if (*mode == '+' || (*mode == 'b' &amp;&amp; mode[1] == '+')) {
+<a href='../S/508.html#L41'>mode</a>               41 usr/lib/libc/stdio/fopen.c fopen(file, mode)
+<a href='../S/508.html#L43'>mode</a>               43 usr/lib/libc/stdio/fopen.c 	const char *mode;
+<a href='../S/508.html#L49'>mode</a>               49 usr/lib/libc/stdio/fopen.c 	if ((flags = __sflags(mode, &amp;oflags)) == 0)
+<a href='../S/514.html#L48'>mode</a>               48 usr/lib/libc/stdio/freopen.c freopen(file, mode, fp)
+<a href='../S/514.html#L49'>mode</a>               49 usr/lib/libc/stdio/freopen.c 	const char *file, *mode;
+<a href='../S/514.html#L55'>mode</a>               55 usr/lib/libc/stdio/freopen.c 	if ((flags = __sflags(mode, &amp;oflags)) == 0) {
+<a href='../S/543.html#L42'>mode</a>               42 usr/lib/libc/stdio/setvbuf.c setvbuf(fp, buf, mode, size)
+<a href='../S/543.html#L45'>mode</a>               45 usr/lib/libc/stdio/setvbuf.c 	int mode;
+<a href='../S/543.html#L56'>mode</a>               56 usr/lib/libc/stdio/setvbuf.c 	if (mode != _IONBF)
+<a href='../S/543.html#L57'>mode</a>               57 usr/lib/libc/stdio/setvbuf.c 		if ((mode != _IOFBF &amp;&amp; mode != _IOLBF) || (int)size &lt; 0)
+<a href='../S/543.html#L80'>mode</a>               80 usr/lib/libc/stdio/setvbuf.c 	if (mode == _IOLBF)
+<a href='../S/606.html#L36'>mode</a>               36 usr/lib/libc/string/strmode.c strmode(mode, p)
+<a href='../S/606.html#L37'>mode</a>               37 usr/lib/libc/string/strmode.c 	mode_t mode;
+<a href='../S/606.html#L41'>mode</a>               41 usr/lib/libc/string/strmode.c 	switch (mode &amp; S_IFMT) {
+<a href='../S/606.html#L75'>mode</a>               75 usr/lib/libc/string/strmode.c 	if (mode &amp; S_IRUSR)
+<a href='../S/606.html#L79'>mode</a>               79 usr/lib/libc/string/strmode.c 	if (mode &amp; S_IWUSR)
+<a href='../S/606.html#L83'>mode</a>               83 usr/lib/libc/string/strmode.c 	switch (mode &amp; (S_IXUSR | S_ISUID)) {
+<a href='../S/606.html#L98'>mode</a>               98 usr/lib/libc/string/strmode.c 	if (mode &amp; S_IRGRP)
+<a href='../S/606.html#L102'>mode</a>              102 usr/lib/libc/string/strmode.c 	if (mode &amp; S_IWGRP)
+<a href='../S/606.html#L106'>mode</a>              106 usr/lib/libc/string/strmode.c 	switch (mode &amp; (S_IXGRP | S_ISGID)) {
+<a href='../S/606.html#L121'>mode</a>              121 usr/lib/libc/string/strmode.c 	if (mode &amp; S_IROTH)
+<a href='../S/606.html#L125'>mode</a>              125 usr/lib/libc/string/strmode.c 	if (mode &amp; S_IWOTH)
+<a href='../S/606.html#L129'>mode</a>              129 usr/lib/libc/string/strmode.c 	switch (mode &amp; (S_IXOTH | S_ISVTX)) {
+<a href='../S/657.html#L36'>mode</a>               36 usr/lib/posix/file/access.c access(const char *path, int mode)
+<a href='../S/657.html#L41'>mode</a>               41 usr/lib/posix/file/access.c 	m.data[0] = mode;
+<a href='../S/659.html#L37'>mode</a>               37 usr/lib/posix/file/chmod.c chmod(const char *path, mode_t mode)
+<a href='../S/663.html#L35'>mode</a>               35 usr/lib/posix/file/creat.c creat(const char *file, mode_t mode)
+<a href='../S/663.html#L38'>mode</a>               38 usr/lib/posix/file/creat.c 	return open(file, O_WRONLY | O_CREAT | O_TRUNC, mode);
+<a href='../S/678.html#L40'>mode</a>               40 usr/lib/posix/file/mkdir.c mkdir(const char *path, mode_t mode)
+<a href='../S/678.html#L46'>mode</a>               46 usr/lib/posix/file/mkdir.c 	m.mode = mode;
+<a href='../S/679.html#L40'>mode</a>               40 usr/lib/posix/file/mknod.c mknod(const char *path, mode_t mode, dev_t dev)
+<a href='../S/679.html#L46'>mode</a>               46 usr/lib/posix/file/mknod.c 	m.mode = mode;
+<a href='../S/681.html#L44'>mode</a>               44 usr/lib/posix/file/open.c 	mode_t mode;
+<a href='../S/681.html#L47'>mode</a>               47 usr/lib/posix/file/open.c 	mode = va_arg(args, int);
+<a href='../S/681.html#L52'>mode</a>               52 usr/lib/posix/file/open.c 	m.mode = mode;
+<a href='../S/692.html#L37'>mode</a>               37 usr/lib/posix/file/umask.c umask(mode_t mode)
+<a href='../S/862.html#L118'>mode</a>              118 usr/sbin/install/install.c 	mode_t mode;
+<a href='../S/862.html#L131'>mode</a>              131 usr/sbin/install/install.c 	mode = stbuf.st_mode;
+<a href='../S/862.html#L133'>mode</a>              133 usr/sbin/install/install.c 	if ((fnew = creat(to, mode)) == -1) {
+<a href='../S/871.html#L242'>mode</a>              242 usr/server/boot/boot.c 	mode_t mode;
+<a href='../S/871.html#L248'>mode</a>              248 usr/server/boot/boot.c 	mode = stbuf.st_mode;
+<a href='../S/871.html#L250'>mode</a>              250 usr/server/boot/boot.c 	if ((fnew = creat(dest, mode)) == -1) {
+<a href='../S/888.html#L212'>mode</a>              212 usr/server/fs/fatfs/fatfs.h void	 fat_mode_to_attr(mode_t mode, u_char *attr);
+<a href='../S/888.html#L213'>mode</a>              213 usr/server/fs/fatfs/fatfs.h void	 fat_attr_to_mode(u_char attr, mode_t *mode);
+<a href='../S/891.html#L158'>mode</a>              158 usr/server/fs/fatfs/fatfs_subr.c fat_mode_to_attr(mode_t mode, u_char *attr)
+<a href='../S/891.html#L162'>mode</a>              162 usr/server/fs/fatfs/fatfs_subr.c 	if (!(mode &amp; S_IWRITE))
+<a href='../S/891.html#L164'>mode</a>              164 usr/server/fs/fatfs/fatfs_subr.c 	if (!(mode &amp; S_IREAD))
+<a href='../S/891.html#L166'>mode</a>              166 usr/server/fs/fatfs/fatfs_subr.c 	if (S_ISDIR(mode))
+<a href='../S/891.html#L174'>mode</a>              174 usr/server/fs/fatfs/fatfs_subr.c fat_attr_to_mode(u_char attr, mode_t *mode)
+<a href='../S/891.html#L178'>mode</a>              178 usr/server/fs/fatfs/fatfs_subr.c 		*mode =
+<a href='../S/891.html#L182'>mode</a>              182 usr/server/fs/fatfs/fatfs_subr.c 		*mode = S_IRWXU | S_IRWXG | S_IRWXO;
+<a href='../S/891.html#L185'>mode</a>              185 usr/server/fs/fatfs/fatfs_subr.c 		*mode |= S_IFDIR;
+<a href='../S/891.html#L187'>mode</a>              187 usr/server/fs/fatfs/fatfs_subr.c 		*mode |= S_IFREG;
+<a href='../S/893.html#L376'>mode</a>              376 usr/server/fs/fatfs/fatfs_vnops.c fatfs_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/893.html#L386'>mode</a>              386 usr/server/fs/fatfs/fatfs_vnops.c 	if (!S_ISREG(mode))
+<a href='../S/893.html#L406'>mode</a>              406 usr/server/fs/fatfs/fatfs_vnops.c 	fat_mode_to_attr(mode, &amp;de-&gt;attr);
+<a href='../S/893.html#L553'>mode</a>              553 usr/server/fs/fatfs/fatfs_vnops.c fatfs_mkdir(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/893.html#L561'>mode</a>              561 usr/server/fs/fatfs/fatfs_vnops.c 	if (!S_ISDIR(mode))
+<a href='../S/893.html#L581'>mode</a>              581 usr/server/fs/fatfs/fatfs_vnops.c 	fat_mode_to_attr(mode, &amp;de-&gt;attr);
+<a href='../S/896.html#L352'>mode</a>              352 usr/server/fs/fifofs/fifo_vnops.c fifo_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/896.html#L360'>mode</a>              360 usr/server/fs/fifofs/fifo_vnops.c 	if (!S_ISFIFO(mode))
+<a href='../S/902.html#L239'>mode</a>              239 usr/server/fs/ramfs/ramfs_vnops.c ramfs_mkdir(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/902.html#L244'>mode</a>              244 usr/server/fs/ramfs/ramfs_vnops.c 	if (!S_ISDIR(mode))
+<a href='../S/902.html#L319'>mode</a>              319 usr/server/fs/ramfs/ramfs_vnops.c ramfs_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/902.html#L324'>mode</a>              324 usr/server/fs/ramfs/ramfs_vnops.c 	if (!S_ISREG(mode))
+<a href='../S/903.html#L153'>mode</a>              153 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, msg-&gt;flags, msg-&gt;mode, &amp;fp)) != 0)
+<a href='../S/903.html#L193'>mode</a>              193 usr/server/fs/vfs/main.c 	return sys_mknod(path, msg-&gt;mode);
+<a href='../S/903.html#L392'>mode</a>              392 usr/server/fs/vfs/main.c 	return sys_mkdir(path, msg-&gt;mode);
+<a href='../S/903.html#L622'>mode</a>              622 usr/server/fs/vfs/main.c 	int acc, mode, error = 0;
+<a href='../S/903.html#L624'>mode</a>              624 usr/server/fs/vfs/main.c 	mode = msg-&gt;data[0];
+<a href='../S/903.html#L626'>mode</a>              626 usr/server/fs/vfs/main.c 	if (mode &amp; R_OK)
+<a href='../S/903.html#L628'>mode</a>              628 usr/server/fs/vfs/main.c 	if (mode &amp; W_OK)
+<a href='../S/903.html#L634'>mode</a>              634 usr/server/fs/vfs/main.c 	return sys_access(path, mode);
+<a href='../S/905.html#L94'>mode</a>               94 usr/server/fs/vfs/vfs.h int	 sys_open(char *path, int flags, mode_t mode, file_t *pfp);
+<a href='../S/905.html#L112'>mode</a>              112 usr/server/fs/vfs/vfs.h int	 sys_mkdir(char *path, mode_t mode);
+<a href='../S/905.html#L114'>mode</a>              114 usr/server/fs/vfs/vfs.h int	 sys_mknod(char *path, mode_t mode);
+<a href='../S/905.html#L117'>mode</a>              117 usr/server/fs/vfs/vfs.h int	 sys_access(char *path, int mode);
+<a href='../S/905.html#L137'>mode</a>              137 usr/server/fs/vfs/vfs.h int	 task_conv(struct task *t, char *path, int mode, char *full);
+<a href='../S/905.html#L140'>mode</a>              140 usr/server/fs/vfs/vfs.h int	 sec_file_permission(task_t task, char *path, int mode);
+<a href='../S/911.html#L55'>mode</a>               55 usr/server/fs/vfs/vfs_syscalls.c sys_open(char *path, int flags, mode_t mode, file_t *pfp)
+<a href='../S/911.html#L63'>mode</a>               63 usr/server/fs/vfs/vfs_syscalls.c 				path, flags, mode));
+<a href='../S/911.html#L78'>mode</a>               78 usr/server/fs/vfs/vfs_syscalls.c 			mode &amp;= ~S_IFMT;
+<a href='../S/911.html#L79'>mode</a>               79 usr/server/fs/vfs/vfs_syscalls.c 			mode |= S_IFREG;
+<a href='../S/911.html#L80'>mode</a>               80 usr/server/fs/vfs/vfs_syscalls.c 			error = VOP_CREATE(dvp, filename, mode);
+<a href='../S/911.html#L461'>mode</a>              461 usr/server/fs/vfs/vfs_syscalls.c sys_mkdir(char *path, mode_t mode)
+<a href='../S/911.html#L467'>mode</a>              467 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_mkdir: path=%s mode=%d\n",	path, mode));
+<a href='../S/911.html#L482'>mode</a>              482 usr/server/fs/vfs/vfs_syscalls.c 	mode &amp;= ~S_IFMT;
+<a href='../S/911.html#L483'>mode</a>              483 usr/server/fs/vfs/vfs_syscalls.c 	mode |= S_IFDIR;
+<a href='../S/911.html#L485'>mode</a>              485 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_MKDIR(dvp, name, mode);
+<a href='../S/911.html#L529'>mode</a>              529 usr/server/fs/vfs/vfs_syscalls.c sys_mknod(char *path, mode_t mode)
+<a href='../S/911.html#L535'>mode</a>              535 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_mknod: path=%s mode=%d\n",	path, mode));
+<a href='../S/911.html#L537'>mode</a>              537 usr/server/fs/vfs/vfs_syscalls.c 	switch (mode &amp; S_IFMT) {
+<a href='../S/911.html#L557'>mode</a>              557 usr/server/fs/vfs/vfs_syscalls.c 	if (S_ISDIR(mode))
+<a href='../S/911.html#L558'>mode</a>              558 usr/server/fs/vfs/vfs_syscalls.c 		error = VOP_MKDIR(dvp, name, mode);
+<a href='../S/911.html#L560'>mode</a>              560 usr/server/fs/vfs/vfs_syscalls.c 		error = VOP_CREATE(dvp, name, mode);
+<a href='../S/911.html#L691'>mode</a>              691 usr/server/fs/vfs/vfs_syscalls.c sys_access(char *path, int mode)
+<a href='../S/911.html#L696'>mode</a>              696 usr/server/fs/vfs/vfs_syscalls.c 	DPRINTF(VFSDB_SYSCALL, ("sys_access: path=%s mode=%x\n", path, mode));
+<a href='../S/911.html#L703'>mode</a>              703 usr/server/fs/vfs/vfs_syscalls.c 	if (mode &amp; R_OK)
+<a href='../S/911.html#L705'>mode</a>              705 usr/server/fs/vfs/vfs_syscalls.c 	if (mode &amp; W_OK)
+<a href='../S/911.html#L707'>mode</a>              707 usr/server/fs/vfs/vfs_syscalls.c 	if (mode &amp; X_OK)
+<a href='../S/913.html#L345'>mode</a>              345 usr/server/fs/vfs/vfs_vnode.c 	mode_t mode;
+<a href='../S/913.html#L351'>mode</a>              351 usr/server/fs/vfs/vfs_vnode.c 	mode = vp-&gt;v_mode;
+<a href='../S/913.html#L354'>mode</a>              354 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFREG;
+<a href='../S/913.html#L357'>mode</a>              357 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFDIR;
+<a href='../S/913.html#L360'>mode</a>              360 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFBLK;
+<a href='../S/913.html#L363'>mode</a>              363 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFCHR;
+<a href='../S/913.html#L366'>mode</a>              366 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFLNK;
+<a href='../S/913.html#L369'>mode</a>              369 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFSOCK;
+<a href='../S/913.html#L372'>mode</a>              372 usr/server/fs/vfs/vfs_vnode.c 		mode |= S_IFIFO;
+<a href='../S/913.html#L377'>mode</a>              377 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_mode = mode;
+</pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>trap_name</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/132.html#L49'>trap_name</a>          49 bsp/hal/arm/arch/trap.c static char *const trap_name[] = {
+<a href='../S/132.html#L54'>trap_name</a>          54 bsp/hal/arm/arch/trap.c #define MAXTRAP (sizeof(trap_name) / sizeof(void *) - 1)
+<a href='../S/132.html#L89'>trap_name</a>          89 bsp/hal/arm/arch/trap.c 	printf("Trap %x: %s\n", (u_int)trap_no, trap_name[trap_no]);
+<a href='../S/159.html#L50'>trap_name</a>          50 bsp/hal/ppc/arch/trap.c static const char *const trap_name[] = {
+<a href='../S/159.html#L67'>trap_name</a>          67 bsp/hal/ppc/arch/trap.c #define MAXTRAP (sizeof(trap_name) / sizeof(void *) - 1)
+<a href='../S/159.html#L104'>trap_name</a>         104 bsp/hal/ppc/arch/trap.c 	printf("Trap %x: %s\n", trap_no, trap_name[trap_no]);
+<a href='../S/179.html#L49'>trap_name</a>          49 bsp/hal/x86/arch/trap.c static const char *const trap_name[] = {
+<a href='../S/179.html#L70'>trap_name</a>          70 bsp/hal/x86/arch/trap.c #define MAXTRAP (sizeof(trap_name) / sizeof(void *) - 1)
+<a href='../S/179.html#L130'>trap_name</a>         130 bsp/hal/x86/arch/trap.c 	printf("Trap %x: %s\n", (u_int)trap_no, trap_name[trap_no]);
+</pre>
+</body>
+</html>

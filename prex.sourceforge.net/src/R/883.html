@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>SEG_SHARED</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/343.html#L229'>SEG_SHARED</a>        229 sys/mem/vm.c   	if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp; !(seg-&gt;flags &amp; SEG_MAPPED))
+<a href='../S/343.html#L317'>SEG_SHARED</a>        317 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L340'>SEG_SHARED</a>        340 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L499'>SEG_SHARED</a>        499 sys/mem/vm.c   			if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp;
+<a href='../S/343.html#L598'>SEG_SHARED</a>        598 sys/mem/vm.c   				dest-&gt;flags |= SEG_SHARED;
+<a href='../S/343.html#L601'>SEG_SHARED</a>        601 sys/mem/vm.c   			if (!(dest-&gt;flags &amp; SEG_SHARED)) {
+<a href='../S/343.html#L630'>SEG_SHARED</a>        630 sys/mem/vm.c   		if (dest-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L631'>SEG_SHARED</a>        631 sys/mem/vm.c   			src-&gt;flags |= SEG_SHARED;
+<a href='../S/343.html#L841'>SEG_SHARED</a>        841 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L845'>SEG_SHARED</a>        845 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L913'>SEG_SHARED</a>        913 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L917'>SEG_SHARED</a>        917 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/344.html#L200'>SEG_SHARED</a>        200 sys/mem/vm_nommu.c 	if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp; !(seg-&gt;flags &amp; SEG_MAPPED))
+<a href='../S/344.html#L265'>SEG_SHARED</a>        265 sys/mem/vm_nommu.c 	if ((seg-&gt;flags &amp; SEG_MAPPED) || (seg-&gt;flags &amp; SEG_SHARED))
+<a href='../S/344.html#L401'>SEG_SHARED</a>        401 sys/mem/vm_nommu.c 			if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp;
+<a href='../S/344.html#L591'>SEG_SHARED</a>        591 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/344.html#L595'>SEG_SHARED</a>        595 sys/mem/vm_nommu.c 			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/344.html#L650'>SEG_SHARED</a>        650 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/344.html#L654'>SEG_SHARED</a>        654 sys/mem/vm_nommu.c 			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+</pre>
+</body>
+</html>

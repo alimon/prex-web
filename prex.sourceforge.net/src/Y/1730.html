@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>redir</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/413.html#L113'>redir</a>             113 usr/bin/sh/sh.c execute(int argc, char *argv[], int *redir, int flags, cmdfn_t cmdfn)
+<a href='../S/413.html#L126'>redir</a>             126 usr/bin/sh/sh.c 			if (redir[i] != -1)
+<a href='../S/413.html#L127'>redir</a>             127 usr/bin/sh/sh.c 				close(redir[i]);
+<a href='../S/413.html#L137'>redir</a>             137 usr/bin/sh/sh.c 			if (redir[i] != -1) {
+<a href='../S/413.html#L138'>redir</a>             138 usr/bin/sh/sh.c 				if (dup2(redir[i], i) == -1)
+<a href='../S/413.html#L140'>redir</a>             140 usr/bin/sh/sh.c 				close(redir[i]);
+<a href='../S/413.html#L150'>redir</a>             150 usr/bin/sh/sh.c 			if (redir[0] == -1) {
+<a href='../S/413.html#L178'>redir</a>             178 usr/bin/sh/sh.c 		if (redir[i] != -1)
+<a href='../S/413.html#L179'>redir</a>             179 usr/bin/sh/sh.c 			close(redir[i]);
+<a href='../S/413.html#L201'>redir</a>             201 usr/bin/sh/sh.c redirect(char **args, int *redir)
+<a href='../S/413.html#L233'>redir</a>             233 usr/bin/sh/sh.c 		if (redir[io] == -1) {
+<a href='../S/413.html#L246'>redir</a>             246 usr/bin/sh/sh.c 			redir[io] = fd;
+<a href='../S/413.html#L274'>redir</a>             274 usr/bin/sh/sh.c parsecmd(char *cmds, int *redir, int flags)
+<a href='../S/413.html#L330'>redir</a>             330 usr/bin/sh/sh.c 	argc = redirect(args, redir);
+<a href='../S/413.html#L345'>redir</a>             345 usr/bin/sh/sh.c 	execute(argc, args, redir, flags, fn);
+<a href='../S/413.html#L352'>redir</a>             352 usr/bin/sh/sh.c 	int redir[2] = { -1, -1 };
+<a href='../S/413.html#L360'>redir</a>             360 usr/bin/sh/sh.c 			redir[0] = pip[0];
+<a href='../S/413.html#L365'>redir</a>             365 usr/bin/sh/sh.c 			redir[1] = pip[1];
+<a href='../S/413.html#L366'>redir</a>             366 usr/bin/sh/sh.c 			parsecmd(cmds, redir, flags | CMD_PIPE);
+<a href='../S/413.html#L370'>redir</a>             370 usr/bin/sh/sh.c 			redir[0] = pip[0];
+<a href='../S/413.html#L371'>redir</a>             371 usr/bin/sh/sh.c 			redir[1] = -1;
+<a href='../S/413.html#L372'>redir</a>             372 usr/bin/sh/sh.c 			parsecmd(cmds, redir, flags);
+</pre>
+</body>
+</html>

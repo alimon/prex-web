@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>st</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/180.html#L87'>st</a>                 87 bsp/hal/x86/include/context.h 	uint32_t	st[20];
+<a href='../S/219.html#L125'>st</a>                125 include/ipc/fs.h 	struct stat st;
+<a href='../S/390.html#L257'>st</a>                257 usr/bin/ls/ls.c 	struct stat st;
+<a href='../S/390.html#L263'>st</a>                263 usr/bin/ls/ls.c 	if (stat(path, &amp;st) == -1)
+<a href='../S/390.html#L266'>st</a>                266 usr/bin/ls/ls.c 	if (S_ISDIR(st.st_mode)) {
+<a href='../S/390.html#L290'>st</a>                290 usr/bin/ls/ls.c 			if (stat(buf, &amp;st) == -1 &amp;&amp; errno != EACCES)
+<a href='../S/390.html#L292'>st</a>                292 usr/bin/ls/ls.c 			printentry(entry-&gt;d_name, &amp;st);
+<a href='../S/390.html#L302'>st</a>                302 usr/bin/ls/ls.c 		printentry(path, &amp;st);
+<a href='../S/423.html#L92'>st</a>                 92 usr/bin/touch/touch.c 	struct stat st;
+<a href='../S/423.html#L95'>st</a>                 95 usr/bin/touch/touch.c 	if (stat(file, &amp;st) &lt; 0) {
+<a href='../S/528.html#L46'>st</a>                 46 usr/lib/libc/stdio/makebuf.c 	struct stat st;
+<a href='../S/528.html#L50'>st</a>                 50 usr/lib/libc/stdio/makebuf.c 	if (fp-&gt;_file &lt; 0 || fstat(fp-&gt;_file, &amp;st) &lt; 0)
+<a href='../S/528.html#L54'>st</a>                 54 usr/lib/libc/stdio/makebuf.c 	*couldbetty = S_ISCHR(st.st_mode);
+<a href='../S/668.html#L39'>st</a>                 39 usr/lib/posix/file/fstat.c fstat(int fd, struct stat *st)
+<a href='../S/668.html#L47'>st</a>                 47 usr/lib/posix/file/fstat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/676.html#L40'>st</a>                 40 usr/lib/posix/file/lstat.c lstat(const char *path, struct stat *st)
+<a href='../S/676.html#L42'>st</a>                 42 usr/lib/posix/file/lstat.c 	return stat(path, st);
+<a href='../S/689.html#L40'>st</a>                 40 usr/lib/posix/file/stat.c stat(const char *path, struct stat *st)
+<a href='../S/689.html#L48'>st</a>                 48 usr/lib/posix/file/stat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/877.html#L446'>st</a>                446 usr/server/exec/exec_execve.c 	struct stat st;
+<a href='../S/877.html#L454'>st</a>                454 usr/server/exec/exec_execve.c 	if (fstat(fd, &amp;st) == -1) {
+<a href='../S/877.html#L458'>st</a>                458 usr/server/exec/exec_execve.c 	if (!S_ISREG(st.st_mode)) {
+<a href='../S/903.html#L279'>st</a>                279 usr/server/fs/vfs/main.c 	struct stat *st;
+<a href='../S/903.html#L285'>st</a>                285 usr/server/fs/vfs/main.c 	st = &amp;msg-&gt;st;
+<a href='../S/903.html#L286'>st</a>                286 usr/server/fs/vfs/main.c 	error = sys_fstat(fp, st);
+<a href='../S/903.html#L491'>st</a>                491 usr/server/fs/vfs/main.c 	struct stat *st;
+<a href='../S/903.html#L496'>st</a>                496 usr/server/fs/vfs/main.c 		st = &amp;msg-&gt;st;
+<a href='../S/903.html#L497'>st</a>                497 usr/server/fs/vfs/main.c 		error = sys_stat(path, st);
+<a href='../S/905.html#L100'>st</a>                100 usr/server/fs/vfs/vfs.h int	 sys_fstat(file_t fp, struct stat *st);
+<a href='../S/905.html#L118'>st</a>                118 usr/server/fs/vfs/vfs.h int	 sys_stat(char *path, struct stat *st);
+<a href='../S/911.html#L304'>st</a>                304 usr/server/fs/vfs/vfs_syscalls.c sys_fstat(file_t fp, struct stat *st)
+<a href='../S/911.html#L313'>st</a>                313 usr/server/fs/vfs/vfs_syscalls.c 	error = vn_stat(vp, st);
+<a href='../S/911.html#L717'>st</a>                717 usr/server/fs/vfs/vfs_syscalls.c sys_stat(char *path, struct stat *st)
+<a href='../S/911.html#L726'>st</a>                726 usr/server/fs/vfs/vfs_syscalls.c 	error = vn_stat(vp, st);
+<a href='../S/913.html#L343'>st</a>                343 usr/server/fs/vfs/vfs_vnode.c vn_stat(vnode_t vp, struct stat *st)
+<a href='../S/913.html#L347'>st</a>                347 usr/server/fs/vfs/vfs_vnode.c 	memset(st, 0, sizeof(struct stat));
+<a href='../S/913.html#L349'>st</a>                349 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_ino = (ino_t)vp;
+<a href='../S/913.html#L350'>st</a>                350 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_size = vp-&gt;v_size;
+<a href='../S/913.html#L377'>st</a>                377 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_mode = mode;
+<a href='../S/913.html#L378'>st</a>                378 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_blksize = BSIZE;
+<a href='../S/913.html#L379'>st</a>                379 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_blocks = vp-&gt;v_size / S_BLKSIZE;
+<a href='../S/913.html#L380'>st</a>                380 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_uid = 0;
+<a href='../S/913.html#L381'>st</a>                381 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_gid = 0;
+<a href='../S/913.html#L383'>st</a>                383 usr/server/fs/vfs/vfs_vnode.c 		st-&gt;st_rdev = (dev_t)vp-&gt;v_data;
+</pre>
+</body>
+</html>

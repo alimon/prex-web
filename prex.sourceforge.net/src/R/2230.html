@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>off_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/257.html#L115'>off_t</a>             115 include/sys/fcntl.h 	off_t	l_start;	/* starting offset */
+<a href='../S/257.html#L116'>off_t</a>             116 include/sys/fcntl.h 	off_t	l_len;		/* len = 0 means until end of file */
+<a href='../S/258.html#L44'>off_t</a>              44 include/sys/file.h 	off_t		f_offset;	/* current position in file */
+<a href='../S/271.html#L50'>off_t</a>              50 include/sys/stat.h 	off_t	  st_size;		/* file size, in bytes */
+<a href='../S/279.html#L108'>off_t</a>             108 include/sys/vnode.h 	int (*vop_seek)		(vnode_t, file_t, off_t, off_t);
+<a href='../S/279.html#L121'>off_t</a>             121 include/sys/vnode.h 	int (*vop_truncate)	(vnode_t, off_t);
+<a href='../S/421.html#L363'>off_t</a>             363 usr/bin/test/test.c 		return s.st_size &gt; (off_t)0;
+<a href='../S/441.html#L56'>off_t</a>              56 usr/include/stdio.h typedef off_t fpos_t;
+<a href='../S/447.html#L77'>off_t</a>              77 usr/include/unistd.h off_t	 lseek(int, off_t, int);
+<a href='../S/447.html#L111'>off_t</a>             111 usr/include/unistd.h int	 ftruncate(int, off_t);
+<a href='../S/447.html#L149'>off_t</a>             149 usr/include/unistd.h int	 truncate(const char *, off_t);
+<a href='../S/547.html#L58'>off_t</a>              58 usr/lib/libc/stdio/stdio.c 		(void) lseek(fp-&gt;_file, (off_t)0, SEEK_END);
+<a href='../S/547.html#L68'>off_t</a>              68 usr/lib/libc/stdio/stdio.c 	return (lseek(fp-&gt;_file, (off_t)offset, whence));
+<a href='../S/670.html#L36'>off_t</a>              36 usr/lib/posix/file/ftruncate.c ftruncate(int fd, off_t length)
+<a href='../S/675.html#L38'>off_t</a>              38 usr/lib/posix/file/lseek.c off_t
+<a href='../S/675.html#L39'>off_t</a>              39 usr/lib/posix/file/lseek.c lseek(int fd, off_t offset, int whence)
+<a href='../S/675.html#L49'>off_t</a>              49 usr/lib/posix/file/lseek.c 	return (off_t)m.data[0];
+<a href='../S/691.html#L38'>off_t</a>              38 usr/lib/posix/file/truncate.c truncate(const char *path, off_t length)
+<a href='../S/876.html#L85'>off_t</a>              85 usr/server/exec/exec_elf.c 			if (lseek(fd, (off_t)phdr-&gt;p_offset, SEEK_SET)
+<a href='../S/876.html#L86'>off_t</a>              86 usr/server/exec/exec_elf.c 			    == -(off_t)1)
+<a href='../S/883.html#L68'>off_t</a>              68 usr/server/fs/arfs/arfs_vnops.c static int arfs_seek	(vnode_t, file_t, off_t, off_t);
+<a href='../S/883.html#L148'>off_t</a>             148 usr/server/fs/arfs/arfs_vnops.c 	off_t off;
+<a href='../S/883.html#L208'>off_t</a>             208 usr/server/fs/arfs/arfs_vnops.c 	off_t off, file_pos, buf_pos;
+<a href='../S/883.html#L222'>off_t</a>             222 usr/server/fs/arfs/arfs_vnops.c 	if (file_pos &gt;= (off_t)vp-&gt;v_size) {
+<a href='../S/883.html#L231'>off_t</a>             231 usr/server/fs/arfs/arfs_vnops.c 	off = (off_t)vp-&gt;v_data;
+<a href='../S/883.html#L274'>off_t</a>             274 usr/server/fs/arfs/arfs_vnops.c arfs_seek(vnode_t vp, file_t fp, off_t oldoff, off_t newoff)
+<a href='../S/883.html#L277'>off_t</a>             277 usr/server/fs/arfs/arfs_vnops.c 	if (newoff &gt; (off_t)vp-&gt;v_size)
+<a href='../S/883.html#L288'>off_t</a>             288 usr/server/fs/arfs/arfs_vnops.c 	off_t off;
+<a href='../S/893.html#L71'>off_t</a>              71 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_truncate(vnode_t, off_t);
+<a href='../S/893.html#L678'>off_t</a>             678 usr/server/fs/fatfs/fatfs_vnops.c fatfs_truncate(vnode_t vp, off_t length)
+<a href='../S/902.html#L67'>off_t</a>              67 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_truncate(vnode_t, off_t);
+<a href='../S/902.html#L282'>off_t</a>             282 usr/server/fs/ramfs/ramfs_vnops.c ramfs_truncate(vnode_t vp, off_t length)
+<a href='../S/902.html#L337'>off_t</a>             337 usr/server/fs/ramfs/ramfs_vnops.c 	off_t off;
+<a href='../S/902.html#L346'>off_t</a>             346 usr/server/fs/ramfs/ramfs_vnops.c 	if (off &gt;= (off_t)vp-&gt;v_size)
+<a href='../S/902.html#L364'>off_t</a>             364 usr/server/fs/ramfs/ramfs_vnops.c 	off_t file_pos, end_pos;
+<a href='../S/902.html#L382'>off_t</a>             382 usr/server/fs/ramfs/ramfs_vnops.c 		if (end_pos &gt; (off_t)np-&gt;rn_bufsize) {
+<a href='../S/903.html#L200'>off_t</a>             200 usr/server/fs/vfs/main.c 	off_t offset, org;
+<a href='../S/903.html#L205'>off_t</a>             205 usr/server/fs/vfs/main.c 	offset = (off_t)msg-&gt;data[1];
+<a href='../S/905.html#L98'>off_t</a>              98 usr/server/fs/vfs/vfs.h int	 sys_lseek(file_t fp, off_t off, int type, off_t * cur_off);
+<a href='../S/905.html#L102'>off_t</a>             102 usr/server/fs/vfs/vfs.h int	 sys_ftruncate(file_t fp, off_t length);
+<a href='../S/905.html#L119'>off_t</a>             119 usr/server/fs/vfs/vfs.h int	 sys_truncate(char *path, off_t length);
+<a href='../S/911.html#L219'>off_t</a>             219 usr/server/fs/vfs/vfs_syscalls.c sys_lseek(file_t fp, off_t off, int type, off_t *origin)
+<a href='../S/911.html#L232'>off_t</a>             232 usr/server/fs/vfs/vfs_syscalls.c 		if (off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L236'>off_t</a>             236 usr/server/fs/vfs/vfs_syscalls.c 		if (fp-&gt;f_offset + off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L439'>off_t</a>             439 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_offset = (off_t)loc;
+<a href='../S/911.html#L732'>off_t</a>             732 usr/server/fs/vfs/vfs_syscalls.c sys_truncate(char *path, off_t length)
+<a href='../S/911.html#L738'>off_t</a>             738 usr/server/fs/vfs/vfs_syscalls.c sys_ftruncate(file_t fp, off_t length)
+</pre>
+</body>
+</html>

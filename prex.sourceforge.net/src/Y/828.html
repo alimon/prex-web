@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>f_flags</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/258.html#L42'>f_flags</a>            42 include/sys/file.h 	int		f_flags;	/* open flag */
+<a href='../S/263.html#L48'>f_flags</a>            48 include/sys/mount.h 	short	f_flags;		/* copy of mount flags */
+<a href='../S/893.html#L259'>f_flags</a>           259 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/896.html#L197'>f_flags</a>           197 usr/server/fs/fifofs/fifo_vnops.c 	if (fp-&gt;f_flags &amp; FREAD) {
+<a href='../S/896.html#L202'>f_flags</a>           202 usr/server/fs/fifofs/fifo_vnops.c 	if (fp-&gt;f_flags &amp; FWRITE) {
+<a href='../S/902.html#L378'>f_flags</a>           378 usr/server/fs/ramfs/ramfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/903.html#L597'>f_flags</a>           597 usr/server/fs/vfs/main.c 		msg-&gt;arg = fp-&gt;f_flags &amp; FD_CLOEXEC;
+<a href='../S/903.html#L600'>f_flags</a>           600 usr/server/fs/vfs/main.c 		fp-&gt;f_flags = (fp-&gt;f_flags &amp; ~FD_CLOEXEC) |
+<a href='../S/911.html#L139'>f_flags</a>           139 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_flags = flags;
+<a href='../S/911.html#L183'>f_flags</a>           183 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; FREAD) == 0)
+<a href='../S/911.html#L205'>f_flags</a>           205 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; FWRITE) == 0)
+<a href='../S/911.html#L274'>f_flags</a>           274 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; (FREAD | FWRITE)) == 0)
+<a href='../S/911.html#L293'>f_flags</a>           293 usr/server/fs/vfs/vfs_syscalls.c 	if ((fp-&gt;f_flags &amp; FWRITE) == 0)
+</pre>
+</body>
+</html>

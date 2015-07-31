@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/bin/cmdbox/cmd_conf.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1090.html'>bin</a>/<a href='../files/1093.html'>cmdbox</a>/cmd_conf.c</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='371.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2007, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='264.html'>sys/param.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> "<a href='370.html'>cmdbox.h</a>"
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> <a href='372.html#L54' title='Defined at 54 in usr/bin/cmdbox/main.c.'>help_main</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L34' name='L34' />  34 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> cat_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L35' name='L35' />  35 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> clear_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L36' name='L36' />  36 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> cp_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L37' name='L37' />  37 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> date_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L38' name='L38' />  38 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> dmesg_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L39' name='L39' />  39 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> echo_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L40' name='L40' />  40 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> free_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L41' name='L41' />  41 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> head_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L42' name='L42' />  42 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> hostname_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L43' name='L43' />  43 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> kill_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L44' name='L44' />  44 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> ls_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L45' name='L45' />  45 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> mkdir_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L46' name='L46' />  46 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> more_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L47' name='L47' />  47 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> mv_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L48' name='L48' />  48 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> nice_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L49' name='L49' />  49 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> printenv_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L50' name='L50' />  50 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> ps_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L51' name='L51' />  51 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> pwd_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L52' name='L52' />  52 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> rm_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L53' name='L53' />  53 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> rmdir_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L54' name='L54' />  54 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> sleep_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L55' name='L55' />  55 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> sync_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L56' name='L56' />  56 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> test_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L57' name='L57' />  57 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> touch_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L58' name='L58' />  58 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> uname_main(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L59' name='L59' />  59 <strong class='reserved'>extern</strong> <strong class='reserved'>int</strong> <a href='372.html#L48' title='Defined at 48 in usr/bin/cmdbox/main.c.'>null_main</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[]);
+<a id='L60' name='L60' />  60 
+<a id='L61' name='L61' />  61 <em class='comment'>/*</em>
+<a id='L62' name='L62' />  62 <em class='comment'> * Bultin commands</em>
+<a id='L63' name='L63' />  63 <em class='comment'> */</em>
+<a id='L64' name='L64' />  64 <strong class='reserved'>const</strong> <strong class='reserved'>struct</strong> <a href='../Y/530.html' title='Multiple used in 11 places.'>cmdentry</a> <a href='../Y/466.html' title='Multiple used in 6 places.'>builtin_cmds</a>[] = <em class='brace'>{</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#ifdef</em> <a href='371.html#L65' title='Used at 65 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_CAT</a>
+<a id='L66' name='L66' />  66         <em class='brace'>{</em> "cat"      ,<a href='http://prex.sourceforge.net/src/Y/491.html' title='Multiple used in 2 places.'>cat_main</a>        <em class='brace'>}</em>,
+<a id='L67' name='L67' />  67 <em class='sharp'>#endif</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#ifdef</em> <a href='371.html#L68' title='Used at 68 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_CLEAR</a>
+<a id='L69' name='L69' />  69         <em class='brace'>{</em> "clear"    ,<a href='http://prex.sourceforge.net/src/Y/520.html' title='Multiple used in 2 places.'>clear_main</a>      <em class='brace'>}</em>,
+<a id='L70' name='L70' />  70 <em class='sharp'>#endif</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#ifdef</em> <a href='371.html#L71' title='Used at 71 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_CP</a>
+<a id='L72' name='L72' />  72         <em class='brace'>{</em> "cp"       ,<a href='../Y/563.html' title='Multiple used in 2 places.'>cp_main</a>         <em class='brace'>}</em>,
+<a id='L73' name='L73' />  73 <em class='sharp'>#endif</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#ifdef</em> <a href='371.html#L74' title='Used at 74 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_DATE</a>
+<a id='L75' name='L75' />  75         <em class='brace'>{</em> "date"     ,<a href='../Y/622.html' title='Multiple used in 2 places.'>date_main</a>       <em class='brace'>}</em>,
+<a id='L76' name='L76' />  76 <em class='sharp'>#endif</em>
+<a id='L77' name='L77' />  77 <em class='sharp'>#ifdef</em> <a href='371.html#L77' title='Used at 77 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_DMESG</a>
+<a id='L78' name='L78' />  78         <em class='brace'>{</em> "dmesg"    ,<a href='../Y/688.html' title='Multiple used in 2 places.'>dmesg_main</a>      <em class='brace'>}</em>,
+<a id='L79' name='L79' />  79 <em class='sharp'>#endif</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#ifdef</em> <a href='371.html#L80' title='Used at 80 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_ECHO</a>
+<a id='L81' name='L81' />  81         <em class='brace'>{</em> "echo"     ,<a href='http://prex.sourceforge.net/src/Y/735.html' title='Multiple used in 2 places.'>echo_main</a>       <em class='brace'>}</em>,
+<a id='L82' name='L82' />  82 <em class='sharp'>#endif</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#ifdef</em> <a href='371.html#L83' title='Used at 83 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_FREE</a>
+<a id='L84' name='L84' />  84         <em class='brace'>{</em> "free"     ,<a href='../Y/916.html' title='Multiple used in 2 places.'>free_main</a>       <em class='brace'>}</em>,
+<a id='L85' name='L85' />  85 <em class='sharp'>#endif</em>
+<a id='L86' name='L86' />  86 <em class='sharp'>#ifdef</em> <a href='371.html#L86' title='Used at 86 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_HEAD</a>
+<a id='L87' name='L87' />  87         <em class='brace'>{</em> "head"     ,<a href='../Y/1011.html' title='Multiple used in 2 places.'>head_main</a>   <em class='brace'>}</em>,
+<a id='L88' name='L88' />  88 <em class='sharp'>#endif</em>
+<a id='L89' name='L89' />  89         <em class='brace'>{</em> "help"     ,<a href='372.html#L54' title='Defined at 54 in usr/bin/cmdbox/main.c.'>help_main</a>       <em class='brace'>}</em>,
+<a id='L90' name='L90' />  90 <em class='sharp'>#ifdef</em> <a href='371.html#L90' title='Used at 90 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_HOSTNAME</a>
+<a id='L91' name='L91' />  91         <em class='brace'>{</em> "hostname" ,<a href='../Y/1022.html' title='Multiple used in 2 places.'>hostname_main</a>   <em class='brace'>}</em>,
+<a id='L92' name='L92' />  92 <em class='sharp'>#endif</em>
+<a id='L93' name='L93' />  93 <em class='sharp'>#ifdef</em> <a href='371.html#L93' title='Used at 93 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_KILL</a>
+<a id='L94' name='L94' />  94         <em class='brace'>{</em> "kill"     ,<a href='../Y/1148.html' title='Multiple used in 2 places.'>kill_main</a>       <em class='brace'>}</em>,
+<a id='L95' name='L95' />  95 <em class='sharp'>#endif</em>
+<a id='L96' name='L96' />  96 <em class='sharp'>#ifdef</em> <a href='371.html#L96' title='Used at 96 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_LS</a>
+<a id='L97' name='L97' />  97         <em class='brace'>{</em> "ls"       ,<a href='../Y/1225.html' title='Multiple used in 2 places.'>ls_main</a>         <em class='brace'>}</em>,
+<a id='L98' name='L98' />  98 <em class='sharp'>#endif</em>
+<a id='L99' name='L99' />  99 <em class='sharp'>#ifdef</em> <a href='371.html#L99' title='Used at 99 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_MKDIR</a>
+<a id='L100' name='L100' /> 100         <em class='brace'>{</em> "mkdir"    ,<a href='../Y/1286.html' title='Multiple used in 2 places.'>mkdir_main</a>      <em class='brace'>}</em>,
+<a id='L101' name='L101' /> 101 <em class='sharp'>#endif</em>
+<a id='L102' name='L102' /> 102 <em class='sharp'>#ifdef</em> <a href='371.html#L102' title='Used at 102 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_MORE</a>
+<a id='L103' name='L103' /> 103         <em class='brace'>{</em> "more"     ,<a href='../Y/1301.html' title='Multiple used in 2 places.'>more_main</a>       <em class='brace'>}</em>,
+<a id='L104' name='L104' /> 104 <em class='sharp'>#endif</em>
+<a id='L105' name='L105' /> 105 <em class='sharp'>#ifdef</em> <a href='371.html#L105' title='Used at 105 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_MV</a>
+<a id='L106' name='L106' /> 106         <em class='brace'>{</em> "mv"       ,<a href='../Y/1334.html' title='Multiple used in 2 places.'>mv_main</a>         <em class='brace'>}</em>,
+<a id='L107' name='L107' /> 107 <em class='sharp'>#endif</em>
+<a id='L108' name='L108' /> 108 <em class='sharp'>#ifdef</em> <a href='371.html#L108' title='Used at 108 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_NICE</a>
+<a id='L109' name='L109' /> 109         <em class='brace'>{</em> "nice"     ,<a href='http://prex.sourceforge.net/src/Y/1379.html' title='Multiple used in 2 places.'>nice_main</a>       <em class='brace'>}</em>,
+<a id='L110' name='L110' /> 110 <em class='sharp'>#endif</em>
+<a id='L111' name='L111' /> 111 <em class='sharp'>#ifdef</em> <a href='371.html#L111' title='Used at 111 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_PRINTENV</a>
+<a id='L112' name='L112' /> 112         <em class='brace'>{</em> "printenv" ,<a href='../Y/1649.html' title='Multiple used in 2 places.'>printenv_main</a>   <em class='brace'>}</em>,
+<a id='L113' name='L113' /> 113 <em class='sharp'>#endif</em>
+<a id='L114' name='L114' /> 114 <em class='sharp'>#ifdef</em> <a href='371.html#L114' title='Used at 114 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_PS</a>
+<a id='L115' name='L115' /> 115         <em class='brace'>{</em> "ps"       ,<a href='../Y/1665.html' title='Multiple used in 2 places.'>ps_main</a>         <em class='brace'>}</em>,
+<a id='L116' name='L116' /> 116 <em class='sharp'>#endif</em>
+<a id='L117' name='L117' /> 117 <em class='sharp'>#ifdef</em> <a href='371.html#L117' title='Used at 117 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_PWD</a>
+<a id='L118' name='L118' /> 118         <em class='brace'>{</em> "pwd"      ,<a href='../Y/1679.html' title='Multiple used in 2 places.'>pwd_main</a>        <em class='brace'>}</em>,
+<a id='L119' name='L119' /> 119 <em class='sharp'>#endif</em>
+<a id='L120' name='L120' /> 120 <em class='sharp'>#ifdef</em> <a href='371.html#L120' title='Used at 120 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_RM</a>
+<a id='L121' name='L121' /> 121         <em class='brace'>{</em> "rm"       ,<a href='../Y/1768.html' title='Multiple used in 2 places.'>rm_main</a>         <em class='brace'>}</em>,
+<a id='L122' name='L122' /> 122 <em class='sharp'>#endif</em>
+<a id='L123' name='L123' /> 123 <em class='sharp'>#ifdef</em> <a href='371.html#L123' title='Used at 123 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_RMDIR</a>
+<a id='L124' name='L124' /> 124         <em class='brace'>{</em> "rmdir"    ,<a href='../Y/1770.html' title='Multiple used in 2 places.'>rmdir_main</a>      <em class='brace'>}</em>,
+<a id='L125' name='L125' /> 125 <em class='sharp'>#endif</em>
+<a id='L126' name='L126' /> 126 <em class='sharp'>#ifdef</em> <a href='371.html#L126' title='Used at 126 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_SLEEP</a>
+<a id='L127' name='L127' /> 127         <em class='brace'>{</em> "sleep"    ,<a href='http://prex.sourceforge.net/src/Y/1962.html' title='Multiple used in 2 places.'>sleep_main</a>      <em class='brace'>}</em>,
+<a id='L128' name='L128' /> 128 <em class='sharp'>#endif</em>
+<a id='L129' name='L129' /> 129 <em class='sharp'>#ifdef</em> <a href='371.html#L129' title='Used at 129 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_SYNC</a>
+<a id='L130' name='L130' /> 130         <em class='brace'>{</em> "sync"     ,<a href='http://prex.sourceforge.net/src/Y/2070.html' title='Multiple used in 2 places.'>sync_main</a>       <em class='brace'>}</em>,
+<a id='L131' name='L131' /> 131 <em class='sharp'>#endif</em>
+<a id='L132' name='L132' /> 132 <em class='sharp'>#ifdef</em> <a href='371.html#L132' title='Used at 132 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_TEST</a>
+<a id='L133' name='L133' /> 133         <em class='brace'>{</em> "test"     ,<a href='../Y/2133.html' title='Multiple used in 2 places.'>test_main</a>       <em class='brace'>}</em>,
+<a id='L134' name='L134' /> 134 <em class='sharp'>#endif</em>
+<a id='L135' name='L135' /> 135 <em class='sharp'>#ifdef</em> <a href='371.html#L135' title='Used at 135 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_TOUCH</a>
+<a id='L136' name='L136' /> 136         <em class='brace'>{</em> "touch"    ,<a href='../Y/2192.html' title='Multiple used in 2 places.'>touch_main</a>      <em class='brace'>}</em>,
+<a id='L137' name='L137' /> 137 <em class='sharp'>#endif</em>
+<a id='L138' name='L138' /> 138 <em class='sharp'>#ifdef</em> <a href='371.html#L138' title='Used at 138 in usr/bin/cmdbox/cmd_conf.c.'>CONFIG_CMD_UNAME</a>
+<a id='L139' name='L139' /> 139         <em class='brace'>{</em> "uname"    ,<a href='../Y/2259.html' title='Multiple used in 2 places.'>uname_main</a>      <em class='brace'>}</em>,
+<a id='L140' name='L140' /> 140 <em class='sharp'>#endif</em>
+<a id='L141' name='L141' /> 141         <em class='brace'>{</em> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>       ,<a href='372.html#L48' title='Defined at 48 in usr/bin/cmdbox/main.c.'>null_main</a>       <em class='brace'>}</em>,
+<a id='L142' name='L142' /> 142 <em class='brace'>}</em>;
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='371.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

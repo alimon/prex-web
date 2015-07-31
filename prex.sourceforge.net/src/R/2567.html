@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sigprocmask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/438.html#L52'>sigprocmask</a>        52 usr/include/signal.h int	sigprocmask(int, const sigset_t *, sigset_t *);
+<a href='../S/549.html#L54'>sigprocmask</a>        54 usr/lib/libc/stdio/tmpfile.c 	(void)sigprocmask(SIG_BLOCK, &amp;set, &amp;oset);
+<a href='../S/549.html#L60'>sigprocmask</a>        60 usr/lib/libc/stdio/tmpfile.c 	(void)sigprocmask(SIG_SETMASK, &amp;oset, NULL);
+<a href='../S/560.html#L49'>sigprocmask</a>        49 usr/lib/libc/stdlib/abort.c 	(void)sigprocmask(SIG_SETMASK, &amp;mask, (sigset_t *)NULL);
+<a href='../S/560.html#L57'>sigprocmask</a>        57 usr/lib/libc/stdlib/abort.c 	(void)sigprocmask(SIG_SETMASK, &amp;mask, (sigset_t *)NULL);
+<a href='../S/737.html#L54'>sigprocmask</a>        54 usr/lib/posix/signal/sigcompat.c 	n = sigprocmask(SIG_SETMASK, (sigset_t *) &amp;mask, (sigset_t *) &amp;omask);
+<a href='../S/737.html#L66'>sigprocmask</a>        66 usr/lib/posix/signal/sigcompat.c 	n = sigprocmask(SIG_BLOCK, (sigset_t *) &amp;mask, (sigset_t *) &amp;omask);
+<a href='../S/742.html#L46'>sigprocmask</a>        46 usr/lib/posix/signal/sigsuspend.c 	if (sigprocmask(SIG_SETMASK, mask, &amp;old_mask))
+<a href='../S/742.html#L51'>sigprocmask</a>        51 usr/lib/posix/signal/sigsuspend.c 	if (sigprocmask(SIG_SETMASK, &amp;old_mask, NULL))
+</pre>
+</body>
+</html>

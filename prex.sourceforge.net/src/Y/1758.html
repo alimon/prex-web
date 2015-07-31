@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>retval</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/327.html#L484'>retval</a>            484 sys/kern/device.c 	int error, retval = 0;
+<a href='../S/327.html#L502'>retval</a>            502 sys/kern/device.c 				retval = EIO;
+<a href='../S/327.html#L504'>retval</a>            504 sys/kern/device.c 				retval = error;
+<a href='../S/327.html#L510'>retval</a>            510 sys/kern/device.c 	return retval;
+<a href='../S/332.html#L155'>retval</a>            155 sys/kern/sysent.c 	register_t retval = EINVAL;
+<a href='../S/332.html#L164'>retval</a>            164 sys/kern/sysent.c 		retval = (*callp-&gt;sy_call)(a1, a2, a3, a4);
+<a href='../S/332.html#L168'>retval</a>            168 sys/kern/sysent.c 	strace_return(retval, id);
+<a href='../S/332.html#L170'>retval</a>            170 sys/kern/sysent.c 	return retval;
+<a href='../S/332.html#L223'>retval</a>            223 sys/kern/sysent.c strace_return(register_t retval, register_t id)
+<a href='../S/332.html#L231'>retval</a>            231 sys/kern/sysent.c 		if (callp-&gt;sy_narg != 0 &amp;&amp; retval != 0)
+<a href='../S/332.html#L233'>retval</a>            233 sys/kern/sysent.c 				curtask-&gt;name, callp-&gt;sy_name, retval);
+<a href='../S/413.html#L63'>retval</a>             63 usr/bin/sh/sh.c char		retval;		/* return value for shell */
+<a href='../S/413.html#L84'>retval</a>             84 usr/bin/sh/sh.c 	retval = 1;
+<a href='../S/413.html#L98'>retval</a>             98 usr/bin/sh/sh.c 	retval = signo + 0200;
+<a href='../S/413.html#L194'>retval</a>            194 usr/bin/sh/sh.c 			retval = WEXITSTATUS(status);
+<a href='../S/413.html#L196'>retval</a>            196 usr/bin/sh/sh.c 		retval = 0;
+<a href='../S/413.html#L487'>retval</a>            487 usr/bin/sh/sh.c 	exit(retval);
+<a href='../S/672.html#L46'>retval</a>             46 usr/lib/posix/file/ioctl.c 	int retval = 0;
+<a href='../S/672.html#L91'>retval</a>             91 usr/lib/posix/file/ioctl.c 			retval = *((int *)m.buf);
+<a href='../S/672.html#L96'>retval</a>             96 usr/lib/posix/file/ioctl.c 	return retval;
+<a href='../S/920.html#L142'>retval</a>            142 usr/server/proc/proc_exit.c sys_waitpid(pid_t pid, int *status, int options, pid_t *retval)
+<a href='../S/920.html#L211'>retval</a>            211 usr/server/proc/proc_exit.c 	*retval = pid_child;
+<a href='../S/921.html#L126'>retval</a>            126 usr/server/proc/proc_fork.c sys_fork(task_t child, int vfork, pid_t *retval)
+<a href='../S/921.html#L157'>retval</a>            157 usr/server/proc/proc_fork.c 	*retval = p-&gt;p_pid;
+<a href='../S/923.html#L75'>retval</a>             75 usr/server/proc/proc_pid.c sys_getpgid(pid_t pid, pid_t *retval)
+<a href='../S/923.html#L87'>retval</a>             87 usr/server/proc/proc_pid.c 	*retval = p-&gt;p_pgrp-&gt;pg_pgid;
+<a href='../S/923.html#L95'>retval</a>             95 usr/server/proc/proc_pid.c sys_getsid(pid_t pid, pid_t *retval)
+<a href='../S/923.html#L112'>retval</a>            112 usr/server/proc/proc_pid.c 	*retval = sid;
+<a href='../S/923.html#L202'>retval</a>            202 usr/server/proc/proc_pid.c sys_setsid(pid_t *retval)
+<a href='../S/923.html#L236'>retval</a>            236 usr/server/proc/proc_pid.c 	*retval = p-&gt;p_pid;
+</pre>
+</body>
+</html>

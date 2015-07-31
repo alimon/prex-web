@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>node</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/262.html#L43'>node</a>               43 include/sys/list.h #define list_next(node)		((node)-&gt;next)
+<a href='../S/262.html#L44'>node</a>               44 include/sys/list.h #define list_prev(node)		((node)-&gt;prev)
+<a href='../S/262.html#L48'>node</a>               48 include/sys/list.h #define list_end(head, node)	((node) == (head))
+<a href='../S/262.html#L63'>node</a>               63 include/sys/list.h list_insert(list_t prev, list_t node)
+<a href='../S/262.html#L65'>node</a>               65 include/sys/list.h 	prev-&gt;next-&gt;prev = node;
+<a href='../S/262.html#L66'>node</a>               66 include/sys/list.h 	node-&gt;next = prev-&gt;next;
+<a href='../S/262.html#L67'>node</a>               67 include/sys/list.h 	node-&gt;prev = prev;
+<a href='../S/262.html#L68'>node</a>               68 include/sys/list.h 	prev-&gt;next = node;
+<a href='../S/262.html#L75'>node</a>               75 include/sys/list.h list_remove(list_t node)
+<a href='../S/262.html#L77'>node</a>               77 include/sys/list.h 	node-&gt;prev-&gt;next = node-&gt;next;
+<a href='../S/262.html#L78'>node</a>               78 include/sys/list.h 	node-&gt;next-&gt;prev = node-&gt;prev;
+<a href='../S/888.html#L215'>node</a>              215 usr/server/fs/fatfs/fatfs.h int	 fatfs_lookup_node(vnode_t dvp, char *name, struct fatfs_node *node);
+<a href='../S/888.html#L216'>node</a>              216 usr/server/fs/fatfs/fatfs.h int	 fatfs_get_node(vnode_t dvp, int index, struct fatfs_node *node);
+<a href='../S/888.html#L217'>node</a>              217 usr/server/fs/fatfs/fatfs.h int	 fatfs_put_node(struct fatfsmount *fmp, struct fatfs_node *node);
+<a href='../S/888.html#L218'>node</a>              218 usr/server/fs/fatfs/fatfs.h int	 fatfs_add_node(vnode_t dvp, struct fatfs_node *node);
+<a href='../S/900.html#L74'>node</a>               74 usr/server/fs/ramfs/ramfs.h void ramfs_free_node(struct ramfs_node *node);
+<a href='../S/908.html#L54'>node</a>               54 usr/server/fs/vfs/vfs_lookup.c 	char node[PATH_MAX];
+<a href='../S/908.html#L68'>node</a>               68 usr/server/fs/vfs/vfs_lookup.c 	strlcpy(node, "/", sizeof(node));
+<a href='../S/908.html#L69'>node</a>               69 usr/server/fs/vfs/vfs_lookup.c 	strlcat(node, p, sizeof(node));
+<a href='../S/908.html#L70'>node</a>               70 usr/server/fs/vfs/vfs_lookup.c 	vp = vn_lookup(mp, node);
+<a href='../S/908.html#L86'>node</a>               86 usr/server/fs/vfs/vfs_lookup.c 	node[0] = '\0';
+<a href='../S/908.html#L104'>node</a>              104 usr/server/fs/vfs/vfs_lookup.c 		strlcat(node, "/", sizeof(node));
+<a href='../S/908.html#L105'>node</a>              105 usr/server/fs/vfs/vfs_lookup.c 		strlcat(node, name, sizeof(node));
+<a href='../S/908.html#L106'>node</a>              106 usr/server/fs/vfs/vfs_lookup.c 		vp = vn_lookup(mp, node);
+<a href='../S/908.html#L108'>node</a>              108 usr/server/fs/vfs/vfs_lookup.c 			vp = vget(mp, node);
+</pre>
+</body>
+</html>

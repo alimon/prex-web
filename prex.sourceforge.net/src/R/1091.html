@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>TS_TTSTOP</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L192'>TS_TTSTOP</a>         192 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_state &amp; (TS_TTSTOP|TS_BUSY))
+<a href='../S/64.html#L215'>TS_TTSTOP</a>         215 bsp/drv/dev/base/tty.c 		tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L309'>TS_TTSTOP</a>         309 bsp/drv/dev/base/tty.c 			if (!(tp-&gt;t_state &amp; TS_TTSTOP)) {
+<a href='../S/64.html#L310'>TS_TTSTOP</a>         310 bsp/drv/dev/base/tty.c 				tp-&gt;t_state |= TS_TTSTOP;
+<a href='../S/64.html#L382'>TS_TTSTOP</a>         382 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_state &amp; TS_TTSTOP) &amp;&amp; (iflag &amp; IXANY) == 0 &amp;&amp;
+<a href='../S/64.html#L386'>TS_TTSTOP</a>         386 bsp/drv/dev/base/tty.c 	tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L570'>TS_TTSTOP</a>         570 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_state &amp; TS_TTSTOP) {
+<a href='../S/64.html#L571'>TS_TTSTOP</a>         571 bsp/drv/dev/base/tty.c 			tp-&gt;t_state &amp;= ~TS_TTSTOP;
+<a href='../S/64.html#L576'>TS_TTSTOP</a>         576 bsp/drv/dev/base/tty.c 		if (!(tp-&gt;t_state &amp; TS_TTSTOP)) {
+<a href='../S/64.html#L577'>TS_TTSTOP</a>         577 bsp/drv/dev/base/tty.c 			tp-&gt;t_state |= TS_TTSTOP;
+</pre>
+</body>
+</html>

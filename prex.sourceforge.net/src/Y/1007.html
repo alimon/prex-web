@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>hdr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/14.html#L59'>hdr</a>                59 bsp/boot/common/load.c 	char *hdr;
+<a href='../S/14.html#L83'>hdr</a>                83 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)magic + 8);
+<a href='../S/14.html#L84'>hdr</a>                84 bsp/boot/common/load.c 	if (load_module((struct ar_hdr *)hdr, &amp;bi-&gt;kernel))
+<a href='../S/14.html#L90'>hdr</a>                90 bsp/boot/common/load.c 	len = atol((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_size);
+<a href='../S/14.html#L94'>hdr</a>                94 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L95'>hdr</a>                95 bsp/boot/common/load.c 	if (load_module((struct ar_hdr *)hdr, &amp;bi-&gt;driver))
+<a href='../S/14.html#L105'>hdr</a>               105 bsp/boot/common/load.c 		len = atol((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_size);
+<a href='../S/14.html#L109'>hdr</a>               109 bsp/boot/common/load.c 		hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L112'>hdr</a>               112 bsp/boot/common/load.c 		if (strncmp((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_fmag,
+<a href='../S/14.html#L117'>hdr</a>               117 bsp/boot/common/load.c 		if (!strncmp((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_name,
+<a href='../S/14.html#L119'>hdr</a>               119 bsp/boot/common/load.c 			setup_bootdisk((struct ar_hdr *)hdr);
+<a href='../S/14.html#L124'>hdr</a>               124 bsp/boot/common/load.c 		if (load_module((struct ar_hdr *)hdr, m))
+<a href='../S/14.html#L151'>hdr</a>               151 bsp/boot/common/load.c load_module(struct ar_hdr *hdr, struct module *m)
+<a href='../S/14.html#L155'>hdr</a>               155 bsp/boot/common/load.c 	if (strncmp((char *)&amp;hdr-&gt;ar_fmag, ARFMAG, 2)) {
+<a href='../S/14.html#L156'>hdr</a>               156 bsp/boot/common/load.c 		DPRINTF(("Invalid image %s\n", hdr-&gt;ar_name));
+<a href='../S/14.html#L159'>hdr</a>               159 bsp/boot/common/load.c 	strlcpy(m-&gt;name, hdr-&gt;ar_name, sizeof(m-&gt;name));
+<a href='../S/14.html#L166'>hdr</a>               166 bsp/boot/common/load.c 		 (paddr_t)hdr, (paddr_t)m, m-&gt;name));
+<a href='../S/14.html#L168'>hdr</a>               168 bsp/boot/common/load.c 	if (load_elf((char *)hdr + sizeof(struct ar_hdr), m))
+<a href='../S/14.html#L178'>hdr</a>               178 bsp/boot/common/load.c setup_bootdisk(struct ar_hdr *hdr)
+<a href='../S/14.html#L187'>hdr</a>               187 bsp/boot/common/load.c 	if (strncmp((char *)&amp;hdr-&gt;ar_fmag, ARFMAG, 2)) {
+<a href='../S/14.html#L191'>hdr</a>               191 bsp/boot/common/load.c 	size = (size_t)atol((char *)&amp;hdr-&gt;ar_size);
+<a href='../S/14.html#L197'>hdr</a>               197 bsp/boot/common/load.c 	base = (paddr_t)hdr + sizeof(struct ar_hdr);
+<a href='../S/218.html#L47'>hdr</a>                47 include/ipc/exec.h 	struct msg_header hdr;		/* message header */
+<a href='../S/218.html#L60'>hdr</a>                60 include/ipc/exec.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L89'>hdr</a>                89 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L101'>hdr</a>               101 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L112'>hdr</a>               112 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L122'>hdr</a>               122 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L132'>hdr</a>               132 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L143'>hdr</a>               143 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L152'>hdr</a>               152 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/219.html#L162'>hdr</a>               162 include/ipc/fs.h 	struct msg_header hdr;		/* message header */
+<a href='../S/220.html#L62'>hdr</a>                62 include/ipc/ipc.h 	struct msg_header hdr;		/* message header */
+<a href='../S/324.html#L83'>hdr</a>                83 sys/ipc/msg.c  	struct msg_header *hdr;
+<a href='../S/324.html#L126'>hdr</a>               126 sys/ipc/msg.c  	hdr = (struct msg_header *)kmsg;
+<a href='../S/324.html#L127'>hdr</a>               127 sys/ipc/msg.c  	hdr-&gt;task = curtask;
+<a href='../S/404.html#L61'>hdr</a>                61 usr/bin/ps/ps.c 		m.hdr.code = PS_PSTAT;
+<a href='../S/404.html#L66'>hdr</a>                66 usr/bin/ps/ps.c 	if (rc || m.hdr.status) {
+<a href='../S/655.html#L98'>hdr</a>                98 usr/lib/posix/exec/execve.c 	msg.hdr.code = EXEC_EXECVE;
+<a href='../S/655.html#L114'>hdr</a>               114 usr/lib/posix/exec/execve.c 	else if (msg.hdr.status)
+<a href='../S/655.html#L115'>hdr</a>               115 usr/lib/posix/exec/execve.c 		errno = msg.hdr.status;
+<a href='../S/696.html#L65'>hdr</a>                65 usr/lib/posix/file/__file.c 		m.hdr.code = FS_EXIT;
+<a href='../S/696.html#L82'>hdr</a>                82 usr/lib/posix/file/__file.c 	m.hdr.code = FS_REGISTER;
+<a href='../S/657.html#L40'>hdr</a>                40 usr/lib/posix/file/access.c 	m.hdr.code = FS_ACCESS;
+<a href='../S/658.html#L47'>hdr</a>                47 usr/lib/posix/file/chdir.c 	m.hdr.code = FS_CHDIR;
+<a href='../S/661.html#L40'>hdr</a>                40 usr/lib/posix/file/close.c 	m.hdr.code = FS_CLOSE;
+<a href='../S/662.html#L43'>hdr</a>                43 usr/lib/posix/file/closedir.c 	m.hdr.code = FS_CLOSEDIR;
+<a href='../S/664.html#L40'>hdr</a>                40 usr/lib/posix/file/dup.c 	m.hdr.code = FS_DUP;
+<a href='../S/665.html#L42'>hdr</a>                42 usr/lib/posix/file/dup2.c 	m.hdr.code = FS_DUP2;
+<a href='../S/666.html#L42'>hdr</a>                42 usr/lib/posix/file/fchdir.c 	m.hdr.code = FS_FCHDIR;
+<a href='../S/667.html#L49'>hdr</a>                49 usr/lib/posix/file/fcntl.c 	m.hdr.code = FS_FCNTL;
+<a href='../S/668.html#L43'>hdr</a>                43 usr/lib/posix/file/fstat.c 	m.hdr.code = FS_FSTAT;
+<a href='../S/669.html#L40'>hdr</a>                40 usr/lib/posix/file/fsync.c 	m.hdr.code = FS_FSYNC;
+<a href='../S/670.html#L40'>hdr</a>                40 usr/lib/posix/file/ftruncate.c 	m.hdr.code = FS_FTRUNCATE;
+<a href='../S/671.html#L47'>hdr</a>                47 usr/lib/posix/file/getcwd.c 	m.hdr.code = FS_GETCWD;
+<a href='../S/672.html#L80'>hdr</a>                80 usr/lib/posix/file/ioctl.c 	m.hdr.code = FS_IOCTL;
+<a href='../S/673.html#L40'>hdr</a>                40 usr/lib/posix/file/isatty.c 	m.hdr.code = FS_ISATTY;
+<a href='../S/674.html#L55'>hdr</a>                55 usr/lib/posix/file/link.c 	m.hdr.code = FS_LINK;
+<a href='../S/675.html#L43'>hdr</a>                43 usr/lib/posix/file/lseek.c 	m.hdr.code = FS_LSEEK;
+<a href='../S/678.html#L44'>hdr</a>                44 usr/lib/posix/file/mkdir.c 	m.hdr.code = FS_MKDIR;
+<a href='../S/679.html#L44'>hdr</a>                44 usr/lib/posix/file/mknod.c 	m.hdr.code = FS_MKNOD;
+<a href='../S/680.html#L50'>hdr</a>                50 usr/lib/posix/file/mount.c 	m.hdr.code = FS_MOUNT;
+<a href='../S/681.html#L50'>hdr</a>                50 usr/lib/posix/file/open.c 	m.hdr.code = FS_OPEN;
+<a href='../S/682.html#L49'>hdr</a>                49 usr/lib/posix/file/opendir.c 	m.hdr.code = FS_OPENDIR;
+<a href='../S/683.html#L40'>hdr</a>                40 usr/lib/posix/file/pipe.c 	m.hdr.code = FS_PIPE;
+<a href='../S/684.html#L42'>hdr</a>                42 usr/lib/posix/file/read.c 	m.hdr.code = FS_READ;
+<a href='../S/685.html#L45'>hdr</a>                45 usr/lib/posix/file/readdir.c 	m.hdr.code = FS_READDIR;
+<a href='../S/686.html#L54'>hdr</a>                54 usr/lib/posix/file/rename.c 	m.hdr.code = FS_RENAME;
+<a href='../S/687.html#L43'>hdr</a>                43 usr/lib/posix/file/rewinddir.c 	m.hdr.code = FS_REWINDDIR;
+<a href='../S/688.html#L51'>hdr</a>                51 usr/lib/posix/file/rmdir.c 	m.hdr.code = FS_RMDIR;
+<a href='../S/689.html#L44'>hdr</a>                44 usr/lib/posix/file/stat.c 	m.hdr.code = FS_STAT;
+<a href='../S/690.html#L42'>hdr</a>                42 usr/lib/posix/file/sync.c 	m.hdr.code = FS_SYNC;
+<a href='../S/691.html#L42'>hdr</a>                42 usr/lib/posix/file/truncate.c 	m.hdr.code = FS_TRUNCATE;
+<a href='../S/693.html#L44'>hdr</a>                44 usr/lib/posix/file/umount.c 	m.hdr.code = FS_UMOUNT;
+<a href='../S/694.html#L47'>hdr</a>                47 usr/lib/posix/file/unlink.c 	m.hdr.code = FS_UNLINK;
+<a href='../S/695.html#L41'>hdr</a>                41 usr/lib/posix/file/write.c 	m.hdr.code = FS_WRITE;
+<a href='../S/733.html#L60'>hdr</a>                60 usr/lib/posix/process/__process.c 		m.hdr.code = PS_EXIT;
+<a href='../S/705.html#L109'>hdr</a>               109 usr/lib/posix/process/fork.c 		m.hdr.code = PS_FORK;
+<a href='../S/705.html#L119'>hdr</a>               119 usr/lib/posix/process/fork.c 		m.hdr.code = FS_FORK;
+<a href='../S/706.html#L110'>hdr</a>               110 usr/lib/posix/process/fork_nommu.c 		m.hdr.code = FS_FORK;
+<a href='../S/706.html#L118'>hdr</a>               118 usr/lib/posix/process/fork_nommu.c 		m.hdr.code = PS_FORK;
+<a href='../S/710.html#L43'>hdr</a>                43 usr/lib/posix/process/getpgid.c 	m.hdr.code = PS_GETPGID;
+<a href='../S/712.html#L44'>hdr</a>                44 usr/lib/posix/process/getpid.c 	m.hdr.code = PS_GETPID;
+<a href='../S/713.html#L44'>hdr</a>                44 usr/lib/posix/process/getppid.c 	m.hdr.code = PS_GETPPID;
+<a href='../S/715.html#L43'>hdr</a>                43 usr/lib/posix/process/getsid.c 	m.hdr.code = PS_GETSID;
+<a href='../S/717.html#L49'>hdr</a>                49 usr/lib/posix/process/kill.c 	m.hdr.code = PS_KILL;
+<a href='../S/717.html#L59'>hdr</a>                59 usr/lib/posix/process/kill.c 	if (m.hdr.status) {
+<a href='../S/717.html#L60'>hdr</a>                60 usr/lib/posix/process/kill.c 		errno = m.hdr.status;
+<a href='../S/724.html#L44'>hdr</a>                44 usr/lib/posix/process/setpgid.c 	m.hdr.code = PS_SETPGID;
+<a href='../S/727.html#L44'>hdr</a>                44 usr/lib/posix/process/setsid.c 	m.hdr.code = PS_SETSID;
+<a href='../S/731.html#L59'>hdr</a>                59 usr/lib/posix/process/waitpid.c 		m.hdr.code = PS_WAITPID;
+<a href='../S/731.html#L66'>hdr</a>                66 usr/lib/posix/process/waitpid.c 		if (m.hdr.status) {
+<a href='../S/731.html#L67'>hdr</a>                67 usr/lib/posix/process/waitpid.c 			errno = m.hdr.status;
+<a href='../S/837.html#L43'>hdr</a>                43 usr/sample/ipc/ipc.c 	struct msg_header hdr;	/* Message header */
+<a href='../S/856.html#L62'>hdr</a>                62 usr/sbin/debug/debug.c 	m.hdr.code = STD_DEBUG;
+<a href='../S/864.html#L61'>hdr</a>                61 usr/sbin/ktrace/ktrace.c 	m.hdr.code = PS_TRACE;
+<a href='../S/870.html#L127'>hdr</a>               127 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/870.html#L142'>hdr</a>               142 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/870.html#L157'>hdr</a>               157 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POWER;
+<a href='../S/870.html#L171'>hdr</a>               171 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_GET_POLICY;
+<a href='../S/870.html#L177'>hdr</a>               177 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_GET_SUSTMR;
+<a href='../S/870.html#L182'>hdr</a>               182 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_GET_DIMTMR;
+<a href='../S/870.html#L206'>hdr</a>               206 usr/sbin/pmctrl/pmctrl.c 	m.hdr.code = POW_SET_POLICY;
+<a href='../S/870.html#L221'>hdr</a>               221 usr/sbin/pmctrl/pmctrl.c 		m.hdr.code = POW_SET_SUSTMR;
+<a href='../S/870.html#L238'>hdr</a>               238 usr/sbin/pmctrl/pmctrl.c 		m.hdr.code = POW_SET_DIMTMR;
+<a href='../S/871.html#L115'>hdr</a>               115 usr/server/boot/boot.c 	m.hdr.code = STD_BOOT;
+<a href='../S/871.html#L218'>hdr</a>               218 usr/server/boot/boot.c 	msg.hdr.code = EXEC_EXECVE;
+<a href='../S/871.html#L296'>hdr</a>               296 usr/server/boot/boot.c 	bm.hdr.code = EXEC_BINDCAP;
+<a href='../S/871.html#L304'>hdr</a>               304 usr/server/boot/boot.c 	m.hdr.code = PS_SETINIT;
+<a href='../S/874.html#L79'>hdr</a>                79 usr/server/exec/exec_cap.c 	task = msg-&gt;hdr.task;
+<a href='../S/877.html#L83'>hdr</a>                83 usr/server/exec/exec_execve.c 	DPRINTF(("exec_execve: path=%s task=%x\n", msg-&gt;path, msg-&gt;hdr.task));
+<a href='../S/877.html#L85'>hdr</a>                85 usr/server/exec/exec_execve.c 	old_task = msg-&gt;hdr.task;
+<a href='../S/877.html#L426'>hdr</a>               426 usr/server/exec/exec_execve.c 		m.hdr.code = FS_EXEC;
+<a href='../S/877.html#L434'>hdr</a>               434 usr/server/exec/exec_execve.c 		m.hdr.code = PS_EXEC;
+<a href='../S/879.html#L89'>hdr</a>                89 usr/server/exec/main.c 	m.hdr.code = PS_REGISTER;
+<a href='../S/879.html#L105'>hdr</a>               105 usr/server/exec/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/879.html#L213'>hdr</a>               213 usr/server/exec/main.c 			if (map-&gt;code == msg-&gt;hdr.code) {
+<a href='../S/879.html#L222'>hdr</a>               222 usr/server/exec/main.c 				 error, msg-&gt;hdr.code));
+<a href='../S/879.html#L232'>hdr</a>               232 usr/server/exec/main.c 		msg-&gt;hdr.status = error;
+<a href='../S/883.html#L146'>hdr</a>               146 usr/server/fs/arfs/arfs_vnops.c 	struct ar_hdr *hdr;
+<a href='../S/883.html#L169'>hdr</a>               169 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L170'>hdr</a>               170 usr/server/fs/arfs/arfs_vnops.c 		if (strncmp(hdr-&gt;ar_fmag, ARFMAG, sizeof(ARFMAG) - 1))
+<a href='../S/883.html#L174'>hdr</a>               174 usr/server/fs/arfs/arfs_vnops.c 		size = (size_t)atol((char *)&amp;hdr-&gt;ar_size);
+<a href='../S/883.html#L179'>hdr</a>               179 usr/server/fs/arfs/arfs_vnops.c 		if ((p = memchr(&amp;hdr-&gt;ar_name, '/', 16)) != NULL)
+<a href='../S/883.html#L182'>hdr</a>               182 usr/server/fs/arfs/arfs_vnops.c 		if (strncmp(name, (char *)&amp;hdr-&gt;ar_name, 16) == 0)
+<a href='../S/883.html#L286'>hdr</a>               286 usr/server/fs/arfs/arfs_vnops.c 	struct ar_hdr *hdr;
+<a href='../S/883.html#L305'>hdr</a>               305 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L308'>hdr</a>               308 usr/server/fs/arfs/arfs_vnops.c 		size = (size_t)atol((char *)&amp;hdr-&gt;ar_size);
+<a href='../S/883.html#L325'>hdr</a>               325 usr/server/fs/arfs/arfs_vnops.c 	if ((p = memchr(&amp;hdr-&gt;ar_name, '/', 16)) != NULL)
+<a href='../S/883.html#L328'>hdr</a>               328 usr/server/fs/arfs/arfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, (char *)&amp;hdr-&gt;ar_name,
+<a href='../S/903.html#L224'>hdr</a>               224 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L244'>hdr</a>               244 usr/server/fs/vfs/main.c 	if ((error = vm_map(msg-&gt;hdr.task, msg-&gt;buf, size, &amp;buf)) != 0)
+<a href='../S/903.html#L754'>hdr</a>               754 usr/server/fs/vfs/main.c 	error = task_alloc(msg-&gt;hdr.task, &amp;tmp);
+<a href='../S/903.html#L855'>hdr</a>               855 usr/server/fs/vfs/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/903.html#L864'>hdr</a>               864 usr/server/fs/vfs/main.c 	bm.hdr.code = EXEC_BINDCAP;
+<a href='../S/903.html#L873'>hdr</a>               873 usr/server/fs/vfs/main.c 	m.hdr.code = PS_REGISTER;
+<a href='../S/903.html#L937'>hdr</a>               937 usr/server/fs/vfs/main.c 	msg.hdr.task = task_self();
+<a href='../S/903.html#L1049'>hdr</a>              1049 usr/server/fs/vfs/main.c 			if (map-&gt;code == msg-&gt;hdr.code) {
+<a href='../S/903.html#L1063'>hdr</a>              1063 usr/server/fs/vfs/main.c 				t = task_lookup(msg-&gt;hdr.task);
+<a href='../S/903.html#L1078'>hdr</a>              1078 usr/server/fs/vfs/main.c 				msg-&gt;hdr.task, map-&gt;code, error);
+<a href='../S/903.html#L1083'>hdr</a>              1083 usr/server/fs/vfs/main.c 		msg-&gt;hdr.status = error;
+<a href='../S/916.html#L334'>hdr</a>               334 usr/server/pow/pow.c 	m.hdr.code = PS_REGISTER;
+<a href='../S/916.html#L377'>hdr</a>               377 usr/server/pow/pow.c 	m.hdr.code = STD_SHUTDOWN;
+<a href='../S/916.html#L417'>hdr</a>               417 usr/server/pow/pow.c 	bm.hdr.code = EXEC_BINDCAP;
+<a href='../S/916.html#L450'>hdr</a>               450 usr/server/pow/pow.c 			 msg.hdr.code, msg.hdr.task));
+<a href='../S/916.html#L454'>hdr</a>               454 usr/server/pow/pow.c 		if (task_chkcap(msg.hdr.task, CAP_POWERMGMT) != 0) {
+<a href='../S/916.html#L461'>hdr</a>               461 usr/server/pow/pow.c 				if (map-&gt;code == msg.hdr.code) {
+<a href='../S/916.html#L471'>hdr</a>               471 usr/server/pow/pow.c 		msg.hdr.status = error;
+<a href='../S/917.html#L342'>hdr</a>               342 usr/server/proc/main.c 	DPRINTF(("proc: setinit task=%x\n", msg-&gt;hdr.task));
+<a href='../S/917.html#L345'>hdr</a>               345 usr/server/proc/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/917.html#L352'>hdr</a>               352 usr/server/proc/main.c 	newproc(&amp;initproc, 1, msg-&gt;hdr.task);
+<a href='../S/917.html#L363'>hdr</a>               363 usr/server/proc/main.c 	task_t task = msg-&gt;hdr.task;
+<a href='../S/917.html#L384'>hdr</a>               384 usr/server/proc/main.c 	DPRINTF(("proc: register task=%x\n", msg-&gt;hdr.task));
+<a href='../S/917.html#L387'>hdr</a>               387 usr/server/proc/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/917.html#L395'>hdr</a>               395 usr/server/proc/main.c 	if (newproc(p, 0, msg-&gt;hdr.task))
+<a href='../S/917.html#L414'>hdr</a>               414 usr/server/proc/main.c 	if (task_chkcap(msg-&gt;hdr.task, CAP_PROTSERV) != 0)
+<a href='../S/917.html#L423'>hdr</a>               423 usr/server/proc/main.c 	m.hdr.code = EXEC_BINDCAP;
+<a href='../S/917.html#L556'>hdr</a>               556 usr/server/proc/main.c 			 msg.hdr.code, msg.hdr.task));
+<a href='../S/917.html#L561'>hdr</a>               561 usr/server/proc/main.c 			if (map-&gt;code == msg.hdr.code) {
+<a href='../S/917.html#L564'>hdr</a>               564 usr/server/proc/main.c 				curproc = task_to_proc(msg.hdr.task);
+<a href='../S/917.html#L573'>hdr</a>               573 usr/server/proc/main.c 		msg.hdr.status = error;
+<a href='../S/954.html#L93'>hdr</a>                93 usr/test/fileio/fileio.c 	m.hdr.code = 0x300;
+<a href='../S/990.html#L101'>hdr</a>               101 usr/test/shutdown/shutdown.c 	m.hdr.code = POW_SET_POWER;
+</pre>
+</body>
+</html>

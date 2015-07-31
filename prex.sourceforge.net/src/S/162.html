@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/hal/ppc/include/cpu.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1050.html'>hal</a>/<a href='../files/1056.html'>ppc</a>/<a href='../files/1058.html'>include</a>/cpu.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='162.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/144.html' title='Multiple included from 21 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#ifndef</em> <a href='162.html#L31' title='Defined at 31 in bsp/hal/ppc/include/cpu.h.'>_PPC_CPU_H</a>
+<a id='L31' name='L31' />  31 <em class='sharp'>#define</em> <a href='162.html#L30' title='Refered from 30 in bsp/hal/ppc/include/cpu.h.'>_PPC_CPU_H</a>
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#define</em> <a href='154.html#L73' title='Refered from 73 in bsp/hal/ppc/arch/context.c.'>STKFRAME_LEN</a>    8               <em class='comment'>/* length for stack frame */</em>
+<a id='L36' name='L36' />  36 
+<a id='L37' name='L37' />  37 <em class='comment'>/*</em>
+<a id='L38' name='L38' />  38 <em class='comment'> * Flags in MSR</em>
+<a id='L39' name='L39' />  39 <em class='comment'> */</em>
+<a id='L40' name='L40' />  40 <em class='sharp'>#define</em> MSR_LE          0x00000001      <em class='comment'>/* little-endian mode enable */</em>
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> MSR_RI          0x00000002      <em class='comment'>/* recoverable exception */</em>
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='162.html#L60' title='Refered from 60 in bsp/hal/ppc/include/cpu.h.'>MSR_DR</a>          0x00000010      <em class='comment'>/* data address translation */</em>
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> <a href='162.html#L60' title='Refered from 60 in bsp/hal/ppc/include/cpu.h.'>MSR_IR</a>          0x00000020      <em class='comment'>/* instruction address translation */</em>
+<a id='L44' name='L44' />  44 <em class='sharp'>#define</em> MSR_IP          0x00000040      <em class='comment'>/* exception prefix */</em>
+<a id='L45' name='L45' />  45 <em class='sharp'>#define</em> MSR_FE1         0x00000100      <em class='comment'>/* floating-point exception mode 1 */</em>
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> MSR_BE          0x00000200      <em class='comment'>/* branch trace enable */</em>
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> MSR_SE          0x00000400      <em class='comment'>/* single-step trace enable */</em>
+<a id='L48' name='L48' />  48 <em class='sharp'>#define</em> MSR_FE0         0x00000800      <em class='comment'>/* floating-point exception mode 0 */</em>
+<a id='L49' name='L49' />  49 <em class='sharp'>#define</em> <a href='../R/615.html' title='Multiple refered from 2 places.'>MSR_ME</a>          0x00001000      <em class='comment'>/* machine check enable */</em>
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> MSR_FP          0x00002000      <em class='comment'>/* floating-point available */</em>
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> <a href='../R/618.html' title='Multiple refered from 4 places.'>MSR_PR</a>          0x00004000      <em class='comment'>/* privilege level (1:USR) */</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> <a href='../R/613.html' title='Multiple refered from 4 places.'>MSR_EE</a>          0x00008000      <em class='comment'>/* external interrupt enable */</em>
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> MSR_ILE         0x00010000      <em class='comment'>/* exception little-endian mode (1:LE) */</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> MSR_POW         0x00040000      <em class='comment'>/* power management enable */</em>
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56 
+<a id='L57' name='L57' />  57 <em class='comment'>/* default msr for starting user program */</em>
+<a id='L58' name='L58' />  58 <em class='sharp'>#if</em> 0
+<a id='L59' name='L59' />  59 <em class='sharp'>#ifdef</em> <a href='../Y/75.html' title='Multiple used in 25 places.'>CONFIG_MMU</a>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> <a href='../R/611.html' title='Multiple refered from 3 places.'>MSR_DFLT</a>        (<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>)(<a href='../D/1042.html' title='Multiple defined in 2 places.'>MSR_EE</a> | <a href='162.html#L51' title='Defined at 51 in bsp/hal/ppc/include/cpu.h.'>MSR_PR</a> | <a href='162.html#L49' title='Defined at 49 in bsp/hal/ppc/include/cpu.h.'>MSR_ME</a> | <a href='162.html#L43' title='Defined at 43 in bsp/hal/ppc/include/cpu.h.'>MSR_IR</a> | <a href='162.html#L42' title='Defined at 42 in bsp/hal/ppc/include/cpu.h.'>MSR_DR</a>)
+<a id='L61' name='L61' />  61 <em class='sharp'>#else</em>
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> <a href='../R/611.html' title='Multiple refered from 3 places.'>MSR_DFLT</a>        (<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>)(<a href='../D/1042.html' title='Multiple defined in 2 places.'>MSR_EE</a> | <a href='162.html#L51' title='Defined at 51 in bsp/hal/ppc/include/cpu.h.'>MSR_PR</a> | <a href='162.html#L49' title='Defined at 49 in bsp/hal/ppc/include/cpu.h.'>MSR_ME</a>)
+<a id='L63' name='L63' />  63 <em class='sharp'>#endif</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#endif</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> <a href='../R/611.html' title='Multiple refered from 3 places.'>MSR_DFLT</a>        (<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>)(<a href='../D/1042.html' title='Multiple defined in 2 places.'>MSR_EE</a> | <a href='162.html#L51' title='Defined at 51 in bsp/hal/ppc/include/cpu.h.'>MSR_PR</a>)
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67 <em class='comment'>/*</em>
+<a id='L68' name='L68' />  68 <em class='comment'> * Special Purpose Register declarations.</em>
+<a id='L69' name='L69' />  69 <em class='comment'> */</em>
+<a id='L70' name='L70' />  70 <em class='sharp'>#define</em> SPR_XER                   1     <em class='comment'>/* fixed point exception register */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> SPR_LR                    8     <em class='comment'>/* link register */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> SPR_CTR                   9     <em class='comment'>/* count register */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#define</em> SPR_DSISR                18     <em class='comment'>/* DSI exception register */</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#define</em> SPR_DAR                  19     <em class='comment'>/* data access register */</em>
+<a id='L75' name='L75' />  75 <em class='sharp'>#define</em> SPR_DEC                  22     <em class='comment'>/* decrementer register */</em>
+<a id='L76' name='L76' />  76 <em class='sharp'>#define</em> SPR_SRR0                 26     <em class='comment'>/* save/restore register 0 */</em>
+<a id='L77' name='L77' />  77 <em class='sharp'>#define</em> SPR_SRR1                 27     <em class='comment'>/* save/restore register 1 */</em>
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> SPR_SPRG0               272     <em class='comment'>/* SPR general 0 */</em>
+<a id='L79' name='L79' />  79 <em class='sharp'>#define</em> SPR_SPRG1               273     <em class='comment'>/* SPR general 1 */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> SPR_SPRG2               274     <em class='comment'>/* SPR general 2 */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> SPR_SPRG3               275     <em class='comment'>/* SPR general 3 */</em>
+<a id='L82' name='L82' />  82 <em class='sharp'>#define</em> SPR_PVR                 287     <em class='comment'>/* processor version register */</em>
+<a id='L83' name='L83' />  83 
+<a id='L84' name='L84' />  84 
+<a id='L85' name='L85' />  85 <em class='sharp'>#ifndef</em> <a href='../Y/252.html' title='Multiple used in 8 places.'>__ASSEMBLY__</a>
+<a id='L86' name='L86' />  86 
+<a id='L87' name='L87' />  87 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L88' name='L88' />  88 <strong class='reserved'>void</strong>     <a href='../D/3135.html' title='Multiple defined in 4 places.'>outb</a>(<strong class='reserved'>int</strong>, <a href='../Y/2247.html' title='Multiple used in 22 places.'>u_char</a>);
+<a id='L89' name='L89' />  89 <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a>   <a href='../D/2884.html' title='Multiple defined in 4 places.'>inb</a>(<strong class='reserved'>int</strong>);
+<a id='L90' name='L90' />  90 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L91' name='L91' />  91 
+<a id='L92' name='L92' />  92 <em class='sharp'>#endif</em> <em class='comment'>/* !__ASSEMBLY__ */</em>
+<a id='L93' name='L93' />  93 <em class='sharp'>#endif</em> <em class='comment'>/* !_PPC_CPU_H */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='162.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

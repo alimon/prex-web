@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>row</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L89'>row</a>                89 bsp/drv/arm/gba/lcd.c lcd_cursor(void *aux, int row, int col)
+<a href='../S/51.html#L96'>row</a>                96 bsp/drv/arm/gba/lcd.c lcd_putc(void *aux, int row, int col, int ch)
+<a href='../S/51.html#L100'>row</a>               100 bsp/drv/arm/gba/lcd.c 	sc-&gt;vram[row * VSCR_COLS + col] = ch;
+<a href='../S/51.html#L116'>row</a>               116 bsp/drv/arm/gba/lcd.c lcd_eraserows(void *aux, int row, int nrows)
+<a href='../S/51.html#L121'>row</a>               121 bsp/drv/arm/gba/lcd.c 	start = row * VSCR_COLS;
+<a href='../S/51.html#L136'>row</a>               136 bsp/drv/arm/gba/lcd.c lcd_get_cursor(void *aux, int *col, int *row)
+<a href='../S/51.html#L140'>row</a>               140 bsp/drv/arm/gba/lcd.c 	*row = 0;
+<a href='../S/51.html#L146'>row</a>               146 bsp/drv/arm/gba/lcd.c 	int i, row, col, bit, val = 0;
+<a href='../S/51.html#L150'>row</a>               150 bsp/drv/arm/gba/lcd.c 		for (row = 0; row &lt; 8; row++) {
+<a href='../S/51.html#L152'>row</a>               152 bsp/drv/arm/gba/lcd.c 				bit = (font_bitmap[i][row] &amp; (1 &lt;&lt; col)) ? 2 : 1;
+<a href='../S/51.html#L156'>row</a>               156 bsp/drv/arm/gba/lcd.c 					tile[(i * 32) + (row * 4) + ((7 - col) / 2)] =
+<a href='../S/54.html#L390'>row</a>               390 bsp/drv/arm/gba/swkbd.c 	int i, j, row, col;
+<a href='../S/54.html#L413'>row</a>               413 bsp/drv/arm/gba/swkbd.c 	for (row = 1; row &lt; 7; row++) {
+<a href='../S/54.html#L415'>row</a>               415 bsp/drv/arm/gba/swkbd.c 			map1[row * 32 + col] = (uint16_t)i;
+<a href='../S/54.html#L416'>row</a>               416 bsp/drv/arm/gba/swkbd.c 			map2[row * 32 + col] = (uint16_t)(i + 127);
+<a href='../S/65.html#L59'>row</a>                59 bsp/drv/dev/base/wscons.c 	int		row;		/* current row */
+<a href='../S/65.html#L145'>row</a>               145 bsp/drv/dev/base/wscons.c 	vops-&gt;cursor(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col);
+<a href='../S/65.html#L163'>row</a>               163 bsp/drv/dev/base/wscons.c 	sc-&gt;row = 0;
+<a href='../S/65.html#L181'>row</a>               181 bsp/drv/dev/base/wscons.c 	sc-&gt;row++;
+<a href='../S/65.html#L182'>row</a>               182 bsp/drv/dev/base/wscons.c 	if (sc-&gt;row &gt;= sc-&gt;nrows) {
+<a href='../S/65.html#L183'>row</a>               183 bsp/drv/dev/base/wscons.c 		sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L257'>row</a>               257 bsp/drv/dev/base/wscons.c 			esc-&gt;saved_row = sc-&gt;row;
+<a href='../S/65.html#L258'>row</a>               258 bsp/drv/dev/base/wscons.c 			printf("TTY: save %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L262'>row</a>               262 bsp/drv/dev/base/wscons.c 			sc-&gt;row = esc-&gt;saved_row;
+<a href='../S/65.html#L263'>row</a>               263 bsp/drv/dev/base/wscons.c 			printf("TTY: restore %d %d\n", sc-&gt;col, sc-&gt;row);
+<a href='../S/65.html#L273'>row</a>               273 bsp/drv/dev/base/wscons.c 			sc-&gt;row -= esc-&gt;arg1;
+<a href='../S/65.html#L274'>row</a>               274 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &lt; 0)
+<a href='../S/65.html#L275'>row</a>               275 bsp/drv/dev/base/wscons.c 				sc-&gt;row = 0;
+<a href='../S/65.html#L279'>row</a>               279 bsp/drv/dev/base/wscons.c 			sc-&gt;row += esc-&gt;arg1;
+<a href='../S/65.html#L280'>row</a>               280 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &gt;= sc-&gt;nrows)
+<a href='../S/65.html#L281'>row</a>               281 bsp/drv/dev/base/wscons.c 				sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L339'>row</a>               339 bsp/drv/dev/base/wscons.c 			sc-&gt;row = esc-&gt;arg1;
+<a href='../S/65.html#L341'>row</a>               341 bsp/drv/dev/base/wscons.c 			if (sc-&gt;row &gt;= sc-&gt;nrows)
+<a href='../S/65.html#L342'>row</a>               342 bsp/drv/dev/base/wscons.c 				sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L385'>row</a>               385 bsp/drv/dev/base/wscons.c 	vops-&gt;putc(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col, c);
+<a href='../S/65.html#L390'>row</a>               390 bsp/drv/dev/base/wscons.c 		sc-&gt;row++;
+<a href='../S/65.html#L391'>row</a>               391 bsp/drv/dev/base/wscons.c 		if (sc-&gt;row &gt;= sc-&gt;nrows) {
+<a href='../S/65.html#L392'>row</a>               392 bsp/drv/dev/base/wscons.c 			sc-&gt;row = sc-&gt;nrows - 1;
+<a href='../S/65.html#L457'>row</a>               457 bsp/drv/dev/base/wscons.c 	ops-&gt;get_cursor(aux, &amp;sc-&gt;col, &amp;sc-&gt;row);
+<a href='../S/91.html#L137'>row</a>               137 bsp/drv/dev/video/vga.c vga_cursor(void *aux, int row, int col)
+<a href='../S/91.html#L142'>row</a>               142 bsp/drv/dev/video/vga.c 	pos = row * sc-&gt;cols + col;
+<a href='../S/91.html#L151'>row</a>               151 bsp/drv/dev/video/vga.c vga_putc(void *aux, int row, int col, int ch)
+<a href='../S/91.html#L155'>row</a>               155 bsp/drv/dev/video/vga.c 	sc-&gt;vram[row * sc-&gt;cols + col] = ch | (sc-&gt;attr &lt;&lt; 8);
+<a href='../S/91.html#L169'>row</a>               169 bsp/drv/dev/video/vga.c vga_eraserows(void *aux, int row, int nrows)
+<a href='../S/91.html#L174'>row</a>               174 bsp/drv/dev/video/vga.c 	start = row * sc-&gt;cols;
+<a href='../S/91.html#L191'>row</a>               191 bsp/drv/dev/video/vga.c vga_get_cursor(void *aux, int *col, int *row)
+<a href='../S/91.html#L202'>row</a>               202 bsp/drv/dev/video/vga.c 	*row = (int)offset / sc-&gt;cols;
+<a href='../S/104.html#L39'>row</a>                39 bsp/drv/include/wscons.h 	void	(*cursor)    (void *aux, int row, int col);
+<a href='../S/104.html#L40'>row</a>                40 bsp/drv/include/wscons.h 	void	(*putc)      (void *aux, int row, int col, int ch);
+<a href='../S/104.html#L42'>row</a>                42 bsp/drv/include/wscons.h 	void	(*eraserows) (void *aux, int row, int nrows);
+<a href='../S/104.html#L44'>row</a>                44 bsp/drv/include/wscons.h 	void	(*get_cursor)(void *aux, int *col, int *row);
+<a href='../S/134.html#L118'>row</a>               118 bsp/hal/arm/gba/diag.c 	int i, row, col, bit, val = 0;
+<a href='../S/134.html#L122'>row</a>               122 bsp/hal/arm/gba/diag.c 		for (row = 0; row &lt; 8; row++) {
+<a href='../S/134.html#L124'>row</a>               124 bsp/hal/arm/gba/diag.c 				bit = (font_bitmap[i][row] &amp;
+<a href='../S/134.html#L130'>row</a>               130 bsp/hal/arm/gba/diag.c 					     (row * 4) + ((7 - col) / 2)] =
+</pre>
+</body>
+</html>

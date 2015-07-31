@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fts_child</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/433.html#L37'>fts_child</a>          37 usr/include/fts.h 	struct _ftsent *fts_child;	/* linked list of children */
+<a href='../S/479.html#L219'>fts_child</a>         219 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_child)
+<a href='../S/479.html#L220'>fts_child</a>         220 usr/lib/libc/gen/fts.c 		fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L301'>fts_child</a>         301 usr/lib/libc/gen/fts.c 			if (sp-&gt;fts_child) {
+<a href='../S/479.html#L302'>fts_child</a>         302 usr/lib/libc/gen/fts.c 				fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L303'>fts_child</a>         303 usr/lib/libc/gen/fts.c 				sp-&gt;fts_child = NULL;
+<a href='../S/479.html#L310'>fts_child</a>         310 usr/lib/libc/gen/fts.c 		if (sp-&gt;fts_child &amp;&amp; sp-&gt;fts_options &amp; FTS_NAMEONLY) {
+<a href='../S/479.html#L312'>fts_child</a>         312 usr/lib/libc/gen/fts.c 			fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L313'>fts_child</a>         313 usr/lib/libc/gen/fts.c 			sp-&gt;fts_child = NULL;
+<a href='../S/479.html#L328'>fts_child</a>         328 usr/lib/libc/gen/fts.c 		if (sp-&gt;fts_child) {
+<a href='../S/479.html#L332'>fts_child</a>         332 usr/lib/libc/gen/fts.c 				for (p = sp-&gt;fts_child; p; p = p-&gt;fts_link)
+<a href='../S/479.html#L336'>fts_child</a>         336 usr/lib/libc/gen/fts.c 		} else if ((sp-&gt;fts_child = fts_build(sp, BREAD)) == NULL) {
+<a href='../S/479.html#L341'>fts_child</a>         341 usr/lib/libc/gen/fts.c 		p = sp-&gt;fts_child;
+<a href='../S/479.html#L342'>fts_child</a>         342 usr/lib/libc/gen/fts.c 		sp-&gt;fts_child = NULL;
+<a href='../S/479.html#L492'>fts_child</a>         492 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_child)
+<a href='../S/479.html#L493'>fts_child</a>         493 usr/lib/libc/gen/fts.c 		fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L510'>fts_child</a>         510 usr/lib/libc/gen/fts.c 		return (sp-&gt;fts_child = fts_build(sp, instr));
+<a href='../S/479.html#L514'>fts_child</a>         514 usr/lib/libc/gen/fts.c 	sp-&gt;fts_child = fts_build(sp, instr);
+<a href='../S/479.html#L518'>fts_child</a>         518 usr/lib/libc/gen/fts.c 	return (sp-&gt;fts_child);
+<a href='../S/479.html#L952'>fts_child</a>         952 usr/lib/libc/gen/fts.c 	for (p = sp-&gt;fts_child; p; p = p-&gt;fts_link)
+</pre>
+</body>
+</html>

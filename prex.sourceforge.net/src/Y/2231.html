@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tty</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L61'>tty</a>                61 bsp/drv/dev/base/tty.c static void tty_output(int c, struct tty *tp);
+<a href='../S/64.html#L151'>tty</a>               151 bsp/drv/dev/base/tty.c tty_rubout(int c, struct tty *tp)
+<a href='../S/64.html#L168'>tty</a>               168 bsp/drv/dev/base/tty.c tty_echo(int c, struct tty *tp)
+<a href='../S/64.html#L187'>tty</a>               187 bsp/drv/dev/base/tty.c tty_start(struct tty *tp)
+<a href='../S/64.html#L202'>tty</a>               202 bsp/drv/dev/base/tty.c tty_flush(struct tty *tp, int rw)
+<a href='../S/64.html#L224'>tty</a>               224 bsp/drv/dev/base/tty.c tty_done(struct tty *tp)
+<a href='../S/64.html#L239'>tty</a>               239 bsp/drv/dev/base/tty.c tty_wait(struct tty *tp)
+<a href='../S/64.html#L262'>tty</a>               262 bsp/drv/dev/base/tty.c 	struct tty *tp = arg;
+<a href='../S/64.html#L274'>tty</a>               274 bsp/drv/dev/base/tty.c tty_input(int c, struct tty *tp)
+<a href='../S/64.html#L402'>tty</a>               402 bsp/drv/dev/base/tty.c tty_output(int c, struct tty *tp)
+<a href='../S/64.html#L453'>tty</a>               453 bsp/drv/dev/base/tty.c tty_read(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L497'>tty</a>               497 bsp/drv/dev/base/tty.c tty_write(struct tty *tp, char *buf, size_t *nbyte)
+<a href='../S/64.html#L530'>tty</a>               530 bsp/drv/dev/base/tty.c tty_ioctl(struct tty *tp, u_long cmd, void *data)
+<a href='../S/64.html#L611'>tty</a>               611 bsp/drv/dev/base/tty.c tty_attach(struct tty *tp)
+<a href='../S/64.html#L616'>tty</a>               616 bsp/drv/dev/base/tty.c 	memset(tp, 0, sizeof(struct tty));
+<a href='../S/65.html#L58'>tty</a>                58 bsp/drv/dev/base/wscons.c 	struct tty	tty;		/* associated tty */
+<a href='../S/65.html#L119'>tty</a>               119 bsp/drv/dev/base/wscons.c 	struct tty *tty = &amp;wscons_softc-&gt;tty;
+<a href='../S/65.html#L121'>tty</a>               121 bsp/drv/dev/base/wscons.c 	return tty_read(tty, buf, nbyte);
+<a href='../S/65.html#L127'>tty</a>               127 bsp/drv/dev/base/wscons.c 	struct tty *tty = &amp;wscons_softc-&gt;tty;
+<a href='../S/65.html#L129'>tty</a>               129 bsp/drv/dev/base/wscons.c 	return tty_write(tty, buf, nbyte);
+<a href='../S/65.html#L135'>tty</a>               135 bsp/drv/dev/base/wscons.c 	struct tty *tty = &amp;wscons_softc-&gt;tty;
+<a href='../S/65.html#L137'>tty</a>               137 bsp/drv/dev/base/wscons.c 	return tty_ioctl(tty, cmd, arg);
+<a href='../S/65.html#L402'>tty</a>               402 bsp/drv/dev/base/wscons.c wscons_start(struct tty *tp)
+<a href='../S/65.html#L446'>tty</a>               446 bsp/drv/dev/base/wscons.c 	tty_input(c, &amp;sc-&gt;tty);
+<a href='../S/65.html#L490'>tty</a>               490 bsp/drv/dev/base/wscons.c 	tty_attach(&amp;sc-&gt;tty);
+<a href='../S/65.html#L491'>tty</a>               491 bsp/drv/dev/base/wscons.c 	sc-&gt;tty.t_dev = dev;
+<a href='../S/65.html#L492'>tty</a>               492 bsp/drv/dev/base/wscons.c 	sc-&gt;tty.t_oproc = wscons_start;
+<a href='../S/89.html#L50'>tty</a>                50 bsp/drv/dev/serial/serial.c 	struct tty	tty;		/* tty structure */
+<a href='../S/89.html#L99'>tty</a>                99 bsp/drv/dev/serial/serial.c 	return tty_read(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/89.html#L107'>tty</a>               107 bsp/drv/dev/serial/serial.c 	return tty_write(&amp;sc-&gt;tty, buf, nbyte);
+<a href='../S/89.html#L115'>tty</a>               115 bsp/drv/dev/serial/serial.c 	return tty_ioctl(&amp;sc-&gt;tty, cmd, arg);
+<a href='../S/89.html#L122'>tty</a>               122 bsp/drv/dev/serial/serial.c serial_start(struct tty *tp)
+<a href='../S/89.html#L139'>tty</a>               139 bsp/drv/dev/serial/serial.c 	tty_done(port-&gt;tty);
+<a href='../S/89.html#L149'>tty</a>               149 bsp/drv/dev/serial/serial.c 	tty_input(c, port-&gt;tty);
+<a href='../S/89.html#L193'>tty</a>               193 bsp/drv/dev/serial/serial.c 	tty_attach(&amp;sc-&gt;tty);
+<a href='../S/89.html#L194'>tty</a>               194 bsp/drv/dev/serial/serial.c 	sc-&gt;tty.t_dev = dev;
+<a href='../S/89.html#L195'>tty</a>               195 bsp/drv/dev/serial/serial.c 	sc-&gt;tty.t_oproc = serial_start;
+<a href='../S/89.html#L198'>tty</a>               198 bsp/drv/dev/serial/serial.c 	port-&gt;tty = &amp;sc-&gt;tty;
+<a href='../S/101.html#L38'>tty</a>                38 bsp/drv/include/serial.h 	struct tty 	*tty;
+<a href='../S/102.html#L57'>tty</a>                57 bsp/drv/include/tty.h struct tty {
+<a href='../S/102.html#L65'>tty</a>                65 bsp/drv/include/tty.h 	void (*t_oproc)(struct tty *);	/* routine to start output */
+<a href='../S/102.html#L91'>tty</a>                91 bsp/drv/include/tty.h int	 tty_read(struct tty *, char *, size_t *);
+<a href='../S/102.html#L92'>tty</a>                92 bsp/drv/include/tty.h int	 tty_write(struct tty *, char *, size_t *);
+<a href='../S/102.html#L93'>tty</a>                93 bsp/drv/include/tty.h int	 tty_ioctl(struct tty *, u_long, void *);
+<a href='../S/102.html#L94'>tty</a>                94 bsp/drv/include/tty.h void	 tty_input(int, struct tty *);
+<a href='../S/102.html#L96'>tty</a>                96 bsp/drv/include/tty.h void	 tty_done(struct tty *);
+<a href='../S/102.html#L97'>tty</a>                97 bsp/drv/include/tty.h void	 tty_attach(struct tty *);
+</pre>
+</body>
+</html>

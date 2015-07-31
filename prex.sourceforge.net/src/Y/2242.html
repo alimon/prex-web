@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>type</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/8.html#L53'>type</a>               53 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/11.html#L53'>type</a>               53 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/12.html#L69'>type</a>               69 bsp/boot/common/bootinfo.c 		if (bi-&gt;ram[i].type != 0) {
+<a href='../S/12.html#L73'>type</a>               73 bsp/boot/common/bootinfo.c 			       strtype[bi-&gt;ram[i].type]);
+<a href='../S/14.html#L142'>type</a>              142 bsp/boot/common/load.c 	bi-&gt;ram[i].type = MT_RESERVED;
+<a href='../S/14.html#L208'>type</a>              208 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].type = MT_BOOTDISK;
+<a href='../S/32.html#L53'>type</a>               53 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/42.html#L66'>type</a>               66 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/42.html#L75'>type</a>               75 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].type = MT_MEMHOLE;
+<a href='../S/126.html#L61'>type</a>               61 bsp/hal/arm/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/126.html#L68'>type</a>               68 bsp/hal/arm/arch/context.c 	switch (type) {
+<a href='../S/131.html#L111'>type</a>              111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L124'>type</a>              124 bsp/hal/arm/arch/mmu.c 	switch (type) {
+<a href='../S/131.html#L304'>type</a>              304 bsp/hal/arm/arch/mmu.c 	for (map = mmumap_table; map-&gt;type != 0; map++) {
+<a href='../S/131.html#L305'>type</a>              305 bsp/hal/arm/arch/mmu.c 		switch (map-&gt;type) {
+<a href='../S/154.html#L62'>type</a>               62 bsp/hal/ppc/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/154.html#L70'>type</a>               70 bsp/hal/ppc/arch/context.c 	switch (type) {
+<a href='../S/173.html#L62'>type</a>               62 bsp/hal/x86/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/173.html#L70'>type</a>               70 bsp/hal/x86/arch/context.c 	switch (type) {
+<a href='../S/174.html#L94'>type</a>               94 bsp/hal/x86/arch/cpu.c gdt_set(int vec, void *base, size_t limit, int type, u_int size)
+<a href='../S/174.html#L107'>type</a>              107 bsp/hal/x86/arch/cpu.c 	seg-&gt;type = (u_int)type | ST_PRESENT;
+<a href='../S/174.html#L115'>type</a>              115 bsp/hal/x86/arch/cpu.c idt_set(int vec, trapfn_t off, u_int sel, int type)
+<a href='../S/174.html#L122'>type</a>              122 bsp/hal/x86/arch/cpu.c 	gate-&gt;type = (u_int)type | ST_PRESENT;
+<a href='../S/174.html#L141'>type</a>              141 bsp/hal/x86/arch/cpu.c 	gdt[KERNEL_TSS / 8].type &amp;= ~ST_TSS_BUSY;
+<a href='../S/178.html#L82'>type</a>               82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L96'>type</a>               96 bsp/hal/x86/arch/mmu.c 	switch (type) {
+<a href='../S/178.html#L265'>type</a>              265 bsp/hal/x86/arch/mmu.c 	for (map = mmumap_table; map-&gt;type != 0; map++) {
+<a href='../S/178.html#L266'>type</a>              266 bsp/hal/x86/arch/mmu.c 		switch (map-&gt;type) {
+<a href='../S/181.html#L104'>type</a>              104 bsp/hal/x86/include/cpu.h 	u_int type:8;		/* type */
+<a href='../S/181.html#L117'>type</a>              117 bsp/hal/x86/include/cpu.h 	u_int type:8;		/* type */
+<a href='../S/207.html#L41'>type</a>               41 include/arm/asm.h 	.text; _ALIGN_TEXT; .globl x; .type x,_ASM_TYPE_FUNCTION; x:
+<a href='../S/214.html#L54'>type</a>               54 include/arm/stdarg.h #define	__va_size(type) \
+<a href='../S/214.html#L55'>type</a>               55 include/arm/stdarg.h 	(((sizeof(type) + sizeof(long) - 1) / sizeof(long)) * sizeof(long))
+<a href='../S/214.html#L60'>type</a>               60 include/arm/stdarg.h #define	va_arg(ap, type) \
+<a href='../S/214.html#L61'>type</a>               61 include/arm/stdarg.h 	(*(type *)(void *)((ap) += __va_size(type), (ap) - __va_size(type)))
+<a href='../S/235.html#L39'>type</a>               39 include/ppc/asm.h 	.text; .align 2; .globl x; .type x,@function; x:
+<a href='../S/242.html#L54'>type</a>               54 include/ppc/stdarg.h #define	__va_size(type) \
+<a href='../S/242.html#L55'>type</a>               55 include/ppc/stdarg.h 	(((sizeof(type) + sizeof(long) - 1) / sizeof(long)) * sizeof(long))
+<a href='../S/242.html#L60'>type</a>               60 include/ppc/stdarg.h #define	va_arg(ap, type) \
+<a href='../S/242.html#L61'>type</a>               61 include/ppc/stdarg.h 	(*(type *)(void *)((ap) += __va_size(type), (ap) - __va_size(type)))
+<a href='../S/247.html#L79'>type</a>               79 include/sys/bootinfo.h 	int		type;		/* type */
+<a href='../S/254.html#L377'>type</a>              377 include/sys/elf.h 	Elf32_Word type;
+<a href='../S/262.html#L53'>type</a>               53 include/sys/list.h #define list_entry(p, type, member) \
+<a href='../S/262.html#L54'>type</a>               54 include/sys/list.h     ((type *)((char *)(p) - (unsigned long)(&amp;((type *)0)-&gt;member)))
+<a href='../S/267.html#L153'>type</a>              153 include/sys/prex.h int	sys_info(int type, void *buf);
+<a href='../S/268.html#L50'>type</a>               50 include/sys/queue.h #define queue_entry(q, type, member) \
+<a href='../S/268.html#L51'>type</a>               51 include/sys/queue.h     ((type *)((char *)(q) - (unsigned long)(&amp;((type *)0)-&gt;member)))
+<a href='../S/281.html#L40'>type</a>               40 include/x86/asm.h 	.text; _ALIGN_TEXT; .globl x; .type x,@function; x:
+<a href='../S/288.html#L54'>type</a>               54 include/x86/stdarg.h #define	__va_size(type) \
+<a href='../S/288.html#L55'>type</a>               55 include/x86/stdarg.h 	(((sizeof(type) + sizeof(long) - 1) / sizeof(long)) * sizeof(long))
+<a href='../S/288.html#L60'>type</a>               60 include/x86/stdarg.h #define	va_arg(ap, type) \
+<a href='../S/288.html#L61'>type</a>               61 include/x86/stdarg.h 	(*(type *)(void *)((ap) += __va_size(type), (ap) - __va_size(type)))
+<a href='../S/308.html#L67'>type</a>               67 sys/include/hal.h 	int		type;		/* mapping type */
+<a href='../S/333.html#L56'>type</a>               56 sys/kern/system.c sysinfo(int type, void *buf)
+<a href='../S/333.html#L62'>type</a>               62 sys/kern/system.c 	switch (type) {
+<a href='../S/333.html#L99'>type</a>               99 sys/kern/system.c sys_info(int type, void *buf)
+<a href='../S/333.html#L109'>type</a>              109 sys/kern/system.c 	switch (type) {
+<a href='../S/333.html#L141'>type</a>              141 sys/kern/system.c 		error = sysinfo(type, &amp;infobuf);
+<a href='../S/342.html#L277'>type</a>              277 sys/mem/page.c 		if (ram-&gt;type == MT_USABLE) {
+<a href='../S/342.html#L287'>type</a>              287 sys/mem/page.c 		switch (ram-&gt;type) {
+<a href='../S/390.html#L130'>type</a>              130 usr/bin/ls/ls.c 	char type;
+<a href='../S/390.html#L134'>type</a>              134 usr/bin/ls/ls.c 		type = 'p';
+<a href='../S/390.html#L137'>type</a>              137 usr/bin/ls/ls.c 		type = 'c';
+<a href='../S/390.html#L140'>type</a>              140 usr/bin/ls/ls.c 		type = 'd';
+<a href='../S/390.html#L143'>type</a>              143 usr/bin/ls/ls.c 		type = 'b';
+<a href='../S/390.html#L146'>type</a>              146 usr/bin/ls/ls.c 		type = 'l';
+<a href='../S/390.html#L149'>type</a>              149 usr/bin/ls/ls.c 		type = 's';
+<a href='../S/390.html#L153'>type</a>              153 usr/bin/ls/ls.c 		type = '-';
+<a href='../S/390.html#L156'>type</a>              156 usr/bin/ls/ls.c 	putchar(type);
+<a href='../S/440.html#L53'>type</a>               53 usr/include/stddef.h #define	offsetof(type, member)	((size_t)(&amp;((type *)0)-&gt;member))
+<a href='../S/479.html#L536'>type</a>              536 usr/lib/libc/gen/fts.c fts_build(FTS *sp, int type)
+<a href='../S/479.html#L566'>type</a>              566 usr/lib/libc/gen/fts.c 		if (type == BREAD) {
+<a href='../S/479.html#L578'>type</a>              578 usr/lib/libc/gen/fts.c 	if (type == BNAMES)
+<a href='../S/479.html#L606'>type</a>              606 usr/lib/libc/gen/fts.c 	if (nlinks || type == BREAD)
+<a href='../S/479.html#L608'>type</a>              608 usr/lib/libc/gen/fts.c 			if (nlinks &amp;&amp; type == BREAD)
+<a href='../S/479.html#L744'>type</a>              744 usr/lib/libc/gen/fts.c 	if (descend &amp;&amp; (type == BCHILD || !nitems) &amp;&amp;
+<a href='../S/479.html#L754'>type</a>              754 usr/lib/libc/gen/fts.c 		if (type == BREAD)
+<a href='../S/634.html#L35'>type</a>               35 usr/lib/libc/time/asctime.c #define TYPE_BIT(type)	(sizeof (type) * CHAR_BIT)
+<a href='../S/634.html#L39'>type</a>               39 usr/lib/libc/time/asctime.c #define TYPE_SIGNED(type) (((type) -1) &lt; 0)
+<a href='../S/634.html#L49'>type</a>               49 usr/lib/libc/time/asctime.c #define INT_STRLEN_MAXIMUM(type) \
+<a href='../S/634.html#L50'>type</a>               50 usr/lib/libc/time/asctime.c     ((TYPE_BIT(type) - TYPE_SIGNED(type)) * 302 / 1000 + 1 + TYPE_SIGNED(type))
+<a href='../S/871.html#L126'>type</a>              126 usr/server/boot/boot.c 	char *spec, *file, *type, *p;
+<a href='../S/871.html#L167'>type</a>              167 usr/server/boot/boot.c 		type = strtok(NULL, " \t\n");
+<a href='../S/871.html#L175'>type</a>              175 usr/server/boot/boot.c 		mount(spec, file, type, 0, 0);
+<a href='../S/900.html#L73'>type</a>               73 usr/server/fs/ramfs/ramfs.h struct ramfs_node *ramfs_allocate_node(char *name, int type);
+<a href='../S/902.html#L99'>type</a>               99 usr/server/fs/ramfs/ramfs_vnops.c ramfs_allocate_node(char *name, int type)
+<a href='../S/902.html#L115'>type</a>              115 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_type = type;
+<a href='../S/902.html#L128'>type</a>              128 usr/server/fs/ramfs/ramfs_vnops.c ramfs_add_node(struct ramfs_node *dnp, char *name, int type)
+<a href='../S/902.html#L132'>type</a>              132 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_allocate_node(name, type);
+<a href='../S/903.html#L201'>type</a>              201 usr/server/fs/vfs/main.c 	int error, type;
+<a href='../S/903.html#L206'>type</a>              206 usr/server/fs/vfs/main.c 	type = msg-&gt;data[2];
+<a href='../S/903.html#L208'>type</a>              208 usr/server/fs/vfs/main.c 	error = sys_lseek(fp, offset, type, &amp;org);
+<a href='../S/905.html#L98'>type</a>               98 usr/server/fs/vfs/vfs.h int	 sys_lseek(file_t fp, off_t off, int type, off_t * cur_off);
+<a href='../S/911.html#L219'>type</a>              219 usr/server/fs/vfs/vfs_syscalls.c sys_lseek(file_t fp, off_t off, int type, off_t *origin)
+<a href='../S/911.html#L224'>type</a>              224 usr/server/fs/vfs/vfs_syscalls.c 				(u_int)fp, (u_int)off, type));
+<a href='../S/911.html#L228'>type</a>              228 usr/server/fs/vfs/vfs_syscalls.c 	switch (type) {
+<a href='../S/913.html#L429'>type</a>              429 usr/server/fs/vfs/vfs_vnode.c 	char type[][6] = { "VNON ", "VREG ", "VDIR ", "VBLK ", "VCHR ",
+<a href='../S/913.html#L444'>type</a>              444 usr/server/fs/vfs/vfs_vnode.c 				(u_int)mp, type[vp-&gt;v_type], vp-&gt;v_refcnt,
+</pre>
+</body>
+</html>

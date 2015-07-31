@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>m_op</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/263.html#L64'>m_op</a>               64 include/sys/mount.h 	struct vfsops	*m_op;		/* pointer to vfs operation */
+<a href='../S/263.html#L140'>m_op</a>              140 include/sys/mount.h #define VFS_MOUNT(MP, DEV, FL, DAT) ((MP)-&gt;m_op-&gt;vfs_mount)(MP, DEV, FL, DAT)
+<a href='../S/263.html#L141'>m_op</a>              141 include/sys/mount.h #define VFS_UNMOUNT(MP)             ((MP)-&gt;m_op-&gt;vfs_unmount)(MP)
+<a href='../S/263.html#L142'>m_op</a>              142 include/sys/mount.h #define VFS_SYNC(MP)                ((MP)-&gt;m_op-&gt;vfs_sync)(MP)
+<a href='../S/263.html#L143'>m_op</a>              143 include/sys/mount.h #define VFS_VGET(MP, VP)            ((MP)-&gt;m_op-&gt;vfs_vget)(MP, VP)
+<a href='../S/263.html#L144'>m_op</a>              144 include/sys/mount.h #define VFS_STATFS(MP, SFP)         ((MP)-&gt;m_op-&gt;vfs_statfs)(MP, SFP)
+<a href='../S/909.html#L138'>m_op</a>              138 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_op = fs-&gt;vs_op;
+<a href='../S/913.html#L180'>m_op</a>              180 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_op = mp-&gt;m_op-&gt;vfs_vnops;
+</pre>
+</body>
+</html>

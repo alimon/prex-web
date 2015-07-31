@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>curthread</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/311.html#L59'>curthread</a>          59 sys/include/kernel.h extern struct thread	*curthread;	/* pointer to the current thread */
+<a href='../S/318.html#L64'>curthread</a>          64 sys/include/task.h #define curtask		(curthread-&gt;task)
+<a href='../S/324.html#L105'>curthread</a>         105 sys/ipc/msg.c  	if (obj == curthread-&gt;recvobj) {
+<a href='../S/324.html#L119'>curthread</a>         119 sys/ipc/msg.c  	curthread-&gt;msgaddr = kmsg;
+<a href='../S/324.html#L120'>curthread</a>         120 sys/ipc/msg.c  	curthread-&gt;msgsize = size;
+<a href='../S/324.html#L143'>curthread</a>         143 sys/ipc/msg.c  	curthread-&gt;sendobj = obj;
+<a href='../S/324.html#L144'>curthread</a>         144 sys/ipc/msg.c  	msg_enqueue(&amp;obj-&gt;sendq, curthread);
+<a href='../S/324.html#L147'>curthread</a>         147 sys/ipc/msg.c  		queue_remove(&amp;curthread-&gt;ipc_link);
+<a href='../S/324.html#L148'>curthread</a>         148 sys/ipc/msg.c  	curthread-&gt;sendobj = NULL;
+<a href='../S/324.html#L212'>curthread</a>         212 sys/ipc/msg.c  	if (curthread-&gt;recvobj) {
+<a href='../S/324.html#L216'>curthread</a>         216 sys/ipc/msg.c  	curthread-&gt;recvobj = obj;
+<a href='../S/324.html#L225'>curthread</a>         225 sys/ipc/msg.c  		msg_enqueue(&amp;obj-&gt;recvq, curthread);
+<a href='../S/324.html#L236'>curthread</a>         236 sys/ipc/msg.c  				queue_remove(&amp;curthread-&gt;ipc_link);
+<a href='../S/324.html#L243'>curthread</a>         243 sys/ipc/msg.c  			curthread-&gt;recvobj = NULL;
+<a href='../S/324.html#L266'>curthread</a>         266 sys/ipc/msg.c  			curthread-&gt;recvobj = NULL;
+<a href='../S/324.html#L274'>curthread</a>         274 sys/ipc/msg.c  	curthread-&gt;sender = t;
+<a href='../S/324.html#L275'>curthread</a>         275 sys/ipc/msg.c  	t-&gt;receiver = curthread;
+<a href='../S/324.html#L298'>curthread</a>         298 sys/ipc/msg.c  	if (!object_valid(obj) || obj != curthread-&gt;recvobj) {
+<a href='../S/324.html#L305'>curthread</a>         305 sys/ipc/msg.c  	if (curthread-&gt;sender == NULL) {
+<a href='../S/324.html#L307'>curthread</a>         307 sys/ipc/msg.c  		curthread-&gt;recvobj = NULL;
+<a href='../S/324.html#L314'>curthread</a>         314 sys/ipc/msg.c  	t = curthread-&gt;sender;
+<a href='../S/324.html#L329'>curthread</a>         329 sys/ipc/msg.c  	curthread-&gt;sender = NULL;
+<a href='../S/324.html#L330'>curthread</a>         330 sys/ipc/msg.c  	curthread-&gt;recvobj = NULL;
+<a href='../S/326.html#L185'>curthread</a>         185 sys/kern/debug.c 		context_dump(&amp;curthread-&gt;ctx);
+<a href='../S/328.html#L265'>curthread</a>         265 sys/kern/exception.c 		if (curthread-&gt;excbits &amp; (1 &lt;&lt; i))
+<a href='../S/328.html#L294'>curthread</a>         294 sys/kern/exception.c 	curthread-&gt;excbits |= (1 &lt;&lt; excno);
+<a href='../S/328.html#L316'>curthread</a>         316 sys/kern/exception.c 	ASSERT(curthread-&gt;state != TS_EXIT);
+<a href='../S/328.html#L320'>curthread</a>         320 sys/kern/exception.c 	bitmap = curthread-&gt;excbits;
+<a href='../S/328.html#L346'>curthread</a>         346 sys/kern/exception.c 		context_save(&amp;curthread-&gt;ctx);
+<a href='../S/328.html#L347'>curthread</a>         347 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UENTRY, (register_t)handler);
+<a href='../S/328.html#L348'>curthread</a>         348 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UARG, (register_t)excno);
+<a href='../S/328.html#L349'>curthread</a>         349 sys/kern/exception.c 		curthread-&gt;excbits &amp;= ~(1 &lt;&lt; excno);
+<a href='../S/328.html#L365'>curthread</a>         365 sys/kern/exception.c 	context_restore(&amp;curthread-&gt;ctx);
+<a href='../S/331.html#L124'>curthread</a>         124 sys/kern/sched.c 		curthread-&gt;resched = 1;
+<a href='../S/331.html#L187'>curthread</a>         187 sys/kern/sched.c 		if (t != curthread &amp;&amp; t-&gt;state == TS_RUN)
+<a href='../S/331.html#L222'>curthread</a>         222 sys/kern/sched.c 	prev = curthread;
+<a href='../S/331.html#L238'>curthread</a>         238 sys/kern/sched.c 	curthread = next;
+<a href='../S/331.html#L280'>curthread</a>         280 sys/kern/sched.c 	curthread-&gt;slpevt = evt;
+<a href='../S/331.html#L281'>curthread</a>         281 sys/kern/sched.c 	curthread-&gt;state |= TS_SLEEP;
+<a href='../S/331.html#L282'>curthread</a>         282 sys/kern/sched.c 	enqueue(&amp;evt-&gt;sleepq, &amp;curthread-&gt;sched_link);
+<a href='../S/331.html#L288'>curthread</a>         288 sys/kern/sched.c 		timer_callout(&amp;curthread-&gt;timeout, msec,
+<a href='../S/331.html#L289'>curthread</a>         289 sys/kern/sched.c 			      &amp;sleep_timeout, curthread);
+<a href='../S/331.html#L297'>curthread</a>         297 sys/kern/sched.c 	return curthread-&gt;slpret;
+<a href='../S/331.html#L401'>curthread</a>         401 sys/kern/sched.c 	if (!queue_empty(&amp;runq[curthread-&gt;priority]))
+<a href='../S/331.html#L402'>curthread</a>         402 sys/kern/sched.c 		curthread-&gt;resched = 1;
+<a href='../S/331.html#L416'>curthread</a>         416 sys/kern/sched.c 		if (t == curthread)
+<a href='../S/331.html#L417'>curthread</a>         417 sys/kern/sched.c 			curthread-&gt;resched = 1;
+<a href='../S/331.html#L448'>curthread</a>         448 sys/kern/sched.c 	if (curthread-&gt;state != TS_EXIT) {
+<a href='../S/331.html#L452'>curthread</a>         452 sys/kern/sched.c 		curthread-&gt;time++;
+<a href='../S/331.html#L454'>curthread</a>         454 sys/kern/sched.c 		if (curthread-&gt;policy == SCHED_RR) {
+<a href='../S/331.html#L455'>curthread</a>         455 sys/kern/sched.c 			if (--curthread-&gt;timeleft &lt;= 0) {
+<a href='../S/331.html#L460'>curthread</a>         460 sys/kern/sched.c 				curthread-&gt;timeleft += QUANTUM;
+<a href='../S/331.html#L461'>curthread</a>         461 sys/kern/sched.c 				curthread-&gt;resched = 1;
+<a href='../S/331.html#L489'>curthread</a>         489 sys/kern/sched.c 	if (t == curthread) {
+<a href='../S/331.html#L496'>curthread</a>         496 sys/kern/sched.c 		curthread-&gt;locks = 1;
+<a href='../S/331.html#L497'>curthread</a>         497 sys/kern/sched.c 		curthread-&gt;resched = 1;
+<a href='../S/331.html#L520'>curthread</a>         520 sys/kern/sched.c 	curthread-&gt;locks++;
+<a href='../S/331.html#L536'>curthread</a>         536 sys/kern/sched.c 	ASSERT(curthread-&gt;locks &gt; 0);
+<a href='../S/331.html#L539'>curthread</a>         539 sys/kern/sched.c 	if (curthread-&gt;locks == 1) {
+<a href='../S/331.html#L541'>curthread</a>         541 sys/kern/sched.c 		while (curthread-&gt;resched) {
+<a href='../S/331.html#L559'>curthread</a>         559 sys/kern/sched.c 	curthread-&gt;locks--;
+<a href='../S/331.html#L586'>curthread</a>         586 sys/kern/sched.c 	if (t == curthread) {
+<a href='../S/331.html#L594'>curthread</a>         594 sys/kern/sched.c 			curthread-&gt;resched = 1;
+<a href='../S/331.html#L726'>curthread</a>         726 sys/kern/sched.c 	curthread-&gt;resched = 1;
+<a href='../S/333.html#L216'>curthread</a>         216 sys/kern/system.c 	printf(" task=%s thread=%lx\n", curtask-&gt;name, (long)curthread);
+<a href='../S/334.html#L199'>curthread</a>         199 sys/kern/task.c 		if (t != curthread)
+<a href='../S/334.html#L203'>curthread</a>         203 sys/kern/task.c 		thread_destroy(curthread);
+<a href='../S/334.html#L220'>curthread</a>         220 sys/kern/task.c 	return curthread-&gt;task;
+<a href='../S/335.html#L52'>curthread</a>          52 sys/kern/thread.c thread_t curthread = &amp;idle_thread;	/* current thread */
+<a href='../S/335.html#L104'>curthread</a>         104 sys/kern/thread.c 	memcpy(t-&gt;kstack, curthread-&gt;kstack, KSTACKSZ);
+<a href='../S/335.html#L108'>curthread</a>         108 sys/kern/thread.c 	sched_start(t, curthread-&gt;basepri, SCHED_RR);
+<a href='../S/335.html#L204'>curthread</a>         204 sys/kern/thread.c 	return curthread;
+<a href='../S/335.html#L272'>curthread</a>         272 sys/kern/thread.c 	ASSERT(t != curthread);
+<a href='../S/335.html#L457'>curthread</a>         457 sys/kern/thread.c 		ASSERT(zombie != curthread);
+<a href='../S/335.html#L463'>curthread</a>         463 sys/kern/thread.c 	if (t == curthread) {
+<a href='../S/335.html#L502'>curthread</a>         502 sys/kern/thread.c 			info-&gt;active = (t == curthread) ? 1 : 0;
+<a href='../S/335.html#L530'>curthread</a>         530 sys/kern/thread.c 	ASSERT(curthread-&gt;locks &gt; 0);
+<a href='../S/336.html#L155'>curthread</a>         155 sys/kern/timer.c 		tmr = &amp;curthread-&gt;timeout;
+<a href='../S/336.html#L311'>curthread</a>         311 sys/kern/timer.c 	tmr = curthread-&gt;periodic;
+<a href='../S/336.html#L400'>curthread</a>         400 sys/kern/timer.c 	if (curthread-&gt;priority == PRI_IDLE)
+<a href='../S/346.html#L198'>curthread</a>         198 sys/sync/mutex.c 	if (m-&gt;holder == curthread) {
+<a href='../S/346.html#L211'>curthread</a>         211 sys/sync/mutex.c 			m-&gt;priority = curthread-&gt;priority;
+<a href='../S/346.html#L216'>curthread</a>         216 sys/sync/mutex.c 			curthread-&gt;mutex_waiting = m;
+<a href='../S/346.html#L217'>curthread</a>         217 sys/sync/mutex.c 			if ((error = prio_inherit(curthread)) != 0) {
+<a href='../S/346.html#L218'>curthread</a>         218 sys/sync/mutex.c 				curthread-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L223'>curthread</a>         223 sys/sync/mutex.c 			curthread-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L230'>curthread</a>         230 sys/sync/mutex.c 		m-&gt;holder = curthread;
+<a href='../S/346.html#L231'>curthread</a>         231 sys/sync/mutex.c 		list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L252'>curthread</a>         252 sys/sync/mutex.c 	if (m-&gt;holder == curthread) {
+<a href='../S/346.html#L260'>curthread</a>         260 sys/sync/mutex.c 			m-&gt;holder = curthread;
+<a href='../S/346.html#L261'>curthread</a>         261 sys/sync/mutex.c 			list_insert(&amp;curthread-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L284'>curthread</a>         284 sys/sync/mutex.c 	if (m-&gt;holder != curthread || m-&gt;locks &lt;= 0) {
+<a href='../S/346.html#L290'>curthread</a>         290 sys/sync/mutex.c 		prio_uninherit(curthread);
+</pre>
+</body>
+</html>

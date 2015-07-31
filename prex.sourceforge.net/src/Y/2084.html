@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_canq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L208'>t_canq</a>            208 bsp/drv/dev/base/tty.c 		while (tty_getc(&amp;tp-&gt;t_canq) != -1)
+<a href='../S/64.html#L370'>t_canq</a>            370 bsp/drv/dev/base/tty.c 			tty_catq(&amp;tp-&gt;t_rawq, &amp;tp-&gt;t_canq);
+<a href='../S/64.html#L466'>t_canq</a>            466 bsp/drv/dev/base/tty.c 	qp = (lflag &amp; ICANON) ? &amp;tp-&gt;t_canq : &amp;tp-&gt;t_rawq;
+<a href='../S/64.html#L595'>t_canq</a>            595 bsp/drv/dev/base/tty.c 		qp = (tp-&gt;t_lflag &amp; ICANON) ? &amp;tp-&gt;t_canq : &amp;tp-&gt;t_rawq;
+<a href='../S/102.html#L59'>t_canq</a>             59 bsp/drv/include/tty.h 	struct tty_queue t_canq;	/* canonical queue */
+</pre>
+</body>
+</html>

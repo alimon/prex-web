@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/boot/common/bootinfo.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1010.html'>boot</a>/<a href='../files/1015.html'>common</a>/bootinfo.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='12.html#L47'>[^]</a><a href='12.html#L92'>[v]</a>[top]<a href='12.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='12.html#L47' title='Defined at 47.'>print_module</a></li>
+<li><a href='12.html#L57' title='Defined at 57.'>dump_bootinfo</a></li>
+<li><a href='12.html#L92' title='Defined at 92.'>dump_bootinfo</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2009, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * bootinfo.c - Boot information</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='20.html'>boot.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='247.html'>sys/bootinfo.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='../I/216.html'>machine/syspage.h</a>&gt;
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='comment'>/*</em>
+<a id='L39' name='L39' />  39 <em class='comment'> * Boot information holds various platform dependent data that</em>
+<a id='L40' name='L40' />  40 <em class='comment'> * can be referred by kernel/drivers.</em>
+<a id='L41' name='L41' />  41 <em class='comment'> */</em>
+<a id='L42' name='L42' />  42 <strong class='reserved'>struct</strong> <a href='../Y/445.html' title='Multiple used in 32 places.'>bootinfo</a> *<strong class='reserved'>const</strong> <a href='../Y/445.html' title='Multiple used in 32 places.'>bootinfo</a> = (<strong class='reserved'>struct</strong> <a href='../Y/445.html' title='Multiple used in 32 places.'>bootinfo</a> *)<a href='264.html#L129' title='Defined at 129 in include/sys/param.h.'>kvtop</a>(<a href='../D/67.html' title='Multiple defined in 3 places.'>BOOTINFO</a>);
+<a id='L43' name='L43' />  43 
+<a id='L44' name='L44' />  44 
+<a id='L45' name='L45' />  45 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/93.html' title='Multiple used in 63 places.'>DEBUG</a>) &amp;&amp; <strong class='reserved'>defined</strong>(<a href='12.html#L45' title='Used at 45 in bsp/boot/common/bootinfo.c.'>DEBUG_BOOTINFO</a>)
+<a id='L46' name='L46' />  46 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L47' name='L47' />  47 <a href='../R/2320.html' title='Multiple refered from 3 places.'>print_module</a>(<strong class='reserved'>struct</strong> <a href='../Y/1296.html' title='Multiple used in 22 places.'>module</a> *<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>)
+<a id='L48' name='L48' />  48 <em class='brace'>{</em>
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("%lx %lx %x %lx %lx %x %x %x %s\n",
+<a id='L51' name='L51' />  51                <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/758.html' title='Multiple used in 62 places.'>entry</a>, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/1603.html' title='Multiple used in 51 places.'>phys</a>, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>,
+<a id='L52' name='L52' />  52                <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/2136.html' title='Multiple used in 18 places.'>text</a>, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/618.html' title='Multiple used in 193 places.'>data</a>, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/2139.html' title='Multiple used in 8 places.'>textsz</a>,
+<a id='L53' name='L53' />  53                <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/620.html' title='Multiple used in 11 places.'>datasz</a>, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/456.html' title='Multiple used in 12 places.'>bsssz</a>, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>);
+<a id='L54' name='L54' />  54 <em class='brace'>}</em>
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56 <strong class='reserved'>void</strong>
+<a id='L57' name='L57' />  57 <a href='../R/1715.html' title='Multiple refered from 2 places.'>dump_bootinfo</a>(<strong class='reserved'>void</strong>)
+<a id='L58' name='L58' />  58 <em class='brace'>{</em>
+<a id='L59' name='L59' />  59         <strong class='reserved'>static</strong> <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> <a href='../Y/2041.html' title='Multiple used in 2 places.'>strtype</a>[][9] = \
+<a id='L60' name='L60' />  60                 <em class='brace'>{</em> "", "USABLE", "MEMHOLE", "RESERVED", "BOOTDISK" <em class='brace'>}</em>;
+<a id='L61' name='L61' />  61         <strong class='reserved'>struct</strong> <a href='../Y/1296.html' title='Multiple used in 22 places.'>module</a> *<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>;
+<a id='L62' name='L62' />  62         <strong class='reserved'>struct</strong> <a href='../Y/445.html' title='Multiple used in 32 places.'>bootinfo</a> *<a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a> = <a href='../Y/445.html' title='Multiple used in 32 places.'>bootinfo</a>;
+<a id='L63' name='L63' />  63         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L64' name='L64' />  64 
+<a id='L65' name='L65' />  65         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("[Boot information]\n");
+<a id='L66' name='L66' />  66 
+<a id='L67' name='L67' />  67         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("nr_rams=%d\n", <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1406.html' title='Multiple used in 16 places.'>nr_rams</a>);
+<a id='L68' name='L68' />  68         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1406.html' title='Multiple used in 16 places.'>nr_rams</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L69' name='L69' />  69                 <strong class='reserved'>if</strong> (<a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1704.html' title='Multiple used in 37 places.'>ram</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/2242.html' title='Multiple used in 98 places.'>type</a> != 0) <em class='brace'>{</em>
+<a id='L70' name='L70' />  70                         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("ram[%d]:  base=%lx size=%x type=%s\n", <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>,
+<a id='L71' name='L71' />  71                                <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1704.html' title='Multiple used in 37 places.'>ram</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/411.html' title='Multiple used in 111 places.'>base</a>,
+<a id='L72' name='L72' />  72                                <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1704.html' title='Multiple used in 37 places.'>ram</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>,
+<a id='L73' name='L73' />  73                                <a href='../Y/2041.html' title='Multiple used in 2 places.'>strtype</a>[<a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1704.html' title='Multiple used in 37 places.'>ram</a>[<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>].<a href='../Y/2242.html' title='Multiple used in 98 places.'>type</a>]);
+<a id='L74' name='L74' />  74                 <em class='brace'>}</em>
+<a id='L75' name='L75' />  75         <em class='brace'>}</em>
+<a id='L76' name='L76' />  76 
+<a id='L77' name='L77' />  77         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("bootdisk: base=%lx size=%x\n",
+<a id='L78' name='L78' />  78                <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/443.html' title='Multiple used in 13 places.'>bootdisk</a>.<a href='../Y/411.html' title='Multiple used in 111 places.'>base</a>,
+<a id='L79' name='L79' />  79                <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/443.html' title='Multiple used in 13 places.'>bootdisk</a>.<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L80' name='L80' />  80 
+<a id='L81' name='L81' />  81         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("entry    phys     size     text     data     textsz   datasz   bsssz    module\n");
+<a id='L82' name='L82' />  82         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("-------- -------- -------- -------- -------- -------- -------- -------- ------\n");
+<a id='L83' name='L83' />  83         <a href='12.html#L47' title='Defined at 47 in bsp/boot/common/bootinfo.c.'>print_module</a>(&amp;<a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1135.html' title='Multiple used in 4 places.'>kernel</a>);
+<a id='L84' name='L84' />  84         <a href='12.html#L47' title='Defined at 47 in bsp/boot/common/bootinfo.c.'>print_module</a>(&amp;<a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/702.html' title='Multiple used in 101 places.'>driver</a>);
+<a id='L85' name='L85' />  85 
+<a id='L86' name='L86' />  86         <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a> = (<strong class='reserved'>struct</strong> <a href='../Y/1296.html' title='Multiple used in 22 places.'>module</a> *)&amp;<a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/2124.html' title='Multiple used in 4 places.'>tasks</a>[0];
+<a id='L87' name='L87' />  87         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../Y/421.html' title='Multiple used in 102 places.'>bi</a>-&gt;<a href='../Y/1411.html' title='Multiple used in 5 places.'>nr_tasks</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++, <a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>++)
+<a id='L88' name='L88' />  88                 <a href='12.html#L47' title='Defined at 47 in bsp/boot/common/bootinfo.c.'>print_module</a>(<a href='../Y/1229.html' title='Multiple used in 513 places.'>m</a>);
+<a id='L89' name='L89' />  89 <em class='brace'>}</em>
+<a id='L90' name='L90' />  90 <em class='sharp'>#else</em>
+<a id='L91' name='L91' />  91 <strong class='reserved'>void</strong>
+<a id='L92' name='L92' />  92 <a href='../R/1715.html' title='Multiple refered from 2 places.'>dump_bootinfo</a>(<strong class='reserved'>void</strong>)
+<a id='L93' name='L93' />  93 <em class='brace'>{</em>
+<a id='L94' name='L94' />  94 <em class='brace'>}</em>
+<a id='L95' name='L95' />  95 <em class='sharp'>#endif</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='12.html#L47'>[^]</a><a href='12.html#L92'>[v]</a><a href='12.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

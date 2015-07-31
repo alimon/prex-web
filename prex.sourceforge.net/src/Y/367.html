@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ar_hdr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/14.html#L40'>ar_hdr</a>             40 bsp/boot/common/load.c static int	load_module(struct ar_hdr *, struct module *);
+<a href='../S/14.html#L41'>ar_hdr</a>             41 bsp/boot/common/load.c static void	setup_bootdisk(struct ar_hdr *);
+<a href='../S/14.html#L84'>ar_hdr</a>             84 bsp/boot/common/load.c 	if (load_module((struct ar_hdr *)hdr, &amp;bi-&gt;kernel))
+<a href='../S/14.html#L90'>ar_hdr</a>             90 bsp/boot/common/load.c 	len = atol((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_size);
+<a href='../S/14.html#L94'>ar_hdr</a>             94 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L95'>ar_hdr</a>             95 bsp/boot/common/load.c 	if (load_module((struct ar_hdr *)hdr, &amp;bi-&gt;driver))
+<a href='../S/14.html#L105'>ar_hdr</a>            105 bsp/boot/common/load.c 		len = atol((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_size);
+<a href='../S/14.html#L109'>ar_hdr</a>            109 bsp/boot/common/load.c 		hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L112'>ar_hdr</a>            112 bsp/boot/common/load.c 		if (strncmp((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_fmag,
+<a href='../S/14.html#L117'>ar_hdr</a>            117 bsp/boot/common/load.c 		if (!strncmp((char *)&amp;((struct ar_hdr *)hdr)-&gt;ar_name,
+<a href='../S/14.html#L119'>ar_hdr</a>            119 bsp/boot/common/load.c 			setup_bootdisk((struct ar_hdr *)hdr);
+<a href='../S/14.html#L124'>ar_hdr</a>            124 bsp/boot/common/load.c 		if (load_module((struct ar_hdr *)hdr, m))
+<a href='../S/14.html#L151'>ar_hdr</a>            151 bsp/boot/common/load.c load_module(struct ar_hdr *hdr, struct module *m)
+<a href='../S/14.html#L168'>ar_hdr</a>            168 bsp/boot/common/load.c 	if (load_elf((char *)hdr + sizeof(struct ar_hdr), m))
+<a href='../S/14.html#L178'>ar_hdr</a>            178 bsp/boot/common/load.c setup_bootdisk(struct ar_hdr *hdr)
+<a href='../S/14.html#L197'>ar_hdr</a>            197 bsp/boot/common/load.c 	base = (paddr_t)hdr + sizeof(struct ar_hdr);
+<a href='../S/246.html#L52'>ar_hdr</a>             52 include/sys/ar.h struct ar_hdr {
+<a href='../S/883.html#L146'>ar_hdr</a>            146 usr/server/fs/arfs/arfs_vnops.c 	struct ar_hdr *hdr;
+<a href='../S/883.html#L169'>ar_hdr</a>            169 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L186'>ar_hdr</a>            186 usr/server/fs/arfs/arfs_vnops.c 		off += (sizeof(struct ar_hdr) + size);
+<a href='../S/883.html#L197'>ar_hdr</a>            197 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_data = (void *)(off + sizeof(struct ar_hdr));
+<a href='../S/883.html#L286'>ar_hdr</a>            286 usr/server/fs/arfs/arfs_vnops.c 	struct ar_hdr *hdr;
+<a href='../S/883.html#L305'>ar_hdr</a>            305 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L317'>ar_hdr</a>            317 usr/server/fs/arfs/arfs_vnops.c 		off += (sizeof(struct ar_hdr) + size);
+</pre>
+</body>
+</html>

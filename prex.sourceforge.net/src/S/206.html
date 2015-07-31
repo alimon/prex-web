@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>doc/README</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1069.html'>doc</a>/README</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='206.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />
+<a id='L2' name='L2' />                       Prex Operating System
+<a id='L3' name='L3' />
+<a id='L4' name='L4' />
+<a id='L5' name='L5' />What is Prex?
+<a id='L6' name='L6' />=============
+<a id='L7' name='L7' />
+<a id='L8' name='L8' />The Prex project is an open source initiative to provide a portable
+<a id='L9' name='L9' />real-time operating system for embedded systems. Prex is designed
+<a id='L10' name='L10' />specifically for small footprint platforms. It is written in C language
+<a id='L11' name='L11' />from scratch based on a traditional micro kernel architecture.
+<a id='L12' name='L12' />
+<a id='L13' name='L13' />The Prex kernel provides only fundamental features for task, thread, memory,
+<a id='L14' name='L14' />ipc, exception, and synchronization. The other basic OS functions such
+<a id='L15' name='L15' />like process, file system, application loading, and networking are provided
+<a id='L16' name='L16' />by user mode servers on top of the Prex kernel. This design allows systems
+<a id='L17' name='L17' />to execute both of native real-time task and generic UNIX process
+<a id='L18' name='L18' />simultaneously, without degrading the real-time performance. Futhermore, it
+<a id='L19' name='L19' />helps the platform designer to construct OS by choosing appropriate server
+<a id='L20' name='L20' />tasks for their target requirements.
+<a id='L21' name='L21' />
+<a id='L22' name='L22' />
+<a id='L23' name='L23' />Licensing
+<a id='L24' name='L24' />=========
+<a id='L25' name='L25' />
+<a id='L26' name='L26' />Prex is royalty-free software released under BSD License.
+<a id='L27' name='L27' />
+<a id='L28' name='L28' />
+<a id='L29' name='L29' />Current Port
+<a id='L30' name='L30' />============
+<a id='L31' name='L31' />
+<a id='L32' name='L32' />Available port (arch-platform):
+<a id='L33' name='L33' />
+<a id='L34' name='L34' />  - x86-pc
+<a id='L35' name='L35' />  - arm-gba
+<a id='L36' name='L36' />  - arm-integrator
+<a id='L37' name='L37' />  - ppc-prep
+<a id='L38' name='L38' />
+<a id='L39' name='L39' />
+<a id='L40' name='L40' />How to Build?
+<a id='L41' name='L41' />=============
+<a id='L42' name='L42' />
+<a id='L43' name='L43' />Step 1: Prepare Toolchain
+<a id='L44' name='L44' />
+<a id='L45' name='L45' />  The following packages are required for compiling Prex.
+<a id='L46' name='L46' />  - GCC 2.95.3 or later
+<a id='L47' name='L47' />  - GNU Binutils 2.15 or later
+<a id='L48' name='L48' />  - GNU Make 3.81 or later
+<a id='L49' name='L49' />
+<a id='L50' name='L50' />  The toolchain should be built appropriately for your target
+<a id='L51' name='L51' />  architecture to cross-compile Prex.
+<a id='L52' name='L52' />
+<a id='L53' name='L53' />Step 2: Prepare Sources
+<a id='L54' name='L54' />
+<a id='L55' name='L55' />  Unpack the sources and move to the top level directory of the source tree.
+<a id='L56' name='L56' />
+<a id='L57' name='L57' />  $ cd /usr/src
+<a id='L58' name='L58' />  $ tar zxvf prex-X.X.X.tar.gz
+<a id='L59' name='L59' />  $ cd prex-X.X.X
+<a id='L60' name='L60' />
+<a id='L61' name='L61' />Step 3: Configure
+<a id='L62' name='L62' />
+<a id='L63' name='L63' />  Setup target architecture and platform.
+<a id='L64' name='L64' />  The following sample shows for x86-pc target.
+<a id='L65' name='L65' />
+<a id='L66' name='L66' />  $ ./configure --target=x86-pc
+<a id='L67' name='L67' />
+<a id='L68' name='L68' />  If you cross compile Prex from a different architecture and/or OS,
+<a id='L69' name='L69' />  you have to set --cross-compile option. Please check other options
+<a id='L70' name='L70' />  with --help option for 'configure'.
+<a id='L71' name='L71' />
+<a id='L72' name='L72' />Step 4: Build
+<a id='L73' name='L73' />
+<a id='L74' name='L74' />  Run make (and pray :)
+<a id='L75' name='L75' />
+<a id='L76' name='L76' />  $ make
+<a id='L77' name='L77' />
+<a id='L78' name='L78' />
+<a id='L79' name='L79' />Note) If you want to run 'make' at the subdirectory, you have to set the
+<a id='L80' name='L80' />      SRCDIR as follow.
+<a id='L81' name='L81' />
+<a id='L82' name='L82' />  $ export SRCDIR=/usr/src/prex-X.X.X
+<a id='L83' name='L83' />
+<a id='L84' name='L84' />
+<a id='L85' name='L85' />Directory Structure
+<a id='L86' name='L86' />===================
+<a id='L87' name='L87' />
+<a id='L88' name='L88' />Prex source code is divided into the following directories:
+<a id='L89' name='L89' />
+<a id='L90' name='L90' /> /conf                  System configuration files
+<a id='L91' name='L91' />
+<a id='L92' name='L92' /> /mk                    Common Makefiles
+<a id='L93' name='L93' />
+<a id='L94' name='L94' /> /include               Common include files
+<a id='L95' name='L95' />
+<a id='L96' name='L96' /> /sys                   Prex microkernel
+<a id='L97' name='L97' />        /include        Kernel headers
+<a id='L98' name='L98' />        /lib            Common kernel library
+<a id='L99' name='L99' />        /ipc            Inter process communication support
+<a id='L100' name='L100' />        /kern           Kernel main code
+<a id='L101' name='L101' />        /mem            Memory management code
+<a id='L102' name='L102' />        /sync           Synchronize related code
+<a id='L103' name='L103' />
+<a id='L104' name='L104' /> /bsp                   Board support package
+<a id='L105' name='L105' />        /boot           Boot loader
+<a id='L106' name='L106' />        /drv            Device driver module
+<a id='L107' name='L107' />        /hal            Hardware abstraction layer
+<a id='L108' name='L108' />
+<a id='L109' name='L109' /> /usr                   User mode programs
+<a id='L110' name='L110' />        /arch           Architecture dependent code
+<a id='L111' name='L111' />        /bin            User command binaries
+<a id='L112' name='L112' />        /include        Header files
+<a id='L113' name='L113' />        /lib            User libraries
+<a id='L114' name='L114' />        /server         System servers
+<a id='L115' name='L115' />        /sbin           System utilities
+<a id='L116' name='L116' />        /test           Function test programs
+<a id='L117' name='L117' />        /sample         Sample programs
+<a id='L118' name='L118' />
+<a id='L119' name='L119' />
+<a id='L120' name='L120' />Project Website
+<a id='L121' name='L121' />===============
+<a id='L122' name='L122' />
+<a id='L123' name='L123' />More information about Prex can be found at:
+<a id='L124' name='L124' />
+<a id='L125' name='L125' />  http://prex.sourceforge.net
+<a id='L126' name='L126' />
+<a id='L127' name='L127' />
+<a id='L128' name='L128' />Author
+<a id='L129' name='L129' />======
+<a id='L130' name='L130' />
+<a id='L131' name='L131' />  Kohsuke Ohtani &lt;kohtani@users.sourceforge.net&gt;
+<a id='L132' name='L132' />
+<a id='L133' name='L133' />  Have fun! ;)
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='206.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

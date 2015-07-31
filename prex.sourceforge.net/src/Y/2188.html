@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>top</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/324.html#L417'>top</a>               417 sys/ipc/msg.c  	thread_t t, top;
+<a href='../S/324.html#L420'>top</a>               420 sys/ipc/msg.c  	top = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L424'>top</a>               424 sys/ipc/msg.c  		if (t-&gt;priority &lt; top-&gt;priority)
+<a href='../S/324.html#L425'>top</a>               425 sys/ipc/msg.c  			top = t;
+<a href='../S/324.html#L428'>top</a>               428 sys/ipc/msg.c  	queue_remove(&amp;top-&gt;ipc_link);
+<a href='../S/324.html#L429'>top</a>               429 sys/ipc/msg.c  	return top;
+<a href='../S/331.html#L338'>top</a>               338 sys/kern/sched.c 	thread_t top, t = NULL;
+<a href='../S/331.html#L350'>top</a>               350 sys/kern/sched.c 		top = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L353'>top</a>               353 sys/kern/sched.c 			if (t-&gt;priority &lt; top-&gt;priority)
+<a href='../S/331.html#L354'>top</a>               354 sys/kern/sched.c 				top = t;
+<a href='../S/331.html#L357'>top</a>               357 sys/kern/sched.c 		queue_remove(&amp;top-&gt;sched_link);
+<a href='../S/331.html#L358'>top</a>               358 sys/kern/sched.c 		top-&gt;slpret = 0;
+<a href='../S/331.html#L359'>top</a>               359 sys/kern/sched.c 		sched_setrun(top);
+</pre>
+</body>
+</html>

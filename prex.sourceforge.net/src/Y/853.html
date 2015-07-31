@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>fd</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/219.html#L105'>fd</a>                105 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/219.html#L113'>fd</a>                113 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/219.html#L123'>fd</a>                123 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/219.html#L133'>fd</a>                133 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/219.html#L144'>fd</a>                144 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/219.html#L153'>fd</a>                153 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/219.html#L163'>fd</a>                163 include/ipc/fs.h 	int	fd;			/* file descriptor */
+<a href='../S/366.html#L58'>fd</a>                 58 usr/bin/cat/cat.c 	int ch, fd;
+<a href='../S/366.html#L73'>fd</a>                 73 usr/bin/cat/cat.c 	fd = fileno(stdin);
+<a href='../S/366.html#L78'>fd</a>                 78 usr/bin/cat/cat.c 				fd = fileno(stdin);
+<a href='../S/366.html#L79'>fd</a>                 79 usr/bin/cat/cat.c 			else if ((fd = open(*argv, O_RDONLY, 0)) &lt; 0) {
+<a href='../S/366.html#L87'>fd</a>                 87 usr/bin/cat/cat.c 		do_cat(fd);
+<a href='../S/366.html#L88'>fd</a>                 88 usr/bin/cat/cat.c 		if (fd != fileno(stdin))
+<a href='../S/366.html#L89'>fd</a>                 89 usr/bin/cat/cat.c 			(void)close(fd);
+<a href='../S/413.html#L204'>fd</a>                204 usr/bin/sh/sh.c 	int fd, argc;
+<a href='../S/413.html#L236'>fd</a>                236 usr/bin/sh/sh.c 					fd = open(file, O_WRONLY | O_APPEND);
+<a href='../S/413.html#L238'>fd</a>                238 usr/bin/sh/sh.c 					fd = creat(file, 0666);
+<a href='../S/413.html#L240'>fd</a>                240 usr/bin/sh/sh.c 				fd = open(file, O_RDONLY);
+<a href='../S/413.html#L242'>fd</a>                242 usr/bin/sh/sh.c 			if (fd == -1) {
+<a href='../S/413.html#L246'>fd</a>                246 usr/bin/sh/sh.c 			redir[io] = fd;
+<a href='../S/413.html#L409'>fd</a>                409 usr/bin/sh/sh.c readline(int fd, char *line, int len)
+<a href='../S/413.html#L416'>fd</a>                416 usr/bin/sh/sh.c 		cnt = read(fd, p, 1);
+<a href='../S/413.html#L433'>fd</a>                433 usr/bin/sh/sh.c cmdloop(int fd)
+<a href='../S/413.html#L443'>fd</a>                443 usr/bin/sh/sh.c 		p = readline(fd, line, sizeof(line));
+<a href='../S/423.html#L93'>fd</a>                 93 usr/bin/touch/touch.c 	int fd;
+<a href='../S/423.html#L97'>fd</a>                 97 usr/bin/touch/touch.c 			if ((fd = creat(file, 0666)) &lt; 0)
+<a href='../S/423.html#L99'>fd</a>                 99 usr/bin/touch/touch.c 			close(fd);
+<a href='../S/423.html#L103'>fd</a>                103 usr/bin/touch/touch.c 	if ((fd = open(file, 2)) &lt; 0)
+<a href='../S/423.html#L106'>fd</a>                106 usr/bin/touch/touch.c 	close(fd);
+<a href='../S/479.html#L61'>fd</a>                 61 usr/lib/libc/gen/fts.c #define	FCHDIR(sp, fd)	(!ISSET(FTS_NOCHDIR) &amp;&amp; fchdir(fd))
+<a href='../S/479.html#L459'>fd</a>                459 usr/lib/libc/gen/fts.c 	int fd;
+<a href='../S/479.html#L512'>fd</a>                512 usr/lib/libc/gen/fts.c 	if ((fd = open(".", O_RDONLY, 0)) &lt; 0)
+<a href='../S/479.html#L515'>fd</a>                515 usr/lib/libc/gen/fts.c 	if (fchdir(fd))
+<a href='../S/479.html#L517'>fd</a>                517 usr/lib/libc/gen/fts.c 	(void)close(fd);
+<a href='../S/498.html#L41'>fd</a>                 41 usr/lib/libc/stdio/fdopen.c fdopen(fd, mode)
+<a href='../S/498.html#L42'>fd</a>                 42 usr/lib/libc/stdio/fdopen.c 	int fd;
+<a href='../S/498.html#L52'>fd</a>                 52 usr/lib/libc/stdio/fdopen.c 	if ((fdflags = fcntl(fd, F_GETFL, 0)) &lt; 0)
+<a href='../S/498.html#L70'>fd</a>                 70 usr/lib/libc/stdio/fdopen.c 	fp-&gt;_file = fd;
+<a href='../S/530.html#L44'>fd</a>                 44 usr/lib/libc/stdio/mktemp.c 	int fd;
+<a href='../S/530.html#L46'>fd</a>                 46 usr/lib/libc/stdio/mktemp.c 	return (_gettemp(path, &amp;fd) ? fd : -1);
+<a href='../S/549.html#L46'>fd</a>                 46 usr/lib/libc/stdio/tmpfile.c 	int fd, sverrno;
+<a href='../S/549.html#L56'>fd</a>                 56 usr/lib/libc/stdio/tmpfile.c 	fd = mkstemp(buf);
+<a href='../S/549.html#L57'>fd</a>                 57 usr/lib/libc/stdio/tmpfile.c 	if (fd != -1)
+<a href='../S/549.html#L62'>fd</a>                 62 usr/lib/libc/stdio/tmpfile.c 	if (fd == -1)
+<a href='../S/549.html#L65'>fd</a>                 65 usr/lib/libc/stdio/tmpfile.c 	if ((fp = fdopen(fd, "w+")) == NULL) {
+<a href='../S/549.html#L67'>fd</a>                 67 usr/lib/libc/stdio/tmpfile.c 		(void)close(fd);
+<a href='../S/626.html#L37'>fd</a>                 37 usr/lib/libc/termios/tcdrain.c tcdrain(fd)
+<a href='../S/626.html#L38'>fd</a>                 38 usr/lib/libc/termios/tcdrain.c 	int fd;
+<a href='../S/626.html#L41'>fd</a>                 41 usr/lib/libc/termios/tcdrain.c 	return (ioctl(fd, TIOCDRAIN, 0));
+<a href='../S/627.html#L38'>fd</a>                 38 usr/lib/libc/termios/tcflow.c tcflow(fd, action)
+<a href='../S/627.html#L39'>fd</a>                 39 usr/lib/libc/termios/tcflow.c 	int fd, action;
+<a href='../S/627.html#L46'>fd</a>                 46 usr/lib/libc/termios/tcflow.c 		return (ioctl(fd, TIOCSTOP, 0));
+<a href='../S/627.html#L48'>fd</a>                 48 usr/lib/libc/termios/tcflow.c 		return (ioctl(fd, TIOCSTART, 0));
+<a href='../S/627.html#L51'>fd</a>                 51 usr/lib/libc/termios/tcflow.c 		if (tcgetattr(fd, &amp;term) == -1)
+<a href='../S/627.html#L54'>fd</a>                 54 usr/lib/libc/termios/tcflow.c 		if (c != _POSIX_VDISABLE &amp;&amp; write(fd, &amp;c, sizeof(c)) == -1)
+<a href='../S/628.html#L41'>fd</a>                 41 usr/lib/libc/termios/tcflush.c tcflush(fd, which)
+<a href='../S/628.html#L42'>fd</a>                 42 usr/lib/libc/termios/tcflush.c 	int fd, which;
+<a href='../S/628.html#L60'>fd</a>                 60 usr/lib/libc/termios/tcflush.c 	return (ioctl(fd, TIOCFLUSH, &amp;com));
+<a href='../S/629.html#L36'>fd</a>                 36 usr/lib/libc/termios/tcgetattr.c tcgetattr(fd, t)
+<a href='../S/629.html#L37'>fd</a>                 37 usr/lib/libc/termios/tcgetattr.c 	int fd;
+<a href='../S/629.html#L41'>fd</a>                 41 usr/lib/libc/termios/tcgetattr.c 	return (ioctl(fd, TIOCGETA, t));
+<a href='../S/630.html#L38'>fd</a>                 38 usr/lib/libc/termios/tcgetpgrp.c tcgetpgrp(int fd)
+<a href='../S/630.html#L42'>fd</a>                 42 usr/lib/libc/termios/tcgetpgrp.c 	if (ioctl(fd, TIOCGPGRP, &amp;s) &lt; 0)
+<a href='../S/631.html#L37'>fd</a>                 37 usr/lib/libc/termios/tcsendbreak.c tcsendbreak(fd, len)
+<a href='../S/631.html#L38'>fd</a>                 38 usr/lib/libc/termios/tcsendbreak.c 	int fd, len;
+<a href='../S/631.html#L45'>fd</a>                 45 usr/lib/libc/termios/tcsendbreak.c 	if (ioctl(fd, TIOCSBRK, 0) == -1)
+<a href='../S/631.html#L48'>fd</a>                 48 usr/lib/libc/termios/tcsendbreak.c 	if (ioctl(fd, TIOCCBRK, 0) == -1)
+<a href='../S/632.html#L39'>fd</a>                 39 usr/lib/libc/termios/tcsetattr.c tcsetattr(fd, opt, t)
+<a href='../S/632.html#L40'>fd</a>                 40 usr/lib/libc/termios/tcsetattr.c 	int fd, opt;
+<a href='../S/632.html#L52'>fd</a>                 52 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETA, t));
+<a href='../S/632.html#L54'>fd</a>                 54 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETAW, t));
+<a href='../S/632.html#L56'>fd</a>                 56 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETAF, t));
+<a href='../S/633.html#L38'>fd</a>                 38 usr/lib/libc/termios/tcsetpgrp.c tcsetpgrp(int fd, pid_t pgrp)
+<a href='../S/633.html#L43'>fd</a>                 43 usr/lib/libc/termios/tcsetpgrp.c 	return (ioctl(fd, TIOCSPGRP, &amp;s));
+<a href='../S/661.html#L36'>fd</a>                 36 usr/lib/posix/file/close.c close(int fd)
+<a href='../S/661.html#L41'>fd</a>                 41 usr/lib/posix/file/close.c 	m.data[0] = fd;
+<a href='../S/666.html#L38'>fd</a>                 38 usr/lib/posix/file/fchdir.c fchdir(int fd)
+<a href='../S/666.html#L43'>fd</a>                 43 usr/lib/posix/file/fchdir.c 	m.data[0] = fd;
+<a href='../S/667.html#L39'>fd</a>                 39 usr/lib/posix/file/fcntl.c fcntl(int fd, int cmd, ...)
+<a href='../S/667.html#L50'>fd</a>                 50 usr/lib/posix/file/fcntl.c 	m.fd = fd;
+<a href='../S/668.html#L39'>fd</a>                 39 usr/lib/posix/file/fstat.c fstat(int fd, struct stat *st)
+<a href='../S/668.html#L44'>fd</a>                 44 usr/lib/posix/file/fstat.c 	m.fd = fd;
+<a href='../S/669.html#L36'>fd</a>                 36 usr/lib/posix/file/fsync.c fsync(int fd)
+<a href='../S/669.html#L41'>fd</a>                 41 usr/lib/posix/file/fsync.c 	m.data[0] = fd;
+<a href='../S/670.html#L36'>fd</a>                 36 usr/lib/posix/file/ftruncate.c ftruncate(int fd, off_t length)
+<a href='../S/670.html#L41'>fd</a>                 41 usr/lib/posix/file/ftruncate.c 	m.data[0] = fd;
+<a href='../S/672.html#L40'>fd</a>                 40 usr/lib/posix/file/ioctl.c ioctl(int fd, unsigned long cmd, ...)
+<a href='../S/672.html#L81'>fd</a>                 81 usr/lib/posix/file/ioctl.c 	m.fd = fd;
+<a href='../S/673.html#L36'>fd</a>                 36 usr/lib/posix/file/isatty.c isatty(int fd)
+<a href='../S/673.html#L41'>fd</a>                 41 usr/lib/posix/file/isatty.c 	m.data[0] = fd;
+<a href='../S/675.html#L39'>fd</a>                 39 usr/lib/posix/file/lseek.c lseek(int fd, off_t offset, int whence)
+<a href='../S/675.html#L44'>fd</a>                 44 usr/lib/posix/file/lseek.c 	m.data[0] = fd;
+<a href='../S/681.html#L56'>fd</a>                 56 usr/lib/posix/file/open.c 	return m.fd;
+<a href='../S/682.html#L53'>fd</a>                 53 usr/lib/posix/file/opendir.c 	dir-&gt;dd_fd = m.fd;
+<a href='../S/683.html#L36'>fd</a>                 36 usr/lib/posix/file/pipe.c pipe(int fd[2])
+<a href='../S/683.html#L43'>fd</a>                 43 usr/lib/posix/file/pipe.c 	fd[0] = m.data[0];
+<a href='../S/683.html#L44'>fd</a>                 44 usr/lib/posix/file/pipe.c 	fd[1] = m.data[1];
+<a href='../S/684.html#L38'>fd</a>                 38 usr/lib/posix/file/read.c read(int fd, void *buf, size_t len)
+<a href='../S/684.html#L43'>fd</a>                 43 usr/lib/posix/file/read.c 	m.fd = fd;
+<a href='../S/685.html#L46'>fd</a>                 46 usr/lib/posix/file/readdir.c 	m.fd = dir-&gt;dd_fd;
+<a href='../S/695.html#L37'>fd</a>                 37 usr/lib/posix/file/write.c write(int fd, void *buf, size_t len)
+<a href='../S/695.html#L42'>fd</a>                 42 usr/lib/posix/file/write.c 	m.fd = fd;
+<a href='../S/744.html#L40'>fd</a>                 40 usr/lib/posix/time/gettimeofday.c 	int fd, error;
+<a href='../S/744.html#L42'>fd</a>                 42 usr/lib/posix/time/gettimeofday.c 	if ((fd = open("/dev/rtc", 0)) &lt; 0) {
+<a href='../S/744.html#L46'>fd</a>                 46 usr/lib/posix/time/gettimeofday.c 	error = ioctl(fd, RTCIOC_GET_TIME, tv);
+<a href='../S/744.html#L47'>fd</a>                 47 usr/lib/posix/time/gettimeofday.c 	close(fd);
+<a href='../S/876.html#L59'>fd</a>                 59 usr/server/exec/exec_elf.c load_exec(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L85'>fd</a>                 85 usr/server/exec/exec_elf.c 			if (lseek(fd, (off_t)phdr-&gt;p_offset, SEEK_SET)
+<a href='../S/876.html#L88'>fd</a>                 88 usr/server/exec/exec_elf.c 			if (read(fd, mapped, phdr-&gt;p_filesz) &lt; 0)
+<a href='../S/876.html#L195'>fd</a>                195 usr/server/exec/exec_elf.c load_reloc(Elf32_Ehdr *ehdr, task_t task, int fd, vaddr_t *entry)
+<a href='../S/876.html#L212'>fd</a>                212 usr/server/exec/exec_elf.c 	if (lseek(fd, ehdr-&gt;e_shoff, SEEK_SET) &lt; 0) {
+<a href='../S/876.html#L216'>fd</a>                216 usr/server/exec/exec_elf.c 	if (read(fd, buf, shdr_size) &lt; 0) {
+<a href='../S/876.html#L284'>fd</a>                284 usr/server/exec/exec_elf.c 		if (lseek(fd, shdr-&gt;sh_offset, SEEK_SET) &lt; 0) {
+<a href='../S/876.html#L288'>fd</a>                288 usr/server/exec/exec_elf.c 		if (read(fd, addr, shdr-&gt;sh_size) &lt; 0) {
+<a href='../S/876.html#L336'>fd</a>                336 usr/server/exec/exec_elf.c 	int error, fd;
+<a href='../S/876.html#L346'>fd</a>                346 usr/server/exec/exec_elf.c 	if ((fd = open(exec-&gt;path, O_RDONLY)) == -1)
+<a href='../S/876.html#L351'>fd</a>                351 usr/server/exec/exec_elf.c 			  fd, &amp;exec-&gt;entry);
+<a href='../S/876.html#L354'>fd</a>                354 usr/server/exec/exec_elf.c 			  fd, &amp;exec-&gt;entry);
+<a href='../S/876.html#L356'>fd</a>                356 usr/server/exec/exec_elf.c 	close(fd);
+<a href='../S/877.html#L445'>fd</a>                445 usr/server/exec/exec_execve.c 	int fd;
+<a href='../S/877.html#L451'>fd</a>                451 usr/server/exec/exec_execve.c 	if ((fd = open(path, O_RDONLY)) == -1)
+<a href='../S/877.html#L454'>fd</a>                454 usr/server/exec/exec_execve.c 	if (fstat(fd, &amp;st) == -1) {
+<a href='../S/877.html#L455'>fd</a>                455 usr/server/exec/exec_execve.c 		close(fd);
+<a href='../S/877.html#L460'>fd</a>                460 usr/server/exec/exec_execve.c 		close(fd);
+<a href='../S/877.html#L467'>fd</a>                467 usr/server/exec/exec_execve.c 	if (read(fd, hdrbuf, HEADER_SIZE) == -1) {
+<a href='../S/877.html#L468'>fd</a>                468 usr/server/exec/exec_execve.c 		close(fd);
+<a href='../S/877.html#L471'>fd</a>                471 usr/server/exec/exec_execve.c 	close(fd);
+<a href='../S/903.html#L131'>fd</a>                131 usr/server/fs/vfs/main.c 	int fd, error;
+<a href='../S/903.html#L135'>fd</a>                135 usr/server/fs/vfs/main.c 	if ((fd = task_newfd(t)) == -1)
+<a href='../S/903.html#L156'>fd</a>                156 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/903.html#L158'>fd</a>                158 usr/server/fs/vfs/main.c 	msg-&gt;fd = fd;
+<a href='../S/903.html#L166'>fd</a>                166 usr/server/fs/vfs/main.c 	int fd, error;
+<a href='../S/903.html#L168'>fd</a>                168 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L169'>fd</a>                169 usr/server/fs/vfs/main.c 	if (fd &gt;= OPEN_MAX)
+<a href='../S/903.html#L172'>fd</a>                172 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L179'>fd</a>                179 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = NULL;
+<a href='../S/903.html#L221'>fd</a>                221 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L241'>fd</a>                241 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L258'>fd</a>                258 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L282'>fd</a>                282 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L295'>fd</a>                295 usr/server/fs/vfs/main.c 	int fd, error;
+<a href='../S/903.html#L298'>fd</a>                298 usr/server/fs/vfs/main.c 	if ((fd = task_newfd(t)) == -1)
+<a href='../S/903.html#L307'>fd</a>                307 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/903.html#L308'>fd</a>                308 usr/server/fs/vfs/main.c 	msg-&gt;fd = fd;
+<a href='../S/903.html#L316'>fd</a>                316 usr/server/fs/vfs/main.c 	int fd, error;
+<a href='../S/903.html#L318'>fd</a>                318 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L319'>fd</a>                319 usr/server/fs/vfs/main.c 	if (fd &gt;= OPEN_MAX)
+<a href='../S/903.html#L321'>fd</a>                321 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L327'>fd</a>                327 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = NULL;
+<a href='../S/903.html#L336'>fd</a>                336 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L454'>fd</a>                454 usr/server/fs/vfs/main.c 	int fd;
+<a href='../S/903.html#L456'>fd</a>                456 usr/server/fs/vfs/main.c 	fd = msg-&gt;data[0];
+<a href='../S/903.html#L457'>fd</a>                457 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, fd)) == NULL)
+<a href='../S/903.html#L578'>fd</a>                578 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L690'>fd</a>                690 usr/server/fs/vfs/main.c 	int fd;
+<a href='../S/903.html#L702'>fd</a>                702 usr/server/fs/vfs/main.c 	for (fd = 0; fd &lt; OPEN_MAX; fd++) {
+<a href='../S/903.html#L703'>fd</a>                703 usr/server/fs/vfs/main.c 		fp = target-&gt;t_ofile[fd];
+<a href='../S/903.html#L707'>fd</a>                707 usr/server/fs/vfs/main.c 				target-&gt;t_ofile[fd] = NULL;
+<a href='../S/903.html#L724'>fd</a>                724 usr/server/fs/vfs/main.c 	int fd;
+<a href='../S/903.html#L731'>fd</a>                731 usr/server/fs/vfs/main.c 	for (fd = 0; fd &lt; OPEN_MAX; fd++) {
+<a href='../S/903.html#L732'>fd</a>                732 usr/server/fs/vfs/main.c 		fp = t-&gt;t_ofile[fd];
+<a href='../S/905.html#L132'>fd</a>                132 usr/server/fs/vfs/vfs.h file_t	 task_getfp(struct task *t, int fd);
+<a href='../S/905.html#L133'>fd</a>                133 usr/server/fs/vfs/vfs.h void	 task_setfp(struct task *t, int fd, file_t fp);
+<a href='../S/905.html#L135'>fd</a>                135 usr/server/fs/vfs/vfs.h void	 task_delfd(struct task *t, int fd);
+<a href='../S/912.html#L165'>fd</a>                165 usr/server/fs/vfs/vfs_task.c task_getfp(struct task *t, int fd)
+<a href='../S/912.html#L168'>fd</a>                168 usr/server/fs/vfs/vfs_task.c 	if (fd &lt; 0 || fd &gt;= OPEN_MAX)
+<a href='../S/912.html#L171'>fd</a>                171 usr/server/fs/vfs/vfs_task.c 	return t-&gt;t_ofile[fd];
+<a href='../S/912.html#L178'>fd</a>                178 usr/server/fs/vfs/vfs_task.c task_setfp(struct task *t, int fd, file_t fp)
+<a href='../S/912.html#L181'>fd</a>                181 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/912.html#L191'>fd</a>                191 usr/server/fs/vfs/vfs_task.c 	int fd;
+<a href='../S/912.html#L196'>fd</a>                196 usr/server/fs/vfs/vfs_task.c 	for (fd = 0; fd &lt; OPEN_MAX; fd++) {
+<a href='../S/912.html#L197'>fd</a>                197 usr/server/fs/vfs/vfs_task.c 		if (t-&gt;t_ofile[fd] == NULL)
+<a href='../S/912.html#L200'>fd</a>                200 usr/server/fs/vfs/vfs_task.c 	if (fd == OPEN_MAX)
+<a href='../S/912.html#L203'>fd</a>                203 usr/server/fs/vfs/vfs_task.c 	return fd;
+<a href='../S/912.html#L210'>fd</a>                210 usr/server/fs/vfs/vfs_task.c task_delfd(struct task *t, int fd)
+<a href='../S/912.html#L213'>fd</a>                213 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_ofile[fd] = NULL;
+<a href='../S/936.html#L51'>fd</a>                 51 usr/test/creat/creat.c 	int fd, i;
+<a href='../S/936.html#L63'>fd</a>                 63 usr/test/creat/creat.c 		if ((fd = creat(file, 0660)) == -1) {
+<a href='../S/936.html#L69'>fd</a>                 69 usr/test/creat/creat.c 		if (fd != -1 &amp;&amp; close(fd) == -1)
+<a href='../S/940.html#L42'>fd</a>                 42 usr/test/dup/dup.c 	int fd;
+<a href='../S/940.html#L45'>fd</a>                 45 usr/test/dup/dup.c 	if ((fd = mkstemp(temp)) &lt; 0)
+<a href='../S/940.html#L48'>fd</a>                 48 usr/test/dup/dup.c 	if (ftruncate(fd, 1024) != 0)
+<a href='../S/940.html#L50'>fd</a>                 50 usr/test/dup/dup.c 	return (fd);
+<a href='../S/954.html#L55'>fd</a>                 55 usr/test/fileio/fileio.c 	int fd, i;
+<a href='../S/954.html#L57'>fd</a>                 57 usr/test/fileio/fileio.c 	if ((fd = open(WRITE_TARGET, O_CREAT|O_RDWR, 0)) &lt; 0)
+<a href='../S/954.html#L62'>fd</a>                 62 usr/test/fileio/fileio.c 		write(fd, iobuf, IOBUFSZ);
+<a href='../S/954.html#L64'>fd</a>                 64 usr/test/fileio/fileio.c 	close(fd);
+<a href='../S/954.html#L73'>fd</a>                 73 usr/test/fileio/fileio.c 	int rd, fd;
+<a href='../S/954.html#L75'>fd</a>                 75 usr/test/fileio/fileio.c 	if ((fd = open(READ_TARGET, O_RDONLY, 0)) &lt; 0)
+<a href='../S/954.html#L78'>fd</a>                 78 usr/test/fileio/fileio.c 	while ((rd = read(fd, iobuf, IOBUFSZ)) &gt; 0)
+<a href='../S/954.html#L80'>fd</a>                 80 usr/test/fileio/fileio.c 	close(fd);
+<a href='../S/954.html#L103'>fd</a>                103 usr/test/fileio/fileio.c 	int fd;
+<a href='../S/954.html#L106'>fd</a>                106 usr/test/fileio/fileio.c 		if ((fd = open(READ_TARGET, O_RDONLY, 0)) &lt; 0)
+<a href='../S/954.html#L108'>fd</a>                108 usr/test/fileio/fileio.c 		close(fd);
+<a href='../S/954.html#L118'>fd</a>                118 usr/test/fileio/fileio.c 	int rd, fd;
+<a href='../S/954.html#L120'>fd</a>                120 usr/test/fileio/fileio.c 	if ((fd = open(READ_TARGET, O_RDONLY, 0)) &lt; 0)
+<a href='../S/954.html#L124'>fd</a>                124 usr/test/fileio/fileio.c 		while ((rd = read(fd, iobuf, IOBUFSZ)) &gt; 0)
+<a href='../S/954.html#L127'>fd</a>                127 usr/test/fileio/fileio.c 	close(fd);
+<a href='../S/981.html#L47'>fd</a>                 47 usr/test/pipe/pipe.c 	int fd[2];
+<a href='../S/981.html#L53'>fd</a>                 53 usr/test/pipe/pipe.c 	if (pipe(fd) == -1) {
+<a href='../S/981.html#L57'>fd</a>                 57 usr/test/pipe/pipe.c 	write(fd[1], str, sizeof(str));
+<a href='../S/981.html#L58'>fd</a>                 58 usr/test/pipe/pipe.c 	read(fd[0], buf, sizeof(buf));
+<a href='../S/981.html#L65'>fd</a>                 65 usr/test/pipe/pipe.c 	int fd[2];
+<a href='../S/981.html#L71'>fd</a>                 71 usr/test/pipe/pipe.c 	if (pipe(fd) == -1) {
+<a href='../S/981.html#L81'>fd</a>                 81 usr/test/pipe/pipe.c 		close(fd[1]);
+<a href='../S/981.html#L82'>fd</a>                 82 usr/test/pipe/pipe.c 		read(fd[0], buf, 256);
+<a href='../S/981.html#L83'>fd</a>                 83 usr/test/pipe/pipe.c 		close(fd[0]);
+<a href='../S/981.html#L89'>fd</a>                 89 usr/test/pipe/pipe.c 		close(fd[0]);
+<a href='../S/981.html#L90'>fd</a>                 90 usr/test/pipe/pipe.c 		write(fd[1], str, sizeof(str));
+<a href='../S/981.html#L91'>fd</a>                 91 usr/test/pipe/pipe.c 		close(fd[1]);
+</pre>
+</body>
+</html>

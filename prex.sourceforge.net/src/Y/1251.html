@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/72.html#L111'>mask</a>              111 bsp/drv/dev/dma/i8237.c 	int	mask;
+<a href='../S/72.html#L212'>mask</a>              212 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits | 0x04);	/* Disable channel */
+<a href='../S/72.html#L221'>mask</a>              221 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;mask, bits);		/* Enable channel */
+<a href='../S/72.html#L239'>mask</a>              239 bsp/drv/dev/dma/i8237.c 	bus_write_8(dma_regs[chan].mask, bits | 0x04);	/* Disable channel */
+<a href='../S/136.html#L111'>mask</a>              111 bsp/hal/arm/gba/interrupt.c 	u_int mask = (uint16_t)~(1 &lt;&lt; vector);
+<a href='../S/136.html#L115'>mask</a>              115 bsp/hal/arm/gba/interrupt.c 		mask_table[i] &amp;= mask;
+<a href='../S/148.html#L74'>mask</a>               74 bsp/hal/arm/integrator/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/148.html#L76'>mask</a>               76 bsp/hal/arm/integrator/interrupt.c 	ICU_IRQENCLR = ~mask;
+<a href='../S/148.html#L77'>mask</a>               77 bsp/hal/arm/integrator/interrupt.c 	ICU_IRQENSET = mask;
+<a href='../S/148.html#L111'>mask</a>              111 bsp/hal/arm/integrator/interrupt.c 	u_int mask = (uint16_t)~(1 &lt;&lt; vector);
+<a href='../S/148.html#L115'>mask</a>              115 bsp/hal/arm/integrator/interrupt.c 		mask_table[i] &amp;= mask;
+<a href='../S/169.html#L76'>mask</a>               76 bsp/hal/ppc/prep/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/169.html#L78'>mask</a>               78 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M + 1, mask &amp; 0xff);
+<a href='../S/169.html#L79'>mask</a>               79 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S + 1, mask &gt;&gt; 8);
+<a href='../S/169.html#L112'>mask</a>              112 bsp/hal/ppc/prep/interrupt.c 	u_int mask = (u_int)(1 &lt;&lt; vector);
+<a href='../S/169.html#L118'>mask</a>              118 bsp/hal/ppc/prep/interrupt.c 		mask_table[i] |= mask;
+<a href='../S/188.html#L74'>mask</a>               74 bsp/hal/x86/pc/interrupt.c 	u_int mask = mask_table[irq_level];
+<a href='../S/188.html#L76'>mask</a>               76 bsp/hal/x86/pc/interrupt.c 	outb(PIC_M + 1, mask &amp; 0xff);
+<a href='../S/188.html#L77'>mask</a>               77 bsp/hal/x86/pc/interrupt.c 	outb(PIC_S + 1, mask &gt;&gt; 8);
+<a href='../S/188.html#L110'>mask</a>              110 bsp/hal/x86/pc/interrupt.c 	u_int mask = (u_int)(1 &lt;&lt; vector);
+<a href='../S/188.html#L116'>mask</a>              116 bsp/hal/x86/pc/interrupt.c 		mask_table[i] |= mask;
+<a href='../S/560.html#L41'>mask</a>               41 usr/lib/libc/stdlib/abort.c 	sigset_t mask;
+<a href='../S/560.html#L43'>mask</a>               43 usr/lib/libc/stdlib/abort.c 	sigfillset(&amp;mask);
+<a href='../S/560.html#L48'>mask</a>               48 usr/lib/libc/stdlib/abort.c 	sigdelset(&amp;mask, SIGABRT);
+<a href='../S/560.html#L49'>mask</a>               49 usr/lib/libc/stdlib/abort.c 	(void)sigprocmask(SIG_SETMASK, &amp;mask, (sigset_t *)NULL);
+<a href='../S/560.html#L57'>mask</a>               57 usr/lib/libc/stdlib/abort.c 	(void)sigprocmask(SIG_SETMASK, &amp;mask, (sigset_t *)NULL);
+<a href='../S/584.html#L36'>mask</a>               36 usr/lib/libc/string/ffs.c ffs(mask)
+<a href='../S/584.html#L37'>mask</a>               37 usr/lib/libc/string/ffs.c 	int mask;
+<a href='../S/584.html#L41'>mask</a>               41 usr/lib/libc/string/ffs.c 	if (mask == 0)
+<a href='../S/584.html#L43'>mask</a>               43 usr/lib/libc/string/ffs.c 	for (bit = 1; !(mask &amp; 1); bit++)
+<a href='../S/584.html#L44'>mask</a>               44 usr/lib/libc/string/ffs.c 		mask &gt;&gt;= 1;
+<a href='../S/737.html#L49'>mask</a>               49 usr/lib/posix/signal/sigcompat.c sigsetmask(mask)
+<a href='../S/737.html#L50'>mask</a>               50 usr/lib/posix/signal/sigcompat.c 	int mask;
+<a href='../S/737.html#L54'>mask</a>               54 usr/lib/posix/signal/sigcompat.c 	n = sigprocmask(SIG_SETMASK, (sigset_t *) &amp;mask, (sigset_t *) &amp;omask);
+<a href='../S/737.html#L61'>mask</a>               61 usr/lib/posix/signal/sigcompat.c sigblock(mask)
+<a href='../S/737.html#L62'>mask</a>               62 usr/lib/posix/signal/sigcompat.c 	int mask;
+<a href='../S/737.html#L66'>mask</a>               66 usr/lib/posix/signal/sigcompat.c 	n = sigprocmask(SIG_BLOCK, (sigset_t *) &amp;mask, (sigset_t *) &amp;omask);
+<a href='../S/737.html#L73'>mask</a>               73 usr/lib/posix/signal/sigcompat.c sigpause(mask)
+<a href='../S/737.html#L74'>mask</a>               74 usr/lib/posix/signal/sigcompat.c 	int mask;
+<a href='../S/737.html#L76'>mask</a>               76 usr/lib/posix/signal/sigcompat.c 	return (sigsuspend((sigset_t *)&amp;mask));
+<a href='../S/742.html#L38'>mask</a>               38 usr/lib/posix/signal/sigsuspend.c sigsuspend(const sigset_t *mask)
+<a href='../S/742.html#L42'>mask</a>               42 usr/lib/posix/signal/sigsuspend.c 	if (mask == NULL) {
+<a href='../S/742.html#L46'>mask</a>               46 usr/lib/posix/signal/sigsuspend.c 	if (sigprocmask(SIG_SETMASK, mask, &amp;old_mask))
+</pre>
+</body>
+</html>

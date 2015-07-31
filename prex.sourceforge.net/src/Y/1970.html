@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/87.html#L121'>sp</a>                121 bsp/drv/dev/serial/ns16550.c ns16550_xmt_char(struct serial_port *sp, char c)
+<a href='../S/87.html#L130'>sp</a>                130 bsp/drv/dev/serial/ns16550.c ns16550_rcv_char(struct serial_port *sp)
+<a href='../S/87.html#L139'>sp</a>                139 bsp/drv/dev/serial/ns16550.c ns16550_set_poll(struct serial_port *sp, int on)
+<a href='../S/87.html#L154'>sp</a>                154 bsp/drv/dev/serial/ns16550.c 	struct serial_port *sp = arg;
+<a href='../S/87.html#L163'>sp</a>                163 bsp/drv/dev/serial/ns16550.c 		serial_xmt_done(sp);
+<a href='../S/87.html#L167'>sp</a>                167 bsp/drv/dev/serial/ns16550.c 		serial_rcv_char(sp, bus_read_8(COM_RBR));
+<a href='../S/87.html#L174'>sp</a>                174 bsp/drv/dev/serial/ns16550.c ns16550_start(struct serial_port *sp)
+<a href='../S/87.html#L185'>sp</a>                185 bsp/drv/dev/serial/ns16550.c 	sp-&gt;irq = irq_attach(COM_IRQ, IPL_COMM, 0, ns16550_isr,
+<a href='../S/87.html#L186'>sp</a>                186 bsp/drv/dev/serial/ns16550.c 			     IST_NONE, sp);
+<a href='../S/87.html#L196'>sp</a>                196 bsp/drv/dev/serial/ns16550.c ns16550_stop(struct serial_port *sp)
+<a href='../S/88.html#L120'>sp</a>                120 bsp/drv/dev/serial/pl011.c pl011_xmt_char(struct serial_port *sp, char c)
+<a href='../S/88.html#L129'>sp</a>                129 bsp/drv/dev/serial/pl011.c pl011_rcv_char(struct serial_port *sp)
+<a href='../S/88.html#L140'>sp</a>                140 bsp/drv/dev/serial/pl011.c pl011_set_poll(struct serial_port *sp, int on)
+<a href='../S/88.html#L155'>sp</a>                155 bsp/drv/dev/serial/pl011.c 	struct serial_port *sp = arg;
+<a href='../S/88.html#L169'>sp</a>                169 bsp/drv/dev/serial/pl011.c 			serial_rcv_char(sp, c);
+<a href='../S/88.html#L179'>sp</a>                179 bsp/drv/dev/serial/pl011.c 		serial_xmt_done(sp);
+<a href='../S/88.html#L188'>sp</a>                188 bsp/drv/dev/serial/pl011.c pl011_start(struct serial_port *sp)
+<a href='../S/88.html#L214'>sp</a>                214 bsp/drv/dev/serial/pl011.c 	sp-&gt;irq = irq_attach(UART_IRQ, IPL_COMM, 0, pl011_isr, IST_NONE, sp);
+<a href='../S/88.html#L221'>sp</a>                221 bsp/drv/dev/serial/pl011.c pl011_stop(struct serial_port *sp)
+<a href='../S/126.html#L73'>sp</a>                 73 bsp/hal/arm/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/126.html#L99'>sp</a>                 99 bsp/hal/arm/arch/context.c 		u-&gt;sp = (uint32_t)val;
+<a href='../S/126.html#L159'>sp</a>                159 bsp/hal/arm/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;sp - sizeof(struct cpu_regs));
+<a href='../S/126.html#L165'>sp</a>                165 bsp/hal/arm/arch/context.c 	cur-&gt;sp = (uint32_t)sav - sizeof(uint32_t);
+<a href='../S/132.html#L117'>sp</a>                117 bsp/hal/arm/arch/trap.c 	       r-&gt;r12, r-&gt;sp, r-&gt;lr, r-&gt;pc, r-&gt;cpsr);
+<a href='../S/140.html#L80'>sp</a>                 80 bsp/hal/arm/include/context.h 	uint32_t	sp;	/* +52 (34) */
+<a href='../S/140.html#L100'>sp</a>                100 bsp/hal/arm/include/context.h 	uint32_t	sp;
+<a href='../S/154.html#L79'>sp</a>                 79 bsp/hal/ppc/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/154.html#L97'>sp</a>                 97 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(k-&gt;sp + sizeof(uint32_t) * 2);
+<a href='../S/161.html#L61'>sp</a>                 61 bsp/hal/ppc/include/context.h 	uint32_t	sp;
+<a href='../S/216.html#L48'>sp</a>                 48 include/arm/systrap.h 	stmfd sp!, {r4, r5, lr}; \
+<a href='../S/216.html#L53'>sp</a>                 53 include/arm/systrap.h 	ldmfd sp!, {r4, r5, pc};
+<a href='../S/267.html#L144'>sp</a>                144 include/sys/prex.h int	sem_init(sem_t *sp, u_int value);
+<a href='../S/267.html#L145'>sp</a>                145 include/sys/prex.h int	sem_destroy(sem_t *sp);
+<a href='../S/267.html#L146'>sp</a>                146 include/sys/prex.h int	sem_wait(sem_t *sp, u_long timeout);
+<a href='../S/267.html#L147'>sp</a>                147 include/sys/prex.h int	sem_trywait(sem_t *sp);
+<a href='../S/267.html#L148'>sp</a>                148 include/sys/prex.h int	sem_post(sem_t *sp);
+<a href='../S/267.html#L149'>sp</a>                149 include/sys/prex.h int	sem_getvalue(sem_t *sp, u_int *value);
+<a href='../S/334.html#L479'>sp</a>                479 sys/kern/task.c 	void *stack, *sp;
+<a href='../S/334.html#L508'>sp</a>                508 sys/kern/task.c 		sp = (char *)stack + DFLSTKSZ - (sizeof(int) * 3);
+<a href='../S/334.html#L509'>sp</a>                509 sys/kern/task.c 		error = thread_load(t, (void (*)(void))mod-&gt;entry, sp);
+<a href='../S/335.html#L68'>sp</a>                 68 sys/kern/thread.c 	vaddr_t sp;
+<a href='../S/335.html#L105'>sp</a>                105 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L106'>sp</a>                106 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L528'>sp</a>                528 sys/kern/thread.c 	vaddr_t sp;
+<a href='../S/335.html#L540'>sp</a>                540 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L541'>sp</a>                541 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L579'>sp</a>                579 sys/kern/thread.c 	vaddr_t sp;
+<a href='../S/335.html#L587'>sp</a>                587 sys/kern/thread.c 	sp = (vaddr_t)stack + KSTACKSZ;
+<a href='../S/335.html#L588'>sp</a>                588 sys/kern/thread.c 	context_set(&amp;idle_thread.ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/347.html#L59'>sp</a>                 59 sys/sync/sem.c sem_init(sem_t *sp, u_int value)
+<a href='../S/347.html#L71'>sp</a>                 71 sys/sync/sem.c 	if (copyin(sp, &amp;s, sizeof(sp)))
+<a href='../S/347.html#L102'>sp</a>                102 sys/sync/sem.c 		if (copyout(&amp;s, sp, sizeof(s))) {
+<a href='../S/347.html#L127'>sp</a>                127 sys/sync/sem.c sem_destroy(sem_t *sp)
+<a href='../S/347.html#L132'>sp</a>                132 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s) || s-&gt;owner != curtask) {
+<a href='../S/347.html#L162'>sp</a>                162 sys/sync/sem.c sem_wait(sem_t *sp, u_long timeout)
+<a href='../S/347.html#L168'>sp</a>                168 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s)) {
+<a href='../S/347.html#L203'>sp</a>                203 sys/sync/sem.c sem_trywait(sem_t *sp)
+<a href='../S/347.html#L208'>sp</a>                208 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s)) {
+<a href='../S/347.html#L229'>sp</a>                229 sys/sync/sem.c sem_post(sem_t *sp)
+<a href='../S/347.html#L234'>sp</a>                234 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s)) {
+<a href='../S/347.html#L254'>sp</a>                254 sys/sync/sem.c sem_getvalue(sem_t *sp, u_int *value)
+<a href='../S/347.html#L259'>sp</a>                259 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s)) {
+<a href='../S/347.html#L288'>sp</a>                288 sys/sync/sem.c 	sem_t *sp;
+<a href='../S/347.html#L296'>sp</a>                296 sys/sync/sem.c 	for (sp = &amp;sem_list; *sp; sp = &amp;(*sp)-&gt;next) {
+<a href='../S/347.html#L297'>sp</a>                297 sys/sync/sem.c 		if (*sp == s) {
+<a href='../S/347.html#L298'>sp</a>                298 sys/sync/sem.c 			*sp = s-&gt;next;
+<a href='../S/390.html#L46'>sp</a>                 46 usr/bin/ls/ls.c static void printentry(char *name, struct stat *sp);
+<a href='../S/390.html#L179'>sp</a>                179 usr/bin/ls/ls.c printentry(char *name, struct stat *sp)
+<a href='../S/390.html#L193'>sp</a>                193 usr/bin/ls/ls.c 	if (S_ISCHR(sp-&gt;st_mode) || S_ISBLK(sp-&gt;st_mode))
+<a href='../S/390.html#L195'>sp</a>                195 usr/bin/ls/ls.c 	else if (S_ISDIR(sp-&gt;st_mode))
+<a href='../S/390.html#L197'>sp</a>                197 usr/bin/ls/ls.c 	else if (S_ISFIFO(sp-&gt;st_mode))
+<a href='../S/390.html#L199'>sp</a>                199 usr/bin/ls/ls.c 	else if (S_ISLNK(sp-&gt;st_mode))
+<a href='../S/390.html#L203'>sp</a>                203 usr/bin/ls/ls.c 		printtype(sp-&gt;st_mode);
+<a href='../S/390.html#L204'>sp</a>                204 usr/bin/ls/ls.c 		printmode(sp-&gt;st_mode);
+<a href='../S/390.html#L218'>sp</a>                218 usr/bin/ls/ls.c 		printf("%7d ", (int)sp-&gt;st_size);
+<a href='../S/390.html#L227'>sp</a>                227 usr/bin/ls/ls.c 		printtype(sp-&gt;st_mode);
+<a href='../S/390.html#L228'>sp</a>                228 usr/bin/ls/ls.c 		if (sp-&gt;st_mode &amp; (S_IXUSR | S_IXGRP | S_IXOTH))
+<a href='../S/479.html#L57'>sp</a>                 57 usr/lib/libc/gen/fts.c #define	ISSET(opt)	(sp-&gt;fts_options &amp; (opt))
+<a href='../S/479.html#L58'>sp</a>                 58 usr/lib/libc/gen/fts.c #define	SET(opt)	(sp-&gt;fts_options |= (opt))
+<a href='../S/479.html#L60'>sp</a>                 60 usr/lib/libc/gen/fts.c #define	CHDIR(sp, path)	(!ISSET(FTS_NOCHDIR) &amp;&amp; chdir(path))
+<a href='../S/479.html#L61'>sp</a>                 61 usr/lib/libc/gen/fts.c #define	FCHDIR(sp, fd)	(!ISSET(FTS_NOCHDIR) &amp;&amp; fchdir(fd))
+<a href='../S/479.html#L72'>sp</a>                 72 usr/lib/libc/gen/fts.c 	FTS *sp;
+<a href='../S/479.html#L85'>sp</a>                 85 usr/lib/libc/gen/fts.c 	if ((sp = malloc((u_int)sizeof(FTS))) == NULL)
+<a href='../S/479.html#L87'>sp</a>                 87 usr/lib/libc/gen/fts.c 	memset(sp, 0, sizeof(FTS));
+<a href='../S/479.html#L88'>sp</a>                 88 usr/lib/libc/gen/fts.c 	sp-&gt;fts_compar = compar;
+<a href='../S/479.html#L89'>sp</a>                 89 usr/lib/libc/gen/fts.c 	sp-&gt;fts_options = options;
+<a href='../S/479.html#L99'>sp</a>                 99 usr/lib/libc/gen/fts.c 	if (fts_palloc(sp, MAX(fts_maxarglen(argv), MAXPATHLEN)))
+<a href='../S/479.html#L103'>sp</a>                103 usr/lib/libc/gen/fts.c 	if ((parent = fts_alloc(sp, "", 0)) == NULL)
+<a href='../S/479.html#L115'>sp</a>                115 usr/lib/libc/gen/fts.c 		p = fts_alloc(sp, *argv, len);
+<a href='../S/479.html#L119'>sp</a>                119 usr/lib/libc/gen/fts.c 		p-&gt;fts_info = fts_stat(sp, p, ISSET(FTS_COMFOLLOW));
+<a href='../S/479.html#L143'>sp</a>                143 usr/lib/libc/gen/fts.c 		root = fts_sort(sp, root, nitems);
+<a href='../S/479.html#L150'>sp</a>                150 usr/lib/libc/gen/fts.c 	if ((sp-&gt;fts_cur = fts_alloc(sp, "", 0)) == NULL)
+<a href='../S/479.html#L152'>sp</a>                152 usr/lib/libc/gen/fts.c 	sp-&gt;fts_cur-&gt;fts_link = root;
+<a href='../S/479.html#L153'>sp</a>                153 usr/lib/libc/gen/fts.c 	sp-&gt;fts_cur-&gt;fts_info = FTS_INIT;
+<a href='../S/479.html#L162'>sp</a>                162 usr/lib/libc/gen/fts.c 	if (!ISSET(FTS_NOCHDIR) &amp;&amp; (sp-&gt;fts_rfd = open(".", O_RDONLY, 0)) &lt; 0)
+<a href='../S/479.html#L165'>sp</a>                165 usr/lib/libc/gen/fts.c 	return (sp);
+<a href='../S/479.html#L169'>sp</a>                169 usr/lib/libc/gen/fts.c mem2:	free(sp-&gt;fts_path);
+<a href='../S/479.html#L170'>sp</a>                170 usr/lib/libc/gen/fts.c mem1:	free(sp);
+<a href='../S/479.html#L175'>sp</a>                175 usr/lib/libc/gen/fts.c fts_load(FTS *sp, FTSENT *p)
+<a href='../S/479.html#L188'>sp</a>                188 usr/lib/libc/gen/fts.c 	memmove(sp-&gt;fts_path, p-&gt;fts_name, len + 1);
+<a href='../S/479.html#L194'>sp</a>                194 usr/lib/libc/gen/fts.c 	p-&gt;fts_accpath = p-&gt;fts_path = sp-&gt;fts_path;
+<a href='../S/479.html#L195'>sp</a>                195 usr/lib/libc/gen/fts.c 	sp-&gt;fts_dev = p-&gt;fts_dev;
+<a href='../S/479.html#L199'>sp</a>                199 usr/lib/libc/gen/fts.c fts_close(FTS *sp)
+<a href='../S/479.html#L209'>sp</a>                209 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_cur) {
+<a href='../S/479.html#L210'>sp</a>                210 usr/lib/libc/gen/fts.c 		for (p = sp-&gt;fts_cur; p-&gt;fts_level &gt;= FTS_ROOTLEVEL;) {
+<a href='../S/479.html#L219'>sp</a>                219 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_child)
+<a href='../S/479.html#L220'>sp</a>                220 usr/lib/libc/gen/fts.c 		fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L221'>sp</a>                221 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_array)
+<a href='../S/479.html#L222'>sp</a>                222 usr/lib/libc/gen/fts.c 		free(sp-&gt;fts_array);
+<a href='../S/479.html#L223'>sp</a>                223 usr/lib/libc/gen/fts.c 	free(sp-&gt;fts_path);
+<a href='../S/479.html#L227'>sp</a>                227 usr/lib/libc/gen/fts.c 		saved_errno = fchdir(sp-&gt;fts_rfd) ? errno : 0;
+<a href='../S/479.html#L228'>sp</a>                228 usr/lib/libc/gen/fts.c 		(void)close(sp-&gt;fts_rfd);
+<a href='../S/479.html#L232'>sp</a>                232 usr/lib/libc/gen/fts.c 	free(sp);
+<a href='../S/479.html#L251'>sp</a>                251 usr/lib/libc/gen/fts.c fts_read(FTS *sp)
+<a href='../S/479.html#L259'>sp</a>                259 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_cur == NULL || ISSET(FTS_STOP))
+<a href='../S/479.html#L263'>sp</a>                263 usr/lib/libc/gen/fts.c 	p = sp-&gt;fts_cur;
+<a href='../S/479.html#L271'>sp</a>                271 usr/lib/libc/gen/fts.c 		p-&gt;fts_info = fts_stat(sp, p, 0);
+<a href='../S/479.html#L283'>sp</a>                283 usr/lib/libc/gen/fts.c 		p-&gt;fts_info = fts_stat(sp, p, 1);
+<a href='../S/479.html#L298'>sp</a>                298 usr/lib/libc/gen/fts.c 		    (ISSET(FTS_XDEV) &amp;&amp; p-&gt;fts_dev != sp-&gt;fts_dev)) {
+<a href='../S/479.html#L301'>sp</a>                301 usr/lib/libc/gen/fts.c 			if (sp-&gt;fts_child) {
+<a href='../S/479.html#L302'>sp</a>                302 usr/lib/libc/gen/fts.c 				fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L303'>sp</a>                303 usr/lib/libc/gen/fts.c 				sp-&gt;fts_child = NULL;
+<a href='../S/479.html#L310'>sp</a>                310 usr/lib/libc/gen/fts.c 		if (sp-&gt;fts_child &amp;&amp; sp-&gt;fts_options &amp; FTS_NAMEONLY) {
+<a href='../S/479.html#L311'>sp</a>                311 usr/lib/libc/gen/fts.c 			sp-&gt;fts_options &amp;= ~FTS_NAMEONLY;
+<a href='../S/479.html#L312'>sp</a>                312 usr/lib/libc/gen/fts.c 			fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L313'>sp</a>                313 usr/lib/libc/gen/fts.c 			sp-&gt;fts_child = NULL;
+<a href='../S/479.html#L328'>sp</a>                328 usr/lib/libc/gen/fts.c 		if (sp-&gt;fts_child) {
+<a href='../S/479.html#L329'>sp</a>                329 usr/lib/libc/gen/fts.c 			if (CHDIR(sp, p-&gt;fts_accpath)) {
+<a href='../S/479.html#L332'>sp</a>                332 usr/lib/libc/gen/fts.c 				for (p = sp-&gt;fts_child; p; p = p-&gt;fts_link)
+<a href='../S/479.html#L336'>sp</a>                336 usr/lib/libc/gen/fts.c 		} else if ((sp-&gt;fts_child = fts_build(sp, BREAD)) == NULL) {
+<a href='../S/479.html#L341'>sp</a>                341 usr/lib/libc/gen/fts.c 		p = sp-&gt;fts_child;
+<a href='../S/479.html#L342'>sp</a>                342 usr/lib/libc/gen/fts.c 		sp-&gt;fts_child = NULL;
+<a href='../S/479.html#L356'>sp</a>                356 usr/lib/libc/gen/fts.c 			if (!ISSET(FTS_NOCHDIR) &amp;&amp; FCHDIR(sp, sp-&gt;fts_rfd)) {
+<a href='../S/479.html#L360'>sp</a>                360 usr/lib/libc/gen/fts.c 			fts_load(sp, p);
+<a href='../S/479.html#L361'>sp</a>                361 usr/lib/libc/gen/fts.c 			return (sp-&gt;fts_cur = p);
+<a href='../S/479.html#L372'>sp</a>                372 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = fts_stat(sp, p, 1);
+<a href='../S/479.html#L384'>sp</a>                384 usr/lib/libc/gen/fts.c name:		t = sp-&gt;fts_path + NAPPEND(p-&gt;fts_parent);
+<a href='../S/479.html#L387'>sp</a>                387 usr/lib/libc/gen/fts.c 		return (sp-&gt;fts_cur = p);
+<a href='../S/479.html#L401'>sp</a>                401 usr/lib/libc/gen/fts.c 		return (sp-&gt;fts_cur = NULL);
+<a href='../S/479.html#L405'>sp</a>                405 usr/lib/libc/gen/fts.c 	sp-&gt;fts_path[p-&gt;fts_pathlen] = '\0';
+<a href='../S/479.html#L413'>sp</a>                413 usr/lib/libc/gen/fts.c 		if (!ISSET(FTS_NOCHDIR) &amp;&amp; FCHDIR(sp, sp-&gt;fts_rfd)) {
+<a href='../S/479.html#L418'>sp</a>                418 usr/lib/libc/gen/fts.c 		if (FCHDIR(sp, p-&gt;fts_symfd)) {
+<a href='../S/479.html#L427'>sp</a>                427 usr/lib/libc/gen/fts.c 		if (CHDIR(sp, "..")) {
+<a href='../S/479.html#L433'>sp</a>                433 usr/lib/libc/gen/fts.c 	return (sp-&gt;fts_cur = p);
+<a href='../S/479.html#L444'>sp</a>                444 usr/lib/libc/gen/fts.c fts_set(FTS *sp, FTSENT *p, int instr)
+<a href='../S/479.html#L456'>sp</a>                456 usr/lib/libc/gen/fts.c fts_children(FTS *sp, int instr)
+<a href='../S/479.html#L467'>sp</a>                467 usr/lib/libc/gen/fts.c 	p = sp-&gt;fts_cur;
+<a href='../S/479.html#L492'>sp</a>                492 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_child)
+<a href='../S/479.html#L493'>sp</a>                493 usr/lib/libc/gen/fts.c 		fts_lfree(sp-&gt;fts_child);
+<a href='../S/479.html#L496'>sp</a>                496 usr/lib/libc/gen/fts.c 		sp-&gt;fts_options |= FTS_NAMEONLY;
+<a href='../S/479.html#L510'>sp</a>                510 usr/lib/libc/gen/fts.c 		return (sp-&gt;fts_child = fts_build(sp, instr));
+<a href='../S/479.html#L514'>sp</a>                514 usr/lib/libc/gen/fts.c 	sp-&gt;fts_child = fts_build(sp, instr);
+<a href='../S/479.html#L518'>sp</a>                518 usr/lib/libc/gen/fts.c 	return (sp-&gt;fts_child);
+<a href='../S/479.html#L536'>sp</a>                536 usr/lib/libc/gen/fts.c fts_build(FTS *sp, int type)
+<a href='../S/479.html#L551'>sp</a>                551 usr/lib/libc/gen/fts.c 	cur = sp-&gt;fts_cur;
+<a href='../S/479.html#L607'>sp</a>                607 usr/lib/libc/gen/fts.c 		if (FCHDIR(sp, dirfd(dirp))) {
+<a href='../S/479.html#L628'>sp</a>                628 usr/lib/libc/gen/fts.c 	maxlen = sp-&gt;fts_pathlen - cur-&gt;fts_pathlen - 1;
+<a href='../S/479.html#L631'>sp</a>                631 usr/lib/libc/gen/fts.c 		cp = sp-&gt;fts_path + len;
+<a href='../S/479.html#L644'>sp</a>                644 usr/lib/libc/gen/fts.c 		if ((p = fts_alloc(sp, dp-&gt;d_name, (int)dp-&gt;d_namlen)) == NULL)
+<a href='../S/479.html#L647'>sp</a>                647 usr/lib/libc/gen/fts.c 			if (fts_palloc(sp, (size_t)dp-&gt;d_namlen)) {
+<a href='../S/479.html#L663'>sp</a>                663 usr/lib/libc/gen/fts.c 			adjaddr = sp-&gt;fts_path;
+<a href='../S/479.html#L664'>sp</a>                664 usr/lib/libc/gen/fts.c 			maxlen = sp-&gt;fts_pathlen - sp-&gt;fts_cur-&gt;fts_pathlen - 1;
+<a href='../S/479.html#L668'>sp</a>                668 usr/lib/libc/gen/fts.c 		p-&gt;fts_parent = sp-&gt;fts_cur;
+<a href='../S/479.html#L700'>sp</a>                700 usr/lib/libc/gen/fts.c 			p-&gt;fts_info = fts_stat(sp, p, 0);
+<a href='../S/479.html#L725'>sp</a>                725 usr/lib/libc/gen/fts.c 		fts_padjust(sp, adjaddr);
+<a href='../S/479.html#L732'>sp</a>                732 usr/lib/libc/gen/fts.c 		if (cp - 1 &gt; sp-&gt;fts_path)
+<a href='../S/479.html#L746'>sp</a>                746 usr/lib/libc/gen/fts.c 	    FCHDIR(sp, sp-&gt;fts_rfd) : CHDIR(sp, ".."))) {
+<a href='../S/479.html#L760'>sp</a>                760 usr/lib/libc/gen/fts.c 	if (sp-&gt;fts_compar &amp;&amp; nitems &gt; 1)
+<a href='../S/479.html#L761'>sp</a>                761 usr/lib/libc/gen/fts.c 		head = fts_sort(sp, head, nitems);
+<a href='../S/479.html#L766'>sp</a>                766 usr/lib/libc/gen/fts.c fts_stat(FTS *sp, FTSENT *p, int follow)
+<a href='../S/479.html#L846'>sp</a>                846 usr/lib/libc/gen/fts.c fts_sort(FTS *sp, FTSENT *head, int nitems)
+<a href='../S/479.html#L857'>sp</a>                857 usr/lib/libc/gen/fts.c 	if (nitems &gt; sp-&gt;fts_nitems) {
+<a href='../S/479.html#L858'>sp</a>                858 usr/lib/libc/gen/fts.c 		sp-&gt;fts_nitems = nitems + 40;
+<a href='../S/479.html#L859'>sp</a>                859 usr/lib/libc/gen/fts.c 		if ((sp-&gt;fts_array = realloc(sp-&gt;fts_array,
+<a href='../S/479.html#L860'>sp</a>                860 usr/lib/libc/gen/fts.c 		    (size_t)(sp-&gt;fts_nitems * sizeof(FTSENT *)))) == NULL) {
+<a href='../S/479.html#L861'>sp</a>                861 usr/lib/libc/gen/fts.c 			sp-&gt;fts_nitems = 0;
+<a href='../S/479.html#L865'>sp</a>                865 usr/lib/libc/gen/fts.c 	for (ap = sp-&gt;fts_array, p = head; p; p = p-&gt;fts_link)
+<a href='../S/479.html#L867'>sp</a>                867 usr/lib/libc/gen/fts.c 	qsort((void *)sp-&gt;fts_array, nitems, sizeof(FTSENT *),
+<a href='../S/479.html#L868'>sp</a>                868 usr/lib/libc/gen/fts.c 		(int (*)(const void *, const void *))sp-&gt;fts_compar);
+<a href='../S/479.html#L870'>sp</a>                870 usr/lib/libc/gen/fts.c 	for (head = *(ap = sp-&gt;fts_array); --nitems; ++ap)
+<a href='../S/479.html#L877'>sp</a>                877 usr/lib/libc/gen/fts.c fts_alloc(FTS *sp, char *name, int namelen)
+<a href='../S/479.html#L902'>sp</a>                902 usr/lib/libc/gen/fts.c 	p-&gt;fts_path = sp-&gt;fts_path;
+<a href='../S/479.html#L930'>sp</a>                930 usr/lib/libc/gen/fts.c fts_palloc(FTS *sp, size_t more)
+<a href='../S/479.html#L932'>sp</a>                932 usr/lib/libc/gen/fts.c 	sp-&gt;fts_pathlen += more + 256;
+<a href='../S/479.html#L933'>sp</a>                933 usr/lib/libc/gen/fts.c 	sp-&gt;fts_path = realloc(sp-&gt;fts_path, (size_t)sp-&gt;fts_pathlen);
+<a href='../S/479.html#L934'>sp</a>                934 usr/lib/libc/gen/fts.c 	return (sp-&gt;fts_path == NULL);
+<a href='../S/479.html#L942'>sp</a>                942 usr/lib/libc/gen/fts.c fts_padjust(FTS *sp, void *addr)
+<a href='../S/479.html#L952'>sp</a>                952 usr/lib/libc/gen/fts.c 	for (p = sp-&gt;fts_child; p; p = p-&gt;fts_link)
+<a href='../S/479.html#L956'>sp</a>                956 usr/lib/libc/gen/fts.c 	for (p = sp-&gt;fts_cur; p-&gt;fts_level &gt;= FTS_ROOTLEVEL;) {
+<a href='../S/849.html#L155'>sp</a>                155 usr/sample/tetris/screen.c 	cell *bp, *sp;
+<a href='../S/849.html#L169'>sp</a>                169 usr/sample/tetris/screen.c 	sp = &amp;curscreen[D_FIRST * B_COLS];
+<a href='../S/849.html#L172'>sp</a>                172 usr/sample/tetris/screen.c 		for (i = 0; i &lt; B_COLS; bp++, sp++, i++) {
+<a href='../S/849.html#L173'>sp</a>                173 usr/sample/tetris/screen.c 			if (*sp == (so = *bp))
+<a href='../S/849.html#L175'>sp</a>                175 usr/sample/tetris/screen.c 			*sp = so;
+<a href='../S/849.html#L197'>sp</a>                197 usr/sample/tetris/screen.c 			if (i &gt; STOP || sp[1] != bp[1] || so != bp[1])
+<a href='../S/849.html#L199'>sp</a>                199 usr/sample/tetris/screen.c 			if (sp[2] != bp[2])
+<a href='../S/849.html#L200'>sp</a>                200 usr/sample/tetris/screen.c 				sp[1] = -1;
+<a href='../S/849.html#L201'>sp</a>                201 usr/sample/tetris/screen.c 			else if (i &lt; STOP &amp;&amp; so == bp[2] &amp;&amp; sp[3] != bp[3]) {
+<a href='../S/849.html#L202'>sp</a>                202 usr/sample/tetris/screen.c 				sp[2] = -1;
+<a href='../S/849.html#L203'>sp</a>                203 usr/sample/tetris/screen.c 				sp[1] = -1;
+<a href='../S/877.html#L78'>sp</a>                 78 usr/server/exec/exec_execve.c 	void *stack, *sp;
+<a href='../S/877.html#L184'>sp</a>                184 usr/server/exec/exec_execve.c 				exec.xarg1, exec.xarg2, &amp;sp)) != 0)
+<a href='../S/877.html#L194'>sp</a>                194 usr/server/exec/exec_execve.c 	if ((error = thread_load(t, (void (*)(void))exec.entry, sp)) != 0)
+<a href='../S/877.html#L321'>sp</a>                321 usr/server/exec/exec_execve.c 	u_long arg_top, mapped, sp;
+<a href='../S/877.html#L336'>sp</a>                336 usr/server/exec/exec_execve.c 	sp = mapped + DFLSTKSZ - sizeof(int) * 3;
+<a href='../S/877.html#L343'>sp</a>                343 usr/server/exec/exec_execve.c 	*(char *)sp = '\0';
+<a href='../S/877.html#L344'>sp</a>                344 usr/server/exec/exec_execve.c 	sp -= strlen(path);
+<a href='../S/877.html#L345'>sp</a>                345 usr/server/exec/exec_execve.c 	sp = SP_ALIGN(sp);
+<a href='../S/877.html#L346'>sp</a>                346 usr/server/exec/exec_execve.c 	strlcpy((char *)sp, path, PATH_MAX);
+<a href='../S/877.html#L347'>sp</a>                347 usr/server/exec/exec_execve.c 	file = (char *)sp;
+<a href='../S/877.html#L350'>sp</a>                350 usr/server/exec/exec_execve.c 	sp -= msg-&gt;bufsz;
+<a href='../S/877.html#L351'>sp</a>                351 usr/server/exec/exec_execve.c 	sp = SP_ALIGN(sp);
+<a href='../S/877.html#L352'>sp</a>                352 usr/server/exec/exec_execve.c 	memcpy((char *)sp, (char *)&amp;msg-&gt;buf, msg-&gt;bufsz);
+<a href='../S/877.html#L353'>sp</a>                353 usr/server/exec/exec_execve.c 	arg_top = sp;
+<a href='../S/877.html#L360'>sp</a>                360 usr/server/exec/exec_execve.c 		sp -= (len + 1);
+<a href='../S/877.html#L361'>sp</a>                361 usr/server/exec/exec_execve.c 		strlcpy((char *)sp, xarg2, len + 1);
+<a href='../S/877.html#L362'>sp</a>                362 usr/server/exec/exec_execve.c 		arg_top = sp;
+<a href='../S/877.html#L367'>sp</a>                367 usr/server/exec/exec_execve.c 		sp -= (len + 1);
+<a href='../S/877.html#L368'>sp</a>                368 usr/server/exec/exec_execve.c 		strlcpy((char *)sp, xarg1, len + 1);
+<a href='../S/877.html#L369'>sp</a>                369 usr/server/exec/exec_execve.c 		arg_top = sp;
+<a href='../S/877.html#L374'>sp</a>                374 usr/server/exec/exec_execve.c 	sp -= ((envc + 1) * sizeof(char *));
+<a href='../S/877.html#L375'>sp</a>                375 usr/server/exec/exec_execve.c 	envp = (char **)sp;
+<a href='../S/877.html#L378'>sp</a>                378 usr/server/exec/exec_execve.c 	sp -= ((argc + 1) * sizeof(char *));
+<a href='../S/877.html#L379'>sp</a>                379 usr/server/exec/exec_execve.c 	argv = (char **)sp;
+<a href='../S/877.html#L382'>sp</a>                382 usr/server/exec/exec_execve.c 	sp -= sizeof(int);
+<a href='../S/877.html#L383'>sp</a>                383 usr/server/exec/exec_execve.c 	*(int *)(sp) = argc + 1;
+<a href='../S/877.html#L402'>sp</a>                402 usr/server/exec/exec_execve.c 	*new_sp = (void *)((u_long)stack + (sp - mapped));
+<a href='../S/903.html#L949'>sp</a>                949 usr/server/fs/vfs/main.c 	void *stack, *sp;
+<a href='../S/903.html#L958'>sp</a>                958 usr/server/fs/vfs/main.c 	sp = (void *)((u_long)stack + DFLSTKSZ - sizeof(u_long) * 3);
+<a href='../S/903.html#L959'>sp</a>                959 usr/server/fs/vfs/main.c 	if ((error = thread_load(t, entry, sp)) != 0)
+<a href='../S/916.html#L270'>sp</a>                270 usr/server/pow/pow.c 	void *stack, *sp;
+<a href='../S/916.html#L279'>sp</a>                279 usr/server/pow/pow.c 	sp = (void *)((u_long)stack + DFLSTKSZ - sizeof(u_long) * 3);
+<a href='../S/916.html#L280'>sp</a>                280 usr/server/pow/pow.c 	if ((error = thread_load(t, entry, sp)) != 0)
+</pre>
+</body>
+</html>

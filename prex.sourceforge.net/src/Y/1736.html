@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>rela</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/2.html#L73'>rela</a>               73 bsp/boot/arm/arch/elf_reloc.c relocate_rela(Elf32_Rela *rela, Elf32_Addr sym_val, char *target_sec)
+<a href='../S/13.html#L178'>rela</a>              178 bsp/boot/common/elf.c relocate_section_rela(Elf32_Sym *sym_table, Elf32_Rela *rela,
+<a href='../S/13.html#L186'>rela</a>              186 bsp/boot/common/elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rela-&gt;r_info)];
+<a href='../S/13.html#L191'>rela</a>              191 bsp/boot/common/elf.c 			if (relocate_rela(rela, sym_val, target_sect) != 0)
+<a href='../S/13.html#L200'>rela</a>              200 bsp/boot/common/elf.c 		rela++;
+<a href='../S/26.html#L43'>rela</a>               43 bsp/boot/ppc/arch/elf_reloc.c relocate_rela(Elf32_Rela *rela, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/26.html#L48'>rela</a>               48 bsp/boot/ppc/arch/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rela-&gt;r_offset);
+<a href='../S/26.html#L49'>rela</a>               49 bsp/boot/ppc/arch/elf_reloc.c 	val = sym_val + rela-&gt;r_addend;
+<a href='../S/26.html#L51'>rela</a>               51 bsp/boot/ppc/arch/elf_reloc.c 	switch (ELF32_R_TYPE(rela-&gt;r_info)) {
+<a href='../S/26.html#L83'>rela</a>               83 bsp/boot/ppc/arch/elf_reloc.c 			ELF32_R_TYPE(rela-&gt;r_info)));
+<a href='../S/37.html#L64'>rela</a>               64 bsp/boot/x86/arch/elf_reloc.c relocate_rela(Elf32_Rela *rela, Elf32_Addr sym_val, char *target_sec)
+<a href='../S/348.html#L69'>rela</a>               69 usr/arch/arm/elf_reloc.c relocate_rela(Elf32_Rela *rela, Elf32_Addr sym_val, char *target_sec)
+<a href='../S/354.html#L41'>rela</a>               41 usr/arch/ppc/elf_reloc.c relocate_rela(Elf32_Rela *rela, Elf32_Addr sym_val, char *target_sect)
+<a href='../S/354.html#L46'>rela</a>               46 usr/arch/ppc/elf_reloc.c 	where = (Elf32_Addr *)(target_sect + rela-&gt;r_offset);
+<a href='../S/354.html#L47'>rela</a>               47 usr/arch/ppc/elf_reloc.c 	val = sym_val + rela-&gt;r_addend;
+<a href='../S/354.html#L49'>rela</a>               49 usr/arch/ppc/elf_reloc.c 	switch (ELF32_R_TYPE(rela-&gt;r_info)) {
+<a href='../S/354.html#L83'>rela</a>               83 usr/arch/ppc/elf_reloc.c 		syslog(LOG_ERR, "relocation fail type=%d\n", ELF32_R_TYPE(rela-&gt;r_info));
+<a href='../S/360.html#L58'>rela</a>               58 usr/arch/x86/elf_reloc.c relocate_rela(Elf32_Rela *rela, Elf32_Addr sym_val, char *target_sec)
+<a href='../S/876.html#L110'>rela</a>              110 usr/server/exec/exec_elf.c relocate_section_rela(Elf32_Sym *sym_table, Elf32_Rela *rela,
+<a href='../S/876.html#L118'>rela</a>              118 usr/server/exec/exec_elf.c 		sym = &amp;sym_table[ELF32_R_SYM(rela-&gt;r_info)];
+<a href='../S/876.html#L122'>rela</a>              122 usr/server/exec/exec_elf.c 			if (relocate_rela(rela, sym_val, target_sect) != 0)
+<a href='../S/876.html#L127'>rela</a>              127 usr/server/exec/exec_elf.c 		rela++;
+</pre>
+</body>
+</html>

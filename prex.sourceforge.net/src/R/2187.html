@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mutex_unlock</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L136'>mutex_unlock</a>      136 include/sys/prex.h int	mutex_unlock(mutex_t *mp);
+<a href='../S/270.html#L181'>mutex_unlock</a>      181 include/sys/signal.h #define SIGNAL_UNLOCK()	mutex_unlock(&amp;__sig_lock)
+<a href='../S/316.html#L85'>mutex_unlock</a>       85 sys/include/sync.h int	 mutex_unlock(mutex_t *);
+<a href='../S/332.html#L126'>mutex_unlock</a>      126 sys/kern/sysent.c 	/* 43 */ SYSENT(1, mutex_unlock),
+<a href='../S/345.html#L159'>mutex_unlock</a>      159 sys/sync/cond.c 	if ((error = mutex_unlock(mp)) != 0) {
+<a href='../S/753.html#L39'>mutex_unlock</a>       39 usr/lib/prex/malloc/malloc.h #define MALLOC_UNLOCK()	mutex_unlock(&amp;malloc_lock);
+<a href='../S/754.html#L47'>mutex_unlock</a>       47 usr/lib/prex/malloc/malloc_r.c 	mutex_unlock(&amp;malloc_r_lock);
+<a href='../S/754.html#L56'>mutex_unlock</a>       56 usr/lib/prex/malloc/malloc_r.c 	mutex_unlock(&amp;malloc_r_lock);
+<a href='../S/841.html#L120'>mutex_unlock</a>      120 usr/sample/mutex/mutex.c 	mutex_unlock(&amp;mtx_B);
+<a href='../S/841.html#L158'>mutex_unlock</a>      158 usr/sample/mutex/mutex.c 	mutex_unlock(&amp;mtx_B);
+<a href='../S/841.html#L166'>mutex_unlock</a>      166 usr/sample/mutex/mutex.c 	mutex_unlock(&amp;mtx_A);
+<a href='../S/841.html#L210'>mutex_unlock</a>      210 usr/sample/mutex/mutex.c 	mutex_unlock(&amp;mtx_A);
+<a href='../S/883.html#L200'>mutex_unlock</a>      200 usr/server/fs/arfs/arfs_vnops.c 	mutex_unlock(&amp;arfs_lock);
+<a href='../S/883.html#L265'>mutex_unlock</a>      265 usr/server/fs/arfs/arfs_vnops.c 	mutex_unlock(&amp;arfs_lock);
+<a href='../S/883.html#L337'>mutex_unlock</a>      337 usr/server/fs/arfs/arfs_vnops.c 	mutex_unlock(&amp;arfs_lock);
+<a href='../S/893.html#L149'>mutex_unlock</a>      149 usr/server/fs/fatfs/fatfs_vnops.c 		mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L160'>mutex_unlock</a>      160 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L231'>mutex_unlock</a>      231 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L334'>mutex_unlock</a>      334 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L368'>mutex_unlock</a>      368 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L412'>mutex_unlock</a>      412 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L452'>mutex_unlock</a>      452 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L548'>mutex_unlock</a>      548 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L609'>mutex_unlock</a>      609 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L650'>mutex_unlock</a>      650 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/893.html#L711'>mutex_unlock</a>      711 usr/server/fs/fatfs/fatfs_vnops.c 	mutex_unlock(&amp;fmp-&gt;lock);
+<a href='../S/896.html#L340'>mutex_unlock</a>      340 usr/server/fs/fifofs/fifo_vnops.c 		mutex_unlock(&amp;fifo_lock);
+<a href='../S/896.html#L347'>mutex_unlock</a>      347 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;fifo_lock);
+<a href='../S/896.html#L391'>mutex_unlock</a>      391 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;fifo_lock);
+<a href='../S/896.html#L402'>mutex_unlock</a>      402 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;fifo_lock);
+<a href='../S/896.html#L449'>mutex_unlock</a>      449 usr/server/fs/fifofs/fifo_vnops.c 			mutex_unlock(&amp;fifo_lock);
+<a href='../S/896.html#L461'>mutex_unlock</a>      461 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;fifo_lock);
+<a href='../S/896.html#L482'>mutex_unlock</a>      482 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L504'>mutex_unlock</a>      504 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;np-&gt;fn_wmtx);
+<a href='../S/902.html#L147'>mutex_unlock</a>      147 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L168'>mutex_unlock</a>      168 usr/server/fs/ramfs/ramfs_vnops.c 				mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L176'>mutex_unlock</a>      176 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L226'>mutex_unlock</a>      226 usr/server/fs/ramfs/ramfs_vnops.c 		mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L234'>mutex_unlock</a>      234 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L469'>mutex_unlock</a>      469 usr/server/fs/ramfs/ramfs_vnops.c 			mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L476'>mutex_unlock</a>      476 usr/server/fs/ramfs/ramfs_vnops.c 				mutex_unlock(&amp;ramfs_lock);
+<a href='../S/902.html#L492'>mutex_unlock</a>      492 usr/server/fs/ramfs/ramfs_vnops.c 	mutex_unlock(&amp;ramfs_lock);
+<a href='../S/906.html#L65'>mutex_unlock</a>       65 usr/server/fs/vfs/vfs_bio.c #define BIO_UNLOCK()	mutex_unlock(&amp;bio_lock)
+<a href='../S/906.html#L173'>mutex_unlock</a>      173 usr/server/fs/vfs/vfs_bio.c 			mutex_unlock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L208'>mutex_unlock</a>      208 usr/server/fs/vfs/vfs_bio.c 	mutex_unlock(&amp;bp-&gt;b_lock);
+<a href='../S/906.html#L356'>mutex_unlock</a>      356 usr/server/fs/vfs/vfs_bio.c 			mutex_unlock(&amp;bp-&gt;b_lock);
+<a href='../S/909.html#L65'>mutex_unlock</a>       65 usr/server/fs/vfs/vfs_mount.c #define MOUNT_UNLOCK()	mutex_unlock(&amp;mount_lock)
+<a href='../S/912.html#L59'>mutex_unlock</a>       59 usr/server/fs/vfs/vfs_task.c #define TASK_UNLOCK()	mutex_unlock(&amp;task_lock)
+<a href='../S/912.html#L130'>mutex_unlock</a>      130 usr/server/fs/vfs/vfs_task.c 	mutex_unlock(&amp;t-&gt;t_lock);
+<a href='../S/912.html#L157'>mutex_unlock</a>      157 usr/server/fs/vfs/vfs_task.c 	mutex_unlock(&amp;t-&gt;t_lock);
+<a href='../S/913.html#L78'>mutex_unlock</a>       78 usr/server/fs/vfs/vfs_vnode.c #define VNODE_UNLOCK()	mutex_unlock(&amp;vnode_lock)
+<a href='../S/913.html#L153'>mutex_unlock</a>      153 usr/server/fs/vfs/vfs_vnode.c 	mutex_unlock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L232'>mutex_unlock</a>      232 usr/server/fs/vfs/vfs_vnode.c 	mutex_unlock(&amp;vp-&gt;v_lock);
+<a href='../S/977.html#L68'>mutex_unlock</a>       68 usr/test/mutex/mutex.c 	error = mutex_unlock(&amp;mtx_A);
+<a href='../S/977.html#L71'>mutex_unlock</a>       71 usr/test/mutex/mutex.c 	error = mutex_unlock(&amp;mtx_B);
+<a href='../S/977.html#L75'>mutex_unlock</a>       75 usr/test/mutex/mutex.c 	error = mutex_unlock(&amp;mtx_C);
+<a href='../S/977.html#L79'>mutex_unlock</a>       79 usr/test/mutex/mutex.c 	error = mutex_unlock(&amp;mtx_B);
+<a href='../S/977.html#L101'>mutex_unlock</a>      101 usr/test/mutex/mutex.c 	error = mutex_unlock(&amp;mtx_A);
+</pre>
+</body>
+</html>

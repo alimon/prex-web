@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>newcur</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/54.html#L190'>newcur</a>            190 bsp/drv/arm/gba/swkbd.c 	int newcur;	/* new cursor */
+<a href='../S/54.html#L198'>newcur</a>            198 bsp/drv/arm/gba/swkbd.c 	newcur = 0;
+<a href='../S/54.html#L200'>newcur</a>            200 bsp/drv/arm/gba/swkbd.c 	case 9: newcur = 0; break;
+<a href='../S/54.html#L201'>newcur</a>            201 bsp/drv/arm/gba/swkbd.c 	case 11: newcur = 1; break;
+<a href='../S/54.html#L202'>newcur</a>            202 bsp/drv/arm/gba/swkbd.c 	case 12: newcur = 2; break;
+<a href='../S/54.html#L203'>newcur</a>            203 bsp/drv/arm/gba/swkbd.c 	case 13: newcur = 3; break;
+<a href='../S/54.html#L204'>newcur</a>            204 bsp/drv/arm/gba/swkbd.c 	case 15: newcur = 4; break;
+<a href='../S/54.html#L205'>newcur</a>            205 bsp/drv/arm/gba/swkbd.c 	case 17: newcur = 5; break;
+<a href='../S/54.html#L206'>newcur</a>            206 bsp/drv/arm/gba/swkbd.c 	case 19: newcur = 6; break;
+<a href='../S/54.html#L207'>newcur</a>            207 bsp/drv/arm/gba/swkbd.c 	case 53: newcur = 7; break;
+<a href='../S/54.html#L209'>newcur</a>            209 bsp/drv/arm/gba/swkbd.c 	if (newcur != curcur) {
+<a href='../S/54.html#L212'>newcur</a>            212 bsp/drv/arm/gba/swkbd.c 		sc-&gt;cursor_type = newcur;
+<a href='../S/54.html#L214'>newcur</a>            214 bsp/drv/arm/gba/swkbd.c 	oam[newcur * 4] = (uint16_t)((oam[newcur * 4] &amp; 0xff00) | y);
+<a href='../S/54.html#L215'>newcur</a>            215 bsp/drv/arm/gba/swkbd.c 	oam[newcur * 4 + 1] = (uint16_t)((oam[newcur * 4 + 1] &amp; 0xfe00) | x);
+</pre>
+</body>
+</html>

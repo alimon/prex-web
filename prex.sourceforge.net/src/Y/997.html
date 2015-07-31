@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>gr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/154.html#L84'>gr</a>                 84 bsp/hal/ppc/arch/context.c 		u-&gt;gr[3] = 0x11111111;
+<a href='../S/154.html#L85'>gr</a>                 85 bsp/hal/ppc/arch/context.c 		u-&gt;gr[4] = 0x22222222;
+<a href='../S/154.html#L86'>gr</a>                 86 bsp/hal/ppc/arch/context.c 		u-&gt;gr[5] = 0x33333333;
+<a href='../S/154.html#L104'>gr</a>                104 bsp/hal/ppc/arch/context.c 		u-&gt;gr[1] = (uint32_t)val;
+<a href='../S/154.html#L117'>gr</a>                117 bsp/hal/ppc/arch/context.c 		u-&gt;gr[3] = (uint32_t)val;
+<a href='../S/154.html#L118'>gr</a>                118 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(u-&gt;gr[1] + sizeof(uint32_t));
+<a href='../S/154.html#L165'>gr</a>                165 bsp/hal/ppc/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;gr[1] - sizeof(struct cpu_regs));
+<a href='../S/154.html#L171'>gr</a>                171 bsp/hal/ppc/arch/context.c 	cur-&gt;gr[1] = (uint32_t)sav - sizeof(uint32_t);
+<a href='../S/159.html#L124'>gr</a>                124 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[0], r-&gt;gr[1], r-&gt;gr[2], r-&gt;gr[3], r-&gt;gr[4], r-&gt;gr[5]);
+<a href='../S/159.html#L126'>gr</a>                126 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[6], r-&gt;gr[7], r-&gt;gr[8], r-&gt;gr[9], r-&gt;gr[10], r-&gt;gr[11]);
+<a href='../S/159.html#L128'>gr</a>                128 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[12], r-&gt;gr[13], r-&gt;gr[14], r-&gt;gr[15], r-&gt;gr[16], r-&gt;gr[17]);
+<a href='../S/159.html#L130'>gr</a>                130 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[18], r-&gt;gr[19], r-&gt;gr[20], r-&gt;gr[21], r-&gt;gr[22], r-&gt;gr[23]);
+<a href='../S/159.html#L132'>gr</a>                132 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[24], r-&gt;gr[25], r-&gt;gr[26], r-&gt;gr[27], r-&gt;gr[28], r-&gt;gr[29]);
+<a href='../S/159.html#L134'>gr</a>                134 bsp/hal/ppc/arch/trap.c 	       r-&gt;gr[30], r-&gt;gr[31], r-&gt;lr, r-&gt;cr, r-&gt;xer, r-&gt;ctr);
+<a href='../S/161.html#L45'>gr</a>                 45 bsp/hal/ppc/include/context.h 	uint32_t	gr[32];		/* R0-R31 */
+<a href='../S/161.html#L59'>gr</a>                 59 bsp/hal/ppc/include/context.h 	uint32_t	gr[19];		/* R13-R31 */
+</pre>
+</body>
+</html>

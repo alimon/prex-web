@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>uaddr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/155.html#L74'>uaddr</a>              74 bsp/hal/ppc/arch/cpu.c copyin(const void *uaddr, void *kaddr, size_t len)
+<a href='../S/155.html#L77'>uaddr</a>              77 bsp/hal/ppc/arch/cpu.c 	if (user_area(uaddr) &amp;&amp; user_area(uaddr + len)) {
+<a href='../S/155.html#L78'>uaddr</a>              78 bsp/hal/ppc/arch/cpu.c 		memcpy(kaddr, uaddr, len);
+<a href='../S/155.html#L85'>uaddr</a>              85 bsp/hal/ppc/arch/cpu.c copyout(const void *kaddr, void *uaddr, size_t len)
+<a href='../S/155.html#L88'>uaddr</a>              88 bsp/hal/ppc/arch/cpu.c 	if (user_area(uaddr) &amp;&amp; user_area(uaddr + len)) {
+<a href='../S/155.html#L89'>uaddr</a>              89 bsp/hal/ppc/arch/cpu.c 		memcpy(uaddr, kaddr, len);
+<a href='../S/155.html#L96'>uaddr</a>              96 bsp/hal/ppc/arch/cpu.c copyinstr(const void *uaddr, void *kaddr, size_t len)
+<a href='../S/155.html#L99'>uaddr</a>              99 bsp/hal/ppc/arch/cpu.c 	if (user_area(uaddr) &amp;&amp; user_area(uaddr + len)) {
+<a href='../S/155.html#L100'>uaddr</a>             100 bsp/hal/ppc/arch/cpu.c 		strlcpy(kaddr, uaddr, len);
+<a href='../S/343.html#L88'>uaddr</a>              88 sys/mem/vm.c   	void *uaddr;
+<a href='../S/343.html#L100'>uaddr</a>             100 sys/mem/vm.c   	if (copyin(addr, &amp;uaddr, sizeof(uaddr))) {
+<a href='../S/343.html#L109'>uaddr</a>             109 sys/mem/vm.c   	error = do_allocate(task-&gt;map, &amp;uaddr, size, anywhere);
+<a href='../S/343.html#L111'>uaddr</a>             111 sys/mem/vm.c   		if (copyout(&amp;uaddr, addr, sizeof(uaddr)))
+<a href='../S/344.html#L81'>uaddr</a>              81 sys/mem/vm_nommu.c 	void *uaddr;
+<a href='../S/344.html#L93'>uaddr</a>              93 sys/mem/vm_nommu.c 	if (copyin(addr, &amp;uaddr, sizeof(*addr))) {
+<a href='../S/344.html#L102'>uaddr</a>             102 sys/mem/vm_nommu.c 	error = do_allocate(task-&gt;map, &amp;uaddr, size, anywhere);
+<a href='../S/344.html#L104'>uaddr</a>             104 sys/mem/vm_nommu.c 		if (copyout(&amp;uaddr, addr, sizeof(uaddr)))
+</pre>
+</body>
+</html>

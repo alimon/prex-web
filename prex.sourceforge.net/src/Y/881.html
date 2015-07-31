@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>flags</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/59.html#L66'>flags</a>              66 bsp/drv/dev/base/init.c 				dp-&gt;flags |= DS_ALIVE;
+<a href='../S/59.html#L71'>flags</a>              71 bsp/drv/dev/base/init.c 			dp-&gt;flags |= DS_ALIVE;
+<a href='../S/59.html#L91'>flags</a>              91 bsp/drv/dev/base/init.c 		if (dp-&gt;flags &amp; DS_ALIVE) {
+<a href='../S/59.html#L94'>flags</a>              94 bsp/drv/dev/base/init.c 				dp-&gt;flags |= DS_ACTIVE;
+<a href='../S/59.html#L116'>flags</a>             116 bsp/drv/dev/base/init.c 		if (dp-&gt;flags &amp; DS_ACTIVE) {
+<a href='../S/59.html#L139'>flags</a>             139 bsp/drv/dev/base/init.c 		       (long)dp-&gt;devops,(long) dp-&gt;flags, dp-&gt;name);
+<a href='../S/60.html#L260'>flags</a>             260 bsp/drv/dev/base/kd.c 			       ti.nthreads, ti.flags, ti.suscnt,
+<a href='../S/60.html#L272'>flags</a>             272 bsp/drv/dev/base/kd.c 	char flags[6];
+<a href='../S/60.html#L285'>flags</a>             285 bsp/drv/dev/base/kd.c 			if (vi.flags != VF_FREE) {
+<a href='../S/60.html#L286'>flags</a>             286 bsp/drv/dev/base/kd.c 				strlcpy(flags, "-----", sizeof(flags));
+<a href='../S/60.html#L287'>flags</a>             287 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_READ)
+<a href='../S/60.html#L288'>flags</a>             288 bsp/drv/dev/base/kd.c 					flags[0] = 'R';
+<a href='../S/60.html#L289'>flags</a>             289 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_WRITE)
+<a href='../S/60.html#L290'>flags</a>             290 bsp/drv/dev/base/kd.c 					flags[1] = 'W';
+<a href='../S/60.html#L291'>flags</a>             291 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_EXEC)
+<a href='../S/60.html#L292'>flags</a>             292 bsp/drv/dev/base/kd.c 					flags[2] = 'E';
+<a href='../S/60.html#L293'>flags</a>             293 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_SHARED)
+<a href='../S/60.html#L294'>flags</a>             294 bsp/drv/dev/base/kd.c 					flags[3] = 'S';
+<a href='../S/60.html#L295'>flags</a>             295 bsp/drv/dev/base/kd.c 				if (vi.flags &amp; VF_MAPPED)
+<a href='../S/60.html#L296'>flags</a>             296 bsp/drv/dev/base/kd.c 					flags[4] = 'M';
+<a href='../S/60.html#L299'>flags</a>             299 bsp/drv/dev/base/kd.c 				       vi.size, flags);
+<a href='../S/60.html#L334'>flags</a>             334 bsp/drv/dev/base/kd.c 	char flags[6];
+<a href='../S/60.html#L347'>flags</a>             347 bsp/drv/dev/base/kd.c 			strlcpy(flags, "-----", sizeof(flags));
+<a href='../S/60.html#L348'>flags</a>             348 bsp/drv/dev/base/kd.c 			if (di.flags &amp; D_CHR)
+<a href='../S/60.html#L349'>flags</a>             349 bsp/drv/dev/base/kd.c 				flags[0] = 'C';
+<a href='../S/60.html#L350'>flags</a>             350 bsp/drv/dev/base/kd.c 			if (di.flags &amp; D_BLK)
+<a href='../S/60.html#L351'>flags</a>             351 bsp/drv/dev/base/kd.c 				flags[1] = 'B';
+<a href='../S/60.html#L352'>flags</a>             352 bsp/drv/dev/base/kd.c 			if (di.flags &amp; D_REM)
+<a href='../S/60.html#L353'>flags</a>             353 bsp/drv/dev/base/kd.c 				flags[2] = 'R';
+<a href='../S/60.html#L354'>flags</a>             354 bsp/drv/dev/base/kd.c 			if (di.flags &amp; D_PROT)
+<a href='../S/60.html#L355'>flags</a>             355 bsp/drv/dev/base/kd.c 				flags[3] = 'P';
+<a href='../S/60.html#L356'>flags</a>             356 bsp/drv/dev/base/kd.c 			if (di.flags &amp; D_TTY)
+<a href='../S/60.html#L357'>flags</a>             357 bsp/drv/dev/base/kd.c 				flags[4] = 'T';
+<a href='../S/60.html#L359'>flags</a>             359 bsp/drv/dev/base/kd.c 			printf(" %08lx %12s %s\n", di.id, di.name, flags);
+<a href='../S/64.html#L532'>flags</a>             532 bsp/drv/dev/base/tty.c 	int flags;
+<a href='../S/64.html#L561'>flags</a>             561 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;flags, sizeof(flags)))
+<a href='../S/64.html#L563'>flags</a>             563 bsp/drv/dev/base/tty.c 		if (flags == 0)
+<a href='../S/64.html#L564'>flags</a>             564 bsp/drv/dev/base/tty.c 			flags = FREAD | FWRITE;
+<a href='../S/64.html#L566'>flags</a>             566 bsp/drv/dev/base/tty.c 			flags &amp;= FREAD | FWRITE;
+<a href='../S/64.html#L567'>flags</a>             567 bsp/drv/dev/base/tty.c 		tty_flush(tp, flags);
+<a href='../S/219.html#L93'>flags</a>              93 include/ipc/fs.h 	int	flags;			/* mount flags */
+<a href='../S/219.html#L102'>flags</a>             102 include/ipc/fs.h 	int	flags;			/* open flag */
+<a href='../S/252.html#L83'>flags</a>              83 include/sys/device.h 	int		flags;		/* state of driver */
+<a href='../S/272.html#L103'>flags</a>             103 include/sys/sysinfo.h 	int		flags;		/* task flags */
+<a href='../S/272.html#L120'>flags</a>             120 include/sys/sysinfo.h 	int		flags;		/* region flag */
+<a href='../S/272.html#L138'>flags</a>             138 include/sys/sysinfo.h 	int	 	flags;		/* device characteristics flags */
+<a href='../S/305.html#L44'>flags</a>              44 sys/include/device.h 	int		flags;		/* D_* flags defined above */
+<a href='../S/318.html#L50'>flags</a>              50 sys/include/task.h 	int		flags;		/* flags defined below */
+<a href='../S/323.html#L48'>flags</a>              48 sys/include/vm.h 	int		flags;		/* SEG_* flag */
+<a href='../S/326.html#L180'>flags</a>             180 sys/kern/debug.c 			task-&gt;flags ^= TF_TRACE;
+<a href='../S/327.html#L130'>flags</a>             130 sys/kern/device.c device_create(struct driver *drv, const char *name, int flags)
+<a href='../S/327.html#L162'>flags</a>             162 sys/kern/device.c 	dev-&gt;flags = flags;
+<a href='../S/327.html#L529'>flags</a>             529 sys/kern/device.c 			info-&gt;flags = dev-&gt;flags;
+<a href='../S/328.html#L180'>flags</a>             180 sys/kern/exception.c 	if (task-&gt;flags &amp; TF_SYSTEM) {
+<a href='../S/332.html#L183'>flags</a>             183 sys/kern/sysent.c 	if (curtask-&gt;flags &amp; TF_TRACE) {
+<a href='../S/332.html#L227'>flags</a>             227 sys/kern/sysent.c 	if (curtask-&gt;flags &amp; TF_TRACE) {
+<a href='../S/334.html#L87'>flags</a>              87 sys/kern/task.c 	if ((curtask-&gt;flags &amp; TF_SYSTEM) == 0) {
+<a href='../S/334.html#L138'>flags</a>             138 sys/kern/task.c 	task-&gt;flags = TF_DEFAULT;
+<a href='../S/334.html#L148'>flags</a>             148 sys/kern/task.c 	if (curtask-&gt;flags &amp; TF_SYSTEM)
+<a href='../S/334.html#L320'>flags</a>             320 sys/kern/task.c 	if (curtask-&gt;flags &amp; TF_SYSTEM)
+<a href='../S/334.html#L374'>flags</a>             374 sys/kern/task.c 		if (task-&gt;flags &amp; TF_AUDIT)
+<a href='../S/334.html#L394'>flags</a>             394 sys/kern/task.c 		if (curtask-&gt;flags &amp; TF_AUDIT)
+<a href='../S/334.html#L426'>flags</a>             426 sys/kern/task.c 	if (task-&gt;flags &amp; TF_SYSTEM) {
+<a href='../S/334.html#L453'>flags</a>             453 sys/kern/task.c 			info-&gt;flags = task-&gt;flags;
+<a href='../S/334.html#L537'>flags</a>             537 sys/kern/task.c 	kernel_task.flags = TF_SYSTEM;
+<a href='../S/335.html#L89'>flags</a>              89 sys/kern/thread.c 	if ((curtask-&gt;flags &amp; TF_SYSTEM) == 0) {
+<a href='../S/335.html#L114'>flags</a>             114 sys/kern/thread.c 	if (curtask-&gt;flags &amp; TF_SYSTEM)
+<a href='../S/335.html#L309'>flags</a>             309 sys/kern/thread.c 	if (t-&gt;task-&gt;flags &amp; TF_SYSTEM) {
+<a href='../S/335.html#L558'>flags</a>             558 sys/kern/thread.c 	ASSERT(t-&gt;task-&gt;flags &amp; TF_SYSTEM);
+<a href='../S/343.html#L145'>flags</a>             145 sys/mem/vm.c   	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/343.html#L218'>flags</a>             218 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L229'>flags</a>             229 sys/mem/vm.c   	if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp; !(seg-&gt;flags &amp; SEG_MAPPED))
+<a href='../S/343.html#L289'>flags</a>             289 sys/mem/vm.c   	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L295'>flags</a>             295 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_MAPPED)
+<a href='../S/343.html#L302'>flags</a>             302 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_WRITE) {
+<a href='../S/343.html#L317'>flags</a>             317 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L340'>flags</a>             340 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L347'>flags</a>             347 sys/mem/vm.c   	seg-&gt;flags = new_flags;
+<a href='../S/343.html#L415'>flags</a>             415 sys/mem/vm.c   	if (seg == NULL || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L430'>flags</a>             430 sys/mem/vm.c   	if (tgt-&gt;flags &amp; SEG_WRITE)
+<a href='../S/343.html#L441'>flags</a>             441 sys/mem/vm.c   	cur-&gt;flags = tgt-&gt;flags | SEG_MAPPED;
+<a href='../S/343.html#L493'>flags</a>             493 sys/mem/vm.c   		if (seg-&gt;flags != SEG_FREE) {
+<a href='../S/343.html#L499'>flags</a>             499 sys/mem/vm.c   			if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp;
+<a href='../S/343.html#L500'>flags</a>             500 sys/mem/vm.c   			    !(seg-&gt;flags &amp; SEG_MAPPED)) {
+<a href='../S/343.html#L590'>flags</a>             590 sys/mem/vm.c   		if (src-&gt;flags == SEG_FREE) {
+<a href='../S/343.html#L596'>flags</a>             596 sys/mem/vm.c   			if (!(src-&gt;flags &amp; SEG_WRITE) &amp;&amp;
+<a href='../S/343.html#L597'>flags</a>             597 sys/mem/vm.c   			    !(src-&gt;flags &amp; SEG_MAPPED)) {
+<a href='../S/343.html#L598'>flags</a>             598 sys/mem/vm.c   				dest-&gt;flags |= SEG_SHARED;
+<a href='../S/343.html#L601'>flags</a>             601 sys/mem/vm.c   			if (!(dest-&gt;flags &amp; SEG_SHARED)) {
+<a href='../S/343.html#L612'>flags</a>             612 sys/mem/vm.c   			if (dest-&gt;flags &amp; SEG_WRITE)
+<a href='../S/343.html#L630'>flags</a>             630 sys/mem/vm.c   		if (dest-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L631'>flags</a>             631 sys/mem/vm.c   			src-&gt;flags |= SEG_SHARED;
+<a href='../S/343.html#L761'>flags</a>             761 sys/mem/vm.c   			info-&gt;flags = seg-&gt;flags;
+<a href='../S/343.html#L802'>flags</a>             802 sys/mem/vm.c   	seg-&gt;flags = SEG_FREE;
+<a href='../S/343.html#L820'>flags</a>             820 sys/mem/vm.c   	seg-&gt;flags = SEG_FREE;
+<a href='../S/343.html#L841'>flags</a>             841 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L845'>flags</a>             845 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L880'>flags</a>             880 sys/mem/vm.c   		if ((seg-&gt;flags &amp; SEG_FREE) &amp;&amp; seg-&gt;size &gt;= size) {
+<a href='../S/343.html#L906'>flags</a>             906 sys/mem/vm.c   	ASSERT(seg-&gt;flags != SEG_FREE);
+<a href='../S/343.html#L908'>flags</a>             908 sys/mem/vm.c   	seg-&gt;flags = SEG_FREE;
+<a href='../S/343.html#L913'>flags</a>             913 sys/mem/vm.c   	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/343.html#L917'>flags</a>             917 sys/mem/vm.c   			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/343.html#L923'>flags</a>             923 sys/mem/vm.c   	if (next != head &amp;&amp; (next-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L933'>flags</a>             933 sys/mem/vm.c   	if (seg != head &amp;&amp; (prev-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/343.html#L954'>flags</a>             954 sys/mem/vm.c   	if (seg == NULL || !(seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/343.html#L983'>flags</a>             983 sys/mem/vm.c   	seg-&gt;flags = 0;
+<a href='../S/344.html#L138'>flags</a>             138 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/344.html#L194'>flags</a>             194 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/344.html#L200'>flags</a>             200 sys/mem/vm_nommu.c 	if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp; !(seg-&gt;flags &amp; SEG_MAPPED))
+<a href='../S/344.html#L259'>flags</a>             259 sys/mem/vm_nommu.c 	if (seg == NULL || seg-&gt;addr != va || (seg-&gt;flags &amp; SEG_FREE)) {
+<a href='../S/344.html#L265'>flags</a>             265 sys/mem/vm_nommu.c 	if ((seg-&gt;flags &amp; SEG_MAPPED) || (seg-&gt;flags &amp; SEG_SHARED))
+<a href='../S/344.html#L271'>flags</a>             271 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_WRITE) {
+<a href='../S/344.html#L280'>flags</a>             280 sys/mem/vm_nommu.c 	seg-&gt;flags = new_flags;
+<a href='../S/344.html#L345'>flags</a>             345 sys/mem/vm_nommu.c 	if (seg == NULL || (seg-&gt;flags &amp; SEG_FREE))
+<a href='../S/344.html#L355'>flags</a>             355 sys/mem/vm_nommu.c 	seg-&gt;flags = tgt-&gt;flags | SEG_MAPPED;
+<a href='../S/344.html#L399'>flags</a>             399 sys/mem/vm_nommu.c 		if (seg-&gt;flags != SEG_FREE) {
+<a href='../S/344.html#L401'>flags</a>             401 sys/mem/vm_nommu.c 			if (!(seg-&gt;flags &amp; SEG_SHARED) &amp;&amp;
+<a href='../S/344.html#L402'>flags</a>             402 sys/mem/vm_nommu.c 			    !(seg-&gt;flags &amp; SEG_MAPPED)) {
+<a href='../S/344.html#L477'>flags</a>             477 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_READ | SEG_WRITE;
+<a href='../S/344.html#L521'>flags</a>             521 sys/mem/vm_nommu.c 			info-&gt;flags = seg-&gt;flags;
+<a href='../S/344.html#L552'>flags</a>             552 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_FREE;
+<a href='../S/344.html#L570'>flags</a>             570 sys/mem/vm_nommu.c 	seg-&gt;flags = SEG_FREE;
+<a href='../S/344.html#L591'>flags</a>             591 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/344.html#L595'>flags</a>             595 sys/mem/vm_nommu.c 			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/344.html#L645'>flags</a>             645 sys/mem/vm_nommu.c 	ASSERT(seg-&gt;flags != SEG_FREE);
+<a href='../S/344.html#L650'>flags</a>             650 sys/mem/vm_nommu.c 	if (seg-&gt;flags &amp; SEG_SHARED) {
+<a href='../S/344.html#L654'>flags</a>             654 sys/mem/vm_nommu.c 			seg-&gt;sh_prev-&gt;flags &amp;= ~SEG_SHARED;
+<a href='../S/413.html#L113'>flags</a>             113 usr/bin/sh/sh.c execute(int argc, char *argv[], int *redir, int flags, cmdfn_t cmdfn)
+<a href='../S/413.html#L147'>flags</a>             147 usr/bin/sh/sh.c 		if (flags &amp; CMD_BACKGND) {
+<a href='../S/413.html#L181'>flags</a>             181 usr/bin/sh/sh.c 	if (flags &amp; CMD_PIPE)
+<a href='../S/413.html#L183'>flags</a>             183 usr/bin/sh/sh.c 	if (flags &amp; CMD_BACKGND) {
+<a href='../S/413.html#L274'>flags</a>             274 usr/bin/sh/sh.c parsecmd(char *cmds, int *redir, int flags)
+<a href='../S/413.html#L345'>flags</a>             345 usr/bin/sh/sh.c 	execute(argc, args, redir, flags, fn);
+<a href='../S/413.html#L349'>flags</a>             349 usr/bin/sh/sh.c parsepipe(char *str, int flags)
+<a href='../S/413.html#L366'>flags</a>             366 usr/bin/sh/sh.c 			parsecmd(cmds, redir, flags | CMD_PIPE);
+<a href='../S/413.html#L372'>flags</a>             372 usr/bin/sh/sh.c 			parsecmd(cmds, redir, flags);
+<a href='../S/423.html#L55'>flags</a>              55 usr/bin/touch/touch.c 	unsigned int flags;
+<a href='../S/423.html#L58'>flags</a>              58 usr/bin/touch/touch.c 	flags = 0;
+<a href='../S/423.html#L62'>flags</a>              62 usr/bin/touch/touch.c 			flags |= TF_NOCREAT;
+<a href='../S/423.html#L75'>flags</a>              75 usr/bin/touch/touch.c 		if (do_touch(*argv, flags))
+<a href='../S/423.html#L90'>flags</a>              90 usr/bin/touch/touch.c do_touch(char *file, unsigned int flags)
+<a href='../S/423.html#L96'>flags</a>              96 usr/bin/touch/touch.c 		if (!(flags &amp; TF_NOCREAT)) {
+<a href='../S/425.html#L59'>flags</a>              59 usr/bin/uname/uname.c 	u_int flags;
+<a href='../S/425.html#L63'>flags</a>              63 usr/bin/uname/uname.c 	flags = 0;
+<a href='../S/425.html#L67'>flags</a>              67 usr/bin/uname/uname.c 			flags |= (MFLAG | NFLAG | RFLAG | SFLAG | VFLAG);
+<a href='../S/425.html#L70'>flags</a>              70 usr/bin/uname/uname.c 			flags |= MFLAG;
+<a href='../S/425.html#L73'>flags</a>              73 usr/bin/uname/uname.c 			flags |= NFLAG;
+<a href='../S/425.html#L76'>flags</a>              76 usr/bin/uname/uname.c 			flags |= RFLAG;
+<a href='../S/425.html#L79'>flags</a>              79 usr/bin/uname/uname.c 			flags |= SFLAG;
+<a href='../S/425.html#L82'>flags</a>              82 usr/bin/uname/uname.c 			flags |= VFLAG;
+<a href='../S/425.html#L95'>flags</a>              95 usr/bin/uname/uname.c 	if (!flags)
+<a href='../S/425.html#L96'>flags</a>              96 usr/bin/uname/uname.c 		flags |= SFLAG;
+<a href='../S/425.html#L100'>flags</a>             100 usr/bin/uname/uname.c 	if (flags &amp; SFLAG)
+<a href='../S/425.html#L103'>flags</a>             103 usr/bin/uname/uname.c 	if (flags &amp; RFLAG)
+<a href='../S/425.html#L106'>flags</a>             106 usr/bin/uname/uname.c 	if (flags &amp; VFLAG)
+<a href='../S/425.html#L109'>flags</a>             109 usr/bin/uname/uname.c 	if (flags &amp; MFLAG)
+<a href='../S/425.html#L112'>flags</a>             112 usr/bin/uname/uname.c 	if (flags &amp; NFLAG)
+<a href='../S/498.html#L46'>flags</a>              46 usr/lib/libc/stdio/fdopen.c 	int flags, oflags, fdflags, tmp;
+<a href='../S/498.html#L48'>flags</a>              48 usr/lib/libc/stdio/fdopen.c 	if ((flags = __sflags(mode, &amp;oflags)) == 0)
+<a href='../S/498.html#L62'>flags</a>              62 usr/lib/libc/stdio/fdopen.c 	fp-&gt;_flags = flags;
+<a href='../S/506.html#L45'>flags</a>              45 usr/lib/libc/stdio/findfp.c std(FILE *fp, FILE *next, short flags, short fileno)
+<a href='../S/506.html#L50'>flags</a>              50 usr/lib/libc/stdio/findfp.c 	fp-&gt;_flags = flags;
+<a href='../S/508.html#L47'>flags</a>              47 usr/lib/libc/stdio/fopen.c 	int flags, oflags;
+<a href='../S/508.html#L49'>flags</a>              49 usr/lib/libc/stdio/fopen.c 	if ((flags = __sflags(mode, &amp;oflags)) == 0)
+<a href='../S/508.html#L58'>flags</a>              58 usr/lib/libc/stdio/fopen.c 	fp-&gt;_flags = flags;
+<a href='../S/514.html#L53'>flags</a>              53 usr/lib/libc/stdio/freopen.c 	int flags, isopen, oflags, sverrno, wantfd;
+<a href='../S/514.html#L55'>flags</a>              55 usr/lib/libc/stdio/freopen.c 	if ((flags = __sflags(mode, &amp;oflags)) == 0) {
+<a href='../S/514.html#L135'>flags</a>             135 usr/lib/libc/stdio/freopen.c 	fp-&gt;_flags = flags;
+<a href='../S/528.html#L70'>flags</a>              70 usr/lib/libc/stdio/makebuf.c 	int flags;
+<a href='../S/528.html#L79'>flags</a>              79 usr/lib/libc/stdio/makebuf.c 	flags = __swhatbuf(fp, &amp;size, &amp;couldbetty);
+<a href='../S/528.html#L87'>flags</a>              87 usr/lib/libc/stdio/makebuf.c 	flags |= __SMBF;
+<a href='../S/528.html#L91'>flags</a>              91 usr/lib/libc/stdio/makebuf.c 		flags |= __SLBF;
+<a href='../S/528.html#L93'>flags</a>              93 usr/lib/libc/stdio/makebuf.c 	fp-&gt;_flags |= flags;
+<a href='../S/543.html#L48'>flags</a>              48 usr/lib/libc/stdio/setvbuf.c 	int ret, flags;
+<a href='../S/543.html#L71'>flags</a>              71 usr/lib/libc/stdio/setvbuf.c 	flags = fp-&gt;_flags;
+<a href='../S/543.html#L72'>flags</a>              72 usr/lib/libc/stdio/setvbuf.c 	if (buf != NULL &amp;&amp; (flags &amp; __SMBF))
+<a href='../S/543.html#L74'>flags</a>              74 usr/lib/libc/stdio/setvbuf.c 	flags &amp;= ~(__SLBF | __SNBF | __SMBF | __SEOF);
+<a href='../S/543.html#L81'>flags</a>              81 usr/lib/libc/stdio/setvbuf.c 		flags |= __SLBF;
+<a href='../S/543.html#L82'>flags</a>              82 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_flags = flags;
+<a href='../S/552.html#L191'>flags</a>             191 usr/lib/libc/stdio/vfprintf.c 	int flags;		/* flags as above */
+<a href='../S/552.html#L255'>flags</a>             255 usr/lib/libc/stdio/vfprintf.c 	(flags&amp;LONGINT ? va_arg(ap, long) : \
+<a href='../S/552.html#L256'>flags</a>             256 usr/lib/libc/stdio/vfprintf.c 	    flags&amp;SHORTINT ? (long)(short)va_arg(ap, int) : \
+<a href='../S/552.html#L259'>flags</a>             259 usr/lib/libc/stdio/vfprintf.c 	(flags&amp;LONGINT ? va_arg(ap, u_long) : \
+<a href='../S/552.html#L260'>flags</a>             260 usr/lib/libc/stdio/vfprintf.c 	    flags&amp;SHORTINT ? (u_long)(u_short)va_arg(ap, int) : \
+<a href='../S/552.html#L292'>flags</a>             292 usr/lib/libc/stdio/vfprintf.c 		flags = 0;
+<a href='../S/552.html#L310'>flags</a>             310 usr/lib/libc/stdio/vfprintf.c 			flags |= ALT;
+<a href='../S/552.html#L324'>flags</a>             324 usr/lib/libc/stdio/vfprintf.c 			flags |= LADJUST;
+<a href='../S/552.html#L348'>flags</a>             348 usr/lib/libc/stdio/vfprintf.c 			flags |= ZEROPAD;
+<a href='../S/552.html#L360'>flags</a>             360 usr/lib/libc/stdio/vfprintf.c 			flags |= SHORTINT;
+<a href='../S/552.html#L363'>flags</a>             363 usr/lib/libc/stdio/vfprintf.c 			flags |= LONGINT;
+<a href='../S/552.html#L371'>flags</a>             371 usr/lib/libc/stdio/vfprintf.c 			flags |= LONGINT;
+<a href='../S/552.html#L383'>flags</a>             383 usr/lib/libc/stdio/vfprintf.c 			if (flags &amp; LONGINT)
+<a href='../S/552.html#L385'>flags</a>             385 usr/lib/libc/stdio/vfprintf.c 			else if (flags &amp; SHORTINT)
+<a href='../S/552.html#L391'>flags</a>             391 usr/lib/libc/stdio/vfprintf.c 			flags |= LONGINT;
+<a href='../S/552.html#L408'>flags</a>             408 usr/lib/libc/stdio/vfprintf.c 			flags |= HEXPREFIX;
+<a href='../S/552.html#L433'>flags</a>             433 usr/lib/libc/stdio/vfprintf.c 			flags |= LONGINT;
+<a href='../S/552.html#L448'>flags</a>             448 usr/lib/libc/stdio/vfprintf.c 			if (flags &amp; ALT &amp;&amp; ulval != 0)
+<a href='../S/552.html#L449'>flags</a>             449 usr/lib/libc/stdio/vfprintf.c 				flags |= HEXPREFIX;
+<a href='../S/552.html#L459'>flags</a>             459 usr/lib/libc/stdio/vfprintf.c 				flags &amp;= ~ZEROPAD;
+<a href='../S/552.html#L469'>flags</a>             469 usr/lib/libc/stdio/vfprintf.c 					     flags &amp; ALT, xdigs);
+<a href='../S/552.html#L500'>flags</a>             500 usr/lib/libc/stdio/vfprintf.c 		else if (flags &amp; HEXPREFIX)
+<a href='../S/552.html#L505'>flags</a>             505 usr/lib/libc/stdio/vfprintf.c 		if ((flags &amp; (LADJUST|ZEROPAD)) == 0)
+<a href='../S/552.html#L511'>flags</a>             511 usr/lib/libc/stdio/vfprintf.c 		} else if (flags &amp; HEXPREFIX) {
+<a href='../S/552.html#L518'>flags</a>             518 usr/lib/libc/stdio/vfprintf.c 		if ((flags &amp; (LADJUST|ZEROPAD)) == ZEROPAD)
+<a href='../S/552.html#L528'>flags</a>             528 usr/lib/libc/stdio/vfprintf.c 		if (flags &amp; LADJUST)
+<a href='../S/553.html#L93'>flags</a>              93 usr/lib/libc/stdio/vfscanf.c 	int flags;	/* flags as defined above */
+<a href='../S/553.html#L128'>flags</a>             128 usr/lib/libc/stdio/vfscanf.c 		flags = 0;
+<a href='../S/553.html#L146'>flags</a>             146 usr/lib/libc/stdio/vfscanf.c 			flags |= SUPPRESS;
+<a href='../S/553.html#L149'>flags</a>             149 usr/lib/libc/stdio/vfscanf.c 			flags |= LONG;
+<a href='../S/553.html#L152'>flags</a>             152 usr/lib/libc/stdio/vfscanf.c 			flags |= LONGDBL;
+<a href='../S/553.html#L155'>flags</a>             155 usr/lib/libc/stdio/vfscanf.c 			flags |= SHORT;
+<a href='../S/553.html#L171'>flags</a>             171 usr/lib/libc/stdio/vfscanf.c 			flags |= LONG;
+<a href='../S/553.html#L186'>flags</a>             186 usr/lib/libc/stdio/vfscanf.c 			flags |= LONG;
+<a href='../S/553.html#L201'>flags</a>             201 usr/lib/libc/stdio/vfscanf.c 			flags |= LONG;
+<a href='../S/553.html#L204'>flags</a>             204 usr/lib/libc/stdio/vfscanf.c 			flags |= PFXOK;	/* enable 0x prefixing */
+<a href='../S/553.html#L216'>flags</a>             216 usr/lib/libc/stdio/vfscanf.c 			flags |= NOSKIP;
+<a href='../S/553.html#L221'>flags</a>             221 usr/lib/libc/stdio/vfscanf.c 			flags |= NOSKIP;
+<a href='../S/553.html#L226'>flags</a>             226 usr/lib/libc/stdio/vfscanf.c 			flags |= POINTER | PFXOK;
+<a href='../S/553.html#L233'>flags</a>             233 usr/lib/libc/stdio/vfscanf.c 			if (flags &amp; SUPPRESS)	/* ??? */
+<a href='../S/553.html#L235'>flags</a>             235 usr/lib/libc/stdio/vfscanf.c 			if (flags &amp; SHORT)
+<a href='../S/553.html#L237'>flags</a>             237 usr/lib/libc/stdio/vfscanf.c 			else if (flags &amp; LONG)
+<a href='../S/553.html#L251'>flags</a>             251 usr/lib/libc/stdio/vfscanf.c 				flags |= LONG;
+<a href='../S/553.html#L268'>flags</a>             268 usr/lib/libc/stdio/vfscanf.c 		if ((flags &amp; NOSKIP) == 0) {
+<a href='../S/553.html#L292'>flags</a>             292 usr/lib/libc/stdio/vfscanf.c 			if (flags &amp; SUPPRESS) {
+<a href='../S/553.html#L328'>flags</a>             328 usr/lib/libc/stdio/vfscanf.c 			if (flags &amp; SUPPRESS) {
+<a href='../S/553.html#L368'>flags</a>             368 usr/lib/libc/stdio/vfscanf.c 			if (flags &amp; SUPPRESS) {
+<a href='../S/553.html#L405'>flags</a>             405 usr/lib/libc/stdio/vfscanf.c 			flags |= SIGNOK | NDIGITS | NZDIGITS;
+<a href='../S/553.html#L429'>flags</a>             429 usr/lib/libc/stdio/vfscanf.c 						flags |= PFXOK;
+<a href='../S/553.html#L431'>flags</a>             431 usr/lib/libc/stdio/vfscanf.c 					if (flags &amp; NZDIGITS)
+<a href='../S/553.html#L432'>flags</a>             432 usr/lib/libc/stdio/vfscanf.c 					    flags &amp;= ~(SIGNOK|NZDIGITS|NDIGITS);
+<a href='../S/553.html#L434'>flags</a>             434 usr/lib/libc/stdio/vfscanf.c 					    flags &amp;= ~(SIGNOK|PFXOK|NDIGITS);
+<a href='../S/553.html#L441'>flags</a>             441 usr/lib/libc/stdio/vfscanf.c 					flags &amp;= ~(SIGNOK | PFXOK | NDIGITS);
+<a href='../S/553.html#L449'>flags</a>             449 usr/lib/libc/stdio/vfscanf.c 					flags &amp;= ~(SIGNOK | PFXOK | NDIGITS);
+<a href='../S/553.html#L460'>flags</a>             460 usr/lib/libc/stdio/vfscanf.c 					flags &amp;= ~(SIGNOK | PFXOK | NDIGITS);
+<a href='../S/553.html#L465'>flags</a>             465 usr/lib/libc/stdio/vfscanf.c 					if (flags &amp; SIGNOK) {
+<a href='../S/553.html#L466'>flags</a>             466 usr/lib/libc/stdio/vfscanf.c 						flags &amp;= ~SIGNOK;
+<a href='../S/553.html#L473'>flags</a>             473 usr/lib/libc/stdio/vfscanf.c 					if (flags &amp; PFXOK &amp;&amp; p == buf + 1) {
+<a href='../S/553.html#L475'>flags</a>             475 usr/lib/libc/stdio/vfscanf.c 						flags &amp;= ~PFXOK;
+<a href='../S/553.html#L502'>flags</a>             502 usr/lib/libc/stdio/vfscanf.c 			if (flags &amp; NDIGITS) {
+<a href='../S/553.html#L512'>flags</a>             512 usr/lib/libc/stdio/vfscanf.c 			if ((flags &amp; SUPPRESS) == 0) {
+<a href='../S/553.html#L517'>flags</a>             517 usr/lib/libc/stdio/vfscanf.c 				if (flags &amp; POINTER)
+<a href='../S/553.html#L519'>flags</a>             519 usr/lib/libc/stdio/vfscanf.c 				else if (flags &amp; SHORT)
+<a href='../S/553.html#L521'>flags</a>             521 usr/lib/libc/stdio/vfscanf.c 				else if (flags &amp; LONG)
+<a href='../S/678.html#L45'>flags</a>              45 usr/lib/posix/file/mkdir.c 	m.flags = 0;
+<a href='../S/679.html#L45'>flags</a>              45 usr/lib/posix/file/mknod.c 	m.flags = 0;
+<a href='../S/680.html#L39'>flags</a>              39 usr/lib/posix/file/mount.c mount(const char *dev, const char *dir, const char *fs, int flags,
+<a href='../S/680.html#L49'>flags</a>              49 usr/lib/posix/file/mount.c 	m.flags = flags;
+<a href='../S/681.html#L40'>flags</a>              40 usr/lib/posix/file/open.c open(const char *path, int flags, ...)
+<a href='../S/681.html#L46'>flags</a>              46 usr/lib/posix/file/open.c 	va_start(args, flags);
+<a href='../S/681.html#L51'>flags</a>              51 usr/lib/posix/file/open.c 	m.flags = flags;
+<a href='../S/882.html#L49'>flags</a>              49 usr/server/fs/arfs/arfs_vfsops.c static int arfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/882.html#L71'>flags</a>              71 usr/server/fs/arfs/arfs_vfsops.c arfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/886.html#L115'>flags</a>             115 usr/server/fs/devfs/devfs_vnops.c devfs_open(vnode_t vp, int flags)
+<a href='../S/886.html#L133'>flags</a>             133 usr/server/fs/devfs/devfs_vnops.c 	error = device_open(path, flags &amp; DO_RWMASK, &amp;dev);
+<a href='../S/886.html#L214'>flags</a>             214 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_type = (info.flags &amp; D_CHR) ? VCHR : VBLK;
+<a href='../S/886.html#L215'>flags</a>             215 usr/server/fs/devfs/devfs_vnops.c 	if (info.flags &amp; D_TTY)
+<a href='../S/886.html#L218'>flags</a>             218 usr/server/fs/devfs/devfs_vnops.c 	if (info.flags &amp; D_PROT)
+<a href='../S/886.html#L246'>flags</a>             246 usr/server/fs/devfs/devfs_vnops.c 	if (info.flags &amp; D_CHR)
+<a href='../S/886.html#L248'>flags</a>             248 usr/server/fs/devfs/devfs_vnops.c 	else if (info.flags &amp; D_BLK)
+<a href='../S/892.html#L47'>flags</a>              47 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/892.html#L136'>flags</a>             136 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/896.html#L142'>flags</a>             142 usr/server/fs/fifofs/fifo_vnops.c fifo_open(vnode_t vp, int flags)
+<a href='../S/896.html#L154'>flags</a>             154 usr/server/fs/fifofs/fifo_vnops.c 	if (flags &amp; FREAD) {
+<a href='../S/896.html#L159'>flags</a>             159 usr/server/fs/fifofs/fifo_vnops.c 	if (flags &amp; FWRITE) {
+<a href='../S/896.html#L168'>flags</a>             168 usr/server/fs/fifofs/fifo_vnops.c 	if (flags &amp; FREAD) {
+<a href='../S/896.html#L169'>flags</a>             169 usr/server/fs/fifofs/fifo_vnops.c 		if (flags &amp; O_NONBLOCK) {
+<a href='../S/896.html#L175'>flags</a>             175 usr/server/fs/fifofs/fifo_vnops.c 	if (flags &amp; FWRITE) {
+<a href='../S/896.html#L176'>flags</a>             176 usr/server/fs/fifofs/fifo_vnops.c 		if (flags &amp; O_NONBLOCK) {
+<a href='../S/901.html#L39'>flags</a>              39 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_mount(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/901.html#L61'>flags</a>              61 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/903.html#L98'>flags</a>              98 usr/server/fs/vfs/main.c 		error = sys_mount(msg-&gt;dev, msg-&gt;dir, msg-&gt;fs, msg-&gt;flags,
+<a href='../S/903.html#L139'>flags</a>             139 usr/server/fs/vfs/main.c 	switch (msg-&gt;flags &amp; O_ACCMODE) {
+<a href='../S/903.html#L153'>flags</a>             153 usr/server/fs/vfs/main.c 	if ((error = sys_open(path, msg-&gt;flags, msg-&gt;mode, &amp;fp)) != 0)
+<a href='../S/905.html#L94'>flags</a>              94 usr/server/fs/vfs/vfs.h int	 sys_open(char *path, int flags, mode_t mode, file_t *pfp);
+<a href='../S/905.html#L121'>flags</a>             121 usr/server/fs/vfs/vfs.h int	 sys_mount(char *dev, char *dir, char *fsname, int flags, void *data);
+<a href='../S/909.html#L89'>flags</a>              89 usr/server/fs/vfs/vfs_mount.c sys_mount(char *dev, char *dir, char *fsname, int flags, void *data)
+<a href='../S/909.html#L139'>flags</a>             139 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_flags = flags;
+<a href='../S/909.html#L177'>flags</a>             177 usr/server/fs/vfs/vfs_mount.c 	if ((error = VFS_MOUNT(mp, dev, flags, data)) != 0)
+<a href='../S/911.html#L55'>flags</a>              55 usr/server/fs/vfs/vfs_syscalls.c sys_open(char *path, int flags, mode_t mode, file_t *pfp)
+<a href='../S/911.html#L63'>flags</a>              63 usr/server/fs/vfs/vfs_syscalls.c 				path, flags, mode));
+<a href='../S/911.html#L65'>flags</a>              65 usr/server/fs/vfs/vfs_syscalls.c 	flags = FFLAGS(flags);
+<a href='../S/911.html#L66'>flags</a>              66 usr/server/fs/vfs/vfs_syscalls.c 	if  ((flags &amp; (FREAD | FWRITE)) == 0)
+<a href='../S/911.html#L68'>flags</a>              68 usr/server/fs/vfs/vfs_syscalls.c 	if (flags &amp; O_CREAT) {
+<a href='../S/911.html#L86'>flags</a>              86 usr/server/fs/vfs/vfs_syscalls.c 			flags &amp;= ~O_TRUNC;
+<a href='../S/911.html#L91'>flags</a>              91 usr/server/fs/vfs/vfs_syscalls.c 			if (flags &amp; O_EXCL) {
+<a href='../S/911.html#L95'>flags</a>              95 usr/server/fs/vfs/vfs_syscalls.c 			flags &amp;= ~O_CREAT;
+<a href='../S/911.html#L102'>flags</a>             102 usr/server/fs/vfs/vfs_syscalls.c 	if ((flags &amp; O_CREAT) == 0) {
+<a href='../S/911.html#L103'>flags</a>             103 usr/server/fs/vfs/vfs_syscalls.c 		if (flags &amp; FWRITE || flags &amp; O_TRUNC) {
+<a href='../S/911.html#L116'>flags</a>             116 usr/server/fs/vfs/vfs_syscalls.c 	if (flags &amp; O_TRUNC) {
+<a href='../S/911.html#L117'>flags</a>             117 usr/server/fs/vfs/vfs_syscalls.c 		if (!(flags &amp; FWRITE) || (vp-&gt;v_type == VDIR)) {
+<a href='../S/911.html#L132'>flags</a>             132 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = VOP_OPEN(vp, flags)) != 0) {
+<a href='../S/911.html#L139'>flags</a>             139 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_flags = flags;
+<a href='../S/911.html#L694'>flags</a>             694 usr/server/fs/vfs/vfs_syscalls.c 	int error, flags;
+<a href='../S/911.html#L702'>flags</a>             702 usr/server/fs/vfs/vfs_syscalls.c 	flags = 0;
+<a href='../S/911.html#L704'>flags</a>             704 usr/server/fs/vfs/vfs_syscalls.c 		flags |= VREAD;
+<a href='../S/911.html#L706'>flags</a>             706 usr/server/fs/vfs/vfs_syscalls.c 		flags |= VWRITE;
+<a href='../S/911.html#L708'>flags</a>             708 usr/server/fs/vfs/vfs_syscalls.c 		flags |= VEXEC;
+<a href='../S/911.html#L710'>flags</a>             710 usr/server/fs/vfs/vfs_syscalls.c 	error = vn_access(vp, flags);
+<a href='../S/913.html#L392'>flags</a>             392 usr/server/fs/vfs/vfs_vnode.c vn_access(vnode_t vp, int flags)
+<a href='../S/913.html#L396'>flags</a>             396 usr/server/fs/vfs/vfs_vnode.c 	if ((flags &amp; VEXEC) &amp;&amp; (vp-&gt;v_mode &amp; 0111) == 0) {
+<a href='../S/913.html#L400'>flags</a>             400 usr/server/fs/vfs/vfs_vnode.c 	if ((flags &amp; VREAD) &amp;&amp; (vp-&gt;v_mode &amp; 0444) == 0) {
+<a href='../S/913.html#L404'>flags</a>             404 usr/server/fs/vfs/vfs_vnode.c 	if (flags &amp; VWRITE) {
+</pre>
+</body>
+</html>

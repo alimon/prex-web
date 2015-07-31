@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ram</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/8.html#L51'>ram</a>                51 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].base = 0x2000000;
+<a href='../S/8.html#L52'>ram</a>                52 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].size = 0x40000;
+<a href='../S/8.html#L53'>ram</a>                53 bsp/boot/arm/gba/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/11.html#L51'>ram</a>                51 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/11.html#L52'>ram</a>                52 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].size = 0x400000;
+<a href='../S/11.html#L53'>ram</a>                53 bsp/boot/arm/integrator/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/12.html#L69'>ram</a>                69 bsp/boot/common/bootinfo.c 		if (bi-&gt;ram[i].type != 0) {
+<a href='../S/12.html#L71'>ram</a>                71 bsp/boot/common/bootinfo.c 			       bi-&gt;ram[i].base,
+<a href='../S/12.html#L72'>ram</a>                72 bsp/boot/common/bootinfo.c 			       bi-&gt;ram[i].size,
+<a href='../S/12.html#L73'>ram</a>                73 bsp/boot/common/bootinfo.c 			       strtype[bi-&gt;ram[i].type]);
+<a href='../S/14.html#L140'>ram</a>               140 bsp/boot/common/load.c 	bi-&gt;ram[i].base = load_start;
+<a href='../S/14.html#L141'>ram</a>               141 bsp/boot/common/load.c 	bi-&gt;ram[i].size = (size_t)(load_base - load_start);
+<a href='../S/14.html#L142'>ram</a>               142 bsp/boot/common/load.c 	bi-&gt;ram[i].type = MT_RESERVED;
+<a href='../S/14.html#L206'>ram</a>               206 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].base = base;
+<a href='../S/14.html#L207'>ram</a>               207 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].size = size;
+<a href='../S/14.html#L208'>ram</a>               208 bsp/boot/common/load.c 	bi-&gt;ram[bi-&gt;nr_rams].type = MT_BOOTDISK;
+<a href='../S/32.html#L51'>ram</a>                51 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/32.html#L52'>ram</a>                52 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].size = 0x9000000;
+<a href='../S/32.html#L53'>ram</a>                53 bsp/boot/ppc/prep/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/42.html#L64'>ram</a>                64 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].base = 0;
+<a href='../S/42.html#L65'>ram</a>                65 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].size = (size_t)((1024 + hi_mem) * 1024);
+<a href='../S/42.html#L66'>ram</a>                66 bsp/boot/x86/pc/startup.c 	bi-&gt;ram[0].type = MT_USABLE;
+<a href='../S/42.html#L73'>ram</a>                73 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].base = lo_mem * 1024;
+<a href='../S/42.html#L74'>ram</a>                74 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].size = (size_t)((1024 - lo_mem) * 1024);
+<a href='../S/42.html#L75'>ram</a>                75 bsp/boot/x86/pc/startup.c 		bi-&gt;ram[1].type = MT_MEMHOLE;
+<a href='../S/189.html#L164'>ram</a>               164 bsp/hal/x86/pc/machdep.c 	mmumap_table[0].size = bi-&gt;ram[0].size;
+<a href='../S/247.html#L96'>ram</a>                96 include/sys/bootinfo.h 	struct physmem	ram[NMEMS];	/* physical ram table */
+<a href='../S/342.html#L262'>ram</a>               262 sys/mem/page.c 	struct physmem *ram;
+<a href='../S/342.html#L276'>ram</a>               276 sys/mem/page.c 		ram = &amp;bi-&gt;ram[i];
+<a href='../S/342.html#L277'>ram</a>               277 sys/mem/page.c 		if (ram-&gt;type == MT_USABLE) {
+<a href='../S/342.html#L278'>ram</a>               278 sys/mem/page.c 			page_free(ram-&gt;base, ram-&gt;size);
+<a href='../S/342.html#L279'>ram</a>               279 sys/mem/page.c 			total_size += ram-&gt;size;
+<a href='../S/342.html#L286'>ram</a>               286 sys/mem/page.c 		ram = &amp;bi-&gt;ram[i];
+<a href='../S/342.html#L287'>ram</a>               287 sys/mem/page.c 		switch (ram-&gt;type) {
+<a href='../S/342.html#L289'>ram</a>               289 sys/mem/page.c 			bootdisk_size += ram-&gt;size;
+<a href='../S/342.html#L292'>ram</a>               292 sys/mem/page.c 			total_size -= ram-&gt;size;
+<a href='../S/342.html#L295'>ram</a>               295 sys/mem/page.c 			if (page_reserve(ram-&gt;base, ram-&gt;size))
+</pre>
+</body>
+</html>

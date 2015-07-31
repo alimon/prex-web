@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>outb</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/28.html#L83'>outb</a>               83 bsp/boot/ppc/prep/debug.c 	outb(COM_THR, (u_char)c);
+<a href='../S/28.html#L88'>outb</a>               88 bsp/boot/ppc/prep/debug.c 	outb(0xf00, (u_char)c);
+<a href='../S/28.html#L106'>outb</a>              106 bsp/boot/ppc/prep/debug.c 	outb(COM_IER, 0x00);	/* Disable interrupt */
+<a href='../S/28.html#L107'>outb</a>              107 bsp/boot/ppc/prep/debug.c 	outb(COM_LCR, 0x80);	/* Access baud rate */
+<a href='../S/28.html#L108'>outb</a>              108 bsp/boot/ppc/prep/debug.c 	outb(COM_DLL, 0x01);	/* 115200 baud */
+<a href='../S/28.html#L109'>outb</a>              109 bsp/boot/ppc/prep/debug.c 	outb(COM_DLM, 0x00);
+<a href='../S/28.html#L110'>outb</a>              110 bsp/boot/ppc/prep/debug.c 	outb(COM_LCR, 0x03);	/* N, 8, 1 */
+<a href='../S/28.html#L111'>outb</a>              111 bsp/boot/ppc/prep/debug.c 	outb(COM_MCR, 0x03);	/* Ready */
+<a href='../S/28.html#L112'>outb</a>              112 bsp/boot/ppc/prep/debug.c 	outb(COM_FCR, 0x00);	/* Disable FIFO */
+<a href='../S/39.html#L33'>outb</a>               33 bsp/boot/x86/pc/debug.c extern void	outb(int, u_char);
+<a href='../S/39.html#L67'>outb</a>               67 bsp/boot/x86/pc/debug.c 	outb(COM_THR, c);
+<a href='../S/39.html#L75'>outb</a>               75 bsp/boot/x86/pc/debug.c 		outb(0xe9, (u_char)c);
+<a href='../S/39.html#L93'>outb</a>               93 bsp/boot/x86/pc/debug.c 	outb(COM_IER, 0x00);	/* Disable interrupt */
+<a href='../S/39.html#L94'>outb</a>               94 bsp/boot/x86/pc/debug.c 	outb(COM_LCR, 0x80);	/* Access baud rate */
+<a href='../S/39.html#L95'>outb</a>               95 bsp/boot/x86/pc/debug.c 	outb(COM_DLL, 0x01);	/* 115200 baud */
+<a href='../S/39.html#L96'>outb</a>               96 bsp/boot/x86/pc/debug.c 	outb(COM_DLM, 0x00);
+<a href='../S/39.html#L97'>outb</a>               97 bsp/boot/x86/pc/debug.c 	outb(COM_LCR, 0x03);	/* N, 8, 1 */
+<a href='../S/39.html#L98'>outb</a>               98 bsp/boot/x86/pc/debug.c 	outb(COM_MCR, 0x03);	/* Ready */
+<a href='../S/39.html#L99'>outb</a>               99 bsp/boot/x86/pc/debug.c 	outb(COM_FCR, 0x00);	/* Disable FIFO */
+<a href='../S/162.html#L88'>outb</a>               88 bsp/hal/ppc/include/cpu.h void	 outb(int, u_char);
+<a href='../S/164.html#L36'>outb</a>               36 bsp/hal/ppc/include/io.h void	 outb(int, u_char);
+<a href='../S/168.html#L51'>outb</a>               51 bsp/hal/ppc/prep/diag.c 	outb(COM_THR, c);
+<a href='../S/168.html#L83'>outb</a>               83 bsp/hal/ppc/prep/diag.c 		outb(0xf00, (u_char)*str++);
+<a href='../S/169.html#L78'>outb</a>               78 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M + 1, mask &amp; 0xff);
+<a href='../S/169.html#L79'>outb</a>               79 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S + 1, mask &gt;&gt; 8);
+<a href='../S/169.html#L144'>outb</a>              144 bsp/hal/ppc/prep/interrupt.c 	outb(port, val);
+<a href='../S/169.html#L156'>outb</a>              156 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M, 0x0c);	/* poll and ack */
+<a href='../S/169.html#L159'>outb</a>              159 bsp/hal/ppc/prep/interrupt.c 		outb(PIC_S, 0x0c);
+<a href='../S/169.html#L223'>outb</a>              223 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M, 0x11);	/* Start initialization edge, master */
+<a href='../S/169.html#L224'>outb</a>              224 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M + 1, 0x00);	/* Set h/w vector = 0x0 */
+<a href='../S/169.html#L225'>outb</a>              225 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M + 1, 0x04);	/* Chain to slave (IRQ2) */
+<a href='../S/169.html#L226'>outb</a>              226 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M + 1, 0x01);	/* 8086 mode */
+<a href='../S/169.html#L228'>outb</a>              228 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S, 0x11);	/* Start initialization edge, master */
+<a href='../S/169.html#L229'>outb</a>              229 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S + 1, 0x08);	/* Set h/w vector = 0x8 */
+<a href='../S/169.html#L230'>outb</a>              230 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S + 1, 0x02);	/* Slave (cascade) */
+<a href='../S/169.html#L231'>outb</a>              231 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S + 1, 0x01);	/* 8086 mode */
+<a href='../S/169.html#L233'>outb</a>              233 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S, 0x0b);	/* Read ISR by default */
+<a href='../S/169.html#L234'>outb</a>              234 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M, 0x0b);	/* Read ISR by default */
+<a href='../S/169.html#L236'>outb</a>              236 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_S + 1, 0xff);	/* Mask all */
+<a href='../S/169.html#L237'>outb</a>              237 bsp/hal/ppc/prep/interrupt.c 	outb(PIC_M + 1, 0xfb);	/* Mask all except IRQ2 (cascade) */
+<a href='../S/171.html#L90'>outb</a>               90 bsp/hal/ppc/prep/machdep.c 	outb(0x92, val);
+<a href='../S/171.html#L94'>outb</a>               94 bsp/hal/ppc/prep/machdep.c 	outb(0x92, val);
+<a href='../S/182.html#L46'>outb</a>               46 bsp/hal/x86/include/cpufunc.h void	 outb(int, u_char);
+<a href='../S/187.html#L66'>outb</a>               66 bsp/hal/x86/pc/diag.c 	outb(VID_PORT, 0x0e);
+<a href='../S/187.html#L67'>outb</a>               67 bsp/hal/x86/pc/diag.c 	outb(VID_PORT + 1, (u_int)pos &gt;&gt; 8);
+<a href='../S/187.html#L69'>outb</a>               69 bsp/hal/x86/pc/diag.c 	outb(VID_PORT, 0x0f);
+<a href='../S/187.html#L70'>outb</a>               70 bsp/hal/x86/pc/diag.c 	outb(VID_PORT + 1, (u_int)pos &amp; 0xff);
+<a href='../S/187.html#L145'>outb</a>              145 bsp/hal/x86/pc/diag.c 	outb(0xe9, (u_char)c);
+<a href='../S/187.html#L179'>outb</a>              179 bsp/hal/x86/pc/diag.c 	outb(COM_THR, c);
+<a href='../S/188.html#L76'>outb</a>               76 bsp/hal/x86/pc/interrupt.c 	outb(PIC_M + 1, mask &amp; 0xff);
+<a href='../S/188.html#L77'>outb</a>               77 bsp/hal/x86/pc/interrupt.c 	outb(PIC_S + 1, mask &gt;&gt; 8);
+<a href='../S/188.html#L142'>outb</a>              142 bsp/hal/x86/pc/interrupt.c 	outb(port, val);
+<a href='../S/188.html#L170'>outb</a>              170 bsp/hal/x86/pc/interrupt.c 		outb(PIC_S, 0x20);	/* Non specific EOI to slave */
+<a href='../S/188.html#L171'>outb</a>              171 bsp/hal/x86/pc/interrupt.c 	outb(PIC_M, 0x20);		/* Non specific EOI to master */
+<a href='../S/188.html#L210'>outb</a>              210 bsp/hal/x86/pc/interrupt.c 	outb(PIC_S + 1, 0xff);		/* Mask all */
+<a href='../S/188.html#L211'>outb</a>              211 bsp/hal/x86/pc/interrupt.c 	outb(PIC_M + 1, 0xfb);		/* Mask all except IRQ2 (cascade) */
+<a href='../S/189.html#L83'>outb</a>               83 bsp/hal/x86/pc/machdep.c 	outb(0x64, 0xfe);
+<a href='../S/189.html#L85'>outb</a>               85 bsp/hal/x86/pc/machdep.c 		outb(0x80, 0);
+</pre>
+</body>
+</html>

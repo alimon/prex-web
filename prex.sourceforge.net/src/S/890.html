@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/server/fs/fatfs/fatfs_node.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1162.html'>server</a>/<a href='../files/1165.html'>fs</a>/<a href='../files/1168.html'>fatfs</a>/fatfs_node.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='890.html#L45'>[^]</a><a href='890.html#L355'>[v]</a>[top]<a href='890.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='890.html#L45' title='Defined at 45.'>fat_read_dirent</a></li>
+<li><a href='890.html#L61' title='Defined at 61.'>fat_write_dirent</a></li>
+<li><a href='890.html#L80' title='Defined at 80.'>fat_lookup_dirent</a></li>
+<li><a href='890.html#L121' title='Defined at 121.'>fatfs_lookup_node</a></li>
+<li><a href='890.html#L175' title='Defined at 175.'>fat_get_dirent</a></li>
+<li><a href='890.html#L214' title='Defined at 214.'>fatfs_get_node</a></li>
+<li><a href='890.html#L260' title='Defined at 260.'>fat_add_dirent</a></li>
+<li><a href='890.html#L292' title='Defined at 292.'>fatfs_add_node</a></li>
+<li><a href='890.html#L355' title='Defined at 355.'>fatfs_put_node</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2008, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='267.html'>sys/prex.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='248.html'>sys/buf.h</a>&gt;
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='428.html'>ctype.h</a>&gt;
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='443.html'>string.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='447.html'>unistd.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L38' name='L38' />  38 
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> "<a href='888.html'>fatfs.h</a>"
+<a id='L40' name='L40' />  40 
+<a id='L41' name='L41' />  41 <em class='comment'>/*</em>
+<a id='L42' name='L42' />  42 <em class='comment'> * Read directory entry to buffer, with cache.</em>
+<a id='L43' name='L43' />  43 <em class='comment'> */</em>
+<a id='L44' name='L44' />  44 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L45' name='L45' />  45 <a href='../R/1779.html' title='Multiple refered from 4 places.'>fat_read_dirent</a>(<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>)
+<a id='L46' name='L46' />  46 <em class='brace'>{</em>
+<a id='L47' name='L47' />  47         <strong class='reserved'>struct</strong> <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a> *<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>;
+<a id='L48' name='L48' />  48         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50         <strong class='reserved'>if</strong> ((<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='906.html#L226' title='Defined at 226 in usr/server/fs/vfs/vfs_bio.c.'>bread</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, &amp;<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>)) != 0)
+<a id='L51' name='L51' />  51                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L52' name='L52' />  52         <a href='../D/3040.html' title='Multiple defined in 4 places.'>memcpy</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a>, <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>-&gt;<a href='../Y/404.html' title='Multiple used in 13 places.'>b_data</a>, <a href='888.html#L65' title='Defined at 65 in usr/server/fs/fatfs/fatfs.h.'>SEC_SIZE</a>);
+<a id='L53' name='L53' />  53         <a href='906.html#L200' title='Defined at 200 in usr/server/fs/vfs/vfs_bio.c.'>brelse</a>(<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>);
+<a id='L54' name='L54' />  54         <strong class='reserved'>return</strong> 0;
+<a id='L55' name='L55' />  55 <em class='brace'>}</em>
+<a id='L56' name='L56' />  56 
+<a id='L57' name='L57' />  57 <em class='comment'>/*</em>
+<a id='L58' name='L58' />  58 <em class='comment'> * Write directory entry from buffer.</em>
+<a id='L59' name='L59' />  59 <em class='comment'> */</em>
+<a id='L60' name='L60' />  60 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L61' name='L61' />  61 <a href='../R/1785.html' title='Multiple refered from 3 places.'>fat_write_dirent</a>(<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>)
+<a id='L62' name='L62' />  62 <em class='brace'>{</em>
+<a id='L63' name='L63' />  63         <strong class='reserved'>struct</strong> <a href='../Y/457.html' title='Multiple used in 359 places.'>buf</a> *<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>;
+<a id='L64' name='L64' />  64 
+<a id='L65' name='L65' />  65         <a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a> = <a href='906.html#L157' title='Defined at 157 in usr/server/fs/vfs/vfs_bio.c.'>getblk</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/645.html' title='Multiple used in 285 places.'>dev</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L66' name='L66' />  66         <a href='../D/3040.html' title='Multiple defined in 4 places.'>memcpy</a>(<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>-&gt;<a href='../Y/404.html' title='Multiple used in 13 places.'>b_data</a>, <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a>, <a href='888.html#L65' title='Defined at 65 in usr/server/fs/fatfs/fatfs.h.'>SEC_SIZE</a>);
+<a id='L67' name='L67' />  67         <strong class='reserved'>return</strong> <a href='906.html#L259' title='Defined at 259 in usr/server/fs/vfs/vfs_bio.c.'>bwrite</a>(<a href='../Y/447.html' title='Multiple used in 131 places.'>bp</a>);
+<a id='L68' name='L68' />  68 <em class='brace'>}</em>
+<a id='L69' name='L69' />  69 
+<a id='L70' name='L70' />  70 <em class='comment'>/*</em>
+<a id='L71' name='L71' />  71 <em class='comment'> * Find directory entry in specified sector.</em>
+<a id='L72' name='L72' />  72 <em class='comment'> * The fat vnode data is filled if success.</em>
+<a id='L73' name='L73' />  73 <em class='comment'> *</em>
+<a id='L74' name='L74' />  74 <em class='comment'> * @fmp: fatfs mount point</em>
+<a id='L75' name='L75' />  75 <em class='comment'> * @sec: sector#</em>
+<a id='L76' name='L76' />  76 <em class='comment'> * @name: file name</em>
+<a id='L77' name='L77' />  77 <em class='comment'> * @node: pointer to fat node</em>
+<a id='L78' name='L78' />  78 <em class='comment'> */</em>
+<a id='L79' name='L79' />  79 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L80' name='L80' />  80 <a href='../R/1774.html' title='Multiple refered from 2 places.'>fat_lookup_dirent</a>(<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <strong class='reserved'>char</strong> *<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>,
+<a id='L81' name='L81' />  81                   <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L82' name='L82' />  82 <em class='brace'>{</em>
+<a id='L83' name='L83' />  83         <strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a> *<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>;
+<a id='L84' name='L84' />  84         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>, <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L85' name='L85' />  85 
+<a id='L86' name='L86' />  86         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L45' title='Defined at 45 in usr/server/fs/fatfs/fatfs_node.c.'>fat_read_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L87' name='L87' />  87         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L88' name='L88' />  88                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L89' name='L89' />  89 
+<a id='L90' name='L90' />  90         <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a> = (<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a> *)<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a>;
+<a id='L91' name='L91' />  91 
+<a id='L92' name='L92' />  92         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='888.html#L133' title='Defined at 133 in usr/server/fs/fatfs/fatfs.h.'>DIR_PER_SEC</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L93' name='L93' />  93                 <em class='comment'>/* Find specific file or directory name */</em>
+<a id='L94' name='L94' />  94                 <strong class='reserved'>if</strong> (<a href='888.html#L151' title='Defined at 151 in usr/server/fs/fatfs/fatfs.h.'>IS_EMPTY</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>))
+<a id='L95' name='L95' />  95                         <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L96' name='L96' />  96                 <strong class='reserved'>if</strong> (!<a href='888.html#L147' title='Defined at 147 in usr/server/fs/fatfs/fatfs.h.'>IS_VOL</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>) &amp;&amp;
+<a id='L97' name='L97' />  97                     !<a href='891.html#L96' title='Defined at 96 in usr/server/fs/fatfs/fatfs_subr.c.'>fat_compare_name</a>((<strong class='reserved'>char</strong> *)<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>, <a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>)) <em class='brace'>{</em>
+<a id='L98' name='L98' />  98                         <em class='comment'>/* Found. Fill the fat vnode data. */</em>
+<a id='L99' name='L99' />  99                         *(&amp;<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/673.html' title='Multiple used in 39 places.'>dirent</a>) = *<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>;
+<a id='L100' name='L100' /> 100                         <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1871.html' title='Multiple used in 23 places.'>sector</a> = <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>;
+<a id='L101' name='L101' /> 101                         <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1445.html' title='Multiple used in 60 places.'>offset</a> = <strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a>) * <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L102' name='L102' /> 102                         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_lookup_dirent: found sec=%d\n", <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>));
+<a id='L103' name='L103' /> 103                         <strong class='reserved'>return</strong> 0;
+<a id='L104' name='L104' /> 104                 <em class='brace'>}</em>
+<a id='L105' name='L105' /> 105                 <strong class='reserved'>if</strong> (!<a href='888.html#L150' title='Defined at 150 in usr/server/fs/fatfs/fatfs.h.'>IS_DELETED</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>))
+<a id='L106' name='L106' /> 106                         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_lookup_dirent: %s\n", <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L107' name='L107' /> 107                 <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>++;
+<a id='L108' name='L108' /> 108         <em class='brace'>}</em>
+<a id='L109' name='L109' /> 109         <strong class='reserved'>return</strong> <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>;
+<a id='L110' name='L110' /> 110 <em class='brace'>}</em>
+<a id='L111' name='L111' /> 111 
+<a id='L112' name='L112' /> 112 <em class='comment'>/*</em>
+<a id='L113' name='L113' /> 113 <em class='comment'> * Find directory entry for specified name in directory.</em>
+<a id='L114' name='L114' /> 114 <em class='comment'> * The fat vnode data is filled if success.</em>
+<a id='L115' name='L115' /> 115 <em class='comment'> *</em>
+<a id='L116' name='L116' /> 116 <em class='comment'> * @dvp: vnode for directory.</em>
+<a id='L117' name='L117' /> 117 <em class='comment'> * @name: file name</em>
+<a id='L118' name='L118' /> 118 <em class='comment'> * @np: pointer to fat node</em>
+<a id='L119' name='L119' /> 119 <em class='comment'> */</em>
+<a id='L120' name='L120' /> 120 <strong class='reserved'>int</strong>
+<a id='L121' name='L121' /> 121 <a href='../R/1796.html' title='Multiple refered from 5 places.'>fatfs_lookup_node</a>(<a href='279.html#L78' title='Defined at 78 in include/sys/vnode.h.'>vnode_t</a> <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>, <strong class='reserved'>char</strong> *<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>, <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L122' name='L122' /> 122 <em class='brace'>{</em>
+<a id='L123' name='L123' /> 123         <strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>;
+<a id='L124' name='L124' /> 124         <strong class='reserved'>char</strong> <a href='../Y/844.html' title='Multiple used in 5 places.'>fat_name</a>[12];
+<a id='L125' name='L125' /> 125         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a> <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>;
+<a id='L126' name='L126' /> 126         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>, <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L127' name='L127' /> 127 
+<a id='L128' name='L128' /> 128         <strong class='reserved'>if</strong> (<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L129' name='L129' /> 129                 <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L130' name='L130' /> 130 
+<a id='L131' name='L131' /> 131         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_lookup_denode: cl=%d name=%s\n", <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2277.html' title='Multiple used in 15 places.'>v_blkno</a>, <a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L132' name='L132' /> 132 
+<a id='L133' name='L133' /> 133         <a href='891.html#L46' title='Defined at 46 in usr/server/fs/fatfs/fatfs_subr.c.'>fat_convert_name</a>(<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>, <a href='../Y/844.html' title='Multiple used in 5 places.'>fat_name</a>);
+<a id='L134' name='L134' /> 134         *(<a href='../Y/844.html' title='Multiple used in 5 places.'>fat_name</a> + 11) = '\0';
+<a id='L135' name='L135' /> 135 
+<a id='L136' name='L136' /> 136         <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a> = (<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *)<a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2283.html' title='Multiple used in 27 places.'>v_mount</a>-&gt;<a href='../Y/1232.html' title='Multiple used in 16 places.'>m_data</a>;
+<a id='L137' name='L137' /> 137         <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> = <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2277.html' title='Multiple used in 15 places.'>v_blkno</a>;
+<a id='L138' name='L138' /> 138         <strong class='reserved'>if</strong> (<a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> == <a href='888.html#L71' title='Defined at 71 in usr/server/fs/fatfs/fatfs.h.'>CL_ROOT</a>) <em class='brace'>{</em>
+<a id='L139' name='L139' /> 139                 <em class='comment'>/* Search entry in root directory */</em>
+<a id='L140' name='L140' /> 140                 <strong class='reserved'>for</strong> (<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1781.html' title='Multiple used in 6 places.'>root_start</a>; <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/619.html' title='Multiple used in 7 places.'>data_start</a>; <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++) <em class='brace'>{</em>
+<a id='L141' name='L141' /> 141                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L80' title='Defined at 80 in usr/server/fs/fatfs/fatfs_node.c.'>fat_lookup_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/844.html' title='Multiple used in 5 places.'>fat_name</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L142' name='L142' /> 142                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> != <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>)
+<a id='L143' name='L143' /> 143                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L144' name='L144' /> 144                 <em class='brace'>}</em>
+<a id='L145' name='L145' /> 145         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L146' name='L146' /> 146                 <em class='comment'>/* Search entry in sub directory */</em>
+<a id='L147' name='L147' /> 147                 <strong class='reserved'>while</strong> (!<a href='888.html#L180' title='Defined at 180 in usr/server/fs/fatfs/fatfs.h.'>IS_EOFCL</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>)) <em class='brace'>{</em>
+<a id='L148' name='L148' /> 148                         <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='888.html#L195' title='Defined at 195 in usr/server/fs/fatfs/fatfs.h.'>cl_to_sec</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>);
+<a id='L149' name='L149' /> 149                         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1865.html' title='Multiple used in 11 places.'>sec_per_cl</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L150' name='L150' /> 150                                 <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L80' title='Defined at 80 in usr/server/fs/fatfs/fatfs_node.c.'>fat_lookup_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/844.html' title='Multiple used in 5 places.'>fat_name</a>,
+<a id='L151' name='L151' /> 151                                                    <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L152' name='L152' /> 152                                 <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> != <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>)
+<a id='L153' name='L153' /> 153                                         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L154' name='L154' /> 154                                 <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++;
+<a id='L155' name='L155' /> 155                         <em class='brace'>}</em>
+<a id='L156' name='L156' /> 156                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='889.html#L128' title='Defined at 128 in usr/server/fs/fatfs/fatfs_fat.c.'>fat_next_cluster</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, &amp;<a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>);
+<a id='L157' name='L157' /> 157                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L158' name='L158' /> 158                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L159' name='L159' /> 159                 <em class='brace'>}</em>
+<a id='L160' name='L160' /> 160         <em class='brace'>}</em>
+<a id='L161' name='L161' /> 161         <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L162' name='L162' /> 162 <em class='brace'>}</em>
+<a id='L163' name='L163' /> 163 
+<a id='L164' name='L164' /> 164 <em class='comment'>/*</em>
+<a id='L165' name='L165' /> 165 <em class='comment'> * Get directory entry for specified index in sector.</em>
+<a id='L166' name='L166' /> 166 <em class='comment'> * The directory entry is filled if success.</em>
+<a id='L167' name='L167' /> 167 <em class='comment'> *</em>
+<a id='L168' name='L168' /> 168 <em class='comment'> * @fmp: fatfs mount point</em>
+<a id='L169' name='L169' /> 169 <em class='comment'> * @sec: sector#</em>
+<a id='L170' name='L170' /> 170 <em class='comment'> * @target: target index</em>
+<a id='L171' name='L171' /> 171 <em class='comment'> * @index: current index</em>
+<a id='L172' name='L172' /> 172 <em class='comment'> * @np: pointer to fat node</em>
+<a id='L173' name='L173' /> 173 <em class='comment'> */</em>
+<a id='L174' name='L174' /> 174 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L175' name='L175' /> 175 <a href='../R/1773.html' title='Multiple refered from 2 places.'>fat_get_dirent</a>(<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <strong class='reserved'>int</strong> <a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a>, <strong class='reserved'>int</strong> *<a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>,
+<a id='L176' name='L176' /> 176                <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L177' name='L177' /> 177 <em class='brace'>{</em>
+<a id='L178' name='L178' /> 178         <strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a> *<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>;
+<a id='L179' name='L179' /> 179         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>, <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L180' name='L180' /> 180 
+<a id='L181' name='L181' /> 181         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L45' title='Defined at 45 in usr/server/fs/fatfs/fatfs_node.c.'>fat_read_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L182' name='L182' /> 182         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L183' name='L183' /> 183                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L184' name='L184' /> 184 
+<a id='L185' name='L185' /> 185         <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a> = (<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a> *)<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a>;
+<a id='L186' name='L186' /> 186         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='888.html#L133' title='Defined at 133 in usr/server/fs/fatfs/fatfs.h.'>DIR_PER_SEC</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L187' name='L187' /> 187                 <strong class='reserved'>if</strong> (<a href='888.html#L151' title='Defined at 151 in usr/server/fs/fatfs/fatfs.h.'>IS_EMPTY</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>))
+<a id='L188' name='L188' /> 188                         <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L189' name='L189' /> 189                 <strong class='reserved'>if</strong> (!<a href='888.html#L150' title='Defined at 150 in usr/server/fs/fatfs/fatfs.h.'>IS_DELETED</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>) &amp;&amp; !<a href='888.html#L147' title='Defined at 147 in usr/server/fs/fatfs/fatfs.h.'>IS_VOL</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>)) <em class='brace'>{</em>
+<a id='L190' name='L190' /> 190                         <em class='comment'>/* valid file */</em>
+<a id='L191' name='L191' /> 191                         <strong class='reserved'>if</strong> (*<a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a> == <a href='../Y/2114.html' title='Multiple used in 40 places.'>target</a>) <em class='brace'>{</em>
+<a id='L192' name='L192' /> 192                                 *(&amp;<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/673.html' title='Multiple used in 39 places.'>dirent</a>) = *<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>;
+<a id='L193' name='L193' /> 193                                 <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1871.html' title='Multiple used in 23 places.'>sector</a> = <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>;
+<a id='L194' name='L194' /> 194                                 <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1445.html' title='Multiple used in 60 places.'>offset</a> = <strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a>) * <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L195' name='L195' /> 195                                 <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_get_dirent: found index=%d\n", *<a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>));
+<a id='L196' name='L196' /> 196                                 <strong class='reserved'>return</strong> 0;
+<a id='L197' name='L197' /> 197                         <em class='brace'>}</em>
+<a id='L198' name='L198' /> 198                         (*<a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>)++;
+<a id='L199' name='L199' /> 199                 <em class='brace'>}</em>
+<a id='L200' name='L200' /> 200                 <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_get_dirent: %s\n", <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L201' name='L201' /> 201                 <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>++;
+<a id='L202' name='L202' /> 202         <em class='brace'>}</em>
+<a id='L203' name='L203' /> 203         <strong class='reserved'>return</strong> <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>;
+<a id='L204' name='L204' /> 204 <em class='brace'>}</em>
+<a id='L205' name='L205' /> 205 
+<a id='L206' name='L206' /> 206 <em class='comment'>/*</em>
+<a id='L207' name='L207' /> 207 <em class='comment'> * Get directory entry for specified index.</em>
+<a id='L208' name='L208' /> 208 <em class='comment'> *</em>
+<a id='L209' name='L209' /> 209 <em class='comment'> * @dvp: vnode for directory.</em>
+<a id='L210' name='L210' /> 210 <em class='comment'> * @index: index of the entry</em>
+<a id='L211' name='L211' /> 211 <em class='comment'> * @np: pointer to fat node</em>
+<a id='L212' name='L212' /> 212 <em class='comment'> */</em>
+<a id='L213' name='L213' /> 213 <strong class='reserved'>int</strong>
+<a id='L214' name='L214' /> 214 <a href='../R/1790.html' title='Multiple refered from 2 places.'>fatfs_get_node</a>(<a href='279.html#L78' title='Defined at 78 in include/sys/vnode.h.'>vnode_t</a> <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>, <strong class='reserved'>int</strong> <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>, <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L215' name='L215' /> 215 <em class='brace'>{</em>
+<a id='L216' name='L216' /> 216         <strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>;
+<a id='L217' name='L217' /> 217         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a> <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>;
+<a id='L218' name='L218' /> 218         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>, <a href='../Y/584.html' title='Multiple used in 4 places.'>cur_index</a>, <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L219' name='L219' /> 219 
+<a id='L220' name='L220' /> 220         <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a> = (<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *)<a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2283.html' title='Multiple used in 27 places.'>v_mount</a>-&gt;<a href='../Y/1232.html' title='Multiple used in 16 places.'>m_data</a>;
+<a id='L221' name='L221' /> 221         <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> = <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2277.html' title='Multiple used in 15 places.'>v_blkno</a>;
+<a id='L222' name='L222' /> 222         <a href='../Y/584.html' title='Multiple used in 4 places.'>cur_index</a> = 0;
+<a id='L223' name='L223' /> 223 
+<a id='L224' name='L224' /> 224         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fatfs_get_node: index=%d\n", <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>));
+<a id='L225' name='L225' /> 225 
+<a id='L226' name='L226' /> 226         <strong class='reserved'>if</strong> (<a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> == <a href='888.html#L71' title='Defined at 71 in usr/server/fs/fatfs/fatfs.h.'>CL_ROOT</a>) <em class='brace'>{</em>
+<a id='L227' name='L227' /> 227                 <em class='comment'>/* Get entry from the root directory */</em>
+<a id='L228' name='L228' /> 228                 <strong class='reserved'>for</strong> (<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1781.html' title='Multiple used in 6 places.'>root_start</a>; <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/619.html' title='Multiple used in 7 places.'>data_start</a>; <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++) <em class='brace'>{</em>
+<a id='L229' name='L229' /> 229                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L175' title='Defined at 175 in usr/server/fs/fatfs/fatfs_node.c.'>fat_get_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>, &amp;<a href='../Y/584.html' title='Multiple used in 4 places.'>cur_index</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L230' name='L230' /> 230                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> != <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>)
+<a id='L231' name='L231' /> 231                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L232' name='L232' /> 232                 <em class='brace'>}</em>
+<a id='L233' name='L233' /> 233         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L234' name='L234' /> 234                 <em class='comment'>/* Get entry from the sub directory */</em>
+<a id='L235' name='L235' /> 235                 <strong class='reserved'>while</strong> (!<a href='888.html#L180' title='Defined at 180 in usr/server/fs/fatfs/fatfs.h.'>IS_EOFCL</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>)) <em class='brace'>{</em>
+<a id='L236' name='L236' /> 236                         <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='888.html#L195' title='Defined at 195 in usr/server/fs/fatfs/fatfs.h.'>cl_to_sec</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>);
+<a id='L237' name='L237' /> 237                         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1865.html' title='Multiple used in 11 places.'>sec_per_cl</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L238' name='L238' /> 238                                 <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L175' title='Defined at 175 in usr/server/fs/fatfs/fatfs_node.c.'>fat_get_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/1044.html' title='Multiple used in 48 places.'>index</a>,
+<a id='L239' name='L239' /> 239                                                      &amp;<a href='../Y/584.html' title='Multiple used in 4 places.'>cur_index</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L240' name='L240' /> 240                                 <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> != <a href='256.html#L79' title='Defined at 79 in include/sys/errno.h.'>EAGAIN</a>)
+<a id='L241' name='L241' /> 241                                         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L242' name='L242' /> 242                                 <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++;
+<a id='L243' name='L243' /> 243                         <em class='brace'>}</em>
+<a id='L244' name='L244' /> 244                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='889.html#L128' title='Defined at 128 in usr/server/fs/fatfs/fatfs_fat.c.'>fat_next_cluster</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, &amp;<a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>);
+<a id='L245' name='L245' /> 245                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L246' name='L246' /> 246                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L247' name='L247' /> 247                 <em class='brace'>}</em>
+<a id='L248' name='L248' /> 248         <em class='brace'>}</em>
+<a id='L249' name='L249' /> 249         <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L250' name='L250' /> 250 <em class='brace'>}</em>
+<a id='L251' name='L251' /> 251 
+<a id='L252' name='L252' /> 252 <em class='comment'>/*</em>
+<a id='L253' name='L253' /> 253 <em class='comment'> * Find empty directory entry and put new entry on it.</em>
+<a id='L254' name='L254' /> 254 <em class='comment'> *</em>
+<a id='L255' name='L255' /> 255 <em class='comment'> * @fmp: fatfs mount point</em>
+<a id='L256' name='L256' /> 256 <em class='comment'> * @sec: sector#</em>
+<a id='L257' name='L257' /> 257 <em class='comment'> * @np: pointer to fat node</em>
+<a id='L258' name='L258' /> 258 <em class='comment'> */</em>
+<a id='L259' name='L259' /> 259 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong>
+<a id='L260' name='L260' /> 260 <a href='../R/1765.html' title='Multiple refered from 3 places.'>fat_add_dirent</a>(<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/2249.html' title='Multiple used in 99 places.'>u_long</a> <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L261' name='L261' /> 261 <em class='brace'>{</em>
+<a id='L262' name='L262' /> 262         <strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a> *<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>;
+<a id='L263' name='L263' /> 263         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>, <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>;
+<a id='L264' name='L264' /> 264 
+<a id='L265' name='L265' /> 265         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L45' title='Defined at 45 in usr/server/fs/fatfs/fatfs_node.c.'>fat_read_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L266' name='L266' /> 266         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L267' name='L267' /> 267                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L268' name='L268' /> 268 
+<a id='L269' name='L269' /> 269         <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a> = (<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a> *)<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a>;
+<a id='L270' name='L270' /> 270         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='888.html#L133' title='Defined at 133 in usr/server/fs/fatfs/fatfs.h.'>DIR_PER_SEC</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L271' name='L271' /> 271                 <strong class='reserved'>if</strong> (<a href='888.html#L150' title='Defined at 150 in usr/server/fs/fatfs/fatfs.h.'>IS_DELETED</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>) || <a href='888.html#L151' title='Defined at 151 in usr/server/fs/fatfs/fatfs.h.'>IS_EMPTY</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>))
+<a id='L272' name='L272' /> 272                         <strong class='reserved'>goto</strong> <a href='../Y/905.html' title='Multiple used in 34 places.'>found</a>;
+<a id='L273' name='L273' /> 273                 <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_add_dirent: scan %s\n", <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>-&gt;<a href='../Y/1339.html' title='Multiple used in 342 places.'>name</a>));
+<a id='L274' name='L274' /> 274                 <a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>++;
+<a id='L275' name='L275' /> 275         <em class='brace'>}</em>
+<a id='L276' name='L276' /> 276         <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L277' name='L277' /> 277 
+<a id='L278' name='L278' /> 278  <a href='../Y/905.html' title='Multiple used in 34 places.'>found</a>:
+<a id='L279' name='L279' /> 279         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fat_add_dirent: found. sec=%d\n", <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>));
+<a id='L280' name='L280' /> 280         <a href='../D/3040.html' title='Multiple defined in 4 places.'>memcpy</a>(<a href='../Y/632.html' title='Multiple used in 84 places.'>de</a>, &amp;<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/673.html' title='Multiple used in 39 places.'>dirent</a>, <strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a>));
+<a id='L281' name='L281' /> 281         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L61' title='Defined at 61 in usr/server/fs/fatfs/fatfs_node.c.'>fat_write_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L282' name='L282' /> 282         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L283' name='L283' /> 283 <em class='brace'>}</em>
+<a id='L284' name='L284' /> 284 
+<a id='L285' name='L285' /> 285 <em class='comment'>/*</em>
+<a id='L286' name='L286' /> 286 <em class='comment'> * Find empty directory entry and put new entry on it.</em>
+<a id='L287' name='L287' /> 287 <em class='comment'> * This search is done only in directory of specified cluster.</em>
+<a id='L288' name='L288' /> 288 <em class='comment'> * @dvp: vnode for directory.</em>
+<a id='L289' name='L289' /> 289 <em class='comment'> * @np: pointer to fat node</em>
+<a id='L290' name='L290' /> 290 <em class='comment'> */</em>
+<a id='L291' name='L291' /> 291 <strong class='reserved'>int</strong>
+<a id='L292' name='L292' /> 292 <a href='../R/1786.html' title='Multiple refered from 5 places.'>fatfs_add_node</a>(<a href='279.html#L78' title='Defined at 78 in include/sys/vnode.h.'>vnode_t</a> <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>, <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L293' name='L293' /> 293 <em class='brace'>{</em>
+<a id='L294' name='L294' /> 294         <strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>;
+<a id='L295' name='L295' /> 295         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a> <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>;
+<a id='L296' name='L296' /> 296         <strong class='reserved'>int</strong> <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>, <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L297' name='L297' /> 297         <a href='../D/3758.html' title='Multiple defined in 2 places.'>u_long</a> <a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L298' name='L298' /> 298 
+<a id='L299' name='L299' /> 299         <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a> = (<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *)<a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2283.html' title='Multiple used in 27 places.'>v_mount</a>-&gt;<a href='../Y/1232.html' title='Multiple used in 16 places.'>m_data</a>;
+<a id='L300' name='L300' /> 300         <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> = <a href='../Y/711.html' title='Multiple used in 125 places.'>dvp</a>-&gt;<a href='../Y/2277.html' title='Multiple used in 15 places.'>v_blkno</a>;
+<a id='L301' name='L301' /> 301 
+<a id='L302' name='L302' /> 302         <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fatfs_add_node: cl=%d\n", <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>));
+<a id='L303' name='L303' /> 303 
+<a id='L304' name='L304' /> 304         <strong class='reserved'>if</strong> (<a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> == <a href='888.html#L71' title='Defined at 71 in usr/server/fs/fatfs/fatfs.h.'>CL_ROOT</a>) <em class='brace'>{</em>
+<a id='L305' name='L305' /> 305                 <em class='comment'>/* Add entry in root directory */</em>
+<a id='L306' name='L306' /> 306                 <strong class='reserved'>for</strong> (<a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1781.html' title='Multiple used in 6 places.'>root_start</a>; <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/619.html' title='Multiple used in 7 places.'>data_start</a>; <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++) <em class='brace'>{</em>
+<a id='L307' name='L307' /> 307                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L260' title='Defined at 260 in usr/server/fs/fatfs/fatfs_node.c.'>fat_add_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L308' name='L308' /> 308                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> != <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>)
+<a id='L309' name='L309' /> 309                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L310' name='L310' /> 310                 <em class='brace'>}</em>
+<a id='L311' name='L311' /> 311         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L312' name='L312' /> 312                 <em class='comment'>/* Search entry in sub directory */</em>
+<a id='L313' name='L313' /> 313                 <strong class='reserved'>while</strong> (!<a href='888.html#L180' title='Defined at 180 in usr/server/fs/fatfs/fatfs.h.'>IS_EOFCL</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>)) <em class='brace'>{</em>
+<a id='L314' name='L314' /> 314                         <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='888.html#L195' title='Defined at 195 in usr/server/fs/fatfs/fatfs.h.'>cl_to_sec</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>);
+<a id='L315' name='L315' /> 315                         <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1865.html' title='Multiple used in 11 places.'>sec_per_cl</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L316' name='L316' /> 316                                 <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L260' title='Defined at 260 in usr/server/fs/fatfs/fatfs_node.c.'>fat_add_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L317' name='L317' /> 317                                 <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> != <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>)
+<a id='L318' name='L318' /> 318                                         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L319' name='L319' /> 319                                 <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++;
+<a id='L320' name='L320' /> 320                         <em class='brace'>}</em>
+<a id='L321' name='L321' /> 321                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='889.html#L128' title='Defined at 128 in usr/server/fs/fatfs/fatfs_fat.c.'>fat_next_cluster</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, &amp;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>);
+<a id='L322' name='L322' /> 322                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L323' name='L323' /> 323                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L324' name='L324' /> 324                         <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a> = <a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L325' name='L325' /> 325                 <em class='brace'>}</em>
+<a id='L326' name='L326' /> 326                 <em class='comment'>/* No entry found, add one more free cluster for directory */</em>
+<a id='L327' name='L327' /> 327                 <a href='../D/295.html' title='Multiple defined in 58 places.'>DPRINTF</a>(("fatfs_add_node: expand dir\n"));
+<a id='L328' name='L328' /> 328                 <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='889.html#L349' title='Defined at 349 in usr/server/fs/fatfs/fatfs_fat.c.'>fat_expand_dir</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/516.html' title='Multiple used in 101 places.'>cl</a>, &amp;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>);
+<a id='L329' name='L329' /> 329                 <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L330' name='L330' /> 330                         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L331' name='L331' /> 331 
+<a id='L332' name='L332' /> 332                 <em class='comment'>/* Initialize free cluster. */</em>
+<a id='L333' name='L333' /> 333                 <a href='../D/3041.html' title='Multiple defined in 3 places.'>memset</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a>, 0, <a href='888.html#L65' title='Defined at 65 in usr/server/fs/fatfs/fatfs.h.'>SEC_SIZE</a>);
+<a id='L334' name='L334' /> 334                 <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='888.html#L195' title='Defined at 195 in usr/server/fs/fatfs/fatfs.h.'>cl_to_sec</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>);
+<a id='L335' name='L335' /> 335                 <strong class='reserved'>for</strong> (<a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> = 0; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a> &lt; <a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/1865.html' title='Multiple used in 11 places.'>sec_per_cl</a>; <a href='../Y/1027.html' title='Multiple used in 699 places.'>i</a>++) <em class='brace'>{</em>
+<a id='L336' name='L336' /> 336                         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L61' title='Defined at 61 in usr/server/fs/fatfs/fatfs_node.c.'>fat_write_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>);
+<a id='L337' name='L337' /> 337                         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L338' name='L338' /> 338                                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L339' name='L339' /> 339                         <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>++;
+<a id='L340' name='L340' /> 340                 <em class='brace'>}</em>
+<a id='L341' name='L341' /> 341                 <em class='comment'>/* Try again */</em>
+<a id='L342' name='L342' /> 342                 <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a> = <a href='888.html#L195' title='Defined at 195 in usr/server/fs/fatfs/fatfs.h.'>cl_to_sec</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>);
+<a id='L343' name='L343' /> 343                 <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L260' title='Defined at 260 in usr/server/fs/fatfs/fatfs_node.c.'>fat_add_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1864.html' title='Multiple used in 69 places.'>sec</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>);
+<a id='L344' name='L344' /> 344                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L345' name='L345' /> 345         <em class='brace'>}</em>
+<a id='L346' name='L346' /> 346         <strong class='reserved'>return</strong> <a href='256.html#L41' title='Defined at 41 in include/sys/errno.h.'>ENOENT</a>;
+<a id='L347' name='L347' /> 347 <em class='brace'>}</em>
+<a id='L348' name='L348' /> 348 
+<a id='L349' name='L349' /> 349 <em class='comment'>/*</em>
+<a id='L350' name='L350' /> 350 <em class='comment'> * Put directory entry.</em>
+<a id='L351' name='L351' /> 351 <em class='comment'> * @fmp: fat mount data</em>
+<a id='L352' name='L352' /> 352 <em class='comment'> * @np: pointer to fat node</em>
+<a id='L353' name='L353' /> 353 <em class='comment'> */</em>
+<a id='L354' name='L354' /> 354 <strong class='reserved'>int</strong>
+<a id='L355' name='L355' /> 355 <a href='../R/1800.html' title='Multiple refered from 7 places.'>fatfs_put_node</a>(<strong class='reserved'>struct</strong> <a href='../Y/850.html' title='Multiple used in 46 places.'>fatfsmount</a> *<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <strong class='reserved'>struct</strong> <a href='../Y/847.html' title='Multiple used in 24 places.'>fatfs_node</a> *<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>)
+<a id='L356' name='L356' /> 356 <em class='brace'>{</em>
+<a id='L357' name='L357' /> 357         <strong class='reserved'>int</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L358' name='L358' /> 358 
+<a id='L359' name='L359' /> 359         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L45' title='Defined at 45 in usr/server/fs/fatfs/fatfs_node.c.'>fat_read_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1871.html' title='Multiple used in 23 places.'>sector</a>);
+<a id='L360' name='L360' /> 360         <strong class='reserved'>if</strong> (<a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>)
+<a id='L361' name='L361' /> 361                 <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L362' name='L362' /> 362 
+<a id='L363' name='L363' /> 363         <a href='../D/3040.html' title='Multiple defined in 4 places.'>memcpy</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>-&gt;<a href='../Y/671.html' title='Multiple used in 11 places.'>dir_buf</a> + <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1445.html' title='Multiple used in 60 places.'>offset</a>, &amp;<a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/673.html' title='Multiple used in 39 places.'>dirent</a>,
+<a id='L364' name='L364' /> 364                <strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/841.html' title='Multiple used in 25 places.'>fat_dirent</a>));
+<a id='L365' name='L365' /> 365 
+<a id='L366' name='L366' /> 366         <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a> = <a href='890.html#L61' title='Defined at 61 in usr/server/fs/fatfs/fatfs_node.c.'>fat_write_dirent</a>(<a href='../Y/883.html' title='Multiple used in 245 places.'>fmp</a>, <a href='../Y/1399.html' title='Multiple used in 231 places.'>np</a>-&gt;<a href='../Y/1871.html' title='Multiple used in 23 places.'>sector</a>);
+<a id='L367' name='L367' /> 367         <strong class='reserved'>return</strong> <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>;
+<a id='L368' name='L368' /> 368 <em class='brace'>}</em>
+<a id='L369' name='L369' /> 369 
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='890.html#L45'>[^]</a><a href='890.html#L355'>[v]</a><a href='890.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

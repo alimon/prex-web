@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pg</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L66'>pg</a>                 66 bsp/hal/arm/arch/mmu.c 	paddr_t pg, pgd;
+<a href='../S/131.html#L70'>pg</a>                 70 bsp/hal/arm/arch/mmu.c 	if ((pg = page_alloc(L1TBL_SIZE * 2)) == 0)
+<a href='../S/131.html#L74'>pg</a>                 74 bsp/hal/arm/arch/mmu.c 	pgd = PGD_ALIGN(pg);
+<a href='../S/131.html#L77'>pg</a>                 77 bsp/hal/arm/arch/mmu.c 	gap = (size_t)(pgd - pg);
+<a href='../S/131.html#L79'>pg</a>                 79 bsp/hal/arm/arch/mmu.c 		page_free(pg, gap);
+<a href='../S/131.html#L115'>pg</a>                115 bsp/hal/arm/arch/mmu.c 	paddr_t pg;	/* page */
+<a href='../S/131.html#L157'>pg</a>                157 bsp/hal/arm/arch/mmu.c 			if ((pg = page_alloc(L2TBL_SIZE)) == 0) {
+<a href='../S/131.html#L161'>pg</a>                161 bsp/hal/arm/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | PDE_PRESENT;
+<a href='../S/131.html#L162'>pg</a>                162 bsp/hal/arm/arch/mmu.c 			pte = (pte_t)ptokv(pg);
+<a href='../S/131.html#L188'>pg</a>                188 bsp/hal/arm/arch/mmu.c 	paddr_t pg;
+<a href='../S/131.html#L192'>pg</a>                192 bsp/hal/arm/arch/mmu.c 	if ((pg = alloc_pgd()) == 0)
+<a href='../S/131.html#L194'>pg</a>                194 bsp/hal/arm/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/131.html#L253'>pg</a>                253 bsp/hal/arm/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/131.html#L260'>pg</a>                260 bsp/hal/arm/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/131.html#L261'>pg</a>                261 bsp/hal/arm/arch/mmu.c 		if (!pte_present(pgd, pg))
+<a href='../S/131.html#L263'>pg</a>                263 bsp/hal/arm/arch/mmu.c 		pte = vtopte(pgd, pg);
+<a href='../S/131.html#L264'>pg</a>                264 bsp/hal/arm/arch/mmu.c 		if (!page_present(pte, pg))
+<a href='../S/178.html#L87'>pg</a>                 87 bsp/hal/x86/arch/mmu.c 	paddr_t pg;
+<a href='../S/178.html#L129'>pg</a>                129 bsp/hal/x86/arch/mmu.c 			if ((pg = page_alloc(PAGE_SIZE)) == 0) {
+<a href='../S/178.html#L133'>pg</a>                133 bsp/hal/x86/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | pde_flag;
+<a href='../S/178.html#L134'>pg</a>                134 bsp/hal/x86/arch/mmu.c 			pte = (pte_t)ptokv(pg);
+<a href='../S/178.html#L160'>pg</a>                160 bsp/hal/x86/arch/mmu.c 	paddr_t pg;
+<a href='../S/178.html#L165'>pg</a>                165 bsp/hal/x86/arch/mmu.c 	if ((pg = page_alloc(PAGE_SIZE)) == 0)
+<a href='../S/178.html#L167'>pg</a>                167 bsp/hal/x86/arch/mmu.c 	pgd = (pgd_t)ptokv(pg);
+<a href='../S/178.html#L223'>pg</a>                223 bsp/hal/x86/arch/mmu.c 	vaddr_t start, end, pg;
+<a href='../S/178.html#L230'>pg</a>                230 bsp/hal/x86/arch/mmu.c 	for (pg = start; pg &lt;= end; pg += PAGE_SIZE) {
+<a href='../S/178.html#L231'>pg</a>                231 bsp/hal/x86/arch/mmu.c 		if (!pte_present(pgd, pg))
+<a href='../S/178.html#L233'>pg</a>                233 bsp/hal/x86/arch/mmu.c 		pte = vtopte(pgd, pg);
+<a href='../S/178.html#L234'>pg</a>                234 bsp/hal/x86/arch/mmu.c 		if (!page_present(pte, pg))
+<a href='../S/341.html#L178'>pg</a>                178 sys/mem/kmem.c 	struct page_hdr *pg;
+<a href='../S/341.html#L201'>pg</a>                201 sys/mem/kmem.c 		pg = PAGETOP(blk);	 /* Get the page address */
+<a href='../S/341.html#L210'>pg</a>                210 sys/mem/kmem.c 		pg = ptokv(pa);
+<a href='../S/341.html#L211'>pg</a>                211 sys/mem/kmem.c 		pg-&gt;nallocs = 0;
+<a href='../S/341.html#L212'>pg</a>                212 sys/mem/kmem.c 		pg-&gt;magic = PAGE_MAGIC;
+<a href='../S/341.html#L217'>pg</a>                217 sys/mem/kmem.c 		blk = &amp;pg-&gt;first_blk;
+<a href='../S/341.html#L226'>pg</a>                226 sys/mem/kmem.c 	if (pg-&gt;magic != PAGE_MAGIC || blk-&gt;magic != BLOCK_MAGIC)
+<a href='../S/341.html#L251'>pg</a>                251 sys/mem/kmem.c 	pg-&gt;nallocs++;
+<a href='../S/341.html#L272'>pg</a>                272 sys/mem/kmem.c 	struct page_hdr *pg;
+<a href='../S/341.html#L294'>pg</a>                294 sys/mem/kmem.c 	pg = PAGETOP(blk);
+<a href='../S/341.html#L295'>pg</a>                295 sys/mem/kmem.c 	if (--pg-&gt;nallocs == 0) {
+<a href='../S/341.html#L300'>pg</a>                300 sys/mem/kmem.c 		for (blk = &amp;pg-&gt;first_blk; blk != NULL; blk = blk-&gt;pg_next) {
+<a href='../S/341.html#L303'>pg</a>                303 sys/mem/kmem.c 		pg-&gt;magic = 0;
+<a href='../S/341.html#L304'>pg</a>                304 sys/mem/kmem.c 		page_free(kvtop(pg), PAGE_SIZE);
+<a href='../S/917.html#L488'>pg</a>                488 usr/server/proc/main.c 	struct pgrp *pg;
+<a href='../S/917.html#L492'>pg</a>                492 usr/server/proc/main.c 	pg = &amp;pgrp0;
+<a href='../S/917.html#L495'>pg</a>                495 usr/server/proc/main.c 	pg-&gt;pg_pgid = 0;
+<a href='../S/917.html#L496'>pg</a>                496 usr/server/proc/main.c 	list_init(&amp;pg-&gt;pg_members);
+<a href='../S/917.html#L497'>pg</a>                497 usr/server/proc/main.c 	pg_add(pg);
+<a href='../S/917.html#L499'>pg</a>                499 usr/server/proc/main.c 	pg-&gt;pg_session = sess;
+<a href='../S/917.html#L505'>pg</a>                505 usr/server/proc/main.c 	p-&gt;p_pgrp = pg;
+<a href='../S/917.html#L515'>pg</a>                515 usr/server/proc/main.c 	list_insert(&amp;pg-&gt;pg_members, &amp;p-&gt;p_pgrp_link);
+<a href='../S/921.html#L86'>pg</a>                 86 usr/server/proc/proc_fork.c 	struct pgrp *pg;
+<a href='../S/921.html#L88'>pg</a>                 88 usr/server/proc/proc_fork.c 	pg = curproc-&gt;p_pgrp;
+<a href='../S/921.html#L101'>pg</a>                101 usr/server/proc/proc_fork.c 	p-&gt;p_pgrp = pg;
+<a href='../S/921.html#L112'>pg</a>                112 usr/server/proc/proc_fork.c 	list_insert(&amp;pg-&gt;pg_members, &amp;p-&gt;p_pgrp_link);
+</pre>
+</body>
+</html>

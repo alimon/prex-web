@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>owner</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/309.html#L43'>owner</a>              43 sys/include/ipc.h 	task_t		owner;		/* creator of this object */
+<a href='../S/316.html#L41'>owner</a>              41 sys/include/sync.h 	task_t		owner;		/* owner task */
+<a href='../S/316.html#L49'>owner</a>              49 sys/include/sync.h 	task_t		owner;		/* owner task */
+<a href='../S/316.html#L59'>owner</a>              59 sys/include/sync.h 	task_t		owner;		/* owner task */
+<a href='../S/324.html#L203'>owner</a>             203 sys/ipc/msg.c  	if (obj-&gt;owner != curtask) {
+<a href='../S/325.html#L123'>owner</a>             123 sys/ipc/object.c 	obj-&gt;owner = curtask;
+<a href='../S/325.html#L200'>owner</a>             200 sys/ipc/object.c 	obj-&gt;owner-&gt;nobjects--;
+<a href='../S/325.html#L221'>owner</a>             221 sys/ipc/object.c 	if (obj-&gt;owner != curtask) {
+<a href='../S/345.html#L64'>owner</a>              64 sys/sync/cond.c 	c-&gt;owner = self;
+<a href='../S/345.html#L81'>owner</a>              81 sys/sync/cond.c 	c-&gt;owner-&gt;nsyncs--;
+<a href='../S/346.html#L106'>owner</a>             106 sys/sync/mutex.c 	m-&gt;owner = self;
+<a href='../S/346.html#L129'>owner</a>             129 sys/sync/mutex.c 	m-&gt;owner-&gt;nsyncs--;
+<a href='../S/347.html#L84'>owner</a>              84 sys/sync/sem.c 		if (s-&gt;owner != self) {
+<a href='../S/347.html#L108'>owner</a>             108 sys/sync/sem.c 		s-&gt;owner = self;
+<a href='../S/347.html#L132'>owner</a>             132 sys/sync/sem.c 	if (sem_copyin(sp, &amp;s) || s-&gt;owner != curtask) {
+<a href='../S/347.html#L294'>owner</a>             294 sys/sync/sem.c 	s-&gt;owner-&gt;nsyncs--;
+<a href='../S/660.html#L37'>owner</a>              37 usr/lib/posix/file/chown.c chown(const char *path, uid_t owner, gid_t group)
+</pre>
+</body>
+</html>

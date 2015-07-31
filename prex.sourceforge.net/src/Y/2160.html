@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>timer</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/54.html#L85'>timer</a>              85 bsp/drv/arm/gba/swkbd.c 	timer_t		timer;		/* timer to prevent chattering */
+<a href='../S/54.html#L373'>timer</a>             373 bsp/drv/arm/gba/swkbd.c 	timer_callout(&amp;sc-&gt;timer, timeout, &amp;swkbd_timeout, sc);
+<a href='../S/63.html#L56'>timer</a>              56 bsp/drv/dev/base/pm.c 	timer_t		timer;		/* pm timer */
+<a href='../S/63.html#L241'>timer</a>             241 bsp/drv/dev/base/pm.c 		timer_stop(&amp;sc-&gt;timer);
+<a href='../S/63.html#L261'>timer</a>             261 bsp/drv/dev/base/pm.c 			timer_stop(&amp;sc-&gt;timer);
+<a href='../S/63.html#L265'>timer</a>             265 bsp/drv/dev/base/pm.c 			timer_callout(&amp;sc-&gt;timer, 1000, &amp;pm_timeout, sc);
+<a href='../S/63.html#L390'>timer</a>             390 bsp/drv/dev/base/pm.c 			timer_callout(&amp;sc-&gt;timer, 1000, &amp;pm_timeout, sc);
+<a href='../S/69.html#L70'>timer</a>              70 bsp/drv/dev/cpufreq/cpufreq.c 	struct timer	timer;		/* performance sampling timer */
+<a href='../S/69.html#L245'>timer</a>             245 bsp/drv/dev/cpufreq/cpufreq.c 	timer_callout(&amp;sc-&gt;timer, SAMPLING_RATE, &amp;cpufreq_timeout, sc);
+<a href='../S/69.html#L279'>timer</a>             279 bsp/drv/dev/cpufreq/cpufreq.c 	timer_callout(&amp;sc-&gt;timer, SAMPLING_RATE, &amp;cpufreq_timeout, sc);
+<a href='../S/69.html#L295'>timer</a>             295 bsp/drv/dev/cpufreq/cpufreq.c 	timer_stop(&amp;sc-&gt;timer);
+<a href='../S/96.html#L100'>timer</a>             100 bsp/drv/include/dki.h struct timer {
+<a href='../S/96.html#L104'>timer</a>             104 bsp/drv/include/dki.h typedef struct timer	timer_t;
+<a href='../S/318.html#L52'>timer</a>              52 sys/include/task.h 	struct timer	alarm;		/* timer for alarm exception */
+<a href='../S/319.html#L61'>timer</a>              61 sys/include/thread.h 	struct timer 	timeout;	/* thread timer */
+<a href='../S/319.html#L62'>timer</a>              62 sys/include/thread.h 	struct timer	*periodic;	/* pointer to periodic timer */
+<a href='../S/320.html#L42'>timer</a>              42 sys/include/timer.h struct timer {
+<a href='../S/320.html#L70'>timer</a>              70 sys/include/timer.h 	(list_entry(list_first(head), struct timer, link))
+<a href='../S/320.html#L73'>timer</a>              73 sys/include/timer.h void	 timer_callout(struct timer *, u_long, void (*)(void *), void *);
+<a href='../S/320.html#L74'>timer</a>              74 sys/include/timer.h void	 timer_stop(struct timer *);
+<a href='../S/336.html#L69'>timer</a>              69 sys/kern/timer.c timer_add(struct timer *tmr, u_long ticks)
+<a href='../S/336.html#L72'>timer</a>              72 sys/kern/timer.c 	struct timer *t;
+<a href='../S/336.html#L86'>timer</a>              86 sys/kern/timer.c 		t = list_entry(n, struct timer, link);
+<a href='../S/336.html#L97'>timer</a>              97 sys/kern/timer.c timer_stop(struct timer *tmr)
+<a href='../S/336.html#L119'>timer</a>             119 sys/kern/timer.c timer_callout(struct timer *tmr, u_long msec, void (*fn)(void *), void *arg)
+<a href='../S/336.html#L149'>timer</a>             149 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L206'>timer</a>             206 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L242'>timer</a>             242 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L308'>timer</a>             308 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L349'>timer</a>             349 sys/kern/timer.c 	struct timer *tmr;
+<a href='../S/336.html#L391'>timer</a>             391 sys/kern/timer.c 	struct timer *tmr;
+</pre>
+</body>
+</html>

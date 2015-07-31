@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>timeout</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/54.html#L298'>timeout</a>           298 bsp/drv/arm/gba/swkbd.c 	int timeout = BUTTON_WAIT;
+<a href='../S/54.html#L368'>timeout</a>           368 bsp/drv/arm/gba/swkbd.c 		timeout = CURSOR_WAIT;
+<a href='../S/54.html#L373'>timeout</a>           373 bsp/drv/arm/gba/swkbd.c 	timer_callout(&amp;sc-&gt;timer, timeout, &amp;swkbd_timeout, sc);
+<a href='../S/267.html#L146'>timeout</a>           146 include/sys/prex.h int	sem_wait(sem_t *sp, u_long timeout);
+<a href='../S/319.html#L61'>timeout</a>            61 sys/include/thread.h 	struct timer 	timeout;	/* thread timer */
+<a href='../S/331.html#L202'>timeout</a>           202 sys/kern/sched.c 	timer_stop(&amp;t-&gt;timeout);
+<a href='../S/331.html#L288'>timeout</a>           288 sys/kern/sched.c 		timer_callout(&amp;curthread-&gt;timeout, msec,
+<a href='../S/331.html#L504'>timeout</a>           504 sys/kern/sched.c 	timer_stop(&amp;t-&gt;timeout);
+<a href='../S/336.html#L155'>timeout</a>           155 sys/kern/timer.c 		tmr = &amp;curthread-&gt;timeout;
+<a href='../S/347.html#L162'>timeout</a>           162 sys/sync/sem.c sem_wait(sem_t *sp, u_long timeout)
+<a href='../S/347.html#L175'>timeout</a>           175 sys/sync/sem.c 		rc = sched_tsleep(&amp;s-&gt;event, timeout);
+<a href='../S/787.html#L33'>timeout</a>            33 usr/lib/prex/syscalls/sem_wait.c extern int _sem_wait(sem_t *sem, unsigned long timeout);
+<a href='../S/846.html#L78'>timeout</a>            78 usr/sample/tetris/input.c 	int i, ninq, timeout;
+<a href='../S/846.html#L85'>timeout</a>            85 usr/sample/tetris/input.c 		timeout = tvp-&gt;tv_usec / 1000;
+<a href='../S/846.html#L87'>timeout</a>            87 usr/sample/tetris/input.c 		timeout = 1000;
+<a href='../S/846.html#L93'>timeout</a>            93 usr/sample/tetris/input.c 	for (i = 0; i &lt; timeout; i++) {
+<a href='../S/846.html#L99'>timeout</a>            99 usr/sample/tetris/input.c 	if (i &gt;= timeout) {	/* timed out */
+<a href='../S/870.html#L169'>timeout</a>           169 usr/sbin/pmctrl/pmctrl.c 	int timeout;
+<a href='../S/870.html#L179'>timeout</a>           179 usr/sbin/pmctrl/pmctrl.c 	timeout = m.data[0];
+<a href='../S/870.html#L180'>timeout</a>           180 usr/sbin/pmctrl/pmctrl.c 	printf("Suspend timeout: %d sec\n", timeout);
+<a href='../S/870.html#L184'>timeout</a>           184 usr/sbin/pmctrl/pmctrl.c 	timeout = m.data[0];
+<a href='../S/870.html#L185'>timeout</a>           185 usr/sbin/pmctrl/pmctrl.c 	printf("Dim timeout    : %d sec\n", timeout);
+<a href='../S/870.html#L214'>timeout</a>           214 usr/sbin/pmctrl/pmctrl.c 	int timeout;
+<a href='../S/870.html#L219'>timeout</a>           219 usr/sbin/pmctrl/pmctrl.c 		timeout = atoi(argv[2]);
+<a href='../S/870.html#L222'>timeout</a>           222 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = timeout;
+<a href='../S/870.html#L231'>timeout</a>           231 usr/sbin/pmctrl/pmctrl.c 	int timeout;
+<a href='../S/870.html#L236'>timeout</a>           236 usr/sbin/pmctrl/pmctrl.c 		timeout = atoi(argv[2]);
+<a href='../S/870.html#L239'>timeout</a>           239 usr/sbin/pmctrl/pmctrl.c 		m.data[0] = timeout;
+<a href='../S/916.html#L144'>timeout</a>           144 usr/server/pow/pow.c 	int timeout;
+<a href='../S/916.html#L146'>timeout</a>           146 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_GET_SUSTMR, &amp;timeout);
+<a href='../S/916.html#L147'>timeout</a>           147 usr/server/pow/pow.c 	msg-&gt;data[0] = timeout;
+<a href='../S/916.html#L154'>timeout</a>           154 usr/server/pow/pow.c 	int timeout;
+<a href='../S/916.html#L156'>timeout</a>           156 usr/server/pow/pow.c 	timeout = msg-&gt;data[0];
+<a href='../S/916.html#L157'>timeout</a>           157 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_SET_SUSTMR, &amp;timeout);
+<a href='../S/916.html#L164'>timeout</a>           164 usr/server/pow/pow.c 	int timeout;
+<a href='../S/916.html#L166'>timeout</a>           166 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_GET_DIMTMR, &amp;timeout);
+<a href='../S/916.html#L167'>timeout</a>           167 usr/server/pow/pow.c 	msg-&gt;data[0] = timeout;
+<a href='../S/916.html#L174'>timeout</a>           174 usr/server/pow/pow.c 	int timeout;
+<a href='../S/916.html#L176'>timeout</a>           176 usr/server/pow/pow.c 	timeout = msg-&gt;data[0];
+<a href='../S/916.html#L177'>timeout</a>           177 usr/server/pow/pow.c 	device_ioctl(pmdev, PMIOC_SET_DIMTMR, &amp;timeout);
+</pre>
+</body>
+</html>

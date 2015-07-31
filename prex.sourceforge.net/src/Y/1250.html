@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mapped</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/876.html#L62'>mapped</a>             62 usr/server/exec/exec_elf.c 	void *addr, *mapped;
+<a href='../S/876.html#L82'>mapped</a>             82 usr/server/exec/exec_elf.c 		if (vm_map(task, (void *)phdr-&gt;p_vaddr, size, &amp;mapped) != 0)
+<a href='../S/876.html#L88'>mapped</a>             88 usr/server/exec/exec_elf.c 			if (read(fd, mapped, phdr-&gt;p_filesz) &lt; 0)
+<a href='../S/876.html#L92'>mapped</a>             92 usr/server/exec/exec_elf.c 		vm_free(task_self(), mapped);
+<a href='../S/876.html#L104'>mapped</a>            104 usr/server/exec/exec_elf.c 	vm_free(task_self(), mapped);
+<a href='../S/876.html#L199'>mapped</a>            199 usr/server/exec/exec_elf.c 	void *base, *addr, *mapped;
+<a href='../S/876.html#L240'>mapped</a>            240 usr/server/exec/exec_elf.c 	if (vm_map(task, base, total_size, &amp;mapped) != 0) {
+<a href='../S/876.html#L263'>mapped</a>            263 usr/server/exec/exec_elf.c 			addr = (char *)((u_long)mapped + shdr-&gt;sh_addr);
+<a href='../S/876.html#L270'>mapped</a>            270 usr/server/exec/exec_elf.c 				(char *)((u_long)mapped + shdr-&gt;sh_addr);
+<a href='../S/876.html#L306'>mapped</a>            306 usr/server/exec/exec_elf.c 	*entry = (vaddr_t)((u_long)mapped + ehdr-&gt;e_entry);
+<a href='../S/876.html#L319'>mapped</a>            319 usr/server/exec/exec_elf.c 	vm_free(task_self(), mapped);
+<a href='../S/877.html#L321'>mapped</a>            321 usr/server/exec/exec_execve.c 	u_long arg_top, mapped, sp;
+<a href='../S/877.html#L332'>mapped</a>            332 usr/server/exec/exec_execve.c 	error = vm_map(task, stack, DFLSTKSZ, (void *)&amp;mapped);
+<a href='../S/877.html#L335'>mapped</a>            335 usr/server/exec/exec_execve.c 	memset((void *)mapped, 0, DFLSTKSZ);
+<a href='../S/877.html#L336'>mapped</a>            336 usr/server/exec/exec_execve.c 	sp = mapped + DFLSTKSZ - sizeof(int) * 3;
+<a href='../S/877.html#L388'>mapped</a>            388 usr/server/exec/exec_execve.c 	argv[0] = (char *)((u_long)stack + (u_long)file - mapped);
+<a href='../S/877.html#L391'>mapped</a>            391 usr/server/exec/exec_execve.c 		argv[i] = (char *)((u_long)stack + (arg_top - mapped));
+<a href='../S/877.html#L397'>mapped</a>            397 usr/server/exec/exec_execve.c 		envp[i] = (char *)((u_long)stack + (arg_top - mapped));
+<a href='../S/877.html#L402'>mapped</a>            402 usr/server/exec/exec_execve.c 	*new_sp = (void *)((u_long)stack + (sp - mapped));
+<a href='../S/877.html#L403'>mapped</a>            403 usr/server/exec/exec_execve.c 	vm_free(task_self(), (void *)mapped);
+</pre>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>copyout</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/63.html#L151'>copyout</a>           151 bsp/drv/dev/base/pm.c 		if (copyout(&amp;event, arg, sizeof(int)))
+<a href='../S/63.html#L173'>copyout</a>           173 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;policy, arg, sizeof(int)))
+<a href='../S/63.html#L201'>copyout</a>           201 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;sustime, arg, sizeof(u_long)))
+<a href='../S/63.html#L213'>copyout</a>           213 bsp/drv/dev/base/pm.c 		if (copyout(&amp;sc-&gt;dimtime, arg, sizeof(u_long)))
+<a href='../S/64.html#L483'>copyout</a>           483 bsp/drv/dev/base/tty.c 		if (copyout(&amp;c, buf, 1))
+<a href='../S/64.html#L537'>copyout</a>           537 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_termios, data,
+<a href='../S/64.html#L557'>copyout</a>           557 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_pgid, data, sizeof(pid_t)))
+<a href='../S/64.html#L581'>copyout</a>           581 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_winsize, data,
+<a href='../S/64.html#L596'>copyout</a>           596 bsp/drv/dev/base/tty.c 		if (copyout(&amp;qp-&gt;tq_count, data, sizeof(int)))
+<a href='../S/64.html#L600'>copyout</a>           600 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_outq.tq_count, data, sizeof(int)))
+<a href='../S/69.html#L314'>copyout</a>           314 bsp/drv/dev/cpufreq/cpufreq.c 		if (copyout(&amp;info, arg, sizeof(info)))
+<a href='../S/85.html#L194'>copyout</a>           194 bsp/drv/dev/rtc/rtc.c 		if (copyout(&amp;tv, arg, sizeof(tv)))
+<a href='../S/96.html#L115'>copyout</a>           115 bsp/drv/include/dki.h int	 copyout(const void *, void *, size_t);
+<a href='../S/126.html#L160'>copyout</a>           160 bsp/hal/arm/arch/context.c 	copyout(cur, sav, sizeof(*sav));
+<a href='../S/154.html#L119'>copyout</a>           119 bsp/hal/ppc/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/154.html#L166'>copyout</a>           166 bsp/hal/ppc/arch/context.c 	copyout(cur, sav, sizeof(*sav));
+<a href='../S/173.html#L119'>copyout</a>           119 bsp/hal/x86/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/173.html#L175'>copyout</a>           175 bsp/hal/x86/arch/context.c 	copyout(cur, sav, sizeof(*sav));
+<a href='../S/308.html#L115'>copyout</a>           115 sys/include/hal.h int	  copyout(const void *, void *, size_t);
+<a href='../S/324.html#L264'>copyout</a>           264 sys/ipc/msg.c  		if (copyout(t-&gt;msgaddr, msg, len)) {
+<a href='../S/325.html#L108'>copyout</a>           108 sys/ipc/object.c 	if (copyout(&amp;obj, objp, sizeof(obj))) {
+<a href='../S/325.html#L129'>copyout</a>           129 sys/ipc/object.c 	copyout(&amp;obj, objp, sizeof(obj));
+<a href='../S/325.html#L157'>copyout</a>           157 sys/ipc/object.c 	if (copyout(&amp;obj, objp, sizeof(obj)))
+<a href='../S/326.html#L144'>copyout</a>           144 sys/kern/debug.c 		if (copyout(&amp;c, buf, 1)) {
+<a href='../S/326.html#L170'>copyout</a>           170 sys/kern/debug.c 		error = copyout(&amp;size, data, sizeof(size));
+<a href='../S/327.html#L75'>copyout</a>            75 sys/kern/device.c 	/*  1 */ DKIENT(copyout),
+<a href='../S/327.html#L326'>copyout</a>           326 sys/kern/device.c 		error = copyout(&amp;dev, devp, sizeof(dev));
+<a href='../S/327.html#L383'>copyout</a>           383 sys/kern/device.c 		error = copyout(&amp;count, nbyte, sizeof(count));
+<a href='../S/327.html#L416'>copyout</a>           416 sys/kern/device.c 		error = copyout(&amp;count, nbyte, sizeof(count));
+<a href='../S/328.html#L250'>copyout</a>           250 sys/kern/exception.c 	if (copyout(&amp;i, excno, sizeof(i)))
+<a href='../S/328.html#L272'>copyout</a>           272 sys/kern/exception.c 	if (copyout(&amp;i, excno, sizeof(i)))
+<a href='../S/333.html#L143'>copyout</a>           143 sys/kern/system.c 			error = copyout(&amp;infobuf, buf, bufsz);
+<a href='../S/333.html#L235'>copyout</a>           235 sys/kern/system.c 	return copyout(&amp;t, ticks, sizeof(t));
+<a href='../S/334.html#L98'>copyout</a>            98 sys/kern/task.c 		if (copyout(&amp;task, childp, sizeof(task))) {
+<a href='../S/334.html#L155'>copyout</a>           155 sys/kern/task.c 		copyout(&amp;task, childp, sizeof(task));
+<a href='../S/335.html#L91'>copyout</a>            91 sys/kern/thread.c 		if (copyout(&amp;t, tp, sizeof(t))) {
+<a href='../S/335.html#L117'>copyout</a>           117 sys/kern/thread.c 		copyout(&amp;t, tp, sizeof(t));
+<a href='../S/335.html#L326'>copyout</a>           326 sys/kern/thread.c 		if (copyout(&amp;pri, param, sizeof(pri)))
+<a href='../S/335.html#L369'>copyout</a>           369 sys/kern/thread.c 		if (copyout(&amp;policy, param, sizeof(policy)))
+<a href='../S/336.html#L176'>copyout</a>           176 sys/kern/timer.c 		if (copyout(&amp;left, remain, sizeof(left)))
+<a href='../S/336.html#L227'>copyout</a>           227 sys/kern/timer.c 		if (copyout(&amp;left, remain, sizeof(left)))
+<a href='../S/343.html#L111'>copyout</a>           111 sys/mem/vm.c   		if (copyout(&amp;uaddr, addr, sizeof(uaddr)))
+<a href='../S/343.html#L403'>copyout</a>           403 sys/mem/vm.c   	if (copyout(&amp;tmp, alloc, sizeof(tmp)))
+<a href='../S/343.html#L445'>copyout</a>           445 sys/mem/vm.c   	copyout(&amp;tmp, alloc, sizeof(tmp));
+<a href='../S/344.html#L104'>copyout</a>           104 sys/mem/vm_nommu.c 		if (copyout(&amp;uaddr, addr, sizeof(uaddr)))
+<a href='../S/344.html#L334'>copyout</a>           334 sys/mem/vm_nommu.c 	if (copyout(&amp;tmp, alloc, sizeof(tmp)))
+<a href='../S/344.html#L357'>copyout</a>           357 sys/mem/vm_nommu.c 	copyout(&amp;addr, alloc, sizeof(addr));
+<a href='../S/345.html#L66'>copyout</a>            66 sys/sync/cond.c 	if (copyout(&amp;c, cp, sizeof(c))) {
+<a href='../S/346.html#L110'>copyout</a>           110 sys/sync/mutex.c 	if (copyout(&amp;m, mp, sizeof(m))) {
+<a href='../S/347.html#L102'>copyout</a>           102 sys/sync/sem.c 		if (copyout(&amp;s, sp, sizeof(s))) {
+<a href='../S/347.html#L263'>copyout</a>           263 sys/sync/sem.c 	if (copyout(&amp;s-&gt;value, value, sizeof(s-&gt;value))) {
+</pre>
+</body>
+</html>

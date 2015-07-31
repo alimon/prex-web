@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>timeptr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/634.html#L56'>timeptr</a>            56 usr/lib/libc/time/asctime.c asctime(timeptr)
+<a href='../S/634.html#L57'>timeptr</a>            57 usr/lib/libc/time/asctime.c register const struct tm *	timeptr;
+<a href='../S/634.html#L61'>timeptr</a>            61 usr/lib/libc/time/asctime.c 	return asctime_r(timeptr, result);
+<a href='../S/635.html#L15'>timeptr</a>            15 usr/lib/libc/time/asctime_r.c asctime_r(timeptr, buf)
+<a href='../S/635.html#L16'>timeptr</a>            16 usr/lib/libc/time/asctime_r.c register const struct tm *	timeptr;
+<a href='../S/635.html#L29'>timeptr</a>            29 usr/lib/libc/time/asctime_r.c 	wn = wday_name[timeptr-&gt;tm_wday];
+<a href='../S/635.html#L30'>timeptr</a>            30 usr/lib/libc/time/asctime_r.c 	mn = mon_name[timeptr-&gt;tm_mon];
+<a href='../S/635.html#L39'>timeptr</a>            39 usr/lib/libc/time/asctime_r.c 		timeptr-&gt;tm_mday, timeptr-&gt;tm_hour,
+<a href='../S/635.html#L40'>timeptr</a>            40 usr/lib/libc/time/asctime_r.c 		timeptr-&gt;tm_min, timeptr-&gt;tm_sec,
+<a href='../S/635.html#L41'>timeptr</a>            41 usr/lib/libc/time/asctime_r.c 		1900 + timeptr-&gt;tm_year);
+</pre>
+</body>
+</html>

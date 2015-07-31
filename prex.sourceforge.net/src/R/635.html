@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>NFDBITS</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/277.html#L123'>NFDBITS</a>           123 include/sys/types.h 	fd_mask	fds_bits[howmany(FD_SETSIZE, NFDBITS)];
+<a href='../S/277.html#L126'>NFDBITS</a>           126 include/sys/types.h #define	FD_SET(n, p)	((p)-&gt;fds_bits[(n)/NFDBITS] |= (1 &lt;&lt; ((n) % NFDBITS)))
+<a href='../S/277.html#L127'>NFDBITS</a>           127 include/sys/types.h #define	FD_CLR(n, p)	((p)-&gt;fds_bits[(n)/NFDBITS] &amp;= ~(1 &lt;&lt; ((n) % NFDBITS)))
+<a href='../S/277.html#L128'>NFDBITS</a>           128 include/sys/types.h #define	FD_ISSET(n, p)	((p)-&gt;fds_bits[(n)/NFDBITS] &amp; (1 &lt;&lt; ((n) % NFDBITS)))
+</pre>
+</body>
+</html>

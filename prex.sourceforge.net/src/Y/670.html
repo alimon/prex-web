@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dir</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/219.html#L91'>dir</a>                91 include/ipc/fs.h 	char	dir[PATH_MAX];		/* mount directory */
+<a href='../S/390.html#L260'>dir</a>               260 usr/bin/ls/ls.c 	DIR *dir;
+<a href='../S/390.html#L268'>dir</a>               268 usr/bin/ls/ls.c 		dir = opendir(path);
+<a href='../S/390.html#L269'>dir</a>               269 usr/bin/ls/ls.c 		if (dir == NULL)
+<a href='../S/390.html#L275'>dir</a>               275 usr/bin/ls/ls.c 			entry = readdir(dir);
+<a href='../S/390.html#L295'>dir</a>               295 usr/bin/ls/ls.c 		closedir(dir);
+<a href='../S/548.html#L39'>dir</a>                39 usr/lib/libc/stdio/tempnam.c tempnam(dir, pfx)
+<a href='../S/548.html#L40'>dir</a>                40 usr/lib/libc/stdio/tempnam.c 	const char *dir, *pfx;
+<a href='../S/548.html#L58'>dir</a>                58 usr/lib/libc/stdio/tempnam.c 	if ((/* LINTED */f = (char *)dir) != NULL) {
+<a href='../S/662.html#L39'>dir</a>                39 usr/lib/posix/file/closedir.c closedir(DIR *dir)
+<a href='../S/662.html#L44'>dir</a>                44 usr/lib/posix/file/closedir.c 	m.data[0] = dir-&gt;dd_fd;
+<a href='../S/662.html#L47'>dir</a>                47 usr/lib/posix/file/closedir.c 	free(dir);
+<a href='../S/680.html#L39'>dir</a>                39 usr/lib/posix/file/mount.c mount(const char *dev, const char *dir, const char *fs, int flags,
+<a href='../S/680.html#L45'>dir</a>                45 usr/lib/posix/file/mount.c 	strlcpy(m.dir, (char *)dir, PATH_MAX);
+<a href='../S/682.html#L44'>dir</a>                44 usr/lib/posix/file/opendir.c 	struct _dirdesc *dir;
+<a href='../S/682.html#L46'>dir</a>                46 usr/lib/posix/file/opendir.c 	if ((dir = malloc(sizeof(struct _dirdesc))) == NULL)
+<a href='../S/682.html#L53'>dir</a>                53 usr/lib/posix/file/opendir.c 	dir-&gt;dd_fd = m.fd;
+<a href='../S/682.html#L54'>dir</a>                54 usr/lib/posix/file/opendir.c 	return dir;
+<a href='../S/685.html#L40'>dir</a>                40 usr/lib/posix/file/readdir.c readdir(DIR *dir)
+<a href='../S/685.html#L43'>dir</a>                43 usr/lib/posix/file/readdir.c 	struct dirent *entry = &amp;dir-&gt;dd_ent;
+<a href='../S/685.html#L46'>dir</a>                46 usr/lib/posix/file/readdir.c 	m.fd = dir-&gt;dd_fd;
+<a href='../S/685.html#L50'>dir</a>                50 usr/lib/posix/file/readdir.c 	return &amp;dir-&gt;dd_ent;
+<a href='../S/687.html#L39'>dir</a>                39 usr/lib/posix/file/rewinddir.c rewinddir(DIR *dir)
+<a href='../S/687.html#L44'>dir</a>                44 usr/lib/posix/file/rewinddir.c 	m.data[0] = dir-&gt;dd_fd;
+<a href='../S/693.html#L40'>dir</a>                40 usr/lib/posix/file/umount.c umount(const char *dir)
+<a href='../S/693.html#L45'>dir</a>                45 usr/lib/posix/file/umount.c 	strlcpy(m.path, (char *)dir, PATH_MAX);
+<a href='../S/883.html#L284'>dir</a>               284 usr/server/fs/arfs/arfs_vnops.c arfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/883.html#L328'>dir</a>               328 usr/server/fs/arfs/arfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, (char *)&amp;hdr-&gt;ar_name,
+<a href='../S/883.html#L329'>dir</a>               329 usr/server/fs/arfs/arfs_vnops.c 		sizeof(dir-&gt;d_name));
+<a href='../S/883.html#L330'>dir</a>               330 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/883.html#L331'>dir</a>               331 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/883.html#L332'>dir</a>               332 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_type = DT_REG;
+<a href='../S/886.html#L229'>dir</a>               229 usr/server/fs/devfs/devfs_vnops.c devfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/886.html#L245'>dir</a>               245 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_type = 0;
+<a href='../S/886.html#L247'>dir</a>               247 usr/server/fs/devfs/devfs_vnops.c 		dir-&gt;d_type = DT_CHR;
+<a href='../S/886.html#L249'>dir</a>               249 usr/server/fs/devfs/devfs_vnops.c 		dir-&gt;d_type = DT_BLK;
+<a href='../S/886.html#L250'>dir</a>               250 usr/server/fs/devfs/devfs_vnops.c 	strlcpy((char *)&amp;dir-&gt;d_name, info.name, sizeof(dir-&gt;d_name));
+<a href='../S/886.html#L251'>dir</a>               251 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/886.html#L252'>dir</a>               252 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/886.html#L254'>dir</a>               254 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_readdir: %s\n", dir-&gt;d_name));
+<a href='../S/893.html#L339'>dir</a>               339 usr/server/fs/fatfs/fatfs_vnops.c fatfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/893.html#L353'>dir</a>               353 usr/server/fs/fatfs/fatfs_vnops.c 	fat_restore_name((char *)&amp;de-&gt;name, dir-&gt;d_name);
+<a href='../S/893.html#L356'>dir</a>               356 usr/server/fs/fatfs/fatfs_vnops.c 		dir-&gt;d_type = DT_DIR;
+<a href='../S/893.html#L358'>dir</a>               358 usr/server/fs/fatfs/fatfs_vnops.c 		dir-&gt;d_type = DT_BLK;
+<a href='../S/893.html#L360'>dir</a>               360 usr/server/fs/fatfs/fatfs_vnops.c 		dir-&gt;d_type = DT_REG;
+<a href='../S/893.html#L362'>dir</a>               362 usr/server/fs/fatfs/fatfs_vnops.c 	dir-&gt;d_fileno = fp-&gt;f_offset;
+<a href='../S/893.html#L363'>dir</a>               363 usr/server/fs/fatfs/fatfs_vnops.c 	dir-&gt;d_namlen = strlen(dir-&gt;d_name);
+<a href='../S/896.html#L424'>dir</a>               424 usr/server/fs/fifofs/fifo_vnops.c fifo_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/896.html#L433'>dir</a>               433 usr/server/fs/fifofs/fifo_vnops.c 		dir-&gt;d_type = DT_DIR;
+<a href='../S/896.html#L434'>dir</a>               434 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, ".", sizeof(dir-&gt;d_name));
+<a href='../S/896.html#L436'>dir</a>               436 usr/server/fs/fifofs/fifo_vnops.c 		dir-&gt;d_type = DT_DIR;
+<a href='../S/896.html#L437'>dir</a>               437 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, "..", sizeof(dir-&gt;d_name));
+<a href='../S/896.html#L452'>dir</a>               452 usr/server/fs/fifofs/fifo_vnops.c 		dir-&gt;d_type = DT_FIFO;
+<a href='../S/896.html#L453'>dir</a>               453 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, np-&gt;fn_name,
+<a href='../S/896.html#L454'>dir</a>               454 usr/server/fs/fifofs/fifo_vnops.c 			sizeof(dir-&gt;d_name));
+<a href='../S/896.html#L456'>dir</a>               456 usr/server/fs/fifofs/fifo_vnops.c 	dir-&gt;d_fileno = fp-&gt;f_offset;
+<a href='../S/896.html#L457'>dir</a>               457 usr/server/fs/fifofs/fifo_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/902.html#L452'>dir</a>               452 usr/server/fs/ramfs/ramfs_vnops.c ramfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/902.html#L460'>dir</a>               460 usr/server/fs/ramfs/ramfs_vnops.c 		dir-&gt;d_type = DT_DIR;
+<a href='../S/902.html#L461'>dir</a>               461 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, ".", sizeof(dir-&gt;d_name));
+<a href='../S/902.html#L463'>dir</a>               463 usr/server/fs/ramfs/ramfs_vnops.c 		dir-&gt;d_type = DT_DIR;
+<a href='../S/902.html#L464'>dir</a>               464 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, "..", sizeof(dir-&gt;d_name));
+<a href='../S/902.html#L481'>dir</a>               481 usr/server/fs/ramfs/ramfs_vnops.c 			dir-&gt;d_type = DT_DIR;
+<a href='../S/902.html#L483'>dir</a>               483 usr/server/fs/ramfs/ramfs_vnops.c 			dir-&gt;d_type = DT_REG;
+<a href='../S/902.html#L484'>dir</a>               484 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, np-&gt;rn_name,
+<a href='../S/902.html#L485'>dir</a>               485 usr/server/fs/ramfs/ramfs_vnops.c 			sizeof(dir-&gt;d_name));
+<a href='../S/902.html#L487'>dir</a>               487 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/902.html#L488'>dir</a>               488 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_namlen = (uint16_t)strlen(dir-&gt;d_name);
+<a href='../S/903.html#L98'>dir</a>                98 usr/server/fs/vfs/main.c 		error = sys_mount(msg-&gt;dev, msg-&gt;dir, msg-&gt;fs, msg-&gt;flags,
+<a href='../S/905.html#L121'>dir</a>               121 usr/server/fs/vfs/vfs.h int	 sys_mount(char *dev, char *dir, char *fsname, int flags, void *data);
+<a href='../S/908.html#L154'>dir</a>               154 usr/server/fs/vfs/vfs_lookup.c 	char *file, *dir;
+<a href='../S/908.html#L168'>dir</a>               168 usr/server/fs/vfs/vfs_lookup.c 		dir = root;
+<a href='../S/908.html#L171'>dir</a>               171 usr/server/fs/vfs/vfs_lookup.c 		dir = buf;
+<a href='../S/908.html#L176'>dir</a>               176 usr/server/fs/vfs/vfs_lookup.c 	if ((error = namei(dir, &amp;vp)) != 0)
+<a href='../S/909.html#L89'>dir</a>                89 usr/server/fs/vfs/vfs_mount.c sys_mount(char *dev, char *dir, char *fsname, int flags, void *data)
+<a href='../S/909.html#L99'>dir</a>                99 usr/server/fs/vfs/vfs_mount.c 	dprintf("VFS: mounting %s at %s\n", fsname, dir);
+<a href='../S/909.html#L102'>dir</a>               102 usr/server/fs/vfs/vfs_mount.c 	if (!dir || *dir == '\0')
+<a href='../S/909.html#L124'>dir</a>               124 usr/server/fs/vfs/vfs_mount.c 		if (!strcmp(mp-&gt;m_path, dir) ||
+<a href='../S/909.html#L141'>dir</a>               141 usr/server/fs/vfs/vfs_mount.c 	strlcpy(mp-&gt;m_path, dir, sizeof(mp-&gt;m_path));
+<a href='../S/909.html#L146'>dir</a>               146 usr/server/fs/vfs/vfs_mount.c 	if (*dir == '/' &amp;&amp; *(dir + 1) == '\0') {
+<a href='../S/909.html#L150'>dir</a>               150 usr/server/fs/vfs/vfs_mount.c 		if ((error = namei(dir, &amp;vp_covered)) != 0) {
+<a href='../S/911.html#L326'>dir</a>               326 usr/server/fs/vfs/vfs_syscalls.c 	struct dirent dir;
+<a href='../S/911.html#L333'>dir</a>               333 usr/server/fs/vfs/vfs_syscalls.c 		error = sys_readdir(fp, &amp;dir);
+<a href='../S/911.html#L336'>dir</a>               336 usr/server/fs/vfs/vfs_syscalls.c 	} while (!strcmp(dir.d_name, ".") || !strcmp(dir.d_name, ".."));
+<a href='../S/911.html#L392'>dir</a>               392 usr/server/fs/vfs/vfs_syscalls.c sys_readdir(file_t fp, struct dirent *dir)
+<a href='../S/911.html#L405'>dir</a>               405 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READDIR(dvp, fp, dir);
+<a href='../S/911.html#L407'>dir</a>               407 usr/server/fs/vfs/vfs_syscalls.c 				error, dir-&gt;d_name));
+</pre>
+</body>
+</html>

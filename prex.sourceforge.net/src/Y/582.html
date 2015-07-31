@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ctx</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/126.html#L61'>ctx</a>                61 bsp/hal/arm/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/126.html#L66'>ctx</a>                66 bsp/hal/arm/arch/context.c 	k = &amp;ctx-&gt;kregs;
+<a href='../S/126.html#L71'>ctx</a>                71 bsp/hal/arm/arch/context.c 		ctx-&gt;uregs = (struct cpu_regs *)
+<a href='../S/126.html#L73'>ctx</a>                73 bsp/hal/arm/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/126.html#L76'>ctx</a>                76 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L98'>ctx</a>                98 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L104'>ctx</a>               104 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L112'>ctx</a>               112 bsp/hal/arm/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/126.html#L153'>ctx</a>               153 bsp/hal/arm/arch/context.c context_save(context_t ctx)
+<a href='../S/126.html#L158'>ctx</a>               158 bsp/hal/arm/arch/context.c 	cur = ctx-&gt;uregs;
+<a href='../S/126.html#L162'>ctx</a>               162 bsp/hal/arm/arch/context.c 	ctx-&gt;saved_regs = sav;
+<a href='../S/126.html#L172'>ctx</a>               172 bsp/hal/arm/arch/context.c context_restore(context_t ctx)
+<a href='../S/126.html#L177'>ctx</a>               177 bsp/hal/arm/arch/context.c 	cur = ctx-&gt;uregs;
+<a href='../S/126.html#L178'>ctx</a>               178 bsp/hal/arm/arch/context.c 	copyin(ctx-&gt;saved_regs, cur, sizeof(*cur));
+<a href='../S/126.html#L185'>ctx</a>               185 bsp/hal/arm/arch/context.c context_dump(context_t ctx)
+<a href='../S/126.html#L189'>ctx</a>               189 bsp/hal/arm/arch/context.c 	trap_dump(ctx-&gt;uregs);
+<a href='../S/154.html#L62'>ctx</a>                62 bsp/hal/ppc/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/154.html#L68'>ctx</a>                68 bsp/hal/ppc/arch/context.c 	k = &amp;ctx-&gt;kregs;
+<a href='../S/154.html#L76'>ctx</a>                76 bsp/hal/ppc/arch/context.c 		ctx-&gt;uregs = (struct cpu_regs *)
+<a href='../S/154.html#L79'>ctx</a>                79 bsp/hal/ppc/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/154.html#L83'>ctx</a>                83 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L103'>ctx</a>               103 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L109'>ctx</a>               109 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L116'>ctx</a>               116 bsp/hal/ppc/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/154.html#L159'>ctx</a>               159 bsp/hal/ppc/arch/context.c context_save(context_t ctx)
+<a href='../S/154.html#L164'>ctx</a>               164 bsp/hal/ppc/arch/context.c 	cur = ctx-&gt;uregs;
+<a href='../S/154.html#L168'>ctx</a>               168 bsp/hal/ppc/arch/context.c 	ctx-&gt;saved_regs = sav;
+<a href='../S/154.html#L178'>ctx</a>               178 bsp/hal/ppc/arch/context.c context_restore(context_t ctx)
+<a href='../S/154.html#L183'>ctx</a>               183 bsp/hal/ppc/arch/context.c 	cur = ctx-&gt;uregs;
+<a href='../S/154.html#L184'>ctx</a>               184 bsp/hal/ppc/arch/context.c 	copyin(ctx-&gt;saved_regs, cur, sizeof(*cur));
+<a href='../S/154.html#L191'>ctx</a>               191 bsp/hal/ppc/arch/context.c context_dump(context_t ctx)
+<a href='../S/154.html#L195'>ctx</a>               195 bsp/hal/ppc/arch/context.c 	trap_dump(ctx-&gt;uregs);
+<a href='../S/173.html#L62'>ctx</a>                62 bsp/hal/x86/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/173.html#L68'>ctx</a>                68 bsp/hal/x86/arch/context.c 	k = &amp;ctx-&gt;kregs;
+<a href='../S/173.html#L73'>ctx</a>                73 bsp/hal/x86/arch/context.c 		ctx-&gt;uregs = (struct cpu_regs *)
+<a href='../S/173.html#L75'>ctx</a>                75 bsp/hal/x86/arch/context.c 		ctx-&gt;esp0 = (uint32_t)val;
+<a href='../S/173.html#L78'>ctx</a>                78 bsp/hal/x86/arch/context.c 		k-&gt;esp = (uint32_t)ctx-&gt;uregs - sizeof(uint32_t);
+<a href='../S/173.html#L81'>ctx</a>                81 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L99'>ctx</a>                99 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L106'>ctx</a>               106 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L117'>ctx</a>               117 bsp/hal/x86/arch/context.c 		u = ctx-&gt;uregs;
+<a href='../S/173.html#L168'>ctx</a>               168 bsp/hal/x86/arch/context.c context_save(context_t ctx)
+<a href='../S/173.html#L173'>ctx</a>               173 bsp/hal/x86/arch/context.c 	cur = ctx-&gt;uregs;
+<a href='../S/173.html#L178'>ctx</a>               178 bsp/hal/x86/arch/context.c 	ctx-&gt;saved_regs = sav;
+<a href='../S/173.html#L188'>ctx</a>               188 bsp/hal/x86/arch/context.c context_restore(context_t ctx)
+<a href='../S/173.html#L193'>ctx</a>               193 bsp/hal/x86/arch/context.c 	cur = ctx-&gt;uregs;
+<a href='../S/173.html#L194'>ctx</a>               194 bsp/hal/x86/arch/context.c 	copyin(ctx-&gt;saved_regs, cur, sizeof(*cur));
+<a href='../S/173.html#L203'>ctx</a>               203 bsp/hal/x86/arch/context.c context_dump(context_t ctx)
+<a href='../S/173.html#L207'>ctx</a>               207 bsp/hal/x86/arch/context.c 	trap_dump(ctx-&gt;uregs);
+<a href='../S/319.html#L74'>ctx</a>                74 sys/include/thread.h 	struct context 	ctx;		/* machine specific context */
+<a href='../S/326.html#L185'>ctx</a>               185 sys/kern/debug.c 		context_dump(&amp;curthread-&gt;ctx);
+<a href='../S/328.html#L346'>ctx</a>               346 sys/kern/exception.c 		context_save(&amp;curthread-&gt;ctx);
+<a href='../S/328.html#L347'>ctx</a>               347 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UENTRY, (register_t)handler);
+<a href='../S/328.html#L348'>ctx</a>               348 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UARG, (register_t)excno);
+<a href='../S/328.html#L365'>ctx</a>               365 sys/kern/exception.c 	context_restore(&amp;curthread-&gt;ctx);
+<a href='../S/331.html#L246'>ctx</a>               246 sys/kern/sched.c 	context_switch(&amp;prev-&gt;ctx, &amp;next-&gt;ctx);
+<a href='../S/335.html#L106'>ctx</a>               106 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L107'>ctx</a>               107 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)&amp;syscall_ret);
+<a href='../S/335.html#L188'>ctx</a>               188 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_UENTRY, (register_t)entry);
+<a href='../S/335.html#L190'>ctx</a>               190 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_USTACK, (register_t)stack);
+<a href='../S/335.html#L541'>ctx</a>               541 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L542'>ctx</a>               542 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)entry);
+<a href='../S/335.html#L543'>ctx</a>               543 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KARG, (register_t)arg);
+<a href='../S/335.html#L588'>ctx</a>               588 sys/kern/thread.c 	context_set(&amp;idle_thread.ctx, CTX_KSTACK, (register_t)sp);
+</pre>
+</body>
+</html>

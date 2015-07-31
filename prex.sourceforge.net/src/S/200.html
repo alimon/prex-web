@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>conf/ppc/prep</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1064.html'>conf</a>/<a href='../files/1067.html'>ppc</a>/prep</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='200.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />#
+<a id='L2' name='L2' /># Prex system configuration file
+<a id='L3' name='L3' />#
+<a id='L4' name='L4' />
+<a id='L5' name='L5' />#
+<a id='L6' name='L6' /># Make options
+<a id='L7' name='L7' />#
+<a id='L8' name='L8' />makeoptions     GCCFLAGS+= -mcpu=powerpc -m32 -mno-eabi -msoft-float
+<a id='L9' name='L9' />makeoptions     GCCFLAGS+= -fno-dwarf2-cfi-asm
+<a id='L10' name='L10' />makeoptions     ASFLAGS+= -mregnames
+<a id='L11' name='L11' />
+<a id='L12' name='L12' />#
+<a id='L13' name='L13' /># Memory address
+<a id='L14' name='L14' />#
+<a id='L15' name='L15' />memory          LOADER_TEXT     0x00100000      # Start of boot loader
+<a id='L16' name='L16' />memory          KERNEL_TEXT     0x00080000      # Start of kernel
+<a id='L17' name='L17' />memory          BOOTIMG_BASE    0x00102000      # Location of boot image
+<a id='L18' name='L18' />memory          SYSPAGE_BASE    0x00000000      # Location of system page
+<a id='L19' name='L19' />
+<a id='L20' name='L20' />#
+<a id='L21' name='L21' /># Tunable paramters
+<a id='L22' name='L22' />#
+<a id='L23' name='L23' />options         HZ=1000         # Ticks/second of the clock
+<a id='L24' name='L24' />options         TIME_SLICE=50   # Context switch ratio (msec)
+<a id='L25' name='L25' />options         OPEN_MAX=16     # Max open files per process
+<a id='L26' name='L26' />options         BUF_CACHE=32    # Blocks for buffer cache
+<a id='L27' name='L27' />options         FS_THREADS=4    # Number of file system threads
+<a id='L28' name='L28' />
+<a id='L29' name='L29' />#
+<a id='L30' name='L30' /># Platform settings
+<a id='L31' name='L31' />#
+<a id='L32' name='L32' />options         MPC750          # Processor type
+<a id='L33' name='L33' />#options        MMU             # Memory management unit
+<a id='L34' name='L34' />options         CACHE           # Cache memory
+<a id='L35' name='L35' />#options        FPU             # Floating point unit
+<a id='L36' name='L36' />#options        ROMBOOT         # Boot from ROM
+<a id='L37' name='L37' />options         BOOTDISK        # Disk for /boot directory
+<a id='L38' name='L38' />options         PPC_OEA         # PowerPC OEA
+<a id='L39' name='L39' />
+<a id='L40' name='L40' />#
+<a id='L41' name='L41' /># General setup
+<a id='L42' name='L42' />#
+<a id='L43' name='L43' />options         POSIX           # POSIX support
+<a id='L44' name='L44' />options         CMDBOX          # Core utilities
+<a id='L45' name='L45' />#options        TINY            # Optimize for size
+<a id='L46' name='L46' />
+<a id='L47' name='L47' />#
+<a id='L48' name='L48' /># Kernel hacking
+<a id='L49' name='L49' />#
+<a id='L50' name='L50' />options         KD              # Kernel debugger
+<a id='L51' name='L51' />#options        AUDIT           # Security auditing
+<a id='L52' name='L52' />
+<a id='L53' name='L53' />#
+<a id='L54' name='L54' /># Diagnostic options
+<a id='L55' name='L55' />#
+<a id='L56' name='L56' />#options        DIAG_SCREEN     # Diagnostic via screen
+<a id='L57' name='L57' />#options        DIAG_SERIAL     # Diagnostic via serial port
+<a id='L58' name='L58' />options         DIAG_QEMU       # Diagnostic via qemu emulater
+<a id='L59' name='L59' />
+<a id='L60' name='L60' />#
+<a id='L61' name='L61' /># File systems
+<a id='L62' name='L62' />#
+<a id='L63' name='L63' />#options        FIFOFS          # FIFO &amp; Pipe
+<a id='L64' name='L64' />options         DEVFS           # Device file system
+<a id='L65' name='L65' />options         RAMFS           # RAM file system
+<a id='L66' name='L66' />options         ARFS            # Archive file system
+<a id='L67' name='L67' />#options        FATFS           # FAT file system
+<a id='L68' name='L68' />
+<a id='L69' name='L69' />#
+<a id='L70' name='L70' /># Power management
+<a id='L71' name='L71' />#
+<a id='L72' name='L72' />options         PM              # Power management
+<a id='L73' name='L73' />#options        PM_POWERSAVE    # Power policy: Battery optimized
+<a id='L74' name='L74' />options         PM_PERFORMANCE  # Power policy: Parformance optimized
+<a id='L75' name='L75' />#options        DVS_EMULATION   # Dynamic voltage scaling emulation
+<a id='L76' name='L76' />
+<a id='L77' name='L77' />#
+<a id='L78' name='L78' /># Device drivers (initialization order)
+<a id='L79' name='L79' />#
+<a id='L80' name='L80' />device          pm              # Power management
+<a id='L81' name='L81' />device          cons            # System console
+<a id='L82' name='L82' />#device         wscons          # Workstation console
+<a id='L83' name='L83' />#device         pckbd           # PC/AT Keyboard (P:wscons)
+<a id='L84' name='L84' />#device         vga             # VGA video (P:wscons)
+<a id='L85' name='L85' />device          serial          # Logical serial
+<a id='L86' name='L86' />device          ns16550         # NS16550 serial port (P:serial)
+<a id='L87' name='L87' />#device         psaux           # PS/2 Mouse
+<a id='L88' name='L88' />device          rtc             # Logical RTC
+<a id='L89' name='L89' />device          mc146818        # MC146818 Real time clock (P:rtc)
+<a id='L90' name='L90' />device          null            # NULL device
+<a id='L91' name='L91' />device          zero            # Zero device
+<a id='L92' name='L92' />device          ramdisk         # RAM disk
+<a id='L93' name='L93' />#device         fdd             # Floppy disk drive
+<a id='L94' name='L94' />
+<a id='L95' name='L95' />#
+<a id='L96' name='L96' /># Hardware configuations
+<a id='L97' name='L97' />#
+<a id='L98' name='L98' />options         NS16550_BASE=0x3f8
+<a id='L99' name='L99' />options         NS16550_IRQ=4
+<a id='L100' name='L100' />options         MC146818_BASE=0x70
+<a id='L101' name='L101' />
+<a id='L102' name='L102' />#
+<a id='L103' name='L103' /># Command box
+<a id='L104' name='L104' />#
+<a id='L105' name='L105' />command         cat
+<a id='L106' name='L106' />command         clear
+<a id='L107' name='L107' />command         cp
+<a id='L108' name='L108' />command         date
+<a id='L109' name='L109' />command         dmesg
+<a id='L110' name='L110' />command         echo
+<a id='L111' name='L111' />command         free
+<a id='L112' name='L112' />command         head
+<a id='L113' name='L113' />command         hostname
+<a id='L114' name='L114' />command         kill
+<a id='L115' name='L115' />command         ls
+<a id='L116' name='L116' />command         mkdir
+<a id='L117' name='L117' />command         more
+<a id='L118' name='L118' />command         mv
+<a id='L119' name='L119' />command         nice
+<a id='L120' name='L120' />command         printenv
+<a id='L121' name='L121' />command         ps
+<a id='L122' name='L122' />command         pwd
+<a id='L123' name='L123' />command         rm
+<a id='L124' name='L124' />command         rmdir
+<a id='L125' name='L125' />command         sh
+<a id='L126' name='L126' />command         sleep
+<a id='L127' name='L127' />command         sync
+<a id='L128' name='L128' />#command        test
+<a id='L129' name='L129' />command         touch
+<a id='L130' name='L130' />command         uname
+<a id='L131' name='L131' />
+<a id='L132' name='L132' />#
+<a id='L133' name='L133' /># Adminisrative tools
+<a id='L134' name='L134' />#
+<a id='L135' name='L135' />command         diskutil
+<a id='L136' name='L136' />command         install
+<a id='L137' name='L137' />command         pmctrl
+<a id='L138' name='L138' />command         ktrace
+<a id='L139' name='L139' />command         lock
+<a id='L140' name='L140' />command         debug
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='200.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

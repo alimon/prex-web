@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>errno</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/366.html#L109'>errno</a>             109 usr/bin/cat/cat.c 		warn("%s @%d", filename, errno);
+<a href='../S/374.html#L81'>errno</a>              81 usr/bin/cp/cp.c 	if (r == -1 &amp;&amp; errno != ENOENT)
+<a href='../S/384.html#L81'>errno</a>              81 usr/bin/head/head.c 				err(0, "%s: %s", *argv, strerror(errno));
+<a href='../S/384.html#L105'>errno</a>             105 usr/bin/head/head.c 				err(1, "stdout: %s", strerror(errno));
+<a href='../S/390.html#L290'>errno</a>             290 usr/bin/ls/ls.c 			if (stat(buf, &amp;st) == -1 &amp;&amp; errno != EACCES)
+<a href='../S/394.html#L98'>errno</a>              98 usr/bin/mkdir/mkdir.c 			if (errno != ENOENT ||
+<a href='../S/400.html#L80'>errno</a>              80 usr/bin/nice/nice.c 	errno = 0;
+<a href='../S/400.html#L82'>errno</a>              82 usr/bin/nice/nice.c 	if (errno) {
+<a href='../S/400.html#L90'>errno</a>              90 usr/bin/nice/nice.c 	err ((errno == ENOENT) ? 127 : 126, "%s", argv[0]);
+<a href='../S/411.html#L88'>errno</a>              88 usr/bin/sh/cmds.c 		return errno;
+<a href='../S/413.html#L155'>errno</a>             155 usr/bin/sh/sh.c 		errno = 0;
+<a href='../S/413.html#L160'>errno</a>             160 usr/bin/sh/sh.c 					strerror(errno));
+<a href='../S/413.html#L164'>errno</a>             164 usr/bin/sh/sh.c 			if (errno == ENOENT)
+<a href='../S/413.html#L166'>errno</a>             166 usr/bin/sh/sh.c 			if (errno == ENOENT || errno == ENOTDIR)
+<a href='../S/413.html#L168'>errno</a>             168 usr/bin/sh/sh.c 			else if (errno == EACCES)
+<a href='../S/413.html#L327'>errno</a>             327 usr/bin/sh/sh.c 			error("%s: %s", args[0], strerror(errno));
+<a href='../S/421.html#L425'>errno</a>             425 usr/bin/test/test.c 	errno = 0;
+<a href='../S/421.html#L428'>errno</a>             428 usr/bin/test/test.c 	if (errno != 0)
+<a href='../S/431.html#L6'>errno</a>               6 usr/include/errno.h extern int errno;			/* global error number */
+<a href='../S/466.html#L30'>errno</a>              30 usr/lib/libc/errno/errno.c int errno;
+<a href='../S/469.html#L55'>errno</a>              55 usr/lib/libc/gen/basename.c                 errno = ENAMETOOLONG;
+<a href='../S/470.html#L49'>errno</a>              49 usr/lib/libc/gen/confstr.c 		errno = EINVAL;
+<a href='../S/471.html#L59'>errno</a>              59 usr/lib/libc/gen/dirname.c                 errno = ENAMETOOLONG;
+<a href='../S/478.html#L55'>errno</a>              55 usr/lib/libc/gen/execvp.c 		errno = ENOENT;
+<a href='../S/478.html#L98'>errno</a>              98 usr/lib/libc/gen/execvp.c 		switch (errno) {
+<a href='../S/478.html#L125'>errno</a>             125 usr/lib/libc/gen/execvp.c 		errno = EACCES;
+<a href='../S/478.html#L126'>errno</a>             126 usr/lib/libc/gen/execvp.c 	else if (!errno)
+<a href='../S/478.html#L127'>errno</a>             127 usr/lib/libc/gen/execvp.c 		errno = ENOENT;
+<a href='../S/479.html#L80'>errno</a>              80 usr/lib/libc/gen/fts.c 		errno = EINVAL;
+<a href='../S/479.html#L111'>errno</a>             111 usr/lib/libc/gen/fts.c 			errno = ENOENT;
+<a href='../S/479.html#L227'>errno</a>             227 usr/lib/libc/gen/fts.c 		saved_errno = fchdir(sp-&gt;fts_rfd) ? errno : 0;
+<a href='../S/479.html#L236'>errno</a>             236 usr/lib/libc/gen/fts.c 		errno = saved_errno;
+<a href='../S/479.html#L286'>errno</a>             286 usr/lib/libc/gen/fts.c 				p-&gt;fts_errno = errno;
+<a href='../S/479.html#L330'>errno</a>             330 usr/lib/libc/gen/fts.c 				p-&gt;fts_errno = errno;
+<a href='../S/479.html#L376'>errno</a>             376 usr/lib/libc/gen/fts.c 					p-&gt;fts_errno = errno;
+<a href='../S/479.html#L400'>errno</a>             400 usr/lib/libc/gen/fts.c 		errno = 0;
+<a href='../S/479.html#L419'>errno</a>             419 usr/lib/libc/gen/fts.c 			saved_errno = errno;
+<a href='../S/479.html#L421'>errno</a>             421 usr/lib/libc/gen/fts.c 			errno = saved_errno;
+<a href='../S/479.html#L448'>errno</a>             448 usr/lib/libc/gen/fts.c 		errno = EINVAL;
+<a href='../S/479.html#L462'>errno</a>             462 usr/lib/libc/gen/fts.c 		errno = EINVAL;
+<a href='../S/479.html#L473'>errno</a>             473 usr/lib/libc/gen/fts.c 	errno = 0;
+<a href='../S/479.html#L568'>errno</a>             568 usr/lib/libc/gen/fts.c 			cur-&gt;fts_errno = errno;
+<a href='../S/479.html#L609'>errno</a>             609 usr/lib/libc/gen/fts.c 				cur-&gt;fts_errno = errno;
+<a href='../S/479.html#L612'>errno</a>             612 usr/lib/libc/gen/fts.c 			cderrno = errno;
+<a href='../S/479.html#L653'>errno</a>             653 usr/lib/libc/gen/fts.c mem1:				saved_errno = errno;
+<a href='../S/479.html#L658'>errno</a>             658 usr/lib/libc/gen/fts.c 				errno = saved_errno;
+<a href='../S/479.html#L795'>errno</a>             795 usr/lib/libc/gen/fts.c 			saved_errno = errno;
+<a href='../S/479.html#L797'>errno</a>             797 usr/lib/libc/gen/fts.c 				errno = 0;
+<a href='../S/479.html#L804'>errno</a>             804 usr/lib/libc/gen/fts.c 		p-&gt;fts_errno = errno;
+<a href='../S/488.html#L48'>errno</a>              48 usr/lib/libc/gen/verr.c 	sverrno = errno;
+<a href='../S/490.html#L46'>errno</a>              46 usr/lib/libc/gen/vwarn.c 	sverrno = errno;
+<a href='../S/497.html#L45'>errno</a>              45 usr/lib/libc/stdio/fclose.c 		errno = EBADF;
+<a href='../S/498.html#L56'>errno</a>              56 usr/lib/libc/stdio/fdopen.c 		errno = EINVAL;
+<a href='../S/501.html#L46'>errno</a>              46 usr/lib/libc/stdio/fflush.c 		errno = EBADF;
+<a href='../S/507.html#L69'>errno</a>              69 usr/lib/libc/stdio/flags.c 		errno = EINVAL;
+<a href='../S/510.html#L47'>errno</a>              47 usr/lib/libc/stdio/fpurge.c 		errno = EBADF;
+<a href='../S/514.html#L91'>errno</a>              91 usr/lib/libc/stdio/freopen.c 		if (errno == ENFILE || errno == EMFILE) {
+<a href='../S/514.html#L97'>errno</a>              97 usr/lib/libc/stdio/freopen.c 	sverrno = errno;
+<a href='../S/514.html#L119'>errno</a>             119 usr/lib/libc/stdio/freopen.c 		errno = sverrno;	/* restore in case _close clobbered */
+<a href='../S/516.html#L94'>errno</a>              94 usr/lib/libc/stdio/fseek.c 		errno = EINVAL;
+<a href='../S/530.html#L61'>errno</a>              61 usr/lib/libc/stdio/mktemp.c 	extern int errno;
+<a href='../S/530.html#L85'>errno</a>              85 usr/lib/libc/stdio/mktemp.c 				errno = ENOTDIR;
+<a href='../S/530.html#L98'>errno</a>              98 usr/lib/libc/stdio/mktemp.c 			if (errno != EEXIST)
+<a href='../S/530.html#L102'>errno</a>             102 usr/lib/libc/stdio/mktemp.c 			return(errno == ENOENT ? 1 : 0);
+<a href='../S/531.html#L43'>errno</a>              43 usr/lib/libc/stdio/perror.c 	fputs(strerror(errno), stderr);
+<a href='../S/537.html#L69'>errno</a>              69 usr/lib/libc/stdio/refill.c 			errno = EBADF;
+<a href='../S/539.html#L42'>errno</a>              42 usr/lib/libc/stdio/rewind.c 	errno = 0;      /* not required, but seems reasonable */
+<a href='../S/548.html#L75'>errno</a>              75 usr/lib/libc/stdio/tempnam.c 	sverrno = errno;
+<a href='../S/548.html#L77'>errno</a>              77 usr/lib/libc/stdio/tempnam.c 	errno = sverrno;
+<a href='../S/549.html#L66'>errno</a>              66 usr/lib/libc/stdio/tmpfile.c 		sverrno = errno;
+<a href='../S/549.html#L68'>errno</a>              68 usr/lib/libc/stdio/tmpfile.c 		errno = sverrno;
+<a href='../S/579.html#L121'>errno</a>             121 usr/lib/libc/stdlib/strtol.c 				errno = ERANGE;
+<a href='../S/579.html#L131'>errno</a>             131 usr/lib/libc/stdlib/strtol.c 				errno = ERANGE;
+<a href='../S/580.html#L92'>errno</a>              92 usr/lib/libc/stdlib/strtoul.c 			errno = ERANGE;
+<a href='../S/627.html#L58'>errno</a>              58 usr/lib/libc/termios/tcflow.c 		errno = EINVAL;
+<a href='../S/628.html#L57'>errno</a>              57 usr/lib/libc/termios/tcflush.c 		errno = EINVAL;
+<a href='../S/632.html#L58'>errno</a>              58 usr/lib/libc/termios/tcsetattr.c 		errno = EINVAL;
+<a href='../S/655.html#L111'>errno</a>             111 usr/lib/posix/exec/execve.c 	errno = 0;
+<a href='../S/655.html#L113'>errno</a>             113 usr/lib/posix/exec/execve.c 		errno = EIO;
+<a href='../S/655.html#L115'>errno</a>             115 usr/lib/posix/exec/execve.c 		errno = msg.hdr.status;
+<a href='../S/658.html#L44'>errno</a>              44 usr/lib/posix/file/chdir.c 		errno = ENOENT;
+<a href='../S/659.html#L40'>errno</a>              40 usr/lib/posix/file/chmod.c 	errno = ENOSYS;
+<a href='../S/660.html#L40'>errno</a>              40 usr/lib/posix/file/chown.c 	errno = ENOSYS;
+<a href='../S/671.html#L44'>errno</a>              44 usr/lib/posix/file/getcwd.c 		errno = EINVAL;
+<a href='../S/672.html#L57'>errno</a>              57 usr/lib/posix/file/ioctl.c 		errno = EINVAL;
+<a href='../S/672.html#L66'>errno</a>              66 usr/lib/posix/file/ioctl.c 		errno = EFAULT;
+<a href='../S/674.html#L44'>errno</a>              44 usr/lib/posix/file/link.c 		errno = EINVAL;
+<a href='../S/674.html#L49'>errno</a>              49 usr/lib/posix/file/link.c 		errno = EINVAL;
+<a href='../S/686.html#L44'>errno</a>              44 usr/lib/posix/file/rename.c 		errno = EINVAL;
+<a href='../S/686.html#L49'>errno</a>              49 usr/lib/posix/file/rename.c 		errno = EINVAL;
+<a href='../S/688.html#L44'>errno</a>              44 usr/lib/posix/file/rmdir.c 		errno = EINVAL;
+<a href='../S/688.html#L48'>errno</a>              48 usr/lib/posix/file/rmdir.c 		errno = EINVAL;
+<a href='../S/694.html#L44'>errno</a>              44 usr/lib/posix/file/unlink.c 		errno = EINVAL;
+<a href='../S/702.html#L48'>errno</a>              48 usr/lib/posix/gen/__posix_call.c 		errno = ENOSYS;
+<a href='../S/702.html#L57'>errno</a>              57 usr/lib/posix/gen/__posix_call.c 		errno = (error == EINTR) ? EINTR : ENOSYS;
+<a href='../S/702.html#L60'>errno</a>              60 usr/lib/posix/gen/__posix_call.c 		errno = ((struct msg_header *)msg)-&gt;status;
+<a href='../S/705.html#L98'>errno</a>              98 usr/lib/posix/process/fork.c 			errno = error;
+<a href='../S/705.html#L103'>errno</a>             103 usr/lib/posix/process/fork.c 			errno = error;
+<a href='../S/706.html#L99'>errno</a>              99 usr/lib/posix/process/fork_nommu.c 			errno = error;
+<a href='../S/706.html#L104'>errno</a>             104 usr/lib/posix/process/fork_nommu.c 			errno = error;
+<a href='../S/714.html#L48'>errno</a>              48 usr/lib/posix/process/getpriority.c 			errno = EPERM;
+<a href='../S/714.html#L54'>errno</a>              54 usr/lib/posix/process/getpriority.c 			errno = EPERM;
+<a href='../S/714.html#L59'>errno</a>              59 usr/lib/posix/process/getpriority.c 		errno = EINVAL;
+<a href='../S/717.html#L60'>errno</a>              60 usr/lib/posix/process/kill.c 		errno = m.hdr.status;
+<a href='../S/720.html#L46'>errno</a>              46 usr/lib/posix/process/nice.c 	errno = 0;	/* XXX: Do not set 0 in errno... */
+<a href='../S/720.html#L49'>errno</a>              49 usr/lib/posix/process/nice.c 	if (pri == -1 &amp;&amp; errno)
+<a href='../S/721.html#L40'>errno</a>              40 usr/lib/posix/process/setegid.c 	errno = EPERM;
+<a href='../S/722.html#L40'>errno</a>              40 usr/lib/posix/process/seteuid.c 	errno = EPERM;
+<a href='../S/723.html#L40'>errno</a>              40 usr/lib/posix/process/setgid.c 	errno = EPERM;
+<a href='../S/726.html#L53'>errno</a>              53 usr/lib/posix/process/setpriority.c 			errno = EPERM;
+<a href='../S/726.html#L59'>errno</a>              59 usr/lib/posix/process/setpriority.c 			errno = EPERM;
+<a href='../S/726.html#L64'>errno</a>              64 usr/lib/posix/process/setpriority.c 		errno = EINVAL;
+<a href='../S/726.html#L77'>errno</a>              77 usr/lib/posix/process/setpriority.c 		errno = error;
+<a href='../S/728.html#L40'>errno</a>              40 usr/lib/posix/process/setuid.c 	errno = EPERM;
+<a href='../S/731.html#L67'>errno</a>              67 usr/lib/posix/process/waitpid.c 			errno = m.hdr.status;
+<a href='../S/731.html#L76'>errno</a>              76 usr/lib/posix/process/waitpid.c 			errno = EINTR;
+<a href='../S/735.html#L57'>errno</a>              57 usr/lib/posix/signal/pause.c 	errno = EINTR;
+<a href='../S/736.html#L47'>errno</a>              47 usr/lib/posix/signal/sigaction.c 		errno = EINVAL;
+<a href='../S/739.html#L41'>errno</a>              41 usr/lib/posix/signal/signal.c 		errno = EINVAL;
+<a href='../S/740.html#L42'>errno</a>              42 usr/lib/posix/signal/sigpending.c 		errno = EFAULT;
+<a href='../S/741.html#L62'>errno</a>              62 usr/lib/posix/signal/sigprocmask.c 			errno = EINVAL;
+<a href='../S/742.html#L43'>errno</a>              43 usr/lib/posix/signal/sigsuspend.c 		errno = EINVAL;
+<a href='../S/742.html#L58'>errno</a>              58 usr/lib/posix/signal/sigsuspend.c 	errno = EINTR;
+<a href='../S/744.html#L43'>errno</a>              43 usr/lib/posix/time/gettimeofday.c 		errno = EPERM;
+<a href='../S/744.html#L49'>errno</a>              49 usr/lib/posix/time/gettimeofday.c 		errno = error;
+<a href='../S/862.html#L76'>errno</a>              76 usr/sbin/install/install.c 	if (r == -1 &amp;&amp; errno != ENOENT)
+<a href='../S/876.html#L343'>errno</a>             343 usr/server/exec/exec_elf.c 		return errno;
+<a href='../S/877.html#L100'>errno</a>             100 usr/server/exec/exec_execve.c 		error = errno;
+<a href='../S/877.html#L146'>errno</a>             146 usr/server/exec/exec_execve.c 		error = errno;
+<a href='../S/936.html#L64'>errno</a>              64 usr/test/creat/creat.c 			if (errno != EINTR) {
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>paddr</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/72.html#L195'>paddr</a>             195 bsp/drv/dev/dma/i8237.c 	paddr_t paddr;
+<a href='../S/72.html#L199'>paddr</a>             199 bsp/drv/dev/dma/i8237.c 	paddr = kvtop(addr);
+<a href='../S/72.html#L202'>paddr</a>             202 bsp/drv/dev/dma/i8237.c 	ASSERT(paddr &lt; 0xffffff);
+<a href='../S/72.html#L215'>paddr</a>             215 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 0) &amp; 0xff));	/* Address low */
+<a href='../S/72.html#L216'>paddr</a>             216 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;addr, (u_char)((paddr &gt;&gt; 8) &amp; 0xff));	/* Address high */
+<a href='../S/72.html#L217'>paddr</a>             217 bsp/drv/dev/dma/i8237.c 	bus_write_8(regs-&gt;page, (u_char)((paddr &gt;&gt; 16) &amp; 0xff));	/* Page address */
+<a href='../S/342.html#L129'>paddr</a>             129 sys/mem/page.c page_free(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L139'>paddr</a>             139 sys/mem/page.c 	blk = ptokv(paddr);
+<a href='../S/342.html#L182'>paddr</a>             182 sys/mem/page.c page_reserve(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L191'>paddr</a>             191 sys/mem/page.c 	start = trunc_page((vaddr_t)ptokv(paddr));
+<a href='../S/342.html#L192'>paddr</a>             192 sys/mem/page.c 	end = round_page((vaddr_t)ptokv(paddr + psize));
+</pre>
+</body>
+</html>

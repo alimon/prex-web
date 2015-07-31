@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>idle_cycles</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/69.html#L128'>idle_cycles</a>       128 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_predict_max_speed(u_long run_cycles, u_long idle_cycles)
+<a href='../S/69.html#L133'>idle_cycles</a>       133 bsp/drv/dev/cpufreq/cpufreq.c 	new_deadline = (run_cycles + idle_cycles) * cur_speed;
+<a href='../S/69.html#L173'>idle_cycles</a>       173 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_predict_cpu_speed(u_long run_cycles, u_long idle_cycles)
+<a href='../S/69.html#L180'>idle_cycles</a>       180 bsp/drv/dev/cpufreq/cpufreq.c 	run_percent = (int)((run_cycles * 100) / (idle_cycles + run_cycles));
+<a href='../S/69.html#L183'>idle_cycles</a>       183 bsp/drv/dev/cpufreq/cpufreq.c 		cur_speed * (run_cycles + idle_cycles) / 100;
+<a href='../S/69.html#L187'>idle_cycles</a>       187 bsp/drv/dev/cpufreq/cpufreq.c 	if (excess_cycles &gt; idle_cycles)
+<a href='../S/69.html#L216'>idle_cycles</a>       216 bsp/drv/dev/cpufreq/cpufreq.c 	u_long idle_cycles, run_cycles;
+<a href='../S/69.html#L222'>idle_cycles</a>       222 bsp/drv/dev/cpufreq/cpufreq.c 	idle_cycles = info.idleticks - last_idleticks;
+<a href='../S/69.html#L223'>idle_cycles</a>       223 bsp/drv/dev/cpufreq/cpufreq.c 	run_cycles = info.cputicks - last_cputicks - idle_cycles;
+<a href='../S/69.html#L226'>idle_cycles</a>       226 bsp/drv/dev/cpufreq/cpufreq.c 		 run_cycles, idle_cycles, cur_speed));
+<a href='../S/69.html#L231'>idle_cycles</a>       231 bsp/drv/dev/cpufreq/cpufreq.c 	cpufreq_predict_max_speed(run_cycles, idle_cycles);
+<a href='../S/69.html#L236'>idle_cycles</a>       236 bsp/drv/dev/cpufreq/cpufreq.c 	new_speed = cpufreq_predict_cpu_speed(run_cycles, idle_cycles);
+</pre>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/sys/syslog.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1070.html'>include</a>/<a href='../files/1075.html'>sys</a>/syslog.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='274.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/275.html' title='Multiple included from 10 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1982, 1986, 1988, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> *</em>
+<a id='L29' name='L29' />  29 <em class='comment'> *      @(#)syslog.h    8.1 (Berkeley) 6/2/93</em>
+<a id='L30' name='L30' />  30 <em class='comment'> */</em>
+<a id='L31' name='L31' />  31 
+<a id='L32' name='L32' />  32 <em class='comment'>/*</em>
+<a id='L33' name='L33' />  33 <em class='comment'> * priorities/facilities are encoded into a single 32-bit quantity, where the</em>
+<a id='L34' name='L34' />  34 <em class='comment'> * bottom 3 bits are the priority (0-7) and the top 28 bits are the facility</em>
+<a id='L35' name='L35' />  35 <em class='comment'> * (0-big number).  Both the priorities and the facilities map roughly</em>
+<a id='L36' name='L36' />  36 <em class='comment'> * one-to-one to strings in the syslogd(8) source code.  This mapping is</em>
+<a id='L37' name='L37' />  37 <em class='comment'> * included in this file.</em>
+<a id='L38' name='L38' />  38 <em class='comment'> *</em>
+<a id='L39' name='L39' />  39 <em class='comment'> * priorities (these are ordered)</em>
+<a id='L40' name='L40' />  40 <em class='comment'> */</em>
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> LOG_EMERG       0       <em class='comment'>/* system is unusable */</em>
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> LOG_ALERT       1       <em class='comment'>/* action must be taken immediately */</em>
+<a id='L43' name='L43' />  43 <em class='sharp'>#define</em> LOG_CRIT        2       <em class='comment'>/* critical conditions */</em>
+<a id='L44' name='L44' />  44 <em class='sharp'>#define</em> <a href='../R/542.html' title='Multiple refered from 3 places.'>LOG_ERR</a>         3       <em class='comment'>/* error conditions */</em>
+<a id='L45' name='L45' />  45 <em class='sharp'>#define</em> LOG_WARNING     4       <em class='comment'>/* warning conditions */</em>
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> LOG_NOTICE      5       <em class='comment'>/* normal but significant condition */</em>
+<a id='L47' name='L47' />  47 <em class='sharp'>#define</em> <a href='954.html#L138' title='Refered from 138 in usr/test/fileio/fileio.c.'>LOG_INFO</a>        6       <em class='comment'>/* informational */</em>
+<a id='L48' name='L48' />  48 <em class='sharp'>#define</em> LOG_DEBUG       7       <em class='comment'>/* debug-level messages */</em>
+<a id='L49' name='L49' />  49 
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='274.html#L52' title='Refered from 52 in include/sys/syslog.h.'>LOG_PRIMASK</a>     0x07    <em class='comment'>/* mask to extract priority part (internal) */</em>
+<a id='L51' name='L51' />  51                                 <em class='comment'>/* extract priority */</em>
+<a id='L52' name='L52' />  52 <em class='sharp'>#define</em> LOG_PRI(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)      ((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>) &amp; <a href='274.html#L50' title='Defined at 50 in include/sys/syslog.h.'>LOG_PRIMASK</a>)
+<a id='L53' name='L53' />  53 <em class='sharp'>#define</em> LOG_MAKEPRI(<a href='274.html#L53' title='Used at 53 in include/sys/syslog.h.'>fac</a>, <a href='../Y/1648.html' title='Multiple used in 82 places.'>pri</a>)   (((<a href='274.html#L53' title='Used at 53 in include/sys/syslog.h.'>fac</a>) &lt;&lt; 3) | (<a href='../Y/1648.html' title='Multiple used in 82 places.'>pri</a>))
+<a id='L54' name='L54' />  54 
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56 <em class='comment'>/* facility codes */</em>
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> LOG_KERN        (0&lt;&lt;3)  <em class='comment'>/* kernel messages */</em>
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> LOG_USER        (1&lt;&lt;3)  <em class='comment'>/* random user-level messages */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> LOG_MAIL        (2&lt;&lt;3)  <em class='comment'>/* mail system */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> LOG_DAEMON      (3&lt;&lt;3)  <em class='comment'>/* system daemons */</em>
+<a id='L61' name='L61' />  61 <em class='sharp'>#define</em> LOG_AUTH        (4&lt;&lt;3)  <em class='comment'>/* security/authorization messages */</em>
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> LOG_SYSLOG      (5&lt;&lt;3)  <em class='comment'>/* messages generated internally by syslogd */</em>
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> LOG_LPR         (6&lt;&lt;3)  <em class='comment'>/* line printer subsystem */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> LOG_NEWS        (7&lt;&lt;3)  <em class='comment'>/* network news subsystem */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> LOG_UUCP        (8&lt;&lt;3)  <em class='comment'>/* UUCP subsystem */</em>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> LOG_CRON        (9&lt;&lt;3)  <em class='comment'>/* clock daemon */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> LOG_AUTHPRIV    (10&lt;&lt;3) <em class='comment'>/* security/authorization messages (private) */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> LOG_FTP         (11&lt;&lt;3) <em class='comment'>/* ftp daemon */</em>
+<a id='L69' name='L69' />  69 
+<a id='L70' name='L70' />  70 <em class='comment'>/* other codes through 15 reserved for system use */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> LOG_LOCAL0      (16&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> LOG_LOCAL1      (17&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#define</em> LOG_LOCAL2      (18&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#define</em> LOG_LOCAL3      (19&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L75' name='L75' />  75 <em class='sharp'>#define</em> LOG_LOCAL4      (20&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L76' name='L76' />  76 <em class='sharp'>#define</em> LOG_LOCAL5      (21&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L77' name='L77' />  77 <em class='sharp'>#define</em> LOG_LOCAL6      (22&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> LOG_LOCAL7      (23&lt;&lt;3) <em class='comment'>/* reserved for local use */</em>
+<a id='L79' name='L79' />  79 
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> LOG_NFACILITIES 24      <em class='comment'>/* current number of facilities */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> <a href='274.html#L83' title='Refered from 83 in include/sys/syslog.h.'>LOG_FACMASK</a>     0x03f8  <em class='comment'>/* mask to extract facility part */</em>
+<a id='L82' name='L82' />  82                                 <em class='comment'>/* facility of pri */</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> LOG_FAC(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)      (((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>) &amp; <a href='274.html#L81' title='Defined at 81 in include/sys/syslog.h.'>LOG_FACMASK</a>) &gt;&gt; 3)
+<a id='L84' name='L84' />  84 
+<a id='L85' name='L85' />  85 <em class='comment'>/*</em>
+<a id='L86' name='L86' />  86 <em class='comment'> * arguments to setlogmask.</em>
+<a id='L87' name='L87' />  87 <em class='comment'> */</em>
+<a id='L88' name='L88' />  88 <em class='sharp'>#define</em> LOG_MASK(<a href='../Y/1648.html' title='Multiple used in 82 places.'>pri</a>)   (1 &lt;&lt; (<a href='../Y/1648.html' title='Multiple used in 82 places.'>pri</a>))            <em class='comment'>/* mask for one priority */</em>
+<a id='L89' name='L89' />  89 <em class='sharp'>#define</em> LOG_UPTO(<a href='../Y/1648.html' title='Multiple used in 82 places.'>pri</a>)   ((1 &lt;&lt; ((<a href='../Y/1648.html' title='Multiple used in 82 places.'>pri</a>)+1)) - 1)  <em class='comment'>/* all priorities through pri */</em>
+<a id='L90' name='L90' />  90 
+<a id='L91' name='L91' />  91 <em class='comment'>/*</em>
+<a id='L92' name='L92' />  92 <em class='comment'> * Option flags for openlog.</em>
+<a id='L93' name='L93' />  93 <em class='comment'> *</em>
+<a id='L94' name='L94' />  94 <em class='comment'> * LOG_ODELAY no longer does anything.</em>
+<a id='L95' name='L95' />  95 <em class='comment'> * LOG_NDELAY is the inverse of what it used to be.</em>
+<a id='L96' name='L96' />  96 <em class='comment'> */</em>
+<a id='L97' name='L97' />  97 <em class='sharp'>#define</em> LOG_PID         0x01    <em class='comment'>/* log the pid with each message */</em>
+<a id='L98' name='L98' />  98 <em class='sharp'>#define</em> LOG_CONS        0x02    <em class='comment'>/* log on the console if errors in sending */</em>
+<a id='L99' name='L99' />  99 <em class='sharp'>#define</em> LOG_ODELAY      0x04    <em class='comment'>/* delay open until first syslog() (default) */</em>
+<a id='L100' name='L100' /> 100 <em class='sharp'>#define</em> LOG_NDELAY      0x08    <em class='comment'>/* don't delay open */</em>
+<a id='L101' name='L101' /> 101 <em class='sharp'>#define</em> LOG_NOWAIT      0x10    <em class='comment'>/* don't wait for console forks: DEPRECATED */</em>
+<a id='L102' name='L102' /> 102 <em class='sharp'>#define</em> LOG_PERROR      0x20    <em class='comment'>/* log to stderr as well */</em>
+<a id='L103' name='L103' /> 103 
+<a id='L104' name='L104' /> 104 <em class='sharp'>#ifndef</em> <a href='../D/826.html' title='Multiple defined in 2 places.'>KERNEL</a>
+<a id='L105' name='L105' /> 105 
+<a id='L106' name='L106' /> 106 <em class='sharp'>#include</em> &lt;<a href='../I/215.html'>machine/stdarg.h</a>&gt;
+<a id='L107' name='L107' /> 107 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;
+<a id='L108' name='L108' /> 108 
+<a id='L109' name='L109' /> 109 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L110' name='L110' /> 110 <strong class='reserved'>void</strong>    <a href='700.html#L64' title='Defined at 64 in usr/lib/posix/gen/syslog.c.'>closelog</a>(<strong class='reserved'>void</strong>);
+<a id='L111' name='L111' /> 111 <strong class='reserved'>void</strong>    <a href='700.html#L57' title='Defined at 57 in usr/lib/posix/gen/syslog.c.'>openlog</a>(<strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <strong class='reserved'>int</strong>, <strong class='reserved'>int</strong>);
+<a id='L112' name='L112' /> 112 <strong class='reserved'>int</strong>     <a href='700.html#L70' title='Defined at 70 in usr/lib/posix/gen/syslog.c.'>setlogmask</a>(<strong class='reserved'>int</strong>);
+<a id='L113' name='L113' /> 113 <strong class='reserved'>void</strong>    <a href='700.html#L44' title='Defined at 44 in usr/lib/posix/gen/syslog.c.'>syslog</a>(<strong class='reserved'>int</strong>, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, ...);
+<a id='L114' name='L114' /> 114 <strong class='reserved'>void</strong>    vsyslog(<strong class='reserved'>int</strong>, <strong class='reserved'>const</strong> <strong class='reserved'>char</strong> *, <a href='../Y/2291.html' title='Multiple used in 30 places.'>va_list</a>);
+<a id='L115' name='L115' /> 115 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L116' name='L116' /> 116 
+<a id='L117' name='L117' /> 117 <em class='sharp'>#endif</em> <em class='comment'>/* !KERNEL */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='274.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

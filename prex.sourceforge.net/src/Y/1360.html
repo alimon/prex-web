@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>new_pa</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/343.html#L280'>new_pa</a>            280 sys/mem/vm.c   	paddr_t old_pa, new_pa;
+<a href='../S/343.html#L322'>new_pa</a>            322 sys/mem/vm.c   		if ((new_pa = page_alloc(seg-&gt;size)) == 0)
+<a href='../S/343.html#L326'>new_pa</a>            326 sys/mem/vm.c   		memcpy(ptokv(new_pa), ptokv(old_pa), seg-&gt;size);
+<a href='../S/343.html#L329'>new_pa</a>            329 sys/mem/vm.c   		if (mmu_map(map-&gt;pgd, new_pa, seg-&gt;addr, seg-&gt;size,
+<a href='../S/343.html#L331'>new_pa</a>            331 sys/mem/vm.c   			page_free(new_pa, seg-&gt;size);
+<a href='../S/343.html#L334'>new_pa</a>            334 sys/mem/vm.c   		seg-&gt;phys = new_pa;
+</pre>
+</body>
+</html>

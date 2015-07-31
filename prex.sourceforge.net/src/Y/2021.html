@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>stat</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/219.html#L125'>stat</a>              125 include/ipc/fs.h 	struct stat st;
+<a href='../S/271.html#L42'>stat</a>               42 include/sys/stat.h struct stat {
+<a href='../S/271.html#L115'>stat</a>              115 include/sys/stat.h int	fstat(int, struct stat *);
+<a href='../S/271.html#L118'>stat</a>              118 include/sys/stat.h int	stat(const char *, struct stat *);
+<a href='../S/271.html#L120'>stat</a>              120 include/sys/stat.h int	lstat(const char *, struct stat *);
+<a href='../S/279.html#L172'>stat</a>              172 include/sys/vnode.h int	 vn_stat(vnode_t, struct stat *);
+<a href='../S/366.html#L99'>stat</a>               99 usr/bin/cat/cat.c 	struct stat sbuf;
+<a href='../S/374.html#L61'>stat</a>               61 usr/bin/cp/cp.c 	struct stat to_stat, tmp_stat;
+<a href='../S/374.html#L133'>stat</a>              133 usr/bin/cp/cp.c 	struct stat stbuf;
+<a href='../S/390.html#L46'>stat</a>               46 usr/bin/ls/ls.c static void printentry(char *name, struct stat *sp);
+<a href='../S/390.html#L179'>stat</a>              179 usr/bin/ls/ls.c printentry(char *name, struct stat *sp)
+<a href='../S/390.html#L257'>stat</a>              257 usr/bin/ls/ls.c 	struct stat st;
+<a href='../S/394.html#L85'>stat</a>               85 usr/bin/mkdir/mkdir.c 	struct stat sb;
+<a href='../S/398.html#L48'>stat</a>               48 usr/bin/mv/mv.c 	struct stat st1, st2;
+<a href='../S/421.html#L328'>stat</a>              328 usr/bin/test/test.c 	struct stat s;
+<a href='../S/421.html#L443'>stat</a>              443 usr/bin/test/test.c 	struct stat b1, b2;
+<a href='../S/421.html#L453'>stat</a>              453 usr/bin/test/test.c 	struct stat b1, b2;
+<a href='../S/421.html#L463'>stat</a>              463 usr/bin/test/test.c 	struct stat b1, b2;
+<a href='../S/423.html#L92'>stat</a>               92 usr/bin/touch/touch.c 	struct stat st;
+<a href='../S/479.html#L771'>stat</a>              771 usr/lib/libc/gen/fts.c 	struct stat *sbp, sb;
+<a href='../S/479.html#L805'>stat</a>              805 usr/lib/libc/gen/fts.c err:		memset(sbp, 0, sizeof(struct stat));
+<a href='../S/479.html#L892'>stat</a>              892 usr/lib/libc/gen/fts.c 		len += sizeof(struct stat) + ALIGNBYTES;
+<a href='../S/479.html#L900'>stat</a>              900 usr/lib/libc/gen/fts.c 		p-&gt;fts_statp = (struct stat *)ALIGN(p-&gt;fts_name + namelen + 2);
+<a href='../S/528.html#L46'>stat</a>               46 usr/lib/libc/stdio/makebuf.c 	struct stat st;
+<a href='../S/530.html#L63'>stat</a>               63 usr/lib/libc/stdio/mktemp.c 	struct stat sbuf;
+<a href='../S/538.html#L44'>stat</a>               44 usr/lib/libc/stdio/remove.c 	struct stat sb;
+<a href='../S/668.html#L39'>stat</a>               39 usr/lib/posix/file/fstat.c fstat(int fd, struct stat *st)
+<a href='../S/668.html#L47'>stat</a>               47 usr/lib/posix/file/fstat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/676.html#L40'>stat</a>               40 usr/lib/posix/file/lstat.c lstat(const char *path, struct stat *st)
+<a href='../S/689.html#L40'>stat</a>               40 usr/lib/posix/file/stat.c stat(const char *path, struct stat *st)
+<a href='../S/689.html#L48'>stat</a>               48 usr/lib/posix/file/stat.c 	memcpy(st, &amp;m.st, sizeof(struct stat));
+<a href='../S/862.html#L68'>stat</a>               68 usr/sbin/install/install.c 	struct stat to_stat;
+<a href='../S/862.html#L117'>stat</a>              117 usr/sbin/install/install.c 	struct stat stbuf;
+<a href='../S/871.html#L241'>stat</a>              241 usr/server/boot/boot.c 	struct stat stbuf;
+<a href='../S/877.html#L446'>stat</a>              446 usr/server/exec/exec_execve.c 	struct stat st;
+<a href='../S/903.html#L279'>stat</a>              279 usr/server/fs/vfs/main.c 	struct stat *st;
+<a href='../S/903.html#L491'>stat</a>              491 usr/server/fs/vfs/main.c 	struct stat *st;
+<a href='../S/905.html#L100'>stat</a>              100 usr/server/fs/vfs/vfs.h int	 sys_fstat(file_t fp, struct stat *st);
+<a href='../S/905.html#L118'>stat</a>              118 usr/server/fs/vfs/vfs.h int	 sys_stat(char *path, struct stat *st);
+<a href='../S/911.html#L304'>stat</a>              304 usr/server/fs/vfs/vfs_syscalls.c sys_fstat(file_t fp, struct stat *st)
+<a href='../S/911.html#L717'>stat</a>              717 usr/server/fs/vfs/vfs_syscalls.c sys_stat(char *path, struct stat *st)
+<a href='../S/913.html#L343'>stat</a>              343 usr/server/fs/vfs/vfs_vnode.c vn_stat(vnode_t vp, struct stat *st)
+<a href='../S/913.html#L347'>stat</a>              347 usr/server/fs/vfs/vfs_vnode.c 	memset(st, 0, sizeof(struct stat));
+</pre>
+</body>
+</html>

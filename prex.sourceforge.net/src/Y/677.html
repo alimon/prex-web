@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>disk_buf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/950.html#L45'>disk_buf</a>           45 usr/test/fdd/fdd.c 	static unsigned char disk_buf[512];
+<a href='../S/950.html#L56'>disk_buf</a>           56 usr/test/fdd/fdd.c 	printf("fdd read: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/950.html#L58'>disk_buf</a>           58 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L64'>disk_buf</a>           64 usr/test/fdd/fdd.c 	printf("read comp: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/950.html#L68'>disk_buf</a>           68 usr/test/fdd/fdd.c 			printf("%02x ", disk_buf[i * 16 + j]);
+<a href='../S/950.html#L71'>disk_buf</a>           71 usr/test/fdd/fdd.c 			ch = disk_buf[i * 16 + j];
+<a href='../S/950.html#L94'>disk_buf</a>           94 usr/test/fdd/fdd.c 	static unsigned char disk_buf[512];
+<a href='../S/950.html#L105'>disk_buf</a>          105 usr/test/fdd/fdd.c 	error = device_read(fdd, disk_buf, &amp;size, sector);
+<a href='../S/950.html#L114'>disk_buf</a>          114 usr/test/fdd/fdd.c 	error = device_write(fdd, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L47'>disk_buf</a>           47 usr/test/ramdisk/ramdisk.c 	static unsigned char disk_buf[512];
+<a href='../S/983.html#L58'>disk_buf</a>           58 usr/test/ramdisk/ramdisk.c 	printf("ramdisk read: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/983.html#L60'>disk_buf</a>           60 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L66'>disk_buf</a>           66 usr/test/ramdisk/ramdisk.c 	printf("read comp: sector=%d buf=%x\n", sector, (u_int)disk_buf);
+<a href='../S/983.html#L70'>disk_buf</a>           70 usr/test/ramdisk/ramdisk.c 			printf("%02x ", disk_buf[i * 16 + j]);
+<a href='../S/983.html#L73'>disk_buf</a>           73 usr/test/ramdisk/ramdisk.c 			ch = disk_buf[i * 16 + j];
+<a href='../S/983.html#L96'>disk_buf</a>           96 usr/test/ramdisk/ramdisk.c 	static unsigned char disk_buf[512];
+<a href='../S/983.html#L107'>disk_buf</a>          107 usr/test/ramdisk/ramdisk.c 	error = device_read(ramdev, disk_buf, &amp;size, sector);
+<a href='../S/983.html#L115'>disk_buf</a>          115 usr/test/ramdisk/ramdisk.c 	strcpy((char *)disk_buf, test_msg);
+<a href='../S/983.html#L118'>disk_buf</a>          118 usr/test/ramdisk/ramdisk.c 	error = device_write(ramdev, disk_buf, &amp;size, sector);
+</pre>
+</body>
+</html>

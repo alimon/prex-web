@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>v_nrlocks</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/279.html#L73'>v_nrlocks</a>          73 include/sys/vnode.h 	int		v_nrlocks;	/* lock count (for debug) */
+<a href='../S/913.html#L119'>v_nrlocks</a>         119 usr/server/fs/vfs/vfs_vnode.c 			vp-&gt;v_nrlocks++;
+<a href='../S/913.html#L137'>v_nrlocks</a>         137 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks++;
+<a href='../S/913.html#L149'>v_nrlocks</a>         149 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks &gt; 0);
+<a href='../S/913.html#L152'>v_nrlocks</a>         152 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks--;
+<a href='../S/913.html#L183'>v_nrlocks</a>         183 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks = 0;
+<a href='../S/913.html#L196'>v_nrlocks</a>         196 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks++;
+<a href='../S/913.html#L211'>v_nrlocks</a>         211 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks &gt; 0);
+<a href='../S/913.html#L230'>v_nrlocks</a>         230 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks--;
+<a href='../S/913.html#L231'>v_nrlocks</a>         231 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks == 0);
+<a href='../S/913.html#L293'>v_nrlocks</a>         293 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks == 0);
+</pre>
+</body>
+</html>

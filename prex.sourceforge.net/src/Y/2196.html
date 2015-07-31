@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tq_count</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L73'>tq_count</a>           73 bsp/drv/dev/base/tty.c #define ttyq_full(q)	((q)-&gt;tq_count &gt;= TTYQ_SIZE)
+<a href='../S/64.html#L74'>tq_count</a>           74 bsp/drv/dev/base/tty.c #define ttyq_empty(q)	((q)-&gt;tq_count == 0)
+<a href='../S/64.html#L92'>tq_count</a>           92 bsp/drv/dev/base/tty.c 	tq-&gt;tq_count--;
+<a href='../S/64.html#L112'>tq_count</a>          112 bsp/drv/dev/base/tty.c 	tq-&gt;tq_count++;
+<a href='../S/64.html#L130'>tq_count</a>          130 bsp/drv/dev/base/tty.c 	tq-&gt;tq_count--;
+<a href='../S/64.html#L227'>tq_count</a>          227 bsp/drv/dev/base/tty.c 	if (tp-&gt;t_outq.tq_count == 0)
+<a href='../S/64.html#L244'>tq_count</a>          244 bsp/drv/dev/base/tty.c 	if ((tp-&gt;t_outq.tq_count &gt; 0) &amp;&amp; tp-&gt;t_oproc) {
+<a href='../S/64.html#L506'>tq_count</a>          506 bsp/drv/dev/base/tty.c 		if (tp-&gt;t_outq.tq_count &gt; TTYQ_HIWAT) {
+<a href='../S/64.html#L508'>tq_count</a>          508 bsp/drv/dev/base/tty.c 			if (tp-&gt;t_outq.tq_count &lt;= TTYQ_HIWAT)
+<a href='../S/64.html#L596'>tq_count</a>          596 bsp/drv/dev/base/tty.c 		if (copyout(&amp;qp-&gt;tq_count, data, sizeof(int)))
+<a href='../S/64.html#L600'>tq_count</a>          600 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_outq.tq_count, data, sizeof(int)))
+<a href='../S/102.html#L51'>tq_count</a>           51 bsp/drv/include/tty.h 	int	tq_count;
+</pre>
+</body>
+</html>

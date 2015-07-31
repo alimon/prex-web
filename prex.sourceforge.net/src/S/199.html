@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>conf/etc/tasks.mk</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1064.html'>conf</a>/<a href='../files/1066.html'>etc</a>/tasks.mk</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='199.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />#
+<a id='L2' name='L2' /># Boot tasks
+<a id='L3' name='L3' />#
+<a id='L4' name='L4' />
+<a id='L5' name='L5' />ifeq ($(CONFIG_POSIX),y)
+<a id='L6' name='L6' />TASKS+=         $(SRCDIR)/usr/server/boot/boot
+<a id='L7' name='L7' />TASKS+=         $(SRCDIR)/usr/server/proc/proc
+<a id='L8' name='L8' />TASKS+=         $(SRCDIR)/usr/server/exec/exec
+<a id='L9' name='L9' />ifeq ($(CONFIG_PM),y)
+<a id='L10' name='L10' />TASKS+=         $(SRCDIR)/usr/server/pow/pow
+<a id='L11' name='L11' />endif
+<a id='L12' name='L12' />TASKS+=         $(SRCDIR)/usr/server/fs/fs
+<a id='L13' name='L13' />endif
+<a id='L14' name='L14' />
+<a id='L15' name='L15' />#TASKS+=        $(SRCDIR)/usr/sample/alarm/alarm.rt
+<a id='L16' name='L16' />#TASKS+=        $(SRCDIR)/usr/sample/bench/bench.rt
+<a id='L17' name='L17' />#TASKS+=        $(SRCDIR)/usr/sample/ipc/ipc.rt
+<a id='L18' name='L18' />#TASKS+=        $(SRCDIR)/usr/sample/mutex/mutex.rt
+<a id='L19' name='L19' />#TASKS+=        $(SRCDIR)/usr/sample/sem/sem.rt
+<a id='L20' name='L20' />#TASKS+=        $(SRCDIR)/usr/sample/task/task.rt
+<a id='L21' name='L21' />#TASKS+=        $(SRCDIR)/usr/sample/thread/thread.rt
+<a id='L22' name='L22' />#TASKS+=        $(SRCDIR)/usr/sample/balls/balls.rt
+<a id='L23' name='L23' />
+<a id='L24' name='L24' />#TASKS+=        $(SRCDIR)/usr/test/console/console.rt
+<a id='L25' name='L25' />#TASKS+=        $(SRCDIR)/usr/test/deadlock/deadlock.rt
+<a id='L26' name='L26' />#TASKS+=        $(SRCDIR)/usr/test/errno/errno.rt
+<a id='L27' name='L27' />#TASKS+=        $(SRCDIR)/usr/test/exception/exception.rt
+<a id='L28' name='L28' />#TASKS+=        $(SRCDIR)/usr/test/fault/fault.rt
+<a id='L29' name='L29' />#TASKS+=        $(SRCDIR)/usr/test/fdd/fdd.rt
+<a id='L30' name='L30' />#TASKS+=        $(SRCDIR)/usr/test/ipc/ipc.rt
+<a id='L31' name='L31' />#TASKS+=        $(SRCDIR)/usr/test/ipc_mt/ipc_mt.rt
+<a id='L32' name='L32' />#TASKS+=        $(SRCDIR)/usr/test/kbd/kbd.rt
+<a id='L33' name='L33' />#TASKS+=        $(SRCDIR)/usr/test/kmon/kmon.rt
+<a id='L34' name='L34' />#TASKS+=        $(SRCDIR)/usr/test/malloc/malloc.rt
+<a id='L35' name='L35' />#TASKS+=        $(SRCDIR)/usr/test/mutex/mutex.rt
+<a id='L36' name='L36' />#TASKS+=        $(SRCDIR)/usr/test/sem/sem.rt
+<a id='L37' name='L37' />#TASKS+=        $(SRCDIR)/usr/test/task/task.rt
+<a id='L38' name='L38' />#TASKS+=        $(SRCDIR)/usr/test/thread/thread.rt
+<a id='L39' name='L39' />#TASKS+=        $(SRCDIR)/usr/test/time/time.rt
+<a id='L40' name='L40' />#TASKS+=        $(SRCDIR)/usr/test/timer/timer.rt
+<a id='L41' name='L41' />#TASKS+=        $(SRCDIR)/usr/test/ramdisk/ramdisk.rt
+<a id='L42' name='L42' />#TASKS+=        $(SRCDIR)/usr/test/reset/reset.rt
+<a id='L43' name='L43' />#TASKS+=        $(SRCDIR)/usr/test/zero/zero.rt
+<a id='L44' name='L44' />
+<a id='L45' name='L45' />#TASKS+=        $(SRCDIR)/usr/test/cpufreq/cpufreq.rt
+<a id='L46' name='L46' />#TASKS+=        $(SRCDIR)/usr/sample/cpumon/cpumon.rt
+<a id='L47' name='L47' />
+<a id='L48' name='L48' />#TASKS+=        $(SRCDIR)/usr/server/fs/fs
+<a id='L49' name='L49' />#TASKS+=        $(SRCDIR)/usr/test/fileio/fileio.rt
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='199.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

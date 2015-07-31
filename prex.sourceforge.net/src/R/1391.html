@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__SERR</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L289'>__SERR</a>            289 usr/include/stdio.h #define	__sferror(p)	(((p)-&gt;_flags &amp; __SERR) != 0)
+<a href='../S/441.html#L290'>__SERR</a>            290 usr/include/stdio.h #define	__sclearerr(p)	((void)((p)-&gt;_flags &amp;= ~(__SERR|__SEOF)))
+<a href='../S/501.html#L78'>__SERR</a>             78 usr/lib/libc/stdio/fflush.c 			fp-&gt;_flags |= __SERR;
+<a href='../S/519.html#L180'>__SERR</a>            180 usr/lib/libc/stdio/fvwrite.c 	fp-&gt;_flags |= __SERR;
+<a href='../S/526.html#L45'>__SERR</a>             45 usr/lib/libc/stdio/getw.c 	if (fp-&gt;_flags &amp; (__SERR|__SEOF))
+<a href='../S/536.html#L45'>__SERR</a>             45 usr/lib/libc/stdio/putw.c 	if (fp-&gt;_flags &amp; __SERR)
+<a href='../S/537.html#L113'>__SERR</a>            113 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags |= __SERR;
+<a href='../S/552.html#L93'>__SERR</a>             93 usr/lib/libc/stdio/vfprintf.c 	if (fake._flags &amp; __SERR)
+<a href='../S/552.html#L94'>__SERR</a>             94 usr/lib/libc/stdio/vfprintf.c 		fp-&gt;_flags |= __SERR;
+</pre>
+</body>
+</html>

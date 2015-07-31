@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>nsyncs</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/318.html#L61'>nsyncs</a>             61 sys/include/task.h 	int		nsyncs;		/* number of syncronizer objects */
+<a href='../S/345.html#L57'>nsyncs</a>             57 sys/sync/cond.c 	if (self-&gt;nsyncs &gt;= MAXSYNCS)
+<a href='../S/345.html#L72'>nsyncs</a>             72 sys/sync/cond.c 	self-&gt;nsyncs++;
+<a href='../S/345.html#L81'>nsyncs</a>             81 sys/sync/cond.c 	c-&gt;owner-&gt;nsyncs--;
+<a href='../S/346.html#L99'>nsyncs</a>             99 sys/sync/mutex.c 	if (self-&gt;nsyncs &gt;= MAXSYNCS)
+<a href='../S/346.html#L117'>nsyncs</a>            117 sys/sync/mutex.c 	self-&gt;nsyncs++;
+<a href='../S/346.html#L129'>nsyncs</a>            129 sys/sync/mutex.c 	m-&gt;owner-&gt;nsyncs--;
+<a href='../S/347.html#L67'>nsyncs</a>             67 sys/sync/sem.c 	if (self-&gt;nsyncs &gt;= MAXSYNCS)
+<a href='../S/347.html#L113'>nsyncs</a>            113 sys/sync/sem.c 		self-&gt;nsyncs++;
+<a href='../S/347.html#L294'>nsyncs</a>            294 sys/sync/sem.c 	s-&gt;owner-&gt;nsyncs--;
+</pre>
+</body>
+</html>

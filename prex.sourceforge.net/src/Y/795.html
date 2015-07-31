@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>evt_name</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/96.html#L74'>evt_name</a>           74 bsp/drv/include/dki.h #define event_init(event, evt_name) \
+<a href='../S/96.html#L75'>evt_name</a>           75 bsp/drv/include/dki.h     do { list_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+<a href='../S/306.html#L45'>evt_name</a>           45 sys/include/event.h #define event_init(event, evt_name) \
+<a href='../S/306.html#L46'>evt_name</a>           46 sys/include/event.h     do { queue_init(&amp;(event)-&gt;sleepq); (event)-&gt;name = evt_name; } while (0)
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cs</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/173.html#L108'>cs</a>                108 bsp/hal/x86/arch/context.c 		u-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/173.html#L197'>cs</a>                197 bsp/hal/x86/arch/context.c 	cur-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/174.html#L204'>cs</a>                204 bsp/hal/x86/arch/cpu.c 	tss.cs = (uint32_t)USER_CS | 3;
+<a href='../S/179.html#L119'>cs</a>                119 bsp/hal/x86/arch/trap.c 	if (trap_no == 14 &amp;&amp; regs-&gt;cs == KERNEL_CS &amp;&amp;
+<a href='../S/179.html#L135'>cs</a>                135 bsp/hal/x86/arch/trap.c 	if (regs-&gt;cs == KERNEL_CS) {
+<a href='../S/179.html#L142'>cs</a>                142 bsp/hal/x86/arch/trap.c 	if (regs-&gt;cs == KERNEL_CS)
+<a href='../S/179.html#L161'>cs</a>                161 bsp/hal/x86/arch/trap.c 	if (r-&gt;cs &amp; 3) {
+<a href='../S/179.html#L174'>cs</a>                174 bsp/hal/x86/arch/trap.c 	       r-&gt;cs, ss, r-&gt;ds, r-&gt;es, tss_get());
+<a href='../S/179.html#L180'>cs</a>                180 bsp/hal/x86/arch/trap.c 	if (r-&gt;cs == KERNEL_CS) {
+<a href='../S/180.html#L58'>cs</a>                 58 bsp/hal/x86/include/context.h 	uint32_t	cs;		/* +48 (30) */
+<a href='../S/181.html#L182'>cs</a>                182 bsp/hal/x86/include/cpu.h 	uint32_t es, cs, ss, ds, fs, gs;
+</pre>
+</body>
+</html>

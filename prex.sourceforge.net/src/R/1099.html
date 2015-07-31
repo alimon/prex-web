@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>TTYQ_SIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L71'>TTYQ_SIZE</a>          71 bsp/drv/dev/base/tty.c #define ttyq_next(i)	(((i) + 1) &amp; (TTYQ_SIZE - 1))
+<a href='../S/64.html#L72'>TTYQ_SIZE</a>          72 bsp/drv/dev/base/tty.c #define ttyq_prev(i)	(((i) - 1) &amp; (TTYQ_SIZE - 1))
+<a href='../S/64.html#L73'>TTYQ_SIZE</a>          73 bsp/drv/dev/base/tty.c #define ttyq_full(q)	((q)-&gt;tq_count &gt;= TTYQ_SIZE)
+<a href='../S/102.html#L45'>TTYQ_SIZE</a>          45 bsp/drv/include/tty.h #define TTYQ_HIWAT	(TTYQ_SIZE - 10)
+<a href='../S/102.html#L48'>TTYQ_SIZE</a>          48 bsp/drv/include/tty.h 	char	tq_buf[TTYQ_SIZE];
+</pre>
+</body>
+</html>

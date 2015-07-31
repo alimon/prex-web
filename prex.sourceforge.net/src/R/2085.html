@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>kthread_create</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/319.html#L115'>kthread_create</a>    115 sys/include/thread.h thread_t kthread_create(void (*)(void *), void *, int);
+<a href='../S/329.html#L105'>kthread_create</a>    105 sys/kern/irq.c 		irq-&gt;thread = kthread_create(&amp;irq_thread, irq, ISTPRI(pri));
+<a href='../S/331.html#L728'>kthread_create</a>    728 sys/kern/sched.c 	t = kthread_create(dpc_thread, NULL, PRI_DPC);
+<a href='../S/336.html#L467'>kthread_create</a>    467 sys/kern/timer.c 	if (kthread_create(&amp;timer_thread, NULL, PRI_TIMER) == NULL)
+</pre>
+</body>
+</html>

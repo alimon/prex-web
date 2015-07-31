@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>locks</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/316.html#L54'>locks</a>              54 sys/include/sync.h 	int		locks;		/* counter for recursive lock */
+<a href='../S/319.html#L57'>locks</a>              57 sys/include/thread.h 	int		locks;		/* schedule lock counter */
+<a href='../S/331.html#L496'>locks</a>             496 sys/kern/sched.c 		curthread-&gt;locks = 1;
+<a href='../S/331.html#L520'>locks</a>             520 sys/kern/sched.c 	curthread-&gt;locks++;
+<a href='../S/331.html#L536'>locks</a>             536 sys/kern/sched.c 	ASSERT(curthread-&gt;locks &gt; 0);
+<a href='../S/331.html#L539'>locks</a>             539 sys/kern/sched.c 	if (curthread-&gt;locks == 1) {
+<a href='../S/331.html#L559'>locks</a>             559 sys/kern/sched.c 	curthread-&gt;locks--;
+<a href='../S/335.html#L530'>locks</a>             530 sys/kern/thread.c 	ASSERT(curthread-&gt;locks &gt; 0);
+<a href='../S/335.html#L593'>locks</a>             593 sys/kern/thread.c 	idle_thread.locks = 1;
+<a href='../S/346.html#L202'>locks</a>             202 sys/sync/mutex.c 		m-&gt;locks++;
+<a href='../S/346.html#L203'>locks</a>             203 sys/sync/mutex.c 		ASSERT(m-&gt;locks != 0);
+<a href='../S/346.html#L229'>locks</a>             229 sys/sync/mutex.c 		m-&gt;locks = 1;
+<a href='../S/346.html#L253'>locks</a>             253 sys/sync/mutex.c 		m-&gt;locks++;
+<a href='../S/346.html#L254'>locks</a>             254 sys/sync/mutex.c 		ASSERT(m-&gt;locks != 0);
+<a href='../S/346.html#L259'>locks</a>             259 sys/sync/mutex.c 			m-&gt;locks = 1;
+<a href='../S/346.html#L284'>locks</a>             284 sys/sync/mutex.c 	if (m-&gt;holder != curthread || m-&gt;locks &lt;= 0) {
+<a href='../S/346.html#L288'>locks</a>             288 sys/sync/mutex.c 	if (--m-&gt;locks == 0) {
+<a href='../S/346.html#L331'>locks</a>             331 sys/sync/mutex.c 		m-&gt;locks = 0;
+<a href='../S/346.html#L341'>locks</a>             341 sys/sync/mutex.c 			m-&gt;locks = 1;
+</pre>
+</body>
+</html>

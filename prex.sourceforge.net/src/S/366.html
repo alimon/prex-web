@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/bin/cat/cat.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1090.html'>bin</a>/<a href='../files/1091.html'>cat</a>/cat.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='366.html#L56'>[^]</a><a href='366.html#L96'>[v]</a>[top]<a href='366.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='366.html#L56' title='Defined at 56.'>main</a></li>
+<li><a href='366.html#L96' title='Defined at 96.'>do_cat</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1989, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * This code is derived from software contributed to Berkeley by</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * Kevin Fall.</em>
+<a id='L7' name='L7' />   7 <em class='comment'> *</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * are met:</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L18' name='L18' />  18 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L31' name='L31' />  31 <em class='comment'> */</em>
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='comment'>/* modified by Kohsuke Ohtani for Prex. */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='271.html'>sys/stat.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='../I/258.html'>sys/fcntl.h</a>&gt;
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='sharp'>#include</em> &lt;<a href='430.html'>err.h</a>&gt;
+<a id='L39' name='L39' />  39 <em class='sharp'>#include</em> &lt;<a href='447.html'>unistd.h</a>&gt;
+<a id='L40' name='L40' />  40 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L41' name='L41' />  41 <em class='sharp'>#include</em> &lt;<a href='441.html'>stdio.h</a>&gt;
+<a id='L42' name='L42' />  42 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L43' name='L43' />  43 <em class='sharp'>#include</em> &lt;<a href='443.html'>string.h</a>&gt;
+<a id='L44' name='L44' />  44 
+<a id='L45' name='L45' />  45 <em class='sharp'>#ifdef</em> <a href='../Y/27.html' title='Multiple used in 26 places.'>CMDBOX</a>
+<a id='L46' name='L46' />  46 <em class='sharp'>#define</em> <a href='../R/2134.html' title='Multiple refered from 2 places.'>main</a>(<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)        <a href='http://prex.sourceforge.net/src/Y/491.html' title='Multiple used in 2 places.'>cat_main</a>(<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>)
+<a id='L47' name='L47' />  47 <em class='sharp'>#endif</em>
+<a id='L48' name='L48' />  48 
+<a id='L49' name='L49' />  49 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong> <a href='366.html#L96' title='Defined at 96 in usr/bin/cat/cat.c.'>do_cat</a>(<strong class='reserved'>int</strong> <a href='../Y/1760.html' title='Multiple used in 11 places.'>rfd</a>);
+<a id='L50' name='L50' />  50 
+<a id='L51' name='L51' />  51 <strong class='reserved'>static</strong> <strong class='reserved'>char</strong> *<a href='http://prex.sourceforge.net/src/Y/2029.html' title='Multiple used in 5 places.'>stdbuf</a>;
+<a id='L52' name='L52' />  52 <strong class='reserved'>static</strong> <strong class='reserved'>char</strong> *<a href='../Y/874.html' title='Multiple used in 8 places.'>filename</a>;
+<a id='L53' name='L53' />  53 <strong class='reserved'>static</strong> <strong class='reserved'>int</strong> <a href='../Y/1797.html' title='Multiple used in 10 places.'>rval</a>;
+<a id='L54' name='L54' />  54 
+<a id='L55' name='L55' />  55 <strong class='reserved'>int</strong>
+<a id='L56' name='L56' />  56 <a href='../R/2134.html' title='Multiple refered from 2 places.'>main</a>(<strong class='reserved'>int</strong> <a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <strong class='reserved'>char</strong> *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>[])
+<a id='L57' name='L57' />  57 <em class='brace'>{</em>
+<a id='L58' name='L58' />  58         <strong class='reserved'>int</strong> <a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a>, <a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a>;
+<a id='L59' name='L59' />  59 
+<a id='L60' name='L60' />  60         <strong class='reserved'>while</strong> ((<a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a> = <a href='571.html#L50' title='Defined at 50 in usr/lib/libc/stdlib/getopt.c.'>getopt</a>(<a href='../Y/385.html' title='Multiple used in 381 places.'>argc</a>, <a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>, "")) != -1)
+<a id='L61' name='L61' />  61                 <strong class='reserved'>switch</strong>(<a href='../Y/510.html' title='Multiple used in 117 places.'>ch</a>) <em class='brace'>{</em>
+<a id='L62' name='L62' />  62                 <strong class='reserved'>case</strong> '?':
+<a id='L63' name='L63' />  63                 <strong class='reserved'>default</strong>:
+<a id='L64' name='L64' />  64                         <a href='509.html#L37' title='Defined at 37 in usr/lib/libc/stdio/fprintf.c.'>fprintf</a>(<a href='441.html#L178' title='Defined at 178 in usr/include/stdio.h.'>stderr</a>, "usage: cat [-] [file ...]\n");
+<a id='L65' name='L65' />  65                         <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(1);
+<a id='L66' name='L66' />  66                         <em class='comment'>/* NOTREACHED */</em>
+<a id='L67' name='L67' />  67                 <em class='brace'>}</em>
+<a id='L68' name='L68' />  68         <a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a> += <a href='../Y/1485.html' title='Multiple used in 38 places.'>optind</a>;
+<a id='L69' name='L69' />  69 
+<a id='L70' name='L70' />  70         <strong class='reserved'>if</strong> ((<a href='http://prex.sourceforge.net/src/Y/2029.html' title='Multiple used in 5 places.'>stdbuf</a> = <a href='../D/3029.html' title='Multiple defined in 7 places.'>malloc</a>(<a href='441.html#L146' title='Defined at 146 in usr/include/stdio.h.'>BUFSIZ</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L71' name='L71' />  71                 <a href='472.html#L35' title='Defined at 35 in usr/lib/libc/gen/err.c.'>err</a>(1, <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>);
+<a id='L72' name='L72' />  72 
+<a id='L73' name='L73' />  73         <a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a> = <a href='../D/2746.html' title='Multiple defined in 3 places.'>fileno</a>(<a href='441.html#L176' title='Defined at 176 in usr/include/stdio.h.'>stdin</a>);
+<a id='L74' name='L74' />  74         <a href='../Y/874.html' title='Multiple used in 8 places.'>filename</a> = "stdin";
+<a id='L75' name='L75' />  75         <strong class='reserved'>do</strong> <em class='brace'>{</em>
+<a id='L76' name='L76' />  76                 <strong class='reserved'>if</strong> (*<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>) <em class='brace'>{</em>
+<a id='L77' name='L77' />  77                         <strong class='reserved'>if</strong> (!<a href='597.html#L40' title='Defined at 40 in usr/lib/libc/string/strcmp.c.'>strcmp</a>(*<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>, "-"))
+<a id='L78' name='L78' />  78                                 <a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a> = <a href='../D/2746.html' title='Multiple defined in 3 places.'>fileno</a>(<a href='441.html#L176' title='Defined at 176 in usr/include/stdio.h.'>stdin</a>);
+<a id='L79' name='L79' />  79                         <strong class='reserved'>else</strong> <strong class='reserved'>if</strong> ((<a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a> = <a href='681.html#L40' title='Defined at 40 in usr/lib/posix/file/open.c.'>open</a>(*<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>, <a href='257.html#L55' title='Defined at 55 in include/sys/fcntl.h.'>O_RDONLY</a>, 0)) &lt; 0) <em class='brace'>{</em>
+<a id='L80' name='L80' />  80                                 <a href='492.html#L34' title='Defined at 34 in usr/lib/libc/gen/warn.c.'>warn</a>("%s", *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>);
+<a id='L81' name='L81' />  81                                 ++<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>;
+<a id='L82' name='L82' />  82                                 <a href='../Y/1797.html' title='Multiple used in 10 places.'>rval</a> = 1;
+<a id='L83' name='L83' />  83                                 <strong class='reserved'>continue</strong>;
+<a id='L84' name='L84' />  84                         <em class='brace'>}</em>
+<a id='L85' name='L85' />  85                         <a href='../Y/874.html' title='Multiple used in 8 places.'>filename</a> = *<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>++;
+<a id='L86' name='L86' />  86                 <em class='brace'>}</em>
+<a id='L87' name='L87' />  87                 <a href='366.html#L96' title='Defined at 96 in usr/bin/cat/cat.c.'>do_cat</a>(<a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a>);
+<a id='L88' name='L88' />  88                 <strong class='reserved'>if</strong> (<a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a> != <a href='../D/2746.html' title='Multiple defined in 3 places.'>fileno</a>(<a href='441.html#L176' title='Defined at 176 in usr/include/stdio.h.'>stdin</a>))
+<a id='L89' name='L89' />  89                         (<strong class='reserved'>void</strong>)<a href='661.html#L36' title='Defined at 36 in usr/lib/posix/file/close.c.'>close</a>(<a href='../Y/853.html' title='Multiple used in 210 places.'>fd</a>);
+<a id='L90' name='L90' />  90         <em class='brace'>}</em> <strong class='reserved'>while</strong> (*<a href='../Y/388.html' title='Multiple used in 440 places.'>argv</a>);
+<a id='L91' name='L91' />  91         <a href='../D/2761.html' title='Multiple defined in 7 places.'>free</a>(<a href='http://prex.sourceforge.net/src/Y/2029.html' title='Multiple used in 5 places.'>stdbuf</a>);
+<a id='L92' name='L92' />  92         <a href='569.html#L42' title='Defined at 42 in usr/lib/libc/stdlib/exit.c.'>exit</a>(<a href='../Y/1797.html' title='Multiple used in 10 places.'>rval</a>);
+<a id='L93' name='L93' />  93 <em class='brace'>}</em>
+<a id='L94' name='L94' />  94 
+<a id='L95' name='L95' />  95 <strong class='reserved'>static</strong> <strong class='reserved'>void</strong>
+<a id='L96' name='L96' />  96 <a href='http://prex.sourceforge.net/src/R/1701.html' title='Multiple refered from 2 places.'>do_cat</a>(<strong class='reserved'>int</strong> <a href='../Y/1760.html' title='Multiple used in 11 places.'>rfd</a>)
+<a id='L97' name='L97' />  97 <em class='brace'>{</em>
+<a id='L98' name='L98' />  98         <strong class='reserved'>int</strong> <a href='http://prex.sourceforge.net/src/Y/1402.html' title='Multiple used in 5 places.'>nr</a>, <a href='http://prex.sourceforge.net/src/Y/1429.html' title='Multiple used in 3 places.'>nw</a>, <a href='../Y/1443.html' title='Multiple used in 52 places.'>off</a>, <a href='../Y/2416.html' title='Multiple used in 9 places.'>wfd</a>;
+<a id='L99' name='L99' />  99         <strong class='reserved'>struct</strong> <a href='../Y/2021.html' title='Multiple used in 43 places.'>stat</a> <a href='../Y/1816.html' title='Multiple used in 6 places.'>sbuf</a>;
+<a id='L100' name='L100' /> 100 
+<a id='L101' name='L101' /> 101         <a href='../Y/2416.html' title='Multiple used in 9 places.'>wfd</a> = <a href='../D/2746.html' title='Multiple defined in 3 places.'>fileno</a>(<a href='441.html#L177' title='Defined at 177 in usr/include/stdio.h.'>stdout</a>);
+<a id='L102' name='L102' /> 102         <strong class='reserved'>if</strong> (<a href='668.html#L39' title='Defined at 39 in usr/lib/posix/file/fstat.c.'>fstat</a>(<a href='../Y/2416.html' title='Multiple used in 9 places.'>wfd</a>, &amp;<a href='../Y/1816.html' title='Multiple used in 6 places.'>sbuf</a>))
+<a id='L103' name='L103' /> 103                 <a href='472.html#L35' title='Defined at 35 in usr/lib/libc/gen/err.c.'>err</a>(1, "%s", <a href='../Y/874.html' title='Multiple used in 8 places.'>filename</a>);
+<a id='L104' name='L104' /> 104         <strong class='reserved'>while</strong> ((<a href='http://prex.sourceforge.net/src/Y/1402.html' title='Multiple used in 5 places.'>nr</a> = <a href='684.html#L38' title='Defined at 38 in usr/lib/posix/file/read.c.'>read</a>(<a href='../Y/1760.html' title='Multiple used in 11 places.'>rfd</a>, <a href='http://prex.sourceforge.net/src/Y/2029.html' title='Multiple used in 5 places.'>stdbuf</a>, <a href='441.html#L146' title='Defined at 146 in usr/include/stdio.h.'>BUFSIZ</a>)) &gt; 0)
+<a id='L105' name='L105' /> 105                 <strong class='reserved'>for</strong> (<a href='../Y/1443.html' title='Multiple used in 52 places.'>off</a> = 0; <a href='http://prex.sourceforge.net/src/Y/1402.html' title='Multiple used in 5 places.'>nr</a>; <a href='http://prex.sourceforge.net/src/Y/1402.html' title='Multiple used in 5 places.'>nr</a> -= <a href='http://prex.sourceforge.net/src/Y/1429.html' title='Multiple used in 3 places.'>nw</a>, <a href='../Y/1443.html' title='Multiple used in 52 places.'>off</a> += <a href='http://prex.sourceforge.net/src/Y/1429.html' title='Multiple used in 3 places.'>nw</a>)
+<a id='L106' name='L106' /> 106                         <strong class='reserved'>if</strong> ((<a href='http://prex.sourceforge.net/src/Y/1429.html' title='Multiple used in 3 places.'>nw</a> = <a href='695.html#L37' title='Defined at 37 in usr/lib/posix/file/write.c.'>write</a>(<a href='../Y/2416.html' title='Multiple used in 9 places.'>wfd</a>, <a href='http://prex.sourceforge.net/src/Y/2029.html' title='Multiple used in 5 places.'>stdbuf</a> + <a href='../Y/1443.html' title='Multiple used in 52 places.'>off</a>, (<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a>)<a href='http://prex.sourceforge.net/src/Y/1402.html' title='Multiple used in 5 places.'>nr</a>)) &lt; 0)
+<a id='L107' name='L107' /> 107                                 <a href='472.html#L35' title='Defined at 35 in usr/lib/libc/gen/err.c.'>err</a>(1, "stdout");
+<a id='L108' name='L108' /> 108         <strong class='reserved'>if</strong> (<a href='http://prex.sourceforge.net/src/Y/1402.html' title='Multiple used in 5 places.'>nr</a> &lt; 0) <em class='brace'>{</em>
+<a id='L109' name='L109' /> 109                 <a href='492.html#L34' title='Defined at 34 in usr/lib/libc/gen/warn.c.'>warn</a>("%s @%d", <a href='../Y/874.html' title='Multiple used in 8 places.'>filename</a>, <a href='../Y/772.html' title='Multiple used in 130 places.'>errno</a>);
+<a id='L110' name='L110' /> 110                 <a href='../Y/1797.html' title='Multiple used in 10 places.'>rval</a> = 1;
+<a id='L111' name='L111' /> 111         <em class='brace'>}</em>
+<a id='L112' name='L112' /> 112 <em class='brace'>}</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='366.html#L56'>[^]</a><a href='366.html#L96'>[v]</a><a href='366.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mk/common.mk</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1077.html'>mk</a>/common.mk</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='293.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' /># common.mk - common make rules to build Prex
+<a id='L2' name='L2' />
+<a id='L3' name='L3' />#
+<a id='L4' name='L4' /># This file includes the common rules to make Prex source tree.
+<a id='L5' name='L5' /># The files are installed in /mk, and are, by convention,
+<a id='L6' name='L6' /># named with the suffix ".mk".
+<a id='L7' name='L7' />#
+<a id='L8' name='L8' /># Supported environment variables:
+<a id='L9' name='L9' />#
+<a id='L10' name='L10' />#  SRCDIR          ... Root directory of source tree
+<a id='L11' name='L11' />#  NDEBUG          ... Force disable debug switch (default: 0)
+<a id='L12' name='L12' />#  LIBGCC_PATH     ... Path for libgcc.a (optional)
+<a id='L13' name='L13' />#
+<a id='L14' name='L14' /># Variables in local Makefile:
+<a id='L15' name='L15' />#
+<a id='L16' name='L16' />#  TARGET          ... Target file name
+<a id='L17' name='L17' />#  SUBDIR,SUBDIR-y ... List of subdirectories
+<a id='L18' name='L18' />#  SRCS,SRCS-y     ... Source files
+<a id='L19' name='L19' />#  OBJS,OBJS-y     ... Object files
+<a id='L20' name='L20' />#  LIBS            ... Libraries
+<a id='L21' name='L21' />#  INCSDIR         ... Include path
+<a id='L22' name='L22' />#  LIBSDIR         ... Library path
+<a id='L23' name='L23' />#  DEFS            ... Definition to pass to the compiler
+<a id='L24' name='L24' />#  MAP             ... Name of map file
+<a id='L25' name='L25' />#  DISASM          ... Name of disassemble file
+<a id='L26' name='L26' />#  SYMBOL          ... Name of symbol file
+<a id='L27' name='L27' />#
+<a id='L28' name='L28' />
+<a id='L29' name='L29' />ifndef _COMMON_MK_
+<a id='L30' name='L30' />_COMMON_MK_:=   1
+<a id='L31' name='L31' />
+<a id='L32' name='L32' />ifdef _GNUC_
+<a id='L33' name='L33' />include $(SRCDIR)/mk/gcc.mk
+<a id='L34' name='L34' />endif
+<a id='L35' name='L35' />
+<a id='L36' name='L36' />ifdef _PCC_
+<a id='L37' name='L37' />include $(SRCDIR)/mk/pcc.mk
+<a id='L38' name='L38' />endif
+<a id='L39' name='L39' />
+<a id='L40' name='L40' />ifdef _SUNPRO_C_
+<a id='L41' name='L41' />include $(SRCDIR)/mk/suncc.mk
+<a id='L42' name='L42' />endif
+<a id='L43' name='L43' />
+<a id='L44' name='L44' />ifdef DISASM
+<a id='L45' name='L45' />ASMGEN=         $(OBJDUMP) $@ --disassemble-all &gt; $(DISASM)
+<a id='L46' name='L46' />endif
+<a id='L47' name='L47' />
+<a id='L48' name='L48' />ifdef SYMBOL
+<a id='L49' name='L49' />SYMGEN=         cp $@ $(SYMBOL)
+<a id='L50' name='L50' />endif
+<a id='L51' name='L51' />
+<a id='L52' name='L52' />SUBDIR+=        $(SUBDIR-y)
+<a id='L53' name='L53' />OBJS+=          $(OBJS-y)
+<a id='L54' name='L54' />SRCS+=          $(SRCS-y)
+<a id='L55' name='L55' />ifeq ($(OBJS),)
+<a id='L56' name='L56' />OBJS+=          $(addsuffix .o,$(basename $(SRCS)))
+<a id='L57' name='L57' />endif
+<a id='L58' name='L58' />
+<a id='L59' name='L59' />.SUFFIXES:
+<a id='L60' name='L60' />.SUFFIXES: .bin .a .o .S .c .cc .cpp .cxx .h
+<a id='L61' name='L61' />
+<a id='L62' name='L62' />ifeq ($(_SILENT_),1)
+<a id='L63' name='L63' />echo-file=      @echo '  $(1) $(subst $(SRCDIR)/,,$(abspath $(2)))'
+<a id='L64' name='L64' />
+<a id='L65' name='L65' />echo-files=     @(for d in $(2) _ ; do \
+<a id='L66' name='L66' />                  if [ "$$d" != "_" ]; then \
+<a id='L67' name='L67' />                    echo "  $(1) $(subst $(SRCDIR)/,,$(abspath $$d))" ; fi; \
+<a id='L68' name='L68' />                  done);
+<a id='L69' name='L69' />endif
+<a id='L70' name='L70' />
+<a id='L71' name='L71' />#
+<a id='L72' name='L72' /># Inference rules
+<a id='L73' name='L73' />#
+<a id='L74' name='L74' />%.o: %.c
+<a id='L75' name='L75' />        $(call echo-file,CC     ,$&lt;)
+<a id='L76' name='L76' />        $(CC) $(CFLAGS) $(CPPFLAGS) $(OUTPUT_OPTION) $&lt;
+<a id='L77' name='L77' />
+<a id='L78' name='L78' />%.o: %.S
+<a id='L79' name='L79' />        $(call echo-file,AS     ,$&lt;)
+<a id='L80' name='L80' />        $(CPP) $(ACPPFLAGS) $(CPPFLAGS) $&lt; $*.tmp
+<a id='L81' name='L81' />        $(AS) $(ASFLAGS) $(OUTPUT_OPTION) $*.tmp
+<a id='L82' name='L82' />        $(RM) $*.tmp
+<a id='L83' name='L83' />
+<a id='L84' name='L84' />
+<a id='L85' name='L85' />#
+<a id='L86' name='L86' /># Target
+<a id='L87' name='L87' />#
+<a id='L88' name='L88' />all: config $(SUBDIR) $(TARGET)
+<a id='L89' name='L89' />
+<a id='L90' name='L90' />
+<a id='L91' name='L91' />#
+<a id='L92' name='L92' /># Check configuration file
+<a id='L93' name='L93' />#
+<a id='L94' name='L94' />.PHONY: config
+<a id='L95' name='L95' />config:
+<a id='L96' name='L96' />ifndef ARCH
+<a id='L97' name='L97' />        @echo 'Error: You must run `configure` before make.'
+<a id='L98' name='L98' />        exit 1
+<a id='L99' name='L99' />endif
+<a id='L100' name='L100' />
+<a id='L101' name='L101' />#
+<a id='L102' name='L102' /># Rules to process sub-directory
+<a id='L103' name='L103' />#
+<a id='L104' name='L104' />ifdef SUBDIR
+<a id='L105' name='L105' />.PHONY: $(SUBDIR)
+<a id='L106' name='L106' />$(SUBDIR): dummy
+<a id='L107' name='L107' />        @$(MAKE) -C $@
+<a id='L108' name='L108' />endif
+<a id='L109' name='L109' />
+<a id='L110' name='L110' />-include Makefile.dep
+<a id='L111' name='L111' />
+<a id='L112' name='L112' />#
+<a id='L113' name='L113' /># Depend
+<a id='L114' name='L114' />#
+<a id='L115' name='L115' />.PHONY: depend dep
+<a id='L116' name='L116' />depend dep:
+<a id='L117' name='L117' />ifdef SUBDIR
+<a id='L118' name='L118' />        @(for d in $(SUBDIR) _ ; do \
+<a id='L119' name='L119' />          if [ "$$d" != "_" ]; then $(MAKE) -C $$d depend; fi; \
+<a id='L120' name='L120' />        done);
+<a id='L121' name='L121' />endif
+<a id='L122' name='L122' />        $(RM) Makefile.dep
+<a id='L123' name='L123' />        @(for d in $(SRCS) _ ; do \
+<a id='L124' name='L124' />          if [ "$$d" != "_" ]; then \
+<a id='L125' name='L125' />          $(CPP) -M $(CPPFLAGS) $$d &gt;&gt; Makefile.dep; fi; \
+<a id='L126' name='L126' />        done);
+<a id='L127' name='L127' />
+<a id='L128' name='L128' />#
+<a id='L129' name='L129' /># Lint
+<a id='L130' name='L130' />#
+<a id='L131' name='L131' />.PHONY: lint
+<a id='L132' name='L132' />lint:
+<a id='L133' name='L133' />ifdef SUBDIR
+<a id='L134' name='L134' />        @(for d in $(SUBDIR) _ ; do \
+<a id='L135' name='L135' />          if [ "$$d" != "_" ]; then $(MAKE) -C $$d lint; fi; \
+<a id='L136' name='L136' />        done);
+<a id='L137' name='L137' />endif
+<a id='L138' name='L138' />        @(for d in $(filter %.c, $(SRCS)) _ ; do \
+<a id='L139' name='L139' />          if [ "$$d" != "_" ]; then \
+<a id='L140' name='L140' />          echo ; \
+<a id='L141' name='L141' />          echo "Checking $$d" ; \
+<a id='L142' name='L142' />          $(LINT) $(CPPFLAGS) $(LINTFLAGS) $$d; fi; \
+<a id='L143' name='L143' />        done);
+<a id='L144' name='L144' />
+<a id='L145' name='L145' />#
+<a id='L146' name='L146' /># Clean up
+<a id='L147' name='L147' />#
+<a id='L148' name='L148' />CLEANS= Makefile.dep $(TARGET) $(OBJS) $(DISASM) $(MAP) $(SYMBOL) $(CLEANFILES)
+<a id='L149' name='L149' />
+<a id='L150' name='L150' />.PHONY: clean
+<a id='L151' name='L151' />clean:
+<a id='L152' name='L152' />ifdef SUBDIR
+<a id='L153' name='L153' />        @(for d in $(SUBDIR) _ ; do \
+<a id='L154' name='L154' />          if [ "$$d" != "_" ]; then $(MAKE) -C $$d clean; fi; \
+<a id='L155' name='L155' />        done);
+<a id='L156' name='L156' />endif
+<a id='L157' name='L157' />        $(call echo-files,CLEAN  ,$(CLEANS))
+<a id='L158' name='L158' />        $(RM) $(CLEANS)
+<a id='L159' name='L159' />
+<a id='L160' name='L160' />.PHONY: dummy
+<a id='L161' name='L161' />
+<a id='L162' name='L162' />#
+<a id='L163' name='L163' /># Build OS image
+<a id='L164' name='L164' />#
+<a id='L165' name='L165' />.PHINY: image
+<a id='L166' name='L166' />image: config $(TARGET)
+<a id='L167' name='L167' />
+<a id='L168' name='L168' />endif # !_COMMON_MK_
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='293.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

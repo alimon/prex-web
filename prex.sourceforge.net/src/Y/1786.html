@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>rsec</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/85.html#L144'>rsec</a>              144 bsp/drv/dev/rtc/rtc.c 	u_int rsec;	/* remainder seconds */
+<a href='../S/85.html#L149'>rsec</a>              149 bsp/drv/dev/rtc/rtc.c 	rsec = secs % SECDAY;
+<a href='../S/85.html#L170'>rsec</a>              170 bsp/drv/dev/rtc/rtc.c 	dt-&gt;hour = rsec / 3600;
+<a href='../S/85.html#L171'>rsec</a>              171 bsp/drv/dev/rtc/rtc.c 	rsec = rsec % 3600;
+<a href='../S/85.html#L172'>rsec</a>              172 bsp/drv/dev/rtc/rtc.c 	dt-&gt;min  = rsec / 60;
+<a href='../S/85.html#L173'>rsec</a>              173 bsp/drv/dev/rtc/rtc.c 	rsec = rsec % 60;
+<a href='../S/85.html#L174'>rsec</a>              174 bsp/drv/dev/rtc/rtc.c 	dt-&gt;sec  = rsec;
+</pre>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>holder</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/316.html#L52'>holder</a>             52 sys/include/sync.h 	thread_t	holder;		/* thread that holds the mutex */
+<a href='../S/346.html#L107'>holder</a>            107 sys/sync/mutex.c 	m-&gt;holder = NULL;
+<a href='../S/346.html#L152'>holder</a>            152 sys/sync/mutex.c 	if (m-&gt;holder || event_waiting(&amp;m-&gt;event)) {
+<a href='../S/346.html#L198'>holder</a>            198 sys/sync/mutex.c 	if (m-&gt;holder == curthread) {
+<a href='../S/346.html#L210'>holder</a>            210 sys/sync/mutex.c 		if (m-&gt;holder == NULL)
+<a href='../S/346.html#L230'>holder</a>            230 sys/sync/mutex.c 		m-&gt;holder = curthread;
+<a href='../S/346.html#L252'>holder</a>            252 sys/sync/mutex.c 	if (m-&gt;holder == curthread) {
+<a href='../S/346.html#L256'>holder</a>            256 sys/sync/mutex.c 		if (m-&gt;holder != NULL)
+<a href='../S/346.html#L260'>holder</a>            260 sys/sync/mutex.c 			m-&gt;holder = curthread;
+<a href='../S/346.html#L284'>holder</a>            284 sys/sync/mutex.c 	if (m-&gt;holder != curthread || m-&gt;locks &lt;= 0) {
+<a href='../S/346.html#L295'>holder</a>            295 sys/sync/mutex.c 		m-&gt;holder = sched_wakeone(&amp;m-&gt;event);
+<a href='../S/346.html#L296'>holder</a>            296 sys/sync/mutex.c 		if (m-&gt;holder)
+<a href='../S/346.html#L297'>holder</a>            297 sys/sync/mutex.c 			m-&gt;holder-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L299'>holder</a>            299 sys/sync/mutex.c 		m-&gt;priority = m-&gt;holder ? m-&gt;holder-&gt;priority : MINPRI;
+<a href='../S/346.html#L320'>holder</a>            320 sys/sync/mutex.c 	thread_t holder;
+<a href='../S/346.html#L338'>holder</a>            338 sys/sync/mutex.c 		holder = sched_wakeone(&amp;m-&gt;event);
+<a href='../S/346.html#L339'>holder</a>            339 sys/sync/mutex.c 		if (holder) {
+<a href='../S/346.html#L340'>holder</a>            340 sys/sync/mutex.c 			holder-&gt;mutex_waiting = NULL;
+<a href='../S/346.html#L342'>holder</a>            342 sys/sync/mutex.c 			list_insert(&amp;holder-&gt;mutexes, &amp;m-&gt;link);
+<a href='../S/346.html#L344'>holder</a>            344 sys/sync/mutex.c 		m-&gt;holder = holder;
+<a href='../S/346.html#L421'>holder</a>            421 sys/sync/mutex.c 	thread_t holder;
+<a href='../S/346.html#L425'>holder</a>            425 sys/sync/mutex.c 		holder = m-&gt;holder;
+<a href='../S/346.html#L431'>holder</a>            431 sys/sync/mutex.c 		if (holder == waiter) {
+<a href='../S/346.html#L433'>holder</a>            433 sys/sync/mutex.c 				 (long)m, (long)holder, (long)waiter));
+<a href='../S/346.html#L441'>holder</a>            441 sys/sync/mutex.c 		if (holder-&gt;priority &gt; waiter-&gt;priority) {
+<a href='../S/346.html#L442'>holder</a>            442 sys/sync/mutex.c 			sched_setpri(holder, holder-&gt;basepri, waiter-&gt;priority);
+<a href='../S/346.html#L449'>holder</a>            449 sys/sync/mutex.c 		m = (mutex_t)holder-&gt;mutex_waiting;
+</pre>
+</body>
+</html>

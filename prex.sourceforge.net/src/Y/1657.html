@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>procobj</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/404.html#L52'>procobj</a>            52 usr/bin/ps/ps.c static object_t procobj;
+<a href='../S/404.html#L63'>procobj</a>            63 usr/bin/ps/ps.c 		rc = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/404.html#L106'>procobj</a>           106 usr/bin/ps/ps.c 	if (object_lookup("!proc", &amp;procobj))
+<a href='../S/871.html#L268'>procobj</a>           268 usr/server/boot/boot.c 	object_t execobj, procobj, fsobj;
+<a href='../S/871.html#L280'>procobj</a>           280 usr/server/boot/boot.c 	wait_server("!proc", &amp;procobj);
+<a href='../S/871.html#L290'>procobj</a>           290 usr/server/boot/boot.c 	send_bootmsg(procobj);
+<a href='../S/871.html#L305'>procobj</a>           305 usr/server/boot/boot.c 	msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/877.html#L416'>procobj</a>           416 usr/server/exec/exec_execve.c 	object_t fsobj, procobj;
+<a href='../S/877.html#L421'>procobj</a>           421 usr/server/exec/exec_execve.c 	if (object_lookup("!proc", &amp;procobj) != 0)
+<a href='../S/877.html#L438'>procobj</a>           438 usr/server/exec/exec_execve.c 		error = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/903.html#L850'>procobj</a>           850 usr/server/fs/vfs/main.c 	object_t execobj, procobj;
+<a href='../S/903.html#L871'>procobj</a>           871 usr/server/fs/vfs/main.c 	if (object_lookup("!proc", &amp;procobj) != 0)
+<a href='../S/903.html#L874'>procobj</a>           874 usr/server/fs/vfs/main.c 	msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/916.html#L399'>procobj</a>           399 usr/server/pow/pow.c 	object_t execobj, procobj;
+<a href='../S/916.html#L411'>procobj</a>           411 usr/server/pow/pow.c 	wait_server("!proc", &amp;procobj);
+</pre>
+</body>
+</html>

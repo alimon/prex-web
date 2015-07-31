@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>interval</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/320.html#L46'>interval</a>           46 sys/include/timer.h 	u_long		interval;	/* time interval */
+<a href='../S/336.html#L133'>interval</a>          133 sys/kern/timer.c 	tmr-&gt;interval = 0;
+<a href='../S/336.html#L287'>interval</a>          287 sys/kern/timer.c 		tmr-&gt;interval = mstohz(period);
+<a href='../S/336.html#L288'>interval</a>          288 sys/kern/timer.c 		if (tmr-&gt;interval == 0)
+<a href='../S/336.html#L289'>interval</a>          289 sys/kern/timer.c 			tmr-&gt;interval = 1;
+<a href='../S/336.html#L412'>interval</a>          412 sys/kern/timer.c 		if (tmr-&gt;interval != 0) {
+<a href='../S/336.html#L416'>interval</a>          416 sys/kern/timer.c 			ticks = time_remain(tmr-&gt;expire + tmr-&gt;interval);
+</pre>
+</body>
+</html>

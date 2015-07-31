@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cmd</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L108'>cmd</a>               108 bsp/drv/dev/base/cons.c cons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L113'>cmd</a>               113 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;ioctl(dev, cmd, arg);
+<a href='../S/58.html#L117'>cmd</a>               117 bsp/drv/dev/base/cons.c cons_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L122'>cmd</a>               122 bsp/drv/dev/base/cons.c 	return consdev-&gt;devops-&gt;devctl(dev, cmd, arg);
+<a href='../S/60.html#L66'>cmd</a>                66 bsp/drv/dev/base/kd.c 	const char	*cmd;
+<a href='../S/60.html#L165'>cmd</a>               165 bsp/drv/dev/base/kd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/60.html#L167'>cmd</a>               167 bsp/drv/dev/base/kd.c 			printf(" %10s -- %s.\n", cmd_table[i].cmd,
+<a href='../S/60.html#L586'>cmd</a>               586 bsp/drv/dev/base/kd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/60.html#L587'>cmd</a>               587 bsp/drv/dev/base/kd.c 		if (!strncmp(argv[0], cmd_table[i].cmd, LINE_MAX)) {
+<a href='../S/60.html#L593'>cmd</a>               593 bsp/drv/dev/base/kd.c 	if (cmd_table[i].cmd == NULL)
+<a href='../S/63.html#L130'>cmd</a>               130 bsp/drv/dev/base/pm.c pm_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/63.html#L139'>cmd</a>               139 bsp/drv/dev/base/pm.c 	switch (cmd) {
+<a href='../S/64.html#L530'>cmd</a>               530 bsp/drv/dev/base/tty.c tty_ioctl(struct tty *tp, u_long cmd, void *data)
+<a href='../S/64.html#L535'>cmd</a>               535 bsp/drv/dev/base/tty.c 	switch (cmd) {
+<a href='../S/64.html#L544'>cmd</a>               544 bsp/drv/dev/base/tty.c 		if (cmd == TIOCSETAF)
+<a href='../S/65.html#L133'>cmd</a>               133 bsp/drv/dev/base/wscons.c wscons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/65.html#L137'>cmd</a>               137 bsp/drv/dev/base/wscons.c 	return tty_ioctl(tty, cmd, arg);
+<a href='../S/66.html#L309'>cmd</a>               309 bsp/drv/dev/block/fdd.c 	read = (irp-&gt;cmd == IO_READ) ? 1 : 0;
+<a href='../S/66.html#L403'>cmd</a>               403 bsp/drv/dev/block/fdd.c 		if (irp-&gt;cmd == IO_NONE) {
+<a href='../S/66.html#L430'>cmd</a>               430 bsp/drv/dev/block/fdd.c 	if (irp-&gt;cmd == IO_NONE)
+<a href='../S/66.html#L495'>cmd</a>               495 bsp/drv/dev/block/fdd.c 	sc-&gt;irp.cmd = IO_NONE;
+<a href='../S/66.html#L508'>cmd</a>               508 bsp/drv/dev/block/fdd.c 	sc-&gt;irp.cmd = IO_NONE;
+<a href='../S/66.html#L518'>cmd</a>               518 bsp/drv/dev/block/fdd.c fdd_rw(struct fdd_softc *sc, int cmd, char *buf, u_long blksz, int blkno)
+<a href='../S/66.html#L524'>cmd</a>               524 bsp/drv/dev/block/fdd.c 		 cmd, buf, blksz, blkno));
+<a href='../S/66.html#L526'>cmd</a>               526 bsp/drv/dev/block/fdd.c 	irp-&gt;cmd = cmd;
+<a href='../S/66.html#L689'>cmd</a>               689 bsp/drv/dev/block/fdd.c 	irp-&gt;cmd = IO_NONE;
+<a href='../S/69.html#L303'>cmd</a>               303 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L311'>cmd</a>               311 bsp/drv/dev/cpufreq/cpufreq.c 	switch (cmd) {
+<a href='../S/69.html#L324'>cmd</a>               324 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L330'>cmd</a>               330 bsp/drv/dev/cpufreq/cpufreq.c 	DPRINTF(("cpufreq: devctl cmd=%d\n", cmd));
+<a href='../S/69.html#L335'>cmd</a>               335 bsp/drv/dev/cpufreq/cpufreq.c 	switch (cmd) {
+<a href='../S/76.html#L111'>cmd</a>               111 bsp/drv/dev/input/pckbd.c kmc_send_cmd(u_char cmd)
+<a href='../S/76.html#L115'>cmd</a>               115 bsp/drv/dev/input/pckbd.c 	bus_write_8(KMC_CMD, cmd);
+<a href='../S/85.html#L178'>cmd</a>               178 bsp/drv/dev/rtc/rtc.c rtc_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/85.html#L185'>cmd</a>               185 bsp/drv/dev/rtc/rtc.c 	switch (cmd) {
+<a href='../S/89.html#L111'>cmd</a>               111 bsp/drv/dev/serial/serial.c serial_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/89.html#L115'>cmd</a>               115 bsp/drv/dev/serial/serial.c 	return tty_ioctl(&amp;sc-&gt;tty, cmd, arg);
+<a href='../S/91.html#L207'>cmd</a>               207 bsp/drv/dev/video/vga.c vga_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/91.html#L212'>cmd</a>               212 bsp/drv/dev/video/vga.c 	DPRINTF(("vga: devctl cmd=%x\n", cmd));
+<a href='../S/91.html#L215'>cmd</a>               215 bsp/drv/dev/video/vga.c 	switch (cmd) {
+<a href='../S/94.html#L56'>cmd</a>                56 bsp/drv/include/ddi.h 	int	cmd;		/* I/O command */
+<a href='../S/219.html#L164'>cmd</a>               164 include/ipc/fs.h 	int	cmd;			/* command */
+<a href='../S/267.html#L130'>cmd</a>               130 include/sys/prex.h int	device_ioctl(device_t dev, u_long cmd, void *arg);
+<a href='../S/267.html#L155'>cmd</a>               155 include/sys/prex.h int	sys_debug(int cmd, void *data);
+<a href='../S/326.html#L159'>cmd</a>               159 sys/kern/debug.c dbgctl(int cmd, void *data)
+<a href='../S/326.html#L167'>cmd</a>               167 sys/kern/debug.c 	switch (cmd) {
+<a href='../S/327.html#L430'>cmd</a>               430 sys/kern/device.c device_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L440'>cmd</a>               440 sys/kern/device.c 	error = (*ops-&gt;ioctl)(dev, cmd, arg);
+<a href='../S/327.html#L451'>cmd</a>               451 sys/kern/device.c device_control(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L461'>cmd</a>               461 sys/kern/device.c 	error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/327.html#L480'>cmd</a>               480 sys/kern/device.c device_broadcast(u_long cmd, void *arg, int force)
+<a href='../S/327.html#L497'>cmd</a>               497 sys/kern/device.c 		error = (*ops-&gt;devctl)(dev, cmd, arg);
+<a href='../S/327.html#L500'>cmd</a>               500 sys/kern/device.c 				 dev-&gt;name, error, cmd));
+<a href='../S/333.html#L177'>cmd</a>               177 sys/kern/system.c sys_debug(int cmd, void *data)
+<a href='../S/333.html#L183'>cmd</a>               183 sys/kern/system.c 	switch (cmd) {
+<a href='../S/333.html#L186'>cmd</a>               186 sys/kern/system.c 		error = dbgctl(cmd, data);
+<a href='../S/333.html#L194'>cmd</a>               194 sys/kern/system.c 		dbgctl(cmd, (void *)task);
+<a href='../S/370.html#L34'>cmd</a>                34 usr/bin/cmdbox/cmdbox.h 	char *cmd;
+<a href='../S/372.html#L76'>cmd</a>                76 usr/bin/cmdbox/main.c 	while (entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L78'>cmd</a>                78 usr/bin/cmdbox/main.c 			       entry-&gt;cmd);
+<a href='../S/372.html#L80'>cmd</a>                80 usr/bin/cmdbox/main.c 		if (col &gt; maxcol &amp;&amp; entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L91'>cmd</a>                91 usr/bin/cmdbox/main.c 	while (entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L93'>cmd</a>                93 usr/bin/cmdbox/main.c 			       entry-&gt;cmd);
+<a href='../S/372.html#L95'>cmd</a>                95 usr/bin/cmdbox/main.c 		if (col &gt; maxcol &amp;&amp; entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L108'>cmd</a>               108 usr/bin/cmdbox/main.c 	char *prog, *cmd;
+<a href='../S/372.html#L113'>cmd</a>               113 usr/bin/cmdbox/main.c 	cmd = prog;
+<a href='../S/372.html#L132'>cmd</a>               132 usr/bin/cmdbox/main.c 				cmd = argv[1];
+<a href='../S/372.html#L144'>cmd</a>               144 usr/bin/cmdbox/main.c 	while (entry-&gt;cmd != NULL) {
+<a href='../S/372.html#L145'>cmd</a>               145 usr/bin/cmdbox/main.c 		if (!strcmp(cmd, entry-&gt;cmd)) {
+<a href='../S/372.html#L146'>cmd</a>               146 usr/bin/cmdbox/main.c 			task_setname(task_self(), cmd);
+<a href='../S/372.html#L151'>cmd</a>               151 usr/bin/cmdbox/main.c 	fprintf(stderr, "No such command: %s\n", cmd);
+<a href='../S/413.html#L261'>cmd</a>               261 usr/bin/sh/sh.c findcmd(const struct cmdentry cmds[], char *cmd)
+<a href='../S/413.html#L265'>cmd</a>               265 usr/bin/sh/sh.c 	while (cmds[i].cmd != NULL) {
+<a href='../S/413.html#L266'>cmd</a>               266 usr/bin/sh/sh.c 		if (!strcmp(cmd, cmds[i].cmd))
+<a href='../S/414.html#L36'>cmd</a>                36 usr/bin/sh/sh.h 	char	*cmd;
+<a href='../S/667.html#L39'>cmd</a>                39 usr/lib/posix/file/fcntl.c fcntl(int fd, int cmd, ...)
+<a href='../S/667.html#L45'>cmd</a>                45 usr/lib/posix/file/fcntl.c 	va_start(args, cmd);
+<a href='../S/667.html#L51'>cmd</a>                51 usr/lib/posix/file/fcntl.c 	m.cmd = cmd;
+<a href='../S/667.html#L52'>cmd</a>                52 usr/lib/posix/file/fcntl.c 	if (cmd == F_GETLK || cmd == F_SETLK || cmd == F_SETLKW)
+<a href='../S/672.html#L40'>cmd</a>                40 usr/lib/posix/file/ioctl.c ioctl(int fd, unsigned long cmd, ...)
+<a href='../S/672.html#L48'>cmd</a>                48 usr/lib/posix/file/ioctl.c 	va_start(args, cmd);
+<a href='../S/672.html#L55'>cmd</a>                55 usr/lib/posix/file/ioctl.c 	size = IOCPARM_LEN(cmd);
+<a href='../S/672.html#L64'>cmd</a>                64 usr/lib/posix/file/ioctl.c 	if ((cmd &amp; IOC_IN &amp;&amp; (cmd &amp; IOC_IVAL) == 0 &amp;&amp; argp == NULL) ||
+<a href='../S/672.html#L65'>cmd</a>                65 usr/lib/posix/file/ioctl.c 	    (cmd &amp; IOC_OUT &amp;&amp; (cmd &amp; IOC_OVAL) == 0 &amp;&amp; argp == NULL)) {
+<a href='../S/672.html#L73'>cmd</a>                73 usr/lib/posix/file/ioctl.c 	if (cmd &amp; IOC_IN) {
+<a href='../S/672.html#L74'>cmd</a>                74 usr/lib/posix/file/ioctl.c 		if (cmd &amp; IOC_IVAL)
+<a href='../S/672.html#L82'>cmd</a>                82 usr/lib/posix/file/ioctl.c 	m.request = cmd;
+<a href='../S/672.html#L89'>cmd</a>                89 usr/lib/posix/file/ioctl.c 	if (cmd &amp; IOC_OUT) {
+<a href='../S/672.html#L90'>cmd</a>                90 usr/lib/posix/file/ioctl.c 		if (cmd &amp; IOC_OVAL)
+<a href='../S/858.html#L62'>cmd</a>                62 usr/sbin/diskutil/diskutil.c 	const char	*cmd;
+<a href='../S/858.html#L92'>cmd</a>                92 usr/sbin/diskutil/diskutil.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/858.html#L159'>cmd</a>               159 usr/sbin/diskutil/diskutil.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/858.html#L160'>cmd</a>               160 usr/sbin/diskutil/diskutil.c 		if (!strncmp(argv[1], cmdtab[i].cmd, LINE_MAX)) {
+<a href='../S/870.html#L62'>cmd</a>                62 usr/sbin/pmctrl/pmctrl.c 	const char	*cmd;
+<a href='../S/870.html#L94'>cmd</a>                94 usr/sbin/pmctrl/pmctrl.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/870.html#L96'>cmd</a>                96 usr/sbin/pmctrl/pmctrl.c 			fprintf(stderr, " %-8s -- %s\n", cmdtab[i].cmd,
+<a href='../S/870.html#L267'>cmd</a>               267 usr/sbin/pmctrl/pmctrl.c 	while (cmdtab[i].cmd != NULL) {
+<a href='../S/870.html#L268'>cmd</a>               268 usr/sbin/pmctrl/pmctrl.c 		if (!strncmp(argv[1], cmdtab[i].cmd, LINE_MAX)) {
+<a href='../S/886.html#L183'>cmd</a>               183 usr/server/fs/devfs/devfs_vnops.c devfs_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/886.html#L187'>cmd</a>               187 usr/server/fs/devfs/devfs_vnops.c 	error = device_ioctl((device_t)vp-&gt;v_data, cmd, arg);
+<a href='../S/886.html#L188'>cmd</a>               188 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_ioctl: cmd=%x\n", cmd));
+<a href='../S/896.html#L310'>cmd</a>               310 usr/server/fs/fifofs/fifo_vnops.c fifo_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/903.html#L582'>cmd</a>               582 usr/server/fs/vfs/main.c 	switch (msg-&gt;cmd) {
+<a href='../S/966.html#L53'>cmd</a>                53 usr/test/kmon/cmd.c 	const char *cmd;
+<a href='../S/966.html#L74'>cmd</a>                74 usr/test/kmon/cmd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/966.html#L75'>cmd</a>                75 usr/test/kmon/cmd.c 		printf("%s - %s\n", cmd_table[i].cmd, cmd_table[i].usage);
+<a href='../S/966.html#L164'>cmd</a>               164 usr/test/kmon/cmd.c 	while (cmd_table[i].cmd != NULL) {
+<a href='../S/966.html#L165'>cmd</a>               165 usr/test/kmon/cmd.c 		if (!strcmp(argv[0], cmd_table[i].cmd)) {
+<a href='../S/966.html#L171'>cmd</a>               171 usr/test/kmon/cmd.c 	if (cmd_table[i].cmd == NULL)
+</pre>
+</body>
+</html>

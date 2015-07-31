@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sav</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/126.html#L155'>sav</a>               155 bsp/hal/arm/arch/context.c 	struct cpu_regs *cur, *sav;
+<a href='../S/126.html#L159'>sav</a>               159 bsp/hal/arm/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;sp - sizeof(struct cpu_regs));
+<a href='../S/126.html#L160'>sav</a>               160 bsp/hal/arm/arch/context.c 	copyout(cur, sav, sizeof(*sav));
+<a href='../S/126.html#L162'>sav</a>               162 bsp/hal/arm/arch/context.c 	ctx-&gt;saved_regs = sav;
+<a href='../S/126.html#L165'>sav</a>               165 bsp/hal/arm/arch/context.c 	cur-&gt;sp = (uint32_t)sav - sizeof(uint32_t);
+<a href='../S/154.html#L161'>sav</a>               161 bsp/hal/ppc/arch/context.c 	struct cpu_regs *cur, *sav;
+<a href='../S/154.html#L165'>sav</a>               165 bsp/hal/ppc/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;gr[1] - sizeof(struct cpu_regs));
+<a href='../S/154.html#L166'>sav</a>               166 bsp/hal/ppc/arch/context.c 	copyout(cur, sav, sizeof(*sav));
+<a href='../S/154.html#L168'>sav</a>               168 bsp/hal/ppc/arch/context.c 	ctx-&gt;saved_regs = sav;
+<a href='../S/154.html#L171'>sav</a>               171 bsp/hal/ppc/arch/context.c 	cur-&gt;gr[1] = (uint32_t)sav - sizeof(uint32_t);
+<a href='../S/173.html#L170'>sav</a>               170 bsp/hal/x86/arch/context.c 	struct cpu_regs *cur, *sav;
+<a href='../S/173.html#L174'>sav</a>               174 bsp/hal/x86/arch/context.c 	sav = (struct cpu_regs *)(cur-&gt;esp - sizeof(*sav));
+<a href='../S/173.html#L175'>sav</a>               175 bsp/hal/x86/arch/context.c 	copyout(cur, sav, sizeof(*sav));
+<a href='../S/173.html#L178'>sav</a>               178 bsp/hal/x86/arch/context.c 	ctx-&gt;saved_regs = sav;
+<a href='../S/173.html#L181'>sav</a>               181 bsp/hal/x86/arch/context.c 	cur-&gt;esp = (uint32_t)sav - (sizeof(uint32_t) * 2);
+</pre>
+</body>
+</html>

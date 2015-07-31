@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>val</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/19.html#L43'>val</a>                43 bsp/boot/common/string.c 	long val = 0;
+<a href='../S/19.html#L48'>val</a>                48 bsp/boot/common/string.c 		val *= 10;
+<a href='../S/19.html#L49'>val</a>                49 bsp/boot/common/string.c 		val += (long)(*str - '0');
+<a href='../S/19.html#L52'>val</a>                52 bsp/boot/common/string.c 	return val;
+<a href='../S/26.html#L46'>val</a>                46 bsp/boot/ppc/arch/elf_reloc.c 	uint32_t val;
+<a href='../S/26.html#L49'>val</a>                49 bsp/boot/ppc/arch/elf_reloc.c 	val = sym_val + rela-&gt;r_addend;
+<a href='../S/26.html#L56'>val</a>                56 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where = val;
+<a href='../S/26.html#L60'>val</a>                60 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)val;
+<a href='../S/26.html#L64'>val</a>                64 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)(val &gt;&gt; 16);
+<a href='../S/26.html#L68'>val</a>                68 bsp/boot/ppc/arch/elf_reloc.c 		*(uint16_t *)where = (uint16_t)((val + 0x8000) &gt;&gt; 16);
+<a href='../S/26.html#L74'>val</a>                74 bsp/boot/ppc/arch/elf_reloc.c 			| ((val - (uint32_t)where)
+<a href='../S/26.html#L79'>val</a>                79 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where = val - (uint32_t)where;
+<a href='../S/28.html#L56'>val</a>                56 bsp/boot/ppc/prep/debug.c outb(int port, u_char val)
+<a href='../S/28.html#L59'>val</a>                59 bsp/boot/ppc/prep/debug.c 	ISA_io[port] = val;
+<a href='../S/51.html#L146'>val</a>               146 bsp/drv/arm/gba/lcd.c 	int i, row, col, bit, val = 0;
+<a href='../S/51.html#L154'>val</a>               154 bsp/drv/arm/gba/lcd.c 					val = bit;
+<a href='../S/51.html#L157'>val</a>               157 bsp/drv/arm/gba/lcd.c 						val + (bit &lt;&lt; 8);
+<a href='../S/54.html#L439'>val</a>               439 bsp/drv/arm/gba/swkbd.c 	uint16_t val;
+<a href='../S/54.html#L454'>val</a>               454 bsp/drv/arm/gba/swkbd.c 			val = cursor_bitmap[i] &amp; bit ? 0xff : 0;
+<a href='../S/54.html#L456'>val</a>               456 bsp/drv/arm/gba/swkbd.c 			val |= cursor_bitmap[i] &amp; bit ? 0xff00 : 0;
+<a href='../S/54.html#L458'>val</a>               458 bsp/drv/arm/gba/swkbd.c 			cur[i * 4 + j] = val;
+<a href='../S/56.html#L44'>val</a>                44 bsp/drv/arm/include/busio.h #define bus_write_8(addr, val)	(*((volatile uint8_t *)(addr)) = (val))
+<a href='../S/56.html#L45'>val</a>                45 bsp/drv/arm/include/busio.h #define bus_write_16(addr, val)	(*((volatile uint16_t *)(addr)) = (val))
+<a href='../S/56.html#L46'>val</a>                46 bsp/drv/arm/include/busio.h #define bus_write_32(addr, val)	(*((volatile uint32_t *)(addr)) = (val))
+<a href='../S/60.html#L526'>val</a>               526 bsp/drv/dev/base/kd.c 	u_long val;
+<a href='../S/60.html#L560'>val</a>               560 bsp/drv/dev/base/kd.c 	val = strtoul(pv, NULL, 16);
+<a href='../S/60.html#L561'>val</a>               561 bsp/drv/dev/base/kd.c 	if (val == ULONG_MAX)
+<a href='../S/60.html#L573'>val</a>               573 bsp/drv/dev/base/kd.c 		*(char *)((char *)addr + i) = (char)(val &amp; 0xff);
+<a href='../S/60.html#L574'>val</a>               574 bsp/drv/dev/base/kd.c 		val &gt;&gt;= 8;
+<a href='../S/65.html#L211'>val</a>               211 bsp/drv/dev/base/wscons.c 	int val;
+<a href='../S/65.html#L223'>val</a>               223 bsp/drv/dev/base/wscons.c 		val = c - '0';
+<a href='../S/65.html#L226'>val</a>               226 bsp/drv/dev/base/wscons.c 			esc-&gt;arg1 = val;
+<a href='../S/65.html#L230'>val</a>               230 bsp/drv/dev/base/wscons.c 			esc-&gt;arg1 = esc-&gt;arg1 * 10 + val;
+<a href='../S/65.html#L233'>val</a>               233 bsp/drv/dev/base/wscons.c 			esc-&gt;arg2 = val;
+<a href='../S/65.html#L237'>val</a>               237 bsp/drv/dev/base/wscons.c 			esc-&gt;arg2 = esc-&gt;arg2 * 10 + val;
+<a href='../S/76.html#L124'>val</a>               124 bsp/drv/dev/input/pckbd.c 	u_char val = 0;
+<a href='../S/76.html#L128'>val</a>               128 bsp/drv/dev/input/pckbd.c 		val |= 0x04;
+<a href='../S/76.html#L129'>val</a>               129 bsp/drv/dev/input/pckbd.c 	if (sc-&gt;led_sts != val) {
+<a href='../S/76.html#L130'>val</a>               130 bsp/drv/dev/input/pckbd.c 		sc-&gt;led_sts = val;
+<a href='../S/76.html#L133'>val</a>               133 bsp/drv/dev/input/pckbd.c 		bus_write_8(KMC_DATA, val);
+<a href='../S/76.html#L144'>val</a>               144 bsp/drv/dev/input/pckbd.c 	u_char scan, ascii, val;
+<a href='../S/76.html#L153'>val</a>               153 bsp/drv/dev/input/pckbd.c 	val = bus_read_8(KMC_PORTB);
+<a href='../S/76.html#L154'>val</a>               154 bsp/drv/dev/input/pckbd.c 	bus_write_8(KMC_PORTB, val | 0x80);
+<a href='../S/76.html#L155'>val</a>               155 bsp/drv/dev/input/pckbd.c 	bus_write_8(KMC_PORTB, val);
+<a href='../S/77.html#L93'>val</a>                93 bsp/drv/dev/input/psaux.c kmc_send_auxcmd(u_char val)
+<a href='../S/77.html#L96'>val</a>                96 bsp/drv/dev/input/psaux.c 	DPRINTF(("kmc_send_auxcmd: %x\n", val));
+<a href='../S/77.html#L100'>val</a>               100 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_DATA, val);
+<a href='../S/77.html#L107'>val</a>               107 bsp/drv/dev/input/psaux.c kmc_write_aux(u_char val)
+<a href='../S/77.html#L112'>val</a>               112 bsp/drv/dev/input/psaux.c 	DPRINTF(("kmc_write_aux: val=%x\n", val));
+<a href='../S/77.html#L119'>val</a>               119 bsp/drv/dev/input/psaux.c 	bus_write_8(KMC_DATA, val);
+<a href='../S/77.html#L130'>val</a>               130 bsp/drv/dev/input/psaux.c 		printf("kmc_write_aux: error val=%x\n", val);
+<a href='../S/83.html#L79'>val</a>                79 bsp/drv/dev/rtc/mc146818.c 	u_char val;
+<a href='../S/83.html#L84'>val</a>                84 bsp/drv/dev/rtc/mc146818.c 	val = bus_read_8(RTC_DATA);
+<a href='../S/83.html#L86'>val</a>                86 bsp/drv/dev/rtc/mc146818.c 	return val;
+<a href='../S/83.html#L91'>val</a>                91 bsp/drv/dev/rtc/mc146818.c mc_write(u_char index, u_char val)
+<a href='../S/83.html#L97'>val</a>                97 bsp/drv/dev/rtc/mc146818.c 	bus_write_8(RTC_DATA, val);
+<a href='../S/91.html#L109'>val</a>               109 bsp/drv/dev/video/vga.c crtc_write(u_char index, u_char val)
+<a href='../S/91.html#L113'>val</a>               113 bsp/drv/dev/video/vga.c 	bus_write_8(CRTC_DATA, val);
+<a href='../S/91.html#L119'>val</a>               119 bsp/drv/dev/video/vga.c 	u_char val;
+<a href='../S/91.html#L122'>val</a>               122 bsp/drv/dev/video/vga.c 	val = bus_read_8(SEQ_DATA);
+<a href='../S/91.html#L123'>val</a>               123 bsp/drv/dev/video/vga.c 	bus_write_8(SEQ_DATA, val &amp; ~0x20);
+<a href='../S/91.html#L129'>val</a>               129 bsp/drv/dev/video/vga.c 	u_char val;
+<a href='../S/91.html#L132'>val</a>               132 bsp/drv/dev/video/vga.c 	val = bus_read_8(SEQ_DATA);
+<a href='../S/91.html#L133'>val</a>               133 bsp/drv/dev/video/vga.c 	bus_write_8(SEQ_DATA, val | 0x20);
+<a href='../S/113.html#L40'>val</a>                40 bsp/drv/lib/string.c 	long val = 0;
+<a href='../S/113.html#L45'>val</a>                45 bsp/drv/lib/string.c 		val *= 10;
+<a href='../S/113.html#L46'>val</a>                46 bsp/drv/lib/string.c 		val += (*str - '0');
+<a href='../S/113.html#L49'>val</a>                49 bsp/drv/lib/string.c 	return val;
+<a href='../S/117.html#L47'>val</a>                47 bsp/drv/ppc/include/busio.h #define bus_write_8(addr, val)	(*((volatile uint8_t *)(IOBASE+addr)) = (val))
+<a href='../S/117.html#L48'>val</a>                48 bsp/drv/ppc/include/busio.h #define bus_write_16(addr, val)	(*((volatile uint16_t *)(IOBASE+addr)) = (val))
+<a href='../S/117.html#L49'>val</a>                49 bsp/drv/ppc/include/busio.h #define bus_write_32(addr, val)	(*((volatile uint32_t *)(IOBASE+addr)) = (val))
+<a href='../S/123.html#L41'>val</a>                41 bsp/drv/x86/include/busio.h void	 bus_write_8(int addr, uint8_t val);
+<a href='../S/123.html#L42'>val</a>                42 bsp/drv/x86/include/busio.h void	 bus_write_16(int addr, uint16_t val);
+<a href='../S/123.html#L43'>val</a>                43 bsp/drv/x86/include/busio.h void	 bus_write_32(int addr, uint32_t val);
+<a href='../S/126.html#L61'>val</a>                61 bsp/hal/arm/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/126.html#L72'>val</a>                72 bsp/hal/arm/arch/context.c 			((vaddr_t)val - sizeof(struct cpu_regs));
+<a href='../S/126.html#L81'>val</a>                81 bsp/hal/arm/arch/context.c 		u-&gt;svc_sp = (uint32_t)val;
+<a href='../S/126.html#L88'>val</a>                88 bsp/hal/arm/arch/context.c 		k-&gt;r4 = (uint32_t)val;
+<a href='../S/126.html#L93'>val</a>                93 bsp/hal/arm/arch/context.c 		k-&gt;r5 = (uint32_t)val;
+<a href='../S/126.html#L99'>val</a>                99 bsp/hal/arm/arch/context.c 		u-&gt;sp = (uint32_t)val;
+<a href='../S/126.html#L106'>val</a>               106 bsp/hal/arm/arch/context.c 		u-&gt;pc = (uint32_t)val;
+<a href='../S/126.html#L113'>val</a>               113 bsp/hal/arm/arch/context.c 		u-&gt;r0 = (uint32_t)val;		/* Argument 1 */
+<a href='../S/134.html#L118'>val</a>               118 bsp/hal/arm/gba/diag.c 	int i, row, col, bit, val = 0;
+<a href='../S/134.html#L127'>val</a>               127 bsp/hal/arm/gba/diag.c 					val = bit;
+<a href='../S/134.html#L131'>val</a>               131 bsp/hal/arm/gba/diag.c 						val + (bit &lt;&lt; 8);
+<a href='../S/154.html#L62'>val</a>                62 bsp/hal/ppc/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/154.html#L73'>val</a>                73 bsp/hal/ppc/arch/context.c 		val -= STKFRAME_LEN;
+<a href='../S/154.html#L77'>val</a>                77 bsp/hal/ppc/arch/context.c 				((uint32_t)val - sizeof(struct cpu_regs));
+<a href='../S/154.html#L80'>val</a>                80 bsp/hal/ppc/arch/context.c 		k-&gt;kstack = (uint32_t)val;
+<a href='../S/154.html#L92'>val</a>                92 bsp/hal/ppc/arch/context.c 		k-&gt;lr = (uint32_t)val;
+<a href='../S/154.html#L98'>val</a>                98 bsp/hal/ppc/arch/context.c 		*argp = (uint32_t)val;
+<a href='../S/154.html#L104'>val</a>               104 bsp/hal/ppc/arch/context.c 		u-&gt;gr[1] = (uint32_t)val;
+<a href='../S/154.html#L110'>val</a>               110 bsp/hal/ppc/arch/context.c 		u-&gt;srr0 = (uint32_t)val;
+<a href='../S/154.html#L117'>val</a>               117 bsp/hal/ppc/arch/context.c 		u-&gt;gr[3] = (uint32_t)val;
+<a href='../S/154.html#L119'>val</a>               119 bsp/hal/ppc/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/169.html#L133'>val</a>               133 bsp/hal/ppc/prep/interrupt.c 	u_char val;
+<a href='../S/169.html#L139'>val</a>               139 bsp/hal/ppc/prep/interrupt.c 	val = inb(port);
+<a href='../S/169.html#L141'>val</a>               141 bsp/hal/ppc/prep/interrupt.c 		val |= bit;
+<a href='../S/169.html#L143'>val</a>               143 bsp/hal/ppc/prep/interrupt.c 		val &amp;= ~bit;
+<a href='../S/169.html#L144'>val</a>               144 bsp/hal/ppc/prep/interrupt.c 	outb(port, val);
+<a href='../S/170.html#L39'>val</a>                39 bsp/hal/ppc/prep/io.c outb(int port, u_char val)
+<a href='../S/170.html#L42'>val</a>                42 bsp/hal/ppc/prep/io.c 	ISA_io[port] = val;
+<a href='../S/171.html#L86'>val</a>                86 bsp/hal/ppc/prep/machdep.c 	u_char val;
+<a href='../S/171.html#L88'>val</a>                88 bsp/hal/ppc/prep/machdep.c 	val = inb(0x92);
+<a href='../S/171.html#L89'>val</a>                89 bsp/hal/ppc/prep/machdep.c 	val &amp;= ~1UL;
+<a href='../S/171.html#L90'>val</a>                90 bsp/hal/ppc/prep/machdep.c 	outb(0x92, val);
+<a href='../S/171.html#L92'>val</a>                92 bsp/hal/ppc/prep/machdep.c 	val = inb(0x92);
+<a href='../S/171.html#L93'>val</a>                93 bsp/hal/ppc/prep/machdep.c 	val |= 1;
+<a href='../S/171.html#L94'>val</a>                94 bsp/hal/ppc/prep/machdep.c 	outb(0x92, val);
+<a href='../S/173.html#L62'>val</a>                62 bsp/hal/x86/arch/context.c context_set(context_t ctx, int type, register_t val)
+<a href='../S/173.html#L74'>val</a>                74 bsp/hal/x86/arch/context.c 				((uint32_t)val - sizeof(struct cpu_regs));
+<a href='../S/173.html#L75'>val</a>                75 bsp/hal/x86/arch/context.c 		ctx-&gt;esp0 = (uint32_t)val;
+<a href='../S/173.html#L88'>val</a>                88 bsp/hal/x86/arch/context.c 		k-&gt;eip = (uint32_t)val;
+<a href='../S/173.html#L94'>val</a>                94 bsp/hal/x86/arch/context.c 		*argp = (uint32_t)val;
+<a href='../S/173.html#L100'>val</a>               100 bsp/hal/x86/arch/context.c 		u-&gt;esp = (uint32_t)val;
+<a href='../S/173.html#L107'>val</a>               107 bsp/hal/x86/arch/context.c 		u-&gt;eip = (uint32_t)val;
+<a href='../S/173.html#L119'>val</a>               119 bsp/hal/x86/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/188.html#L131'>val</a>               131 bsp/hal/x86/pc/interrupt.c 	u_char val;
+<a href='../S/188.html#L137'>val</a>               137 bsp/hal/x86/pc/interrupt.c 	val = inb(port);
+<a href='../S/188.html#L139'>val</a>               139 bsp/hal/x86/pc/interrupt.c 		val |= bit;
+<a href='../S/188.html#L141'>val</a>               141 bsp/hal/x86/pc/interrupt.c 		val &amp;= ~bit;
+<a href='../S/188.html#L142'>val</a>               142 bsp/hal/x86/pc/interrupt.c 	outb(port, val);
+<a href='../S/263.html#L40'>val</a>                40 include/sys/mount.h typedef struct { int32_t val[2]; } fsid_t;	/* file system id type */
+<a href='../S/275.html#L68'>val</a>                68 include/sys/termios.h #define CCEQ(val, c)	(c == val ? val != _POSIX_VDISABLE : 0)
+<a href='../S/354.html#L44'>val</a>                44 usr/arch/ppc/elf_reloc.c 	uint32_t val;
+<a href='../S/354.html#L47'>val</a>                47 usr/arch/ppc/elf_reloc.c 	val = sym_val + rela-&gt;r_addend;
+<a href='../S/354.html#L54'>val</a>                54 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where = val;
+<a href='../S/354.html#L58'>val</a>                58 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = val;
+<a href='../S/354.html#L62'>val</a>                62 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = (val &gt;&gt; 16);
+<a href='../S/354.html#L66'>val</a>                66 usr/arch/ppc/elf_reloc.c 		*(uint16_t *)where = (val + 0x8000) &gt;&gt; 16;
+<a href='../S/354.html#L72'>val</a>                72 usr/arch/ppc/elf_reloc.c 			| ((val - (uint32_t)where)
+<a href='../S/354.html#L77'>val</a>                77 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where = val - (uint32_t)where;
+<a href='../S/414.html#L51'>val</a>                51 usr/bin/sh/sh.h extern void	setvar(char *name, char *val);
+<a href='../S/415.html#L47'>val</a>                47 usr/bin/sh/var.c 	char	*val;
+<a href='../S/415.html#L90'>val</a>                90 usr/bin/sh/var.c setvar(char *name, char *val)
+<a href='../S/415.html#L128'>val</a>               128 usr/bin/sh/var.c 	var-&gt;val = strdup(val);
+<a href='../S/415.html#L142'>val</a>               142 usr/bin/sh/var.c 	free(var-&gt;val);
+<a href='../S/415.html#L144'>val</a>               144 usr/bin/sh/var.c 	var-&gt;val = NULL;
+<a href='../S/415.html#L175'>val</a>               175 usr/bin/sh/var.c 			printf("%s=%s\n", var-&gt;name, var-&gt;val);
+<a href='../S/415.html#L207'>val</a>               207 usr/bin/sh/var.c 			setenv(var-&gt;name, var-&gt;val, 1);
+<a href='../S/552.html#L112'>val</a>               112 usr/lib/libc/stdio/vfprintf.c __ultoa(u_long val, char *endp, int base, int octzero, char *xdigs)
+<a href='../S/552.html#L123'>val</a>               123 usr/lib/libc/stdio/vfprintf.c 		if (val &lt; 10) {	/* many numbers are 1 digit */
+<a href='../S/552.html#L124'>val</a>               124 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(val);
+<a href='../S/552.html#L133'>val</a>               133 usr/lib/libc/stdio/vfprintf.c 		if (val &gt; LONG_MAX) {
+<a href='../S/552.html#L134'>val</a>               134 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(val % 10);
+<a href='../S/552.html#L135'>val</a>               135 usr/lib/libc/stdio/vfprintf.c 			sval = val / 10;
+<a href='../S/552.html#L137'>val</a>               137 usr/lib/libc/stdio/vfprintf.c 			sval = val;
+<a href='../S/552.html#L146'>val</a>               146 usr/lib/libc/stdio/vfprintf.c 			*--cp = to_char(val &amp; 7);
+<a href='../S/552.html#L147'>val</a>               147 usr/lib/libc/stdio/vfprintf.c 			val &gt;&gt;= 3;
+<a href='../S/552.html#L148'>val</a>               148 usr/lib/libc/stdio/vfprintf.c 		} while (val);
+<a href='../S/552.html#L155'>val</a>               155 usr/lib/libc/stdio/vfprintf.c 			*--cp = xdigs[val &amp; 15];
+<a href='../S/552.html#L156'>val</a>               156 usr/lib/libc/stdio/vfprintf.c 			val &gt;&gt;= 4;
+<a href='../S/552.html#L157'>val</a>               157 usr/lib/libc/stdio/vfprintf.c 		} while (val);
+<a href='../S/726.html#L47'>val</a>                47 usr/lib/posix/process/setpriority.c 	int error, val;
+<a href='../S/726.html#L73'>val</a>                73 usr/lib/posix/process/setpriority.c 	val = PRI_DEFAULT + pri;
+<a href='../S/726.html#L75'>val</a>                75 usr/lib/posix/process/setpriority.c 	error = thread_setpri(thread_self(), val);
+<a href='../S/889.html#L131'>val</a>               131 usr/server/fs/fatfs/fatfs_fat.c 	uint16_t val;
+<a href='../S/889.html#L146'>val</a>               146 usr/server/fs/fatfs/fatfs_fat.c 	val = *((uint16_t *)(fmp-&gt;fat_buf + offset));
+<a href='../S/889.html#L151'>val</a>               151 usr/server/fs/fatfs/fatfs_fat.c 			val &gt;&gt;= 4;
+<a href='../S/889.html#L153'>val</a>               153 usr/server/fs/fatfs/fatfs_fat.c 			val &amp;= 0xfff;
+<a href='../S/889.html#L155'>val</a>               155 usr/server/fs/fatfs/fatfs_fat.c 	*next = (u_long)val;
+<a href='../S/889.html#L172'>val</a>               172 usr/server/fs/fatfs/fatfs_fat.c 	uint16_t val, tmp;
+<a href='../S/889.html#L186'>val</a>               186 usr/server/fs/fatfs/fatfs_fat.c 	val = (uint16_t)(next &amp; fmp-&gt;fat_mask);
+<a href='../S/889.html#L190'>val</a>               190 usr/server/fs/fatfs/fatfs_fat.c 			val &lt;&lt;= 4;
+<a href='../S/889.html#L191'>val</a>               191 usr/server/fs/fatfs/fatfs_fat.c 			val |= (tmp &amp; 0xf);
+<a href='../S/889.html#L194'>val</a>               194 usr/server/fs/fatfs/fatfs_fat.c 			val |= tmp;
+<a href='../S/889.html#L197'>val</a>               197 usr/server/fs/fatfs/fatfs_fat.c 	*((uint16_t *)(buf + offset)) = val;
+<a href='../S/913.html#L91'>val</a>                91 usr/server/fs/vfs/vfs_vnode.c 	u_int val = 0;
+<a href='../S/913.html#L95'>val</a>                95 usr/server/fs/vfs/vfs_vnode.c 			val = ((val &lt;&lt; 5) + val) + *path++;
+<a href='../S/913.html#L97'>val</a>                97 usr/server/fs/vfs/vfs_vnode.c 	return (val ^ (u_int)mp) &amp; (VNODE_BUCKETS - 1);
+<a href='../S/942.html#L61'>val</a>                61 usr/test/environ/environ.c 	char *val;
+<a href='../S/942.html#L91'>val</a>                91 usr/test/environ/environ.c 	val = getenv("TMP");
+<a href='../S/942.html#L92'>val</a>                92 usr/test/environ/environ.c 	if (val != NULL)
+<a href='../S/942.html#L97'>val</a>                97 usr/test/environ/environ.c 	val = getenv("PATH");
+<a href='../S/942.html#L98'>val</a>                98 usr/test/environ/environ.c 	if (val == NULL)
+<a href='../S/942.html#L100'>val</a>               100 usr/test/environ/environ.c 	printf("PATH=%s\n", val);
+<a href='../S/988.html#L42'>val</a>                42 usr/test/sem/sem.c 	u_int val;
+<a href='../S/988.html#L54'>val</a>                54 usr/test/sem/sem.c 	error = sem_getvalue(&amp;sem, &amp;val);
+<a href='../S/988.html#L55'>val</a>                55 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L62'>val</a>                62 usr/test/sem/sem.c 	error = sem_getvalue(&amp;sem, &amp;val);
+<a href='../S/988.html#L63'>val</a>                63 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L70'>val</a>                70 usr/test/sem/sem.c 	error = sem_getvalue(&amp;sem, &amp;val);
+<a href='../S/988.html#L71'>val</a>                71 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L78'>val</a>                78 usr/test/sem/sem.c 	error = sem_getvalue(&amp;sem, &amp;val);
+<a href='../S/988.html#L79'>val</a>                79 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+<a href='../S/988.html#L104'>val</a>               104 usr/test/sem/sem.c 	error = sem_getvalue(&amp;sem, &amp;val);
+<a href='../S/988.html#L105'>val</a>               105 usr/test/sem/sem.c 	printf("Semaphore value=%d\n", val);
+</pre>
+</body>
+</html>

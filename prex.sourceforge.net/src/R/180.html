@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>DFLSTKSZ</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/334.html#L508'>DFLSTKSZ</a>          508 sys/kern/task.c 		sp = (char *)stack + DFLSTKSZ - (sizeof(int) * 3);
+<a href='../S/343.html#L719'>DFLSTKSZ</a>          719 sys/mem/vm.c   	error = do_allocate(map, stack, DFLSTKSZ, 0);
+<a href='../S/344.html#L485'>DFLSTKSZ</a>          485 sys/mem/vm_nommu.c 	return do_allocate(map, stack, DFLSTKSZ, 1);
+<a href='../S/877.html#L178'>DFLSTKSZ</a>          178 usr/server/exec/exec_execve.c 	error = vm_allocate(new_task, &amp;stack, DFLSTKSZ, 1);
+<a href='../S/877.html#L332'>DFLSTKSZ</a>          332 usr/server/exec/exec_execve.c 	error = vm_map(task, stack, DFLSTKSZ, (void *)&amp;mapped);
+<a href='../S/877.html#L335'>DFLSTKSZ</a>          335 usr/server/exec/exec_execve.c 	memset((void *)mapped, 0, DFLSTKSZ);
+<a href='../S/877.html#L336'>DFLSTKSZ</a>          336 usr/server/exec/exec_execve.c 	sp = mapped + DFLSTKSZ - sizeof(int) * 3;
+<a href='../S/903.html#L955'>DFLSTKSZ</a>          955 usr/server/fs/vfs/main.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/903.html#L958'>DFLSTKSZ</a>          958 usr/server/fs/vfs/main.c 	sp = (void *)((u_long)stack + DFLSTKSZ - sizeof(u_long) * 3);
+<a href='../S/916.html#L276'>DFLSTKSZ</a>          276 usr/server/pow/pow.c 	if ((error = vm_allocate(self, &amp;stack, DFLSTKSZ, 1)) != 0)
+<a href='../S/916.html#L279'>DFLSTKSZ</a>          279 usr/server/pow/pow.c 	sp = (void *)((u_long)stack + DFLSTKSZ - sizeof(u_long) * 3);
+<a href='../S/921.html#L187'>DFLSTKSZ</a>          187 usr/server/proc/proc_fork.c 	if (vm_allocate(p-&gt;p_task, &amp;stack, DFLSTKSZ, 1) != 0) {
+<a href='../S/921.html#L192'>DFLSTKSZ</a>          192 usr/server/proc/proc_fork.c 	memcpy(stack, p-&gt;p_stackbase, DFLSTKSZ);
+<a href='../S/921.html#L208'>DFLSTKSZ</a>          208 usr/server/proc/proc_fork.c 	memcpy(p-&gt;p_stackbase, p-&gt;p_stacksaved, DFLSTKSZ);
+</pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>term</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/482.html#L41'>term</a>               41 usr/lib/libc/gen/getpass.c 	struct termios term;
+<a href='../S/482.html#L62'>term</a>               62 usr/lib/libc/gen/getpass.c 	(void)tcgetattr(fileno(fp), &amp;term);
+<a href='../S/482.html#L63'>term</a>               63 usr/lib/libc/gen/getpass.c 	if ((echo = (term.c_lflag &amp; ECHO)) != 0) {
+<a href='../S/482.html#L64'>term</a>               64 usr/lib/libc/gen/getpass.c 		term.c_lflag &amp;= ~ECHO;
+<a href='../S/482.html#L65'>term</a>               65 usr/lib/libc/gen/getpass.c 		(void)tcsetattr(fileno(fp), TCSAFLUSH|TCSASOFT, &amp;term);
+<a href='../S/482.html#L76'>term</a>               76 usr/lib/libc/gen/getpass.c 		term.c_lflag |= ECHO;
+<a href='../S/482.html#L77'>term</a>               77 usr/lib/libc/gen/getpass.c 		(void)tcsetattr(fileno(fp), TCSAFLUSH|TCSASOFT, &amp;term);
+<a href='../S/627.html#L41'>term</a>               41 usr/lib/libc/termios/tcflow.c 	struct termios term;
+<a href='../S/627.html#L51'>term</a>               51 usr/lib/libc/termios/tcflow.c 		if (tcgetattr(fd, &amp;term) == -1)
+<a href='../S/627.html#L53'>term</a>               53 usr/lib/libc/termios/tcflow.c 		c = term.c_cc[action == TCIOFF ? VSTOP : VSTART];
+</pre>
+</body>
+</html>

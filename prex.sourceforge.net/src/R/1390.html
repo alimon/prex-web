@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>__SEOF</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L288'>__SEOF</a>            288 usr/include/stdio.h #define	__sfeof(p)	(((p)-&gt;_flags &amp; __SEOF) != 0)
+<a href='../S/441.html#L290'>__SEOF</a>            290 usr/include/stdio.h #define	__sclearerr(p)	((void)((p)-&gt;_flags &amp;= ~(__SERR|__SEOF)))
+<a href='../S/514.html#L72'>__SEOF</a>             72 usr/lib/libc/stdio/freopen.c 		fp-&gt;_flags = __SEOF;	/* hold on to it */
+<a href='../S/516.html#L111'>__SEOF</a>            111 usr/lib/libc/stdio/fseek.c 	fp-&gt;_flags &amp;= ~__SEOF;
+<a href='../S/526.html#L45'>__SEOF</a>             45 usr/lib/libc/stdio/getw.c 	if (fp-&gt;_flags &amp; (__SERR|__SEOF))
+<a href='../S/537.html#L63'>__SEOF</a>             63 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_flags &amp; __SEOF)
+<a href='../S/537.html#L110'>__SEOF</a>            110 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags |= __SEOF;
+<a href='../S/543.html#L74'>__SEOF</a>             74 usr/lib/libc/stdio/setvbuf.c 	flags &amp;= ~(__SLBF | __SNBF | __SMBF | __SEOF);
+<a href='../S/551.html#L74'>__SEOF</a>             74 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_flags &amp;= ~__SEOF;
+<a href='../S/559.html#L61'>__SEOF</a>             61 usr/lib/libc/stdio/wsetup.c 			fp-&gt;_flags &amp;= ~(__SRD|__SEOF);
+</pre>
+</body>
+</html>

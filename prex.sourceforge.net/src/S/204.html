@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>doc/ChangeLog</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1069.html'>doc</a>/ChangeLog</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='204.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<pre>
+<a id='L1' name='L1' />
+<a id='L2' name='L2' />Version 0.9.0:
+<a id='L3' name='L3' />
+<a id='L4' name='L4' /> - New: Enable capability based security by default.
+<a id='L5' name='L5' /> - New: Support resource limit to prevent DoS attack.
+<a id='L6' name='L6' /> - New: Add task_chkcap() kernel call to trace the capability violations.
+<a id='L7' name='L7' /> - New: Support pipe and redirection in shell.
+<a id='L8' name='L8' /> - New: Support LCD off timer.
+<a id='L9' name='L9' /> - New: Add some logical drivers with new driver model.
+<a id='L10' name='L10' /> - New: Move HAL in BSP directory.
+<a id='L11' name='L11' /> - New: Define compiler options in tool specific makefiles.
+<a id='L12' name='L12' /> - New: Add test program for POSIX configuration interface.
+<a id='L13' name='L13' /> - New: Handle PATH variable for exec in shell.
+<a id='L14' name='L14' /> - New: Add 'spl' interrupt framework derived from BSD.
+<a id='L15' name='L15' /> - New: Add 'more' command to verify the pipe feature in shell.
+<a id='L16' name='L16' /> - New: Support SUN studio compiler.
+<a id='L17' name='L17' /> - New: Change name of real-time task to *.rt to identify it easily.
+<a id='L18' name='L18' /> - New: Support path based capability mapping.
+<a id='L19' name='L19' /> - New: Support getenv()/putenv().
+<a id='L20' name='L20' /> - New: Change irq_attach() to pass data for IST.
+<a id='L21' name='L21' /> - New: Add power server - 'pow'.
+<a id='L22' name='L22' /> - New: Define power action for each power event.
+<a id='L23' name='L23' /> - New: Add test program for POSIX environment variable.
+<a id='L24' name='L24' /> - New: Add 'fstab' - file system table.
+<a id='L25' name='L25' /> - New: Add configuration file to customize capability table.
+<a id='L26' name='L26' /> - New: Run 'rc' script at boot.
+<a id='L27' name='L27' /> - New: Add 'set', 'unset' and 'export' command in shell.
+<a id='L28' name='L28' /> - New: Add script loader in exec server.
+<a id='L29' name='L29' /> - New: Add 'pmctrl' - power management utility.
+<a id='L30' name='L30' /> - New: Add _SILENT_ switch for build.
+<a id='L31' name='L31' /> - New: Support protected name for system object.
+<a id='L32' name='L32' /> - New: Add CAP_PROTSERV capability.
+<a id='L33' name='L33' /> - New: Add a shutdown routine in the driver structure.
+<a id='L34' name='L34' /> - New: Add an argument for the private data size in device_create().
+<a id='L35' name='L35' /> - New: Add device_private() to get the pointer to the private data.
+<a id='L36' name='L36' /> - New: Add device_control() service to access another driver.
+<a id='L37' name='L37' /> - New: Add the kernel test program for random parameter attack.
+<a id='L38' name='L38' /> - New: Add 'diskutil' - disk management utilitiy.
+<a id='L39' name='L39' /> - New: Add 'install' - software installer.
+<a id='L40' name='L40' /> - New: Add 'ktrace' - system call tracer.
+<a id='L41' name='L41' /> - New: Add CAP_USERFILES/CAP_SYSFILES for data caging.
+<a id='L42' name='L42' /> - New: Add workstation console multiplexer driver - 'wscons'.
+<a id='L43' name='L43' /> - New: Initial PowerPC support.
+<a id='L44' name='L44' /> - New: Add _STRICT_ switch for build.
+<a id='L45' name='L45' /> - New: Add new device flag (D_PROT) for protected devices.
+<a id='L46' name='L46' /> - New: Support Solaris for host.
+<a id='L47' name='L47' /> - New: Add audit mode to find defective application.
+<a id='L48' name='L48' /> - New: Add test program for stack overflow.
+<a id='L49' name='L49' /> - New: Initial version of kernel debugger.
+<a id='L50' name='L50' /> - New: Add 'lock' - terminal lock utility.
+<a id='L51' name='L51' /> - Fix: Page fault in realloc().
+<a id='L52' name='L52' /> - Fix: Remove the internal 'more' command support.
+<a id='L53' name='L53' /> - Fix: exception_return() breaks the return value of subsequent syscall.
+<a id='L54' name='L54' /> - Fix: 'tty' - the new line is not handled properly.
+<a id='L55' name='L55' /> - Fix: Intermittent hang during task_terminate().
+<a id='L56' name='L56' /> - Fix: 'lr' register is broken after fork(). (ARM)
+<a id='L57' name='L57' /> - Fix: Enable interrupts during system call (ARM).
+<a id='L58' name='L58' /> - Fix: Page fault under sub-shell (NOMMU).
+<a id='L59' name='L59' /> - Fix: The pipe() system call fails at second call.
+<a id='L60' name='L60' /> - Fix: Fix to increment the file reference in dup2().
+<a id='L61' name='L61' /> - Fix: The byte count for writing fifo is always 0.
+<a id='L62' name='L62' /> - Fix: Memory leak in task_terminate().
+<a id='L63' name='L63' /> - Fix: Synchronize server initializations to prevent dead lock.
+<a id='L64' name='L64' /> - Fix: Allow priority change if the target thread belongs to the child task.
+<a id='L65' name='L65' /> - Fix: Fix to print the file type for device file correctly.
+<a id='L66' name='L66' /> - Fix: Reduce #ifdef in the kernel.
+<a id='L67' name='L67' /> - Fix: Remove all magic number from the kernel objects.
+<a id='L68' name='L68' /> - Fix: Fix the compile error with gcc 2.95. Correct the format of printf.
+<a id='L69' name='L69' /> - Fix: Fix to reject changing the capability of the kernel task.
+<a id='L70' name='L70' /> - Fix: Fix system hang when kernel is compiled with PCC.
+<a id='L71' name='L71' /> - Fix: Remove redundant comments.
+<a id='L72' name='L72' /> - Fix: Add signal number in the return code of waitpid().
+<a id='L73' name='L73' /> - Fix: Fix to set correct errno when gettimeofday() is failed.
+<a id='L74' name='L74' /> - Fix: Change mode_t type to uint32_t.
+<a id='L75' name='L75' /> - Fix: Remove workaround for ioctl() buffering issue.
+<a id='L76' name='L76' /> - Fix: Move isatty() service to fs server from the library code.
+<a id='L77' name='L77' /> - Fix: Remove CAP_IPC capability.
+<a id='L78' name='L78' /> - Fix: Remove CAP_SEMAPHORE capability.
+<a id='L79' name='L79' /> - Fix: Prevent format string attack with sys_log().
+<a id='L80' name='L80' /> - Fix: Fix many codes to prevent buffer overflow caused by strcpy/strcat.
+<a id='L81' name='L81' /> - Fix: Add PRIO_REALTIME for the default priority of the real-time threads.
+<a id='L82' name='L82' /> - Fix: Page fault in 'nice'. The first item of the envp is lost.
+<a id='L83' name='L83' /> - Fix: Add cwd data in exec message to build the full path in exec server.
+<a id='L84' name='L84' /> - Fix: setpriority() returns error even if it is success.
+<a id='L85' name='L85' /> - Fix: Change 'fifofs' mount point to /mnt/fifo from /fifo.
+<a id='L86' name='L86' /> - Fix: Change to generate driver table from configuration file.
+<a id='L87' name='L87' /> - Fix: 'proc' - some process data are not initialized for fork().
+<a id='L88' name='L88' /> - Fix: Fix alignment of argv pointers.
+<a id='L89' name='L89' /> - Fix: 'tty' - fix for big endian.
+<a id='L90' name='L90' /> - Fix: Modify libc to reduce the size of executable file.
+<a id='L91' name='L91' />
+<a id='L92' name='L92' />Version 0.8.1:
+<a id='L93' name='L93' />
+<a id='L94' name='L94' /> - New: Add MMU support for ARM.
+<a id='L95' name='L95' /> - New: Support Integrator/CP platform.
+<a id='L96' name='L96' /> - New: Add the function to relocate ARM exception vectors.
+<a id='L97' name='L97' /> - New: Add exception handling for ARM architecture.
+<a id='L98' name='L98' /> - New: Add machine_setpower() interface in DKI.
+<a id='L99' name='L99' /> - New: Define 'syspage' which holds architecture specific data.
+<a id='L100' name='L100' /> - New: Change architecture interface to common definition in all platforms.
+<a id='L101' name='L101' /> - New: Add physical/virtual address mapping table.
+<a id='L102' name='L102' /> - New: Support multiple RAM regions.
+<a id='L103' name='L103' /> - New: Add the serial console driver for PC.
+<a id='L104' name='L104' /> - New: Add tetris game ported from BSD.
+<a id='L105' name='L105' /> - New: Add '--profile' option in the configure script.
+<a id='L106' name='L106' /> - New: Support static driver to debug with fixed symbol address.
+<a id='L107' name='L107' /> - Fix: Change all external function declarations as BSD style.
+<a id='L108' name='L108' /> - Fix: Remove time data from the kernel banner string.
+<a id='L109' name='L109' /> - Fix: Improve build and configuration system.
+<a id='L110' name='L110' /> - Fix: Add tty_done() to notify the completion of the TTY output interrupt.
+<a id='L111' name='L111' /> - Fix: Fix the broken output of 'mem' command in 'kmon'.
+<a id='L112' name='L112' />
+<a id='L113' name='L113' />
+<a id='L114' name='L114' />Version 0.8.0:
+<a id='L115' name='L115' />
+<a id='L116' name='L116' /> - New: Add 'fatfs' - FAT file system.
+<a id='L117' name='L117' /> - New: Add 'fifofs' - FIFO file system.
+<a id='L118' name='L118' /> - New: Support pipe().
+<a id='L119' name='L119' /> - New: Support compiling with PCC (Portable C Compiler).
+<a id='L120' name='L120' /> - New: Add 'head' command.
+<a id='L121' name='L121' /> - New: Add 'cal' command.
+<a id='L122' name='L122' /> - Fix: Fix object_create() for no object name.
+<a id='L123' name='L123' /> - Fix: Remove all variadic macros for C90 compilers.
+<a id='L124' name='L124' /> - Fix: The semaphore count is not set properly for re-initialization.
+<a id='L125' name='L125' /> - Fix: Change the argument type for timer_callout().
+<a id='L126' name='L126' /> - Fix: Fix page fault if an alarm exception is invoked after task termination.
+<a id='L127' name='L127' /> - Fix: thread_suspend() returns a success code for error case.
+<a id='L128' name='L128' /> - Fix: Fix to return an appropriate error code in thread_load().
+<a id='L129' name='L129' /> - Fix: Remove the register data from the argument of an exception handler.
+<a id='L130' name='L130' /> - Fix: Change the data types of ioctl() parameters.
+<a id='L131' name='L131' /> - Fix: Fix a page fault by waitpid().
+<a id='L132' name='L132' /> - Fix: Add wait after enabling gate A20 for some real hardwares.
+<a id='L133' name='L133' /> - Fix: Fix vnode lookup routine to prevent a deadlock in a fs server.
+<a id='L134' name='L134' /> - Fix: Fix a process server to handle exit() properly.
+<a id='L135' name='L135' /> - Fix: Fix the system hang on the actual GBA flash cart.
+<a id='L136' name='L136' />
+<a id='L137' name='L137' />
+<a id='L138' name='L138' />Version 0.7.0:
+<a id='L139' name='L139' />
+<a id='L140' name='L140' /> - New: Add process server which manages process state and pid.
+<a id='L141' name='L141' /> - New: Add exec server which executes an ELF program.
+<a id='L142' name='L142' /> - New: Add boot server.
+<a id='L143' name='L143' /> - New: Initial release of TTY driver. Minimum set of termios is also added.
+<a id='L144' name='L144' /> - New: 'cmdbox' - tiny versions of many UNIX utilities.
+<a id='L145' name='L145' /> - New: Add init process.
+<a id='L146' name='L146' /> - New: Add stdio to libc, which is optimized for low-footprint systems.
+<a id='L147' name='L147' /> - New: Add UNIX emulation for fork(), exec(), pid, file I/O, signal, etc.
+<a id='L148' name='L148' /> - New: Support realloc().
+<a id='L149' name='L149' /> - New: Change gcc optimization option to -Os from -O2.
+<a id='L150' name='L150' /> - New: Enable gcc '-ansi' and '-pedantic' options for portability.
+<a id='L151' name='L151' /> - Fix: Fix the scheduler to switch a thread properly for priority change.
+<a id='L152' name='L152' /> - Fix: Fix the kernel hang when a thread terminates while it holds a mutex.
+<a id='L153' name='L153' /> - Fix: Boot failure when a boot task does not have any data or bss sections.
+<a id='L154' name='L154' /> - Fix: The reference count is not incremented after dup().
+<a id='L155' name='L155' /> - Fix: Fix to support processing an exception by drivers at interrupt level.
+<a id='L156' name='L156' /> - Fix: Fix a file lookup routine in devfs.
+<a id='L157' name='L157' /> - Fix: The scheduler is kept locked with some exception conditions.
+<a id='L158' name='L158' /> - Fix: kmem_alloc() cause a hang when kernel memory allocation is failed.
+<a id='L159' name='L159' /> - Fix: Change the scheduling policy of a timer thread to SCHED_FIFO.
+<a id='L160' name='L160' /> - Fix: Page fault during mkdir() when "foo/bar" style path is specified.
+<a id='L161' name='L161' /> - Fix: Fix a bug in recursive mutex lock.
+<a id='L162' name='L162' /> - Fix: A mutex for buffer cache is not initialized.
+<a id='L163' name='L163' /> - Fix: Fix a page fault while writing ramfs.
+<a id='L164' name='L164' /> - Fix: Fix a build error with old version (2.95) of gcc.
+<a id='L165' name='L165' /> - Fix: Design change of timer_hook().
+<a id='L166' name='L166' /> - Fix: Reduce interrupt latency when interrupt occurs in thread switching.
+<a id='L167' name='L167' /> - Fix: Rescheduling flag is kept pending in some rare cases.
+<a id='L168' name='L168' /> - Fix: Remove a kernel function trace feature that depends on gcc.
+<a id='L169' name='L169' /> - Fix: Add checking CAP_NICE for the priority boost.
+<a id='L170' name='L170' /> - Fix: Fix a page fault after task termination by an exception.
+<a id='L171' name='L171' /> - Fix: Mutex is locked even if cond_wait() fails due to exception.
+<a id='L172' name='L172' /> - Fix: Fix memory leak when a periodic thread is terminated.
+<a id='L173' name='L173' />
+<a id='L174' name='L174' />
+<a id='L175' name='L175' />Version 0.5.0:
+<a id='L176' name='L176' />
+<a id='L177' name='L177' /> - New: Add file system server including VFS framework.
+<a id='L178' name='L178' /> - New: Support buffer cache and mount function.
+<a id='L179' name='L179' /> - New: Add 'devfs' - device file system.
+<a id='L180' name='L180' /> - New: Add 'ramfs' - RAM file system.
+<a id='L181' name='L181' /> - New: Add 'arfs' - archive file system.
+<a id='L182' name='L182' /> - New: Add file system test tool.
+<a id='L183' name='L183' /> - New: Add 'configure' script for build.
+<a id='L184' name='L184' /> - New: Support BSD style makefile for POSIX applications.
+<a id='L185' name='L185' /> - Fix: Fix crash in irq_detach().
+<a id='L186' name='L186' /> - Fix: Fix makefile to optimize build speed with cygwin.
+<a id='L187' name='L187' />
+<a id='L188' name='L188' />
+<a id='L189' name='L189' />Version 0.4.3:
+<a id='L190' name='L190' />
+<a id='L191' name='L191' /> - New: Support DPC - deferred procedure call.
+<a id='L192' name='L192' /> - New: Add 'dmesg' function to dump kernel messages.
+<a id='L193' name='L193' /> - New: Reduce the timer jitters of periodic thread.
+<a id='L194' name='L194' /> - New: Change the name of sys_stat() to sys_info().
+<a id='L195' name='L195' /> - New: Add handling of reference count for the device objects.
+<a id='L196' name='L196' /> - New: Add 'force' option to device_broadcast().
+<a id='L197' name='L197' /> - New: Make the kernel information as same with POSIX utsname.
+<a id='L198' name='L198' /> - New: Remove the quantum adjustment feature.
+<a id='L199' name='L199' /> - New: Add IPC test tool for multi-threaded servers.
+<a id='L200' name='L200' /> - New: Add timer hooking service to reduce the driver's callout.
+<a id='L201' name='L201' /> - New: Improve DVS algorithm of CPUfreq driver.
+<a id='L202' name='L202' /> - Fix: System hang when periodic timer is stopped for an invalid timer object.
+<a id='L203' name='L203' /> - Fix: Replace a delay driver as generic driver service.
+<a id='L204' name='L204' /> - Fix: Fix a system call trap code (ARM).
+<a id='L205' name='L205' /> - Fix: Fix a compile error when it built with SSP enabled gcc.
+<a id='L206' name='L206' /> - Fix: Fix data corruption in malloc() library.
+<a id='L207' name='L207' /> - Fix: A thread could not hold semaphore in some case.
+<a id='L208' name='L208' />
+<a id='L209' name='L209' />
+<a id='L210' name='L210' />Version 0.4.2:
+<a id='L211' name='L211' />
+<a id='L212' name='L212' /> - New: Support RAM disk driver.
+<a id='L213' name='L213' /> - New: Change an argument type of device_read()/device_write().
+<a id='L214' name='L214' /> - New: Add kernel release name in the kernel statistics data.
+<a id='L215' name='L215' /> - New: Update vm_inherit option of task_create().
+<a id='L216' name='L216' /> - New: Change the data type of the message length of IPC related API.
+<a id='L217' name='L217' /> - New: The vm_attrib() API is renamed to vm_attribute().
+<a id='L218' name='L218' /> - New: Add kernel debugging API.
+<a id='L219' name='L219' /> - New: Code size reduction for GBA port.
+<a id='L220' name='L220' /> - New: Support recursive locking of mutex.
+<a id='L221' name='L221' /> - New: Code clean up and system tuning.
+<a id='L222' name='L222' /> - Fix: Fix page fault during kernel memory dump.
+<a id='L223' name='L223' /> - Fix: Fix a bug in removing free node for VM region (NOMMU).
+<a id='L224' name='L224' /> - Fix: System hang by accessing ARM bank register after STM^ instruction.
+<a id='L225' name='L225' /> - Fix: Fix an alignment bug in the page reserve routine.
+<a id='L226' name='L226' /> - Fix: Fix memory leak when vm_map() is called two or more times (NOMMU).
+<a id='L227' name='L227' /> - Fix: The end address of the page extraction is not correct (i386).
+<a id='L228' name='L228' /> - Fix: Interrupt is kept disabled when DMA buffer allocation is failed (i386).
+<a id='L229' name='L229' />
+<a id='L230' name='L230' />
+<a id='L231' name='L231' />Version 0.4.1:
+<a id='L232' name='L232' />
+<a id='L233' name='L233' /> - New: Add ELF task relocation with NOMMU system.
+<a id='L234' name='L234' /> - New: Replace all strncpy() by strlcpy() in kernel for security reason.
+<a id='L235' name='L235' /> - Fix: There are some mutex hang conditions that cause system hang.
+<a id='L236' name='L236' /> - Fix: Fix a deadlock problem of FDD driver.
+<a id='L237' name='L237' /> - Fix: Rewrite the periodic timer routine in kernel.
+<a id='L238' name='L238' /> - Fix: The highest priority thread is not selected in sched_wakeone().
+<a id='L239' name='L239' /> - Fix: Drop vm_inherit option for task_create() on NOMMU system.
+<a id='L240' name='L240' />
+<a id='L241' name='L241' />
+<a id='L242' name='L242' />Version 0.4.0:
+<a id='L243' name='L243' />
+<a id='L244' name='L244' /> - New: Add sys_capget()/sys_capset() kernel API for the task capability.
+<a id='L245' name='L245' /> - New: Define the standard message header for IPC.
+<a id='L246' name='L246' /> - New: Add vm_inherit argument in task_create() to improve exec() emulation.
+<a id='L247' name='L247' /> - New: Add /sample directory and sample applications.
+<a id='L248' name='L248' /> - New: Remove /img directory.
+<a id='L249' name='L249' /> - Fix: Fix the memory leak caused when task_create() is failed.
+<a id='L250' name='L250' /> - Fix: Incorrect I/O read size of FDD driver.
+<a id='L251' name='L251' /> - Fix: Fix the console driver to lock a scheduler during I/O operations.
+<a id='L252' name='L252' />
+<a id='L253' name='L253' />
+<a id='L254' name='L254' />Version 0.3.1:
+<a id='L255' name='L255' />
+<a id='L256' name='L256' /> - New: Add null/zero device driver.
+<a id='L257' name='L257' /> - New: Support MUTEX_INITIALIZER for the static initialization of mutexes.
+<a id='L258' name='L258' /> - New: Merge all configuration files into one single 'config.h'.
+<a id='L259' name='L259' /> - New: libc and headers are updated with BSD derived code.
+<a id='L260' name='L260' /> - New: Add 'make lint' as make option.
+<a id='L261' name='L261' /> - Fix: object_lookup() does not return correct object ID.
+<a id='L262' name='L262' />
+<a id='L263' name='L263' />
+<a id='L264' name='L264' />Version 0.3.0:
+<a id='L265' name='L265' />
+<a id='L266' name='L266' /> - New: Integrate configuration files and makefiles.
+<a id='L267' name='L267' /> - New: Change the name of sync APIs for POSIX compatibility.
+<a id='L268' name='L268' /> - New: Support re-initialize of the semaphore.
+<a id='L269' name='L269' /> - New: Change the driver ioctl code to BSD style.
+<a id='L270' name='L270' /> - New: Add test programs for mutex, semaphore and deadlock detection.
+<a id='L271' name='L271' /> - New: Add malloc() in the user mode library.
+<a id='L272' name='L272' /> - Fix: Fix the incorrect kernel handling of umem_strnlen().
+<a id='L273' name='L273' /> - Fix: Modify the thread test program for long-run test.
+<a id='L274' name='L274' /> - Fix: sem_post() can not unblock the waiting thread.
+<a id='L275' name='L275' /> - Fix: vm_allocate() does not zero-fill the allocated memory.
+<a id='L276' name='L276' /> - Fix: Fix compile error with gcc4.
+<a id='L277' name='L277' />
+<a id='L278' name='L278' />
+<a id='L279' name='L279' />Version 0.2.2:
+<a id='L280' name='L280' />
+<a id='L281' name='L281' /> - New: Add the kernel function tracer which can dump the run-time call tree.
+<a id='L282' name='L282' /> - New: Add a benchmark tool to create/terminate 100000 threads at once.
+<a id='L283' name='L283' /> - New: Add code to detect above 64M of RAM. (i386)
+<a id='L284' name='L284' /> - Fix: Kernel page fault in accessing the highest physical page. (i386)
+<a id='L285' name='L285' /> - Fix: sys_reboot() is replaced by ioctl of the power management driver.
+<a id='L286' name='L286' /> - Fix: There is a time window that lost an IST trigger from ISR.
+<a id='L287' name='L287' /> - Fix: Change not to restart the system by sys_panic().
+<a id='L288' name='L288' /> - Fix: Clean up comments in kernel sources.
+<a id='L289' name='L289' />
+<a id='L290' name='L290' />
+<a id='L291' name='L291' />Version 0.2.1:
+<a id='L292' name='L292' />
+<a id='L293' name='L293' /> - New: Add ARM processor support. (ATM7TDMI)
+<a id='L294' name='L294' /> - New: Add BSP for Game Boy Advance including on-screen keyboard.
+<a id='L295' name='L295' /> - Fix: The irq lock count is not 0 after switching to the new thread.
+<a id='L296' name='L296' /> - Fix: Improve the kernel callout timer for the small timeout value.
+<a id='L297' name='L297' /> - Fix: Remove the error check of max scheduling quantum in sched_setparam().
+<a id='L298' name='L298' />
+<a id='L299' name='L299' />
+<a id='L300' name='L300' />Version 0.2.0:
+<a id='L301' name='L301' />
+<a id='L302' name='L302' /> - New: Add new VM code for No-MMU platform.
+<a id='L303' name='L303' /> - New: Change the structure of the driver I/O table.
+<a id='L304' name='L304' /> - New: Add minimum libc.
+<a id='L305' name='L305' /> - Fix: Fix panic() if the active condition variable is destroyed.
+<a id='L306' name='L306' /> - Fix: Semaphore causes an unconditional wakeup of the blocked threads.
+<a id='L307' name='L307' /> - Fix: Update structure of the source tree.
+<a id='L308' name='L308' />
+<a id='L309' name='L309' />
+<a id='L310' name='L310' />Version 0.1.2:
+<a id='L311' name='L311' />
+<a id='L312' name='L312' /> - New: Add Pentium-M support for i386 processor driver.
+<a id='L313' name='L313' /> - New: Add CPU voltage monitoring tool 'cpuvolt'.
+<a id='L314' name='L314' /> - New: Add DVS test program which changes the CPU load periodically.
+<a id='L315' name='L315' /> - Fix: Improve the build method for cross platform portability.
+<a id='L316' name='L316' />
+<a id='L317' name='L317' />
+<a id='L318' name='L318' />Version 0.1.1:
+<a id='L319' name='L319' />
+<a id='L320' name='L320' /> - New: Add an initial version of kernel monitor 'kmon'.
+<a id='L321' name='L321' /> - New: Add some user mode test programs to check kernel functions.
+<a id='L322' name='L322' /> - New: Move time_get()/time_set() functions to the driver layer.
+<a id='L323' name='L323' /> - New: Add sys_time() kernel interface to return system ticks.
+<a id='L324' name='L324' /> - New: Improve the device I/O dispatcher to verify user buffer automatically.
+<a id='L325' name='L325' /> - Fix: Timer overflow issue after 49.7 days of continuous operation.
+<a id='L326' name='L326' /> - Fix: Unexpected page fault in the exception handler.
+<a id='L327' name='L327' /> - Fix: Page fault after returning from main() routine.
+<a id='L328' name='L328' />
+<a id='L329' name='L329' />
+<a id='L330' name='L330' />Version 0.1:
+<a id='L331' name='L331' />
+<a id='L332' name='L332' /> - Initial public release.
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='204.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

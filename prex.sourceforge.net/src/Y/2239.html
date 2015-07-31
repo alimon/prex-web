@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tv_usec</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/83.html#L138'>tv_usec</a>           138 bsp/drv/dev/rtc/mc146818.c 	tv-&gt;tv_usec = 0;
+<a href='../S/84.html#L73'>tv_usec</a>            73 bsp/drv/dev/rtc/pl030.c 	tv-&gt;tv_usec = 0;
+<a href='../S/85.html#L193'>tv_usec</a>           193 bsp/drv/dev/rtc/rtc.c 		tv.tv_usec = (long)((msec * 1000) % 1000000);
+<a href='../S/259.html#L107'>tv_usec</a>           107 include/sys/ioctl.h 	long	tv_usec;	/* and microseconds */
+<a href='../S/276.html#L43'>tv_usec</a>            43 include/sys/time.h 	long	tv_usec;	/* and microseconds */
+<a href='../S/276.html#L56'>tv_usec</a>            56 include/sys/time.h 	(ts)-&gt;ts_nsec = (tv)-&gt;tv_usec * 1000;				\
+<a href='../S/276.html#L60'>tv_usec</a>            60 include/sys/time.h 	(tv)-&gt;tv_usec = (ts)-&gt;ts_nsec / 1000;				\
+<a href='../S/276.html#L77'>tv_usec</a>            77 include/sys/time.h #define	timerclear(tvp)		(tvp)-&gt;tv_sec = (tvp)-&gt;tv_usec = 0
+<a href='../S/276.html#L78'>tv_usec</a>            78 include/sys/time.h #define	timerisset(tvp)		((tvp)-&gt;tv_sec || (tvp)-&gt;tv_usec)
+<a href='../S/276.html#L81'>tv_usec</a>            81 include/sys/time.h 	    ((tvp)-&gt;tv_usec cmp (uvp)-&gt;tv_usec) :			\
+<a href='../S/631.html#L44'>tv_usec</a>            44 usr/lib/libc/termios/tcsendbreak.c 	sleepytime.tv_usec = 400000;
+<a href='../S/846.html#L54'>tv_usec</a>            54 usr/sample/tetris/input.c 	((tv)-&gt;tv_sec &gt; 0 || ((tv)-&gt;tv_sec == 0 &amp;&amp; (tv)-&gt;tv_usec &gt; 0))
+<a href='../S/846.html#L59'>tv_usec</a>            59 usr/sample/tetris/input.c 	(res)-&gt;tv_usec -= (sub)-&gt;tv_usec; \
+<a href='../S/846.html#L60'>tv_usec</a>            60 usr/sample/tetris/input.c 	if ((res)-&gt;tv_usec &lt; 0) { \
+<a href='../S/846.html#L61'>tv_usec</a>            61 usr/sample/tetris/input.c 		(res)-&gt;tv_usec += 1000000; \
+<a href='../S/846.html#L85'>tv_usec</a>            85 usr/sample/tetris/input.c 		timeout = tvp-&gt;tv_usec / 1000;
+<a href='../S/846.html#L104'>tv_usec</a>           104 usr/sample/tetris/input.c 			tvp-&gt;tv_usec = 0;
+<a href='../S/846.html#L128'>tv_usec</a>           128 usr/sample/tetris/input.c 	tv.tv_usec = fallrate;
+<a href='../S/846.html#L144'>tv_usec</a>           144 usr/sample/tetris/input.c 		tv.tv_sec = tv.tv_usec = 0;
+<a href='../S/846.html#L169'>tv_usec</a>           169 usr/sample/tetris/input.c 		timeleft.tv_usec = fallrate;
+</pre>
+</body>
+</html>

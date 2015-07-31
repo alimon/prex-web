@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t_termios</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/64.html#L537'>t_termios</a>         537 bsp/drv/dev/base/tty.c 		if (copyout(&amp;tp-&gt;t_termios, data,
+<a href='../S/64.html#L548'>t_termios</a>         548 bsp/drv/dev/base/tty.c 		if (copyin(data, &amp;tp-&gt;t_termios,
+<a href='../S/64.html#L617'>t_termios</a>         617 bsp/drv/dev/base/tty.c 	memcpy(&amp;tp-&gt;t_termios.c_cc, ttydefchars, sizeof(ttydefchars));
+<a href='../S/102.html#L61'>t_termios</a>          61 bsp/drv/include/tty.h 	struct termios	t_termios;	/* termios state */
+<a href='../S/102.html#L75'>t_termios</a>          75 bsp/drv/include/tty.h #define	t_iflag		t_termios.c_iflag
+<a href='../S/102.html#L76'>t_termios</a>          76 bsp/drv/include/tty.h #define	t_oflag		t_termios.c_oflag
+<a href='../S/102.html#L77'>t_termios</a>          77 bsp/drv/include/tty.h #define	t_cflag		t_termios.c_cflag
+<a href='../S/102.html#L78'>t_termios</a>          78 bsp/drv/include/tty.h #define	t_lflag		t_termios.c_lflag
+<a href='../S/102.html#L79'>t_termios</a>          79 bsp/drv/include/tty.h #define	t_cc		t_termios.c_cc
+<a href='../S/102.html#L80'>t_termios</a>          80 bsp/drv/include/tty.h #define	t_ispeed	t_termios.c_ispeed
+<a href='../S/102.html#L81'>t_termios</a>          81 bsp/drv/include/tty.h #define	t_ospeed	t_termios.c_ospeed
+</pre>
+</body>
+</html>

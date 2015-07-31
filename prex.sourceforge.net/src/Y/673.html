@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dirent</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/219.html#L145'>dirent</a>            145 include/ipc/fs.h 	struct dirent dirent;		/* directory entry */
+<a href='../S/253.html#L49'>dirent</a>             49 include/sys/dirent.h struct dirent {
+<a href='../S/279.html#L111'>dirent</a>            111 include/sys/vnode.h 	int (*vop_readdir)	(vnode_t, file_t, struct dirent *);
+<a href='../S/279.html#L131'>dirent</a>            131 include/sys/vnode.h typedef	int (*vnop_readdir_t)	(vnode_t, file_t, struct dirent *);
+<a href='../S/390.html#L261'>dirent</a>            261 usr/bin/ls/ls.c 	struct dirent *entry;
+<a href='../S/429.html#L49'>dirent</a>             49 usr/include/dirent.h 	struct dirent dd_ent;
+<a href='../S/429.html#L65'>dirent</a>             65 usr/include/dirent.h struct dirent *readdir(DIR *);
+<a href='../S/479.html#L538'>dirent</a>            538 usr/lib/libc/gen/fts.c 	struct dirent *dp;
+<a href='../S/685.html#L39'>dirent</a>             39 usr/lib/posix/file/readdir.c struct dirent *
+<a href='../S/685.html#L43'>dirent</a>             43 usr/lib/posix/file/readdir.c 	struct dirent *entry = &amp;dir-&gt;dd_ent;
+<a href='../S/685.html#L49'>dirent</a>             49 usr/lib/posix/file/readdir.c 	memcpy(entry, &amp;m.dirent, sizeof(struct dirent));
+<a href='../S/883.html#L71'>dirent</a>             71 usr/server/fs/arfs/arfs_vnops.c static int arfs_readdir	(vnode_t, file_t, struct dirent *);
+<a href='../S/883.html#L284'>dirent</a>            284 usr/server/fs/arfs/arfs_vnops.c arfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/886.html#L66'>dirent</a>             66 usr/server/fs/devfs/devfs_vnops.c static int devfs_readdir(vnode_t, file_t, struct dirent *);
+<a href='../S/886.html#L229'>dirent</a>            229 usr/server/fs/devfs/devfs_vnops.c devfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/888.html#L187'>dirent</a>            187 usr/server/fs/fatfs/fatfs.h 	struct fat_dirent dirent; /* copy of directory entry */
+<a href='../S/890.html#L99'>dirent</a>             99 usr/server/fs/fatfs/fatfs_node.c 			*(&amp;np-&gt;dirent) = *de;
+<a href='../S/890.html#L192'>dirent</a>            192 usr/server/fs/fatfs/fatfs_node.c 				*(&amp;np-&gt;dirent) = *de;
+<a href='../S/890.html#L280'>dirent</a>            280 usr/server/fs/fatfs/fatfs_node.c 	memcpy(de, &amp;np-&gt;dirent, sizeof(struct fat_dirent));
+<a href='../S/890.html#L363'>dirent</a>            363 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf + np-&gt;offset, &amp;np-&gt;dirent,
+<a href='../S/893.html#L61'>dirent</a>             61 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_readdir(vnode_t, file_t, struct dirent *);
+<a href='../S/893.html#L152'>dirent</a>            152 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L271'>dirent</a>            271 usr/server/fs/fatfs/fatfs_vnops.c 		de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L339'>dirent</a>            339 usr/server/fs/fatfs/fatfs_vnops.c fatfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/893.html#L352'>dirent</a>            352 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L400'>dirent</a>            400 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L433'>dirent</a>            433 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L471'>dirent</a>            471 usr/server/fs/fatfs/fatfs_vnops.c 	de1 = &amp;np1.dirent;
+<a href='../S/893.html#L576'>dirent</a>            576 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L634'>dirent</a>            634 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L689'>dirent</a>            689 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np-&gt;dirent;
+<a href='../S/896.html#L81'>dirent</a>             81 usr/server/fs/fifofs/fifo_vnops.c static int fifo_readdir	(vnode_t, file_t, struct dirent *);
+<a href='../S/896.html#L424'>dirent</a>            424 usr/server/fs/fifofs/fifo_vnops.c fifo_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/902.html#L57'>dirent</a>             57 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_readdir(vnode_t, file_t, struct dirent *);
+<a href='../S/902.html#L452'>dirent</a>            452 usr/server/fs/ramfs/ramfs_vnops.c ramfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/903.html#L339'>dirent</a>            339 usr/server/fs/vfs/main.c 	return sys_readdir(fp, &amp;msg-&gt;dirent);
+<a href='../S/905.html#L106'>dirent</a>            106 usr/server/fs/vfs/vfs.h int	 sys_readdir(file_t fp, struct dirent *dirent);
+<a href='../S/911.html#L326'>dirent</a>            326 usr/server/fs/vfs/vfs_syscalls.c 	struct dirent dir;
+<a href='../S/911.html#L392'>dirent</a>            392 usr/server/fs/vfs/vfs_syscalls.c sys_readdir(file_t fp, struct dirent *dir)
+</pre>
+</body>
+</html>

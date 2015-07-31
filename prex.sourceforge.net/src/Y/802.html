@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>excno</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L84'>excno</a>              84 include/sys/prex.h int	exception_raise(task_t task, int excno);
+<a href='../S/267.html#L85'>excno</a>              85 include/sys/prex.h int	exception_wait(int *excno);
+<a href='../S/328.html#L150'>excno</a>             150 sys/kern/exception.c exception_raise(task_t task, int excno)
+<a href='../S/328.html#L164'>excno</a>             164 sys/kern/exception.c 	error = exception_post(task, excno);
+<a href='../S/328.html#L173'>excno</a>             173 sys/kern/exception.c exception_post(task_t task, int excno)
+<a href='../S/328.html#L187'>excno</a>             187 sys/kern/exception.c 	    (excno &lt; 0) || (excno &gt;= NEXC)) {
+<a href='../S/328.html#L221'>excno</a>             221 sys/kern/exception.c 	t-&gt;excbits |= (1 &lt;&lt; excno);
+<a href='../S/328.html#L241'>excno</a>             241 sys/kern/exception.c exception_wait(int *excno)
+<a href='../S/328.html#L250'>excno</a>             250 sys/kern/exception.c 	if (copyout(&amp;i, excno, sizeof(i)))
+<a href='../S/328.html#L272'>excno</a>             272 sys/kern/exception.c 	if (copyout(&amp;i, excno, sizeof(i)))
+<a href='../S/328.html#L286'>excno</a>             286 sys/kern/exception.c exception_mark(int excno)
+<a href='../S/328.html#L290'>excno</a>             290 sys/kern/exception.c 	ASSERT(excno &gt; 0 &amp;&amp; excno &lt; NEXC);
+<a href='../S/328.html#L294'>excno</a>             294 sys/kern/exception.c 	curthread-&gt;excbits |= (1 &lt;&lt; excno);
+<a href='../S/328.html#L314'>excno</a>             314 sys/kern/exception.c 	int s, excno;
+<a href='../S/328.html#L327'>excno</a>             327 sys/kern/exception.c 		for (excno = 0; excno &lt; NEXC; excno++) {
+<a href='../S/328.html#L328'>excno</a>             328 sys/kern/exception.c 			if (bitmap &amp; (1 &lt;&lt; excno))
+<a href='../S/328.html#L334'>excno</a>             334 sys/kern/exception.c 				excno));
+<a href='../S/328.html#L348'>excno</a>             348 sys/kern/exception.c 		context_set(&amp;curthread-&gt;ctx, CTX_UARG, (register_t)excno);
+<a href='../S/328.html#L349'>excno</a>             349 sys/kern/exception.c 		curthread-&gt;excbits &amp;= ~(1 &lt;&lt; excno);
+</pre>
+</body>
+</html>

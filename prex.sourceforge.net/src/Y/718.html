@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>e_ident</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L63'>e_ident</a>            63 bsp/boot/common/elf.c 	if ((ehdr-&gt;e_ident[EI_MAG0] != ELFMAG0) ||
+<a href='../S/13.html#L64'>e_ident</a>            64 bsp/boot/common/elf.c 	    (ehdr-&gt;e_ident[EI_MAG1] != ELFMAG1) ||
+<a href='../S/13.html#L65'>e_ident</a>            65 bsp/boot/common/elf.c 	    (ehdr-&gt;e_ident[EI_MAG2] != ELFMAG2) ||
+<a href='../S/13.html#L66'>e_ident</a>            66 bsp/boot/common/elf.c 	    (ehdr-&gt;e_ident[EI_MAG3] != ELFMAG3)) {
+<a href='../S/254.html#L101'>e_ident</a>           101 include/sys/elf.h #define IS_ELF(ehdr) ((ehdr).e_ident[EI_MAG0] == ELFMAG0 &amp;&amp; \
+<a href='../S/254.html#L102'>e_ident</a>           102 include/sys/elf.h                       (ehdr).e_ident[EI_MAG1] == ELFMAG1 &amp;&amp; \
+<a href='../S/254.html#L103'>e_ident</a>           103 include/sys/elf.h                       (ehdr).e_ident[EI_MAG2] == ELFMAG2 &amp;&amp; \
+<a href='../S/254.html#L104'>e_ident</a>           104 include/sys/elf.h                       (ehdr).e_ident[EI_MAG3] == ELFMAG3)
+<a href='../S/254.html#L108'>e_ident</a>           108 include/sys/elf.h 	unsigned char	e_ident[EI_NIDENT]; /* ELF Identification */
+<a href='../S/876.html#L371'>e_ident</a>           371 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG0],
+<a href='../S/876.html#L372'>e_ident</a>           372 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG1],
+<a href='../S/876.html#L373'>e_ident</a>           373 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG2],
+<a href='../S/876.html#L374'>e_ident</a>           374 usr/server/exec/exec_elf.c 		 ehdr-&gt;e_ident[EI_MAG3]));
+<a href='../S/876.html#L376'>e_ident</a>           376 usr/server/exec/exec_elf.c 	if ((ehdr-&gt;e_ident[EI_MAG0] != ELFMAG0) ||
+<a href='../S/876.html#L377'>e_ident</a>           377 usr/server/exec/exec_elf.c 	    (ehdr-&gt;e_ident[EI_MAG1] != ELFMAG1) ||
+<a href='../S/876.html#L378'>e_ident</a>           378 usr/server/exec/exec_elf.c 	    (ehdr-&gt;e_ident[EI_MAG2] != ELFMAG2) ||
+<a href='../S/876.html#L379'>e_ident</a>           379 usr/server/exec/exec_elf.c 	    (ehdr-&gt;e_ident[EI_MAG3] != ELFMAG3))
+</pre>
+</body>
+</html>

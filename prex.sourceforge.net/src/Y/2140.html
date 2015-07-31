@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tgt</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/19.html#L86'>tgt</a>                86 bsp/boot/common/string.c strncmp(const char *src, const char *tgt, size_t count)
+<a href='../S/19.html#L91'>tgt</a>                91 bsp/boot/common/string.c 		if ((res = *src - *tgt++) != 0 || !*src++)
+<a href='../S/94.html#L91'>tgt</a>                91 bsp/drv/include/ddi.h int	 strncmp(const char *src, const char *tgt, size_t count);
+<a href='../S/113.html#L71'>tgt</a>                71 bsp/drv/lib/string.c strncmp(const char *src, const char *tgt, size_t count)
+<a href='../S/113.html#L76'>tgt</a>                76 bsp/drv/lib/string.c 		if ((res = *src - *tgt++) != 0 || !*src++)
+<a href='../S/338.html#L67'>tgt</a>                67 sys/lib/string.c strncmp(const char *src, const char *tgt, size_t count)
+<a href='../S/338.html#L72'>tgt</a>                72 sys/lib/string.c 		if ((res = *src - *tgt++) != 0 || !*src++)
+<a href='../S/343.html#L388'>tgt</a>               388 sys/mem/vm.c   	struct seg *seg, *cur, *tgt;
+<a href='../S/343.html#L417'>tgt</a>               417 sys/mem/vm.c   	tgt = seg;
+<a href='../S/343.html#L430'>tgt</a>               430 sys/mem/vm.c   	if (tgt-&gt;flags &amp; SEG_WRITE)
+<a href='../S/343.html#L435'>tgt</a>               435 sys/mem/vm.c   	pa = tgt-&gt;phys + (paddr_t)(start - tgt-&gt;addr);
+<a href='../S/343.html#L441'>tgt</a>               441 sys/mem/vm.c   	cur-&gt;flags = tgt-&gt;flags | SEG_MAPPED;
+<a href='../S/344.html#L322'>tgt</a>               322 sys/mem/vm_nommu.c 	struct seg *seg, *tgt;
+<a href='../S/344.html#L347'>tgt</a>               347 sys/mem/vm_nommu.c 	tgt = seg;
+<a href='../S/344.html#L355'>tgt</a>               355 sys/mem/vm_nommu.c 	seg-&gt;flags = tgt-&gt;flags | SEG_MAPPED;
+<a href='../S/877.html#L235'>tgt</a>               235 usr/server/exec/exec_execve.c 	char *src, *tgt, *p, *end;
+<a href='../S/877.html#L245'>tgt</a>               245 usr/server/exec/exec_execve.c 	tgt = full;
+<a href='../S/877.html#L248'>tgt</a>               248 usr/server/exec/exec_execve.c 		*tgt++ = *src++;
+<a href='../S/877.html#L253'>tgt</a>               253 usr/server/exec/exec_execve.c 		tgt += len;
+<a href='../S/877.html#L255'>tgt</a>               255 usr/server/exec/exec_execve.c 			*tgt = '/';
+<a href='../S/877.html#L256'>tgt</a>               256 usr/server/exec/exec_execve.c 			tgt++;
+<a href='../S/877.html#L268'>tgt</a>               268 usr/server/exec/exec_execve.c 				tgt -= 2;	/* skip previous '/' */
+<a href='../S/877.html#L269'>tgt</a>               269 usr/server/exec/exec_execve.c 				while (*tgt != '/') {
+<a href='../S/877.html#L270'>tgt</a>               270 usr/server/exec/exec_execve.c 					tgt--;
+<a href='../S/877.html#L274'>tgt</a>               274 usr/server/exec/exec_execve.c 					tgt++;
+<a href='../S/877.html#L282'>tgt</a>               282 usr/server/exec/exec_execve.c 				*tgt++ = *src++;
+<a href='../S/877.html#L288'>tgt</a>               288 usr/server/exec/exec_execve.c 		if (len &gt; 0 &amp;&amp; *(tgt - 1) != '/') {
+<a href='../S/877.html#L289'>tgt</a>               289 usr/server/exec/exec_execve.c 			*tgt++ = '/';
+<a href='../S/877.html#L294'>tgt</a>               294 usr/server/exec/exec_execve.c 	*tgt = '\0';
+<a href='../S/912.html#L226'>tgt</a>               226 usr/server/fs/vfs/vfs_task.c 	char *src, *tgt, *p, *end, *cwd;
+<a href='../S/912.html#L237'>tgt</a>               237 usr/server/fs/vfs/vfs_task.c 	tgt = full;
+<a href='../S/912.html#L240'>tgt</a>               240 usr/server/fs/vfs/vfs_task.c 		*tgt++ = *src++;
+<a href='../S/912.html#L245'>tgt</a>               245 usr/server/fs/vfs/vfs_task.c 		tgt += len;
+<a href='../S/912.html#L247'>tgt</a>               247 usr/server/fs/vfs/vfs_task.c 			*tgt = '/';
+<a href='../S/912.html#L248'>tgt</a>               248 usr/server/fs/vfs/vfs_task.c 			tgt++;
+<a href='../S/912.html#L260'>tgt</a>               260 usr/server/fs/vfs/vfs_task.c 				tgt -= 2;	/* skip previous '/' */
+<a href='../S/912.html#L261'>tgt</a>               261 usr/server/fs/vfs/vfs_task.c 				while (*tgt != '/') {
+<a href='../S/912.html#L262'>tgt</a>               262 usr/server/fs/vfs/vfs_task.c 					tgt--;
+<a href='../S/912.html#L266'>tgt</a>               266 usr/server/fs/vfs/vfs_task.c 					tgt++;
+<a href='../S/912.html#L274'>tgt</a>               274 usr/server/fs/vfs/vfs_task.c 				*tgt++ = *src++;
+<a href='../S/912.html#L280'>tgt</a>               280 usr/server/fs/vfs/vfs_task.c 		if (len &gt; 0 &amp;&amp; *(tgt - 1) != '/') {
+<a href='../S/912.html#L281'>tgt</a>               281 usr/server/fs/vfs/vfs_task.c 			*tgt++ = '/';
+<a href='../S/912.html#L286'>tgt</a>               286 usr/server/fs/vfs/vfs_task.c 	*tgt = '\0';
+</pre>
+</body>
+</html>

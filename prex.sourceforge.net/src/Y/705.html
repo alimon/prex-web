@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ds</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/173.html#L109'>ds</a>                109 bsp/hal/x86/arch/context.c 		u-&gt;ds = u-&gt;es = (uint32_t)(USER_DS | 3);
+<a href='../S/173.html#L198'>ds</a>                198 bsp/hal/x86/arch/context.c 	cur-&gt;ss = cur-&gt;ds = cur-&gt;es = (uint32_t)(USER_DS | 3);
+<a href='../S/174.html#L205'>ds</a>                205 bsp/hal/x86/arch/cpu.c 	tss.ds = tss.es = tss.ss = tss.fs = tss.gs = (uint32_t)USER_CS | 3;
+<a href='../S/179.html#L165'>ds</a>                165 bsp/hal/x86/arch/trap.c 		ss = r-&gt;ds;
+<a href='../S/179.html#L174'>ds</a>                174 bsp/hal/x86/arch/trap.c 	       r-&gt;cs, ss, r-&gt;ds, r-&gt;es, tss_get());
+<a href='../S/180.html#L53'>ds</a>                 53 bsp/hal/x86/include/context.h 	uint32_t	ds;		/* +28 (1C) */
+<a href='../S/181.html#L182'>ds</a>                182 bsp/hal/x86/include/cpu.h 	uint32_t es, cs, ss, ds, fs, gs;
+</pre>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>value</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L144'>value</a>             144 include/sys/prex.h int	sem_init(sem_t *sp, u_int value);
+<a href='../S/267.html#L149'>value</a>             149 include/sys/prex.h int	sem_getvalue(sem_t *sp, u_int *value);
+<a href='../S/316.html#L43'>value</a>              43 sys/include/sync.h 	u_int		value;		/* current value */
+<a href='../S/347.html#L59'>value</a>              59 sys/sync/sem.c sem_init(sem_t *sp, u_int value)
+<a href='../S/347.html#L69'>value</a>              69 sys/sync/sem.c 	if (value &gt; MAXSEMVAL)
+<a href='../S/347.html#L92'>value</a>              92 sys/sync/sem.c 		s-&gt;value = value;
+<a href='../S/347.html#L110'>value</a>             110 sys/sync/sem.c 		s-&gt;value = value;
+<a href='../S/347.html#L136'>value</a>             136 sys/sync/sem.c 	if (event_waiting(&amp;s-&gt;event) || s-&gt;value == 0) {
+<a href='../S/347.html#L174'>value</a>             174 sys/sync/sem.c 	while (s-&gt;value == 0) {
+<a href='../S/347.html#L191'>value</a>             191 sys/sync/sem.c 		s-&gt;value--;
+<a href='../S/347.html#L212'>value</a>             212 sys/sync/sem.c 	if (s-&gt;value == 0) {
+<a href='../S/347.html#L216'>value</a>             216 sys/sync/sem.c 	s-&gt;value--;
+<a href='../S/347.html#L238'>value</a>             238 sys/sync/sem.c 	if (s-&gt;value &gt;= MAXSEMVAL) {
+<a href='../S/347.html#L242'>value</a>             242 sys/sync/sem.c 	s-&gt;value++;
+<a href='../S/347.html#L243'>value</a>             243 sys/sync/sem.c 	if (s-&gt;value &gt; 0)
+<a href='../S/347.html#L254'>value</a>             254 sys/sync/sem.c sem_getvalue(sem_t *sp, u_int *value)
+<a href='../S/347.html#L263'>value</a>             263 sys/sync/sem.c 	if (copyout(&amp;s-&gt;value, value, sizeof(s-&gt;value))) {
+<a href='../S/414.html#L45'>value</a>              45 usr/bin/sh/sh.h 	char	*value;
+<a href='../S/578.html#L44'>value</a>              44 usr/lib/libc/stdlib/setenv.c setenv(name, value, rewrite)
+<a href='../S/578.html#L46'>value</a>              46 usr/lib/libc/stdlib/setenv.c 	const char *value;
+<a href='../S/578.html#L53'>value</a>              53 usr/lib/libc/stdlib/setenv.c 	if (*value == '=')			/* no `=' in value */
+<a href='../S/578.html#L54'>value</a>              54 usr/lib/libc/stdlib/setenv.c 		++value;
+<a href='../S/578.html#L55'>value</a>              55 usr/lib/libc/stdlib/setenv.c 	l_value = strlen(value);
+<a href='../S/578.html#L60'>value</a>              60 usr/lib/libc/stdlib/setenv.c 			while ( (*c++ = *value++) );
+<a href='../S/578.html#L90'>value</a>              90 usr/lib/libc/stdlib/setenv.c 	for (*c++ = '='; (*c++ = *value++) != 0;);
+</pre>
+</body>
+</html>

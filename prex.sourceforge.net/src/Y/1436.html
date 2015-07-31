@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>obj</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L114'>obj</a>               114 include/sys/prex.h int	object_destroy(object_t obj);
+<a href='../S/267.html#L117'>obj</a>               117 include/sys/prex.h int	msg_send(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L118'>obj</a>               118 include/sys/prex.h int	msg_receive(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L119'>obj</a>               119 include/sys/prex.h int	msg_reply(object_t obj, void *msg, size_t size);
+<a href='../S/324.html#L81'>obj</a>                81 sys/ipc/msg.c  msg_send(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L96'>obj</a>                96 sys/ipc/msg.c  	if (!object_valid(obj)) {
+<a href='../S/324.html#L105'>obj</a>               105 sys/ipc/msg.c  	if (obj == curthread-&gt;recvobj) {
+<a href='../S/324.html#L133'>obj</a>               133 sys/ipc/msg.c  	if (!queue_empty(&amp;obj-&gt;recvq)) {
+<a href='../S/324.html#L134'>obj</a>               134 sys/ipc/msg.c  		t = msg_dequeue(&amp;obj-&gt;recvq);
+<a href='../S/324.html#L143'>obj</a>               143 sys/ipc/msg.c  	curthread-&gt;sendobj = obj;
+<a href='../S/324.html#L144'>obj</a>               144 sys/ipc/msg.c  	msg_enqueue(&amp;obj-&gt;sendq, curthread);
+<a href='../S/324.html#L188'>obj</a>               188 sys/ipc/msg.c  msg_receive(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L199'>obj</a>               199 sys/ipc/msg.c  	if (!object_valid(obj)) {
+<a href='../S/324.html#L203'>obj</a>               203 sys/ipc/msg.c  	if (obj-&gt;owner != curtask) {
+<a href='../S/324.html#L216'>obj</a>               216 sys/ipc/msg.c  	curthread-&gt;recvobj = obj;
+<a href='../S/324.html#L221'>obj</a>               221 sys/ipc/msg.c  	while (queue_empty(&amp;obj-&gt;sendq)) {
+<a href='../S/324.html#L225'>obj</a>               225 sys/ipc/msg.c  		msg_enqueue(&amp;obj-&gt;recvq, curthread);
+<a href='../S/324.html#L257'>obj</a>               257 sys/ipc/msg.c  	t = msg_dequeue(&amp;obj-&gt;sendq);
+<a href='../S/324.html#L265'>obj</a>               265 sys/ipc/msg.c  			msg_enqueue(&amp;obj-&gt;sendq, t);
+<a href='../S/324.html#L288'>obj</a>               288 sys/ipc/msg.c  msg_reply(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L298'>obj</a>               298 sys/ipc/msg.c  	if (!object_valid(obj) || obj != curthread-&gt;recvobj) {
+<a href='../S/324.html#L383'>obj</a>               383 sys/ipc/msg.c  msg_abort(object_t obj)
+<a href='../S/324.html#L393'>obj</a>               393 sys/ipc/msg.c  	while (!queue_empty(&amp;obj-&gt;sendq)) {
+<a href='../S/324.html#L394'>obj</a>               394 sys/ipc/msg.c  		q = dequeue(&amp;obj-&gt;sendq);
+<a href='../S/324.html#L401'>obj</a>               401 sys/ipc/msg.c  	while (!queue_empty(&amp;obj-&gt;recvq)) {
+<a href='../S/324.html#L402'>obj</a>               402 sys/ipc/msg.c  		q = dequeue(&amp;obj-&gt;recvq);
+<a href='../S/325.html#L83'>obj</a>                83 sys/ipc/object.c 	struct object *obj = 0;
+<a href='../S/325.html#L108'>obj</a>               108 sys/ipc/object.c 	if (copyout(&amp;obj, objp, sizeof(obj))) {
+<a href='../S/325.html#L116'>obj</a>               116 sys/ipc/object.c 	if ((obj = kmem_alloc(sizeof(*obj))) == NULL) {
+<a href='../S/325.html#L121'>obj</a>               121 sys/ipc/object.c 		strlcpy(obj-&gt;name, str, MAXOBJNAME);
+<a href='../S/325.html#L123'>obj</a>               123 sys/ipc/object.c 	obj-&gt;owner = curtask;
+<a href='../S/325.html#L124'>obj</a>               124 sys/ipc/object.c 	queue_init(&amp;obj-&gt;sendq);
+<a href='../S/325.html#L125'>obj</a>               125 sys/ipc/object.c 	queue_init(&amp;obj-&gt;recvq);
+<a href='../S/325.html#L126'>obj</a>               126 sys/ipc/object.c 	list_insert(&amp;curtask-&gt;objects, &amp;obj-&gt;task_link);
+<a href='../S/325.html#L128'>obj</a>               128 sys/ipc/object.c 	list_insert(&amp;object_list, &amp;obj-&gt;link);
+<a href='../S/325.html#L129'>obj</a>               129 sys/ipc/object.c 	copyout(&amp;obj, objp, sizeof(obj));
+<a href='../S/325.html#L142'>obj</a>               142 sys/ipc/object.c 	object_t obj;
+<a href='../S/325.html#L151'>obj</a>               151 sys/ipc/object.c 	obj = object_find(str);
+<a href='../S/325.html#L154'>obj</a>               154 sys/ipc/object.c 	if (obj == NULL)
+<a href='../S/325.html#L157'>obj</a>               157 sys/ipc/object.c 	if (copyout(&amp;obj, objp, sizeof(obj)))
+<a href='../S/325.html#L163'>obj</a>               163 sys/ipc/object.c object_valid(object_t obj)
+<a href='../S/325.html#L171'>obj</a>               171 sys/ipc/object.c 		if (tmp == obj)
+<a href='../S/325.html#L180'>obj</a>               180 sys/ipc/object.c 	object_t obj;
+<a href='../S/325.html#L185'>obj</a>               185 sys/ipc/object.c 		obj = list_entry(n, struct object, link);
+<a href='../S/325.html#L186'>obj</a>               186 sys/ipc/object.c 		if (!strncmp(obj-&gt;name, name, MAXOBJNAME))
+<a href='../S/325.html#L187'>obj</a>               187 sys/ipc/object.c 			return obj;
+<a href='../S/325.html#L196'>obj</a>               196 sys/ipc/object.c object_deallocate(object_t obj)
+<a href='../S/325.html#L199'>obj</a>               199 sys/ipc/object.c 	msg_abort(obj);
+<a href='../S/325.html#L200'>obj</a>               200 sys/ipc/object.c 	obj-&gt;owner-&gt;nobjects--;
+<a href='../S/325.html#L201'>obj</a>               201 sys/ipc/object.c 	list_remove(&amp;obj-&gt;task_link);
+<a href='../S/325.html#L202'>obj</a>               202 sys/ipc/object.c 	list_remove(&amp;obj-&gt;link);
+<a href='../S/325.html#L203'>obj</a>               203 sys/ipc/object.c 	kmem_free(obj);
+<a href='../S/325.html#L213'>obj</a>               213 sys/ipc/object.c object_destroy(object_t obj)
+<a href='../S/325.html#L217'>obj</a>               217 sys/ipc/object.c 	if (!object_valid(obj)) {
+<a href='../S/325.html#L221'>obj</a>               221 sys/ipc/object.c 	if (obj-&gt;owner != curtask) {
+<a href='../S/325.html#L225'>obj</a>               225 sys/ipc/object.c 	object_deallocate(obj);
+<a href='../S/325.html#L236'>obj</a>               236 sys/ipc/object.c 	object_t obj;
+<a href='../S/325.html#L239'>obj</a>               239 sys/ipc/object.c 		obj = list_entry(list_first(&amp;task-&gt;objects),
+<a href='../S/325.html#L241'>obj</a>               241 sys/ipc/object.c 		object_deallocate(obj);
+<a href='../S/702.html#L43'>obj</a>                43 usr/lib/posix/gen/__posix_call.c __posix_call(object_t obj, void *msg, size_t size, int restart)
+<a href='../S/702.html#L47'>obj</a>                47 usr/lib/posix/gen/__posix_call.c 	if (obj == 0) {
+<a href='../S/702.html#L53'>obj</a>                53 usr/lib/posix/gen/__posix_call.c 		error = msg_send(obj, msg, size);
+<a href='../S/837.html#L81'>obj</a>                81 usr/sample/ipc/ipc.c send_message(object_t obj, const char *str)
+<a href='../S/837.html#L87'>obj</a>                87 usr/sample/ipc/ipc.c 	msg_send(obj, &amp;msg, sizeof(msg));
+<a href='../S/837.html#L98'>obj</a>                98 usr/sample/ipc/ipc.c 	object_t obj;
+<a href='../S/837.html#L106'>obj</a>               106 usr/sample/ipc/ipc.c 	if ((error = object_lookup("test", &amp;obj)) != 0)
+<a href='../S/837.html#L112'>obj</a>               112 usr/sample/ipc/ipc.c 	send_message(obj, "Hello!");
+<a href='../S/837.html#L113'>obj</a>               113 usr/sample/ipc/ipc.c 	send_message(obj, "This is a client task.");
+<a href='../S/837.html#L114'>obj</a>               114 usr/sample/ipc/ipc.c 	send_message(obj, "Who are you?");
+<a href='../S/837.html#L115'>obj</a>               115 usr/sample/ipc/ipc.c 	send_message(obj, "How are you?");
+<a href='../S/837.html#L116'>obj</a>               116 usr/sample/ipc/ipc.c 	send_message(obj, "....");
+<a href='../S/837.html#L117'>obj</a>               117 usr/sample/ipc/ipc.c 	send_message(obj, "Bye!");
+<a href='../S/837.html#L118'>obj</a>               118 usr/sample/ipc/ipc.c 	send_message(obj, "Exit");
+<a href='../S/837.html#L129'>obj</a>               129 usr/sample/ipc/ipc.c 	object_t obj = 0;
+<a href='../S/837.html#L143'>obj</a>               143 usr/sample/ipc/ipc.c 	if ((error = object_create("test", &amp;obj)) != 0)
+<a href='../S/837.html#L160'>obj</a>               160 usr/sample/ipc/ipc.c 		error = msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/837.html#L180'>obj</a>               180 usr/sample/ipc/ipc.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/856.html#L52'>obj</a>                52 usr/sbin/debug/debug.c 	object_t obj;
+<a href='../S/856.html#L58'>obj</a>                58 usr/sbin/debug/debug.c 	if (object_lookup(argv[1], &amp;obj) != 0) {
+<a href='../S/856.html#L63'>obj</a>                63 usr/sbin/debug/debug.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/864.html#L47'>obj</a>                47 usr/sbin/ktrace/ktrace.c 	object_t obj;
+<a href='../S/864.html#L57'>obj</a>                57 usr/sbin/ktrace/ktrace.c 	if (object_lookup("!proc", &amp;obj) != 0) {
+<a href='../S/864.html#L62'>obj</a>                62 usr/sbin/ktrace/ktrace.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/871.html#L110'>obj</a>               110 usr/server/boot/boot.c send_bootmsg(object_t obj)
+<a href='../S/871.html#L116'>obj</a>               116 usr/server/boot/boot.c 	error = msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/879.html#L82'>obj</a>                82 usr/server/exec/main.c 	object_t obj;
+<a href='../S/879.html#L85'>obj</a>                85 usr/server/exec/main.c 	error = object_lookup("!proc", &amp;obj);
+<a href='../S/879.html#L90'>obj</a>                90 usr/server/exec/main.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/879.html#L166'>obj</a>               166 usr/server/exec/main.c 	object_t obj;
+<a href='../S/879.html#L192'>obj</a>               192 usr/server/exec/main.c 	error = object_create("!exec", &amp;obj);
+<a href='../S/879.html#L206'>obj</a>               206 usr/server/exec/main.c 		error = msg_receive(obj, msg, MAX_EXECMSG);
+<a href='../S/879.html#L233'>obj</a>               233 usr/server/exec/main.c 		error = msg_reply(obj, msg, MAX_EXECMSG);
+<a href='../S/916.html#L327'>obj</a>               327 usr/server/pow/pow.c 	object_t obj;
+<a href='../S/916.html#L330'>obj</a>               330 usr/server/pow/pow.c 	error = object_lookup("!proc", &amp;obj);
+<a href='../S/916.html#L335'>obj</a>               335 usr/server/pow/pow.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/916.html#L369'>obj</a>               369 usr/server/pow/pow.c 	object_t obj;
+<a href='../S/916.html#L373'>obj</a>               373 usr/server/pow/pow.c 	error = object_lookup((char *)name, &amp;obj);
+<a href='../S/916.html#L378'>obj</a>               378 usr/server/pow/pow.c 	error = msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/916.html#L397'>obj</a>               397 usr/server/pow/pow.c 	object_t obj;
+<a href='../S/916.html#L434'>obj</a>               434 usr/server/pow/pow.c 	error = object_create("!pow", &amp;obj);
+<a href='../S/916.html#L445'>obj</a>               445 usr/server/pow/pow.c 		error = msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/916.html#L472'>obj</a>               472 usr/server/pow/pow.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/917.html#L408'>obj</a>               408 usr/server/proc/main.c 	object_t obj;
+<a href='../S/917.html#L421'>obj</a>               421 usr/server/proc/main.c 	if (object_lookup("!exec", &amp;obj) != 0)
+<a href='../S/917.html#L425'>obj</a>               425 usr/server/proc/main.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/917.html#L526'>obj</a>               526 usr/server/proc/main.c 	object_t obj;
+<a href='../S/917.html#L541'>obj</a>               541 usr/server/proc/main.c 	if ((error = object_create("!proc", &amp;obj)) != 0)
+<a href='../S/917.html#L551'>obj</a>               551 usr/server/proc/main.c 		error = msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/917.html#L574'>obj</a>               574 usr/server/proc/main.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/928.html#L45'>obj</a>                45 usr/test/attack/attack.c 	object_t obj	= (object_t)random();
+<a href='../S/928.html#L61'>obj</a>                61 usr/test/attack/attack.c 	object_destroy(obj);
+<a href='../S/928.html#L68'>obj</a>                68 usr/test/attack/attack.c 	msg_send(obj, NULL, size);
+<a href='../S/928.html#L69'>obj</a>                69 usr/test/attack/attack.c 	msg_send(obj, msg, 0);
+<a href='../S/928.html#L72'>obj</a>                72 usr/test/attack/attack.c 	msg_send(obj, msg, size);
+<a href='../S/928.html#L75'>obj</a>                75 usr/test/attack/attack.c 	msg_receive(obj, NULL, size);
+<a href='../S/928.html#L76'>obj</a>                76 usr/test/attack/attack.c 	msg_receive(obj, msg, 0);
+<a href='../S/928.html#L79'>obj</a>                79 usr/test/attack/attack.c 	msg_receive(obj, msg, size);
+<a href='../S/928.html#L82'>obj</a>                82 usr/test/attack/attack.c 	msg_reply(obj, NULL, size);
+<a href='../S/928.html#L83'>obj</a>                83 usr/test/attack/attack.c 	msg_reply(obj, msg, 0);
+<a href='../S/928.html#L86'>obj</a>                86 usr/test/attack/attack.c 	msg_reply(obj, msg, size);
+<a href='../S/962.html#L74'>obj</a>                74 usr/test/ipc_mt/ipc_mt.c 	object_t obj;
+<a href='../S/962.html#L84'>obj</a>                84 usr/test/ipc_mt/ipc_mt.c 	error = object_lookup("test-A", &amp;obj);
+<a href='../S/962.html#L91'>obj</a>                91 usr/test/ipc_mt/ipc_mt.c 		msg_receive(obj, &amp;msg, sizeof(msg));
+<a href='../S/962.html#L100'>obj</a>               100 usr/test/ipc_mt/ipc_mt.c 		msg_reply(obj, &amp;msg, sizeof(msg));
+<a href='../S/962.html#L109'>obj</a>               109 usr/test/ipc_mt/ipc_mt.c 	object_t obj;
+<a href='../S/962.html#L117'>obj</a>               117 usr/test/ipc_mt/ipc_mt.c 	error = object_create("test-A", &amp;obj);
+<a href='../S/973.html#L46'>obj</a>                46 usr/test/memleak/memleak.c 	object_t obj;
+<a href='../S/973.html#L66'>obj</a>                66 usr/test/memleak/memleak.c 		error = object_create(str, &amp;obj);
+<a href='../S/979.html#L43'>obj</a>                43 usr/test/object/object.c 	object_t obj;
+<a href='../S/979.html#L51'>obj</a>                51 usr/test/object/object.c 	error = object_create("test", &amp;obj);
+<a href='../S/979.html#L55'>obj</a>                55 usr/test/object/object.c 	error = object_destroy(obj);
+<a href='../S/979.html#L62'>obj</a>                62 usr/test/object/object.c 	error = object_create("!test", &amp;obj);
+<a href='../S/979.html#L69'>obj</a>                69 usr/test/object/object.c 	error = object_lookup("!proc", &amp;obj);
+<a href='../S/979.html#L73'>obj</a>                73 usr/test/object/object.c 	error = object_destroy(obj);
+</pre>
+</body>
+</html>

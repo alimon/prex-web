@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>PAGE_DIR</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L161'>PAGE_DIR</a>          161 bsp/hal/arm/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | PDE_PRESENT;
+<a href='../S/131.html#L198'>PAGE_DIR</a>          198 bsp/hal/arm/arch/mmu.c 	i = PAGE_DIR(KERNBASE);
+<a href='../S/131.html#L218'>PAGE_DIR</a>          218 bsp/hal/arm/arch/mmu.c 	for (i = 0; i &lt; PAGE_DIR(KERNBASE); i++) {
+<a href='../S/131.html#L283'>PAGE_DIR</a>          283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/144.html#L65'>PAGE_DIR</a>           65 bsp/hal/arm/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/144.html#L70'>PAGE_DIR</a>           70 bsp/hal/arm/include/mmu.h             (pte_t)ptokv((pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/178.html#L133'>PAGE_DIR</a>          133 bsp/hal/x86/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | pde_flag;
+<a href='../S/178.html#L171'>PAGE_DIR</a>          171 bsp/hal/x86/arch/mmu.c 	i = PAGE_DIR(KERNBASE);
+<a href='../S/178.html#L188'>PAGE_DIR</a>          188 bsp/hal/x86/arch/mmu.c 	for (i = 0; i &lt; PAGE_DIR(KERNBASE); i++) {
+<a href='../S/184.html#L70'>PAGE_DIR</a>           70 bsp/hal/x86/include/mmu.h #define pte_present(pgd, virt)  (pgd[PAGE_DIR(virt)] &amp; PDE_PRESENT)
+<a href='../S/184.html#L75'>PAGE_DIR</a>           75 bsp/hal/x86/include/mmu.h             (pte_t)ptokv(((uint32_t *)pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+</pre>
+</body>
+</html>

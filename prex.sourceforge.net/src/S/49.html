@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/drv/arm/gba/keymap.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1027.html'>drv</a>/<a href='../files/1028.html'>arm</a>/<a href='../files/1030.html'>gba</a>/keymap.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='49.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='54.html#L72' title='Included from 72 in bsp/drv/arm/gba/swkbd.c.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='comment'>/*</em>
+<a id='L31' name='L31' />  31 <em class='comment'> * keymap.h - Keyboard mapping</em>
+<a id='L32' name='L32' />  32 <em class='comment'> */</em>
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='261.html'>sys/keycode.h</a>&gt;
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <strong class='reserved'>struct</strong> <a href='../Y/315.html' title='Multiple used in 6 places.'>_key_info</a> <em class='brace'>{</em>
+<a id='L36' name='L36' />  36         <strong class='reserved'>int</strong> <a href='../Y/1637.html' title='Multiple used in 37 places.'>pos_x</a>;      <em class='comment'>/* Cursor position */</em>
+<a id='L37' name='L37' />  37         <strong class='reserved'>int</strong> <a href='../Y/2423.html' title='Multiple used in 50 places.'>width</a>;      <em class='comment'>/* Cursor width */</em>
+<a id='L38' name='L38' />  38         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> <a href='../Y/1397.html' title='Multiple used in 2 places.'>normal</a>;  <em class='comment'>/* Normal code */</em>
+<a id='L39' name='L39' />  39         <a href='../D/3756.html' title='Multiple defined in 2 places.'>u_char</a> <a href='../Y/1936.html' title='Multiple used in 2 places.'>shifted</a>; <em class='comment'>/* Shifted code */</em>
+<a id='L40' name='L40' />  40 <em class='brace'>}</em>;
+<a id='L41' name='L41' />  41 
+<a id='L42' name='L42' />  42 <strong class='reserved'>const</strong> <strong class='reserved'>struct</strong> <a href='../Y/315.html' title='Multiple used in 6 places.'>_key_info</a> <a href='../Y/1139.html' title='Multiple used in 3 places.'>key_info</a>[5][14] =
+<a id='L43' name='L43' />  43         <em class='brace'>{</em><em class='brace'>{</em><em class='brace'>{</em>0,   9,  '`', '~'<em class='brace'>}</em>,
+<a id='L44' name='L44' />  44           <em class='brace'>{</em>8,   9,  '1', '!'<em class='brace'>}</em>,
+<a id='L45' name='L45' />  45           <em class='brace'>{</em>16,  9,  '2', '@'<em class='brace'>}</em>,
+<a id='L46' name='L46' />  46           <em class='brace'>{</em>24,  9,  '3', '#'<em class='brace'>}</em>,
+<a id='L47' name='L47' />  47           <em class='brace'>{</em>32,  9,  '4', '$'<em class='brace'>}</em>,
+<a id='L48' name='L48' />  48           <em class='brace'>{</em>40,  9,  '5', '%'<em class='brace'>}</em>,
+<a id='L49' name='L49' />  49           <em class='brace'>{</em>48,  9,  '6', '^'<em class='brace'>}</em>,
+<a id='L50' name='L50' />  50           <em class='brace'>{</em>56,  9,  '7', '&amp;'<em class='brace'>}</em>,
+<a id='L51' name='L51' />  51           <em class='brace'>{</em>64,  9,  '8', '*'<em class='brace'>}</em>,
+<a id='L52' name='L52' />  52           <em class='brace'>{</em>72,  9,  '9', '('<em class='brace'>}</em>,
+<a id='L53' name='L53' />  53           <em class='brace'>{</em>80,  9,  '0', ')'<em class='brace'>}</em>,
+<a id='L54' name='L54' />  54           <em class='brace'>{</em>88,  9,  '-', '_'<em class='brace'>}</em>,
+<a id='L55' name='L55' />  55           <em class='brace'>{</em>96,  9,  '=', '+'<em class='brace'>}</em>,
+<a id='L56' name='L56' />  56           <em class='brace'>{</em>104, 15, '\b', '\b'<em class='brace'>}</em><em class='brace'>}</em>, <em class='comment'>/* back space */</em>
+<a id='L57' name='L57' />  57 
+<a id='L58' name='L58' />  58          <em class='brace'>{</em><em class='brace'>{</em>0,   15, '\t', '\t'<em class='brace'>}</em>, <em class='comment'>/* tab */</em>
+<a id='L59' name='L59' />  59           <em class='brace'>{</em>14,  9,  'q', 'Q'<em class='brace'>}</em>,
+<a id='L60' name='L60' />  60           <em class='brace'>{</em>22,  9,  'w', 'W'<em class='brace'>}</em>,
+<a id='L61' name='L61' />  61           <em class='brace'>{</em>30,  9,  'e', 'E'<em class='brace'>}</em>,
+<a id='L62' name='L62' />  62           <em class='brace'>{</em>38,  9,  'r', 'R'<em class='brace'>}</em>,
+<a id='L63' name='L63' />  63           <em class='brace'>{</em>46,  9,  't', 'T'<em class='brace'>}</em>,
+<a id='L64' name='L64' />  64           <em class='brace'>{</em>54,  9,  'y', 'Y'<em class='brace'>}</em>,
+<a id='L65' name='L65' />  65           <em class='brace'>{</em>62,  9,  'u', 'U'<em class='brace'>}</em>,
+<a id='L66' name='L66' />  66           <em class='brace'>{</em>70,  9,  'i', 'I'<em class='brace'>}</em>,
+<a id='L67' name='L67' />  67           <em class='brace'>{</em>78,  9,  'o', 'O'<em class='brace'>}</em>,
+<a id='L68' name='L68' />  68           <em class='brace'>{</em>86,  9,  'p', 'P'<em class='brace'>}</em>,
+<a id='L69' name='L69' />  69           <em class='brace'>{</em>94,  9,  '[', '{'<em class='brace'>}</em>,
+<a id='L70' name='L70' />  70           <em class='brace'>{</em>102, 9,  ']', '}'<em class='brace'>}</em>,
+<a id='L71' name='L71' />  71           <em class='brace'>{</em>110, 9,  '\\', '|'<em class='brace'>}</em><em class='brace'>}</em>,
+<a id='L72' name='L72' />  72 
+<a id='L73' name='L73' />  73          <em class='brace'>{</em><em class='brace'>{</em>0,   17, <a href='261.html#L40' title='Defined at 40 in include/sys/keycode.h.'>K_CAPS</a>, <a href='261.html#L40' title='Defined at 40 in include/sys/keycode.h.'>K_CAPS</a><em class='brace'>}</em>,
+<a id='L74' name='L74' />  74           <em class='brace'>{</em>16,  9,  'a', 'A'<em class='brace'>}</em>,
+<a id='L75' name='L75' />  75           <em class='brace'>{</em>24,  9,  's', 'S'<em class='brace'>}</em>,
+<a id='L76' name='L76' />  76           <em class='brace'>{</em>32,  9,  'd', 'D'<em class='brace'>}</em>,
+<a id='L77' name='L77' />  77           <em class='brace'>{</em>40,  9,  'f', 'F'<em class='brace'>}</em>,
+<a id='L78' name='L78' />  78           <em class='brace'>{</em>48,  9,  'g', 'G'<em class='brace'>}</em>,
+<a id='L79' name='L79' />  79           <em class='brace'>{</em>56,  9,  'h', 'H'<em class='brace'>}</em>,
+<a id='L80' name='L80' />  80           <em class='brace'>{</em>64,  9,  'j', 'J'<em class='brace'>}</em>,
+<a id='L81' name='L81' />  81           <em class='brace'>{</em>72,  9,  'k', 'K'<em class='brace'>}</em>,
+<a id='L82' name='L82' />  82           <em class='brace'>{</em>80,  9,  'l', 'L'<em class='brace'>}</em>,
+<a id='L83' name='L83' />  83           <em class='brace'>{</em>88,  9,  ';', ':'<em class='brace'>}</em>,
+<a id='L84' name='L84' />  84           <em class='brace'>{</em>96,  9,  '\'','"'<em class='brace'>}</em>,
+<a id='L85' name='L85' />  85           <em class='brace'>{</em>104, 15, '\n', '\n'<em class='brace'>}</em>,
+<a id='L86' name='L86' />  86           <em class='brace'>{</em>0,   0,  0,   0<em class='brace'>}</em><em class='brace'>}</em>, <em class='comment'>/* dummy */</em>
+<a id='L87' name='L87' />  87 
+<a id='L88' name='L88' />  88          <em class='brace'>{</em><em class='brace'>{</em>0,   19, <a href='261.html#L38' title='Defined at 38 in include/sys/keycode.h.'>K_SHFT</a>, <a href='261.html#L38' title='Defined at 38 in include/sys/keycode.h.'>K_SHFT</a><em class='brace'>}</em>,
+<a id='L89' name='L89' />  89           <em class='brace'>{</em>18,  9,  'z', 'Z'<em class='brace'>}</em>,
+<a id='L90' name='L90' />  90           <em class='brace'>{</em>26,  9,  'x', 'X'<em class='brace'>}</em>,
+<a id='L91' name='L91' />  91           <em class='brace'>{</em>34,  9,  'c', 'C'<em class='brace'>}</em>,
+<a id='L92' name='L92' />  92           <em class='brace'>{</em>42,  9,  'v', 'V'<em class='brace'>}</em>,
+<a id='L93' name='L93' />  93           <em class='brace'>{</em>50,  9,  'b', 'B'<em class='brace'>}</em>,
+<a id='L94' name='L94' />  94           <em class='brace'>{</em>58,  9,  'n', 'N'<em class='brace'>}</em>,
+<a id='L95' name='L95' />  95           <em class='brace'>{</em>66,  9,  'm', 'M'<em class='brace'>}</em>,
+<a id='L96' name='L96' />  96           <em class='brace'>{</em>74,  9,  ',', '&lt;'<em class='brace'>}</em>,
+<a id='L97' name='L97' />  97           <em class='brace'>{</em>82,  9,  '.', '&gt;'<em class='brace'>}</em>,
+<a id='L98' name='L98' />  98           <em class='brace'>{</em>90,  9,  '/', '?'<em class='brace'>}</em>,
+<a id='L99' name='L99' />  99           <em class='brace'>{</em>98,  11, <a href='261.html#L45' title='Defined at 45 in include/sys/keycode.h.'>K_PGUP</a>, <a href='261.html#L45' title='Defined at 45 in include/sys/keycode.h.'>K_PGUP</a><em class='brace'>}</em>, <em class='comment'>/* special */</em>
+<a id='L100' name='L100' /> 100           <em class='brace'>{</em>108, 11, <a href='261.html#L46' title='Defined at 46 in include/sys/keycode.h.'>K_PGDN</a>, <a href='261.html#L46' title='Defined at 46 in include/sys/keycode.h.'>K_PGDN</a><em class='brace'>}</em>, <em class='comment'>/* special */</em>
+<a id='L101' name='L101' /> 101           <em class='brace'>{</em>0,   0,  0,   0<em class='brace'>}</em><em class='brace'>}</em>, <em class='comment'>/* dummy */</em>
+<a id='L102' name='L102' /> 102 
+<a id='L103' name='L103' /> 103          <em class='brace'>{</em><em class='brace'>{</em>0,   12, 0x1b, 0x1b<em class='brace'>}</em>, <em class='comment'>/* escape */</em>
+<a id='L104' name='L104' /> 104           <em class='brace'>{</em>11,  12, <a href='261.html#L42' title='Defined at 42 in include/sys/keycode.h.'>K_INS</a>, <a href='261.html#L42' title='Defined at 42 in include/sys/keycode.h.'>K_INS</a><em class='brace'>}</em>,
+<a id='L105' name='L105' /> 105           <em class='brace'>{</em>22,  13, 0x7f, 0x7f<em class='brace'>}</em>, <em class='comment'>/* delete */</em>
+<a id='L106' name='L106' /> 106           <em class='brace'>{</em>34,  53, ' ', ' '<em class='brace'>}</em>,
+<a id='L107' name='L107' /> 107           <em class='brace'>{</em>34,  53, ' ', ' '<em class='brace'>}</em>,
+<a id='L108' name='L108' /> 108           <em class='brace'>{</em>34,  53, ' ', ' '<em class='brace'>}</em>,
+<a id='L109' name='L109' /> 109           <em class='brace'>{</em>34,  53, ' ', ' '<em class='brace'>}</em>,
+<a id='L110' name='L110' /> 110           <em class='brace'>{</em>34,  53, ' ', ' '<em class='brace'>}</em>,
+<a id='L111' name='L111' /> 111           <em class='brace'>{</em>34,  53, ' ', ' '<em class='brace'>}</em>,
+<a id='L112' name='L112' /> 112           <em class='brace'>{</em>86,  9,  <a href='261.html#L48' title='Defined at 48 in include/sys/keycode.h.'>K_DOWN</a>, <a href='261.html#L48' title='Defined at 48 in include/sys/keycode.h.'>K_DOWN</a><em class='brace'>}</em>,
+<a id='L113' name='L113' /> 113           <em class='brace'>{</em>94,  9,  <a href='261.html#L47' title='Defined at 47 in include/sys/keycode.h.'>K_UP</a>,   <a href='261.html#L47' title='Defined at 47 in include/sys/keycode.h.'>K_UP</a>  <em class='brace'>}</em>,
+<a id='L114' name='L114' /> 114           <em class='brace'>{</em>102, 9,  <a href='261.html#L49' title='Defined at 49 in include/sys/keycode.h.'>K_LEFT</a>, <a href='261.html#L49' title='Defined at 49 in include/sys/keycode.h.'>K_LEFT</a><em class='brace'>}</em>,
+<a id='L115' name='L115' /> 115           <em class='brace'>{</em>110, 9,  <a href='261.html#L50' title='Defined at 50 in include/sys/keycode.h.'>K_RGHT</a>, <a href='261.html#L50' title='Defined at 50 in include/sys/keycode.h.'>K_RGHT</a><em class='brace'>}</em>,
+<a id='L116' name='L116' /> 116           <em class='brace'>{</em>0,   0,  0,   0<em class='brace'>}</em><em class='brace'>}</em>, <em class='comment'>/* dummy */</em>
+<a id='L117' name='L117' /> 117 <em class='brace'>}</em>;
+<a id='L118' name='L118' /> 118 
+<a id='L119' name='L119' /> 119 <em class='comment'>/* Maximum colum number for each row */</em>
+<a id='L120' name='L120' /> 120 <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1259.html' title='Multiple used in 10 places.'>max_x</a>[] = <em class='brace'>{</em>13,13,12,12,12<em class='brace'>}</em>;
+<a id='L121' name='L121' /> 121 
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='49.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

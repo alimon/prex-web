@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>page_head</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/342.html#L62'>page_head</a>          62 sys/mem/page.c static struct page	page_head;	/* first free block */
+<a href='../S/342.html#L89'>page_head</a>          89 sys/mem/page.c 	blk = &amp;page_head;
+<a href='../S/342.html#L92'>page_head</a>          92 sys/mem/page.c 		if (blk == &amp;page_head) {
+<a href='../S/342.html#L144'>page_head</a>         144 sys/mem/page.c 	for (prev = &amp;page_head; prev-&gt;next &lt; blk; prev = prev-&gt;next) {
+<a href='../S/342.html#L145'>page_head</a>         145 sys/mem/page.c 		if (prev-&gt;next == &amp;page_head)
+<a href='../S/342.html#L162'>page_head</a>         162 sys/mem/page.c 	if (blk-&gt;next != &amp;page_head &amp;&amp;
+<a href='../S/342.html#L168'>page_head</a>         168 sys/mem/page.c 	if (blk-&gt;prev != &amp;page_head &amp;&amp;
+<a href='../S/342.html#L198'>page_head</a>         198 sys/mem/page.c 	blk = page_head.next;
+<a href='../S/342.html#L200'>page_head</a>         200 sys/mem/page.c 		if (blk == &amp;page_head)
+<a href='../S/342.html#L270'>page_head</a>         270 sys/mem/page.c 	page_head.next = page_head.prev = &amp;page_head;
+</pre>
+</body>
+</html>

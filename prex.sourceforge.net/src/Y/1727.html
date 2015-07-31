@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>receiver</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/319.html#L70'>receiver</a>           70 sys/include/thread.h 	thread_t	receiver;	/* thread that receives IPC message */
+<a href='../S/324.html#L275'>receiver</a>          275 sys/ipc/msg.c  	t-&gt;receiver = curthread;
+<a href='../S/324.html#L326'>receiver</a>          326 sys/ipc/msg.c  	t-&gt;receiver = NULL;
+<a href='../S/324.html#L363'>receiver</a>          363 sys/ipc/msg.c  		if (t-&gt;receiver != NULL)
+<a href='../S/324.html#L364'>receiver</a>          364 sys/ipc/msg.c  			t-&gt;receiver-&gt;sender = NULL;
+<a href='../S/324.html#L371'>receiver</a>          371 sys/ipc/msg.c  			t-&gt;sender-&gt;receiver = NULL;
+</pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>m_dev</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/263.html#L68'>m_dev</a>              68 include/sys/mount.h 	dev_t		m_dev;		/* mounted device */
+<a href='../S/882.html#L84'>m_dev</a>              84 usr/server/fs/arfs/arfs_vfsops.c 	error = device_read((device_t)mp-&gt;m_dev, buf, &amp;size, 0);
+<a href='../S/883.html#L126'>m_dev</a>             126 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/883.html#L131'>m_dev</a>             131 usr/server/fs/arfs/arfs_vnops.c 	if ((error = bread(mp-&gt;m_dev, blkno + 1, &amp;bp)) != 0)
+<a href='../S/883.html#L239'>m_dev</a>             239 usr/server/fs/arfs/arfs_vnops.c 		if ((error = bread(mp-&gt;m_dev, blkno, &amp;bp)) != 0)
+<a href='../S/892.html#L148'>m_dev</a>             148 usr/server/fs/fatfs/fatfs_vfsops.c 	fmp-&gt;dev = mp-&gt;m_dev;
+<a href='../S/909.html#L125'>m_dev</a>             125 usr/server/fs/vfs/vfs_mount.c 		    (device &amp;&amp; mp-&gt;m_dev == (dev_t)device)) {
+<a href='../S/909.html#L140'>m_dev</a>             140 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_dev = (dev_t)device;
+<a href='../S/909.html#L251'>m_dev</a>             251 usr/server/fs/vfs/vfs_mount.c 	binval(mp-&gt;m_dev);
+<a href='../S/909.html#L253'>m_dev</a>             253 usr/server/fs/vfs/vfs_mount.c 	if (mp-&gt;m_dev)
+<a href='../S/909.html#L254'>m_dev</a>             254 usr/server/fs/vfs/vfs_mount.c 		device_close((device_t)mp-&gt;m_dev);
+<a href='../S/909.html#L395'>m_dev</a>             395 usr/server/fs/vfs/vfs_mount.c 		dprintf("%8x %5d %s\n", mp-&gt;m_dev, mp-&gt;m_count, mp-&gt;m_path);
+</pre>
+</body>
+</html>

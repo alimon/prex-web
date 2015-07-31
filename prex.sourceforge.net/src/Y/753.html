@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>end_pos</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/893.html#L242'>end_pos</a>           242 usr/server/fs/fatfs/fatfs_vnops.c 	u_long file_pos, end_pos;
+<a href='../S/893.html#L258'>end_pos</a>           258 usr/server/fs/fatfs/fatfs_vnops.c 	end_pos = vp-&gt;v_size;
+<a href='../S/893.html#L259'>end_pos</a>           259 usr/server/fs/fatfs/fatfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/893.html#L260'>end_pos</a>           260 usr/server/fs/fatfs/fatfs_vnops.c 	if (file_pos + size &gt; end_pos) {
+<a href='../S/893.html#L262'>end_pos</a>           262 usr/server/fs/fatfs/fatfs_vnops.c 		end_pos = file_pos + size;
+<a href='../S/893.html#L263'>end_pos</a>           263 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_expand_file(fmp, vp-&gt;v_blkno, end_pos);
+<a href='../S/893.html#L272'>end_pos</a>           272 usr/server/fs/fatfs/fatfs_vnops.c 		de-&gt;size = end_pos;
+<a href='../S/893.html#L276'>end_pos</a>           276 usr/server/fs/fatfs/fatfs_vnops.c 		vp-&gt;v_size = end_pos;
+<a href='../S/902.html#L364'>end_pos</a>           364 usr/server/fs/ramfs/ramfs_vnops.c 	off_t file_pos, end_pos;
+<a href='../S/902.html#L377'>end_pos</a>           377 usr/server/fs/ramfs/ramfs_vnops.c 	end_pos = vp-&gt;v_size;
+<a href='../S/902.html#L378'>end_pos</a>           378 usr/server/fs/ramfs/ramfs_vnops.c 	file_pos = (fp-&gt;f_flags &amp; O_APPEND) ? end_pos : fp-&gt;f_offset;
+<a href='../S/902.html#L379'>end_pos</a>           379 usr/server/fs/ramfs/ramfs_vnops.c 	if (file_pos + size &gt; (size_t)end_pos) {
+<a href='../S/902.html#L381'>end_pos</a>           381 usr/server/fs/ramfs/ramfs_vnops.c 		end_pos = file_pos + size;
+<a href='../S/902.html#L382'>end_pos</a>           382 usr/server/fs/ramfs/ramfs_vnops.c 		if (end_pos &gt; (off_t)np-&gt;rn_bufsize) {
+<a href='../S/902.html#L391'>end_pos</a>           391 usr/server/fs/ramfs/ramfs_vnops.c 			new_size = round_page(end_pos);
+<a href='../S/902.html#L401'>end_pos</a>           401 usr/server/fs/ramfs/ramfs_vnops.c 		np-&gt;rn_size = end_pos;
+<a href='../S/902.html#L402'>end_pos</a>           402 usr/server/fs/ramfs/ramfs_vnops.c 		vp-&gt;v_size = end_pos;
+</pre>
+</body>
+</html>

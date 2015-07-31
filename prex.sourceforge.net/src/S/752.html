@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>usr/lib/prex/malloc/malloc.c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1085.html'>usr</a>/<a href='../files/1119.html'>lib</a>/<a href='../files/1138.html'>prex</a>/<a href='../files/1140.html'>malloc</a>/malloc.c</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='752.html#L52'>[^]</a><a href='752.html#L170'>[v]</a>[top]<a href='752.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='752.html#L52' title='Defined at 52.'>malloc</a></li>
+<li><a href='752.html#L105' title='Defined at 105.'>more_core</a></li>
+<li><a href='752.html#L127' title='Defined at 127.'>free</a></li>
+<li><a href='752.html#L170' title='Defined at 170.'>mstat</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005-2007, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L31' name='L31' />  31 <em class='sharp'>#include</em> &lt;<a href='267.html'>sys/prex.h</a>&gt;
+<a id='L32' name='L32' />  32 <em class='sharp'>#include</em> &lt;<a href='264.html'>sys/param.h</a>&gt;
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='274.html'>sys/syslog.h</a>&gt;
+<a id='L34' name='L34' />  34 <em class='sharp'>#include</em> &lt;<a href='443.html'>string.h</a>&gt;
+<a id='L35' name='L35' />  35 <em class='sharp'>#include</em> &lt;<a href='../I/257.html'>errno.h</a>&gt;
+<a id='L36' name='L36' />  36 <em class='sharp'>#include</em> &lt;<a href='442.html'>stdlib.h</a>&gt;
+<a id='L37' name='L37' />  37 <em class='sharp'>#include</em> "<a href='753.html'>malloc.h</a>"
+<a id='L38' name='L38' />  38 
+<a id='L39' name='L39' />  39 <em class='sharp'>#ifdef</em> <a href='../Y/250.html' title='Multiple used in 8 places.'>_REENTRANT</a>
+<a id='L40' name='L40' />  40 <strong class='reserved'>static</strong> <a href='../D/3081.html' title='Multiple defined in 2 places.'>mutex_t</a> <a href='../Y/1243.html' title='Multiple used in 3 places.'>malloc_lock</a> = <a href='../D/1063.html' title='Multiple defined in 2 places.'>MUTEX_INITIALIZER</a>;
+<a id='L41' name='L41' />  41 <em class='sharp'>#endif</em>
+<a id='L42' name='L42' />  42 
+<a id='L43' name='L43' />  43 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='752.html#L105' title='Defined at 105 in usr/lib/prex/malloc/malloc.c.'>more_core</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L44' name='L44' />  44 
+<a id='L45' name='L45' />  45 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> <a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>;         <em class='comment'>/* start of free list */</em>
+<a id='L46' name='L46' />  46 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a>;        <em class='comment'>/* start point to scan */</em>
+<a id='L47' name='L47' />  47 
+<a id='L48' name='L48' />  48 <em class='comment'>/*</em>
+<a id='L49' name='L49' />  49 <em class='comment'> * Simple memory allocator from K&amp;R</em>
+<a id='L50' name='L50' />  50 <em class='comment'> */</em>
+<a id='L51' name='L51' />  51 <strong class='reserved'>void</strong> *
+<a id='L52' name='L52' />  52 <a href='../R/2135.html' title='Multiple refered from 46 places.'>malloc</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L53' name='L53' />  53 <em class='brace'>{</em>
+<a id='L54' name='L54' />  54         <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>, *<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L55' name='L55' />  55 
+<a id='L56' name='L56' />  56         <strong class='reserved'>if</strong> (<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == 0)          <em class='comment'>/* sanity check */</em>
+<a id='L57' name='L57' />  57                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L58' name='L58' />  58         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='753.html#L47' title='Defined at 47 in usr/lib/prex/malloc/malloc.h.'>ROUNDUP</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> + <strong class='reserved'>sizeof</strong>(<strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a>));
+<a id='L59' name='L59' />  59 
+<a id='L60' name='L60' />  60         <a href='../D/967.html' title='Multiple defined in 2 places.'>MALLOC_LOCK</a>();
+<a id='L61' name='L61' />  61 
+<a id='L62' name='L62' />  62         <strong class='reserved'>if</strong> (<a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L63' name='L63' />  63                 <em class='comment'>/* Initialize */</em>
+<a id='L64' name='L64' />  64                 <a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>.<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = &amp;<a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>;
+<a id='L65' name='L65' />  65                 <a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>.<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = 0;
+<a id='L66' name='L66' />  66                 <a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>.<a href='../Y/2336.html' title='Multiple used in 7 places.'>vm_size</a> = 0;
+<a id='L67' name='L67' />  67                 <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a> = &amp;<a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>;
+<a id='L68' name='L68' />  68         <em class='brace'>}</em>
+<a id='L69' name='L69' />  69         <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a>;
+<a id='L70' name='L70' />  70         <strong class='reserved'>for</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>, <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>) <em class='brace'>{</em>
+<a id='L71' name='L71' />  71                 <strong class='reserved'>if</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> &gt;= <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>) <em class='brace'>{</em>  <em class='comment'>/* big enough */</em>
+<a id='L72' name='L72' />  72                         <strong class='reserved'>if</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)    <em class='comment'>/* exactly */</em>
+<a id='L73' name='L73' />  73                                 <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L74' name='L74' />  74                         <strong class='reserved'>else</strong> <em class='brace'>{</em>                  <em class='comment'>/* allocate tail end */</em>
+<a id='L75' name='L75' />  75                                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> -= <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L76' name='L76' />  76                                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = (<strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *)((<strong class='reserved'>char</strong> *)<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> + <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L77' name='L77' />  77                                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L78' name='L78' />  78                                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/2336.html' title='Multiple used in 7 places.'>vm_size</a> = 0;
+<a id='L79' name='L79' />  79                         <em class='brace'>}</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#ifdef</em> <a href='../Y/105.html' title='Multiple used in 6 places.'>DEBUG_MALLOC</a>
+<a id='L81' name='L81' />  81                         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> = <a href='753.html#L35' title='Defined at 35 in usr/lib/prex/malloc/malloc.h.'>MALLOC_MAGIC</a>;
+<a id='L82' name='L82' />  82 <em class='sharp'>#endif</em>
+<a id='L83' name='L83' />  83                         <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L84' name='L84' />  84                         <strong class='reserved'>break</strong>;
+<a id='L85' name='L85' />  85                 <em class='brace'>}</em>
+<a id='L86' name='L86' />  86                 <strong class='reserved'>if</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> == <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a>) <em class='brace'>{</em>
+<a id='L87' name='L87' />  87                         <strong class='reserved'>if</strong> ((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = <a href='752.html#L105' title='Defined at 105 in usr/lib/prex/malloc/malloc.c.'>more_core</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)) == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L88' name='L88' />  88                                 <strong class='reserved'>break</strong>;
+<a id='L89' name='L89' />  89                 <em class='brace'>}</em>
+<a id='L90' name='L90' />  90         <em class='brace'>}</em>
+<a id='L91' name='L91' />  91         <a href='../D/969.html' title='Multiple defined in 2 places.'>MALLOC_UNLOCK</a>();
+<a id='L92' name='L92' />  92 
+<a id='L93' name='L93' />  93         <strong class='reserved'>if</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>) <em class='brace'>{</em>
+<a id='L94' name='L94' />  94 <em class='sharp'>#ifdef</em> <a href='../Y/105.html' title='Multiple used in 6 places.'>DEBUG_MALLOC</a>
+<a id='L95' name='L95' />  95                 <a href='333.html#L208' title='Defined at 208 in sys/kern/system.c.'>sys_panic</a>("malloc: out of memory");
+<a id='L96' name='L96' />  96 <em class='sharp'>#endif</em>
+<a id='L97' name='L97' />  97                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L98' name='L98' />  98         <em class='brace'>}</em>
+<a id='L99' name='L99' />  99         <strong class='reserved'>return</strong> (<strong class='reserved'>void</strong> *)(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> + 1);
+<a id='L100' name='L100' /> 100 <em class='brace'>}</em>
+<a id='L101' name='L101' /> 101 
+<a id='L102' name='L102' /> 102 <em class='comment'>/*</em>
+<a id='L103' name='L103' /> 103 <em class='comment'> * Create new block and insert it to the free list.</em>
+<a id='L104' name='L104' /> 104 <em class='comment'> */</em>
+<a id='L105' name='L105' /> 105 <strong class='reserved'>static</strong> <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='../R/2161.html' title='Multiple refered from 2 places.'>more_core</a>(<a href='../D/3487.html' title='Multiple defined in 6 places.'>size_t</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>)
+<a id='L106' name='L106' /> 106 <em class='brace'>{</em>
+<a id='L107' name='L107' /> 107         <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>, *<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L108' name='L108' /> 108 
+<a id='L109' name='L109' /> 109         <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='264.html#L144' title='Defined at 144 in include/sys/param.h.'>round_page</a>(<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>);
+<a id='L110' name='L110' /> 110         <strong class='reserved'>if</strong> (<a href='../D/3812.html' title='Multiple defined in 2 places.'>vm_allocate</a>(<a href='334.html#L217' title='Defined at 217 in sys/kern/task.c.'>task_self</a>(), (<strong class='reserved'>void</strong> *)&amp;<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>, <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, 1))
+<a id='L111' name='L111' /> 111                 <strong class='reserved'>return</strong> <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>;
+<a id='L112' name='L112' /> 112         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> = <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L113' name='L113' /> 113         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/2336.html' title='Multiple used in 7 places.'>vm_size</a> = <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L114' name='L114' /> 114 
+<a id='L115' name='L115' /> 115         <em class='comment'>/* Insert to free list */</em>
+<a id='L116' name='L116' /> 116         <strong class='reserved'>for</strong> (<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a>; !(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &gt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> &amp;&amp; <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &lt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>); <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>) <em class='brace'>{</em>
+<a id='L117' name='L117' /> 117                 <strong class='reserved'>if</strong> (<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> &gt;= <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> &amp;&amp; (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &gt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> || <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &lt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>))
+<a id='L118' name='L118' /> 118                         <strong class='reserved'>break</strong>;
+<a id='L119' name='L119' /> 119         <em class='brace'>}</em>
+<a id='L120' name='L120' /> 120         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L121' name='L121' /> 121         <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>;
+<a id='L122' name='L122' /> 122         <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L123' name='L123' /> 123         <strong class='reserved'>return</strong> <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L124' name='L124' /> 124 <em class='brace'>}</em>
+<a id='L125' name='L125' /> 125 
+<a id='L126' name='L126' /> 126 <strong class='reserved'>void</strong>
+<a id='L127' name='L127' /> 127 <a href='../R/1885.html' title='Multiple refered from 96 places.'>free</a>(<strong class='reserved'>void</strong> *<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a>)
+<a id='L128' name='L128' /> 128 <em class='brace'>{</em>
+<a id='L129' name='L129' /> 129         <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>, *<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L130' name='L130' /> 130 
+<a id='L131' name='L131' /> 131         <strong class='reserved'>if</strong> (<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> == <a href='../D/1107.html' title='Multiple defined in 11 places.'>NULL</a>)
+<a id='L132' name='L132' /> 132                 <strong class='reserved'>return</strong>;
+<a id='L133' name='L133' /> 133 
+<a id='L134' name='L134' /> 134         <a href='../D/967.html' title='Multiple defined in 2 places.'>MALLOC_LOCK</a>();
+<a id='L135' name='L135' /> 135         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = (<strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *)<a href='../Y/347.html' title='Multiple used in 166 places.'>addr</a> - 1;
+<a id='L136' name='L136' /> 136 <em class='sharp'>#ifdef</em> <a href='../Y/105.html' title='Multiple used in 6 places.'>DEBUG_MALLOC</a>
+<a id='L137' name='L137' /> 137         <strong class='reserved'>if</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> != <a href='753.html#L35' title='Defined at 35 in usr/lib/prex/malloc/malloc.h.'>MALLOC_MAGIC</a>)
+<a id='L138' name='L138' /> 138                 <a href='333.html#L208' title='Defined at 208 in sys/kern/system.c.'>sys_panic</a>("free: invalid pointer");
+<a id='L139' name='L139' /> 139         <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1240.html' title='Multiple used in 17 places.'>magic</a> = 0;
+<a id='L140' name='L140' /> 140 <em class='sharp'>#endif</em>
+<a id='L141' name='L141' /> 141         <strong class='reserved'>for</strong> (<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a>; !(<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &gt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> &amp;&amp; <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &lt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>); <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>) <em class='brace'>{</em>
+<a id='L142' name='L142' /> 142                 <strong class='reserved'>if</strong> (<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> &gt;= <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> &amp;&amp; (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &gt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> || <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> &lt; <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>))
+<a id='L143' name='L143' /> 143                         <strong class='reserved'>break</strong>;
+<a id='L144' name='L144' /> 144         <em class='brace'>}</em>
+<a id='L145' name='L145' /> 145         <strong class='reserved'>if</strong> ((<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>-&gt;<a href='../Y/2336.html' title='Multiple used in 7 places.'>vm_size</a> == 0) &amp;&amp;       <em class='comment'>/* join to upper block */</em>
+<a id='L146' name='L146' /> 146             ((<strong class='reserved'>char</strong> *)<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> + <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == (<strong class='reserved'>char</strong> *)<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>)) <em class='brace'>{</em>
+<a id='L147' name='L147' /> 147                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> += <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L148' name='L148' /> 148                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L149' name='L149' /> 149         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L150' name='L150' /> 150                 <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L151' name='L151' /> 151         <em class='brace'>}</em>
+<a id='L152' name='L152' /> 152         <strong class='reserved'>if</strong> ((<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/2336.html' title='Multiple used in 7 places.'>vm_size</a> == 0) &amp;&amp;        <em class='comment'>/* join to lower block */</em>
+<a id='L153' name='L153' /> 153             ((<strong class='reserved'>char</strong> *)<a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a> + <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == (<strong class='reserved'>char</strong> *)<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>)) <em class='brace'>{</em>
+<a id='L154' name='L154' /> 154                 <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> += <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>;
+<a id='L155' name='L155' /> 155                 <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L156' name='L156' /> 156         <em class='brace'>}</em> <strong class='reserved'>else</strong> <em class='brace'>{</em>
+<a id='L157' name='L157' /> 157                 <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>;
+<a id='L158' name='L158' /> 158         <em class='brace'>}</em>
+<a id='L159' name='L159' /> 159         <em class='comment'>/* Deallocate pool */</em>
+<a id='L160' name='L160' /> 160         <strong class='reserved'>if</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a> == <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/2336.html' title='Multiple used in 7 places.'>vm_size</a>) <em class='brace'>{</em>
+<a id='L161' name='L161' /> 161                 <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>;
+<a id='L162' name='L162' /> 162                 <a href='../D/3816.html' title='Multiple defined in 2 places.'>vm_free</a>(<a href='334.html#L217' title='Defined at 217 in sys/kern/task.c.'>task_self</a>(), <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>);
+<a id='L163' name='L163' /> 163         <em class='brace'>}</em>
+<a id='L164' name='L164' /> 164         <a href='../Y/1856.html' title='Multiple used in 10 places.'>scan_head</a> = <a href='../Y/1647.html' title='Multiple used in 146 places.'>prev</a>;
+<a id='L165' name='L165' /> 165         <a href='../D/969.html' title='Multiple defined in 2 places.'>MALLOC_UNLOCK</a>();
+<a id='L166' name='L166' /> 166 <em class='brace'>}</em>
+<a id='L167' name='L167' /> 167 
+<a id='L168' name='L168' /> 168 <em class='sharp'>#ifdef</em> <a href='../Y/105.html' title='Multiple used in 6 places.'>DEBUG_MALLOC</a>
+<a id='L169' name='L169' /> 169 <strong class='reserved'>void</strong>
+<a id='L170' name='L170' /> 170 mstat(<strong class='reserved'>void</strong>)
+<a id='L171' name='L171' /> 171 <em class='brace'>{</em>
+<a id='L172' name='L172' /> 172         <strong class='reserved'>struct</strong> <a href='../Y/1012.html' title='Multiple used in 22 places.'>header</a> *<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>;
+<a id='L173' name='L173' /> 173 
+<a id='L174' name='L174' /> 174         <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("mstat: task=%x\n", <a href='334.html#L217' title='Defined at 217 in sys/kern/task.c.'>task_self</a>());
+<a id='L175' name='L175' /> 175         <strong class='reserved'>for</strong> (<a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = <a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>.<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>; <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> != &amp;<a href='../Y/915.html' title='Multiple used in 13 places.'>free_list</a>; <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a> = <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>) <em class='brace'>{</em>
+<a id='L176' name='L176' /> 176                 <a href='../D/3223.html' title='Multiple defined in 4 places.'>printf</a>("mstat: addr=%x size=%d next=%x\n", <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>, <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>, <a href='../Y/1509.html' title='Multiple used in 833 places.'>p</a>-&gt;<a href='../Y/1374.html' title='Multiple used in 196 places.'>next</a>);
+<a id='L177' name='L177' /> 177         <em class='brace'>}</em>
+<a id='L178' name='L178' /> 178 <em class='brace'>}</em>
+<a id='L179' name='L179' /> 179 <em class='sharp'>#endif</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;]<a href='752.html#L52'>[^]</a><a href='752.html#L170'>[v]</a><a href='752.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

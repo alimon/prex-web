@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>vp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/883.html#L144'>vp</a>                144 usr/server/fs/arfs/arfs_vnops.c arfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/883.html#L160'>vp</a>                160 usr/server/fs/arfs/arfs_vnops.c 	mp = vp-&gt;v_mount;
+<a href='../S/883.html#L191'>vp</a>                191 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_type = VREG;
+<a href='../S/883.html#L194'>vp</a>                194 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_mode = (mode_t)(S_IRUSR | S_IXUSR);
+<a href='../S/883.html#L195'>vp</a>                195 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_size = size;
+<a href='../S/883.html#L196'>vp</a>                196 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_blkno = blkno;
+<a href='../S/883.html#L197'>vp</a>                197 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_data = (void *)(off + sizeof(struct ar_hdr));
+<a href='../S/883.html#L206'>vp</a>                206 usr/server/fs/arfs/arfs_vnops.c arfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/883.html#L218'>vp</a>                218 usr/server/fs/arfs/arfs_vnops.c 	mp = vp-&gt;v_mount;
+<a href='../S/883.html#L222'>vp</a>                222 usr/server/fs/arfs/arfs_vnops.c 	if (file_pos &gt;= (off_t)vp-&gt;v_size) {
+<a href='../S/883.html#L227'>vp</a>                227 usr/server/fs/arfs/arfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/883.html#L228'>vp</a>                228 usr/server/fs/arfs/arfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/883.html#L231'>vp</a>                231 usr/server/fs/arfs/arfs_vnops.c 	off = (off_t)vp-&gt;v_data;
+<a href='../S/883.html#L274'>vp</a>                274 usr/server/fs/arfs/arfs_vnops.c arfs_seek(vnode_t vp, file_t fp, off_t oldoff, off_t newoff)
+<a href='../S/883.html#L277'>vp</a>                277 usr/server/fs/arfs/arfs_vnops.c 	if (newoff &gt; (off_t)vp-&gt;v_size)
+<a href='../S/883.html#L284'>vp</a>                284 usr/server/fs/arfs/arfs_vnops.c arfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/883.html#L297'>vp</a>                297 usr/server/fs/arfs/arfs_vnops.c 	mp = vp-&gt;v_mount;
+<a href='../S/886.html#L115'>vp</a>                115 usr/server/fs/devfs/devfs_vnops.c devfs_open(vnode_t vp, int flags)
+<a href='../S/886.html#L121'>vp</a>                121 usr/server/fs/devfs/devfs_vnops.c 	DPRINTF(("devfs_open: path=%s\n", vp-&gt;v_path));
+<a href='../S/886.html#L123'>vp</a>                123 usr/server/fs/devfs/devfs_vnops.c 	path = vp-&gt;v_path;
+<a href='../S/886.html#L127'>vp</a>                127 usr/server/fs/devfs/devfs_vnops.c 	if (vp-&gt;v_flags &amp; VPROTDEV) {
+<a href='../S/886.html#L139'>vp</a>                139 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_data = (void *)dev;	/* Store private data */
+<a href='../S/886.html#L144'>vp</a>                144 usr/server/fs/devfs/devfs_vnops.c devfs_close(vnode_t vp, file_t fp)
+<a href='../S/886.html#L149'>vp</a>                149 usr/server/fs/devfs/devfs_vnops.c 	if (!strcmp(vp-&gt;v_path, "/"))	/* root ? */
+<a href='../S/886.html#L152'>vp</a>                152 usr/server/fs/devfs/devfs_vnops.c 	return device_close((device_t)vp-&gt;v_data);
+<a href='../S/886.html#L156'>vp</a>                156 usr/server/fs/devfs/devfs_vnops.c devfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L162'>vp</a>                162 usr/server/fs/devfs/devfs_vnops.c 	error = device_read((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L169'>vp</a>                169 usr/server/fs/devfs/devfs_vnops.c devfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/886.html#L175'>vp</a>                175 usr/server/fs/devfs/devfs_vnops.c 	error = device_write((device_t)vp-&gt;v_data, buf, &amp;len, fp-&gt;f_offset);
+<a href='../S/886.html#L183'>vp</a>                183 usr/server/fs/devfs/devfs_vnops.c devfs_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/886.html#L187'>vp</a>                187 usr/server/fs/devfs/devfs_vnops.c 	error = device_ioctl((device_t)vp-&gt;v_data, cmd, arg);
+<a href='../S/886.html#L193'>vp</a>                193 usr/server/fs/devfs/devfs_vnops.c devfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/886.html#L214'>vp</a>                214 usr/server/fs/devfs/devfs_vnops.c 	vp-&gt;v_type = (info.flags &amp; D_CHR) ? VCHR : VBLK;
+<a href='../S/886.html#L216'>vp</a>                216 usr/server/fs/devfs/devfs_vnops.c 		vp-&gt;v_flags |= VISTTY;
+<a href='../S/886.html#L219'>vp</a>                219 usr/server/fs/devfs/devfs_vnops.c 		vp-&gt;v_flags |= VPROTDEV;
+<a href='../S/886.html#L221'>vp</a>                221 usr/server/fs/devfs/devfs_vnops.c 		vp-&gt;v_mode = (mode_t)(S_IRUSR | S_IWUSR);
+<a href='../S/886.html#L229'>vp</a>                229 usr/server/fs/devfs/devfs_vnops.c devfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/892.html#L50'>vp</a>                 50 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_vget	(mount_t mp, vnode_t vp);
+<a href='../S/892.html#L139'>vp</a>                139 usr/server/fs/fatfs/fatfs_vfsops.c 	vnode_t vp;
+<a href='../S/892.html#L167'>vp</a>                167 usr/server/fs/fatfs/fatfs_vfsops.c 	vp = mp-&gt;m_root;
+<a href='../S/892.html#L168'>vp</a>                168 usr/server/fs/fatfs/fatfs_vfsops.c 	vp-&gt;v_blkno = CL_ROOT;
+<a href='../S/892.html#L200'>vp</a>                200 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_vget(mount_t mp, vnode_t vp)
+<a href='../S/892.html#L207'>vp</a>                207 usr/server/fs/fatfs/fatfs_vfsops.c 	vp-&gt;v_data = np;
+<a href='../S/893.html#L130'>vp</a>                130 usr/server/fs/fatfs/fatfs_vnops.c fatfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/893.html#L140'>vp</a>                140 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L145'>vp</a>                145 usr/server/fs/fatfs/fatfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/893.html#L153'>vp</a>                153 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_type = IS_DIR(de) ? VDIR : VREG;
+<a href='../S/893.html#L154'>vp</a>                154 usr/server/fs/fatfs/fatfs_vnops.c 	fat_attr_to_mode(de-&gt;attr, &amp;vp-&gt;v_mode);
+<a href='../S/893.html#L155'>vp</a>                155 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_mode = ALLPERMS;
+<a href='../S/893.html#L156'>vp</a>                156 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = de-&gt;size;
+<a href='../S/893.html#L157'>vp</a>                157 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_blkno = de-&gt;cluster;
+<a href='../S/893.html#L165'>vp</a>                165 usr/server/fs/fatfs/fatfs_vnops.c fatfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L171'>vp</a>                171 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_read: vp=%x\n", vp));
+<a href='../S/893.html#L174'>vp</a>                174 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L176'>vp</a>                176 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/893.html#L178'>vp</a>                178 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/893.html#L183'>vp</a>                183 usr/server/fs/fatfs/fatfs_vnops.c 	if (file_pos &gt;= vp-&gt;v_size)
+<a href='../S/893.html#L189'>vp</a>                189 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_size - file_pos &lt; size)
+<a href='../S/893.html#L190'>vp</a>                190 usr/server/fs/fatfs/fatfs_vnops.c 		size = vp-&gt;v_size - file_pos;
+<a href='../S/893.html#L193'>vp</a>                193 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L236'>vp</a>                236 usr/server/fs/fatfs/fatfs_vnops.c fatfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/893.html#L245'>vp</a>                245 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_write: vp=%x\n", vp));
+<a href='../S/893.html#L248'>vp</a>                248 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L250'>vp</a>                250 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/893.html#L252'>vp</a>                252 usr/server/fs/fatfs/fatfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/893.html#L258'>vp</a>                258 usr/server/fs/fatfs/fatfs_vnops.c 	end_pos = vp-&gt;v_size;
+<a href='../S/893.html#L263'>vp</a>                263 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_expand_file(fmp, vp-&gt;v_blkno, end_pos);
+<a href='../S/893.html#L270'>vp</a>                270 usr/server/fs/fatfs/fatfs_vnops.c 		np = vp-&gt;v_data;
+<a href='../S/893.html#L276'>vp</a>                276 usr/server/fs/fatfs/fatfs_vnops.c 		vp-&gt;v_size = end_pos;
+<a href='../S/893.html#L280'>vp</a>                280 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L339'>vp</a>                339 usr/server/fs/fatfs/fatfs_vnops.c fatfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/893.html#L346'>vp</a>                346 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L349'>vp</a>                349 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_get_node(vp, fp-&gt;f_offset, &amp;np);
+<a href='../S/893.html#L417'>vp</a>                417 usr/server/fs/fatfs/fatfs_vnops.c fatfs_remove(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/893.html#L617'>vp</a>                617 usr/server/fs/fatfs/fatfs_vnops.c fatfs_rmdir(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/893.html#L655'>vp</a>                655 usr/server/fs/fatfs/fatfs_vnops.c fatfs_getattr(vnode_t vp, struct vattr *vap)
+<a href='../S/893.html#L662'>vp</a>                662 usr/server/fs/fatfs/fatfs_vnops.c fatfs_setattr(vnode_t vp, struct vattr *vap)
+<a href='../S/893.html#L670'>vp</a>                670 usr/server/fs/fatfs/fatfs_vnops.c fatfs_inactive(vnode_t vp)
+<a href='../S/893.html#L673'>vp</a>                673 usr/server/fs/fatfs/fatfs_vnops.c 	free(vp-&gt;v_data);
+<a href='../S/893.html#L678'>vp</a>                678 usr/server/fs/fatfs/fatfs_vnops.c fatfs_truncate(vnode_t vp, off_t length)
+<a href='../S/893.html#L685'>vp</a>                685 usr/server/fs/fatfs/fatfs_vnops.c 	fmp = vp-&gt;v_mount-&gt;m_data;
+<a href='../S/893.html#L688'>vp</a>                688 usr/server/fs/fatfs/fatfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/893.html#L696'>vp</a>                696 usr/server/fs/fatfs/fatfs_vnops.c 	} else if (length &gt; vp-&gt;v_size) {
+<a href='../S/893.html#L697'>vp</a>                697 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_expand_file(fmp, vp-&gt;v_blkno, length);
+<a href='../S/893.html#L709'>vp</a>                709 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = length;
+<a href='../S/896.html#L142'>vp</a>                142 usr/server/fs/fifofs/fifo_vnops.c fifo_open(vnode_t vp, int flags)
+<a href='../S/896.html#L144'>vp</a>                144 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L146'>vp</a>                146 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("fifo_open: path=%s\n", vp-&gt;v_path));
+<a href='../S/896.html#L148'>vp</a>                148 usr/server/fs/fifofs/fifo_vnops.c 	if (!strcmp(vp-&gt;v_path, "/"))	/* root ? */
+<a href='../S/896.html#L156'>vp</a>                156 usr/server/fs/fifofs/fifo_vnops.c 			wakeup_writer(vp);
+<a href='../S/896.html#L161'>vp</a>                161 usr/server/fs/fifofs/fifo_vnops.c 			wakeup_reader(vp);
+<a href='../S/896.html#L172'>vp</a>                172 usr/server/fs/fifofs/fifo_vnops.c 				wait_writer(vp);
+<a href='../S/896.html#L181'>vp</a>                181 usr/server/fs/fifofs/fifo_vnops.c 				wait_reader(vp);
+<a href='../S/896.html#L188'>vp</a>                188 usr/server/fs/fifofs/fifo_vnops.c fifo_close(vnode_t vp, file_t fp)
+<a href='../S/896.html#L190'>vp</a>                190 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L200'>vp</a>                200 usr/server/fs/fifofs/fifo_vnops.c 			wakeup_writer(vp);
+<a href='../S/896.html#L205'>vp</a>                205 usr/server/fs/fifofs/fifo_vnops.c 			wakeup_reader(vp);
+<a href='../S/896.html#L207'>vp</a>                207 usr/server/fs/fifofs/fifo_vnops.c 	if (vp-&gt;v_refcnt &gt; 1)
+<a href='../S/896.html#L213'>vp</a>                213 usr/server/fs/fifofs/fifo_vnops.c 		cleanup_fifo(vp);
+<a href='../S/896.html#L219'>vp</a>                219 usr/server/fs/fifofs/fifo_vnops.c fifo_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L221'>vp</a>                221 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L241'>vp</a>                241 usr/server/fs/fifofs/fifo_vnops.c 		wait_writer(vp);
+<a href='../S/896.html#L259'>vp</a>                259 usr/server/fs/fifofs/fifo_vnops.c 	wakeup_writer(vp);
+<a href='../S/896.html#L264'>vp</a>                264 usr/server/fs/fifofs/fifo_vnops.c fifo_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/896.html#L266'>vp</a>                266 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L279'>vp</a>                279 usr/server/fs/fifofs/fifo_vnops.c 		wait_reader(vp);
+<a href='../S/896.html#L300'>vp</a>                300 usr/server/fs/fifofs/fifo_vnops.c 	wakeup_reader(vp);
+<a href='../S/896.html#L310'>vp</a>                310 usr/server/fs/fifofs/fifo_vnops.c fifo_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/896.html#L317'>vp</a>                317 usr/server/fs/fifofs/fifo_vnops.c fifo_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/896.html#L343'>vp</a>                343 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_data = np;
+<a href='../S/896.html#L344'>vp</a>                344 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_mode = ALLPERMS;
+<a href='../S/896.html#L345'>vp</a>                345 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_size = 0;
+<a href='../S/896.html#L346'>vp</a>                346 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_type = VFIFO;
+<a href='../S/896.html#L396'>vp</a>                396 usr/server/fs/fifofs/fifo_vnops.c cleanup_fifo(vnode_t vp)
+<a href='../S/896.html#L398'>vp</a>                398 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L408'>vp</a>                408 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_data = NULL;
+<a href='../S/896.html#L412'>vp</a>                412 usr/server/fs/fifofs/fifo_vnops.c fifo_remove(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/896.html#L416'>vp</a>                416 usr/server/fs/fifofs/fifo_vnops.c 	cleanup_fifo(vp);
+<a href='../S/896.html#L424'>vp</a>                424 usr/server/fs/fifofs/fifo_vnops.c fifo_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/896.html#L474'>vp</a>                474 usr/server/fs/fifofs/fifo_vnops.c wait_reader(vnode_t vp)
+<a href='../S/896.html#L476'>vp</a>                476 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L479'>vp</a>                479 usr/server/fs/fifofs/fifo_vnops.c 	vn_unlock(vp);
+<a href='../S/896.html#L483'>vp</a>                483 usr/server/fs/fifofs/fifo_vnops.c 	vn_lock(vp);
+<a href='../S/896.html#L487'>vp</a>                487 usr/server/fs/fifofs/fifo_vnops.c wakeup_writer(vnode_t vp)
+<a href='../S/896.html#L489'>vp</a>                489 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L496'>vp</a>                496 usr/server/fs/fifofs/fifo_vnops.c wait_writer(vnode_t vp)
+<a href='../S/896.html#L498'>vp</a>                498 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L501'>vp</a>                501 usr/server/fs/fifofs/fifo_vnops.c 	vn_unlock(vp);
+<a href='../S/896.html#L505'>vp</a>                505 usr/server/fs/fifofs/fifo_vnops.c 	vn_lock(vp);
+<a href='../S/896.html#L509'>vp</a>                509 usr/server/fs/fifofs/fifo_vnops.c wakeup_reader(vnode_t vp)
+<a href='../S/896.html#L511'>vp</a>                511 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/902.html#L204'>vp</a>                204 usr/server/fs/ramfs/ramfs_vnops.c ramfs_lookup(vnode_t dvp, char *name, vnode_t vp)
+<a href='../S/902.html#L229'>vp</a>                229 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_data = np;
+<a href='../S/902.html#L230'>vp</a>                230 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_mode = ALLPERMS;
+<a href='../S/902.html#L231'>vp</a>                231 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_type = np-&gt;rn_type;
+<a href='../S/902.html#L232'>vp</a>                232 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_size = np-&gt;rn_size;
+<a href='../S/902.html#L256'>vp</a>                256 usr/server/fs/ramfs/ramfs_vnops.c ramfs_rmdir(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/902.html#L259'>vp</a>                259 usr/server/fs/ramfs/ramfs_vnops.c 	return ramfs_remove_node(dvp-&gt;v_data, vp-&gt;v_data);
+<a href='../S/902.html#L264'>vp</a>                264 usr/server/fs/ramfs/ramfs_vnops.c ramfs_remove(vnode_t dvp, vnode_t vp, char *name)
+<a href='../S/902.html#L270'>vp</a>                270 usr/server/fs/ramfs/ramfs_vnops.c 	error = ramfs_remove_node(dvp-&gt;v_data, vp-&gt;v_data);
+<a href='../S/902.html#L274'>vp</a>                274 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L282'>vp</a>                282 usr/server/fs/ramfs/ramfs_vnops.c ramfs_truncate(vnode_t vp, off_t length)
+<a href='../S/902.html#L289'>vp</a>                289 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("truncate %s length=%d\n", vp-&gt;v_path, length));
+<a href='../S/902.html#L290'>vp</a>                290 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L304'>vp</a>                304 usr/server/fs/ramfs/ramfs_vnops.c 			memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L311'>vp</a>                311 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_size = length;
+<a href='../S/902.html#L334'>vp</a>                334 usr/server/fs/ramfs/ramfs_vnops.c ramfs_read(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L340'>vp</a>                340 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/902.html#L342'>vp</a>                342 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/902.html#L346'>vp</a>                346 usr/server/fs/ramfs/ramfs_vnops.c 	if (off &gt;= (off_t)vp-&gt;v_size)
+<a href='../S/902.html#L349'>vp</a>                349 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_size - off &lt; size)
+<a href='../S/902.html#L350'>vp</a>                350 usr/server/fs/ramfs/ramfs_vnops.c 		size = vp-&gt;v_size - off;
+<a href='../S/902.html#L352'>vp</a>                352 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L361'>vp</a>                361 usr/server/fs/ramfs/ramfs_vnops.c ramfs_write(vnode_t vp, file_t fp, void *buf, size_t size, size_t *result)
+<a href='../S/902.html#L370'>vp</a>                370 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type == VDIR)
+<a href='../S/902.html#L372'>vp</a>                372 usr/server/fs/ramfs/ramfs_vnops.c 	if (vp-&gt;v_type != VREG)
+<a href='../S/902.html#L375'>vp</a>                375 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L377'>vp</a>                377 usr/server/fs/ramfs/ramfs_vnops.c 	end_pos = vp-&gt;v_size;
+<a href='../S/902.html#L395'>vp</a>                395 usr/server/fs/ramfs/ramfs_vnops.c 				memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L402'>vp</a>                402 usr/server/fs/ramfs/ramfs_vnops.c 		vp-&gt;v_size = end_pos;
+<a href='../S/902.html#L452'>vp</a>                452 usr/server/fs/ramfs/ramfs_vnops.c ramfs_readdir(vnode_t vp, file_t fp, struct dirent *dir)
+<a href='../S/902.html#L466'>vp</a>                466 usr/server/fs/ramfs/ramfs_vnops.c 		dnp = vp-&gt;v_data;
+<a href='../S/908.html#L57'>vp</a>                 57 usr/server/fs/vfs/vfs_lookup.c 	vnode_t dvp, vp;
+<a href='../S/908.html#L70'>vp</a>                 70 usr/server/fs/vfs/vfs_lookup.c 	vp = vn_lookup(mp, node);
+<a href='../S/908.html#L71'>vp</a>                 71 usr/server/fs/vfs/vfs_lookup.c 	if (vp) {
+<a href='../S/908.html#L73'>vp</a>                 73 usr/server/fs/vfs/vfs_lookup.c 		*vpp = vp;
+<a href='../S/908.html#L106'>vp</a>                106 usr/server/fs/vfs/vfs_lookup.c 		vp = vn_lookup(mp, node);
+<a href='../S/908.html#L107'>vp</a>                107 usr/server/fs/vfs/vfs_lookup.c 		if (vp == NULL) {
+<a href='../S/908.html#L108'>vp</a>                108 usr/server/fs/vfs/vfs_lookup.c 			vp = vget(mp, node);
+<a href='../S/908.html#L109'>vp</a>                109 usr/server/fs/vfs/vfs_lookup.c 			if (vp == NULL) {
+<a href='../S/908.html#L114'>vp</a>                114 usr/server/fs/vfs/vfs_lookup.c 			error = VOP_LOOKUP(dvp, name, vp);
+<a href='../S/908.html#L115'>vp</a>                115 usr/server/fs/vfs/vfs_lookup.c 			if (error || (*p == '/' &amp;&amp; vp-&gt;v_type != VDIR)) {
+<a href='../S/908.html#L117'>vp</a>                117 usr/server/fs/vfs/vfs_lookup.c 				vput(vp);
+<a href='../S/908.html#L123'>vp</a>                123 usr/server/fs/vfs/vfs_lookup.c 		dvp = vp;
+<a href='../S/908.html#L131'>vp</a>                131 usr/server/fs/vfs/vfs_lookup.c 	if (vp-&gt;v_type != VDIR &amp;&amp; sec_vnode_permission(path) != 0) {
+<a href='../S/908.html#L132'>vp</a>                132 usr/server/fs/vfs/vfs_lookup.c 		vp-&gt;v_mode &amp;= ~(0111);
+<a href='../S/908.html#L135'>vp</a>                135 usr/server/fs/vfs/vfs_lookup.c 	*vpp = vp;
+<a href='../S/908.html#L155'>vp</a>                155 usr/server/fs/vfs/vfs_lookup.c 	vnode_t vp;
+<a href='../S/908.html#L176'>vp</a>                176 usr/server/fs/vfs/vfs_lookup.c 	if ((error = namei(dir, &amp;vp)) != 0)
+<a href='../S/908.html#L178'>vp</a>                178 usr/server/fs/vfs/vfs_lookup.c 	if (vp-&gt;v_type != VDIR) {
+<a href='../S/908.html#L179'>vp</a>                179 usr/server/fs/vfs/vfs_lookup.c 		vput(vp);
+<a href='../S/908.html#L182'>vp</a>                182 usr/server/fs/vfs/vfs_lookup.c 	*vpp = vp;
+<a href='../S/909.html#L95'>vp</a>                 95 usr/server/fs/vfs/vfs_mount.c 	vnode_t vp, vp_covered;
+<a href='../S/909.html#L165'>vp</a>                165 usr/server/fs/vfs/vfs_mount.c 	if ((vp = vget(mp, "/")) == NULL) {
+<a href='../S/909.html#L169'>vp</a>                169 usr/server/fs/vfs/vfs_mount.c 	vp-&gt;v_type = VDIR;
+<a href='../S/909.html#L170'>vp</a>                170 usr/server/fs/vfs/vfs_mount.c 	vp-&gt;v_flags = VROOT;
+<a href='../S/909.html#L171'>vp</a>                171 usr/server/fs/vfs/vfs_mount.c 	vp-&gt;v_mode = S_IFDIR | S_IRUSR | S_IWUSR | S_IXUSR;
+<a href='../S/909.html#L172'>vp</a>                172 usr/server/fs/vfs/vfs_mount.c 	mp-&gt;m_root = vp;
+<a href='../S/909.html#L181'>vp</a>                181 usr/server/fs/vfs/vfs_mount.c 		vp-&gt;v_mode &amp;=~S_IWUSR;
+<a href='../S/909.html#L186'>vp</a>                186 usr/server/fs/vfs/vfs_mount.c 	vn_unlock(vp);
+<a href='../S/909.html#L198'>vp</a>                198 usr/server/fs/vfs/vfs_mount.c 	vput(vp);
+<a href='../S/911.html#L57'>vp</a>                 57 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp, dvp;
+<a href='../S/911.html#L69'>vp</a>                 69 usr/server/fs/vfs/vfs_syscalls.c 		error = namei(path, &amp;vp);
+<a href='../S/911.html#L84'>vp</a>                 84 usr/server/fs/vfs/vfs_syscalls.c 			if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L92'>vp</a>                 92 usr/server/fs/vfs/vfs_syscalls.c 				vput(vp);
+<a href='../S/911.html#L99'>vp</a>                 99 usr/server/fs/vfs/vfs_syscalls.c 		if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L104'>vp</a>                104 usr/server/fs/vfs/vfs_syscalls.c 			if ((error = vn_access(vp, VWRITE)) != 0) {
+<a href='../S/911.html#L105'>vp</a>                105 usr/server/fs/vfs/vfs_syscalls.c 				vput(vp);
+<a href='../S/911.html#L108'>vp</a>                108 usr/server/fs/vfs/vfs_syscalls.c 			if (vp-&gt;v_type == VDIR) {
+<a href='../S/911.html#L110'>vp</a>                110 usr/server/fs/vfs/vfs_syscalls.c 				vput(vp);
+<a href='../S/911.html#L117'>vp</a>                117 usr/server/fs/vfs/vfs_syscalls.c 		if (!(flags &amp; FWRITE) || (vp-&gt;v_type == VDIR)) {
+<a href='../S/911.html#L118'>vp</a>                118 usr/server/fs/vfs/vfs_syscalls.c 			vput(vp);
+<a href='../S/911.html#L121'>vp</a>                121 usr/server/fs/vfs/vfs_syscalls.c 		if ((error = VOP_TRUNCATE(vp, 0)) != 0) {
+<a href='../S/911.html#L122'>vp</a>                122 usr/server/fs/vfs/vfs_syscalls.c 			vput(vp);
+<a href='../S/911.html#L128'>vp</a>                128 usr/server/fs/vfs/vfs_syscalls.c 		vput(vp);
+<a href='../S/911.html#L132'>vp</a>                132 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = VOP_OPEN(vp, flags)) != 0) {
+<a href='../S/911.html#L134'>vp</a>                134 usr/server/fs/vfs/vfs_syscalls.c 		vput(vp);
+<a href='../S/911.html#L138'>vp</a>                138 usr/server/fs/vfs/vfs_syscalls.c 	fp-&gt;f_vnode = vp;
+<a href='../S/911.html#L143'>vp</a>                143 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L150'>vp</a>                150 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L159'>vp</a>                159 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L161'>vp</a>                161 usr/server/fs/vfs/vfs_syscalls.c 		vrele(vp);
+<a href='../S/911.html#L164'>vp</a>                164 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L165'>vp</a>                165 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = VOP_CLOSE(vp, fp)) != 0) {
+<a href='../S/911.html#L166'>vp</a>                166 usr/server/fs/vfs/vfs_syscalls.c 		vn_unlock(vp);
+<a href='../S/911.html#L169'>vp</a>                169 usr/server/fs/vfs/vfs_syscalls.c 	vput(vp);
+<a href='../S/911.html#L177'>vp</a>                177 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L189'>vp</a>                189 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L190'>vp</a>                190 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L191'>vp</a>                191 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_READ(vp, fp, buf, size, count);
+<a href='../S/911.html#L192'>vp</a>                192 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L199'>vp</a>                199 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L211'>vp</a>                211 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L212'>vp</a>                212 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L213'>vp</a>                213 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_WRITE(vp, fp, buf, size, count);
+<a href='../S/911.html#L214'>vp</a>                214 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L221'>vp</a>                221 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L226'>vp</a>                226 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L227'>vp</a>                227 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L232'>vp</a>                232 usr/server/fs/vfs/vfs_syscalls.c 		if (off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L233'>vp</a>                233 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L236'>vp</a>                236 usr/server/fs/vfs/vfs_syscalls.c 		if (fp-&gt;f_offset + off &gt; (off_t)vp-&gt;v_size)
+<a href='../S/911.html#L237'>vp</a>                237 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L245'>vp</a>                245 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size;
+<a href='../S/911.html#L246'>vp</a>                246 usr/server/fs/vfs/vfs_syscalls.c 		else if ((int)vp-&gt;v_size + off &lt; 0)
+<a href='../S/911.html#L249'>vp</a>                249 usr/server/fs/vfs/vfs_syscalls.c 			off = vp-&gt;v_size + off;
+<a href='../S/911.html#L252'>vp</a>                252 usr/server/fs/vfs/vfs_syscalls.c 		vn_unlock(vp);
+<a href='../S/911.html#L256'>vp</a>                256 usr/server/fs/vfs/vfs_syscalls.c 	if (VOP_SEEK(vp, fp, fp-&gt;f_offset, off) != 0) {
+<a href='../S/911.html#L257'>vp</a>                257 usr/server/fs/vfs/vfs_syscalls.c 		vn_unlock(vp);
+<a href='../S/911.html#L262'>vp</a>                262 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L269'>vp</a>                269 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L277'>vp</a>                277 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L278'>vp</a>                278 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L279'>vp</a>                279 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_IOCTL(vp, fp, request, buf);
+<a href='../S/911.html#L280'>vp</a>                280 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L288'>vp</a>                288 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L296'>vp</a>                296 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L297'>vp</a>                297 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L298'>vp</a>                298 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_FSYNC(vp, fp);
+<a href='../S/911.html#L299'>vp</a>                299 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L306'>vp</a>                306 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L311'>vp</a>                311 usr/server/fs/vfs/vfs_syscalls.c 	vp = fp-&gt;f_vnode;
+<a href='../S/911.html#L312'>vp</a>                312 usr/server/fs/vfs/vfs_syscalls.c 	vn_lock(vp);
+<a href='../S/911.html#L313'>vp</a>                313 usr/server/fs/vfs/vfs_syscalls.c 	error = vn_stat(vp, st);
+<a href='../S/911.html#L314'>vp</a>                314 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L464'>vp</a>                464 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp, dvp;
+<a href='../S/911.html#L469'>vp</a>                469 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) == 0) {
+<a href='../S/911.html#L471'>vp</a>                471 usr/server/fs/vfs/vfs_syscalls.c 		vput(vp);
+<a href='../S/911.html#L494'>vp</a>                494 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp, dvp;
+<a href='../S/911.html#L502'>vp</a>                502 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L504'>vp</a>                504 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = vn_access(vp, VWRITE)) != 0)
+<a href='../S/911.html#L506'>vp</a>                506 usr/server/fs/vfs/vfs_syscalls.c 	if (vp-&gt;v_type != VDIR) {
+<a href='../S/911.html#L510'>vp</a>                510 usr/server/fs/vfs/vfs_syscalls.c 	if (vp-&gt;v_flags &amp; VROOT || vcount(vp) &gt;= 2) {
+<a href='../S/911.html#L517'>vp</a>                517 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_RMDIR(dvp, vp, name);
+<a href='../S/911.html#L518'>vp</a>                518 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L519'>vp</a>                519 usr/server/fs/vfs/vfs_syscalls.c 	vgone(vp);
+<a href='../S/911.html#L524'>vp</a>                524 usr/server/fs/vfs/vfs_syscalls.c 	vput(vp);
+<a href='../S/911.html#L532'>vp</a>                532 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp, dvp;
+<a href='../S/911.html#L548'>vp</a>                548 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) == 0) {
+<a href='../S/911.html#L549'>vp</a>                549 usr/server/fs/vfs/vfs_syscalls.c 		vput(vp);
+<a href='../S/911.html#L658'>vp</a>                658 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp, dvp;
+<a href='../S/911.html#L663'>vp</a>                663 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L665'>vp</a>                665 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = vn_access(vp, VWRITE)) != 0)
+<a href='../S/911.html#L667'>vp</a>                667 usr/server/fs/vfs/vfs_syscalls.c 	if (vp-&gt;v_type == VDIR) {
+<a href='../S/911.html#L672'>vp</a>                672 usr/server/fs/vfs/vfs_syscalls.c 	if (vp-&gt;v_flags &amp; VROOT || vcount(vp) &gt;= 2) {
+<a href='../S/911.html#L679'>vp</a>                679 usr/server/fs/vfs/vfs_syscalls.c 	error = VOP_REMOVE(dvp, vp, name);
+<a href='../S/911.html#L681'>vp</a>                681 usr/server/fs/vfs/vfs_syscalls.c 	vn_unlock(vp);
+<a href='../S/911.html#L682'>vp</a>                682 usr/server/fs/vfs/vfs_syscalls.c 	vgone(vp);
+<a href='../S/911.html#L686'>vp</a>                686 usr/server/fs/vfs/vfs_syscalls.c 	vput(vp);
+<a href='../S/911.html#L693'>vp</a>                693 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L699'>vp</a>                699 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L710'>vp</a>                710 usr/server/fs/vfs/vfs_syscalls.c 	error = vn_access(vp, flags);
+<a href='../S/911.html#L712'>vp</a>                712 usr/server/fs/vfs/vfs_syscalls.c 	vput(vp);
+<a href='../S/911.html#L719'>vp</a>                719 usr/server/fs/vfs/vfs_syscalls.c 	vnode_t vp;
+<a href='../S/911.html#L724'>vp</a>                724 usr/server/fs/vfs/vfs_syscalls.c 	if ((error = namei(path, &amp;vp)) != 0)
+<a href='../S/911.html#L726'>vp</a>                726 usr/server/fs/vfs/vfs_syscalls.c 	error = vn_stat(vp, st);
+<a href='../S/911.html#L727'>vp</a>                727 usr/server/fs/vfs/vfs_syscalls.c 	vput(vp);
+<a href='../S/913.html#L108'>vp</a>                108 usr/server/fs/vfs/vfs_vnode.c 	vnode_t vp;
+<a href='../S/913.html#L113'>vp</a>                113 usr/server/fs/vfs/vfs_vnode.c 		vp = list_entry(n, struct vnode, v_link);
+<a href='../S/913.html#L114'>vp</a>                114 usr/server/fs/vfs/vfs_vnode.c 		if (vp-&gt;v_mount == mp &amp;&amp;
+<a href='../S/913.html#L115'>vp</a>                115 usr/server/fs/vfs/vfs_vnode.c 		    !strncmp(vp-&gt;v_path, path, PATH_MAX)) {
+<a href='../S/913.html#L116'>vp</a>                116 usr/server/fs/vfs/vfs_vnode.c 			vp-&gt;v_refcnt++;
+<a href='../S/913.html#L118'>vp</a>                118 usr/server/fs/vfs/vfs_vnode.c 			mutex_lock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L119'>vp</a>                119 usr/server/fs/vfs/vfs_vnode.c 			vp-&gt;v_nrlocks++;
+<a href='../S/913.html#L120'>vp</a>                120 usr/server/fs/vfs/vfs_vnode.c 			return vp;
+<a href='../S/913.html#L131'>vp</a>                131 usr/server/fs/vfs/vfs_vnode.c vn_lock(vnode_t vp)
+<a href='../S/913.html#L133'>vp</a>                133 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp);
+<a href='../S/913.html#L134'>vp</a>                134 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_refcnt &gt; 0);
+<a href='../S/913.html#L136'>vp</a>                136 usr/server/fs/vfs/vfs_vnode.c 	mutex_lock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L137'>vp</a>                137 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks++;
+<a href='../S/913.html#L138'>vp</a>                138 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vn_lock:   %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L145'>vp</a>                145 usr/server/fs/vfs/vfs_vnode.c vn_unlock(vnode_t vp)
+<a href='../S/913.html#L147'>vp</a>                147 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp);
+<a href='../S/913.html#L148'>vp</a>                148 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_refcnt &gt; 0);
+<a href='../S/913.html#L149'>vp</a>                149 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks &gt; 0);
+<a href='../S/913.html#L151'>vp</a>                151 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vn_unlock: %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L152'>vp</a>                152 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks--;
+<a href='../S/913.html#L153'>vp</a>                153 usr/server/fs/vfs/vfs_vnode.c 	mutex_unlock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L163'>vp</a>                163 usr/server/fs/vfs/vfs_vnode.c 	vnode_t vp;
+<a href='../S/913.html#L169'>vp</a>                169 usr/server/fs/vfs/vfs_vnode.c 	if (!(vp = malloc(sizeof(struct vnode))))
+<a href='../S/913.html#L171'>vp</a>                171 usr/server/fs/vfs/vfs_vnode.c 	memset(vp, 0, sizeof(struct vnode));
+<a href='../S/913.html#L174'>vp</a>                174 usr/server/fs/vfs/vfs_vnode.c 	if (!(vp-&gt;v_path = malloc(len))) {
+<a href='../S/913.html#L175'>vp</a>                175 usr/server/fs/vfs/vfs_vnode.c 		free(vp);
+<a href='../S/913.html#L178'>vp</a>                178 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_mount = mp;
+<a href='../S/913.html#L179'>vp</a>                179 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_refcnt = 1;
+<a href='../S/913.html#L180'>vp</a>                180 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_op = mp-&gt;m_op-&gt;vfs_vnops;
+<a href='../S/913.html#L181'>vp</a>                181 usr/server/fs/vfs/vfs_vnode.c 	strlcpy(vp-&gt;v_path, path, len);
+<a href='../S/913.html#L182'>vp</a>                182 usr/server/fs/vfs/vfs_vnode.c 	mutex_init(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L183'>vp</a>                183 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks = 0;
+<a href='../S/913.html#L188'>vp</a>                188 usr/server/fs/vfs/vfs_vnode.c 	if ((error = VFS_VGET(mp, vp)) != 0) {
+<a href='../S/913.html#L189'>vp</a>                189 usr/server/fs/vfs/vfs_vnode.c 		mutex_destroy(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L190'>vp</a>                190 usr/server/fs/vfs/vfs_vnode.c 		free(vp-&gt;v_path);
+<a href='../S/913.html#L191'>vp</a>                191 usr/server/fs/vfs/vfs_vnode.c 		free(vp);
+<a href='../S/913.html#L194'>vp</a>                194 usr/server/fs/vfs/vfs_vnode.c 	vfs_busy(vp-&gt;v_mount);
+<a href='../S/913.html#L195'>vp</a>                195 usr/server/fs/vfs/vfs_vnode.c 	mutex_lock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L196'>vp</a>                196 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks++;
+<a href='../S/913.html#L199'>vp</a>                199 usr/server/fs/vfs/vfs_vnode.c 	list_insert(&amp;vnode_table[vn_hash(mp, path)], &amp;vp-&gt;v_link);
+<a href='../S/913.html#L201'>vp</a>                201 usr/server/fs/vfs/vfs_vnode.c 	return vp;
+<a href='../S/913.html#L208'>vp</a>                208 usr/server/fs/vfs/vfs_vnode.c vput(vnode_t vp)
+<a href='../S/913.html#L210'>vp</a>                210 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp);
+<a href='../S/913.html#L211'>vp</a>                211 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks &gt; 0);
+<a href='../S/913.html#L212'>vp</a>                212 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_refcnt &gt; 0);
+<a href='../S/913.html#L213'>vp</a>                213 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vput: ref=%d %s\n", vp-&gt;v_refcnt,
+<a href='../S/913.html#L214'>vp</a>                214 usr/server/fs/vfs/vfs_vnode.c 			      vp-&gt;v_path));
+<a href='../S/913.html#L216'>vp</a>                216 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_refcnt--;
+<a href='../S/913.html#L217'>vp</a>                217 usr/server/fs/vfs/vfs_vnode.c 	if (vp-&gt;v_refcnt &gt; 0) {
+<a href='../S/913.html#L218'>vp</a>                218 usr/server/fs/vfs/vfs_vnode.c 		vn_unlock(vp);
+<a href='../S/913.html#L222'>vp</a>                222 usr/server/fs/vfs/vfs_vnode.c 	list_remove(&amp;vp-&gt;v_link);
+<a href='../S/913.html#L228'>vp</a>                228 usr/server/fs/vfs/vfs_vnode.c 	VOP_INACTIVE(vp);
+<a href='../S/913.html#L229'>vp</a>                229 usr/server/fs/vfs/vfs_vnode.c 	vfs_unbusy(vp-&gt;v_mount);
+<a href='../S/913.html#L230'>vp</a>                230 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_nrlocks--;
+<a href='../S/913.html#L231'>vp</a>                231 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks == 0);
+<a href='../S/913.html#L232'>vp</a>                232 usr/server/fs/vfs/vfs_vnode.c 	mutex_unlock(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L233'>vp</a>                233 usr/server/fs/vfs/vfs_vnode.c 	mutex_destroy(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L234'>vp</a>                234 usr/server/fs/vfs/vfs_vnode.c 	free(vp-&gt;v_path);
+<a href='../S/913.html#L235'>vp</a>                235 usr/server/fs/vfs/vfs_vnode.c 	free(vp);
+<a href='../S/913.html#L242'>vp</a>                242 usr/server/fs/vfs/vfs_vnode.c vref(vnode_t vp)
+<a href='../S/913.html#L244'>vp</a>                244 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp);
+<a href='../S/913.html#L245'>vp</a>                245 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_refcnt &gt; 0);	/* Need vget */
+<a href='../S/913.html#L248'>vp</a>                248 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vref: ref=%d %s\n", vp-&gt;v_refcnt,
+<a href='../S/913.html#L249'>vp</a>                249 usr/server/fs/vfs/vfs_vnode.c 			      vp-&gt;v_path));
+<a href='../S/913.html#L250'>vp</a>                250 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_refcnt++;
+<a href='../S/913.html#L261'>vp</a>                261 usr/server/fs/vfs/vfs_vnode.c vrele(vnode_t vp)
+<a href='../S/913.html#L263'>vp</a>                263 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp);
+<a href='../S/913.html#L264'>vp</a>                264 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_refcnt &gt; 0);
+<a href='../S/913.html#L267'>vp</a>                267 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vrele: ref=%d %s\n", vp-&gt;v_refcnt,
+<a href='../S/913.html#L268'>vp</a>                268 usr/server/fs/vfs/vfs_vnode.c 			      vp-&gt;v_path));
+<a href='../S/913.html#L269'>vp</a>                269 usr/server/fs/vfs/vfs_vnode.c 	vp-&gt;v_refcnt--;
+<a href='../S/913.html#L270'>vp</a>                270 usr/server/fs/vfs/vfs_vnode.c 	if (vp-&gt;v_refcnt &gt; 0) {
+<a href='../S/913.html#L274'>vp</a>                274 usr/server/fs/vfs/vfs_vnode.c 	list_remove(&amp;vp-&gt;v_link);
+<a href='../S/913.html#L280'>vp</a>                280 usr/server/fs/vfs/vfs_vnode.c 	VOP_INACTIVE(vp);
+<a href='../S/913.html#L281'>vp</a>                281 usr/server/fs/vfs/vfs_vnode.c 	vfs_unbusy(vp-&gt;v_mount);
+<a href='../S/913.html#L282'>vp</a>                282 usr/server/fs/vfs/vfs_vnode.c 	mutex_destroy(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L283'>vp</a>                283 usr/server/fs/vfs/vfs_vnode.c 	free(vp-&gt;v_path);
+<a href='../S/913.html#L284'>vp</a>                284 usr/server/fs/vfs/vfs_vnode.c 	free(vp);
+<a href='../S/913.html#L291'>vp</a>                291 usr/server/fs/vfs/vfs_vnode.c vgone(vnode_t vp)
+<a href='../S/913.html#L293'>vp</a>                293 usr/server/fs/vfs/vfs_vnode.c 	ASSERT(vp-&gt;v_nrlocks == 0);
+<a href='../S/913.html#L296'>vp</a>                296 usr/server/fs/vfs/vfs_vnode.c 	DPRINTF(VFSDB_VNODE, ("vgone: %s\n", vp-&gt;v_path));
+<a href='../S/913.html#L297'>vp</a>                297 usr/server/fs/vfs/vfs_vnode.c 	list_remove(&amp;vp-&gt;v_link);
+<a href='../S/913.html#L298'>vp</a>                298 usr/server/fs/vfs/vfs_vnode.c 	vfs_unbusy(vp-&gt;v_mount);
+<a href='../S/913.html#L299'>vp</a>                299 usr/server/fs/vfs/vfs_vnode.c 	mutex_destroy(&amp;vp-&gt;v_lock);
+<a href='../S/913.html#L300'>vp</a>                300 usr/server/fs/vfs/vfs_vnode.c 	free(vp-&gt;v_path);
+<a href='../S/913.html#L301'>vp</a>                301 usr/server/fs/vfs/vfs_vnode.c 	free(vp);
+<a href='../S/913.html#L309'>vp</a>                309 usr/server/fs/vfs/vfs_vnode.c vcount(vnode_t vp)
+<a href='../S/913.html#L313'>vp</a>                313 usr/server/fs/vfs/vfs_vnode.c 	vn_lock(vp);
+<a href='../S/913.html#L314'>vp</a>                314 usr/server/fs/vfs/vfs_vnode.c 	count = vp-&gt;v_refcnt;
+<a href='../S/913.html#L315'>vp</a>                315 usr/server/fs/vfs/vfs_vnode.c 	vn_unlock(vp);
+<a href='../S/913.html#L327'>vp</a>                327 usr/server/fs/vfs/vfs_vnode.c 	vnode_t vp;
+<a href='../S/913.html#L333'>vp</a>                333 usr/server/fs/vfs/vfs_vnode.c 			vp = list_entry(n, struct vnode, v_link);
+<a href='../S/913.html#L334'>vp</a>                334 usr/server/fs/vfs/vfs_vnode.c 			if (vp-&gt;v_mount == mp) {
+<a href='../S/913.html#L343'>vp</a>                343 usr/server/fs/vfs/vfs_vnode.c vn_stat(vnode_t vp, struct stat *st)
+<a href='../S/913.html#L349'>vp</a>                349 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_ino = (ino_t)vp;
+<a href='../S/913.html#L350'>vp</a>                350 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_size = vp-&gt;v_size;
+<a href='../S/913.html#L351'>vp</a>                351 usr/server/fs/vfs/vfs_vnode.c 	mode = vp-&gt;v_mode;
+<a href='../S/913.html#L352'>vp</a>                352 usr/server/fs/vfs/vfs_vnode.c 	switch (vp-&gt;v_type) {
+<a href='../S/913.html#L379'>vp</a>                379 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_blocks = vp-&gt;v_size / S_BLKSIZE;
+<a href='../S/913.html#L382'>vp</a>                382 usr/server/fs/vfs/vfs_vnode.c 	if (vp-&gt;v_type == VCHR || vp-&gt;v_type == VBLK)
+<a href='../S/913.html#L383'>vp</a>                383 usr/server/fs/vfs/vfs_vnode.c 		st-&gt;st_rdev = (dev_t)vp-&gt;v_data;
+<a href='../S/913.html#L392'>vp</a>                392 usr/server/fs/vfs/vfs_vnode.c vn_access(vnode_t vp, int flags)
+<a href='../S/913.html#L396'>vp</a>                396 usr/server/fs/vfs/vfs_vnode.c 	if ((flags &amp; VEXEC) &amp;&amp; (vp-&gt;v_mode &amp; 0111) == 0) {
+<a href='../S/913.html#L400'>vp</a>                400 usr/server/fs/vfs/vfs_vnode.c 	if ((flags &amp; VREAD) &amp;&amp; (vp-&gt;v_mode &amp; 0444) == 0) {
+<a href='../S/913.html#L405'>vp</a>                405 usr/server/fs/vfs/vfs_vnode.c 		if (vp-&gt;v_mount-&gt;m_flags &amp; MNT_RDONLY) {
+<a href='../S/913.html#L409'>vp</a>                409 usr/server/fs/vfs/vfs_vnode.c 		if ((vp-&gt;v_mode &amp; 0222) == 0) {
+<a href='../S/913.html#L427'>vp</a>                427 usr/server/fs/vfs/vfs_vnode.c 	vnode_t vp;
+<a href='../S/913.html#L440'>vp</a>                440 usr/server/fs/vfs/vfs_vnode.c 			vp = list_entry(n, struct vnode, v_link);
+<a href='../S/913.html#L441'>vp</a>                441 usr/server/fs/vfs/vfs_vnode.c 			mp = vp-&gt;v_mount;
+<a href='../S/913.html#L443'>vp</a>                443 usr/server/fs/vfs/vfs_vnode.c 			dprintf(" %08x %08x %s %6d %8d %s%s\n", (u_int)vp,
+<a href='../S/913.html#L444'>vp</a>                444 usr/server/fs/vfs/vfs_vnode.c 				(u_int)mp, type[vp-&gt;v_type], vp-&gt;v_refcnt,
+<a href='../S/913.html#L445'>vp</a>                445 usr/server/fs/vfs/vfs_vnode.c 				(u_int)vp-&gt;v_blkno,
+<a href='../S/913.html#L447'>vp</a>                447 usr/server/fs/vfs/vfs_vnode.c 				vp-&gt;v_path);
+</pre>
+</body>
+</html>

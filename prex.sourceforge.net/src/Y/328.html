@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>_ubuf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L113'>_ubuf</a>             113 usr/include/stdio.h 	unsigned char _ubuf[3];	/* guarantee an ungetc() buffer */
+<a href='../S/551.html#L94'>_ubuf</a>              94 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ub._base = fp-&gt;_ubuf;
+<a href='../S/551.html#L95'>_ubuf</a>              95 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ub._size = sizeof(fp-&gt;_ubuf);
+<a href='../S/551.html#L96'>_ubuf</a>              96 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ubuf[sizeof(fp-&gt;_ubuf) - 1] = c;
+<a href='../S/551.html#L97'>_ubuf</a>              97 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_p = &amp;fp-&gt;_ubuf[sizeof(fp-&gt;_ubuf) - 1];
+</pre>
+</body>
+</html>

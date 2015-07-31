@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>uint32_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/9.html#L38'>uint32_t</a>           38 bsp/boot/arm/integrator/debug.c #define UART_DR		(*(volatile uint32_t *)(UART_BASE + 0x00))
+<a href='../S/9.html#L39'>uint32_t</a>           39 bsp/boot/arm/integrator/debug.c #define UART_RSR	(*(volatile uint32_t *)(UART_BASE + 0x04))
+<a href='../S/9.html#L40'>uint32_t</a>           40 bsp/boot/arm/integrator/debug.c #define UART_ECR	(*(volatile uint32_t *)(UART_BASE + 0x04))
+<a href='../S/9.html#L41'>uint32_t</a>           41 bsp/boot/arm/integrator/debug.c #define UART_FR		(*(volatile uint32_t *)(UART_BASE + 0x18))
+<a href='../S/9.html#L42'>uint32_t</a>           42 bsp/boot/arm/integrator/debug.c #define UART_IBRD	(*(volatile uint32_t *)(UART_BASE + 0x24))
+<a href='../S/9.html#L43'>uint32_t</a>           43 bsp/boot/arm/integrator/debug.c #define UART_FBRD	(*(volatile uint32_t *)(UART_BASE + 0x28))
+<a href='../S/9.html#L44'>uint32_t</a>           44 bsp/boot/arm/integrator/debug.c #define UART_LCRH	(*(volatile uint32_t *)(UART_BASE + 0x2c))
+<a href='../S/9.html#L45'>uint32_t</a>           45 bsp/boot/arm/integrator/debug.c #define UART_CR		(*(volatile uint32_t *)(UART_BASE + 0x30))
+<a href='../S/9.html#L46'>uint32_t</a>           46 bsp/boot/arm/integrator/debug.c #define UART_IMSC	(*(volatile uint32_t *)(UART_BASE + 0x38))
+<a href='../S/9.html#L47'>uint32_t</a>           47 bsp/boot/arm/integrator/debug.c #define UART_MIS	(*(volatile uint32_t *)(UART_BASE + 0x40))
+<a href='../S/9.html#L48'>uint32_t</a>           48 bsp/boot/arm/integrator/debug.c #define UART_ICR	(*(volatile uint32_t *)(UART_BASE + 0x44))
+<a href='../S/26.html#L46'>uint32_t</a>           46 bsp/boot/ppc/arch/elf_reloc.c 	uint32_t val;
+<a href='../S/26.html#L56'>uint32_t</a>           56 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where = val;
+<a href='../S/26.html#L72'>uint32_t</a>           72 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where =
+<a href='../S/26.html#L73'>uint32_t</a>           73 bsp/boot/ppc/arch/elf_reloc.c 			(*(uint32_t *)where &amp; ~0x03fffffc)
+<a href='../S/26.html#L74'>uint32_t</a>           74 bsp/boot/ppc/arch/elf_reloc.c 			| ((val - (uint32_t)where)
+<a href='../S/26.html#L79'>uint32_t</a>           79 bsp/boot/ppc/arch/elf_reloc.c 		*(uint32_t *)where = val - (uint32_t)where;
+<a href='../S/56.html#L42'>uint32_t</a>           42 bsp/drv/arm/include/busio.h #define bus_read_32(addr)	(*((volatile uint32_t *)(addr)))
+<a href='../S/56.html#L46'>uint32_t</a>           46 bsp/drv/arm/include/busio.h #define bus_write_32(addr, val)	(*((volatile uint32_t *)(addr)) = (val))
+<a href='../S/88.html#L125'>uint32_t</a>          125 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_DR, (uint32_t)c);
+<a href='../S/88.html#L157'>uint32_t</a>          157 bsp/drv/dev/serial/pl011.c 	uint32_t mis;
+<a href='../S/88.html#L190'>uint32_t</a>          190 bsp/drv/dev/serial/pl011.c 	uint32_t divider, remainder, fraction;
+<a href='../S/109.html#L16'>uint32_t</a>           16 bsp/drv/lib/endian.c uint32_t
+<a href='../S/109.html#L17'>uint32_t</a>           17 bsp/drv/lib/endian.c htonl(uint32_t x)
+<a href='../S/109.html#L21'>uint32_t</a>           21 bsp/drv/lib/endian.c 	return (uint32_t)(s[0] &lt;&lt; 24 | s[1] &lt;&lt; 16 | s[2] &lt;&lt; 8 | s[3]);
+<a href='../S/109.html#L32'>uint32_t</a>           32 bsp/drv/lib/endian.c uint32_t
+<a href='../S/109.html#L33'>uint32_t</a>           33 bsp/drv/lib/endian.c ntohl(uint32_t x)
+<a href='../S/109.html#L37'>uint32_t</a>           37 bsp/drv/lib/endian.c 	return (uint32_t)(s[0] &lt;&lt; 24 | s[1] &lt;&lt; 16 | s[2] &lt;&lt; 8 | s[3]);
+<a href='../S/117.html#L45'>uint32_t</a>           45 bsp/drv/ppc/include/busio.h #define bus_read_32(addr)	(*((volatile uint32_t *)(IOBASE+addr)))
+<a href='../S/117.html#L49'>uint32_t</a>           49 bsp/drv/ppc/include/busio.h #define bus_write_32(addr, val)	(*((volatile uint32_t *)(IOBASE+addr)) = (val))
+<a href='../S/123.html#L43'>uint32_t</a>           43 bsp/drv/x86/include/busio.h void	 bus_write_32(int addr, uint32_t val);
+<a href='../S/123.html#L47'>uint32_t</a>           47 bsp/drv/x86/include/busio.h uint32_t bus_read_32(int addr);
+<a href='../S/126.html#L73'>uint32_t</a>           73 bsp/hal/arm/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/126.html#L81'>uint32_t</a>           81 bsp/hal/arm/arch/context.c 		u-&gt;svc_sp = (uint32_t)val;
+<a href='../S/126.html#L87'>uint32_t</a>           87 bsp/hal/arm/arch/context.c 		k-&gt;lr = (uint32_t)&amp;kernel_thread_entry;
+<a href='../S/126.html#L88'>uint32_t</a>           88 bsp/hal/arm/arch/context.c 		k-&gt;r4 = (uint32_t)val;
+<a href='../S/126.html#L93'>uint32_t</a>           93 bsp/hal/arm/arch/context.c 		k-&gt;r5 = (uint32_t)val;
+<a href='../S/126.html#L99'>uint32_t</a>           99 bsp/hal/arm/arch/context.c 		u-&gt;sp = (uint32_t)val;
+<a href='../S/126.html#L106'>uint32_t</a>          106 bsp/hal/arm/arch/context.c 		u-&gt;pc = (uint32_t)val;
+<a href='../S/126.html#L113'>uint32_t</a>          113 bsp/hal/arm/arch/context.c 		u-&gt;r0 = (uint32_t)val;		/* Argument 1 */
+<a href='../S/126.html#L165'>uint32_t</a>          165 bsp/hal/arm/arch/context.c 	cur-&gt;sp = (uint32_t)sav - sizeof(uint32_t);
+<a href='../S/131.html#L113'>uint32_t</a>          113 bsp/hal/arm/arch/mmu.c 	uint32_t pte_flag = 0;
+<a href='../S/131.html#L129'>uint32_t</a>          129 bsp/hal/arm/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_WBUF | PTE_CACHE |
+<a href='../S/131.html#L133'>uint32_t</a>          133 bsp/hal/arm/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_WBUF | PTE_CACHE |
+<a href='../S/131.html#L137'>uint32_t</a>          137 bsp/hal/arm/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_WBUF | PTE_CACHE |
+<a href='../S/131.html#L141'>uint32_t</a>          141 bsp/hal/arm/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_SYSTEM);
+<a href='../S/131.html#L161'>uint32_t</a>          161 bsp/hal/arm/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | PDE_PRESENT;
+<a href='../S/131.html#L166'>uint32_t</a>          166 bsp/hal/arm/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/131.html#L283'>uint32_t</a>          283 bsp/hal/arm/arch/mmu.c 	boot_pgd[PAGE_DIR(virt)] = (uint32_t)kvtop(pte) | PDE_PRESENT;
+<a href='../S/131.html#L284'>uint32_t</a>          284 bsp/hal/arm/arch/mmu.c 	pte[PAGE_TABLE(virt)] = (uint32_t)phys | PTE_PRESENT | PTE_SYSTEM;
+<a href='../S/132.html#L79'>uint32_t</a>           79 bsp/hal/arm/arch/trap.c 	    (regs-&gt;pc - 4 == (uint32_t)known_fault1 ||
+<a href='../S/132.html#L80'>uint32_t</a>           80 bsp/hal/arm/arch/trap.c 	     regs-&gt;pc - 4 == (uint32_t)known_fault2 ||
+<a href='../S/132.html#L81'>uint32_t</a>           81 bsp/hal/arm/arch/trap.c 	     regs-&gt;pc - 4 == (uint32_t)known_fault3)) {
+<a href='../S/132.html#L84'>uint32_t</a>           84 bsp/hal/arm/arch/trap.c 		regs-&gt;pc = (uint32_t)copy_fault;
+<a href='../S/136.html#L46'>uint32_t</a>           46 bsp/hal/arm/gba/interrupt.c #define IRQ_VECTOR	*(uint32_t *)0x3007ffc
+<a href='../S/136.html#L215'>uint32_t</a>          215 bsp/hal/arm/gba/interrupt.c 	IRQ_VECTOR = (uint32_t)interrupt_entry; /* Interrupt hook address */
+<a href='../S/140.html#L67'>uint32_t</a>           67 bsp/hal/arm/include/context.h 	uint32_t	r0;	/*  +0 (00) */
+<a href='../S/140.html#L68'>uint32_t</a>           68 bsp/hal/arm/include/context.h 	uint32_t	r1;	/*  +4 (04) */
+<a href='../S/140.html#L69'>uint32_t</a>           69 bsp/hal/arm/include/context.h 	uint32_t	r2;	/*  +8 (08) */
+<a href='../S/140.html#L70'>uint32_t</a>           70 bsp/hal/arm/include/context.h 	uint32_t	r3;	/* +12 (0C) */
+<a href='../S/140.html#L71'>uint32_t</a>           71 bsp/hal/arm/include/context.h 	uint32_t	r4;	/* +16 (10) */
+<a href='../S/140.html#L72'>uint32_t</a>           72 bsp/hal/arm/include/context.h 	uint32_t	r5;	/* +20 (14) */
+<a href='../S/140.html#L73'>uint32_t</a>           73 bsp/hal/arm/include/context.h 	uint32_t	r6;	/* +24 (18) */
+<a href='../S/140.html#L74'>uint32_t</a>           74 bsp/hal/arm/include/context.h 	uint32_t	r7;	/* +28 (1C) */
+<a href='../S/140.html#L75'>uint32_t</a>           75 bsp/hal/arm/include/context.h 	uint32_t	r8;	/* +32 (20) */
+<a href='../S/140.html#L76'>uint32_t</a>           76 bsp/hal/arm/include/context.h 	uint32_t	r9;	/* +36 (24) */
+<a href='../S/140.html#L77'>uint32_t</a>           77 bsp/hal/arm/include/context.h 	uint32_t	r10;	/* +40 (28) */
+<a href='../S/140.html#L78'>uint32_t</a>           78 bsp/hal/arm/include/context.h 	uint32_t	r11; 	/* +44 (2C) */
+<a href='../S/140.html#L79'>uint32_t</a>           79 bsp/hal/arm/include/context.h 	uint32_t	r12;	/* +48 (30) */
+<a href='../S/140.html#L80'>uint32_t</a>           80 bsp/hal/arm/include/context.h 	uint32_t	sp;	/* +52 (34) */
+<a href='../S/140.html#L81'>uint32_t</a>           81 bsp/hal/arm/include/context.h 	uint32_t	lr;	/* +56 (38) */
+<a href='../S/140.html#L82'>uint32_t</a>           82 bsp/hal/arm/include/context.h 	uint32_t	cpsr;	/* +60 (3C) */
+<a href='../S/140.html#L83'>uint32_t</a>           83 bsp/hal/arm/include/context.h 	uint32_t	svc_sp;	/* +64 (40) */
+<a href='../S/140.html#L84'>uint32_t</a>           84 bsp/hal/arm/include/context.h 	uint32_t	svc_lr;	/* +68 (44) */
+<a href='../S/140.html#L85'>uint32_t</a>           85 bsp/hal/arm/include/context.h 	uint32_t	pc;	/* +72 (48) */
+<a href='../S/140.html#L92'>uint32_t</a>           92 bsp/hal/arm/include/context.h 	uint32_t	r4;
+<a href='../S/140.html#L93'>uint32_t</a>           93 bsp/hal/arm/include/context.h 	uint32_t	r5;
+<a href='../S/140.html#L94'>uint32_t</a>           94 bsp/hal/arm/include/context.h 	uint32_t	r6;
+<a href='../S/140.html#L95'>uint32_t</a>           95 bsp/hal/arm/include/context.h 	uint32_t	r7;
+<a href='../S/140.html#L96'>uint32_t</a>           96 bsp/hal/arm/include/context.h 	uint32_t	r8;
+<a href='../S/140.html#L97'>uint32_t</a>           97 bsp/hal/arm/include/context.h 	uint32_t	r9;
+<a href='../S/140.html#L98'>uint32_t</a>           98 bsp/hal/arm/include/context.h 	uint32_t	r10;
+<a href='../S/140.html#L99'>uint32_t</a>           99 bsp/hal/arm/include/context.h 	uint32_t	r11;
+<a href='../S/140.html#L100'>uint32_t</a>          100 bsp/hal/arm/include/context.h 	uint32_t	sp;
+<a href='../S/140.html#L101'>uint32_t</a>          101 bsp/hal/arm/include/context.h 	uint32_t	lr;
+<a href='../S/144.html#L35'>uint32_t</a>           35 bsp/hal/arm/include/mmu.h typedef uint32_t	*pgd_t;		/* page directory */
+<a href='../S/144.html#L36'>uint32_t</a>           36 bsp/hal/arm/include/mmu.h typedef uint32_t	*pte_t;		/* page table entry */
+<a href='../S/146.html#L52'>uint32_t</a>           52 bsp/hal/arm/integrator/clock.c #define TMR_LOAD	(*(volatile uint32_t *)(TIMER_BASE + 0x100))
+<a href='../S/146.html#L53'>uint32_t</a>           53 bsp/hal/arm/integrator/clock.c #define TMR_VAL		(*(volatile uint32_t *)(TIMER_BASE + 0x104))
+<a href='../S/146.html#L54'>uint32_t</a>           54 bsp/hal/arm/integrator/clock.c #define TMR_CTRL	(*(volatile uint32_t *)(TIMER_BASE + 0x108))
+<a href='../S/146.html#L55'>uint32_t</a>           55 bsp/hal/arm/integrator/clock.c #define TMR_CLR		(*(volatile uint32_t *)(TIMER_BASE + 0x10c))
+<a href='../S/147.html#L40'>uint32_t</a>           40 bsp/hal/arm/integrator/diag.c #define UART_FR		(*(volatile uint32_t *)(UART_BASE + 0x18))
+<a href='../S/147.html#L41'>uint32_t</a>           41 bsp/hal/arm/integrator/diag.c #define UART_DR		(*(volatile uint32_t *)(UART_BASE + 0x00))
+<a href='../S/147.html#L53'>uint32_t</a>           53 bsp/hal/arm/integrator/diag.c 	UART_DR = (uint32_t)c;
+<a href='../S/148.html#L48'>uint32_t</a>           48 bsp/hal/arm/integrator/interrupt.c #define ICU_IRQSTS	(*(volatile uint32_t *)(ICU_BASE + 0x00))
+<a href='../S/148.html#L49'>uint32_t</a>           49 bsp/hal/arm/integrator/interrupt.c #define ICU_IRQEN	(*(volatile uint32_t *)(ICU_BASE + 0x08))
+<a href='../S/148.html#L50'>uint32_t</a>           50 bsp/hal/arm/integrator/interrupt.c #define ICU_IRQENSET	(*(volatile uint32_t *)(ICU_BASE + 0x08))
+<a href='../S/148.html#L51'>uint32_t</a>           51 bsp/hal/arm/integrator/interrupt.c #define ICU_IRQENCLR	(*(volatile uint32_t *)(ICU_BASE + 0x0C))
+<a href='../S/148.html#L66'>uint32_t</a>           66 bsp/hal/arm/integrator/interrupt.c static uint32_t mask_table[NIPLS];	/* level -&gt; mask */
+<a href='../S/148.html#L89'>uint32_t</a>           89 bsp/hal/arm/integrator/interrupt.c 	uint32_t unmask = (uint32_t)1 &lt;&lt; vector;
+<a href='../S/148.html#L136'>uint32_t</a>          136 bsp/hal/arm/integrator/interrupt.c 	uint32_t bits;
+<a href='../S/148.html#L142'>uint32_t</a>          142 bsp/hal/arm/integrator/interrupt.c 		if (bits &amp; (uint32_t)(1 &lt;&lt; vector))
+<a href='../S/149.html#L47'>uint32_t</a>           47 bsp/hal/arm/integrator/machdep.c #define SC_CTRL		(*(volatile uint32_t *)(FPGA_BASE + 0x0c))
+<a href='../S/154.html#L66'>uint32_t</a>           66 bsp/hal/ppc/arch/context.c 	uint32_t *argp;
+<a href='../S/154.html#L77'>uint32_t</a>           77 bsp/hal/ppc/arch/context.c 				((uint32_t)val - sizeof(struct cpu_regs));
+<a href='../S/154.html#L79'>uint32_t</a>           79 bsp/hal/ppc/arch/context.c 		k-&gt;sp = (uint32_t)ctx-&gt;uregs;
+<a href='../S/154.html#L80'>uint32_t</a>           80 bsp/hal/ppc/arch/context.c 		k-&gt;kstack = (uint32_t)val;
+<a href='../S/154.html#L92'>uint32_t</a>           92 bsp/hal/ppc/arch/context.c 		k-&gt;lr = (uint32_t)val;
+<a href='../S/154.html#L97'>uint32_t</a>           97 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(k-&gt;sp + sizeof(uint32_t) * 2);
+<a href='../S/154.html#L98'>uint32_t</a>           98 bsp/hal/ppc/arch/context.c 		*argp = (uint32_t)val;
+<a href='../S/154.html#L104'>uint32_t</a>          104 bsp/hal/ppc/arch/context.c 		u-&gt;gr[1] = (uint32_t)val;
+<a href='../S/154.html#L110'>uint32_t</a>          110 bsp/hal/ppc/arch/context.c 		u-&gt;srr0 = (uint32_t)val;
+<a href='../S/154.html#L117'>uint32_t</a>          117 bsp/hal/ppc/arch/context.c 		u-&gt;gr[3] = (uint32_t)val;
+<a href='../S/154.html#L118'>uint32_t</a>          118 bsp/hal/ppc/arch/context.c 		argp = (uint32_t *)(u-&gt;gr[1] + sizeof(uint32_t));
+<a href='../S/154.html#L119'>uint32_t</a>          119 bsp/hal/ppc/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/154.html#L171'>uint32_t</a>          171 bsp/hal/ppc/arch/context.c 	cur-&gt;gr[1] = (uint32_t)sav - sizeof(uint32_t);
+<a href='../S/159.html#L100'>uint32_t</a>          100 bsp/hal/ppc/arch/trap.c 	uint32_t trap_no = regs-&gt;trap_no;
+<a href='../S/161.html#L45'>uint32_t</a>           45 bsp/hal/ppc/include/context.h 	uint32_t	gr[32];		/* R0-R31 */
+<a href='../S/161.html#L46'>uint32_t</a>           46 bsp/hal/ppc/include/context.h 	uint32_t	lr;
+<a href='../S/161.html#L47'>uint32_t</a>           47 bsp/hal/ppc/include/context.h 	uint32_t	cr;
+<a href='../S/161.html#L48'>uint32_t</a>           48 bsp/hal/ppc/include/context.h 	uint32_t	xer;
+<a href='../S/161.html#L49'>uint32_t</a>           49 bsp/hal/ppc/include/context.h 	uint32_t	ctr;
+<a href='../S/161.html#L50'>uint32_t</a>           50 bsp/hal/ppc/include/context.h 	uint32_t	srr0;
+<a href='../S/161.html#L51'>uint32_t</a>           51 bsp/hal/ppc/include/context.h 	uint32_t	srr1;
+<a href='../S/161.html#L52'>uint32_t</a>           52 bsp/hal/ppc/include/context.h 	uint32_t	trap_no;	/* trap number */
+<a href='../S/161.html#L59'>uint32_t</a>           59 bsp/hal/ppc/include/context.h 	uint32_t	gr[19];		/* R13-R31 */
+<a href='../S/161.html#L60'>uint32_t</a>           60 bsp/hal/ppc/include/context.h 	uint32_t	r2;
+<a href='../S/161.html#L61'>uint32_t</a>           61 bsp/hal/ppc/include/context.h 	uint32_t	sp;
+<a href='../S/161.html#L62'>uint32_t</a>           62 bsp/hal/ppc/include/context.h 	uint32_t	lr;
+<a href='../S/161.html#L63'>uint32_t</a>           63 bsp/hal/ppc/include/context.h 	uint32_t	cr;
+<a href='../S/161.html#L64'>uint32_t</a>           64 bsp/hal/ppc/include/context.h 	uint32_t	kstack;		/* kernel stack */
+<a href='../S/162.html#L60'>uint32_t</a>           60 bsp/hal/ppc/include/cpu.h #define MSR_DFLT	(uint32_t)(MSR_EE | MSR_PR | MSR_ME | MSR_IR | MSR_DR)
+<a href='../S/162.html#L62'>uint32_t</a>           62 bsp/hal/ppc/include/cpu.h #define MSR_DFLT	(uint32_t)(MSR_EE | MSR_PR | MSR_ME)
+<a href='../S/162.html#L65'>uint32_t</a>           65 bsp/hal/ppc/include/cpu.h #define MSR_DFLT	(uint32_t)(MSR_EE | MSR_PR)
+<a href='../S/163.html#L37'>uint32_t</a>           37 bsp/hal/ppc/include/cpufunc.h uint32_t get_decr(void);
+<a href='../S/163.html#L38'>uint32_t</a>           38 bsp/hal/ppc/include/cpufunc.h void	 set_decr(uint32_t);
+<a href='../S/166.html#L35'>uint32_t</a>           35 bsp/hal/ppc/include/mmu.h typedef uint32_t	*pgd_t;		/* page directory */
+<a href='../S/166.html#L38'>uint32_t</a>           38 bsp/hal/ppc/include/mmu.h 	uint32_t	pte_hi;
+<a href='../S/166.html#L39'>uint32_t</a>           39 bsp/hal/ppc/include/mmu.h 	uint32_t	pte_lo;
+<a href='../S/173.html#L66'>uint32_t</a>           66 bsp/hal/x86/arch/context.c 	uint32_t *argp;
+<a href='../S/173.html#L74'>uint32_t</a>           74 bsp/hal/x86/arch/context.c 				((uint32_t)val - sizeof(struct cpu_regs));
+<a href='../S/173.html#L75'>uint32_t</a>           75 bsp/hal/x86/arch/context.c 		ctx-&gt;esp0 = (uint32_t)val;
+<a href='../S/173.html#L77'>uint32_t</a>           77 bsp/hal/x86/arch/context.c 		k-&gt;eip = (uint32_t)&amp;syscall_ret;
+<a href='../S/173.html#L78'>uint32_t</a>           78 bsp/hal/x86/arch/context.c 		k-&gt;esp = (uint32_t)ctx-&gt;uregs - sizeof(uint32_t);
+<a href='../S/173.html#L83'>uint32_t</a>           83 bsp/hal/x86/arch/context.c 		u-&gt;eflags = (uint32_t)(EFL_IF | EFL_IOPL_KERN);
+<a href='../S/173.html#L88'>uint32_t</a>           88 bsp/hal/x86/arch/context.c 		k-&gt;eip = (uint32_t)val;
+<a href='../S/173.html#L93'>uint32_t</a>           93 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(k-&gt;esp + sizeof(uint32_t) * 2);
+<a href='../S/173.html#L94'>uint32_t</a>           94 bsp/hal/x86/arch/context.c 		*argp = (uint32_t)val;
+<a href='../S/173.html#L100'>uint32_t</a>          100 bsp/hal/x86/arch/context.c 		u-&gt;esp = (uint32_t)val;
+<a href='../S/173.html#L101'>uint32_t</a>          101 bsp/hal/x86/arch/context.c 		u-&gt;ss = (uint32_t)(USER_DS | 3); /* fail safe */
+<a href='../S/173.html#L107'>uint32_t</a>          107 bsp/hal/x86/arch/context.c 		u-&gt;eip = (uint32_t)val;
+<a href='../S/173.html#L108'>uint32_t</a>          108 bsp/hal/x86/arch/context.c 		u-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/173.html#L109'>uint32_t</a>          109 bsp/hal/x86/arch/context.c 		u-&gt;ds = u-&gt;es = (uint32_t)(USER_DS | 3);
+<a href='../S/173.html#L110'>uint32_t</a>          110 bsp/hal/x86/arch/context.c 		u-&gt;eflags = (uint32_t)(EFL_IF | EFL_IOPL_KERN);
+<a href='../S/173.html#L118'>uint32_t</a>          118 bsp/hal/x86/arch/context.c 		argp = (uint32_t *)(u-&gt;esp + sizeof(uint32_t));
+<a href='../S/173.html#L119'>uint32_t</a>          119 bsp/hal/x86/arch/context.c 		copyout(&amp;val, argp, sizeof(uint32_t));
+<a href='../S/173.html#L148'>uint32_t</a>          148 bsp/hal/x86/arch/context.c 	tss_set((uint32_t)next-&gt;esp0);
+<a href='../S/173.html#L181'>uint32_t</a>          181 bsp/hal/x86/arch/context.c 	cur-&gt;esp = (uint32_t)sav - (sizeof(uint32_t) * 2);
+<a href='../S/173.html#L197'>uint32_t</a>          197 bsp/hal/x86/arch/context.c 	cur-&gt;cs = (uint32_t)(USER_CS | 3);
+<a href='../S/173.html#L198'>uint32_t</a>          198 bsp/hal/x86/arch/context.c 	cur-&gt;ss = cur-&gt;ds = cur-&gt;es = (uint32_t)(USER_DS | 3);
+<a href='../S/174.html#L74'>uint32_t</a>           74 bsp/hal/x86/arch/cpu.c tss_set(uint32_t kstack)
+<a href='../S/174.html#L83'>uint32_t</a>           83 bsp/hal/x86/arch/cpu.c uint32_t
+<a href='../S/174.html#L145'>uint32_t</a>          145 bsp/hal/x86/arch/cpu.c 	gdt_p.base = (uint32_t)&amp;gdt;
+<a href='../S/174.html#L186'>uint32_t</a>          186 bsp/hal/x86/arch/cpu.c 	idt_p.base = (uint32_t)&amp;idt;
+<a href='../S/174.html#L203'>uint32_t</a>          203 bsp/hal/x86/arch/cpu.c 	tss.esp0 = (uint32_t)BOOTSTKTOP;
+<a href='../S/174.html#L204'>uint32_t</a>          204 bsp/hal/x86/arch/cpu.c 	tss.cs = (uint32_t)USER_CS | 3;
+<a href='../S/174.html#L205'>uint32_t</a>          205 bsp/hal/x86/arch/cpu.c 	tss.ds = tss.es = tss.ss = tss.fs = tss.gs = (uint32_t)USER_CS | 3;
+<a href='../S/178.html#L84'>uint32_t</a>           84 bsp/hal/x86/arch/mmu.c 	uint32_t pte_flag = 0;
+<a href='../S/178.html#L85'>uint32_t</a>           85 bsp/hal/x86/arch/mmu.c 	uint32_t pde_flag = 0;
+<a href='../S/178.html#L99'>uint32_t</a>           99 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE | PDE_USER);
+<a href='../S/178.html#L102'>uint32_t</a>          102 bsp/hal/x86/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_USER);
+<a href='../S/178.html#L103'>uint32_t</a>          103 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE | PDE_USER);
+<a href='../S/178.html#L106'>uint32_t</a>          106 bsp/hal/x86/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_WRITE | PTE_USER);
+<a href='../S/178.html#L107'>uint32_t</a>          107 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE | PDE_USER);
+<a href='../S/178.html#L110'>uint32_t</a>          110 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE);
+<a href='../S/178.html#L111'>uint32_t</a>          111 bsp/hal/x86/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_WRITE);
+<a href='../S/178.html#L114'>uint32_t</a>          114 bsp/hal/x86/arch/mmu.c 		pde_flag = (uint32_t)(PDE_PRESENT | PDE_WRITE);
+<a href='../S/178.html#L115'>uint32_t</a>          115 bsp/hal/x86/arch/mmu.c 		pte_flag = (uint32_t)(PTE_PRESENT | PTE_WRITE | PTE_NCACHE);
+<a href='../S/178.html#L133'>uint32_t</a>          133 bsp/hal/x86/arch/mmu.c 			pgd[PAGE_DIR(va)] = (uint32_t)pg | pde_flag;
+<a href='../S/178.html#L138'>uint32_t</a>          138 bsp/hal/x86/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/178.html#L208'>uint32_t</a>          208 bsp/hal/x86/arch/mmu.c 	uint32_t phys = (uint32_t)kvtop(pgd);
+<a href='../S/179.html#L120'>uint32_t</a>          120 bsp/hal/x86/arch/trap.c 	    (regs-&gt;eip == (uint32_t)known_fault1 ||
+<a href='../S/179.html#L121'>uint32_t</a>          121 bsp/hal/x86/arch/trap.c 	     regs-&gt;eip == (uint32_t)known_fault2 ||
+<a href='../S/179.html#L122'>uint32_t</a>          122 bsp/hal/x86/arch/trap.c 	     regs-&gt;eip == (uint32_t)known_fault3)) {
+<a href='../S/179.html#L125'>uint32_t</a>          125 bsp/hal/x86/arch/trap.c 		regs-&gt;eip = (uint32_t)copy_fault;
+<a href='../S/179.html#L153'>uint32_t</a>          153 bsp/hal/x86/arch/trap.c 	uint32_t ss, esp, *fp;
+<a href='../S/179.html#L166'>uint32_t</a>          166 bsp/hal/x86/arch/trap.c 		esp = (uint32_t)r;
+<a href='../S/179.html#L182'>uint32_t</a>          182 bsp/hal/x86/arch/trap.c 		fp = (uint32_t *)r-&gt;ebp;
+<a href='../S/179.html#L186'>uint32_t</a>          186 bsp/hal/x86/arch/trap.c 			fp = (uint32_t *)(*fp);	/* XXX: may cause fault */
+<a href='../S/180.html#L46'>uint32_t</a>           46 bsp/hal/x86/include/context.h 	uint32_t	ebx;		/*  +0 (00) --- s/w trap frame --- */
+<a href='../S/180.html#L47'>uint32_t</a>           47 bsp/hal/x86/include/context.h 	uint32_t	ecx;		/*  +4 (04) */
+<a href='../S/180.html#L48'>uint32_t</a>           48 bsp/hal/x86/include/context.h 	uint32_t	edx;		/*  +8 (08) */
+<a href='../S/180.html#L49'>uint32_t</a>           49 bsp/hal/x86/include/context.h 	uint32_t	esi;		/* +12 (0C) */
+<a href='../S/180.html#L50'>uint32_t</a>           50 bsp/hal/x86/include/context.h 	uint32_t	eax;		/* +16 (10) */
+<a href='../S/180.html#L51'>uint32_t</a>           51 bsp/hal/x86/include/context.h 	uint32_t	edi;		/* +20 (14) */
+<a href='../S/180.html#L52'>uint32_t</a>           52 bsp/hal/x86/include/context.h 	uint32_t	ebp;		/* +24 (18) */
+<a href='../S/180.html#L53'>uint32_t</a>           53 bsp/hal/x86/include/context.h 	uint32_t	ds;		/* +28 (1C) */
+<a href='../S/180.html#L54'>uint32_t</a>           54 bsp/hal/x86/include/context.h 	uint32_t	es;		/* +32 (20) */
+<a href='../S/180.html#L55'>uint32_t</a>           55 bsp/hal/x86/include/context.h 	uint32_t	trap_no;	/* +36 (24) --- h/w trap frame --- */
+<a href='../S/180.html#L56'>uint32_t</a>           56 bsp/hal/x86/include/context.h 	uint32_t	err_code;	/* +40 (28) */
+<a href='../S/180.html#L57'>uint32_t</a>           57 bsp/hal/x86/include/context.h 	uint32_t	eip;		/* +44 (2C) */
+<a href='../S/180.html#L58'>uint32_t</a>           58 bsp/hal/x86/include/context.h 	uint32_t	cs;		/* +48 (30) */
+<a href='../S/180.html#L59'>uint32_t</a>           59 bsp/hal/x86/include/context.h 	uint32_t	eflags;		/* +52 (34) */
+<a href='../S/180.html#L60'>uint32_t</a>           60 bsp/hal/x86/include/context.h 	uint32_t	esp;		/* +56 (38) */
+<a href='../S/180.html#L61'>uint32_t</a>           61 bsp/hal/x86/include/context.h 	uint32_t	ss;		/* +60 (3C) */
+<a href='../S/180.html#L68'>uint32_t</a>           68 bsp/hal/x86/include/context.h 	uint32_t	eip;		/*  +0 (00) */
+<a href='../S/180.html#L69'>uint32_t</a>           69 bsp/hal/x86/include/context.h 	uint32_t	ebx;		/*  +4 (04) */
+<a href='../S/180.html#L70'>uint32_t</a>           70 bsp/hal/x86/include/context.h 	uint32_t	edi;		/*  +8 (08) */
+<a href='../S/180.html#L71'>uint32_t</a>           71 bsp/hal/x86/include/context.h 	uint32_t	esi;		/* +12 (0C) */
+<a href='../S/180.html#L72'>uint32_t</a>           72 bsp/hal/x86/include/context.h 	uint32_t	ebp;		/* +16 (10) */
+<a href='../S/180.html#L73'>uint32_t</a>           73 bsp/hal/x86/include/context.h 	uint32_t	esp;		/* +20 (14) */
+<a href='../S/180.html#L80'>uint32_t</a>           80 bsp/hal/x86/include/context.h 	uint32_t	ctrl_word;
+<a href='../S/180.html#L81'>uint32_t</a>           81 bsp/hal/x86/include/context.h 	uint32_t	stat_word;
+<a href='../S/180.html#L82'>uint32_t</a>           82 bsp/hal/x86/include/context.h 	uint32_t	tag_word;
+<a href='../S/180.html#L83'>uint32_t</a>           83 bsp/hal/x86/include/context.h 	uint32_t	ip_offset;
+<a href='../S/180.html#L84'>uint32_t</a>           84 bsp/hal/x86/include/context.h 	uint32_t	cs_sel;
+<a href='../S/180.html#L85'>uint32_t</a>           85 bsp/hal/x86/include/context.h 	uint32_t	op_offset;
+<a href='../S/180.html#L86'>uint32_t</a>           86 bsp/hal/x86/include/context.h 	uint32_t	op_sel;
+<a href='../S/180.html#L87'>uint32_t</a>           87 bsp/hal/x86/include/context.h 	uint32_t	st[20];
+<a href='../S/180.html#L100'>uint32_t</a>          100 bsp/hal/x86/include/context.h 	uint32_t	 esp0;		/* top of kernel stack */
+<a href='../S/181.html#L126'>uint32_t</a>          126 bsp/hal/x86/include/cpu.h 	uint32_t base;
+<a href='../S/181.html#L173'>uint32_t</a>          173 bsp/hal/x86/include/cpu.h 	uint32_t back_link;
+<a href='../S/181.html#L174'>uint32_t</a>          174 bsp/hal/x86/include/cpu.h 	uint32_t esp0, ss0;
+<a href='../S/181.html#L175'>uint32_t</a>          175 bsp/hal/x86/include/cpu.h 	uint32_t esp1, ss1;
+<a href='../S/181.html#L176'>uint32_t</a>          176 bsp/hal/x86/include/cpu.h 	uint32_t esp2, ss2;
+<a href='../S/181.html#L177'>uint32_t</a>          177 bsp/hal/x86/include/cpu.h 	uint32_t cr3;
+<a href='../S/181.html#L178'>uint32_t</a>          178 bsp/hal/x86/include/cpu.h 	uint32_t eip;
+<a href='../S/181.html#L179'>uint32_t</a>          179 bsp/hal/x86/include/cpu.h 	uint32_t eflags;
+<a href='../S/181.html#L180'>uint32_t</a>          180 bsp/hal/x86/include/cpu.h 	uint32_t eax, ecx, edx, ebx;
+<a href='../S/181.html#L181'>uint32_t</a>          181 bsp/hal/x86/include/cpu.h 	uint32_t esp, ebp, esi, edi;
+<a href='../S/181.html#L182'>uint32_t</a>          182 bsp/hal/x86/include/cpu.h 	uint32_t es, cs, ss, ds, fs, gs;
+<a href='../S/181.html#L183'>uint32_t</a>          183 bsp/hal/x86/include/cpu.h 	uint32_t ldt;
+<a href='../S/181.html#L187'>uint32_t</a>          187 bsp/hal/x86/include/cpu.h 	uint32_t io_bitmap[IO_BITMAP_SIZE/4+1];
+<a href='../S/181.html#L188'>uint32_t</a>          188 bsp/hal/x86/include/cpu.h 	uint32_t pad[5];
+<a href='../S/181.html#L198'>uint32_t</a>          198 bsp/hal/x86/include/cpu.h void	 tss_set(uint32_t);
+<a href='../S/181.html#L199'>uint32_t</a>          199 bsp/hal/x86/include/cpu.h uint32_t tss_get(void);
+<a href='../S/182.html#L40'>uint32_t</a>           40 bsp/hal/x86/include/cpufunc.h void	 load_tr(uint32_t);
+<a href='../S/182.html#L43'>uint32_t</a>           43 bsp/hal/x86/include/cpufunc.h uint32_t get_cr2(void);
+<a href='../S/182.html#L44'>uint32_t</a>           44 bsp/hal/x86/include/cpufunc.h void	 set_cr3(uint32_t);
+<a href='../S/182.html#L45'>uint32_t</a>           45 bsp/hal/x86/include/cpufunc.h uint32_t get_cr3(void);
+<a href='../S/184.html#L35'>uint32_t</a>           35 bsp/hal/x86/include/mmu.h typedef uint32_t	*pgd_t;		/* page directory */
+<a href='../S/184.html#L36'>uint32_t</a>           36 bsp/hal/x86/include/mmu.h typedef uint32_t	*pte_t;		/* page table entry */
+<a href='../S/184.html#L75'>uint32_t</a>           75 bsp/hal/x86/include/mmu.h             (pte_t)ptokv(((uint32_t *)pgd)[PAGE_DIR(virt)] &amp; PDE_ADDRESS)
+<a href='../S/249.html#L36'>uint32_t</a>           36 include/sys/capability.h typedef uint32_t	cap_t;
+<a href='../S/253.html#L50'>uint32_t</a>           50 include/sys/dirent.h 	uint32_t d_fileno;		/* file number of entry */
+<a href='../S/254.html#L42'>uint32_t</a>           42 include/sys/elf.h typedef uint32_t	Elf32_Addr;	/* Unsigned program address */
+<a href='../S/254.html#L43'>uint32_t</a>           43 include/sys/elf.h typedef uint32_t	Elf32_Off;	/* Unsigned file offset */
+<a href='../S/254.html#L45'>uint32_t</a>           45 include/sys/elf.h typedef uint32_t	Elf32_Word;	/* Unsigned large integer */
+<a href='../S/255.html#L68'>uint32_t</a>           68 include/sys/endian.h uint32_t htonl(uint32_t);
+<a href='../S/255.html#L70'>uint32_t</a>           70 include/sys/endian.h uint32_t ntohl(uint32_t);
+<a href='../S/271.html#L55'>uint32_t</a>           55 include/sys/stat.h 	uint32_t  st_blksize;		/* optimal blocksize for I/O */
+<a href='../S/277.html#L48'>uint32_t</a>           48 include/sys/types.h typedef	uint32_t	dev_t;		/* device number */
+<a href='../S/277.html#L49'>uint32_t</a>           49 include/sys/types.h typedef	uint32_t	gid_t;		/* group id */
+<a href='../S/277.html#L50'>uint32_t</a>           50 include/sys/types.h typedef	uint32_t	ino_t;		/* inode number */
+<a href='../S/277.html#L51'>uint32_t</a>           51 include/sys/types.h typedef	uint32_t	mode_t;		/* permissions */
+<a href='../S/277.html#L52'>uint32_t</a>           52 include/sys/types.h typedef	uint32_t	nlink_t;	/* link count */
+<a href='../S/277.html#L55'>uint32_t</a>           55 include/sys/types.h typedef	uint32_t	uid_t;		/* user id */
+<a href='../S/319.html#L63'>uint32_t</a>           63 sys/include/thread.h 	uint32_t 	excbits;	/* bitmap of pending exceptions */
+<a href='../S/328.html#L313'>uint32_t</a>          313 sys/kern/exception.c 	uint32_t bitmap;
+<a href='../S/354.html#L44'>uint32_t</a>           44 usr/arch/ppc/elf_reloc.c 	uint32_t val;
+<a href='../S/354.html#L54'>uint32_t</a>           54 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where = val;
+<a href='../S/354.html#L70'>uint32_t</a>           70 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where =
+<a href='../S/354.html#L71'>uint32_t</a>           71 usr/arch/ppc/elf_reloc.c 			(*(uint32_t *)where &amp; ~0x03fffffc)
+<a href='../S/354.html#L72'>uint32_t</a>           72 usr/arch/ppc/elf_reloc.c 			| ((val - (uint32_t)where)
+<a href='../S/354.html#L77'>uint32_t</a>           77 usr/arch/ppc/elf_reloc.c 		*(uint32_t *)where = val - (uint32_t)where;
+<a href='../S/883.html#L331'>uint32_t</a>          331 usr/server/fs/arfs/arfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/886.html#L251'>uint32_t</a>          251 usr/server/fs/devfs/devfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+<a href='../S/888.html#L103'>uint32_t</a>          103 usr/server/fs/fatfs/fatfs.h 	uint32_t	hidden_sectors;
+<a href='../S/888.html#L104'>uint32_t</a>          104 usr/server/fs/fatfs/fatfs.h 	uint32_t	big_total_sectors;
+<a href='../S/888.html#L108'>uint32_t</a>          108 usr/server/fs/fatfs/fatfs.h 	uint32_t	serial_no;
+<a href='../S/888.html#L123'>uint32_t</a>          123 usr/server/fs/fatfs/fatfs.h 	uint32_t	size;
+<a href='../S/902.html#L487'>uint32_t</a>          487 usr/server/fs/ramfs/ramfs_vnops.c 	dir-&gt;d_fileno = (uint32_t)fp-&gt;f_offset;
+</pre>
+</body>
+</html>

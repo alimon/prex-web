@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>state</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L213'>state</a>             213 bsp/drv/dev/base/kd.c 	const char state[][4] = \
+<a href='../S/60.html#L232'>state</a>             232 bsp/drv/dev/base/kd.c 			       ti.id, ti.taskname, state[ti.state],
+<a href='../S/63.html#L134'>state</a>             134 bsp/drv/dev/base/pm.c 	int policy, state, event;
+<a href='../S/63.html#L157'>state</a>             157 bsp/drv/dev/base/pm.c 		if (copyin(arg, &amp;state, sizeof(int)))
+<a href='../S/63.html#L160'>state</a>             160 bsp/drv/dev/base/pm.c 		switch (state) {
+<a href='../S/63.html#L164'>state</a>             164 bsp/drv/dev/base/pm.c 			pm_set_power(state);
+<a href='../S/63.html#L398'>state</a>             398 bsp/drv/dev/base/pm.c pm_set_power(int state)
+<a href='../S/63.html#L402'>state</a>             402 bsp/drv/dev/base/pm.c 	switch (state) {
+<a href='../S/138.html#L46'>state</a>              46 bsp/hal/arm/gba/machdep.c machine_powerdown(int state)
+<a href='../S/149.html#L120'>state</a>             120 bsp/hal/arm/integrator/machdep.c machine_powerdown(int state)
+<a href='../S/149.html#L127'>state</a>             127 bsp/hal/arm/integrator/machdep.c 	switch (state) {
+<a href='../S/171.html#L103'>state</a>             103 bsp/hal/ppc/prep/machdep.c machine_powerdown(int state)
+<a href='../S/171.html#L110'>state</a>             110 bsp/hal/ppc/prep/machdep.c 	switch (state) {
+<a href='../S/189.html#L99'>state</a>              99 bsp/hal/x86/pc/machdep.c machine_powerdown(int state)
+<a href='../S/189.html#L106'>state</a>             106 bsp/hal/x86/pc/machdep.c 	switch (state) {
+<a href='../S/272.html#L85'>state</a>              85 include/sys/sysinfo.h 	int		state;		/* thread state */
+<a href='../S/315.html#L55'>state</a>              55 sys/include/sched.h 	int		state;
+<a href='../S/319.html#L50'>state</a>              50 sys/include/thread.h 	int		state;		/* thread state */
+<a href='../S/320.html#L44'>state</a>              44 sys/include/timer.h 	int		state;		/* timer state */
+<a href='../S/328.html#L316'>state</a>             316 sys/kern/exception.c 	ASSERT(curthread-&gt;state != TS_EXIT);
+<a href='../S/331.html#L186'>state</a>             186 sys/kern/sched.c 		t-&gt;state &amp;= ~TS_SLEEP;
+<a href='../S/331.html#L187'>state</a>             187 sys/kern/sched.c 		if (t != curthread &amp;&amp; t-&gt;state == TS_RUN)
+<a href='../S/331.html#L223'>state</a>             223 sys/kern/sched.c 	if (prev-&gt;state == TS_RUN) {
+<a href='../S/331.html#L281'>state</a>             281 sys/kern/sched.c 	curthread-&gt;state |= TS_SLEEP;
+<a href='../S/331.html#L379'>state</a>             379 sys/kern/sched.c 	if (t-&gt;state &amp; TS_SLEEP) {
+<a href='../S/331.html#L415'>state</a>             415 sys/kern/sched.c 	if (t-&gt;state == TS_RUN) {
+<a href='../S/331.html#L421'>state</a>             421 sys/kern/sched.c 	t-&gt;state |= TS_SUSP;
+<a href='../S/331.html#L432'>state</a>             432 sys/kern/sched.c 	if (t-&gt;state &amp; TS_SUSP) {
+<a href='../S/331.html#L433'>state</a>             433 sys/kern/sched.c 		t-&gt;state &amp;= ~TS_SUSP;
+<a href='../S/331.html#L434'>state</a>             434 sys/kern/sched.c 		if (t-&gt;state == TS_RUN)
+<a href='../S/331.html#L448'>state</a>             448 sys/kern/sched.c 	if (curthread-&gt;state != TS_EXIT) {
+<a href='../S/331.html#L474'>state</a>             474 sys/kern/sched.c 	t-&gt;state = TS_RUN | TS_SUSP;
+<a href='../S/331.html#L499'>state</a>             499 sys/kern/sched.c 		if (t-&gt;state == TS_RUN)
+<a href='../S/331.html#L501'>state</a>             501 sys/kern/sched.c 		else if (t-&gt;state &amp; TS_SLEEP)
+<a href='../S/331.html#L505'>state</a>             505 sys/kern/sched.c 	t-&gt;state = TS_EXIT;
+<a href='../S/331.html#L596'>state</a>             596 sys/kern/sched.c 		if (t-&gt;state == TS_RUN) {
+<a href='../S/331.html#L661'>state</a>             661 sys/kern/sched.c 	if (dpc-&gt;state != DPC_PENDING)
+<a href='../S/331.html#L663'>state</a>             663 sys/kern/sched.c 	dpc-&gt;state = DPC_PENDING;
+<a href='../S/331.html#L697'>state</a>             697 sys/kern/sched.c 			dpc-&gt;state = DPC_FREE;
+<a href='../S/335.html#L495'>state</a>             495 sys/kern/thread.c 			info-&gt;state = t-&gt;state;
+<a href='../S/335.html#L592'>state</a>             592 sys/kern/thread.c 	idle_thread.state = TS_RUN;
+<a href='../S/336.html#L78'>state</a>              78 sys/kern/timer.c 	tmr-&gt;state = TM_ACTIVE;
+<a href='../S/336.html#L104'>state</a>             104 sys/kern/timer.c 	if (tmr-&gt;state == TM_ACTIVE) {
+<a href='../S/336.html#L106'>state</a>             106 sys/kern/timer.c 		tmr-&gt;state = TM_STOP;
+<a href='../S/336.html#L128'>state</a>             128 sys/kern/timer.c 	if (tmr-&gt;state == TM_ACTIVE)
+<a href='../S/336.html#L217'>state</a>             217 sys/kern/timer.c 	if (tmr-&gt;state == TM_ACTIVE)
+<a href='../S/336.html#L263'>state</a>             263 sys/kern/timer.c 		if (tmr == NULL || tmr-&gt;state != TM_ACTIVE) {
+<a href='../S/336.html#L312'>state</a>             312 sys/kern/timer.c 	if (tmr == NULL || tmr-&gt;state != TM_ACTIVE)
+<a href='../S/336.html#L365'>state</a>             365 sys/kern/timer.c 			tmr-&gt;state = TM_STOP;
+<a href='../S/916.html#L114'>state</a>             114 usr/server/pow/pow.c 	int state;
+<a href='../S/916.html#L116'>state</a>             116 usr/server/pow/pow.c 	state = msg-&gt;data[0];
+<a href='../S/916.html#L117'>state</a>             117 usr/server/pow/pow.c 	set_power_state(state);
+<a href='../S/916.html#L189'>state</a>             189 usr/server/pow/pow.c set_power_state(int state)
+<a href='../S/916.html#L193'>state</a>             193 usr/server/pow/pow.c 		DPRINTF(("set_power_state: state=%d\n", state));
+<a href='../S/916.html#L196'>state</a>             196 usr/server/pow/pow.c 		if (state == PWR_OFF || state == PWR_REBOOT) {
+<a href='../S/916.html#L202'>state</a>             202 usr/server/pow/pow.c 		device_ioctl(pmdev, PMIOC_SET_POWER, &amp;state);
+<a href='../S/916.html#L219'>state</a>             219 usr/server/pow/pow.c 	int sig, event, state;
+<a href='../S/916.html#L240'>state</a>             240 usr/server/pow/pow.c 			state = PWR_ON;
+<a href='../S/916.html#L243'>state</a>             243 usr/server/pow/pow.c 				state = pmact.pwrbtn;
+<a href='../S/916.html#L246'>state</a>             246 usr/server/pow/pow.c 				state = pmact.lowbatt;
+<a href='../S/916.html#L249'>state</a>             249 usr/server/pow/pow.c 				state = pmact.slpbtn;
+<a href='../S/916.html#L252'>state</a>             252 usr/server/pow/pow.c 				state = pmact.lcdclose;
+<a href='../S/916.html#L255'>state</a>             255 usr/server/pow/pow.c 			if (state != PWR_ON)
+<a href='../S/916.html#L256'>state</a>             256 usr/server/pow/pow.c 				set_power_state(state);
+<a href='../S/966.html#L135'>state</a>             135 usr/test/kmon/cmd.c 	int error, state = PWR_REBOOT;
+<a href='../S/966.html#L138'>state</a>             138 usr/test/kmon/cmd.c 		error = device_ioctl(pm_dev, PMIOC_SET_POWER, &amp;state);
+<a href='../S/966.html#L149'>state</a>             149 usr/test/kmon/cmd.c 	int error, state = PWR_OFF;
+<a href='../S/966.html#L152'>state</a>             152 usr/test/kmon/cmd.c 		error = device_ioctl(pm_dev, PMIOC_SET_POWER, &amp;state);
+<a href='../S/985.html#L44'>state</a>              44 usr/test/reset/reset.c 	int state = PWR_REBOOT;
+<a href='../S/985.html#L52'>state</a>              52 usr/test/reset/reset.c 	device_ioctl(pm_dev, PMIOC_SET_POWER, &amp;state);
+</pre>
+</body>
+</html>

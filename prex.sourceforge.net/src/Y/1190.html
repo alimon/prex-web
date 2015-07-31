@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>length</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/581.html#L36'>length</a>             36 usr/lib/libc/string/bcmp.c bcmp(b1, b2, length)
+<a href='../S/581.html#L38'>length</a>             38 usr/lib/libc/string/bcmp.c 	size_t length;
+<a href='../S/581.html#L42'>length</a>             42 usr/lib/libc/string/bcmp.c 	if (length == 0)
+<a href='../S/581.html#L49'>length</a>             49 usr/lib/libc/string/bcmp.c 	while (--length);
+<a href='../S/581.html#L50'>length</a>             50 usr/lib/libc/string/bcmp.c 	return((int)length);
+<a href='../S/582.html#L43'>length</a>             43 usr/lib/libc/string/bcopy.c memcpy(dst0, src0, length)
+<a href='../S/582.html#L47'>length</a>             47 usr/lib/libc/string/bcopy.c memmove(dst0, src0, length)
+<a href='../S/582.html#L50'>length</a>             50 usr/lib/libc/string/bcopy.c bcopy(src0, dst0, length)
+<a href='../S/582.html#L55'>length</a>             55 usr/lib/libc/string/bcopy.c 	size_t length;
+<a href='../S/582.html#L60'>length</a>             60 usr/lib/libc/string/bcopy.c 	if (length == 0 || dst == src)		/* nothing to do */
+<a href='../S/582.html#L64'>length</a>             64 usr/lib/libc/string/bcopy.c 	    ((unsigned long)dst &lt; (unsigned long)src + length)) {
+<a href='../S/582.html#L66'>length</a>             66 usr/lib/libc/string/bcopy.c 		src += length;
+<a href='../S/582.html#L67'>length</a>             67 usr/lib/libc/string/bcopy.c 		dst += length;
+<a href='../S/582.html#L68'>length</a>             68 usr/lib/libc/string/bcopy.c 		while (length--) {
+<a href='../S/582.html#L72'>length</a>             72 usr/lib/libc/string/bcopy.c 		while (length--) {
+<a href='../S/592.html#L43'>length</a>             43 usr/lib/libc/string/memset.c bzero(dst0, length)
+<a href='../S/592.html#L45'>length</a>             45 usr/lib/libc/string/memset.c 	size_t length;
+<a href='../S/592.html#L51'>length</a>             51 usr/lib/libc/string/memset.c memset(dst0, c0, length)
+<a href='../S/592.html#L54'>length</a>             54 usr/lib/libc/string/memset.c 	size_t length;
+<a href='../S/592.html#L59'>length</a>             59 usr/lib/libc/string/memset.c 	while (length--) {
+<a href='../S/670.html#L36'>length</a>             36 usr/lib/posix/file/ftruncate.c ftruncate(int fd, off_t length)
+<a href='../S/670.html#L42'>length</a>             42 usr/lib/posix/file/ftruncate.c 	m.data[1] = length;
+<a href='../S/691.html#L38'>length</a>             38 usr/lib/posix/file/truncate.c truncate(const char *path, off_t length)
+<a href='../S/691.html#L43'>length</a>             43 usr/lib/posix/file/truncate.c 	m.data[0] = length;
+<a href='../S/893.html#L678'>length</a>            678 usr/server/fs/fatfs/fatfs_vnops.c fatfs_truncate(vnode_t vp, off_t length)
+<a href='../S/893.html#L691'>length</a>            691 usr/server/fs/fatfs/fatfs_vnops.c 	if (length == 0) {
+<a href='../S/893.html#L696'>length</a>            696 usr/server/fs/fatfs/fatfs_vnops.c 	} else if (length &gt; vp-&gt;v_size) {
+<a href='../S/893.html#L697'>length</a>            697 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_expand_file(fmp, vp-&gt;v_blkno, length);
+<a href='../S/893.html#L705'>length</a>            705 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;size = length;
+<a href='../S/893.html#L709'>length</a>            709 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_size = length;
+<a href='../S/902.html#L282'>length</a>            282 usr/server/fs/ramfs/ramfs_vnops.c ramfs_truncate(vnode_t vp, off_t length)
+<a href='../S/902.html#L289'>length</a>            289 usr/server/fs/ramfs/ramfs_vnops.c 	DPRINTF(("truncate %s length=%d\n", vp-&gt;v_path, length));
+<a href='../S/902.html#L292'>length</a>            292 usr/server/fs/ramfs/ramfs_vnops.c 	if (length == 0) {
+<a href='../S/902.html#L298'>length</a>            298 usr/server/fs/ramfs/ramfs_vnops.c 	} else if (length &gt; np-&gt;rn_bufsize) {
+<a href='../S/902.html#L300'>length</a>            300 usr/server/fs/ramfs/ramfs_vnops.c 		new_size = round_page(length);
+<a href='../S/902.html#L310'>length</a>            310 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_size = length;
+<a href='../S/902.html#L311'>length</a>            311 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_size = length;
+<a href='../S/905.html#L102'>length</a>            102 usr/server/fs/vfs/vfs.h int	 sys_ftruncate(file_t fp, off_t length);
+<a href='../S/905.html#L119'>length</a>            119 usr/server/fs/vfs/vfs.h int	 sys_truncate(char *path, off_t length);
+<a href='../S/911.html#L732'>length</a>            732 usr/server/fs/vfs/vfs_syscalls.c sys_truncate(char *path, off_t length)
+<a href='../S/911.html#L738'>length</a>            738 usr/server/fs/vfs/vfs_syscalls.c sys_ftruncate(file_t fp, off_t length)
+</pre>
+</body>
+</html>

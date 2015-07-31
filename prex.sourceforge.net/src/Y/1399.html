@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>np</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/570.html#L66'>np</a>                 66 usr/lib/libc/stdlib/getenv.c 	const char *np;
+<a href='../S/570.html#L71'>np</a>                 71 usr/lib/libc/stdlib/getenv.c 	for (np = name; *np &amp;&amp; *np != '='; ++np)
+<a href='../S/570.html#L73'>np</a>                 73 usr/lib/libc/stdlib/getenv.c 	len = np - name;
+<a href='../S/890.html#L81'>np</a>                 81 usr/server/fs/fatfs/fatfs_node.c 		  struct fatfs_node *np)
+<a href='../S/890.html#L99'>np</a>                 99 usr/server/fs/fatfs/fatfs_node.c 			*(&amp;np-&gt;dirent) = *de;
+<a href='../S/890.html#L100'>np</a>                100 usr/server/fs/fatfs/fatfs_node.c 			np-&gt;sector = sec;
+<a href='../S/890.html#L101'>np</a>                101 usr/server/fs/fatfs/fatfs_node.c 			np-&gt;offset = sizeof(struct fat_dirent) * i;
+<a href='../S/890.html#L121'>np</a>                121 usr/server/fs/fatfs/fatfs_node.c fatfs_lookup_node(vnode_t dvp, char *name, struct fatfs_node *np)
+<a href='../S/890.html#L141'>np</a>                141 usr/server/fs/fatfs/fatfs_node.c 			error = fat_lookup_dirent(fmp, sec, fat_name, np);
+<a href='../S/890.html#L151'>np</a>                151 usr/server/fs/fatfs/fatfs_node.c 						   np);
+<a href='../S/890.html#L176'>np</a>                176 usr/server/fs/fatfs/fatfs_node.c 	       struct fatfs_node *np)
+<a href='../S/890.html#L192'>np</a>                192 usr/server/fs/fatfs/fatfs_node.c 				*(&amp;np-&gt;dirent) = *de;
+<a href='../S/890.html#L193'>np</a>                193 usr/server/fs/fatfs/fatfs_node.c 				np-&gt;sector = sec;
+<a href='../S/890.html#L194'>np</a>                194 usr/server/fs/fatfs/fatfs_node.c 				np-&gt;offset = sizeof(struct fat_dirent) * i;
+<a href='../S/890.html#L214'>np</a>                214 usr/server/fs/fatfs/fatfs_node.c fatfs_get_node(vnode_t dvp, int index, struct fatfs_node *np)
+<a href='../S/890.html#L229'>np</a>                229 usr/server/fs/fatfs/fatfs_node.c 			error = fat_get_dirent(fmp, sec, index, &amp;cur_index, np);
+<a href='../S/890.html#L239'>np</a>                239 usr/server/fs/fatfs/fatfs_node.c 						     &amp;cur_index, np);
+<a href='../S/890.html#L260'>np</a>                260 usr/server/fs/fatfs/fatfs_node.c fat_add_dirent(struct fatfsmount *fmp, u_long sec, struct fatfs_node *np)
+<a href='../S/890.html#L280'>np</a>                280 usr/server/fs/fatfs/fatfs_node.c 	memcpy(de, &amp;np-&gt;dirent, sizeof(struct fat_dirent));
+<a href='../S/890.html#L292'>np</a>                292 usr/server/fs/fatfs/fatfs_node.c fatfs_add_node(vnode_t dvp, struct fatfs_node *np)
+<a href='../S/890.html#L307'>np</a>                307 usr/server/fs/fatfs/fatfs_node.c 			error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L316'>np</a>                316 usr/server/fs/fatfs/fatfs_node.c 				error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L343'>np</a>                343 usr/server/fs/fatfs/fatfs_node.c 		error = fat_add_dirent(fmp, sec, np);
+<a href='../S/890.html#L355'>np</a>                355 usr/server/fs/fatfs/fatfs_node.c fatfs_put_node(struct fatfsmount *fmp, struct fatfs_node *np)
+<a href='../S/890.html#L359'>np</a>                359 usr/server/fs/fatfs/fatfs_node.c 	error = fat_read_dirent(fmp, np-&gt;sector);
+<a href='../S/890.html#L363'>np</a>                363 usr/server/fs/fatfs/fatfs_node.c 	memcpy(fmp-&gt;dir_buf + np-&gt;offset, &amp;np-&gt;dirent,
+<a href='../S/890.html#L366'>np</a>                366 usr/server/fs/fatfs/fatfs_node.c 	error = fat_write_dirent(fmp, np-&gt;sector);
+<a href='../S/892.html#L202'>np</a>                202 usr/server/fs/fatfs/fatfs_vfsops.c 	struct fatfs_node *np;
+<a href='../S/892.html#L204'>np</a>                204 usr/server/fs/fatfs/fatfs_vfsops.c 	np = malloc(sizeof(struct fatfs_node));
+<a href='../S/892.html#L205'>np</a>                205 usr/server/fs/fatfs/fatfs_vfsops.c 	if (np == NULL)
+<a href='../S/892.html#L207'>np</a>                207 usr/server/fs/fatfs/fatfs_vfsops.c 	vp-&gt;v_data = np;
+<a href='../S/893.html#L134'>np</a>                134 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node *np;
+<a href='../S/893.html#L145'>np</a>                145 usr/server/fs/fatfs/fatfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/893.html#L146'>np</a>                146 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_lookup_node(dvp, name, np);
+<a href='../S/893.html#L152'>np</a>                152 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L239'>np</a>                239 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node *np;
+<a href='../S/893.html#L270'>np</a>                270 usr/server/fs/fatfs/fatfs_vnops.c 		np = vp-&gt;v_data;
+<a href='../S/893.html#L271'>np</a>                271 usr/server/fs/fatfs/fatfs_vnops.c 		de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L273'>np</a>                273 usr/server/fs/fatfs/fatfs_vnops.c 		error = fatfs_put_node(fmp, np);
+<a href='../S/893.html#L342'>np</a>                342 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node np;
+<a href='../S/893.html#L349'>np</a>                349 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_get_node(vp, fp-&gt;f_offset, &amp;np);
+<a href='../S/893.html#L352'>np</a>                352 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L379'>np</a>                379 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node np;
+<a href='../S/893.html#L400'>np</a>                400 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L407'>np</a>                407 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_add_node(dvp, &amp;np);
+<a href='../S/893.html#L420'>np</a>                420 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node np;
+<a href='../S/893.html#L430'>np</a>                430 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_lookup_node(dvp, name, &amp;np);
+<a href='../S/893.html#L433'>np</a>                433 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L450'>np</a>                450 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_put_node(fmp, &amp;np);
+<a href='../S/893.html#L556'>np</a>                556 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node np;
+<a href='../S/893.html#L575'>np</a>                575 usr/server/fs/fatfs/fatfs_vnops.c 	memset(&amp;np, 0, sizeof(struct fatfs_node));
+<a href='../S/893.html#L576'>np</a>                576 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L582'>np</a>                582 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_add_node(dvp, &amp;np);
+<a href='../S/893.html#L620'>np</a>                620 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node np;
+<a href='../S/893.html#L630'>np</a>                630 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_lookup_node(dvp, name, &amp;np);
+<a href='../S/893.html#L634'>np</a>                634 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np.dirent;
+<a href='../S/893.html#L648'>np</a>                648 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_put_node(fmp, &amp;np);
+<a href='../S/893.html#L681'>np</a>                681 usr/server/fs/fatfs/fatfs_vnops.c 	struct fatfs_node *np;
+<a href='../S/893.html#L688'>np</a>                688 usr/server/fs/fatfs/fatfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/893.html#L689'>np</a>                689 usr/server/fs/fatfs/fatfs_vnops.c 	de = &amp;np-&gt;dirent;
+<a href='../S/893.html#L706'>np</a>                706 usr/server/fs/fatfs/fatfs_vnops.c 	error = fatfs_put_node(fmp, np);
+<a href='../S/896.html#L144'>np</a>                144 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L155'>np</a>                155 usr/server/fs/fifofs/fifo_vnops.c 		if (np-&gt;fn_readers == 0 &amp;&amp; np-&gt;fn_writers &gt; 0)
+<a href='../S/896.html#L157'>np</a>                157 usr/server/fs/fifofs/fifo_vnops.c 		np-&gt;fn_readers++;
+<a href='../S/896.html#L160'>np</a>                160 usr/server/fs/fifofs/fifo_vnops.c 		if (np-&gt;fn_writers == 0 &amp;&amp; np-&gt;fn_readers &gt; 0)
+<a href='../S/896.html#L162'>np</a>                162 usr/server/fs/fifofs/fifo_vnops.c 		np-&gt;fn_writers++;
+<a href='../S/896.html#L171'>np</a>                171 usr/server/fs/fifofs/fifo_vnops.c 			while (np-&gt;fn_writers == 0)
+<a href='../S/896.html#L177'>np</a>                177 usr/server/fs/fifofs/fifo_vnops.c 			if (np-&gt;fn_readers == 0)
+<a href='../S/896.html#L180'>np</a>                180 usr/server/fs/fifofs/fifo_vnops.c 			while (np-&gt;fn_readers == 0)
+<a href='../S/896.html#L190'>np</a>                190 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L194'>np</a>                194 usr/server/fs/fifofs/fifo_vnops.c 	if (np == NULL)
+<a href='../S/896.html#L198'>np</a>                198 usr/server/fs/fifofs/fifo_vnops.c 		np-&gt;fn_readers--;
+<a href='../S/896.html#L199'>np</a>                199 usr/server/fs/fifofs/fifo_vnops.c 		if (np-&gt;fn_readers == 0)
+<a href='../S/896.html#L203'>np</a>                203 usr/server/fs/fifofs/fifo_vnops.c 		np-&gt;fn_writers--;
+<a href='../S/896.html#L204'>np</a>                204 usr/server/fs/fifofs/fifo_vnops.c 		if (np-&gt;fn_writers == 0)
+<a href='../S/896.html#L211'>np</a>                211 usr/server/fs/fifofs/fifo_vnops.c 	if (!strncmp(np-&gt;fn_name, "pipe", 4)) {
+<a href='../S/896.html#L221'>np</a>                221 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L230'>np</a>                230 usr/server/fs/fifofs/fifo_vnops.c 	while (np-&gt;fn_size == 0) {
+<a href='../S/896.html#L234'>np</a>                234 usr/server/fs/fifofs/fifo_vnops.c 		if (np-&gt;fn_writers == 0) {
+<a href='../S/896.html#L246'>np</a>                246 usr/server/fs/fifofs/fifo_vnops.c 	nbytes = (np-&gt;fn_size &lt; size) ? np-&gt;fn_size : size;
+<a href='../S/896.html#L247'>np</a>                247 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_size -= nbytes;
+<a href='../S/896.html#L250'>np</a>                250 usr/server/fs/fifofs/fifo_vnops.c 	pos = np-&gt;fn_start;
+<a href='../S/896.html#L252'>np</a>                252 usr/server/fs/fifofs/fifo_vnops.c 		*p++ = np-&gt;fn_buf[pos];
+<a href='../S/896.html#L257'>np</a>                257 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_start = pos;
+<a href='../S/896.html#L266'>np</a>                266 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L278'>np</a>                278 usr/server/fs/fifofs/fifo_vnops.c 	while (np-&gt;fn_size &gt;= PIPE_BUF)
+<a href='../S/896.html#L284'>np</a>                284 usr/server/fs/fifofs/fifo_vnops.c 	nfree = PIPE_BUF - np-&gt;fn_size;
+<a href='../S/896.html#L287'>np</a>                287 usr/server/fs/fifofs/fifo_vnops.c 	pos = np-&gt;fn_start + np-&gt;fn_size;
+<a href='../S/896.html#L290'>np</a>                290 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_size += nbytes;
+<a href='../S/896.html#L293'>np</a>                293 usr/server/fs/fifofs/fifo_vnops.c 		np-&gt;fn_buf[pos] = *p++;
+<a href='../S/896.html#L320'>np</a>                320 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = NULL;
+<a href='../S/896.html#L333'>np</a>                333 usr/server/fs/fifofs/fifo_vnops.c 		np = list_entry(n, struct fifo_node, fn_link);
+<a href='../S/896.html#L334'>np</a>                334 usr/server/fs/fifofs/fifo_vnops.c 		if (strcmp(name, np-&gt;fn_name) == 0) {
+<a href='../S/896.html#L343'>np</a>                343 usr/server/fs/fifofs/fifo_vnops.c 	vp-&gt;v_data = np;
+<a href='../S/896.html#L354'>np</a>                354 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np;
+<a href='../S/896.html#L364'>np</a>                364 usr/server/fs/fifofs/fifo_vnops.c 	if ((np = malloc(sizeof(struct fifo_node))) == NULL)
+<a href='../S/896.html#L367'>np</a>                367 usr/server/fs/fifofs/fifo_vnops.c 	if ((np-&gt;fn_buf = malloc(PIPE_BUF)) == NULL) {
+<a href='../S/896.html#L368'>np</a>                368 usr/server/fs/fifofs/fifo_vnops.c 		free(np);
+<a href='../S/896.html#L372'>np</a>                372 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_name = malloc(len);
+<a href='../S/896.html#L373'>np</a>                373 usr/server/fs/fifofs/fifo_vnops.c 	if (np-&gt;fn_name == NULL) {
+<a href='../S/896.html#L374'>np</a>                374 usr/server/fs/fifofs/fifo_vnops.c 		free(np-&gt;fn_buf);
+<a href='../S/896.html#L375'>np</a>                375 usr/server/fs/fifofs/fifo_vnops.c 		free(np);
+<a href='../S/896.html#L379'>np</a>                379 usr/server/fs/fifofs/fifo_vnops.c 	strlcpy(np-&gt;fn_name, name, len);
+<a href='../S/896.html#L380'>np</a>                380 usr/server/fs/fifofs/fifo_vnops.c 	mutex_init(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L381'>np</a>                381 usr/server/fs/fifofs/fifo_vnops.c 	mutex_init(&amp;np-&gt;fn_wmtx);
+<a href='../S/896.html#L382'>np</a>                382 usr/server/fs/fifofs/fifo_vnops.c 	cond_init(&amp;np-&gt;fn_rcond);
+<a href='../S/896.html#L383'>np</a>                383 usr/server/fs/fifofs/fifo_vnops.c 	cond_init(&amp;np-&gt;fn_wcond);
+<a href='../S/896.html#L384'>np</a>                384 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_readers = 0;
+<a href='../S/896.html#L385'>np</a>                385 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_writers = 0;
+<a href='../S/896.html#L386'>np</a>                386 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_start = 0;
+<a href='../S/896.html#L387'>np</a>                387 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_size = 0;
+<a href='../S/896.html#L390'>np</a>                390 usr/server/fs/fifofs/fifo_vnops.c 	list_insert(&amp;fifo_head, &amp;np-&gt;fn_link);
+<a href='../S/896.html#L398'>np</a>                398 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L401'>np</a>                401 usr/server/fs/fifofs/fifo_vnops.c 	list_remove(&amp;np-&gt;fn_link);
+<a href='../S/896.html#L404'>np</a>                404 usr/server/fs/fifofs/fifo_vnops.c 	free(np-&gt;fn_name);
+<a href='../S/896.html#L405'>np</a>                405 usr/server/fs/fifofs/fifo_vnops.c 	free(np-&gt;fn_buf);
+<a href='../S/896.html#L406'>np</a>                406 usr/server/fs/fifofs/fifo_vnops.c 	free(np);
+<a href='../S/896.html#L426'>np</a>                426 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np;
+<a href='../S/896.html#L440'>np</a>                440 usr/server/fs/fifofs/fifo_vnops.c 		np = NULL;
+<a href='../S/896.html#L444'>np</a>                444 usr/server/fs/fifofs/fifo_vnops.c 				np = list_entry(n, struct fifo_node, fn_link);
+<a href='../S/896.html#L448'>np</a>                448 usr/server/fs/fifofs/fifo_vnops.c 		if (np == NULL) {
+<a href='../S/896.html#L453'>np</a>                453 usr/server/fs/fifofs/fifo_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, np-&gt;fn_name,
+<a href='../S/896.html#L476'>np</a>                476 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L478'>np</a>                478 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wait_reader: %x\n", np));
+<a href='../S/896.html#L480'>np</a>                480 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L481'>np</a>                481 usr/server/fs/fifofs/fifo_vnops.c 	cond_wait(&amp;np-&gt;fn_rcond, &amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L482'>np</a>                482 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;np-&gt;fn_rmtx);
+<a href='../S/896.html#L489'>np</a>                489 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L491'>np</a>                491 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wakeup_writer: %x\n", np));
+<a href='../S/896.html#L492'>np</a>                492 usr/server/fs/fifofs/fifo_vnops.c 	cond_broadcast(&amp;np-&gt;fn_rcond);
+<a href='../S/896.html#L498'>np</a>                498 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L500'>np</a>                500 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wait_writer: %x\n", np));
+<a href='../S/896.html#L502'>np</a>                502 usr/server/fs/fifofs/fifo_vnops.c 	mutex_lock(&amp;np-&gt;fn_wmtx);
+<a href='../S/896.html#L503'>np</a>                503 usr/server/fs/fifofs/fifo_vnops.c 	cond_wait(&amp;np-&gt;fn_wcond, &amp;np-&gt;fn_wmtx);
+<a href='../S/896.html#L504'>np</a>                504 usr/server/fs/fifofs/fifo_vnops.c 	mutex_unlock(&amp;np-&gt;fn_wmtx);
+<a href='../S/896.html#L511'>np</a>                511 usr/server/fs/fifofs/fifo_vnops.c 	struct fifo_node *np = vp-&gt;v_data;
+<a href='../S/896.html#L513'>np</a>                513 usr/server/fs/fifofs/fifo_vnops.c 	DPRINTF(("wakeup_reader: %x\n", np));
+<a href='../S/896.html#L514'>np</a>                514 usr/server/fs/fifofs/fifo_vnops.c 	cond_broadcast(&amp;np-&gt;fn_wcond);
+<a href='../S/901.html#L63'>np</a>                 63 usr/server/fs/ramfs/ramfs_vfsops.c 	struct ramfs_node *np;
+<a href='../S/901.html#L68'>np</a>                 68 usr/server/fs/ramfs/ramfs_vfsops.c 	np = ramfs_allocate_node("/", VDIR);
+<a href='../S/901.html#L69'>np</a>                 69 usr/server/fs/ramfs/ramfs_vfsops.c 	if (np == NULL)
+<a href='../S/901.html#L71'>np</a>                 71 usr/server/fs/ramfs/ramfs_vfsops.c 	mp-&gt;m_root-&gt;v_data = np;
+<a href='../S/902.html#L101'>np</a>                101 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L103'>np</a>                103 usr/server/fs/ramfs/ramfs_vnops.c 	np = malloc(sizeof(struct ramfs_node));
+<a href='../S/902.html#L104'>np</a>                104 usr/server/fs/ramfs/ramfs_vnops.c 	if (np == NULL)
+<a href='../S/902.html#L106'>np</a>                106 usr/server/fs/ramfs/ramfs_vnops.c 	memset(np, 0, sizeof(struct ramfs_node));
+<a href='../S/902.html#L108'>np</a>                108 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_namelen = strlen(name);
+<a href='../S/902.html#L109'>np</a>                109 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_name = malloc(np-&gt;rn_namelen + 1);
+<a href='../S/902.html#L110'>np</a>                110 usr/server/fs/ramfs/ramfs_vnops.c 	if (np-&gt;rn_name == NULL) {
+<a href='../S/902.html#L111'>np</a>                111 usr/server/fs/ramfs/ramfs_vnops.c 		free(np);
+<a href='../S/902.html#L114'>np</a>                114 usr/server/fs/ramfs/ramfs_vnops.c 	strlcpy(np-&gt;rn_name, name, np-&gt;rn_namelen + 1);
+<a href='../S/902.html#L115'>np</a>                115 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_type = type;
+<a href='../S/902.html#L116'>np</a>                116 usr/server/fs/ramfs/ramfs_vnops.c 	return np;
+<a href='../S/902.html#L120'>np</a>                120 usr/server/fs/ramfs/ramfs_vnops.c ramfs_free_node(struct ramfs_node *np)
+<a href='../S/902.html#L123'>np</a>                123 usr/server/fs/ramfs/ramfs_vnops.c 	free(np-&gt;rn_name);
+<a href='../S/902.html#L124'>np</a>                124 usr/server/fs/ramfs/ramfs_vnops.c 	free(np);
+<a href='../S/902.html#L130'>np</a>                130 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *prev;
+<a href='../S/902.html#L132'>np</a>                132 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_allocate_node(name, type);
+<a href='../S/902.html#L133'>np</a>                133 usr/server/fs/ramfs/ramfs_vnops.c 	if (np == NULL)
+<a href='../S/902.html#L140'>np</a>                140 usr/server/fs/ramfs/ramfs_vnops.c 		dnp-&gt;rn_child = np;
+<a href='../S/902.html#L145'>np</a>                145 usr/server/fs/ramfs/ramfs_vnops.c 		prev-&gt;rn_next = np;
+<a href='../S/902.html#L148'>np</a>                148 usr/server/fs/ramfs/ramfs_vnops.c 	return np;
+<a href='../S/902.html#L152'>np</a>                152 usr/server/fs/ramfs/ramfs_vnops.c ramfs_remove_node(struct ramfs_node *dnp, struct ramfs_node *np)
+<a href='../S/902.html#L162'>np</a>                162 usr/server/fs/ramfs/ramfs_vnops.c 	if (dnp-&gt;rn_child == np) {
+<a href='../S/902.html#L163'>np</a>                163 usr/server/fs/ramfs/ramfs_vnops.c 		dnp-&gt;rn_child = np-&gt;rn_next;
+<a href='../S/902.html#L165'>np</a>                165 usr/server/fs/ramfs/ramfs_vnops.c 		for (prev = dnp-&gt;rn_child; prev-&gt;rn_next != np;
+<a href='../S/902.html#L172'>np</a>                172 usr/server/fs/ramfs/ramfs_vnops.c 		prev-&gt;rn_next = np-&gt;rn_next;
+<a href='../S/902.html#L174'>np</a>                174 usr/server/fs/ramfs/ramfs_vnops.c 	ramfs_free_node(np);
+<a href='../S/902.html#L181'>np</a>                181 usr/server/fs/ramfs/ramfs_vnops.c ramfs_rename_node(struct ramfs_node *np, char *name)
+<a href='../S/902.html#L187'>np</a>                187 usr/server/fs/ramfs/ramfs_vnops.c 	if (len &lt;= np-&gt;rn_namelen) {
+<a href='../S/902.html#L189'>np</a>                189 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy(np-&gt;rn_name, name, sizeof(np-&gt;rn_name));
+<a href='../S/902.html#L196'>np</a>                196 usr/server/fs/ramfs/ramfs_vnops.c 		free(np-&gt;rn_name);
+<a href='../S/902.html#L197'>np</a>                197 usr/server/fs/ramfs/ramfs_vnops.c 		np-&gt;rn_name = tmp;
+<a href='../S/902.html#L199'>np</a>                199 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_namelen = len;
+<a href='../S/902.html#L206'>np</a>                206 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *dnp;
+<a href='../S/902.html#L218'>np</a>                218 usr/server/fs/ramfs/ramfs_vnops.c 	for (np = dnp-&gt;rn_child; np != NULL; np = np-&gt;rn_next) {
+<a href='../S/902.html#L219'>np</a>                219 usr/server/fs/ramfs/ramfs_vnops.c 		if (np-&gt;rn_namelen == len &amp;&amp;
+<a href='../S/902.html#L220'>np</a>                220 usr/server/fs/ramfs/ramfs_vnops.c 		    memcmp(name, np-&gt;rn_name, len) == 0) {
+<a href='../S/902.html#L229'>np</a>                229 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_data = np;
+<a href='../S/902.html#L231'>np</a>                231 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_type = np-&gt;rn_type;
+<a href='../S/902.html#L232'>np</a>                232 usr/server/fs/ramfs/ramfs_vnops.c 	vp-&gt;v_size = np-&gt;rn_size;
+<a href='../S/902.html#L241'>np</a>                241 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L247'>np</a>                247 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_add_node(dvp-&gt;v_data, name, VDIR);
+<a href='../S/902.html#L248'>np</a>                248 usr/server/fs/ramfs/ramfs_vnops.c 	if (np == NULL)
+<a href='../S/902.html#L250'>np</a>                250 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_size = 0;
+<a href='../S/902.html#L266'>np</a>                266 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L274'>np</a>                274 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L275'>np</a>                275 usr/server/fs/ramfs/ramfs_vnops.c 	if (np-&gt;rn_buf != NULL)
+<a href='../S/902.html#L276'>np</a>                276 usr/server/fs/ramfs/ramfs_vnops.c 		vm_free(task_self(), np-&gt;rn_buf);
+<a href='../S/902.html#L284'>np</a>                284 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L290'>np</a>                290 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L293'>np</a>                293 usr/server/fs/ramfs/ramfs_vnops.c 		if (np-&gt;rn_buf != NULL) {
+<a href='../S/902.html#L294'>np</a>                294 usr/server/fs/ramfs/ramfs_vnops.c 			vm_free(task_self(), np-&gt;rn_buf);
+<a href='../S/902.html#L295'>np</a>                295 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_buf = NULL;
+<a href='../S/902.html#L296'>np</a>                296 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_bufsize = 0;
+<a href='../S/902.html#L298'>np</a>                298 usr/server/fs/ramfs/ramfs_vnops.c 	} else if (length &gt; np-&gt;rn_bufsize) {
+<a href='../S/902.html#L303'>np</a>                303 usr/server/fs/ramfs/ramfs_vnops.c 		if (np-&gt;rn_size != 0) {
+<a href='../S/902.html#L304'>np</a>                304 usr/server/fs/ramfs/ramfs_vnops.c 			memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L305'>np</a>                305 usr/server/fs/ramfs/ramfs_vnops.c 			vm_free(task, np-&gt;rn_buf);
+<a href='../S/902.html#L307'>np</a>                307 usr/server/fs/ramfs/ramfs_vnops.c 		np-&gt;rn_buf = new_buf;
+<a href='../S/902.html#L308'>np</a>                308 usr/server/fs/ramfs/ramfs_vnops.c 		np-&gt;rn_bufsize = new_size;
+<a href='../S/902.html#L310'>np</a>                310 usr/server/fs/ramfs/ramfs_vnops.c 	np-&gt;rn_size = length;
+<a href='../S/902.html#L321'>np</a>                321 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L327'>np</a>                327 usr/server/fs/ramfs/ramfs_vnops.c 	np = ramfs_add_node(dvp-&gt;v_data, name, VREG);
+<a href='../S/902.html#L328'>np</a>                328 usr/server/fs/ramfs/ramfs_vnops.c 	if (np == NULL)
+<a href='../S/902.html#L336'>np</a>                336 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L352'>np</a>                352 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L353'>np</a>                353 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(buf, np-&gt;rn_buf + off, size);
+<a href='../S/902.html#L363'>np</a>                363 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L375'>np</a>                375 usr/server/fs/ramfs/ramfs_vnops.c 	np = vp-&gt;v_data;
+<a href='../S/902.html#L382'>np</a>                382 usr/server/fs/ramfs/ramfs_vnops.c 		if (end_pos &gt; (off_t)np-&gt;rn_bufsize) {
+<a href='../S/902.html#L394'>np</a>                394 usr/server/fs/ramfs/ramfs_vnops.c 			if (np-&gt;rn_size != 0) {
+<a href='../S/902.html#L395'>np</a>                395 usr/server/fs/ramfs/ramfs_vnops.c 				memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L396'>np</a>                396 usr/server/fs/ramfs/ramfs_vnops.c 				vm_free(task, np-&gt;rn_buf);
+<a href='../S/902.html#L398'>np</a>                398 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_buf = new_buf;
+<a href='../S/902.html#L399'>np</a>                399 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_bufsize = new_size;
+<a href='../S/902.html#L401'>np</a>                401 usr/server/fs/ramfs/ramfs_vnops.c 		np-&gt;rn_size = end_pos;
+<a href='../S/902.html#L404'>np</a>                404 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(np-&gt;rn_buf + file_pos, buf, size);
+<a href='../S/902.html#L414'>np</a>                414 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *old_np;
+<a href='../S/902.html#L432'>np</a>                432 usr/server/fs/ramfs/ramfs_vnops.c 		np = ramfs_add_node(dvp2-&gt;v_data, name2, VREG);
+<a href='../S/902.html#L433'>np</a>                433 usr/server/fs/ramfs/ramfs_vnops.c 		if (np == NULL)
+<a href='../S/902.html#L438'>np</a>                438 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_buf = old_np-&gt;rn_buf;
+<a href='../S/902.html#L439'>np</a>                439 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_size = old_np-&gt;rn_size;
+<a href='../S/902.html#L440'>np</a>                440 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_bufsize = old_np-&gt;rn_bufsize;
+<a href='../S/902.html#L454'>np</a>                454 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *dnp;
+<a href='../S/902.html#L467'>np</a>                467 usr/server/fs/ramfs/ramfs_vnops.c 		np = dnp-&gt;rn_child;
+<a href='../S/902.html#L468'>np</a>                468 usr/server/fs/ramfs/ramfs_vnops.c 		if (np == NULL) {
+<a href='../S/902.html#L474'>np</a>                474 usr/server/fs/ramfs/ramfs_vnops.c 			np = np-&gt;rn_next;
+<a href='../S/902.html#L475'>np</a>                475 usr/server/fs/ramfs/ramfs_vnops.c 			if (np == NULL) {
+<a href='../S/902.html#L480'>np</a>                480 usr/server/fs/ramfs/ramfs_vnops.c 		if (np-&gt;rn_type == VDIR)
+<a href='../S/902.html#L484'>np</a>                484 usr/server/fs/ramfs/ramfs_vnops.c 		strlcpy((char *)&amp;dir-&gt;d_name, np-&gt;rn_name,
+</pre>
+</body>
+</html>

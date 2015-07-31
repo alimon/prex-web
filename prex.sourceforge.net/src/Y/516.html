@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cl</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L180'>cl</a>                180 usr/server/fs/fatfs/fatfs.h #define IS_EOFCL(fat, cl) \
+<a href='../S/888.html#L181'>cl</a>                181 usr/server/fs/fatfs/fatfs.h 	(((cl) &amp; EOF_MASK) == ((fat)-&gt;fat_mask &amp; EOF_MASK))
+<a href='../S/888.html#L195'>cl</a>                195 usr/server/fs/fatfs/fatfs.h #define cl_to_sec(fat, cl) \
+<a href='../S/888.html#L196'>cl</a>                196 usr/server/fs/fatfs/fatfs.h             (fat-&gt;data_start + (cl - 2) * fat-&gt;sec_per_cl)
+<a href='../S/888.html#L199'>cl</a>                199 usr/server/fs/fatfs/fatfs.h int	 fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next);
+<a href='../S/888.html#L200'>cl</a>                200 usr/server/fs/fatfs/fatfs.h int	 fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next);
+<a href='../S/888.html#L204'>cl</a>                204 usr/server/fs/fatfs/fatfs.h 			    u_long *cl);
+<a href='../S/888.html#L205'>cl</a>                205 usr/server/fs/fatfs/fatfs.h int	 fat_expand_file(struct fatfsmount *fmp, u_long cl, int size);
+<a href='../S/888.html#L206'>cl</a>                206 usr/server/fs/fatfs/fatfs.h int	 fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl);
+<a href='../S/889.html#L44'>cl</a>                 44 usr/server/fs/fatfs/fatfs_fat.c read_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L53'>cl</a>                 53 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 2) / SEC_SIZE;
+<a href='../S/889.html#L55'>cl</a>                 55 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 3 / 2) / SEC_SIZE;
+<a href='../S/889.html#L61'>cl</a>                 61 usr/server/fs/fatfs/fatfs_fat.c 		if ((cl * 3 / 2) % SEC_SIZE == SEC_SIZE - 1)
+<a href='../S/889.html#L87'>cl</a>                 87 usr/server/fs/fatfs/fatfs_fat.c write_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L96'>cl</a>                 96 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 2) / SEC_SIZE;
+<a href='../S/889.html#L98'>cl</a>                 98 usr/server/fs/fatfs/fatfs_fat.c 		sec = (cl * 3 / 2) / SEC_SIZE;
+<a href='../S/889.html#L100'>cl</a>                100 usr/server/fs/fatfs/fatfs_fat.c 		if ((cl * 3 / 2) % SEC_SIZE == SEC_SIZE - 1)
+<a href='../S/889.html#L128'>cl</a>                128 usr/server/fs/fatfs/fatfs_fat.c fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next)
+<a href='../S/889.html#L135'>cl</a>                135 usr/server/fs/fatfs/fatfs_fat.c 	error = read_fat_entry(fmp, cl);
+<a href='../S/889.html#L141'>cl</a>                141 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 2) % SEC_SIZE;
+<a href='../S/889.html#L143'>cl</a>                143 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 3 / 2) % SEC_SIZE;
+<a href='../S/889.html#L150'>cl</a>                150 usr/server/fs/fatfs/fatfs_fat.c 		if (cl &amp; 1)
+<a href='../S/889.html#L156'>cl</a>                156 usr/server/fs/fatfs/fatfs_fat.c 	DPRINTF(("fat_next_cluster: %d =&gt; %d\n", cl, *next));
+<a href='../S/889.html#L167'>cl</a>                167 usr/server/fs/fatfs/fatfs_fat.c fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next)
+<a href='../S/889.html#L175'>cl</a>                175 usr/server/fs/fatfs/fatfs_fat.c 	error = read_fat_entry(fmp, cl);
+<a href='../S/889.html#L181'>cl</a>                181 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 2) % SEC_SIZE;
+<a href='../S/889.html#L183'>cl</a>                183 usr/server/fs/fatfs/fatfs_fat.c 		offset = (cl * 3 / 2) % SEC_SIZE;
+<a href='../S/889.html#L189'>cl</a>                189 usr/server/fs/fatfs/fatfs_fat.c 		if (cl &amp; 1) {
+<a href='../S/889.html#L200'>cl</a>                200 usr/server/fs/fatfs/fatfs_fat.c 	error = write_fat_entry(fmp, cl);
+<a href='../S/889.html#L214'>cl</a>                214 usr/server/fs/fatfs/fatfs_fat.c 	u_long cl, next;
+<a href='../S/889.html#L222'>cl</a>                222 usr/server/fs/fatfs/fatfs_fat.c 	cl = scan_start + 1;
+<a href='../S/889.html#L223'>cl</a>                223 usr/server/fs/fatfs/fatfs_fat.c 	while (cl != scan_start) {
+<a href='../S/889.html#L224'>cl</a>                224 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L228'>cl</a>                228 usr/server/fs/fatfs/fatfs_fat.c 			DPRINTF(("fat_alloc_cluster: free cluster=%d\n", cl));
+<a href='../S/889.html#L229'>cl</a>                229 usr/server/fs/fatfs/fatfs_fat.c 			*free = cl;
+<a href='../S/889.html#L232'>cl</a>                232 usr/server/fs/fatfs/fatfs_fat.c 		if (++cl &gt;= fmp-&gt;last_cluster)
+<a href='../S/889.html#L233'>cl</a>                233 usr/server/fs/fatfs/fatfs_fat.c 			cl = CL_FIRST;
+<a href='../S/889.html#L247'>cl</a>                247 usr/server/fs/fatfs/fatfs_fat.c 	u_long cl, next;
+<a href='../S/889.html#L249'>cl</a>                249 usr/server/fs/fatfs/fatfs_fat.c 	cl = start;
+<a href='../S/889.html#L250'>cl</a>                250 usr/server/fs/fatfs/fatfs_fat.c 	if (cl &lt; CL_FIRST)
+<a href='../S/889.html#L253'>cl</a>                253 usr/server/fs/fatfs/fatfs_fat.c 	while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/889.html#L254'>cl</a>                254 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L257'>cl</a>                257 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_set_cluster(fmp, cl, CL_FREE);
+<a href='../S/889.html#L260'>cl</a>                260 usr/server/fs/fatfs/fatfs_fat.c 		cl = next;
+<a href='../S/889.html#L263'>cl</a>                263 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, cl, CL_FREE);
+<a href='../S/889.html#L279'>cl</a>                279 usr/server/fs/fatfs/fatfs_fat.c 		 u_long *cl)
+<a href='../S/889.html#L296'>cl</a>                296 usr/server/fs/fatfs/fatfs_fat.c 	*cl = c;
+<a href='../S/889.html#L308'>cl</a>                308 usr/server/fs/fatfs/fatfs_fat.c fat_expand_file(struct fatfsmount *fmp, u_long cl, int size)
+<a href='../S/889.html#L317'>cl</a>                317 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L321'>cl</a>                321 usr/server/fs/fatfs/fatfs_fat.c 			error = fat_alloc_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L327'>cl</a>                327 usr/server/fs/fatfs/fatfs_fat.c 			error = fat_set_cluster(fmp, cl, next);
+<a href='../S/889.html#L331'>cl</a>                331 usr/server/fs/fatfs/fatfs_fat.c 		cl = next;
+<a href='../S/889.html#L334'>cl</a>                334 usr/server/fs/fatfs/fatfs_fat.c 		fat_set_cluster(fmp, cl, fmp-&gt;fat_eof);	/* add eof */
+<a href='../S/889.html#L349'>cl</a>                349 usr/server/fs/fatfs/fatfs_fat.c fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl)
+<a href='../S/889.html#L355'>cl</a>                355 usr/server/fs/fatfs/fatfs_fat.c 	while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/889.html#L356'>cl</a>                356 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L359'>cl</a>                359 usr/server/fs/fatfs/fatfs_fat.c 		cl = next;
+<a href='../S/889.html#L362'>cl</a>                362 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_alloc_cluster(fmp, cl, &amp;next);
+<a href='../S/889.html#L366'>cl</a>                366 usr/server/fs/fatfs/fatfs_fat.c 	error = fat_set_cluster(fmp, cl, next);
+<a href='../S/890.html#L125'>cl</a>                125 usr/server/fs/fatfs/fatfs_node.c 	u_long cl, sec;
+<a href='../S/890.html#L137'>cl</a>                137 usr/server/fs/fatfs/fatfs_node.c 	cl = dvp-&gt;v_blkno;
+<a href='../S/890.html#L138'>cl</a>                138 usr/server/fs/fatfs/fatfs_node.c 	if (cl == CL_ROOT) {
+<a href='../S/890.html#L147'>cl</a>                147 usr/server/fs/fatfs/fatfs_node.c 		while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/890.html#L148'>cl</a>                148 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L156'>cl</a>                156 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/890.html#L217'>cl</a>                217 usr/server/fs/fatfs/fatfs_node.c 	u_long cl, sec;
+<a href='../S/890.html#L221'>cl</a>                221 usr/server/fs/fatfs/fatfs_node.c 	cl = dvp-&gt;v_blkno;
+<a href='../S/890.html#L226'>cl</a>                226 usr/server/fs/fatfs/fatfs_node.c 	if (cl == CL_ROOT) {
+<a href='../S/890.html#L235'>cl</a>                235 usr/server/fs/fatfs/fatfs_node.c 		while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/890.html#L236'>cl</a>                236 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L244'>cl</a>                244 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/890.html#L295'>cl</a>                295 usr/server/fs/fatfs/fatfs_node.c 	u_long cl, sec;
+<a href='../S/890.html#L300'>cl</a>                300 usr/server/fs/fatfs/fatfs_node.c 	cl = dvp-&gt;v_blkno;
+<a href='../S/890.html#L302'>cl</a>                302 usr/server/fs/fatfs/fatfs_node.c 	DPRINTF(("fatfs_add_node: cl=%d\n", cl));
+<a href='../S/890.html#L304'>cl</a>                304 usr/server/fs/fatfs/fatfs_node.c 	if (cl == CL_ROOT) {
+<a href='../S/890.html#L313'>cl</a>                313 usr/server/fs/fatfs/fatfs_node.c 		while (!IS_EOFCL(fmp, cl)) {
+<a href='../S/890.html#L314'>cl</a>                314 usr/server/fs/fatfs/fatfs_node.c 			sec = cl_to_sec(fmp, cl);
+<a href='../S/890.html#L321'>cl</a>                321 usr/server/fs/fatfs/fatfs_node.c 			error = fat_next_cluster(fmp, cl, &amp;next);
+<a href='../S/890.html#L324'>cl</a>                324 usr/server/fs/fatfs/fatfs_node.c 			cl = next;
+<a href='../S/890.html#L328'>cl</a>                328 usr/server/fs/fatfs/fatfs_node.c 		error = fat_expand_dir(fmp, cl, &amp;next);
+<a href='../S/893.html#L169'>cl</a>                169 usr/server/fs/fatfs/fatfs_vnops.c 	u_long cl, file_pos;
+<a href='../S/893.html#L193'>cl</a>                193 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L201'>cl</a>                201 usr/server/fs/fatfs/fatfs_vnops.c 		if (fat_read_cluster(fmp, cl)) {
+<a href='../S/893.html#L219'>cl</a>                219 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/893.html#L225'>cl</a>                225 usr/server/fs/fatfs/fatfs_vnops.c 	} while (!IS_EOFCL(fmp, cl));
+<a href='../S/893.html#L243'>cl</a>                243 usr/server/fs/fatfs/fatfs_vnops.c 	u_long cl;
+<a href='../S/893.html#L280'>cl</a>                280 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_seek_cluster(fmp, vp-&gt;v_blkno, file_pos, &amp;cl);
+<a href='../S/893.html#L291'>cl</a>                291 usr/server/fs/fatfs/fatfs_vnops.c 			if (fat_read_cluster(fmp, cl)) {
+<a href='../S/893.html#L303'>cl</a>                303 usr/server/fs/fatfs/fatfs_vnops.c 		if (fat_write_cluster(fmp, cl)) {
+<a href='../S/893.html#L313'>cl</a>                313 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_next_cluster(fmp, cl, &amp;cl);
+<a href='../S/893.html#L320'>cl</a>                320 usr/server/fs/fatfs/fatfs_vnops.c 	} while (!IS_EOFCL(fmp, cl));
+<a href='../S/893.html#L381'>cl</a>                381 usr/server/fs/fatfs/fatfs_vnops.c 	u_long cl;
+<a href='../S/893.html#L396'>cl</a>                396 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_alloc_cluster(fmp, 0, &amp;cl);
+<a href='../S/893.html#L403'>cl</a>                403 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L410'>cl</a>                410 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_set_cluster(fmp, cl, fmp-&gt;fat_eof);
+<a href='../S/893.html#L558'>cl</a>                558 usr/server/fs/fatfs/fatfs_vnops.c 	u_long cl;
+<a href='../S/893.html#L571'>cl</a>                571 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_alloc_cluster(fmp, 0, &amp;cl);
+<a href='../S/893.html#L578'>cl</a>                578 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L592'>cl</a>                592 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L602'>cl</a>                602 usr/server/fs/fatfs/fatfs_vnops.c 	if (fat_write_cluster(fmp, cl)) {
+<a href='../S/893.html#L607'>cl</a>                607 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_set_cluster(fmp, cl, fmp-&gt;fat_eof);
+</pre>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>curshape</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/852.html#L120'>curshape</a>          120 usr/sample/tetris/tetris.c 	const struct shape *curshape;
+<a href='../S/852.html#L178'>curshape</a>          178 usr/sample/tetris/tetris.c 	curshape = randshape();
+<a href='../S/852.html#L183'>curshape</a>          183 usr/sample/tetris/tetris.c 		place(curshape, pos, 1);
+<a href='../S/852.html#L186'>curshape</a>          186 usr/sample/tetris/tetris.c 		place(curshape, pos, 0);
+<a href='../S/852.html#L192'>curshape</a>          192 usr/sample/tetris/tetris.c 			if (fits_in(curshape, pos + B_COLS)) {
+<a href='../S/852.html#L201'>curshape</a>          201 usr/sample/tetris/tetris.c 			place(curshape, pos, 1);
+<a href='../S/852.html#L209'>curshape</a>          209 usr/sample/tetris/tetris.c 			curshape = randshape();
+<a href='../S/852.html#L211'>curshape</a>          211 usr/sample/tetris/tetris.c 			if (!fits_in(curshape, pos))
+<a href='../S/852.html#L227'>curshape</a>          227 usr/sample/tetris/tetris.c 			place(curshape, pos, 1);
+<a href='../S/852.html#L236'>curshape</a>          236 usr/sample/tetris/tetris.c 			place(curshape, pos, 0);
+<a href='../S/852.html#L241'>curshape</a>          241 usr/sample/tetris/tetris.c 			if (fits_in(curshape, pos - 1))
+<a href='../S/852.html#L247'>curshape</a>          247 usr/sample/tetris/tetris.c 			const struct shape *new = &amp;shapes[curshape-&gt;rot];
+<a href='../S/852.html#L250'>curshape</a>          250 usr/sample/tetris/tetris.c 				curshape = new;
+<a href='../S/852.html#L255'>curshape</a>          255 usr/sample/tetris/tetris.c 			if (fits_in(curshape, pos + 1))
+<a href='../S/852.html#L261'>curshape</a>          261 usr/sample/tetris/tetris.c 			while (fits_in(curshape, pos + B_COLS)) {
+</pre>
+</body>
+</html>

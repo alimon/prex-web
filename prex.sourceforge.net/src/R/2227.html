@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>object_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/265.html#L36'>object_t</a>           36 include/sys/posix.h extern object_t __proc_obj;
+<a href='../S/265.html#L37'>object_t</a>           37 include/sys/posix.h extern object_t __fs_obj;
+<a href='../S/265.html#L40'>object_t</a>           40 include/sys/posix.h int __posix_call(object_t, void *, size_t, int);
+<a href='../S/267.html#L113'>object_t</a>          113 include/sys/prex.h int	object_create(const char *name, object_t *objp);
+<a href='../S/267.html#L114'>object_t</a>          114 include/sys/prex.h int	object_destroy(object_t obj);
+<a href='../S/267.html#L115'>object_t</a>          115 include/sys/prex.h int	object_lookup(const char *name, object_t *objp);
+<a href='../S/267.html#L117'>object_t</a>          117 include/sys/prex.h int	msg_send(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L118'>object_t</a>          118 include/sys/prex.h int	msg_receive(object_t obj, void *msg, size_t size);
+<a href='../S/267.html#L119'>object_t</a>          119 include/sys/prex.h int	msg_reply(object_t obj, void *msg, size_t size);
+<a href='../S/277.html#L68'>object_t</a>           68 include/sys/types.h #define OBJECT_NULL	((object_t)0)
+<a href='../S/309.html#L49'>object_t</a>           49 sys/include/ipc.h int	 object_create(const char *, object_t *);
+<a href='../S/309.html#L50'>object_t</a>           50 sys/include/ipc.h int	 object_lookup(const char *, object_t *);
+<a href='../S/309.html#L51'>object_t</a>           51 sys/include/ipc.h int	 object_destroy(object_t);
+<a href='../S/309.html#L52'>object_t</a>           52 sys/include/ipc.h int	 object_valid(object_t);
+<a href='../S/309.html#L56'>object_t</a>           56 sys/include/ipc.h int	 msg_send(object_t, void *, size_t);
+<a href='../S/309.html#L57'>object_t</a>           57 sys/include/ipc.h int	 msg_receive(object_t, void *, size_t);
+<a href='../S/309.html#L58'>object_t</a>           58 sys/include/ipc.h int	 msg_reply(object_t, void *, size_t);
+<a href='../S/309.html#L60'>object_t</a>           60 sys/include/ipc.h void	 msg_abort(object_t);
+<a href='../S/319.html#L71'>object_t</a>           71 sys/include/thread.h 	object_t 	sendobj;	/* IPC object sending to */
+<a href='../S/319.html#L72'>object_t</a>           72 sys/include/thread.h 	object_t 	recvobj;	/* IPC object receiving from */
+<a href='../S/324.html#L81'>object_t</a>           81 sys/ipc/msg.c  msg_send(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L188'>object_t</a>          188 sys/ipc/msg.c  msg_receive(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L288'>object_t</a>          288 sys/ipc/msg.c  msg_reply(object_t obj, void *msg, size_t size)
+<a href='../S/324.html#L383'>object_t</a>          383 sys/ipc/msg.c  msg_abort(object_t obj)
+<a href='../S/325.html#L66'>object_t</a>           66 sys/ipc/object.c static object_t	object_find(const char *);
+<a href='../S/325.html#L81'>object_t</a>           81 sys/ipc/object.c object_create(const char *name, object_t *objp)
+<a href='../S/325.html#L140'>object_t</a>          140 sys/ipc/object.c object_lookup(const char *name, object_t *objp)
+<a href='../S/325.html#L142'>object_t</a>          142 sys/ipc/object.c 	object_t obj;
+<a href='../S/325.html#L163'>object_t</a>          163 sys/ipc/object.c object_valid(object_t obj)
+<a href='../S/325.html#L165'>object_t</a>          165 sys/ipc/object.c 	object_t tmp;
+<a href='../S/325.html#L177'>object_t</a>          177 sys/ipc/object.c static object_t
+<a href='../S/325.html#L180'>object_t</a>          180 sys/ipc/object.c 	object_t obj;
+<a href='../S/325.html#L196'>object_t</a>          196 sys/ipc/object.c object_deallocate(object_t obj)
+<a href='../S/325.html#L213'>object_t</a>          213 sys/ipc/object.c object_destroy(object_t obj)
+<a href='../S/325.html#L236'>object_t</a>          236 sys/ipc/object.c 	object_t obj;
+<a href='../S/404.html#L52'>object_t</a>           52 usr/bin/ps/ps.c static object_t procobj;
+<a href='../S/655.html#L52'>object_t</a>           52 usr/lib/posix/exec/execve.c 	object_t execobj;
+<a href='../S/696.html#L37'>object_t</a>           37 usr/lib/posix/file/__file.c object_t __fs_obj;
+<a href='../S/702.html#L43'>object_t</a>           43 usr/lib/posix/gen/__posix_call.c __posix_call(object_t obj, void *msg, size_t size, int restart)
+<a href='../S/733.html#L40'>object_t</a>           40 usr/lib/posix/process/__process.c object_t __proc_obj;
+<a href='../S/837.html#L81'>object_t</a>           81 usr/sample/ipc/ipc.c send_message(object_t obj, const char *str)
+<a href='../S/837.html#L98'>object_t</a>           98 usr/sample/ipc/ipc.c 	object_t obj;
+<a href='../S/837.html#L129'>object_t</a>          129 usr/sample/ipc/ipc.c 	object_t obj = 0;
+<a href='../S/856.html#L52'>object_t</a>           52 usr/sbin/debug/debug.c 	object_t obj;
+<a href='../S/864.html#L47'>object_t</a>           47 usr/sbin/ktrace/ktrace.c 	object_t obj;
+<a href='../S/870.html#L80'>object_t</a>           80 usr/sbin/pmctrl/pmctrl.c static object_t powobj;
+<a href='../S/871.html#L86'>object_t</a>           86 usr/server/boot/boot.c wait_server(const char *name, object_t *pobj)
+<a href='../S/871.html#L110'>object_t</a>          110 usr/server/boot/boot.c send_bootmsg(object_t obj)
+<a href='../S/871.html#L181'>object_t</a>          181 usr/server/boot/boot.c exec_init(object_t execobj)
+<a href='../S/871.html#L268'>object_t</a>          268 usr/server/boot/boot.c 	object_t execobj, procobj, fsobj;
+<a href='../S/877.html#L416'>object_t</a>          416 usr/server/exec/exec_execve.c 	object_t fsobj, procobj;
+<a href='../S/879.html#L82'>object_t</a>           82 usr/server/exec/main.c 	object_t obj;
+<a href='../S/879.html#L166'>object_t</a>          166 usr/server/exec/main.c 	object_t obj;
+<a href='../S/903.html#L86'>object_t</a>           86 usr/server/fs/vfs/main.c static object_t fsobj;
+<a href='../S/903.html#L850'>object_t</a>          850 usr/server/fs/vfs/main.c 	object_t execobj, procobj;
+<a href='../S/916.html#L327'>object_t</a>          327 usr/server/pow/pow.c 	object_t obj;
+<a href='../S/916.html#L342'>object_t</a>          342 usr/server/pow/pow.c wait_server(const char *name, object_t *pobj)
+<a href='../S/916.html#L369'>object_t</a>          369 usr/server/pow/pow.c 	object_t obj;
+<a href='../S/916.html#L397'>object_t</a>          397 usr/server/pow/pow.c 	object_t obj;
+<a href='../S/916.html#L399'>object_t</a>          399 usr/server/pow/pow.c 	object_t execobj, procobj;
+<a href='../S/917.html#L408'>object_t</a>          408 usr/server/proc/main.c 	object_t obj;
+<a href='../S/917.html#L526'>object_t</a>          526 usr/server/proc/main.c 	object_t obj;
+<a href='../S/928.html#L44'>object_t</a>           44 usr/test/attack/attack.c 	object_t *objp	= (object_t *)random();
+<a href='../S/928.html#L45'>object_t</a>           45 usr/test/attack/attack.c 	object_t obj	= (object_t)random();
+<a href='../S/954.html#L89'>object_t</a>           89 usr/test/fileio/fileio.c 	object_t fsobj;
+<a href='../S/960.html#L71'>object_t</a>           71 usr/test/ipc/ipc.c 	object_t o1, o2;
+<a href='../S/960.html#L111'>object_t</a>          111 usr/test/ipc/ipc.c 	object_t o1, o2, o3;
+<a href='../S/962.html#L74'>object_t</a>           74 usr/test/ipc_mt/ipc_mt.c 	object_t obj;
+<a href='../S/962.html#L109'>object_t</a>          109 usr/test/ipc_mt/ipc_mt.c 	object_t obj;
+<a href='../S/973.html#L46'>object_t</a>           46 usr/test/memleak/memleak.c 	object_t obj;
+<a href='../S/979.html#L43'>object_t</a>           43 usr/test/object/object.c 	object_t obj;
+<a href='../S/990.html#L94'>object_t</a>           94 usr/test/shutdown/shutdown.c 	object_t powobj;
+</pre>
+</body>
+</html>

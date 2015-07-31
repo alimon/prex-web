@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>wakeq</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/331.html#L93'>wakeq</a>              93 sys/kern/sched.c static struct queue	wakeq;		/* queue for waking threads */
+<a href='../S/331.html#L179'>wakeq</a>             179 sys/kern/sched.c 	while (!queue_empty(&amp;wakeq)) {
+<a href='../S/331.html#L183'>wakeq</a>             183 sys/kern/sched.c 		q = dequeue(&amp;wakeq);
+<a href='../S/331.html#L201'>wakeq</a>             201 sys/kern/sched.c 	enqueue(&amp;wakeq, &amp;t-&gt;sched_link);
+<a href='../S/331.html#L722'>wakeq</a>             722 sys/kern/sched.c 	queue_init(&amp;wakeq);
+</pre>
+</body>
+</html>

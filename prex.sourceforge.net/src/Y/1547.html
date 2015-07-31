@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>parent</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L87'>parent</a>             87 include/sys/prex.h int	task_create(task_t parent, int vm_option, task_t *childp);
+<a href='../S/318.html#L47'>parent</a>             47 sys/include/task.h 	task_t		parent;		/* parent task */
+<a href='../S/334.html#L62'>parent</a>             62 sys/kern/task.c task_create(task_t parent, int vm_option, task_t *childp)
+<a href='../S/334.html#L67'>parent</a>             67 sys/kern/task.c 	ASSERT(parent != NULL);
+<a href='../S/334.html#L83'>parent</a>             83 sys/kern/task.c 	if (!task_valid(parent)) {
+<a href='../S/334.html#L88'>parent</a>             88 sys/kern/task.c 		if (!task_access(parent)) {
+<a href='../S/334.html#L118'>parent</a>            118 sys/kern/task.c 		vm_reference(parent-&gt;map);
+<a href='../S/334.html#L119'>parent</a>            119 sys/kern/task.c 		map = parent-&gt;map;
+<a href='../S/334.html#L122'>parent</a>            122 sys/kern/task.c 		map = vm_dup(parent-&gt;map);
+<a href='../S/334.html#L135'>parent</a>            135 sys/kern/task.c 	task-&gt;handler = parent-&gt;handler;
+<a href='../S/334.html#L136'>parent</a>            136 sys/kern/task.c 	task-&gt;capability = parent-&gt;capability;
+<a href='../S/334.html#L137'>parent</a>            137 sys/kern/task.c 	task-&gt;parent = parent;
+<a href='../S/334.html#L430'>parent</a>            430 sys/kern/task.c 		if (task == curtask || task-&gt;parent == curtask ||
+<a href='../S/334.html#L431'>parent</a>            431 sys/kern/task.c 		    task == curtask-&gt;parent ||	/* XXX: fork on nommu */
+<a href='../S/335.html#L317'>parent</a>            317 sys/kern/thread.c 	if (!(t-&gt;task == curtask || t-&gt;task-&gt;parent == curtask) &amp;&amp;
+<a href='../S/479.html#L75'>parent</a>             75 usr/lib/libc/gen/fts.c 	FTSENT *parent, *tmp = NULL;
+<a href='../S/479.html#L103'>parent</a>            103 usr/lib/libc/gen/fts.c 	if ((parent = fts_alloc(sp, "", 0)) == NULL)
+<a href='../S/479.html#L105'>parent</a>            105 usr/lib/libc/gen/fts.c 	parent-&gt;fts_level = FTS_ROOTPARENTLEVEL;
+<a href='../S/479.html#L117'>parent</a>            117 usr/lib/libc/gen/fts.c 		p-&gt;fts_parent = parent;
+<a href='../S/479.html#L168'>parent</a>            168 usr/lib/libc/gen/fts.c 	free(parent);
+<a href='../S/917.html#L284'>parent</a>            284 usr/server/proc/main.c 	struct proc *p, *parent;
+<a href='../S/917.html#L304'>parent</a>            304 usr/server/proc/main.c 	parent = p-&gt;p_parent;
+<a href='../S/917.html#L305'>parent</a>            305 usr/server/proc/main.c 	if (parent != NULL &amp;&amp; parent-&gt;p_vforked)
+<a href='../S/917.html#L306'>parent</a>            306 usr/server/proc/main.c 		vfork_end(parent);
+<a href='../S/920.html#L53'>parent</a>             53 usr/server/proc/proc_exit.c 	struct proc *child, *parent;
+<a href='../S/920.html#L86'>parent</a>             86 usr/server/proc/proc_exit.c 	parent = curproc-&gt;p_parent;
+<a href='../S/920.html#L87'>parent</a>             87 usr/server/proc/proc_exit.c 	if (parent != NULL &amp;&amp; parent-&gt;p_vforked) {
+<a href='../S/920.html#L88'>parent</a>             88 usr/server/proc/proc_exit.c 		vfork_end(parent);
+</pre>
+</body>
+</html>

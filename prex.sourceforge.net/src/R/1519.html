@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bus_read_8</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/66.html#L155'>bus_read_8</a>        155 bsp/drv/dev/block/fdd.c 		if ((bus_read_8(FDC_MSR) &amp; 0xc0) == 0x80) {
+<a href='../S/66.html#L162'>bus_read_8</a>        162 bsp/drv/dev/block/fdd.c 	DPRINTF(("fdc: timeout msr=%x\n", bus_read_8(FDC_MSR)));
+<a href='../S/66.html#L173'>bus_read_8</a>        173 bsp/drv/dev/block/fdd.c 		msr = bus_read_8(FDC_MSR);
+<a href='../S/66.html#L182'>bus_read_8</a>        182 bsp/drv/dev/block/fdd.c 			sc-&gt;result[index++] = bus_read_8(FDC_DAT);
+<a href='../S/66.html#L666'>bus_read_8</a>        666 bsp/drv/dev/block/fdd.c 	if (bus_read_8(FDC_MSR) == 0xff) {
+<a href='../S/70.html#L533'>bus_read_8</a>        533 bsp/drv/dev/cpufreq/est.c 	if (bus_read_8(0xe9) == 0xe9) {
+<a href='../S/74.html#L73'>bus_read_8</a>         73 bsp/drv/dev/input/i8042.h #define kmc_wait_obf()	while ((bus_read_8(KMC_STS) &amp; STS_OBF) == 0)
+<a href='../S/74.html#L74'>bus_read_8</a>         74 bsp/drv/dev/input/i8042.h #define kmc_wait_obe()	while (bus_read_8(KMC_STS) &amp; STS_OBF)
+<a href='../S/74.html#L75'>bus_read_8</a>         75 bsp/drv/dev/input/i8042.h #define kmc_wait_ibf()	while ((bus_read_8(KMC_STS) &amp; STS_IBF) == 0)
+<a href='../S/74.html#L76'>bus_read_8</a>         76 bsp/drv/dev/input/i8042.h #define kmc_wait_ibe()	while (bus_read_8(KMC_STS) &amp; STS_IBF)
+<a href='../S/76.html#L132'>bus_read_8</a>        132 bsp/drv/dev/input/pckbd.c 		while (bus_read_8(KMC_STS) &amp; 2);
+<a href='../S/76.html#L134'>bus_read_8</a>        134 bsp/drv/dev/input/pckbd.c 		while (bus_read_8(KMC_STS) &amp; 2);
+<a href='../S/76.html#L150'>bus_read_8</a>        150 bsp/drv/dev/input/pckbd.c 	scan = bus_read_8(KMC_DATA);
+<a href='../S/76.html#L153'>bus_read_8</a>        153 bsp/drv/dev/input/pckbd.c 	val = bus_read_8(KMC_PORTB);
+<a href='../S/76.html#L286'>bus_read_8</a>        286 bsp/drv/dev/input/pckbd.c 	while (bus_read_8(KMC_STS) &amp; STS_OBF)
+<a href='../S/76.html#L287'>bus_read_8</a>        287 bsp/drv/dev/input/pckbd.c 		bus_read_8(KMC_DATA);
+<a href='../S/77.html#L123'>bus_read_8</a>        123 bsp/drv/dev/input/psaux.c 	if ((bus_read_8(KMC_STS) &amp; 0x20) == 0x20) {
+<a href='../S/77.html#L124'>bus_read_8</a>        124 bsp/drv/dev/input/psaux.c 		if (bus_read_8(KMC_DATA) == 0xfa)
+<a href='../S/77.html#L144'>bus_read_8</a>        144 bsp/drv/dev/input/psaux.c 	if ((bus_read_8(KMC_STS) &amp; 0x21) != 0x21)
+<a href='../S/77.html#L147'>bus_read_8</a>        147 bsp/drv/dev/input/psaux.c 	dat = bus_read_8(KMC_DATA);
+<a href='../S/77.html#L152'>bus_read_8</a>        152 bsp/drv/dev/input/psaux.c 		if ((bus_read_8(KMC_STS) &amp; 0x20) == 0x20) {
+<a href='../S/77.html#L153'>bus_read_8</a>        153 bsp/drv/dev/input/psaux.c 			id = bus_read_8(KMC_DATA);
+<a href='../S/83.html#L84'>bus_read_8</a>         84 bsp/drv/dev/rtc/mc146818.c 	val = bus_read_8(RTC_DATA);
+<a href='../S/87.html#L124'>bus_read_8</a>        124 bsp/drv/dev/serial/ns16550.c 	while (!(bus_read_8(COM_LSR) &amp; LSR_TXRDY))
+<a href='../S/87.html#L133'>bus_read_8</a>        133 bsp/drv/dev/serial/ns16550.c 	while (!(bus_read_8(COM_LSR) &amp; LSR_RXRDY))
+<a href='../S/87.html#L135'>bus_read_8</a>        135 bsp/drv/dev/serial/ns16550.c 	return bus_read_8(COM_RBR);
+<a href='../S/87.html#L156'>bus_read_8</a>        156 bsp/drv/dev/serial/ns16550.c 	switch (bus_read_8(COM_IIR) &amp; IIR_MASK) {
+<a href='../S/87.html#L160'>bus_read_8</a>        160 bsp/drv/dev/serial/ns16550.c 		bus_read_8(COM_LSR);
+<a href='../S/87.html#L166'>bus_read_8</a>        166 bsp/drv/dev/serial/ns16550.c 		bus_read_8(COM_LSR);
+<a href='../S/87.html#L167'>bus_read_8</a>        167 bsp/drv/dev/serial/ns16550.c 		serial_rcv_char(sp, bus_read_8(COM_RBR));
+<a href='../S/87.html#L191'>bus_read_8</a>        191 bsp/drv/dev/serial/ns16550.c 	bus_read_8(COM_IIR);
+<a href='../S/87.html#L208'>bus_read_8</a>        208 bsp/drv/dev/serial/ns16550.c 	if (bus_read_8(COM_LSR) == 0xff)
+<a href='../S/91.html#L105'>bus_read_8</a>        105 bsp/drv/dev/video/vga.c 	return bus_read_8(CRTC_DATA);
+<a href='../S/91.html#L122'>bus_read_8</a>        122 bsp/drv/dev/video/vga.c 	val = bus_read_8(SEQ_DATA);
+<a href='../S/91.html#L132'>bus_read_8</a>        132 bsp/drv/dev/video/vga.c 	val = bus_read_8(SEQ_DATA);
+<a href='../S/123.html#L45'>bus_read_8</a>         45 bsp/drv/x86/include/busio.h uint8_t	 bus_read_8(int addr);
+</pre>
+</body>
+</html>

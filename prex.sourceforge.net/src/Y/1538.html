@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pa</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L525'>pa</a>                525 bsp/drv/dev/base/kd.c 	char *p, *pa, *pv;
+<a href='../S/60.html#L532'>pa</a>                532 bsp/drv/dev/base/kd.c 	pa = argv[1];
+<a href='../S/60.html#L553'>pa</a>                553 bsp/drv/dev/base/kd.c 		pa = argv[2];
+<a href='../S/60.html#L556'>pa</a>                556 bsp/drv/dev/base/kd.c 	addr = strtoul(pa, NULL, 16);
+<a href='../S/131.html#L111'>pa</a>                111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L117'>pa</a>                117 bsp/hal/arm/arch/mmu.c 	pa = round_page(pa);
+<a href='../S/131.html#L166'>pa</a>                166 bsp/hal/arm/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/131.html#L169'>pa</a>                169 bsp/hal/arm/arch/mmu.c 		pa += PAGE_SIZE;
+<a href='../S/131.html#L254'>pa</a>                254 bsp/hal/arm/arch/mmu.c 	paddr_t pa;
+<a href='../S/131.html#L270'>pa</a>                270 bsp/hal/arm/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/131.html#L271'>pa</a>                271 bsp/hal/arm/arch/mmu.c 	return pa + (paddr_t)(virt - start);
+<a href='../S/178.html#L82'>pa</a>                 82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L89'>pa</a>                 89 bsp/hal/x86/arch/mmu.c 	pa = round_page(pa);
+<a href='../S/178.html#L138'>pa</a>                138 bsp/hal/x86/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/178.html#L141'>pa</a>                141 bsp/hal/x86/arch/mmu.c 		pa += PAGE_SIZE;
+<a href='../S/178.html#L224'>pa</a>                224 bsp/hal/x86/arch/mmu.c 	paddr_t pa;
+<a href='../S/178.html#L240'>pa</a>                240 bsp/hal/x86/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/178.html#L241'>pa</a>                241 bsp/hal/x86/arch/mmu.c 	return pa + (paddr_t)(va - start);
+<a href='../S/264.html#L128'>pa</a>                128 include/sys/param.h #define ptokv(pa)	(void *)((paddr_t)(pa) + KERNBASE)
+<a href='../S/341.html#L179'>pa</a>                179 sys/mem/kmem.c 	paddr_t pa;
+<a href='../S/341.html#L206'>pa</a>                206 sys/mem/kmem.c 		if ((pa = page_alloc(PAGE_SIZE)) == 0) {
+<a href='../S/341.html#L210'>pa</a>                210 sys/mem/kmem.c 		pg = ptokv(pa);
+<a href='../S/341.html#L316'>pa</a>                316 sys/mem/kmem.c 	paddr_t pa;
+<a href='../S/341.html#L318'>pa</a>                318 sys/mem/kmem.c 	pa = vm_translate((vaddr_t)addr, size);
+<a href='../S/341.html#L319'>pa</a>                319 sys/mem/kmem.c 	if (pa == 0)
+<a href='../S/341.html#L321'>pa</a>                321 sys/mem/kmem.c 	return ptokv(pa);
+<a href='../S/343.html#L123'>pa</a>                123 sys/mem/vm.c   	paddr_t pa;
+<a href='../S/343.html#L150'>pa</a>                150 sys/mem/vm.c   	if ((pa = page_alloc(size)) == 0)
+<a href='../S/343.html#L153'>pa</a>                153 sys/mem/vm.c   	if (mmu_map(map-&gt;pgd, pa, seg-&gt;addr, size, PG_WRITE))
+<a href='../S/343.html#L156'>pa</a>                156 sys/mem/vm.c   	seg-&gt;phys = pa;
+<a href='../S/343.html#L159'>pa</a>                159 sys/mem/vm.c   	memset(ptokv(pa), 0, seg-&gt;size);
+<a href='../S/343.html#L165'>pa</a>                165 sys/mem/vm.c   	page_free(pa, size);
+<a href='../S/343.html#L391'>pa</a>                391 sys/mem/vm.c   	paddr_t pa;
+<a href='../S/343.html#L435'>pa</a>                435 sys/mem/vm.c   	pa = tgt-&gt;phys + (paddr_t)(start - tgt-&gt;addr);
+<a href='../S/343.html#L436'>pa</a>                436 sys/mem/vm.c   	if (mmu_map(curmap-&gt;pgd, pa, cur-&gt;addr, size, map_type)) {
+<a href='../S/343.html#L442'>pa</a>                442 sys/mem/vm.c   	cur-&gt;phys = pa;
+<a href='../S/344.html#L627'>pa</a>                627 sys/mem/vm_nommu.c 	paddr_t pa;
+<a href='../S/344.html#L629'>pa</a>                629 sys/mem/vm_nommu.c 	if ((pa = page_alloc(size)) == 0)
+<a href='../S/344.html#L632'>pa</a>                632 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L633'>pa</a>                633 sys/mem/vm_nommu.c      		page_free(pa, size);
+<a href='../S/344.html#L669'>pa</a>                669 sys/mem/vm_nommu.c 	paddr_t pa;
+<a href='../S/344.html#L671'>pa</a>                671 sys/mem/vm_nommu.c 	pa = (paddr_t)addr;
+<a href='../S/344.html#L673'>pa</a>                673 sys/mem/vm_nommu.c 	if (page_reserve(pa, size) != 0)
+<a href='../S/344.html#L676'>pa</a>                676 sys/mem/vm_nommu.c 	if ((seg = seg_create(head, (vaddr_t)pa, size)) == NULL) {
+<a href='../S/344.html#L677'>pa</a>                677 sys/mem/vm_nommu.c      		page_free(pa, size);
+<a href='../S/575.html#L98'>pa</a>                 98 usr/lib/libc/stdlib/qsort.c 	char *pa, *pb, *pc, *pd, *pl, *pm, *pn;
+<a href='../S/575.html#L123'>pa</a>                123 usr/lib/libc/stdlib/qsort.c 	pa = pb = (char *) a + es;
+<a href='../S/575.html#L130'>pa</a>                130 usr/lib/libc/stdlib/qsort.c 				swap(pa, pb);
+<a href='../S/575.html#L131'>pa</a>                131 usr/lib/libc/stdlib/qsort.c 				pa += es;
+<a href='../S/575.html#L158'>pa</a>                158 usr/lib/libc/stdlib/qsort.c 	r = min(pa - (char *) a, pb - pa);
+<a href='../S/575.html#L162'>pa</a>                162 usr/lib/libc/stdlib/qsort.c 	if ((r = pb - pa) &gt; es)
+</pre>
+</body>
+</html>

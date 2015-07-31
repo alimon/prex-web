@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bufsz</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/218.html#L52'>bufsz</a>              52 include/ipc/exec.h 	size_t	bufsz;			/* size of buffer */
+<a href='../S/333.html#L102'>bufsz</a>             102 sys/kern/system.c 	size_t bufsz = 0;
+<a href='../S/333.html#L111'>bufsz</a>             111 sys/kern/system.c 		bufsz = sizeof(struct kerninfo);
+<a href='../S/333.html#L114'>bufsz</a>             114 sys/kern/system.c 		bufsz = sizeof(struct meminfo);
+<a href='../S/333.html#L117'>bufsz</a>             117 sys/kern/system.c 		bufsz = sizeof(struct timerinfo);
+<a href='../S/333.html#L120'>bufsz</a>             120 sys/kern/system.c 		bufsz = sizeof(struct threadinfo);
+<a href='../S/333.html#L123'>bufsz</a>             123 sys/kern/system.c 		bufsz = sizeof(struct devinfo);
+<a href='../S/333.html#L126'>bufsz</a>             126 sys/kern/system.c 		bufsz = sizeof(struct taskinfo);
+<a href='../S/333.html#L129'>bufsz</a>             129 sys/kern/system.c 		bufsz = sizeof(struct vminfo);
+<a href='../S/333.html#L132'>bufsz</a>             132 sys/kern/system.c 		bufsz = sizeof(struct irqinfo);
+<a href='../S/333.html#L139'>bufsz</a>             139 sys/kern/system.c 	error = copyin(buf, &amp;infobuf, bufsz);
+<a href='../S/333.html#L143'>bufsz</a>             143 sys/kern/system.c 			error = copyout(&amp;infobuf, buf, bufsz);
+<a href='../S/655.html#L55'>bufsz</a>              55 usr/lib/posix/exec/execve.c 	size_t bufsz;
+<a href='../S/655.html#L69'>bufsz</a>              69 usr/lib/posix/exec/execve.c 	bufsz = 0;
+<a href='../S/655.html#L73'>bufsz</a>              73 usr/lib/posix/exec/execve.c 			bufsz += (strlen(argv[argc]) + 1);
+<a href='../S/655.html#L80'>bufsz</a>              80 usr/lib/posix/exec/execve.c 			bufsz += (strlen(envp[envc]) + 1);
+<a href='../S/655.html#L84'>bufsz</a>              84 usr/lib/posix/exec/execve.c 	if (bufsz &gt;= ARG_MAX)
+<a href='../S/655.html#L101'>bufsz</a>             101 usr/lib/posix/exec/execve.c 	msg.bufsz = bufsz;
+<a href='../S/871.html#L185'>bufsz</a>             185 usr/server/boot/boot.c 	size_t bufsz;
+<a href='../S/871.html#L192'>bufsz</a>             192 usr/server/boot/boot.c 	bufsz = 0;
+<a href='../S/871.html#L195'>bufsz</a>             195 usr/server/boot/boot.c 		bufsz += (strlen(initargs[argc]) + 1);
+<a href='../S/871.html#L200'>bufsz</a>             200 usr/server/boot/boot.c 		bufsz += (strlen(initenvs[envc]) + 1);
+<a href='../S/871.html#L203'>bufsz</a>             203 usr/server/boot/boot.c 	if (bufsz &gt;= ARG_MAX)
+<a href='../S/871.html#L221'>bufsz</a>             221 usr/server/boot/boot.c 	msg.bufsz = bufsz;
+<a href='../S/877.html#L350'>bufsz</a>             350 usr/server/exec/exec_execve.c 	sp -= msg-&gt;bufsz;
+<a href='../S/877.html#L352'>bufsz</a>             352 usr/server/exec/exec_execve.c 	memcpy((char *)sp, (char *)&amp;msg-&gt;buf, msg-&gt;bufsz);
+</pre>
+</body>
+</html>

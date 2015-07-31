@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>task_create</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L87'>task_create</a>        87 include/sys/prex.h int	task_create(task_t parent, int vm_option, task_t *childp);
+<a href='../S/318.html#L85'>task_create</a>        85 sys/include/task.h int	 task_create(task_t, int, task_t *);
+<a href='../S/332.html#L87'>task_create</a>        87 sys/kern/sysent.c 	/*  4 */ SYSENT(3, task_create),
+<a href='../S/334.html#L489'>task_create</a>       489 sys/kern/task.c 		if ((error = task_create(&amp;kernel_task, VM_NEW, &amp;task)) != 0)
+<a href='../S/705.html#L96'>task_create</a>        96 usr/lib/posix/process/fork.c 		error = task_create(task_self(), VM_COPY, &amp;tsk);
+<a href='../S/706.html#L98'>task_create</a>        98 usr/lib/posix/process/fork_nommu.c 		if ((error = task_create(task_self(), VM_SHARE, &amp;tsk)) != 0) {
+<a href='../S/837.html#L60'>task_create</a>        60 usr/sample/ipc/ipc.c 	if (task_create(task_self(), VM_COPY, &amp;task) != 0)
+<a href='../S/845.html#L51'>task_create</a>        51 usr/sample/task/task.c 	if (task_create(task_self(), VM_SHARE, &amp;task) != 0)
+<a href='../S/877.html#L159'>task_create</a>       159 usr/server/exec/exec_execve.c 	if ((error = task_create(old_task, VM_NEW, &amp;new_task)) != 0) {
+<a href='../S/998.html#L72'>task_create</a>        72 usr/test/task/task.c 	error = task_create(task_self(), VM_COPY, &amp;task);
+<a href='../S/998.html#L74'>task_create</a>        74 usr/test/task/task.c 	error = task_create(task_self(), VM_SHARE, &amp;task);
+</pre>
+</body>
+</html>

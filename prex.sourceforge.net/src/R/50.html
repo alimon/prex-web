@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>BSIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/68.html#L81'>BSIZE</a>              81 bsp/drv/dev/block/ramdisk.c 	int offset = blkno * BSIZE;
+<a href='../S/68.html#L112'>BSIZE</a>             112 bsp/drv/dev/block/ramdisk.c 	int offset = blkno * BSIZE;
+<a href='../S/882.html#L79'>BSIZE</a>              79 usr/server/fs/arfs/arfs_vfsops.c 	if ((buf = malloc(BSIZE)) == NULL)
+<a href='../S/882.html#L83'>BSIZE</a>              83 usr/server/fs/arfs/arfs_vfsops.c 	size = BSIZE;
+<a href='../S/883.html#L83'>BSIZE</a>              83 usr/server/fs/arfs/arfs_vnops.c static char iobuf[BSIZE*2];
+<a href='../S/883.html#L128'>BSIZE</a>             128 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L133'>BSIZE</a>             133 usr/server/fs/arfs/arfs_vnops.c 	memcpy(iobuf + BSIZE, bp-&gt;b_data, BSIZE);
+<a href='../S/883.html#L169'>BSIZE</a>             169 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L189'>BSIZE</a>             189 usr/server/fs/arfs/arfs_vnops.c 		blkno = (int)(off / BSIZE);
+<a href='../S/883.html#L237'>BSIZE</a>             237 usr/server/fs/arfs/arfs_vnops.c 		blkno = (off + file_pos) / BSIZE;
+<a href='../S/883.html#L238'>BSIZE</a>             238 usr/server/fs/arfs/arfs_vnops.c 		buf_pos = (off + file_pos) % BSIZE;
+<a href='../S/883.html#L241'>BSIZE</a>             241 usr/server/fs/arfs/arfs_vnops.c 		nr_copy = BSIZE;
+<a href='../S/883.html#L244'>BSIZE</a>             244 usr/server/fs/arfs/arfs_vnops.c 		if (buf_pos + size &lt; BSIZE)
+<a href='../S/883.html#L305'>BSIZE</a>             305 usr/server/fs/arfs/arfs_vnops.c 		hdr = (struct ar_hdr *)(iobuf + (off % BSIZE));
+<a href='../S/883.html#L320'>BSIZE</a>             320 usr/server/fs/arfs/arfs_vnops.c 		blkno = off / BSIZE;
+<a href='../S/906.html#L73'>BSIZE</a>              73 usr/server/fs/vfs/vfs_bio.c static char buffers[NBUFS][BSIZE];
+<a href='../S/906.html#L236'>BSIZE</a>             236 usr/server/fs/vfs/vfs_bio.c 		size = BSIZE;
+<a href='../S/906.html#L272'>BSIZE</a>             272 usr/server/fs/vfs/vfs_bio.c 	size = BSIZE;
+<a href='../S/906.html#L384'>BSIZE</a>             384 usr/server/fs/vfs/vfs_bio.c 			    BSIZE * NBUFS / 1024));
+<a href='../S/913.html#L378'>BSIZE</a>             378 usr/server/fs/vfs/vfs_vnode.c 	st-&gt;st_blksize = BSIZE;
+</pre>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>aux</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/51.html#L89'>aux</a>                89 bsp/drv/arm/gba/lcd.c lcd_cursor(void *aux, int row, int col)
+<a href='../S/51.html#L96'>aux</a>                96 bsp/drv/arm/gba/lcd.c lcd_putc(void *aux, int row, int col, int ch)
+<a href='../S/51.html#L98'>aux</a>                98 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc = aux;
+<a href='../S/51.html#L104'>aux</a>               104 bsp/drv/arm/gba/lcd.c lcd_copyrows(void *aux, int srcrow, int dstrow, int nrows)
+<a href='../S/51.html#L106'>aux</a>               106 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc = aux;
+<a href='../S/51.html#L116'>aux</a>               116 bsp/drv/arm/gba/lcd.c lcd_eraserows(void *aux, int row, int nrows)
+<a href='../S/51.html#L118'>aux</a>               118 bsp/drv/arm/gba/lcd.c 	struct lcd_softc *sc = aux;
+<a href='../S/51.html#L129'>aux</a>               129 bsp/drv/arm/gba/lcd.c lcd_set_attr(void *aux, int attr)
+<a href='../S/51.html#L136'>aux</a>               136 bsp/drv/arm/gba/lcd.c lcd_get_cursor(void *aux, int *col, int *row)
+<a href='../S/65.html#L450'>aux</a>               450 bsp/drv/dev/base/wscons.c wscons_attach_video(struct wscons_video_ops *ops, void *aux)
+<a href='../S/65.html#L456'>aux</a>               456 bsp/drv/dev/base/wscons.c 	sc-&gt;vid_aux = aux;
+<a href='../S/65.html#L457'>aux</a>               457 bsp/drv/dev/base/wscons.c 	ops-&gt;get_cursor(aux, &amp;sc-&gt;col, &amp;sc-&gt;row);
+<a href='../S/65.html#L467'>aux</a>               467 bsp/drv/dev/base/wscons.c wscons_attach_kbd(struct wscons_kbd_ops *ops, void *aux)
+<a href='../S/65.html#L472'>aux</a>               472 bsp/drv/dev/base/wscons.c 	sc-&gt;kbd_aux = aux;
+<a href='../S/76.html#L243'>aux</a>               243 bsp/drv/dev/input/pckbd.c pckbd_getc(void *aux)
+<a href='../S/76.html#L245'>aux</a>               245 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc = aux;
+<a href='../S/76.html#L260'>aux</a>               260 bsp/drv/dev/input/pckbd.c pckbd_set_poll(void *aux, int on)
+<a href='../S/76.html#L262'>aux</a>               262 bsp/drv/dev/input/pckbd.c 	struct pckbd_softc *sc = aux;
+<a href='../S/83.html#L103'>aux</a>               103 bsp/drv/dev/rtc/mc146818.c mc146818_gettime(void *aux, struct timeval *tv)
+<a href='../S/83.html#L144'>aux</a>               144 bsp/drv/dev/rtc/mc146818.c mc146818_settime(void *aux, struct timeval *ts)
+<a href='../S/84.html#L70'>aux</a>                70 bsp/drv/dev/rtc/pl030.c pl030_gettime(void *aux, struct timeval *tv)
+<a href='../S/84.html#L80'>aux</a>                80 bsp/drv/dev/rtc/pl030.c pl030_settime(void *aux, struct timeval *ts)
+<a href='../S/85.html#L58'>aux</a>                58 bsp/drv/dev/rtc/rtc.c 	void		*aux;		/* cookie data */
+<a href='../S/85.html#L211'>aux</a>               211 bsp/drv/dev/rtc/rtc.c rtc_attach(struct rtc_ops *ops, void *aux)
+<a href='../S/85.html#L222'>aux</a>               222 bsp/drv/dev/rtc/rtc.c 	sc-&gt;aux = aux;
+<a href='../S/85.html#L225'>aux</a>               225 bsp/drv/dev/rtc/rtc.c 	ops-&gt;gettime(aux, &amp;tv);
+<a href='../S/91.html#L137'>aux</a>               137 bsp/drv/dev/video/vga.c vga_cursor(void *aux, int row, int col)
+<a href='../S/91.html#L139'>aux</a>               139 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L151'>aux</a>               151 bsp/drv/dev/video/vga.c vga_putc(void *aux, int row, int col, int ch)
+<a href='../S/91.html#L153'>aux</a>               153 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L159'>aux</a>               159 bsp/drv/dev/video/vga.c vga_copyrows(void *aux, int srcrow, int dstrow, int nrows)
+<a href='../S/91.html#L161'>aux</a>               161 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L169'>aux</a>               169 bsp/drv/dev/video/vga.c vga_eraserows(void *aux, int row, int nrows)
+<a href='../S/91.html#L171'>aux</a>               171 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L182'>aux</a>               182 bsp/drv/dev/video/vga.c vga_set_attr(void *aux, int attr)
+<a href='../S/91.html#L184'>aux</a>               184 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/91.html#L191'>aux</a>               191 bsp/drv/dev/video/vga.c vga_get_cursor(void *aux, int *col, int *row)
+<a href='../S/91.html#L193'>aux</a>               193 bsp/drv/dev/video/vga.c 	struct vga_softc *sc = aux;
+<a href='../S/100.html#L43'>aux</a>                43 bsp/drv/include/rtc.h 	int	(*gettime)(void *aux, struct timeval *tv);
+<a href='../S/100.html#L44'>aux</a>                44 bsp/drv/include/rtc.h 	int	(*settime)(void *aux, struct timeval *tv);
+<a href='../S/100.html#L77'>aux</a>                77 bsp/drv/include/rtc.h void	rtc_attach(struct rtc_ops *ops, void *aux);
+<a href='../S/104.html#L39'>aux</a>                39 bsp/drv/include/wscons.h 	void	(*cursor)    (void *aux, int row, int col);
+<a href='../S/104.html#L40'>aux</a>                40 bsp/drv/include/wscons.h 	void	(*putc)      (void *aux, int row, int col, int ch);
+<a href='../S/104.html#L41'>aux</a>                41 bsp/drv/include/wscons.h 	void	(*copyrows)  (void *aux, int srcrow, int dstrow, int nrows);
+<a href='../S/104.html#L42'>aux</a>                42 bsp/drv/include/wscons.h 	void	(*eraserows) (void *aux, int row, int nrows);
+<a href='../S/104.html#L43'>aux</a>                43 bsp/drv/include/wscons.h 	void	(*set_attr)  (void *aux, int attr);
+<a href='../S/104.html#L44'>aux</a>                44 bsp/drv/include/wscons.h 	void	(*get_cursor)(void *aux, int *col, int *row);
+<a href='../S/104.html#L51'>aux</a>                51 bsp/drv/include/wscons.h 	int	(*getc)     (void *aux);
+<a href='../S/104.html#L52'>aux</a>                52 bsp/drv/include/wscons.h 	void	(*set_poll) (void *aux, int on);
+<a href='../S/104.html#L56'>aux</a>                56 bsp/drv/include/wscons.h void	wscons_attach_video(struct wscons_video_ops *, void *aux);
+<a href='../S/104.html#L57'>aux</a>                57 bsp/drv/include/wscons.h void	wscons_attach_kbd(struct wscons_kbd_ops *, void *aux);
+</pre>
+</body>
+</html>

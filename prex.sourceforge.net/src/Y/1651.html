@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>private</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/305.html#L47'>private</a>            47 sys/include/device.h 	void		*private;	/* private storage */
+<a href='../S/327.html#L134'>private</a>           134 sys/kern/device.c 	void *private = NULL;
+<a href='../S/327.html#L156'>private</a>           156 sys/kern/device.c 		if ((private = kmem_alloc(drv-&gt;devsz)) == NULL)
+<a href='../S/327.html#L158'>private</a>           158 sys/kern/device.c 		memset(private, 0, drv-&gt;devsz);
+<a href='../S/327.html#L165'>private</a>           165 sys/kern/device.c 	dev-&gt;private = private;
+<a href='../S/327.html#L215'>private</a>           215 sys/kern/device.c 	ASSERT(dev-&gt;private != NULL);
+<a href='../S/327.html#L217'>private</a>           217 sys/kern/device.c 	return dev-&gt;private;
+</pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>cluster</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L122'>cluster</a>           122 usr/server/fs/fatfs/fatfs.h 	uint16_t	cluster;
+<a href='../S/893.html#L101'>cluster</a>           101 usr/server/fs/fatfs/fatfs_vnops.c fat_read_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L106'>cluster</a>           106 usr/server/fs/fatfs/fatfs_vnops.c 	sec = cl_to_sec(fmp, cluster);
+<a href='../S/893.html#L115'>cluster</a>           115 usr/server/fs/fatfs/fatfs_vnops.c fat_write_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L120'>cluster</a>           120 usr/server/fs/fatfs/fatfs_vnops.c 	sec = cl_to_sec(fmp, cluster);
+<a href='../S/893.html#L157'>cluster</a>           157 usr/server/fs/fatfs/fatfs_vnops.c 	vp-&gt;v_blkno = de-&gt;cluster;
+<a href='../S/893.html#L159'>cluster</a>           159 usr/server/fs/fatfs/fatfs_vnops.c 	DPRINTF(("fatfs_lookup: cl=%d\n", de-&gt;cluster));
+<a href='../S/893.html#L403'>cluster</a>           403 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L444'>cluster</a>           444 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L522'>cluster</a>           522 usr/server/fs/fatfs/fatfs_vnops.c 			if (fat_read_cluster(fmp, de1-&gt;cluster)) {
+<a href='../S/893.html#L528'>cluster</a>           528 usr/server/fs/fatfs/fatfs_vnops.c 			de2-&gt;cluster = de1-&gt;cluster;
+<a href='../S/893.html#L532'>cluster</a>           532 usr/server/fs/fatfs/fatfs_vnops.c 			de2-&gt;cluster = dvp2-&gt;v_blkno;
+<a href='../S/893.html#L536'>cluster</a>           536 usr/server/fs/fatfs/fatfs_vnops.c 			if (fat_write_cluster(fmp, de1-&gt;cluster)) {
+<a href='../S/893.html#L578'>cluster</a>           578 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L592'>cluster</a>           592 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = cl;
+<a href='../S/893.html#L598'>cluster</a>           598 usr/server/fs/fatfs/fatfs_vnops.c 	de-&gt;cluster = dvp-&gt;v_blkno;
+<a href='../S/893.html#L641'>cluster</a>           641 usr/server/fs/fatfs/fatfs_vnops.c 	error = fat_free_clusters(fmp, de-&gt;cluster);
+<a href='../S/893.html#L693'>cluster</a>           693 usr/server/fs/fatfs/fatfs_vnops.c 		error = fat_free_clusters(fmp, de-&gt;cluster);
+</pre>
+</body>
+</html>

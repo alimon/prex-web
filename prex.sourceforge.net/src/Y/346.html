@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>addend</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/2.html#L38'>addend</a>             38 bsp/boot/arm/arch/elf_reloc.c 	Elf32_Sword addend;
+<a href='../S/2.html#L54'>addend</a>             54 bsp/boot/arm/arch/elf_reloc.c 		addend = (Elf32_Sword)(*where &amp; 0x00ffffff);
+<a href='../S/2.html#L55'>addend</a>             55 bsp/boot/arm/arch/elf_reloc.c 		if (addend &amp; 0x00800000)
+<a href='../S/2.html#L56'>addend</a>             56 bsp/boot/arm/arch/elf_reloc.c 			addend |= 0xff000000;
+<a href='../S/2.html#L57'>addend</a>             57 bsp/boot/arm/arch/elf_reloc.c 		tmp = sym_val - (Elf32_Addr)where + (addend &lt;&lt; 2);
+<a href='../S/348.html#L36'>addend</a>             36 usr/arch/arm/elf_reloc.c 	Elf32_Sword addend;
+<a href='../S/348.html#L51'>addend</a>             51 usr/arch/arm/elf_reloc.c 		addend = *where &amp; 0x00ffffff;
+<a href='../S/348.html#L52'>addend</a>             52 usr/arch/arm/elf_reloc.c 		if (addend &amp; 0x00800000)
+<a href='../S/348.html#L53'>addend</a>             53 usr/arch/arm/elf_reloc.c 			addend |= 0xff000000;
+<a href='../S/348.html#L54'>addend</a>             54 usr/arch/arm/elf_reloc.c 		tmp = sym_val - (Elf32_Addr)where + (addend &lt;&lt; 2);
+</pre>
+</body>
+</html>

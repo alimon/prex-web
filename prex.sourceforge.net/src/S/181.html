@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bsp/hal/x86/include/cpu.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1009.html'>bsp</a>/<a href='../files/1050.html'>hal</a>/<a href='../files/1060.html'>x86</a>/<a href='../files/1062.html'>include</a>/cpu.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='181.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/144.html' title='Multiple included from 21 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*-</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 2005, Kohsuke Ohtani</em>
+<a id='L3' name='L3' />   3 <em class='comment'> * All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L7' name='L7' />   7 <em class='comment'> * are met:</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L9' name='L9' />   9 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L11' name='L11' />  11 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 3. Neither the name of the author nor the names of any co-contributors</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> *</em>
+<a id='L17' name='L17' />  17 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L18' name='L18' />  18 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L19' name='L19' />  19 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L28' name='L28' />  28 <em class='comment'> */</em>
+<a id='L29' name='L29' />  29 
+<a id='L30' name='L30' />  30 <em class='sharp'>#ifndef</em> <a href='181.html#L31' title='Defined at 31 in bsp/hal/x86/include/cpu.h.'>_X86_CPU_H</a>
+<a id='L31' name='L31' />  31 <em class='sharp'>#define</em> <a href='181.html#L30' title='Refered from 30 in bsp/hal/x86/include/cpu.h.'>_X86_CPU_H</a>
+<a id='L32' name='L32' />  32 
+<a id='L33' name='L33' />  33 <em class='sharp'>#include</em> &lt;<a href='250.html'>sys/cdefs.h</a>&gt;  <em class='comment'>/* for __packed */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='comment'>/*</em>
+<a id='L36' name='L36' />  36 <em class='comment'> * GDTs</em>
+<a id='L37' name='L37' />  37 <em class='comment'> */</em>
+<a id='L38' name='L38' />  38 <em class='sharp'>#define</em> <a href='../R/479.html' title='Multiple refered from 10 places.'>KERNEL_CS</a>       0x10
+<a id='L39' name='L39' />  39 <em class='sharp'>#define</em> <a href='../R/480.html' title='Multiple refered from 2 places.'>KERNEL_DS</a>       0x18
+<a id='L40' name='L40' />  40 <em class='sharp'>#define</em> <a href='../R/1121.html' title='Multiple refered from 5 places.'>USER_CS</a>         0x20
+<a id='L41' name='L41' />  41 <em class='sharp'>#define</em> <a href='../R/1122.html' title='Multiple refered from 4 places.'>USER_DS</a>         0x28
+<a id='L42' name='L42' />  42 <em class='sharp'>#define</em> <a href='../R/481.html' title='Multiple refered from 3 places.'>KERNEL_TSS</a>      0x38
+<a id='L43' name='L43' />  43 
+<a id='L44' name='L44' />  44 <em class='sharp'>#define</em> <a href='174.html#L45' title='Refered from 45 in bsp/hal/x86/arch/cpu.c.'>NGDTS</a>           8
+<a id='L45' name='L45' />  45 
+<a id='L46' name='L46' />  46 <em class='comment'>/*</em>
+<a id='L47' name='L47' />  47 <em class='comment'> * IDTs</em>
+<a id='L48' name='L48' />  48 <em class='comment'> */</em>
+<a id='L49' name='L49' />  49 <em class='sharp'>#define</em> <a href='../R/639.html' title='Multiple refered from 2 places.'>NIDTS</a>           0x41
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='174.html#L181' title='Refered from 181 in bsp/hal/x86/arch/cpu.c.'>SYSCALL_INT</a>     0x40
+<a id='L51' name='L51' />  51 <em class='sharp'>#define</em> INVALID_INT     0xFF
+<a id='L52' name='L52' />  52 
+<a id='L53' name='L53' />  53 <em class='comment'>/*</em>
+<a id='L54' name='L54' />  54 <em class='comment'> * x86 flags register</em>
+<a id='L55' name='L55' />  55 <em class='comment'> */</em>
+<a id='L56' name='L56' />  56 <em class='sharp'>#define</em> EFL_CF          0x00000001      <em class='comment'>/* Carry */</em>
+<a id='L57' name='L57' />  57 <em class='sharp'>#define</em> EFL_PF          0x00000004      <em class='comment'>/* Parity */</em>
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> EFL_AF          0x00000010      <em class='comment'>/* Carry */</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> EFL_ZF          0x00000040      <em class='comment'>/* Zero */</em>
+<a id='L60' name='L60' />  60 <em class='sharp'>#define</em> EFL_SF          0x00000080      <em class='comment'>/* Sign */</em>
+<a id='L61' name='L61' />  61 <em class='sharp'>#define</em> EFL_TF          0x00000100      <em class='comment'>/* Trap */</em>
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> <a href='../R/221.html' title='Multiple refered from 3 places.'>EFL_IF</a>          0x00000200      <em class='comment'>/* Interrupt enable */</em>
+<a id='L63' name='L63' />  63 <em class='sharp'>#define</em> EFL_DF          0x00000400      <em class='comment'>/* Direction */</em>
+<a id='L64' name='L64' />  64 <em class='sharp'>#define</em> EFL_OF          0x00000800      <em class='comment'>/* Overflow */</em>
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> EFL_IOPL        0x00003000      <em class='comment'>/* IO privilege level: */</em>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> <a href='../R/222.html' title='Multiple refered from 2 places.'>EFL_IOPL_KERN</a>   0x00000000      <em class='comment'>/* Kernel */</em>
+<a id='L67' name='L67' />  67 <em class='sharp'>#define</em> EFL_IOPL_USER   0x00003000      <em class='comment'>/* User */</em>
+<a id='L68' name='L68' />  68 <em class='sharp'>#define</em> EFL_NT          0x00004000      <em class='comment'>/* Nested task */</em>
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> EFL_RF          0x00010000      <em class='comment'>/* Resume without tracing */</em>
+<a id='L70' name='L70' />  70 <em class='sharp'>#define</em> EFL_VM          0x00020000      <em class='comment'>/* Virtual 8086 mode */</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#define</em> EFL_AC          0x00040000      <em class='comment'>/* Alignment Check */</em>
+<a id='L72' name='L72' />  72 
+<a id='L73' name='L73' />  73 <em class='comment'>/*</em>
+<a id='L74' name='L74' />  74 <em class='comment'> * CR0 register</em>
+<a id='L75' name='L75' />  75 <em class='comment'> */</em>
+<a id='L76' name='L76' />  76 <em class='sharp'>#define</em> CR0_PG          0x80000000      <em class='comment'>/* enable paging */</em>
+<a id='L77' name='L77' />  77 <em class='sharp'>#define</em> CR0_CD          0x40000000      <em class='comment'>/* cache disable */</em>
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> CR0_NW          0x20000000      <em class='comment'>/* no write-through */</em>
+<a id='L79' name='L79' />  79 <em class='sharp'>#define</em> CR0_AM          0x00040000      <em class='comment'>/* alignment check mask */</em>
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> CR0_WP          0x00010000      <em class='comment'>/* write-protect kernel access */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> CR0_NE          0x00000020      <em class='comment'>/* handle numeric exceptions */</em>
+<a id='L82' name='L82' />  82 <em class='sharp'>#define</em> CR0_ET          0x00000010      <em class='comment'>/* extension type is 80387 coprocessor */</em>
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> CR0_TS          0x00000008      <em class='comment'>/* task switch */</em>
+<a id='L84' name='L84' />  84 <em class='sharp'>#define</em> CR0_EM          0x00000004      <em class='comment'>/* emulate coprocessor */</em>
+<a id='L85' name='L85' />  85 <em class='sharp'>#define</em> CR0_MP          0x00000002      <em class='comment'>/* monitor coprocessor */</em>
+<a id='L86' name='L86' />  86 <em class='sharp'>#define</em> CR0_PE          0x00000001      <em class='comment'>/* enable protected mode */</em>
+<a id='L87' name='L87' />  87 
+<a id='L88' name='L88' />  88 <em class='sharp'>#ifndef</em> <a href='../Y/252.html' title='Multiple used in 8 places.'>__ASSEMBLY__</a>
+<a id='L89' name='L89' />  89 
+<a id='L90' name='L90' />  90 <em class='sharp'>#include</em> &lt;<a href='../I/106.html'>sys/types.h</a>&gt;
+<a id='L91' name='L91' />  91 <em class='sharp'>#include</em> &lt;<a href='../I/143.html'>context.h</a>&gt;
+<a id='L92' name='L92' />  92 
+<a id='L93' name='L93' />  93 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/261.html' title='Multiple used in 5 places.'>__SUNPRO_C</a>)
+<a id='L94' name='L94' />  94 <em class='sharp'>#pragma</em> pack(1)
+<a id='L95' name='L95' />  95 <em class='sharp'>#endif</em>
+<a id='L96' name='L96' />  96 
+<a id='L97' name='L97' />  97 <em class='comment'>/*</em>
+<a id='L98' name='L98' />  98 <em class='comment'> * Segment Descriptor</em>
+<a id='L99' name='L99' />  99 <em class='comment'> */</em>
+<a id='L100' name='L100' /> 100 <strong class='reserved'>struct</strong> <a href='../Y/1877.html' title='Multiple used in 3 places.'>seg_desc</a> <em class='brace'>{</em>
+<a id='L101' name='L101' /> 101         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1196.html' title='Multiple used in 2 places.'>limit_lo</a>:16;      <em class='comment'>/* segment limit (lsb) */</em>
+<a id='L102' name='L102' /> 102         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/414.html' title='Multiple used in 2 places.'>base_lo</a>:16;       <em class='comment'>/* segment base address (lsb) */</em>
+<a id='L103' name='L103' /> 103         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/415.html' title='Multiple used in 2 places.'>base_mid</a>:8;       <em class='comment'>/* segment base address (middle) */</em>
+<a id='L104' name='L104' /> 104         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/2242.html' title='Multiple used in 98 places.'>type</a>:8;           <em class='comment'>/* type */</em>
+<a id='L105' name='L105' /> 105         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1195.html' title='Multiple used in 2 places.'>limit_hi</a>:4;       <em class='comment'>/* segment limit (msb) */</em>
+<a id='L106' name='L106' /> 106         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1959.html' title='Multiple used in 485 places.'>size</a>:4;           <em class='comment'>/* size */</em>
+<a id='L107' name='L107' /> 107         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/413.html' title='Multiple used in 2 places.'>base_hi</a>:8;        <em class='comment'>/* segment base address (msb) */</em>
+<a id='L108' name='L108' /> 108 <em class='brace'>}</em> <a href='../D/2275.html' title='Multiple defined in 5 places.'>__packed</a>;
+<a id='L109' name='L109' /> 109 
+<a id='L110' name='L110' /> 110 <em class='comment'>/*</em>
+<a id='L111' name='L111' /> 111 <em class='comment'> * Gate Descriptor</em>
+<a id='L112' name='L112' /> 112 <em class='comment'> */</em>
+<a id='L113' name='L113' /> 113 <strong class='reserved'>struct</strong> <a href='../Y/967.html' title='Multiple used in 3 places.'>gate_desc</a> <em class='brace'>{</em>
+<a id='L114' name='L114' /> 114         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1447.html' title='Multiple used in 2 places.'>offset_lo</a>:16;     <em class='comment'>/* gate offset (lsb) */</em>
+<a id='L115' name='L115' /> 115         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1880.html' title='Multiple used in 2 places.'>selector</a>:16;      <em class='comment'>/* gate segment selector */</em>
+<a id='L116' name='L116' /> 116         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1403.html' title='Multiple used in 31 places.'>nr_copy</a>:8;        <em class='comment'>/* stack copy count */</em>
+<a id='L117' name='L117' /> 117         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/2242.html' title='Multiple used in 98 places.'>type</a>:8;           <em class='comment'>/* type */</em>
+<a id='L118' name='L118' /> 118         <a href='277.html#L45' title='Defined at 45 in include/sys/types.h.'>u_int</a> <a href='../Y/1446.html' title='Multiple used in 2 places.'>offset_hi</a>:16;     <em class='comment'>/* gate offset (msb) */</em>
+<a id='L119' name='L119' /> 119 <em class='brace'>}</em> <a href='../D/2275.html' title='Multiple defined in 5 places.'>__packed</a>;
+<a id='L120' name='L120' /> 120 
+<a id='L121' name='L121' /> 121 <em class='comment'>/*</em>
+<a id='L122' name='L122' /> 122 <em class='comment'> * Linear memory description for lgdt and lidt instructions.</em>
+<a id='L123' name='L123' /> 123 <em class='comment'> */</em>
+<a id='L124' name='L124' /> 124 <strong class='reserved'>struct</strong> <a href='../Y/641.html' title='Multiple used in 3 places.'>desc_p</a> <em class='brace'>{</em>
+<a id='L125' name='L125' /> 125         <a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a> <a href='../Y/1194.html' title='Multiple used in 14 places.'>limit</a>;
+<a id='L126' name='L126' /> 126         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/411.html' title='Multiple used in 111 places.'>base</a>;
+<a id='L127' name='L127' /> 127 <em class='brace'>}</em> <a href='../D/2275.html' title='Multiple defined in 5 places.'>__packed</a>;
+<a id='L128' name='L128' /> 128 
+<a id='L129' name='L129' /> 129 <em class='comment'>/*</em>
+<a id='L130' name='L130' /> 130 <em class='comment'> * Segment size</em>
+<a id='L131' name='L131' /> 131 <em class='comment'> */</em>
+<a id='L132' name='L132' /> 132 <em class='sharp'>#define</em> <a href='../R/932.html' title='Multiple refered from 4 places.'>SIZE_32</a>         0x4     <em class='comment'>/* 32-bit segment */</em>
+<a id='L133' name='L133' /> 133 <em class='sharp'>#define</em> SIZE_16         0x0     <em class='comment'>/* 16-bit segment */</em>
+<a id='L134' name='L134' /> 134 <em class='sharp'>#define</em> <a href='174.html#L100' title='Refered from 100 in bsp/hal/x86/arch/cpu.c.'>SIZE_4K</a>         0x8     <em class='comment'>/* 4K limit field */</em>
+<a id='L135' name='L135' /> 135 
+<a id='L136' name='L136' /> 136 <em class='comment'>/*</em>
+<a id='L137' name='L137' /> 137 <em class='comment'> * Segment type</em>
+<a id='L138' name='L138' /> 138 <em class='comment'> */</em>
+<a id='L139' name='L139' /> 139 <em class='sharp'>#define</em> ST_ACC          0x01    <em class='comment'>/* accessed */</em>
+<a id='L140' name='L140' /> 140 <em class='sharp'>#define</em> ST_LDT          0x02    <em class='comment'>/* LDT */</em>
+<a id='L141' name='L141' /> 141 <em class='sharp'>#define</em> ST_CALL_GATE_16 0x04    <em class='comment'>/* 16-bit call gate */</em>
+<a id='L142' name='L142' /> 142 <em class='sharp'>#define</em> ST_TASK_GATE    0x05    <em class='comment'>/* task gate */</em>
+<a id='L143' name='L143' /> 143 <em class='sharp'>#define</em> <a href='174.html#L199' title='Refered from 199 in bsp/hal/x86/arch/cpu.c.'>ST_TSS</a>          0x09    <em class='comment'>/* task segment */</em>
+<a id='L144' name='L144' /> 144 <em class='sharp'>#define</em> ST_CALL_GATE    0x0c    <em class='comment'>/* call gate */</em>
+<a id='L145' name='L145' /> 145 <em class='sharp'>#define</em> <a href='174.html#L175' title='Refered from 175 in bsp/hal/x86/arch/cpu.c.'>ST_INTR_GATE</a>    0x0e    <em class='comment'>/* interrupt gate */</em>
+<a id='L146' name='L146' /> 146 <em class='sharp'>#define</em> <a href='../R/968.html' title='Multiple refered from 4 places.'>ST_TRAP_GATE</a>    0x0f    <em class='comment'>/* trap gate */</em>
+<a id='L147' name='L147' /> 147 
+<a id='L148' name='L148' /> 148 <em class='sharp'>#define</em> <a href='174.html#L141' title='Refered from 141 in bsp/hal/x86/arch/cpu.c.'>ST_TSS_BUSY</a>     0x02    <em class='comment'>/* task busy */</em>
+<a id='L149' name='L149' /> 149 
+<a id='L150' name='L150' /> 150 <em class='sharp'>#define</em> ST_DATA         0x10    <em class='comment'>/* data */</em>
+<a id='L151' name='L151' /> 151 <em class='sharp'>#define</em> <a href='../R/964.html' title='Multiple refered from 2 places.'>ST_DATA_W</a>       0x12    <em class='comment'>/* data, writable */</em>
+<a id='L152' name='L152' /> 152 <em class='sharp'>#define</em> ST_DATA_E       0x14    <em class='comment'>/* data, expand-down */</em>
+<a id='L153' name='L153' /> 153 <em class='sharp'>#define</em> ST_DATA_EW      0x16    <em class='comment'>/* data, expand-down, writable */</em>
+<a id='L154' name='L154' /> 154 
+<a id='L155' name='L155' /> 155 <em class='sharp'>#define</em> ST_CODE         0x18    <em class='comment'>/* code */</em>
+<a id='L156' name='L156' /> 156 <em class='sharp'>#define</em> <a href='../R/963.html' title='Multiple refered from 2 places.'>ST_CODE_R</a>       0x1a    <em class='comment'>/* code, readable */</em>
+<a id='L157' name='L157' /> 157 <em class='sharp'>#define</em> ST_CODE_C       0x1c    <em class='comment'>/* code, conforming */</em>
+<a id='L158' name='L158' /> 158 <em class='sharp'>#define</em> ST_CODE_CR      0x1e    <em class='comment'>/* code, conforming, readable */</em>
+<a id='L159' name='L159' /> 159 
+<a id='L160' name='L160' /> 160 <em class='sharp'>#define</em> <a href='../R/966.html' title='Multiple refered from 6 places.'>ST_KERN</a>         0x00    <em class='comment'>/* kernel access only */</em>
+<a id='L161' name='L161' /> 161 <em class='sharp'>#define</em> <a href='../R/971.html' title='Multiple refered from 4 places.'>ST_USER</a>         0x60    <em class='comment'>/* user access */</em>
+<a id='L162' name='L162' /> 162 
+<a id='L163' name='L163' /> 163 <em class='sharp'>#define</em> <a href='../R/967.html' title='Multiple refered from 2 places.'>ST_PRESENT</a>      0x80    <em class='comment'>/* segment present */</em>
+<a id='L164' name='L164' /> 164 
+<a id='L165' name='L165' /> 165 <em class='comment'>/*</em>
+<a id='L166' name='L166' /> 166 <em class='comment'> * Task State Segment (TSS)</em>
+<a id='L167' name='L167' /> 167 <em class='comment'> */</em>
+<a id='L168' name='L168' /> 168 
+<a id='L169' name='L169' /> 169 <em class='sharp'>#define</em> <a href='181.html#L187' title='Refered from 187 in bsp/hal/x86/include/cpu.h.'>IO_BITMAP_SIZE</a>          (65536/8 + 1)
+<a id='L170' name='L170' /> 170 <em class='sharp'>#define</em> <a href='174.html#L206' title='Refered from 206 in bsp/hal/x86/arch/cpu.c.'>INVALID_IO_BITMAP</a>       0x8000
+<a id='L171' name='L171' /> 171 
+<a id='L172' name='L172' /> 172 <strong class='reserved'>struct</strong> <a href='../Y/2229.html' title='Multiple used in 11 places.'>tss</a> <em class='brace'>{</em>
+<a id='L173' name='L173' /> 173         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='181.html#L173' title='Used at 173 in bsp/hal/x86/include/cpu.h.'>back_link</a>;
+<a id='L174' name='L174' /> 174         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/782.html' title='Multiple used in 7 places.'>esp0</a>, <a href='../Y/1987.html' title='Multiple used in 2 places.'>ss0</a>;
+<a id='L175' name='L175' /> 175         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='181.html#L175' title='Used at 175 in bsp/hal/x86/include/cpu.h.'>esp1</a>, <a href='181.html#L175' title='Used at 175 in bsp/hal/x86/include/cpu.h.'>ss1</a>;
+<a id='L176' name='L176' /> 176         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='181.html#L176' title='Used at 176 in bsp/hal/x86/include/cpu.h.'>esp2</a>, <a href='181.html#L176' title='Used at 176 in bsp/hal/x86/include/cpu.h.'>ss2</a>;
+<a id='L177' name='L177' /> 177         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='181.html#L177' title='Used at 177 in bsp/hal/x86/include/cpu.h.'>cr3</a>;
+<a id='L178' name='L178' /> 178         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/742.html' title='Multiple used in 11 places.'>eip</a>;
+<a id='L179' name='L179' /> 179         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/739.html' title='Multiple used in 6 places.'>eflags</a>;
+<a id='L180' name='L180' /> 180         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/730.html' title='Multiple used in 10 places.'>eax</a>, <a href='../Y/736.html' title='Multiple used in 4 places.'>ecx</a>, <a href='../Y/738.html' title='Multiple used in 4 places.'>edx</a>, <a href='../Y/733.html' title='Multiple used in 5 places.'>ebx</a>;
+<a id='L181' name='L181' /> 181         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/781.html' title='Multiple used in 13 places.'>esp</a>, <a href='../Y/731.html' title='Multiple used in 6 places.'>ebp</a>, <a href='../Y/780.html' title='Multiple used in 5 places.'>esi</a>, <a href='../Y/737.html' title='Multiple used in 5 places.'>edi</a>;
+<a id='L182' name='L182' /> 182         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/777.html' title='Multiple used in 37 places.'>es</a>, <a href='../Y/576.html' title='Multiple used in 11 places.'>cs</a>, <a href='../Y/1986.html' title='Multiple used in 9 places.'>ss</a>, <a href='../Y/705.html' title='Multiple used in 7 places.'>ds</a>, <a href='../Y/924.html' title='Multiple used in 18 places.'>fs</a>, <a href='../Y/1000.html' title='Multiple used in 2 places.'>gs</a>;
+<a id='L183' name='L183' /> 183         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='181.html#L183' title='Used at 183 in bsp/hal/x86/include/cpu.h.'>ldt</a>;
+<a id='L184' name='L184' /> 184         <a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a> <a href='181.html#L184' title='Used at 184 in bsp/hal/x86/include/cpu.h.'>dbg_trace</a>;
+<a id='L185' name='L185' /> 185         <a href='../D/3761.html' title='Multiple defined in 3 places.'>uint16_t</a> <a href='../Y/1082.html' title='Multiple used in 2 places.'>io_bitmap_offset</a>;
+<a id='L186' name='L186' /> 186 <em class='sharp'>#if</em> 0
+<a id='L187' name='L187' /> 187         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='181.html#L187' title='Used at 187 in bsp/hal/x86/include/cpu.h.'>io_bitmap</a>[<a href='181.html#L169' title='Defined at 169 in bsp/hal/x86/include/cpu.h.'>IO_BITMAP_SIZE</a>/4+1];
+<a id='L188' name='L188' /> 188         <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='../Y/1540.html' title='Multiple used in 17 places.'>pad</a>[5];
+<a id='L189' name='L189' /> 189 <em class='sharp'>#endif</em>
+<a id='L190' name='L190' /> 190 <em class='brace'>}</em> <a href='../D/2275.html' title='Multiple defined in 5 places.'>__packed</a>;
+<a id='L191' name='L191' /> 191 
+<a id='L192' name='L192' /> 192 
+<a id='L193' name='L193' /> 193 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/261.html' title='Multiple used in 5 places.'>__SUNPRO_C</a>)
+<a id='L194' name='L194' /> 194 <em class='sharp'>#pragma</em> pack()
+<a id='L195' name='L195' /> 195 <em class='sharp'>#endif</em>
+<a id='L196' name='L196' /> 196 
+<a id='L197' name='L197' /> 197 <a href='../D/2244.html' title='Multiple defined in 2 places.'>__BEGIN_DECLS</a>
+<a id='L198' name='L198' /> 198 <strong class='reserved'>void</strong>     <a href='174.html#L74' title='Defined at 74 in bsp/hal/x86/arch/cpu.c.'>tss_set</a>(<a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a>);
+<a id='L199' name='L199' /> 199 <a href='../D/3762.html' title='Multiple defined in 3 places.'>uint32_t</a> <a href='174.html#L84' title='Defined at 84 in bsp/hal/x86/arch/cpu.c.'>tss_get</a>(<strong class='reserved'>void</strong>);
+<a id='L200' name='L200' /> 200 <strong class='reserved'>void</strong>     <a href='../D/2478.html' title='Multiple defined in 2 places.'>cpu_init</a>(<strong class='reserved'>void</strong>);
+<a id='L201' name='L201' /> 201 <a href='../D/2247.html' title='Multiple defined in 2 places.'>__END_DECLS</a>
+<a id='L202' name='L202' /> 202 
+<a id='L203' name='L203' /> 203 <em class='sharp'>#endif</em> <em class='comment'>/* !__ASSEMBLY__ */</em>
+<a id='L204' name='L204' /> 204 <em class='sharp'>#endif</em> <em class='comment'>/* !_X86_CPU_H */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='181.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

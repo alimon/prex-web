@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ts</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/83.html#L144'>ts</a>                144 bsp/drv/dev/rtc/mc146818.c mc146818_settime(void *aux, struct timeval *ts)
+<a href='../S/84.html#L80'>ts</a>                 80 bsp/drv/dev/rtc/pl030.c pl030_settime(void *aux, struct timeval *ts)
+<a href='../S/276.html#L54'>ts</a>                 54 include/sys/time.h #define	TIMEVAL_TO_TIMESPEC(tv, ts) {					\
+<a href='../S/276.html#L55'>ts</a>                 55 include/sys/time.h 	(ts)-&gt;ts_sec = (tv)-&gt;tv_sec;					\
+<a href='../S/276.html#L56'>ts</a>                 56 include/sys/time.h 	(ts)-&gt;ts_nsec = (tv)-&gt;tv_usec * 1000;				\
+<a href='../S/276.html#L58'>ts</a>                 58 include/sys/time.h #define	TIMESPEC_TO_TIMEVAL(tv, ts) {					\
+<a href='../S/276.html#L59'>ts</a>                 59 include/sys/time.h 	(tv)-&gt;tv_sec = (ts)-&gt;ts_sec;					\
+<a href='../S/276.html#L60'>ts</a>                 60 include/sys/time.h 	(tv)-&gt;tv_usec = (ts)-&gt;ts_nsec / 1000;				\
+</pre>
+</body>
+</html>

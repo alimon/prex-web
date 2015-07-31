@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pos</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/60.html#L648'>pos</a>               648 bsp/drv/dev/base/kd.c 	int c, pos = 0;
+<a href='../S/60.html#L662'>pos</a>               662 bsp/drv/dev/base/kd.c 			if (pos &gt; 0) {
+<a href='../S/60.html#L665'>pos</a>               665 bsp/drv/dev/base/kd.c 				pos--;
+<a href='../S/60.html#L674'>pos</a>               674 bsp/drv/dev/base/kd.c 			pos++;
+<a href='../S/60.html#L675'>pos</a>               675 bsp/drv/dev/base/kd.c 			if (pos &gt; LINE_MAX) {
+<a href='../S/91.html#L140'>pos</a>               140 bsp/drv/dev/video/vga.c 	int pos, s;
+<a href='../S/91.html#L142'>pos</a>               142 bsp/drv/dev/video/vga.c 	pos = row * sc-&gt;cols + col;
+<a href='../S/91.html#L145'>pos</a>               145 bsp/drv/dev/video/vga.c 	crtc_write(0x0e, (u_char)((pos &gt;&gt; 8) &amp; 0xff));
+<a href='../S/91.html#L146'>pos</a>               146 bsp/drv/dev/video/vga.c 	crtc_write(0x0f, (u_char)(pos &amp; 0xff));
+<a href='../S/187.html#L64'>pos</a>                64 bsp/hal/x86/pc/diag.c 	int pos = pos_y * screen_x + pos_x;
+<a href='../S/187.html#L67'>pos</a>                67 bsp/hal/x86/pc/diag.c 	outb(VID_PORT + 1, (u_int)pos &gt;&gt; 8);
+<a href='../S/187.html#L70'>pos</a>                70 bsp/hal/x86/pc/diag.c 	outb(VID_PORT + 1, (u_int)pos &amp; 0xff);
+<a href='../S/503.html#L36'>pos</a>                36 usr/lib/libc/stdio/fgetpos.c fgetpos(fp, pos)
+<a href='../S/503.html#L38'>pos</a>                38 usr/lib/libc/stdio/fgetpos.c 	fpos_t *pos;
+<a href='../S/503.html#L40'>pos</a>                40 usr/lib/libc/stdio/fgetpos.c 	return((*pos = (fpos_t)ftell(fp)) == (fpos_t)-1);
+<a href='../S/517.html#L39'>pos</a>                39 usr/lib/libc/stdio/fsetpos.c fsetpos(iop, pos)
+<a href='../S/517.html#L41'>pos</a>                41 usr/lib/libc/stdio/fsetpos.c 	const fpos_t *pos;
+<a href='../S/517.html#L43'>pos</a>                43 usr/lib/libc/stdio/fsetpos.c 	return (fseek(iop, (long)*pos, SEEK_SET));
+<a href='../S/518.html#L44'>pos</a>                44 usr/lib/libc/stdio/ftell.c 	fpos_t pos;
+<a href='../S/518.html#L50'>pos</a>                50 usr/lib/libc/stdio/ftell.c 	pos = __sseek(fp, (fpos_t)0, SEEK_CUR);
+<a href='../S/518.html#L51'>pos</a>                51 usr/lib/libc/stdio/ftell.c 	if (pos == -(fpos_t)1)
+<a href='../S/518.html#L52'>pos</a>                52 usr/lib/libc/stdio/ftell.c 		return (pos);
+<a href='../S/518.html#L60'>pos</a>                60 usr/lib/libc/stdio/ftell.c 		pos -= fp-&gt;_r;
+<a href='../S/518.html#L62'>pos</a>                62 usr/lib/libc/stdio/ftell.c 			pos -= fp-&gt;_ur;
+<a href='../S/518.html#L69'>pos</a>                69 usr/lib/libc/stdio/ftell.c 		pos += fp-&gt;_p - fp-&gt;_bf._base;
+<a href='../S/518.html#L71'>pos</a>                71 usr/lib/libc/stdio/ftell.c 	return (pos);
+<a href='../S/851.html#L80'>pos</a>                80 usr/sample/tetris/shapes.c fits_in(const struct shape *shape, int pos)
+<a href='../S/851.html#L84'>pos</a>                84 usr/sample/tetris/shapes.c 	if (board[pos] || board[pos + *o++] || board[pos + *o++] ||
+<a href='../S/851.html#L85'>pos</a>                85 usr/sample/tetris/shapes.c 	    board[pos + *o])
+<a href='../S/851.html#L95'>pos</a>                95 usr/sample/tetris/shapes.c place(const struct shape *shape, int pos, cell onoff)
+<a href='../S/851.html#L99'>pos</a>                99 usr/sample/tetris/shapes.c 	board[pos] = onoff;
+<a href='../S/851.html#L100'>pos</a>               100 usr/sample/tetris/shapes.c 	board[pos + *o++] = onoff;
+<a href='../S/851.html#L101'>pos</a>               101 usr/sample/tetris/shapes.c 	board[pos + *o++] = onoff;
+<a href='../S/851.html#L102'>pos</a>               102 usr/sample/tetris/shapes.c 	board[pos + *o] = onoff;
+<a href='../S/852.html#L119'>pos</a>               119 usr/sample/tetris/tetris.c 	int pos, c;
+<a href='../S/852.html#L177'>pos</a>               177 usr/sample/tetris/tetris.c 	pos = A_FIRST*B_COLS + (B_COLS/2)-1;
+<a href='../S/852.html#L183'>pos</a>               183 usr/sample/tetris/tetris.c 		place(curshape, pos, 1);
+<a href='../S/852.html#L186'>pos</a>               186 usr/sample/tetris/tetris.c 		place(curshape, pos, 0);
+<a href='../S/852.html#L192'>pos</a>               192 usr/sample/tetris/tetris.c 			if (fits_in(curshape, pos + B_COLS)) {
+<a href='../S/852.html#L193'>pos</a>               193 usr/sample/tetris/tetris.c 				pos += B_COLS;
+<a href='../S/852.html#L201'>pos</a>               201 usr/sample/tetris/tetris.c 			place(curshape, pos, 1);
+<a href='../S/852.html#L210'>pos</a>               210 usr/sample/tetris/tetris.c 			pos = A_FIRST*B_COLS + (B_COLS/2)-1;
+<a href='../S/852.html#L211'>pos</a>               211 usr/sample/tetris/tetris.c 			if (!fits_in(curshape, pos))
+<a href='../S/852.html#L227'>pos</a>               227 usr/sample/tetris/tetris.c 			place(curshape, pos, 1);
+<a href='../S/852.html#L236'>pos</a>               236 usr/sample/tetris/tetris.c 			place(curshape, pos, 0);
+<a href='../S/852.html#L241'>pos</a>               241 usr/sample/tetris/tetris.c 			if (fits_in(curshape, pos - 1))
+<a href='../S/852.html#L242'>pos</a>               242 usr/sample/tetris/tetris.c 				pos--;
+<a href='../S/852.html#L249'>pos</a>               249 usr/sample/tetris/tetris.c 			if (fits_in(new, pos))
+<a href='../S/852.html#L255'>pos</a>               255 usr/sample/tetris/tetris.c 			if (fits_in(curshape, pos + 1))
+<a href='../S/852.html#L256'>pos</a>               256 usr/sample/tetris/tetris.c 				pos++;
+<a href='../S/852.html#L261'>pos</a>               261 usr/sample/tetris/tetris.c 			while (fits_in(curshape, pos + B_COLS)) {
+<a href='../S/852.html#L262'>pos</a>               262 usr/sample/tetris/tetris.c 				pos += B_COLS;
+<a href='../S/896.html#L223'>pos</a>               223 usr/server/fs/fifofs/fifo_vnops.c 	u_int pos, nbytes;
+<a href='../S/896.html#L250'>pos</a>               250 usr/server/fs/fifofs/fifo_vnops.c 	pos = np-&gt;fn_start;
+<a href='../S/896.html#L252'>pos</a>               252 usr/server/fs/fifofs/fifo_vnops.c 		*p++ = np-&gt;fn_buf[pos];
+<a href='../S/896.html#L253'>pos</a>               253 usr/server/fs/fifofs/fifo_vnops.c 		if (++pos &gt; PIPE_BUF)
+<a href='../S/896.html#L254'>pos</a>               254 usr/server/fs/fifofs/fifo_vnops.c 			pos = 0;
+<a href='../S/896.html#L257'>pos</a>               257 usr/server/fs/fifofs/fifo_vnops.c 	np-&gt;fn_start = pos;
+<a href='../S/896.html#L268'>pos</a>               268 usr/server/fs/fifofs/fifo_vnops.c 	u_int pos, nfree, nbytes, count = 0;
+<a href='../S/896.html#L287'>pos</a>               287 usr/server/fs/fifofs/fifo_vnops.c 	pos = np-&gt;fn_start + np-&gt;fn_size;
+<a href='../S/896.html#L288'>pos</a>               288 usr/server/fs/fifofs/fifo_vnops.c 	if (pos &gt;= PIPE_BUF)
+<a href='../S/896.html#L289'>pos</a>               289 usr/server/fs/fifofs/fifo_vnops.c 		pos -= PIPE_BUF;
+<a href='../S/896.html#L293'>pos</a>               293 usr/server/fs/fifofs/fifo_vnops.c 		np-&gt;fn_buf[pos] = *p++;
+<a href='../S/896.html#L294'>pos</a>               294 usr/server/fs/fifofs/fifo_vnops.c 		if (++pos &gt; PIPE_BUF)
+<a href='../S/896.html#L295'>pos</a>               295 usr/server/fs/fifofs/fifo_vnops.c 			pos = 0;
+</pre>
+</body>
+</html>

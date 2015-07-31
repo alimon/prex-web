@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pri</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L103'>pri</a>               103 include/sys/prex.h int	thread_getpri(thread_t t, int *pri);
+<a href='../S/267.html#L104'>pri</a>               104 include/sys/prex.h int	thread_setpri(thread_t t, int	pri);
+<a href='../S/274.html#L53'>pri</a>                53 include/sys/syslog.h #define	LOG_MAKEPRI(fac, pri)	(((fac) &lt;&lt; 3) | (pri))
+<a href='../S/274.html#L88'>pri</a>                88 include/sys/syslog.h #define	LOG_MASK(pri)	(1 &lt;&lt; (pri))		/* mask for one priority */
+<a href='../S/274.html#L89'>pri</a>                89 include/sys/syslog.h #define	LOG_UPTO(pri)	((1 &lt;&lt; ((pri)+1)) - 1)	/* all priorities through pri */
+<a href='../S/310.html#L61'>pri</a>                61 sys/include/irq.h #define ISTPRI(pri)	(PRI_IST + (IPL_HIGH - pri))
+<a href='../S/329.html#L82'>pri</a>                82 sys/kern/irq.c irq_attach(int vector, int pri, int shared,
+<a href='../S/329.html#L96'>pri</a>                96 sys/kern/irq.c 	irq-&gt;priority = pri;
+<a href='../S/329.html#L105'>pri</a>               105 sys/kern/irq.c 		irq-&gt;thread = kthread_create(&amp;irq_thread, irq, ISTPRI(pri));
+<a href='../S/329.html#L114'>pri</a>               114 sys/kern/irq.c 	interrupt_unmask(vector, pri);
+<a href='../S/329.html#L117'>pri</a>               117 sys/kern/irq.c 	DPRINTF(("IRQ%d attached priority=%d\n", vector, pri));
+<a href='../S/331.html#L104'>pri</a>               104 sys/kern/sched.c 	int pri;
+<a href='../S/331.html#L106'>pri</a>               106 sys/kern/sched.c 	for (pri = 0; pri &lt; MINPRI; pri++)
+<a href='../S/331.html#L107'>pri</a>               107 sys/kern/sched.c 		if (!queue_empty(&amp;runq[pri]))
+<a href='../S/331.html#L109'>pri</a>               109 sys/kern/sched.c 	return pri;
+<a href='../S/331.html#L471'>pri</a>               471 sys/kern/sched.c sched_start(thread_t t, int pri, int policy)
+<a href='../S/331.html#L476'>pri</a>               476 sys/kern/sched.c 	t-&gt;priority = pri;
+<a href='../S/331.html#L477'>pri</a>               477 sys/kern/sched.c 	t-&gt;basepri = pri;
+<a href='../S/331.html#L581'>pri</a>               581 sys/kern/sched.c sched_setpri(thread_t t, int basepri, int pri)
+<a href='../S/331.html#L591'>pri</a>               591 sys/kern/sched.c 		t-&gt;priority = pri;
+<a href='../S/331.html#L593'>pri</a>               593 sys/kern/sched.c 		if (pri != maxpri)
+<a href='../S/331.html#L603'>pri</a>               603 sys/kern/sched.c 			t-&gt;priority = pri;
+<a href='../S/331.html#L606'>pri</a>               606 sys/kern/sched.c 			t-&gt;priority = pri;
+<a href='../S/335.html#L301'>pri</a>               301 sys/kern/thread.c 	int pri, policy;
+<a href='../S/335.html#L325'>pri</a>               325 sys/kern/thread.c 		pri = sched_getpri(t);
+<a href='../S/335.html#L326'>pri</a>               326 sys/kern/thread.c 		if (copyout(&amp;pri, param, sizeof(pri)))
+<a href='../S/335.html#L331'>pri</a>               331 sys/kern/thread.c 		if (copyin(param, &amp;pri, sizeof(pri))) {
+<a href='../S/335.html#L338'>pri</a>               338 sys/kern/thread.c 		if (pri &lt; 0)
+<a href='../S/335.html#L339'>pri</a>               339 sys/kern/thread.c 			pri = 0;
+<a href='../S/335.html#L340'>pri</a>               340 sys/kern/thread.c 		else if (pri &gt;= PRI_IDLE)
+<a href='../S/335.html#L341'>pri</a>               341 sys/kern/thread.c 			pri = PRI_IDLE - 1;
+<a href='../S/335.html#L349'>pri</a>               349 sys/kern/thread.c 		if (pri &lt;= PRI_REALTIME &amp;&amp; !task_capable(CAP_NICE)) {
+<a href='../S/335.html#L360'>pri</a>               360 sys/kern/thread.c 		if (t-&gt;priority != t-&gt;basepri &amp;&amp; pri &gt; t-&gt;priority)
+<a href='../S/335.html#L361'>pri</a>               361 sys/kern/thread.c 			pri = t-&gt;priority;
+<a href='../S/335.html#L363'>pri</a>               363 sys/kern/thread.c 		mutex_setpri(t, pri);
+<a href='../S/335.html#L364'>pri</a>               364 sys/kern/thread.c 		sched_setpri(t, pri, pri);
+<a href='../S/335.html#L525'>pri</a>               525 sys/kern/thread.c kthread_create(void (*entry)(void *), void *arg, int pri)
+<a href='../S/335.html#L544'>pri</a>               544 sys/kern/thread.c 	sched_start(t, pri, SCHED_FIFO);
+<a href='../S/346.html#L353'>pri</a>               353 sys/sync/mutex.c mutex_setpri(thread_t t, int pri)
+<a href='../S/346.html#L356'>pri</a>               356 sys/sync/mutex.c 	if (t-&gt;mutex_waiting &amp;&amp; pri &lt; t-&gt;priority)
+<a href='../S/700.html#L44'>pri</a>                44 usr/lib/posix/gen/syslog.c syslog(int pri, const char *fmt, ...)
+<a href='../S/706.html#L90'>pri</a>                90 usr/lib/posix/process/fork_nommu.c 	int error, sts, pri;
+<a href='../S/706.html#L134'>pri</a>               134 usr/lib/posix/process/fork_nommu.c 		thread_getpri(t, &amp;pri);
+<a href='../S/706.html#L135'>pri</a>               135 usr/lib/posix/process/fork_nommu.c 		thread_setpri(t, pri + 1);
+<a href='../S/706.html#L150'>pri</a>               150 usr/lib/posix/process/fork_nommu.c 		thread_getpri(t, &amp;pri);
+<a href='../S/706.html#L151'>pri</a>               151 usr/lib/posix/process/fork_nommu.c 		thread_setpri(t, pri - 1);
+<a href='../S/714.html#L42'>pri</a>                42 usr/lib/posix/process/getpriority.c 	int pri;
+<a href='../S/714.html#L62'>pri</a>                62 usr/lib/posix/process/getpriority.c 	thread_getpri(thread_self(), &amp;pri);
+<a href='../S/714.html#L64'>pri</a>                64 usr/lib/posix/process/getpriority.c 	pri -= PRI_DEFAULT;
+<a href='../S/714.html#L66'>pri</a>                66 usr/lib/posix/process/getpriority.c 	if (pri &lt; MINPRI)
+<a href='../S/714.html#L67'>pri</a>                67 usr/lib/posix/process/getpriority.c 		pri = MINPRI;
+<a href='../S/714.html#L68'>pri</a>                68 usr/lib/posix/process/getpriority.c 	if (pri &gt; MAXPRI)
+<a href='../S/714.html#L69'>pri</a>                69 usr/lib/posix/process/getpriority.c 		pri = MAXPRI;
+<a href='../S/714.html#L71'>pri</a>                71 usr/lib/posix/process/getpriority.c 	return pri;
+<a href='../S/720.html#L44'>pri</a>                44 usr/lib/posix/process/nice.c 	int pri;
+<a href='../S/720.html#L48'>pri</a>                48 usr/lib/posix/process/nice.c 	pri = getpriority(PRIO_PROCESS, 0);
+<a href='../S/720.html#L49'>pri</a>                49 usr/lib/posix/process/nice.c 	if (pri == -1 &amp;&amp; errno)
+<a href='../S/720.html#L51'>pri</a>                51 usr/lib/posix/process/nice.c 	if (setpriority(PRIO_PROCESS, 0, pri + incr) != 0)
+<a href='../S/726.html#L45'>pri</a>                45 usr/lib/posix/process/setpriority.c setpriority(int which, int who, int pri)
+<a href='../S/726.html#L68'>pri</a>                68 usr/lib/posix/process/setpriority.c 	if (pri &lt; MINPRI)
+<a href='../S/726.html#L69'>pri</a>                69 usr/lib/posix/process/setpriority.c 		pri = MINPRI;
+<a href='../S/726.html#L70'>pri</a>                70 usr/lib/posix/process/setpriority.c 	if (pri &gt; MAXPRI)
+<a href='../S/726.html#L71'>pri</a>                71 usr/lib/posix/process/setpriority.c 		pri = MAXPRI;
+<a href='../S/726.html#L73'>pri</a>                73 usr/lib/posix/process/setpriority.c 	val = PRI_DEFAULT + pri;
+<a href='../S/731.html#L52'>pri</a>                52 usr/lib/posix/process/waitpid.c 	int pri;
+<a href='../S/731.html#L56'>pri</a>                56 usr/lib/posix/process/waitpid.c 	thread_getpri(self, &amp;pri);
+<a href='../S/731.html#L57'>pri</a>                57 usr/lib/posix/process/waitpid.c 	thread_setpri(self, pri - 1);
+<a href='../S/731.html#L81'>pri</a>                81 usr/lib/posix/process/waitpid.c 	thread_setpri(self, pri);
+<a href='../S/804.html#L35'>pri</a>                35 usr/lib/prex/syscalls/thread_getpri.c thread_getpri(thread_t t, int *pri)
+<a href='../S/804.html#L38'>pri</a>                38 usr/lib/prex/syscalls/thread_getpri.c 	return thread_schedparam(t, 0, pri);
+<a href='../S/810.html#L35'>pri</a>                35 usr/lib/prex/syscalls/thread_setpri.c thread_setpri(thread_t t, int pri)
+<a href='../S/810.html#L38'>pri</a>                38 usr/lib/prex/syscalls/thread_setpri.c 	return thread_schedparam(t, 1, &amp;pri);
+<a href='../S/831.html#L63'>pri</a>                63 usr/sample/bench/bench.c 	int i, pri, error;
+<a href='../S/831.html#L71'>pri</a>                71 usr/sample/bench/bench.c 	thread_getpri(thread_self(), &amp;pri);
+<a href='../S/831.html#L72'>pri</a>                72 usr/sample/bench/bench.c 	thread_setpri(thread_self(), pri - 1);
+<a href='../S/841.html#L69'>pri</a>                69 usr/sample/mutex/mutex.c 	int pri;
+<a href='../S/841.html#L71'>pri</a>                71 usr/sample/mutex/mutex.c 	if (thread_getpri(th_1, &amp;pri) == 0)
+<a href='../S/841.html#L72'>pri</a>                72 usr/sample/mutex/mutex.c 		printf("th_1: pri=%d\n", pri);
+<a href='../S/841.html#L74'>pri</a>                74 usr/sample/mutex/mutex.c 	if (thread_getpri(th_2, &amp;pri) == 0)
+<a href='../S/841.html#L75'>pri</a>                75 usr/sample/mutex/mutex.c 		printf("th_2: pri=%d\n", pri);
+<a href='../S/841.html#L77'>pri</a>                77 usr/sample/mutex/mutex.c 	if (thread_getpri(th_3, &amp;pri) == 0)
+<a href='../S/841.html#L78'>pri</a>                78 usr/sample/mutex/mutex.c 		printf("th_3: pri=%d\n", pri);
+</pre>
+</body>
+</html>

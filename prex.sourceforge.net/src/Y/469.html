@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>c</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/5.html#L41'>c</a>                  41 bsp/boot/arm/gba/debug.c debug_putc(int c)
+<a href='../S/5.html#L45'>c</a>                  45 bsp/boot/arm/gba/debug.c 	vba_putc(c);
+<a href='../S/9.html#L79'>c</a>                  79 bsp/boot/arm/integrator/debug.c debug_putc(int c)
+<a href='../S/9.html#L85'>c</a>                  85 bsp/boot/arm/integrator/debug.c 	UART_DR = c;
+<a href='../S/14.html#L153'>c</a>                 153 bsp/boot/common/load.c 	char *c;
+<a href='../S/14.html#L160'>c</a>                 160 bsp/boot/common/load.c 	c = m-&gt;name;
+<a href='../S/14.html#L161'>c</a>                 161 bsp/boot/common/load.c 	while (*c != '/' &amp;&amp; *c != ' ')
+<a href='../S/14.html#L162'>c</a>                 162 bsp/boot/common/load.c 		c++;
+<a href='../S/14.html#L163'>c</a>                 163 bsp/boot/common/load.c 	*c = '\0';
+<a href='../S/17.html#L49'>c</a>                  49 bsp/boot/common/printf.c 	int c, i, pad;
+<a href='../S/17.html#L52'>c</a>                  52 bsp/boot/common/printf.c 	while ((c = *fmt++) != 0) {
+<a href='../S/17.html#L53'>c</a>                  53 bsp/boot/common/printf.c 		if (c == '%') {
+<a href='../S/17.html#L54'>c</a>                  54 bsp/boot/common/printf.c 			c = *fmt++;
+<a href='../S/17.html#L56'>c</a>                  56 bsp/boot/common/printf.c 			if (c == 'l')
+<a href='../S/17.html#L57'>c</a>                  57 bsp/boot/common/printf.c 				c = *fmt++;
+<a href='../S/17.html#L58'>c</a>                  58 bsp/boot/common/printf.c 			switch (c) {
+<a href='../S/17.html#L71'>c</a>                  71 bsp/boot/common/printf.c 				c = 'u';
+<a href='../S/17.html#L76'>c</a>                  76 bsp/boot/common/printf.c 				if (c == 'u') {
+<a href='../S/17.html#L97'>c</a>                  97 bsp/boot/common/printf.c 		if (c == '\n')
+<a href='../S/17.html#L99'>c</a>                  99 bsp/boot/common/printf.c 		debug_putc((int)c);
+<a href='../S/28.html#L74'>c</a>                  74 bsp/boot/ppc/prep/debug.c debug_putc(int c)
+<a href='../S/28.html#L83'>c</a>                  83 bsp/boot/ppc/prep/debug.c 	outb(COM_THR, (u_char)c);
+<a href='../S/28.html#L88'>c</a>                  88 bsp/boot/ppc/prep/debug.c 	outb(0xf00, (u_char)c);
+<a href='../S/39.html#L58'>c</a>                  58 bsp/boot/x86/pc/debug.c debug_putc(int c)
+<a href='../S/39.html#L67'>c</a>                  67 bsp/boot/x86/pc/debug.c 	outb(COM_THR, c);
+<a href='../S/39.html#L75'>c</a>                  75 bsp/boot/x86/pc/debug.c 		outb(0xe9, (u_char)c);
+<a href='../S/54.html#L294'>c</a>                 294 bsp/drv/arm/gba/swkbd.c swkbd_input(u_char c)
+<a href='../S/54.html#L304'>c</a>                 304 bsp/drv/arm/gba/swkbd.c 	if (c == '\t') {
+<a href='../S/54.html#L318'>c</a>                 318 bsp/drv/arm/gba/swkbd.c 		wscons_kbd_input(c);
+<a href='../S/54.html#L322'>c</a>                 322 bsp/drv/arm/gba/swkbd.c 	switch (c) {
+<a href='../S/58.html#L155'>c</a>                 155 bsp/drv/dev/base/cons.c cons_putc(int c)
+<a href='../S/58.html#L159'>c</a>                 159 bsp/drv/dev/base/cons.c 	if (c) {
+<a href='../S/58.html#L160'>c</a>                 160 bsp/drv/dev/base/cons.c 		consdev-&gt;cnputc(consdev-&gt;dev, c);
+<a href='../S/58.html#L161'>c</a>                 161 bsp/drv/dev/base/cons.c 		if (c == '\n')
+<a href='../S/60.html#L648'>c</a>                 648 bsp/drv/dev/base/kd.c 	int c, pos = 0;
+<a href='../S/60.html#L652'>c</a>                 652 bsp/drv/dev/base/kd.c 		c = cons_getc();
+<a href='../S/60.html#L654'>c</a>                 654 bsp/drv/dev/base/kd.c 		switch(c) {
+<a href='../S/60.html#L672'>c</a>                 672 bsp/drv/dev/base/kd.c 			*p = (char)c;
+<a href='../S/60.html#L679'>c</a>                 679 bsp/drv/dev/base/kd.c 			printf("%c", c);
+<a href='../S/64.html#L61'>c</a>                  61 bsp/drv/dev/base/tty.c static void tty_output(int c, struct tty *tp);
+<a href='../S/64.html#L66'>c</a>                  66 bsp/drv/dev/base/tty.c #define is_ctrl(c)   ((c) &lt; 32 || (c) == 0x7f)
+<a href='../S/64.html#L82'>c</a>                  82 bsp/drv/dev/base/tty.c 	char c;
+<a href='../S/64.html#L90'>c</a>                  90 bsp/drv/dev/base/tty.c 	c = tq-&gt;tq_buf[tq-&gt;tq_head];
+<a href='../S/64.html#L94'>c</a>                  94 bsp/drv/dev/base/tty.c 	return (int)c;
+<a href='../S/64.html#L101'>c</a>                 101 bsp/drv/dev/base/tty.c tty_putc(int c, struct tty_queue *tq)
+<a href='../S/64.html#L110'>c</a>                 110 bsp/drv/dev/base/tty.c 	tq-&gt;tq_buf[tq-&gt;tq_tail] = (char)(c &amp; 0xff);
+<a href='../S/64.html#L122'>c</a>                 122 bsp/drv/dev/base/tty.c 	char c;
+<a href='../S/64.html#L129'>c</a>                 129 bsp/drv/dev/base/tty.c 	c = tq-&gt;tq_buf[tq-&gt;tq_tail];
+<a href='../S/64.html#L132'>c</a>                 132 bsp/drv/dev/base/tty.c 	return (int)c;
+<a href='../S/64.html#L141'>c</a>                 141 bsp/drv/dev/base/tty.c 	int c;
+<a href='../S/64.html#L143'>c</a>                 143 bsp/drv/dev/base/tty.c 	while ((c = tty_getc(from)) != -1)
+<a href='../S/64.html#L144'>c</a>                 144 bsp/drv/dev/base/tty.c 		tty_putc(c, to);
+<a href='../S/64.html#L151'>c</a>                 151 bsp/drv/dev/base/tty.c tty_rubout(int c, struct tty *tp)
+<a href='../S/64.html#L168'>c</a>                 168 bsp/drv/dev/base/tty.c tty_echo(int c, struct tty *tp)
+<a href='../S/64.html#L172'>c</a>                 172 bsp/drv/dev/base/tty.c 		if (c == '\n' &amp;&amp; (tp-&gt;t_lflag &amp; ECHONL))
+<a href='../S/64.html#L176'>c</a>                 176 bsp/drv/dev/base/tty.c 	if (is_ctrl(c) &amp;&amp; c != '\n' &amp;&amp; c != '\t' &amp;&amp; c != '\b') {
+<a href='../S/64.html#L178'>c</a>                 178 bsp/drv/dev/base/tty.c 		tty_output(c + 'A' - 1, tp);
+<a href='../S/64.html#L180'>c</a>                 180 bsp/drv/dev/base/tty.c 		tty_output(c, tp);
+<a href='../S/64.html#L274'>c</a>                 274 bsp/drv/dev/base/tty.c tty_input(int c, struct tty *tp)
+<a href='../S/64.html#L280'>c</a>                 280 bsp/drv/dev/base/tty.c 	DPRINTF(("tty_input: %d\n", c));
+<a href='../S/64.html#L290'>c</a>                 290 bsp/drv/dev/base/tty.c 	if (c == cc[VDDB]) {
+<a href='../S/64.html#L298'>c</a>                 298 bsp/drv/dev/base/tty.c 	if (c == '\r') {
+<a href='../S/64.html#L302'>c</a>                 302 bsp/drv/dev/base/tty.c 			c = '\n';
+<a href='../S/64.html#L303'>c</a>                 303 bsp/drv/dev/base/tty.c 	} else if (c == '\n' &amp;&amp; (iflag &amp; INLCR))
+<a href='../S/64.html#L304'>c</a>                 304 bsp/drv/dev/base/tty.c 		c = '\r';
+<a href='../S/64.html#L308'>c</a>                 308 bsp/drv/dev/base/tty.c 		if (c == cc[VSTOP]) {
+<a href='../S/64.html#L313'>c</a>                 313 bsp/drv/dev/base/tty.c 			if (c != cc[VSTART])
+<a href='../S/64.html#L319'>c</a>                 319 bsp/drv/dev/base/tty.c 		if (c == cc[VSTART])
+<a href='../S/64.html#L324'>c</a>                 324 bsp/drv/dev/base/tty.c 		if (c == cc[VERASE] || c == '\b') {
+<a href='../S/64.html#L330'>c</a>                 330 bsp/drv/dev/base/tty.c 		if (c == cc[VKILL]) {
+<a href='../S/64.html#L338'>c</a>                 338 bsp/drv/dev/base/tty.c 		if (c == cc[VINTR] || c == cc[VQUIT]) {
+<a href='../S/64.html#L343'>c</a>                 343 bsp/drv/dev/base/tty.c 			tty_echo(c, tp);
+<a href='../S/64.html#L344'>c</a>                 344 bsp/drv/dev/base/tty.c 			sig = (c == cc[VINTR]) ? SIGINT : SIGQUIT;
+<a href='../S/64.html#L348'>c</a>                 348 bsp/drv/dev/base/tty.c 		if (c == cc[VSUSP]) {
+<a href='../S/64.html#L353'>c</a>                 353 bsp/drv/dev/base/tty.c 			tty_echo(c, tp);
+<a href='../S/64.html#L366'>c</a>                 366 bsp/drv/dev/base/tty.c 	tty_putc(c, &amp;tp-&gt;t_rawq);
+<a href='../S/64.html#L369'>c</a>                 369 bsp/drv/dev/base/tty.c 		if (c == '\n' || c == cc[VEOF] || c == cc[VEOL]) {
+<a href='../S/64.html#L377'>c</a>                 377 bsp/drv/dev/base/tty.c 		tty_echo(c, tp);
+<a href='../S/64.html#L402'>c</a>                 402 bsp/drv/dev/base/tty.c tty_output(int c, struct tty *tp)
+<a href='../S/64.html#L407'>c</a>                 407 bsp/drv/dev/base/tty.c 		tty_putc(c, &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L411'>c</a>                 411 bsp/drv/dev/base/tty.c 	if (c == '\t' &amp;&amp; (tp-&gt;t_oflag &amp; OXTABS)) {
+<a href='../S/64.html#L420'>c</a>                 420 bsp/drv/dev/base/tty.c 	if (c == '\n' &amp;&amp; (tp-&gt;t_oflag &amp; ONLCR))
+<a href='../S/64.html#L423'>c</a>                 423 bsp/drv/dev/base/tty.c 	tty_putc(c, &amp;tp-&gt;t_outq);
+<a href='../S/64.html#L426'>c</a>                 426 bsp/drv/dev/base/tty.c 	switch (c) {
+<a href='../S/64.html#L441'>c</a>                 441 bsp/drv/dev/base/tty.c 		if (!is_ctrl(c))
+<a href='../S/64.html#L458'>c</a>                 458 bsp/drv/dev/base/tty.c 	u_char c;
+<a href='../S/64.html#L479'>c</a>                 479 bsp/drv/dev/base/tty.c 		c = (u_char)tmp;
+<a href='../S/64.html#L480'>c</a>                 480 bsp/drv/dev/base/tty.c 		if (c == cc[VEOF] &amp;&amp; (lflag &amp; ICANON))
+<a href='../S/64.html#L483'>c</a>                 483 bsp/drv/dev/base/tty.c 		if (copyout(&amp;c, buf, 1))
+<a href='../S/64.html#L485'>c</a>                 485 bsp/drv/dev/base/tty.c 		if ((lflag &amp; ICANON) &amp;&amp; (c == '\n' || c == cc[VEOL]))
+<a href='../S/64.html#L500'>c</a>                 500 bsp/drv/dev/base/tty.c 	u_char c;
+<a href='../S/64.html#L514'>c</a>                 514 bsp/drv/dev/base/tty.c 		if (copyin(buf, &amp;c, 1))
+<a href='../S/64.html#L516'>c</a>                 516 bsp/drv/dev/base/tty.c 		tty_output((int)c, tp);
+<a href='../S/65.html#L207'>c</a>                 207 bsp/drv/dev/base/wscons.c wscons_check_escape(struct wscons_softc *sc, char c)
+<a href='../S/65.html#L214'>c</a>                 214 bsp/drv/dev/base/wscons.c 	if (c == 033) {
+<a href='../S/65.html#L222'>c</a>                 222 bsp/drv/dev/base/wscons.c 	if (c &gt;= '0' &amp;&amp; c &lt;= '9') {
+<a href='../S/65.html#L223'>c</a>                 223 bsp/drv/dev/base/wscons.c 		val = c - '0';
+<a href='../S/65.html#L250'>c</a>                 250 bsp/drv/dev/base/wscons.c 		if (c != '[')
+<a href='../S/65.html#L254'>c</a>                 254 bsp/drv/dev/base/wscons.c 		switch (c) {
+<a href='../S/65.html#L271'>c</a>                 271 bsp/drv/dev/base/wscons.c 		switch (c) {
+<a href='../S/65.html#L336'>c</a>                 336 bsp/drv/dev/base/wscons.c 		switch (c) {
+<a href='../S/65.html#L363'>c</a>                 363 bsp/drv/dev/base/wscons.c wscons_putc(int c)
+<a href='../S/65.html#L368'>c</a>                 368 bsp/drv/dev/base/wscons.c 	if (wscons_check_escape(sc, c))
+<a href='../S/65.html#L371'>c</a>                 371 bsp/drv/dev/base/wscons.c 	switch (c) {
+<a href='../S/65.html#L385'>c</a>                 385 bsp/drv/dev/base/wscons.c 	vops-&gt;putc(sc-&gt;vid_aux, sc-&gt;row, sc-&gt;col, c);
+<a href='../S/65.html#L405'>c</a>                 405 bsp/drv/dev/base/wscons.c 	int c;
+<a href='../S/65.html#L407'>c</a>                 407 bsp/drv/dev/base/wscons.c 	while ((c = tty_getc(&amp;tp-&gt;t_outq)) &gt;= 0)
+<a href='../S/65.html#L408'>c</a>                 408 bsp/drv/dev/base/wscons.c 		wscons_putc(c);
+<a href='../S/65.html#L424'>c</a>                 424 bsp/drv/dev/base/wscons.c wscons_cnputc(device_t dev, int c)
+<a href='../S/65.html#L428'>c</a>                 428 bsp/drv/dev/base/wscons.c 	wscons_putc(c);
+<a href='../S/65.html#L442'>c</a>                 442 bsp/drv/dev/base/wscons.c wscons_kbd_input(int c)
+<a href='../S/65.html#L446'>c</a>                 446 bsp/drv/dev/base/wscons.c 	tty_input(c, &amp;sc-&gt;tty);
+<a href='../S/76.html#L234'>c</a>                 234 bsp/drv/dev/input/pckbd.c 	int c;
+<a href='../S/76.html#L236'>c</a>                 236 bsp/drv/dev/input/pckbd.c 	c = pckbd_scan_key(sc);
+<a href='../S/76.html#L237'>c</a>                 237 bsp/drv/dev/input/pckbd.c 	if (c != 0)
+<a href='../S/76.html#L238'>c</a>                 238 bsp/drv/dev/input/pckbd.c 		wscons_kbd_input(c);
+<a href='../S/76.html#L246'>c</a>                 246 bsp/drv/dev/input/pckbd.c 	int c;
+<a href='../S/76.html#L254'>c</a>                 254 bsp/drv/dev/input/pckbd.c 	while ((c = pckbd_scan_key(sc)) == 0) ;
+<a href='../S/76.html#L256'>c</a>                 256 bsp/drv/dev/input/pckbd.c 	return c;
+<a href='../S/87.html#L121'>c</a>                 121 bsp/drv/dev/serial/ns16550.c ns16550_xmt_char(struct serial_port *sp, char c)
+<a href='../S/87.html#L126'>c</a>                 126 bsp/drv/dev/serial/ns16550.c 	bus_write_8(COM_THR, c);
+<a href='../S/88.html#L120'>c</a>                 120 bsp/drv/dev/serial/pl011.c pl011_xmt_char(struct serial_port *sp, char c)
+<a href='../S/88.html#L125'>c</a>                 125 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_DR, (uint32_t)c);
+<a href='../S/88.html#L131'>c</a>                 131 bsp/drv/dev/serial/pl011.c 	char c;
+<a href='../S/88.html#L135'>c</a>                 135 bsp/drv/dev/serial/pl011.c 	c = bus_read_32(UART_DR) &amp; 0xff;
+<a href='../S/88.html#L136'>c</a>                 136 bsp/drv/dev/serial/pl011.c 	return c;
+<a href='../S/88.html#L156'>c</a>                 156 bsp/drv/dev/serial/pl011.c 	int c;
+<a href='../S/88.html#L168'>c</a>                 168 bsp/drv/dev/serial/pl011.c 			c = bus_read_32(UART_DR);
+<a href='../S/88.html#L169'>c</a>                 169 bsp/drv/dev/serial/pl011.c 			serial_rcv_char(sp, c);
+<a href='../S/89.html#L126'>c</a>                 126 bsp/drv/dev/serial/serial.c 	int c;
+<a href='../S/89.html#L128'>c</a>                 128 bsp/drv/dev/serial/serial.c 	while ((c = tty_getc(&amp;tp-&gt;t_outq)) &gt;= 0)
+<a href='../S/89.html#L129'>c</a>                 129 bsp/drv/dev/serial/serial.c 		sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/89.html#L146'>c</a>                 146 bsp/drv/dev/serial/serial.c serial_rcv_char(struct serial_port *port, char c)
+<a href='../S/89.html#L149'>c</a>                 149 bsp/drv/dev/serial/serial.c 	tty_input(c, port-&gt;tty);
+<a href='../S/89.html#L162'>c</a>                 162 bsp/drv/dev/serial/serial.c serial_cnputc(device_t dev, int c)
+<a href='../S/89.html#L167'>c</a>                 167 bsp/drv/dev/serial/serial.c 	sc-&gt;ops-&gt;xmt_char(port, c);
+<a href='../S/94.html#L99'>c</a>                  99 bsp/drv/include/ddi.h int	 isalnum(int c);
+<a href='../S/94.html#L100'>c</a>                 100 bsp/drv/include/ddi.h int	 isalpha(int c);
+<a href='../S/94.html#L101'>c</a>                 101 bsp/drv/include/ddi.h int	 isblank(int c);
+<a href='../S/94.html#L102'>c</a>                 102 bsp/drv/include/ddi.h int	 isupper(int c);
+<a href='../S/94.html#L103'>c</a>                 103 bsp/drv/include/ddi.h int	 islower(int c);
+<a href='../S/94.html#L104'>c</a>                 104 bsp/drv/include/ddi.h int	 isspace(int c);
+<a href='../S/94.html#L105'>c</a>                 105 bsp/drv/include/ddi.h int	 isdigit(int c);
+<a href='../S/94.html#L106'>c</a>                 106 bsp/drv/include/ddi.h int	 isxdigit(int c);
+<a href='../S/94.html#L107'>c</a>                 107 bsp/drv/include/ddi.h int	 isprint(int c);
+<a href='../S/101.html#L42'>c</a>                  42 bsp/drv/include/serial.h 	void	(*xmt_char)(struct serial_port *port, char c);
+<a href='../S/106.html#L35'>c</a>                  35 bsp/drv/lib/ctype.c isalnum(int c)
+<a href='../S/106.html#L37'>c</a>                  37 bsp/drv/lib/ctype.c 	return (isalpha(c) || isdigit(c));
+<a href='../S/106.html#L41'>c</a>                  41 bsp/drv/lib/ctype.c isalpha(int c)
+<a href='../S/106.html#L43'>c</a>                  43 bsp/drv/lib/ctype.c 	return ((c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z'));
+<a href='../S/106.html#L47'>c</a>                  47 bsp/drv/lib/ctype.c isblank(int c)
+<a href='../S/106.html#L49'>c</a>                  49 bsp/drv/lib/ctype.c 	return (c == ' ' || c == '\t');
+<a href='../S/106.html#L53'>c</a>                  53 bsp/drv/lib/ctype.c isupper(int c)
+<a href='../S/106.html#L55'>c</a>                  55 bsp/drv/lib/ctype.c 	return (c &gt;= 'A' &amp;&amp; c &lt;= 'Z');
+<a href='../S/106.html#L59'>c</a>                  59 bsp/drv/lib/ctype.c islower(int c)
+<a href='../S/106.html#L61'>c</a>                  61 bsp/drv/lib/ctype.c 	return (c &gt;= 'a' &amp;&amp; c &lt;= 'z');
+<a href='../S/106.html#L65'>c</a>                  65 bsp/drv/lib/ctype.c isspace(int c)
+<a href='../S/106.html#L67'>c</a>                  67 bsp/drv/lib/ctype.c 	return (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v');
+<a href='../S/106.html#L71'>c</a>                  71 bsp/drv/lib/ctype.c isdigit(int c)
+<a href='../S/106.html#L73'>c</a>                  73 bsp/drv/lib/ctype.c 	return (c &gt;= '0' &amp;&amp; c &lt;= '9');
+<a href='../S/106.html#L77'>c</a>                  77 bsp/drv/lib/ctype.c isxdigit(int c)
+<a href='../S/106.html#L79'>c</a>                  79 bsp/drv/lib/ctype.c 	return (isdigit(c) || (c &gt;= 'A' &amp;&amp; c &lt;= 'F') || (c &gt;= 'a' &amp;&amp; c &lt;= 'f'));
+<a href='../S/106.html#L83'>c</a>                  83 bsp/drv/lib/ctype.c isprint(int c)
+<a href='../S/106.html#L85'>c</a>                  85 bsp/drv/lib/ctype.c 	return (c &gt;= 0x20 &amp;&amp; c &lt;= 0x7E);
+<a href='../S/114.html#L46'>c</a>                  46 bsp/drv/lib/strtoul.c 	int c;
+<a href='../S/114.html#L54'>c</a>                  54 bsp/drv/lib/strtoul.c 		c = (unsigned char) *s++;
+<a href='../S/114.html#L55'>c</a>                  55 bsp/drv/lib/strtoul.c 	} while (isspace(c));
+<a href='../S/114.html#L56'>c</a>                  56 bsp/drv/lib/strtoul.c 	if (c == '-') {
+<a href='../S/114.html#L58'>c</a>                  58 bsp/drv/lib/strtoul.c 		c = *s++;
+<a href='../S/114.html#L61'>c</a>                  61 bsp/drv/lib/strtoul.c 		if (c == '+')
+<a href='../S/114.html#L62'>c</a>                  62 bsp/drv/lib/strtoul.c 			c = *s++;
+<a href='../S/114.html#L65'>c</a>                  65 bsp/drv/lib/strtoul.c 	    c == '0' &amp;&amp; (*s == 'x' || *s == 'X')) {
+<a href='../S/114.html#L66'>c</a>                  66 bsp/drv/lib/strtoul.c 		c = s[1];
+<a href='../S/114.html#L71'>c</a>                  71 bsp/drv/lib/strtoul.c 		base = c == '0' ? 8 : 10;
+<a href='../S/114.html#L75'>c</a>                  75 bsp/drv/lib/strtoul.c 	for (acc = 0, any = 0;; c = (unsigned char) *s++) {
+<a href='../S/114.html#L76'>c</a>                  76 bsp/drv/lib/strtoul.c 		if (isdigit(c))
+<a href='../S/114.html#L77'>c</a>                  77 bsp/drv/lib/strtoul.c 			c -= '0';
+<a href='../S/114.html#L78'>c</a>                  78 bsp/drv/lib/strtoul.c 		else if (isalpha(c))
+<a href='../S/114.html#L79'>c</a>                  79 bsp/drv/lib/strtoul.c 			c -= isupper(c) ? 'A' - 10 : 'a' - 10;
+<a href='../S/114.html#L82'>c</a>                  82 bsp/drv/lib/strtoul.c 		if (c &gt;= base)
+<a href='../S/114.html#L86'>c</a>                  86 bsp/drv/lib/strtoul.c 		if (acc &gt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/114.html#L92'>c</a>                  92 bsp/drv/lib/strtoul.c 			acc += c;
+<a href='../S/134.html#L84'>c</a>                  84 bsp/hal/arm/gba/diag.c screen_putc(char c)
+<a href='../S/134.html#L87'>c</a>                  87 bsp/hal/arm/gba/diag.c 	switch (c) {
+<a href='../S/134.html#L100'>c</a>                 100 bsp/hal/arm/gba/diag.c 	vram[pos_y * VSCR_COLS + pos_x] = c;
+<a href='../S/147.html#L48'>c</a>                  48 bsp/hal/arm/integrator/diag.c serial_putc(char c)
+<a href='../S/147.html#L53'>c</a>                  53 bsp/hal/arm/integrator/diag.c 	UART_DR = (uint32_t)c;
+<a href='../S/168.html#L46'>c</a>                  46 bsp/hal/ppc/prep/diag.c serial_putc(char c)
+<a href='../S/168.html#L51'>c</a>                  51 bsp/hal/ppc/prep/diag.c 	outb(COM_THR, c);
+<a href='../S/187.html#L86'>c</a>                  86 bsp/hal/x86/pc/diag.c screen_putc(char c)
+<a href='../S/187.html#L89'>c</a>                  89 bsp/hal/x86/pc/diag.c 	switch (c) {
+<a href='../S/187.html#L102'>c</a>                 102 bsp/hal/x86/pc/diag.c 	vram[pos_y * screen_x + pos_x] = c | VID_ATTR;
+<a href='../S/187.html#L142'>c</a>                 142 bsp/hal/x86/pc/diag.c bochs_putc(char c)
+<a href='../S/187.html#L145'>c</a>                 145 bsp/hal/x86/pc/diag.c 	outb(0xe9, (u_char)c);
+<a href='../S/187.html#L174'>c</a>                 174 bsp/hal/x86/pc/diag.c serial_putc(char c)
+<a href='../S/187.html#L179'>c</a>                 179 bsp/hal/x86/pc/diag.c 	outb(COM_THR, c);
+<a href='../S/275.html#L68'>c</a>                  68 include/sys/termios.h #define CCEQ(val, c)	(c == val ? val != _POSIX_VDISABLE : 0)
+<a href='../S/326.html#L65'>c</a>                  65 sys/kern/debug.c 	char c;
+<a href='../S/326.html#L77'>c</a>                  77 sys/kern/debug.c 		c = db_msg[i];
+<a href='../S/326.html#L78'>c</a>                  78 sys/kern/debug.c 		if (c == '\0')
+<a href='../S/326.html#L80'>c</a>                  80 sys/kern/debug.c 		log_buf[LOGINDEX(log_tail)] = c;
+<a href='../S/326.html#L125'>c</a>                 125 sys/kern/debug.c 	char c;
+<a href='../S/326.html#L141'>c</a>                 141 sys/kern/debug.c 			c = log_buf[LOGINDEX(i)];
+<a href='../S/326.html#L143'>c</a>                 143 sys/kern/debug.c 			c = '\0';
+<a href='../S/326.html#L144'>c</a>                 144 sys/kern/debug.c 		if (copyout(&amp;c, buf, 1)) {
+<a href='../S/339.html#L36'>c</a>                  36 sys/lib/vsprintf.c #define isdigit(c)  ((u_int)((c) - '0') &lt; 10)
+<a href='../S/345.html#L55'>c</a>                  55 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L60'>c</a>                  60 sys/sync/cond.c 	if ((c = kmem_alloc(sizeof(struct cond))) == NULL)
+<a href='../S/345.html#L63'>c</a>                  63 sys/sync/cond.c 	event_init(&amp;c-&gt;event, "condvar");
+<a href='../S/345.html#L64'>c</a>                  64 sys/sync/cond.c 	c-&gt;owner = self;
+<a href='../S/345.html#L66'>c</a>                  66 sys/sync/cond.c 	if (copyout(&amp;c, cp, sizeof(c))) {
+<a href='../S/345.html#L67'>c</a>                  67 sys/sync/cond.c 		kmem_free(c);
+<a href='../S/345.html#L71'>c</a>                  71 sys/sync/cond.c 	list_insert(&amp;self-&gt;conds, &amp;c-&gt;task_link);
+<a href='../S/345.html#L78'>c</a>                  78 sys/sync/cond.c cond_deallocate(cond_t c)
+<a href='../S/345.html#L81'>c</a>                  81 sys/sync/cond.c 	c-&gt;owner-&gt;nsyncs--;
+<a href='../S/345.html#L82'>c</a>                  82 sys/sync/cond.c 	list_remove(&amp;c-&gt;task_link);
+<a href='../S/345.html#L83'>c</a>                  83 sys/sync/cond.c 	kmem_free(c);
+<a href='../S/345.html#L95'>c</a>                  95 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L98'>c</a>                  98 sys/sync/cond.c 	if (cond_copyin(cp, &amp;c)) {
+<a href='../S/345.html#L102'>c</a>                 102 sys/sync/cond.c 	if (event_waiting(&amp;c-&gt;event)) {
+<a href='../S/345.html#L106'>c</a>                 106 sys/sync/cond.c 	cond_deallocate(c);
+<a href='../S/345.html#L117'>c</a>                 117 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L120'>c</a>                 120 sys/sync/cond.c 		c = list_entry(list_first(&amp;task-&gt;conds),
+<a href='../S/345.html#L122'>c</a>                 122 sys/sync/cond.c 		cond_deallocate(c);
+<a href='../S/345.html#L139'>c</a>                 139 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L142'>c</a>                 142 sys/sync/cond.c 	if (copyin(cp, &amp;c, sizeof(cp)))
+<a href='../S/345.html#L146'>c</a>                 146 sys/sync/cond.c 	if (c == COND_INITIALIZER) {
+<a href='../S/345.html#L151'>c</a>                 151 sys/sync/cond.c 		copyin(cp, &amp;c, sizeof(cp));
+<a href='../S/345.html#L153'>c</a>                 153 sys/sync/cond.c 		if (!cond_valid(c)) {
+<a href='../S/345.html#L165'>c</a>                 165 sys/sync/cond.c 	rc = sched_sleep(&amp;c-&gt;event);
+<a href='../S/345.html#L184'>c</a>                 184 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L187'>c</a>                 187 sys/sync/cond.c 	if (cond_copyin(cp, &amp;c)) {
+<a href='../S/345.html#L191'>c</a>                 191 sys/sync/cond.c 	sched_wakeone(&amp;c-&gt;event);
+<a href='../S/345.html#L202'>c</a>                 202 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L205'>c</a>                 205 sys/sync/cond.c 	if (cond_copyin(cp, &amp;c)) {
+<a href='../S/345.html#L209'>c</a>                 209 sys/sync/cond.c 	sched_wakeup(&amp;c-&gt;event);
+<a href='../S/345.html#L218'>c</a>                 218 sys/sync/cond.c cond_valid(cond_t c)
+<a href='../S/345.html#L226'>c</a>                 226 sys/sync/cond.c 		if (tmp == c)
+<a href='../S/345.html#L239'>c</a>                 239 sys/sync/cond.c 	cond_t c;
+<a href='../S/345.html#L241'>c</a>                 241 sys/sync/cond.c 	if (copyin(ucp, &amp;c, sizeof(ucp)) || !cond_valid(c))
+<a href='../S/345.html#L243'>c</a>                 243 sys/sync/cond.c 	*kcp = c;
+<a href='../S/396.html#L87'>c</a>                  87 usr/bin/more/more.c 	int c, len, lines = 0;
+<a href='../S/396.html#L89'>c</a>                  89 usr/bin/more/more.c 	while ((c = getc(fp)) != EOF) {
+<a href='../S/396.html#L90'>c</a>                  90 usr/bin/more/more.c 		if (c == '\n' &amp;&amp; ++lines &gt;= maxlines) {
+<a href='../S/396.html#L93'>c</a>                  93 usr/bin/more/more.c 			read(2, &amp;c, 1);
+<a href='../S/396.html#L103'>c</a>                 103 usr/bin/more/more.c 			putchar(c);
+<a href='../S/400.html#L54'>c</a>                  54 usr/bin/nice/nice.c 	int c;
+<a href='../S/400.html#L63'>c</a>                  63 usr/bin/nice/nice.c 	while ((c = getopt (argc, argv, "n:")) != -1) {
+<a href='../S/400.html#L64'>c</a>                  64 usr/bin/nice/nice.c 		switch (c) {
+<a href='../S/415.html#L53'>c</a>                  53 usr/bin/sh/var.c is_name(char c)
+<a href='../S/415.html#L56'>c</a>                  56 usr/bin/sh/var.c 	if ((c &gt;= 'a' &amp;&amp; c &lt;= 'z') ||
+<a href='../S/415.html#L57'>c</a>                  57 usr/bin/sh/var.c 	    (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || c == '_')
+<a href='../S/428.html#L36'>c</a>                  36 usr/include/ctype.h int	isalnum(int c);
+<a href='../S/428.html#L37'>c</a>                  37 usr/include/ctype.h int	isalpha(int c);
+<a href='../S/428.html#L38'>c</a>                  38 usr/include/ctype.h int	isblank(int c);
+<a href='../S/428.html#L39'>c</a>                  39 usr/include/ctype.h int	iscntrl(int c);
+<a href='../S/428.html#L40'>c</a>                  40 usr/include/ctype.h int	isdigit(int c);
+<a href='../S/428.html#L41'>c</a>                  41 usr/include/ctype.h int	isgraph(int c);
+<a href='../S/428.html#L42'>c</a>                  42 usr/include/ctype.h int	islower(int c);
+<a href='../S/428.html#L43'>c</a>                  43 usr/include/ctype.h int	isprint(int c);
+<a href='../S/428.html#L44'>c</a>                  44 usr/include/ctype.h int	ispunct(int c);
+<a href='../S/428.html#L45'>c</a>                  45 usr/include/ctype.h int	isspace(int c);
+<a href='../S/428.html#L46'>c</a>                  46 usr/include/ctype.h int	isupper(int c);
+<a href='../S/428.html#L47'>c</a>                  47 usr/include/ctype.h int	isxdigit(int c);
+<a href='../S/428.html#L48'>c</a>                  48 usr/include/ctype.h int	isascii(int c);
+<a href='../S/428.html#L49'>c</a>                  49 usr/include/ctype.h int	toascii(int c);
+<a href='../S/428.html#L51'>c</a>                  51 usr/include/ctype.h int	tolower(int c);
+<a href='../S/428.html#L52'>c</a>                  52 usr/include/ctype.h int	toupper(int c);
+<a href='../S/450.html#L33'>c</a>                  33 usr/lib/libc/ctype/isalnum.c isalnum(int c)
+<a href='../S/450.html#L35'>c</a>                  35 usr/lib/libc/ctype/isalnum.c 	return (isalpha(c) || isdigit(c));
+<a href='../S/451.html#L33'>c</a>                  33 usr/lib/libc/ctype/isalpha.c isalpha(int c)
+<a href='../S/451.html#L35'>c</a>                  35 usr/lib/libc/ctype/isalpha.c 	return ((c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z'));
+<a href='../S/452.html#L33'>c</a>                  33 usr/lib/libc/ctype/isblank.c isblank(int c)
+<a href='../S/452.html#L35'>c</a>                  35 usr/lib/libc/ctype/isblank.c 	return (c == ' ' || c == '\t');
+<a href='../S/453.html#L33'>c</a>                  33 usr/lib/libc/ctype/iscntrl.c iscntrl(int c)
+<a href='../S/453.html#L35'>c</a>                  35 usr/lib/libc/ctype/iscntrl.c 	return (c == 127 || (c &gt;= 0 &amp;&amp; c &lt;= 31));
+<a href='../S/454.html#L33'>c</a>                  33 usr/lib/libc/ctype/isdigit.c isdigit(int c)
+<a href='../S/454.html#L35'>c</a>                  35 usr/lib/libc/ctype/isdigit.c 	return (c &gt;= '0' &amp;&amp; c &lt;= '9');
+<a href='../S/455.html#L33'>c</a>                  33 usr/lib/libc/ctype/isgraph.c isgraph(int c)
+<a href='../S/455.html#L35'>c</a>                  35 usr/lib/libc/ctype/isgraph.c 	return (isprint(c) &amp;&amp; c != ' ');
+<a href='../S/456.html#L33'>c</a>                  33 usr/lib/libc/ctype/islower.c islower(int c)
+<a href='../S/456.html#L35'>c</a>                  35 usr/lib/libc/ctype/islower.c 	return (c &gt;= 'a' &amp;&amp; c &lt;= 'z');
+<a href='../S/457.html#L33'>c</a>                  33 usr/lib/libc/ctype/isprint.c isprint(int c)
+<a href='../S/457.html#L35'>c</a>                  35 usr/lib/libc/ctype/isprint.c 	return (c &gt;= 0x20 &amp;&amp; c &lt;= 0x7E);
+<a href='../S/458.html#L33'>c</a>                  33 usr/lib/libc/ctype/ispunct.c ispunct(int c)
+<a href='../S/458.html#L35'>c</a>                  35 usr/lib/libc/ctype/ispunct.c 	return (isprint(c) &amp;&amp; !isspace(c) &amp;&amp; !isalnum(c));
+<a href='../S/459.html#L33'>c</a>                  33 usr/lib/libc/ctype/isspace.c isspace(int c)
+<a href='../S/459.html#L35'>c</a>                  35 usr/lib/libc/ctype/isspace.c 	return (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v');
+<a href='../S/460.html#L33'>c</a>                  33 usr/lib/libc/ctype/isupper.c isupper(int c)
+<a href='../S/460.html#L35'>c</a>                  35 usr/lib/libc/ctype/isupper.c 	return (c &gt;= 'A' &amp;&amp; c &lt;= 'Z');
+<a href='../S/461.html#L33'>c</a>                  33 usr/lib/libc/ctype/isxdigit.c isxdigit(int c)
+<a href='../S/461.html#L35'>c</a>                  35 usr/lib/libc/ctype/isxdigit.c 	return (isdigit(c) || (c &gt;= 'A' &amp;&amp; c &lt;= 'F') || (c &gt;= 'a' &amp;&amp; c &lt;= 'f'));
+<a href='../S/463.html#L33'>c</a>                  33 usr/lib/libc/ctype/tolower.c tolower(int c)
+<a href='../S/463.html#L36'>c</a>                  36 usr/lib/libc/ctype/tolower.c 	if (isupper(c))
+<a href='../S/463.html#L37'>c</a>                  37 usr/lib/libc/ctype/tolower.c 		return 'a' - 'A' + c;
+<a href='../S/463.html#L38'>c</a>                  38 usr/lib/libc/ctype/tolower.c 	return c;
+<a href='../S/464.html#L33'>c</a>                  33 usr/lib/libc/ctype/toupper.c toupper(int c)
+<a href='../S/464.html#L36'>c</a>                  36 usr/lib/libc/ctype/toupper.c 	if (islower(c))
+<a href='../S/464.html#L37'>c</a>                  37 usr/lib/libc/ctype/toupper.c 		return 'A' - 'a' + c;
+<a href='../S/464.html#L38'>c</a>                  38 usr/lib/libc/ctype/toupper.c 	return c;
+<a href='../S/504.html#L48'>c</a>                  48 usr/lib/libc/stdio/fgets.c 	int c = -1;
+<a href='../S/504.html#L52'>c</a>                  52 usr/lib/libc/stdio/fgets.c 	while (--n &gt; 0 &amp;&amp; (c = getc(fp)) &gt;= 0) {
+<a href='../S/504.html#L53'>c</a>                  53 usr/lib/libc/stdio/fgets.c 		*s++ = c;
+<a href='../S/504.html#L54'>c</a>                  54 usr/lib/libc/stdio/fgets.c 		if (c == '\n')
+<a href='../S/504.html#L57'>c</a>                  57 usr/lib/libc/stdio/fgets.c 	if (c &lt; 0 &amp;&amp; s == buf)
+<a href='../S/511.html#L36'>c</a>                  36 usr/lib/libc/stdio/fputc.c fputc(c, fp)
+<a href='../S/511.html#L37'>c</a>                  37 usr/lib/libc/stdio/fputc.c 	int c;
+<a href='../S/511.html#L40'>c</a>                  40 usr/lib/libc/stdio/fputc.c 	return (putc(c, fp));
+<a href='../S/512.html#L44'>c</a>                  44 usr/lib/libc/stdio/fputs.c 	int c, r = 0;
+<a href='../S/512.html#L46'>c</a>                  46 usr/lib/libc/stdio/fputs.c 	while ((c = *s++) != '\0')
+<a href='../S/512.html#L47'>c</a>                  47 usr/lib/libc/stdio/fputs.c 		r = putc(c, fp);
+<a href='../S/525.html#L40'>c</a>                  40 usr/lib/libc/stdio/gets.c 	int c;
+<a href='../S/525.html#L43'>c</a>                  43 usr/lib/libc/stdio/gets.c 	for (s = buf; (c = getchar()) != '\n';)
+<a href='../S/525.html#L44'>c</a>                  44 usr/lib/libc/stdio/gets.c 		if (c == EOF)
+<a href='../S/525.html#L50'>c</a>                  50 usr/lib/libc/stdio/gets.c 			*s++ = c;
+<a href='../S/533.html#L42'>c</a>                  42 usr/lib/libc/stdio/putc.c __swbuf(c, fp)
+<a href='../S/533.html#L43'>c</a>                  43 usr/lib/libc/stdio/putc.c 	int c;
+<a href='../S/533.html#L50'>c</a>                  50 usr/lib/libc/stdio/putc.c 	c = (unsigned char)c;
+<a href='../S/533.html#L68'>c</a>                  68 usr/lib/libc/stdio/putc.c 	*fp-&gt;_p++ = c;
+<a href='../S/533.html#L69'>c</a>                  69 usr/lib/libc/stdio/putc.c 	if (++n == fp-&gt;_bf._size || (fp-&gt;_flags &amp; __SLBF &amp;&amp; c == '\n'))
+<a href='../S/533.html#L72'>c</a>                  72 usr/lib/libc/stdio/putc.c 	return (c);
+<a href='../S/533.html#L76'>c</a>                  76 usr/lib/libc/stdio/putc.c putc(c, fp)
+<a href='../S/533.html#L77'>c</a>                  77 usr/lib/libc/stdio/putc.c 	int c;
+<a href='../S/533.html#L81'>c</a>                  81 usr/lib/libc/stdio/putc.c 		return (*fp-&gt;_p++ = c);
+<a href='../S/533.html#L83'>c</a>                  83 usr/lib/libc/stdio/putc.c 		return (__swbuf(c, fp));
+<a href='../S/534.html#L38'>c</a>                  38 usr/lib/libc/stdio/putchar.c putchar(c)
+<a href='../S/534.html#L39'>c</a>                  39 usr/lib/libc/stdio/putchar.c 	int c;
+<a href='../S/534.html#L41'>c</a>                  41 usr/lib/libc/stdio/putchar.c 	return (putc(c, stdout));
+<a href='../S/535.html#L43'>c</a>                  43 usr/lib/libc/stdio/puts.c 	char c;
+<a href='../S/535.html#L45'>c</a>                  45 usr/lib/libc/stdio/puts.c 	while ((c = *s++) != '\0')
+<a href='../S/535.html#L46'>c</a>                  46 usr/lib/libc/stdio/puts.c 		putchar(c);
+<a href='../S/551.html#L39'>c</a>                  39 usr/lib/libc/stdio/ungetc.c ungetc(c, fp)
+<a href='../S/551.html#L40'>c</a>                  40 usr/lib/libc/stdio/ungetc.c 	int c;
+<a href='../S/551.html#L43'>c</a>                  43 usr/lib/libc/stdio/ungetc.c 	if (c == EOF)
+<a href='../S/551.html#L62'>c</a>                  62 usr/lib/libc/stdio/ungetc.c 	c = (unsigned char)c;
+<a href='../S/551.html#L70'>c</a>                  70 usr/lib/libc/stdio/ungetc.c 		*--fp-&gt;_p = c;
+<a href='../S/551.html#L72'>c</a>                  72 usr/lib/libc/stdio/ungetc.c 		return (c);
+<a href='../S/551.html#L82'>c</a>                  82 usr/lib/libc/stdio/ungetc.c 	    fp-&gt;_p[-1] == c) {
+<a href='../S/551.html#L85'>c</a>                  85 usr/lib/libc/stdio/ungetc.c 		return (c);
+<a href='../S/551.html#L96'>c</a>                  96 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_ubuf[sizeof(fp-&gt;_ubuf) - 1] = c;
+<a href='../S/551.html#L99'>c</a>                  99 usr/lib/libc/stdio/ungetc.c 	return (c);
+<a href='../S/552.html#L101'>c</a>                 101 usr/lib/libc/stdio/vfprintf.c #define	to_digit(c)	((c) - '0')
+<a href='../S/552.html#L102'>c</a>                 102 usr/lib/libc/stdio/vfprintf.c #define is_digit(c)	((unsigned)to_digit(c) &lt;= 9)
+<a href='../S/553.html#L89'>c</a>                  89 usr/lib/libc/stdio/vfscanf.c 	int c;		/* character from format, or conversion */
+<a href='../S/553.html#L112'>c</a>                 112 usr/lib/libc/stdio/vfscanf.c 		c = *fmt++;
+<a href='../S/553.html#L113'>c</a>                 113 usr/lib/libc/stdio/vfscanf.c 		if (c == 0)
+<a href='../S/553.html#L115'>c</a>                 115 usr/lib/libc/stdio/vfscanf.c 		if (isspace(c)) {
+<a href='../S/553.html#L125'>c</a>                 125 usr/lib/libc/stdio/vfscanf.c 		if (c != '%')
+<a href='../S/553.html#L133'>c</a>                 133 usr/lib/libc/stdio/vfscanf.c again:		c = *fmt++;
+<a href='../S/553.html#L134'>c</a>                 134 usr/lib/libc/stdio/vfscanf.c 		switch (c) {
+<a href='../S/553.html#L139'>c</a>                 139 usr/lib/libc/stdio/vfscanf.c 			if (*fp-&gt;_p != c)
+<a href='../S/553.html#L160'>c</a>                 160 usr/lib/libc/stdio/vfscanf.c 			width = width * 10 + c - '0';
+<a href='../S/553.html#L174'>c</a>                 174 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L180'>c</a>                 180 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L189'>c</a>                 189 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L195'>c</a>                 195 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L205'>c</a>                 205 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L211'>c</a>                 211 usr/lib/libc/stdio/vfscanf.c 			c = CT_STRING;
+<a href='../S/553.html#L217'>c</a>                 217 usr/lib/libc/stdio/vfscanf.c 			c = CT_CCL;
+<a href='../S/553.html#L222'>c</a>                 222 usr/lib/libc/stdio/vfscanf.c 			c = CT_CHAR;
+<a href='../S/553.html#L227'>c</a>                 227 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L250'>c</a>                 250 usr/lib/libc/stdio/vfscanf.c 			if (isupper(c))
+<a href='../S/553.html#L252'>c</a>                 252 usr/lib/libc/stdio/vfscanf.c 			c = CT_INT;
+<a href='../S/553.html#L286'>c</a>                 286 usr/lib/libc/stdio/vfscanf.c 		switch (c) {
+<a href='../S/553.html#L407'>c</a>                 407 usr/lib/libc/stdio/vfscanf.c 				c = *fp-&gt;_p;
+<a href='../S/553.html#L412'>c</a>                 412 usr/lib/libc/stdio/vfscanf.c 				switch (c) {
+<a href='../S/553.html#L490'>c</a>                 490 usr/lib/libc/stdio/vfscanf.c 				*p++ = c;
+<a href='../S/553.html#L507'>c</a>                 507 usr/lib/libc/stdio/vfscanf.c 			c = ((u_char *)p)[-1];
+<a href='../S/553.html#L508'>c</a>                 508 usr/lib/libc/stdio/vfscanf.c 			if (c == 'x' || c == 'X') {
+<a href='../S/553.html#L510'>c</a>                 510 usr/lib/libc/stdio/vfscanf.c 				(void) ungetc(c, fp);
+<a href='../S/553.html#L549'>c</a>                 549 usr/lib/libc/stdio/vfscanf.c 	int c, n, v;
+<a href='../S/553.html#L552'>c</a>                 552 usr/lib/libc/stdio/vfscanf.c 	c = *fmt++;		/* first char hat =&gt; negated scanset */
+<a href='../S/553.html#L553'>c</a>                 553 usr/lib/libc/stdio/vfscanf.c 	if (c == '^') {
+<a href='../S/553.html#L555'>c</a>                 555 usr/lib/libc/stdio/vfscanf.c 		c = *fmt++;	/* get new first char */
+<a href='../S/553.html#L561'>c</a>                 561 usr/lib/libc/stdio/vfscanf.c 	if (c == 0)
+<a href='../S/553.html#L573'>c</a>                 573 usr/lib/libc/stdio/vfscanf.c 		tab[c] = v;		/* take character c */
+<a href='../S/553.html#L601'>c</a>                 601 usr/lib/libc/stdio/vfscanf.c 			if (n == ']' || n &lt; c) {
+<a href='../S/553.html#L602'>c</a>                 602 usr/lib/libc/stdio/vfscanf.c 				c = '-';
+<a href='../S/553.html#L607'>c</a>                 607 usr/lib/libc/stdio/vfscanf.c 				tab[++c] = v;
+<a href='../S/553.html#L608'>c</a>                 608 usr/lib/libc/stdio/vfscanf.c 			} while (c &lt; n);
+<a href='../S/553.html#L617'>c</a>                 617 usr/lib/libc/stdio/vfscanf.c 			c = *fmt++;
+<a href='../S/553.html#L618'>c</a>                 618 usr/lib/libc/stdio/vfscanf.c 			if (c == 0)
+<a href='../S/553.html#L620'>c</a>                 620 usr/lib/libc/stdio/vfscanf.c 			if (c == ']')
+<a href='../S/553.html#L629'>c</a>                 629 usr/lib/libc/stdio/vfscanf.c 			c = n;
+<a href='../S/570.html#L67'>c</a>                  67 usr/lib/libc/stdlib/getenv.c 	char **p, *c;
+<a href='../S/570.html#L74'>c</a>                  74 usr/lib/libc/stdlib/getenv.c 	for (p = environ; (c = *p) != NULL; ++p)
+<a href='../S/570.html#L75'>c</a>                  75 usr/lib/libc/stdlib/getenv.c 		if (strncmp(c, name, len) == 0 &amp;&amp; c[len] == '=') {
+<a href='../S/570.html#L77'>c</a>                  77 usr/lib/libc/stdlib/getenv.c 			return (c + len + 1);
+<a href='../S/575.html#L83'>c</a>                  83 usr/lib/libc/stdlib/qsort.c med3(a, b, c, cmp)
+<a href='../S/575.html#L84'>c</a>                  84 usr/lib/libc/stdlib/qsort.c 	char *a, *b, *c;
+<a href='../S/575.html#L88'>c</a>                  88 usr/lib/libc/stdlib/qsort.c 	       (cmp(b, c) &lt; 0 ? b : (cmp(a, c) &lt; 0 ? c : a ))
+<a href='../S/575.html#L89'>c</a>                  89 usr/lib/libc/stdlib/qsort.c               :(cmp(b, c) &gt; 0 ? b : (cmp(a, c) &lt; 0 ? a : c ));
+<a href='../S/578.html#L50'>c</a>                  50 usr/lib/libc/stdlib/setenv.c 	char *c;
+<a href='../S/578.html#L56'>c</a>                  56 usr/lib/libc/stdlib/setenv.c 	if ((c = __findenv(name, &amp;offset))) {	/* find if already exists */
+<a href='../S/578.html#L59'>c</a>                  59 usr/lib/libc/stdlib/setenv.c 		if ((int)strlen(c) &gt;= l_value) {	/* old larger; copy over */
+<a href='../S/578.html#L60'>c</a>                  60 usr/lib/libc/stdlib/setenv.c 			while ( (*c++ = *value++) );
+<a href='../S/578.html#L85'>c</a>                  85 usr/lib/libc/stdlib/setenv.c 	for (c = (char *)name; *c &amp;&amp; *c != '='; ++c);	/* no `=' in name */
+<a href='../S/578.html#L87'>c</a>                  87 usr/lib/libc/stdlib/setenv.c 	    malloc((size_t)((int)(c - name) + l_value + 2))))
+<a href='../S/578.html#L89'>c</a>                  89 usr/lib/libc/stdlib/setenv.c 	for (c = environ[offset]; (*c = *name++) &amp;&amp; *c != '='; ++c);
+<a href='../S/578.html#L90'>c</a>                  90 usr/lib/libc/stdlib/setenv.c 	for (*c++ = '='; (*c++ = *value++) != 0;);
+<a href='../S/579.html#L50'>c</a>                  50 usr/lib/libc/stdlib/strtol.c 	int c;
+<a href='../S/579.html#L60'>c</a>                  60 usr/lib/libc/stdlib/strtol.c 		c = (unsigned char) *s++;
+<a href='../S/579.html#L61'>c</a>                  61 usr/lib/libc/stdlib/strtol.c 	} while (isspace(c));
+<a href='../S/579.html#L62'>c</a>                  62 usr/lib/libc/stdlib/strtol.c 	if (c == '-') {
+<a href='../S/579.html#L64'>c</a>                  64 usr/lib/libc/stdlib/strtol.c 		c = *s++;
+<a href='../S/579.html#L67'>c</a>                  67 usr/lib/libc/stdlib/strtol.c 		if (c == '+')
+<a href='../S/579.html#L68'>c</a>                  68 usr/lib/libc/stdlib/strtol.c 			c = *s++;
+<a href='../S/579.html#L71'>c</a>                  71 usr/lib/libc/stdlib/strtol.c 	    c == '0' &amp;&amp; (*s == 'x' || *s == 'X')) {
+<a href='../S/579.html#L72'>c</a>                  72 usr/lib/libc/stdlib/strtol.c 		c = s[1];
+<a href='../S/579.html#L77'>c</a>                  77 usr/lib/libc/stdlib/strtol.c 		base = c == '0' ? 8 : 10;
+<a href='../S/579.html#L106'>c</a>                 106 usr/lib/libc/stdlib/strtol.c 	for (acc = 0, any = 0;; c = (unsigned char) *s++) {
+<a href='../S/579.html#L107'>c</a>                 107 usr/lib/libc/stdlib/strtol.c 		if (isdigit(c))
+<a href='../S/579.html#L108'>c</a>                 108 usr/lib/libc/stdlib/strtol.c 			c -= '0';
+<a href='../S/579.html#L109'>c</a>                 109 usr/lib/libc/stdlib/strtol.c 		else if (isalpha(c))
+<a href='../S/579.html#L110'>c</a>                 110 usr/lib/libc/stdlib/strtol.c 			c -= isupper(c) ? 'A' - 10 : 'a' - 10;
+<a href='../S/579.html#L113'>c</a>                 113 usr/lib/libc/stdlib/strtol.c 		if (c &gt;= base)
+<a href='../S/579.html#L118'>c</a>                 118 usr/lib/libc/stdlib/strtol.c 			if (acc &lt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/579.html#L125'>c</a>                 125 usr/lib/libc/stdlib/strtol.c 				acc -= c;
+<a href='../S/579.html#L128'>c</a>                 128 usr/lib/libc/stdlib/strtol.c 			if (acc &gt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/579.html#L135'>c</a>                 135 usr/lib/libc/stdlib/strtol.c 				acc += c;
+<a href='../S/580.html#L49'>c</a>                  49 usr/lib/libc/stdlib/strtoul.c 	int c;
+<a href='../S/580.html#L57'>c</a>                  57 usr/lib/libc/stdlib/strtoul.c 		c = (unsigned char) *s++;
+<a href='../S/580.html#L58'>c</a>                  58 usr/lib/libc/stdlib/strtoul.c 	} while (isspace(c));
+<a href='../S/580.html#L59'>c</a>                  59 usr/lib/libc/stdlib/strtoul.c 	if (c == '-') {
+<a href='../S/580.html#L61'>c</a>                  61 usr/lib/libc/stdlib/strtoul.c 		c = *s++;
+<a href='../S/580.html#L64'>c</a>                  64 usr/lib/libc/stdlib/strtoul.c 		if (c == '+')
+<a href='../S/580.html#L65'>c</a>                  65 usr/lib/libc/stdlib/strtoul.c 			c = *s++;
+<a href='../S/580.html#L68'>c</a>                  68 usr/lib/libc/stdlib/strtoul.c 	    c == '0' &amp;&amp; (*s == 'x' || *s == 'X')) {
+<a href='../S/580.html#L69'>c</a>                  69 usr/lib/libc/stdlib/strtoul.c 		c = s[1];
+<a href='../S/580.html#L74'>c</a>                  74 usr/lib/libc/stdlib/strtoul.c 		base = c == '0' ? 8 : 10;
+<a href='../S/580.html#L78'>c</a>                  78 usr/lib/libc/stdlib/strtoul.c 	for (acc = 0, any = 0;; c = (unsigned char) *s++) {
+<a href='../S/580.html#L79'>c</a>                  79 usr/lib/libc/stdlib/strtoul.c 		if (isdigit(c))
+<a href='../S/580.html#L80'>c</a>                  80 usr/lib/libc/stdlib/strtoul.c 			c -= '0';
+<a href='../S/580.html#L81'>c</a>                  81 usr/lib/libc/stdlib/strtoul.c 		else if (isalpha(c))
+<a href='../S/580.html#L82'>c</a>                  82 usr/lib/libc/stdlib/strtoul.c 			c -= isupper(c) ? 'A' - 10 : 'a' - 10;
+<a href='../S/580.html#L85'>c</a>                  85 usr/lib/libc/stdlib/strtoul.c 		if (c &gt;= base)
+<a href='../S/580.html#L89'>c</a>                  89 usr/lib/libc/stdlib/strtoul.c 		if (acc &gt; cutoff || (acc == cutoff &amp;&amp; c &gt; cutlim)) {
+<a href='../S/580.html#L96'>c</a>                  96 usr/lib/libc/stdlib/strtoul.c 			acc += c;
+<a href='../S/587.html#L34'>c</a>                  34 usr/lib/libc/string/memccpy.c memccpy(t, f, c, n)
+<a href='../S/587.html#L37'>c</a>                  37 usr/lib/libc/string/memccpy.c 	int c;
+<a href='../S/587.html#L45'>c</a>                  45 usr/lib/libc/string/memccpy.c 			if ((*tp++ = *fp++) == c)
+<a href='../S/588.html#L37'>c</a>                  37 usr/lib/libc/string/memchr.c memchr(s, c, n)
+<a href='../S/588.html#L39'>c</a>                  39 usr/lib/libc/string/memchr.c 	unsigned char c;
+<a href='../S/588.html#L46'>c</a>                  46 usr/lib/libc/string/memchr.c 			if (*p++ == c)
+<a href='../S/600.html#L45'>c</a>                  45 usr/lib/libc/string/strcspn.c 	char c, sc;
+<a href='../S/600.html#L52'>c</a>                  52 usr/lib/libc/string/strcspn.c 		c = *p++;
+<a href='../S/600.html#L55'>c</a>                  55 usr/lib/libc/string/strcspn.c 			if ((sc = *spanp++) == c)
+<a href='../S/610.html#L41'>c</a>                  41 usr/lib/libc/string/strpbrk.c 	int c, sc;
+<a href='../S/610.html#L43'>c</a>                  43 usr/lib/libc/string/strpbrk.c 	while ((c = *s1++) != 0) {
+<a href='../S/610.html#L45'>c</a>                  45 usr/lib/libc/string/strpbrk.c 			if (sc == c)
+<a href='../S/612.html#L52'>c</a>                  52 usr/lib/libc/string/strsep.c 	int c, sc;
+<a href='../S/612.html#L58'>c</a>                  58 usr/lib/libc/string/strsep.c 		c = *s++;
+<a href='../S/612.html#L61'>c</a>                  61 usr/lib/libc/string/strsep.c 			if ((sc = *spanp++) == c) {
+<a href='../S/612.html#L62'>c</a>                  62 usr/lib/libc/string/strsep.c 				if (c == 0)
+<a href='../S/613.html#L42'>c</a>                  42 usr/lib/libc/string/strspn.c 	char c, sc;
+<a href='../S/613.html#L48'>c</a>                  48 usr/lib/libc/string/strspn.c 	c = *p++;
+<a href='../S/613.html#L50'>c</a>                  50 usr/lib/libc/string/strspn.c 		if (sc == c)
+<a href='../S/614.html#L43'>c</a>                  43 usr/lib/libc/string/strstr.c 	char c, sc;
+<a href='../S/614.html#L46'>c</a>                  46 usr/lib/libc/string/strstr.c 	if ((c = *find++) != 0) {
+<a href='../S/614.html#L52'>c</a>                  52 usr/lib/libc/string/strstr.c 			} while (sc != c);
+<a href='../S/616.html#L42'>c</a>                  42 usr/lib/libc/string/strtok_r.c 	int c, sc;
+<a href='../S/616.html#L52'>c</a>                  52 usr/lib/libc/string/strtok_r.c 	c = *s++;
+<a href='../S/616.html#L54'>c</a>                  54 usr/lib/libc/string/strtok_r.c 		if (c == sc)
+<a href='../S/616.html#L58'>c</a>                  58 usr/lib/libc/string/strtok_r.c 	if (c == 0) {		/* no non-delimiter characters */
+<a href='../S/616.html#L69'>c</a>                  69 usr/lib/libc/string/strtok_r.c 		c = *s++;
+<a href='../S/616.html#L72'>c</a>                  72 usr/lib/libc/string/strtok_r.c 			if ((sc = *spanp++) == c) {
+<a href='../S/616.html#L73'>c</a>                  73 usr/lib/libc/string/strtok_r.c 				if (c == 0)
+<a href='../S/627.html#L42'>c</a>                  42 usr/lib/libc/termios/tcflow.c 	u_char c;
+<a href='../S/627.html#L53'>c</a>                  53 usr/lib/libc/termios/tcflow.c 		c = term.c_cc[action == TCIOFF ? VSTOP : VSTART];
+<a href='../S/627.html#L54'>c</a>                  54 usr/lib/libc/termios/tcflow.c 		if (c != _POSIX_VDISABLE &amp;&amp; write(fd, &amp;c, sizeof(c)) == -1)
+<a href='../S/647.html#L36'>c</a>                  36 usr/lib/libsa/putchar.c putchar(int c)
+<a href='../S/647.html#L40'>c</a>                  40 usr/lib/libsa/putchar.c 	ch = (char)c;
+<a href='../S/647.html#L42'>c</a>                  42 usr/lib/libsa/putchar.c 	return c;
+<a href='../S/650.html#L39'>c</a>                  39 usr/lib/libsa/vsprintf.c #define isdigit(c)  ((unsigned)((c) - '0') &lt; 10)
+<a href='../S/846.html#L125'>c</a>                 125 usr/sample/tetris/input.c 	char c;
+<a href='../S/846.html#L130'>c</a>                 130 usr/sample/tetris/input.c 		if (rwait(&amp;tv) &amp;&amp; read(0, &amp;c, 1) != 1)
+<a href='../S/846.html#L141'>c</a>                 141 usr/sample/tetris/input.c 	char c;
+<a href='../S/846.html#L145'>c</a>                 145 usr/sample/tetris/input.c 	} while (rwait(&amp;tv) &amp;&amp; read(0, &amp;c, 1) == 1);
+<a href='../S/846.html#L155'>c</a>                 155 usr/sample/tetris/input.c 	char c;
+<a href='../S/846.html#L173'>c</a>                 173 usr/sample/tetris/input.c 	if (read(0, &amp;c, 1) != 1)
+<a href='../S/846.html#L175'>c</a>                 175 usr/sample/tetris/input.c 	return ((int)(unsigned char)c);
+<a href='../S/849.html#L65'>c</a>                  65 usr/sample/tetris/screen.c #define	moveto(r, c)	printf("\33[%d;%dH", r, c)
+<a href='../S/852.html#L119'>c</a>                 119 usr/sample/tetris/tetris.c 	int pos, c;
+<a href='../S/852.html#L187'>c</a>                 187 usr/sample/tetris/tetris.c 		c = tgetchar();
+<a href='../S/852.html#L188'>c</a>                 188 usr/sample/tetris/tetris.c 		if (c &lt; 0) {
+<a href='../S/852.html#L219'>c</a>                 219 usr/sample/tetris/tetris.c 		if (c == keys[5]) {
+<a href='../S/852.html#L223'>c</a>                 223 usr/sample/tetris/tetris.c 		if (c == keys[4]) {
+<a href='../S/852.html#L239'>c</a>                 239 usr/sample/tetris/tetris.c 		if (c == keys[0]) {
+<a href='../S/852.html#L245'>c</a>                 245 usr/sample/tetris/tetris.c 		if (c == keys[1]) {
+<a href='../S/852.html#L253'>c</a>                 253 usr/sample/tetris/tetris.c 		if (c == keys[2]) {
+<a href='../S/852.html#L259'>c</a>                 259 usr/sample/tetris/tetris.c 		if (c == keys[3]) {
+<a href='../S/852.html#L267'>c</a>                 267 usr/sample/tetris/tetris.c 		if (c == '\f')
+<a href='../S/889.html#L282'>c</a>                 282 usr/server/fs/fatfs/fatfs_fat.c 	u_long c, target;
+<a href='../S/889.html#L287'>c</a>                 287 usr/server/fs/fatfs/fatfs_fat.c 	c = start;
+<a href='../S/889.html#L290'>c</a>                 290 usr/server/fs/fatfs/fatfs_fat.c 		error = fat_next_cluster(fmp, c, &amp;c);
+<a href='../S/889.html#L293'>c</a>                 293 usr/server/fs/fatfs/fatfs_fat.c 		if (IS_EOFCL(fmp, c))
+<a href='../S/889.html#L296'>c</a>                 296 usr/server/fs/fatfs/fatfs_fat.c 	*cl = c;
+<a href='../S/948.html#L39'>c</a>                  39 usr/test/fault/fault.c 	int c;
+<a href='../S/948.html#L46'>c</a>                  46 usr/test/fault/fault.c 	c = getchar();
+<a href='../S/967.html#L91'>c</a>                  91 usr/test/kmon/kmon.c 	int c, len = 0;
+<a href='../S/967.html#L95'>c</a>                  95 usr/test/kmon/kmon.c 		c = getchar();
+<a href='../S/967.html#L96'>c</a>                  96 usr/test/kmon/kmon.c 		if (c == '\n' || len &gt; LINE_MAX) {
+<a href='../S/967.html#L100'>c</a>                 100 usr/test/kmon/kmon.c 		*p = (char)c;
+</pre>
+</body>
+</html>

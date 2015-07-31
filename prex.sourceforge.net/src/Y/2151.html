@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>tick</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/264.html#L183'>tick</a>              183 include/sys/param.h #define hztoms(tick)	((tick) &gt;= 0x20000 ? \
+<a href='../S/264.html#L184'>tick</a>              184 include/sys/param.h 			 (((tick) + 0u) / HZ) * 1000u : \
+<a href='../S/264.html#L185'>tick</a>              185 include/sys/param.h 			 (((tick) + 0u) * 1000u) / HZ)
+<a href='../S/276.html#L102'>tick</a>              102 include/sys/time.h 	int	tick;		/* micro-seconds per hz tick */
+<a href='../S/827.html#L67'>tick</a>               67 usr/sample/alarm/alarm.c 	u_long tick;
+<a href='../S/827.html#L76'>tick</a>               76 usr/sample/alarm/alarm.c 		sys_time(&amp;tick);
+<a href='../S/827.html#L78'>tick</a>               78 usr/sample/alarm/alarm.c 		       (u_int)((tick - start_tick) * 1000 / hz));
+</pre>
+</body>
+</html>

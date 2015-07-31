@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ELFSIZE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/254.html#L421'>ELFSIZE</a>           421 include/sys/elf.h #if !defined(ELFSIZE) &amp;&amp; defined(ARCH_ELFSIZE)
+<a href='../S/254.html#L425'>ELFSIZE</a>           425 include/sys/elf.h #if defined(ELFSIZE)
+<a href='../S/254.html#L427'>ELFSIZE</a>           427 include/sys/elf.h #define ELFNAME(x)	CONCAT(elf,CONCAT(ELFSIZE,CONCAT(_,x)))
+<a href='../S/254.html#L428'>ELFSIZE</a>           428 include/sys/elf.h #define ELFNAME2(x,y)	CONCAT(x,CONCAT(_elf,CONCAT(ELFSIZE,CONCAT(_,y))))
+<a href='../S/254.html#L429'>ELFSIZE</a>           429 include/sys/elf.h #define ELFNAMEEND(x)	CONCAT(x,CONCAT(_elf,ELFSIZE))
+<a href='../S/254.html#L430'>ELFSIZE</a>           430 include/sys/elf.h #define ELFDEFNNAME(x)	CONCAT(ELF,CONCAT(ELFSIZE,CONCAT(_,x)))
+</pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>thread_schedparam</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/319.html#L112'>thread_schedparam</a>  112 sys/include/thread.h int	 thread_schedparam(thread_t, int, int *);
+<a href='../S/332.html#L102'>thread_schedparam</a>  102 sys/kern/sysent.c 	/* 19 */ SYSENT(3, thread_schedparam),
+<a href='../S/803.html#L32'>thread_schedparam</a>   32 usr/lib/prex/syscalls/thread_getpolicy.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/803.html#L38'>thread_schedparam</a>   38 usr/lib/prex/syscalls/thread_getpolicy.c 	return thread_schedparam(t, 2, policy);
+<a href='../S/804.html#L32'>thread_schedparam</a>   32 usr/lib/prex/syscalls/thread_getpri.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/804.html#L38'>thread_schedparam</a>   38 usr/lib/prex/syscalls/thread_getpri.c 	return thread_schedparam(t, 0, pri);
+<a href='../S/809.html#L32'>thread_schedparam</a>   32 usr/lib/prex/syscalls/thread_setpolicy.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/809.html#L38'>thread_schedparam</a>   38 usr/lib/prex/syscalls/thread_setpolicy.c 	return thread_schedparam(t, 3, &amp;policy);
+<a href='../S/810.html#L32'>thread_schedparam</a>   32 usr/lib/prex/syscalls/thread_setpri.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/810.html#L38'>thread_schedparam</a>   38 usr/lib/prex/syscalls/thread_setpri.c 	return thread_schedparam(t, 1, &amp;pri);
+</pre>
+</body>
+</html>

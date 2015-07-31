@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>msg_send</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L117'>msg_send</a>          117 include/sys/prex.h int	msg_send(object_t obj, void *msg, size_t size);
+<a href='../S/309.html#L56'>msg_send</a>           56 sys/include/ipc.h int	 msg_send(object_t, void *, size_t);
+<a href='../S/332.html#L110'>msg_send</a>          110 sys/kern/sysent.c 	/* 27 */ SYSENT(3, msg_send),
+<a href='../S/404.html#L63'>msg_send</a>           63 usr/bin/ps/ps.c 		rc = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/655.html#L105'>msg_send</a>          105 usr/lib/posix/exec/execve.c 		error = msg_send(execobj, &amp;msg, sizeof(msg));
+<a href='../S/696.html#L66'>msg_send</a>           66 usr/lib/posix/file/__file.c 		msg_send(__fs_obj, &amp;m, sizeof(m));
+<a href='../S/696.html#L83'>msg_send</a>           83 usr/lib/posix/file/__file.c 	msg_send(__fs_obj, &amp;m, sizeof(m));
+<a href='../S/702.html#L53'>msg_send</a>           53 usr/lib/posix/gen/__posix_call.c 		error = msg_send(obj, msg, size);
+<a href='../S/733.html#L62'>msg_send</a>           62 usr/lib/posix/process/__process.c 		msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/717.html#L52'>msg_send</a>           52 usr/lib/posix/process/kill.c 	error = msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/731.html#L62'>msg_send</a>           62 usr/lib/posix/process/waitpid.c 		error = msg_send(__proc_obj, &amp;m, sizeof(m));
+<a href='../S/837.html#L87'>msg_send</a>           87 usr/sample/ipc/ipc.c 	msg_send(obj, &amp;msg, sizeof(msg));
+<a href='../S/856.html#L63'>msg_send</a>           63 usr/sbin/debug/debug.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/864.html#L62'>msg_send</a>           62 usr/sbin/ktrace/ktrace.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/870.html#L129'>msg_send</a>          129 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L144'>msg_send</a>          144 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L159'>msg_send</a>          159 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L172'>msg_send</a>          172 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L178'>msg_send</a>          178 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L183'>msg_send</a>          183 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L207'>msg_send</a>          207 usr/sbin/pmctrl/pmctrl.c 	msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L223'>msg_send</a>          223 usr/sbin/pmctrl/pmctrl.c 		msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/870.html#L240'>msg_send</a>          240 usr/sbin/pmctrl/pmctrl.c 		msg_send(powobj, &amp;m, sizeof(m));
+<a href='../S/871.html#L116'>msg_send</a>          116 usr/server/boot/boot.c 	error = msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/871.html#L226'>msg_send</a>          226 usr/server/boot/boot.c 		error = msg_send(execobj, &amp;msg, sizeof(msg));
+<a href='../S/871.html#L298'>msg_send</a>          298 usr/server/boot/boot.c 	msg_send(execobj, &amp;bm, sizeof(bm));
+<a href='../S/871.html#L305'>msg_send</a>          305 usr/server/boot/boot.c 	msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/877.html#L429'>msg_send</a>          429 usr/server/exec/exec_execve.c 		error = msg_send(fsobj, &amp;m, sizeof(m));
+<a href='../S/877.html#L438'>msg_send</a>          438 usr/server/exec/exec_execve.c 		error = msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/879.html#L90'>msg_send</a>           90 usr/server/exec/main.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/903.html#L866'>msg_send</a>          866 usr/server/fs/vfs/main.c 	msg_send(execobj, &amp;bm, sizeof(bm));
+<a href='../S/903.html#L874'>msg_send</a>          874 usr/server/fs/vfs/main.c 	msg_send(procobj, &amp;m, sizeof(m));
+<a href='../S/916.html#L335'>msg_send</a>          335 usr/server/pow/pow.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/916.html#L378'>msg_send</a>          378 usr/server/pow/pow.c 	error = msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/916.html#L419'>msg_send</a>          419 usr/server/pow/pow.c 	msg_send(execobj, &amp;bm, sizeof(bm));
+<a href='../S/917.html#L425'>msg_send</a>          425 usr/server/proc/main.c 	msg_send(obj, &amp;m, sizeof(m));
+<a href='../S/928.html#L67'>msg_send</a>           67 usr/test/attack/attack.c 	msg_send(0, msg, size);
+<a href='../S/928.html#L68'>msg_send</a>           68 usr/test/attack/attack.c 	msg_send(obj, NULL, size);
+<a href='../S/928.html#L69'>msg_send</a>           69 usr/test/attack/attack.c 	msg_send(obj, msg, 0);
+<a href='../S/928.html#L70'>msg_send</a>           70 usr/test/attack/attack.c 	msg_send(0, msg, 0);
+<a href='../S/928.html#L71'>msg_send</a>           71 usr/test/attack/attack.c 	msg_send(0, NULL, size);
+<a href='../S/928.html#L72'>msg_send</a>           72 usr/test/attack/attack.c 	msg_send(obj, msg, size);
+<a href='../S/954.html#L94'>msg_send</a>           94 usr/test/fileio/fileio.c 	msg_send(fsobj, &amp;m, sizeof(m));
+<a href='../S/960.html#L102'>msg_send</a>          102 usr/test/ipc/ipc.c 	msg_send(o2, &amp;msg, sizeof(msg));
+<a href='../S/990.html#L103'>msg_send</a>          103 usr/test/shutdown/shutdown.c 	error = msg_send(powobj, &amp;m, sizeof(m));
+</pre>
+</body>
+</html>

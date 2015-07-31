@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/214.html#L40'>t</a>                  40 include/arm/stdarg.h #define	va_arg(a, t)		(0)
+<a href='../S/242.html#L40'>t</a>                  40 include/ppc/stdarg.h #define	va_arg(a, t)		(0)
+<a href='../S/254.html#L257'>t</a>                 257 include/sys/elf.h #define ELF32_ST_INFO(b,t)	(((b) &lt;&lt; 4) + ((t) &amp; 0xf))
+<a href='../S/254.html#L295'>t</a>                 295 include/sys/elf.h #define ELF32_R_INFO(s,t) 	(((s) &lt;&lt; 8) + (unsigned char)(t))
+<a href='../S/259.html#L62'>t</a>                  62 include/sys/ioctl.h #define	_IOR(g,n,t)	_IOC(IOC_OUT,	(g), (n), sizeof(t))
+<a href='../S/259.html#L63'>t</a>                  63 include/sys/ioctl.h #define	_IOW(g,n,t)	_IOC(IOC_IN,	(g), (n), sizeof(t))
+<a href='../S/259.html#L65'>t</a>                  65 include/sys/ioctl.h #define	_IOWR(g,n,t)	_IOC(IOC_INOUT,	(g), (n), sizeof(t))
+<a href='../S/259.html#L67'>t</a>                  67 include/sys/ioctl.h #define	_IORN(g,n,t)	_IOC((IOC_OVAL|IOC_OUT), (g), (n), sizeof(t))
+<a href='../S/259.html#L68'>t</a>                  68 include/sys/ioctl.h #define	_IOWN(g,n,t)	_IOC((IOC_IVAL|IOC_IN),  (g), (n), sizeof(t))
+<a href='../S/267.html#L97'>t</a>                  97 include/sys/prex.h int	thread_terminate(thread_t t);
+<a href='../S/267.html#L98'>t</a>                  98 include/sys/prex.h int	thread_load(thread_t t, void (*entry)(void), void *stack);
+<a href='../S/267.html#L101'>t</a>                 101 include/sys/prex.h int	thread_suspend(thread_t t);
+<a href='../S/267.html#L102'>t</a>                 102 include/sys/prex.h int	thread_resume(thread_t t);
+<a href='../S/267.html#L103'>t</a>                 103 include/sys/prex.h int	thread_getpri(thread_t t, int *pri);
+<a href='../S/267.html#L104'>t</a>                 104 include/sys/prex.h int	thread_setpri(thread_t t, int	pri);
+<a href='../S/267.html#L105'>t</a>                 105 include/sys/prex.h int	thread_getpolicy(thread_t t, int *policy);
+<a href='../S/267.html#L106'>t</a>                 106 include/sys/prex.h int	thread_setpolicy(thread_t t, int policy);
+<a href='../S/267.html#L123'>t</a>                 123 include/sys/prex.h int	timer_periodic(thread_t t, u_long start, u_long period);
+<a href='../S/277.html#L129'>t</a>                 129 include/sys/types.h #define	FD_COPY(f, t)	bcopy(f, t, sizeof(*(f)))
+<a href='../S/288.html#L40'>t</a>                  40 include/x86/stdarg.h #define	va_arg(a, t)		(0)
+<a href='../S/324.html#L84'>t</a>                  84 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L134'>t</a>                 134 sys/ipc/msg.c  		t = msg_dequeue(&amp;obj-&gt;recvq);
+<a href='../S/324.html#L135'>t</a>                 135 sys/ipc/msg.c  		sched_unsleep(t, 0);
+<a href='../S/324.html#L190'>t</a>                 190 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L257'>t</a>                 257 sys/ipc/msg.c  	t = msg_dequeue(&amp;obj-&gt;sendq);
+<a href='../S/324.html#L262'>t</a>                 262 sys/ipc/msg.c  	len = MIN(size, t-&gt;msgsize);
+<a href='../S/324.html#L264'>t</a>                 264 sys/ipc/msg.c  		if (copyout(t-&gt;msgaddr, msg, len)) {
+<a href='../S/324.html#L265'>t</a>                 265 sys/ipc/msg.c  			msg_enqueue(&amp;obj-&gt;sendq, t);
+<a href='../S/324.html#L274'>t</a>                 274 sys/ipc/msg.c  	curthread-&gt;sender = t;
+<a href='../S/324.html#L275'>t</a>                 275 sys/ipc/msg.c  	t-&gt;receiver = curthread;
+<a href='../S/324.html#L290'>t</a>                 290 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L314'>t</a>                 314 sys/ipc/msg.c  	t = curthread-&gt;sender;
+<a href='../S/324.html#L315'>t</a>                 315 sys/ipc/msg.c  	len = MIN(size, t-&gt;msgsize);
+<a href='../S/324.html#L317'>t</a>                 317 sys/ipc/msg.c  		if (copyin(msg, t-&gt;msgaddr, len)) {
+<a href='../S/324.html#L325'>t</a>                 325 sys/ipc/msg.c  	sched_unsleep(t, 0);
+<a href='../S/324.html#L326'>t</a>                 326 sys/ipc/msg.c  	t-&gt;receiver = NULL;
+<a href='../S/324.html#L357'>t</a>                 357 sys/ipc/msg.c  msg_cancel(thread_t t)
+<a href='../S/324.html#L362'>t</a>                 362 sys/ipc/msg.c  	if (t-&gt;sendobj != NULL) {
+<a href='../S/324.html#L363'>t</a>                 363 sys/ipc/msg.c  		if (t-&gt;receiver != NULL)
+<a href='../S/324.html#L364'>t</a>                 364 sys/ipc/msg.c  			t-&gt;receiver-&gt;sender = NULL;
+<a href='../S/324.html#L366'>t</a>                 366 sys/ipc/msg.c  			queue_remove(&amp;t-&gt;ipc_link);
+<a href='../S/324.html#L368'>t</a>                 368 sys/ipc/msg.c  	if (t-&gt;recvobj != NULL) {
+<a href='../S/324.html#L369'>t</a>                 369 sys/ipc/msg.c  		if (t-&gt;sender != NULL) {
+<a href='../S/324.html#L370'>t</a>                 370 sys/ipc/msg.c  			sched_unsleep(t-&gt;sender, SLP_BREAK);
+<a href='../S/324.html#L371'>t</a>                 371 sys/ipc/msg.c  			t-&gt;sender-&gt;receiver = NULL;
+<a href='../S/324.html#L373'>t</a>                 373 sys/ipc/msg.c  			queue_remove(&amp;t-&gt;ipc_link);
+<a href='../S/324.html#L386'>t</a>                 386 sys/ipc/msg.c  	thread_t t;
+<a href='../S/324.html#L395'>t</a>                 395 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L396'>t</a>                 396 sys/ipc/msg.c  		sched_unsleep(t, SLP_INVAL);
+<a href='../S/324.html#L403'>t</a>                 403 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L404'>t</a>                 404 sys/ipc/msg.c  		sched_unsleep(t, SLP_INVAL);
+<a href='../S/324.html#L417'>t</a>                 417 sys/ipc/msg.c  	thread_t t, top;
+<a href='../S/324.html#L423'>t</a>                 423 sys/ipc/msg.c  		t = queue_entry(q, struct thread, ipc_link);
+<a href='../S/324.html#L424'>t</a>                 424 sys/ipc/msg.c  		if (t-&gt;priority &lt; top-&gt;priority)
+<a href='../S/324.html#L425'>t</a>                 425 sys/ipc/msg.c  			top = t;
+<a href='../S/324.html#L433'>t</a>                 433 sys/ipc/msg.c  msg_enqueue(queue_t head, thread_t t)
+<a href='../S/324.html#L436'>t</a>                 436 sys/ipc/msg.c  	enqueue(head, &amp;t-&gt;ipc_link);
+<a href='../S/328.html#L101'>t</a>                 101 sys/kern/exception.c 	thread_t t;
+<a href='../S/328.html#L122'>t</a>                 122 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L123'>t</a>                 123 sys/kern/exception.c 			t-&gt;excbits = 0;
+<a href='../S/328.html#L130'>t</a>                 130 sys/kern/exception.c 			if (t-&gt;slpevt == &amp;exception_event) {
+<a href='../S/328.html#L133'>t</a>                 133 sys/kern/exception.c 				sched_unsleep(t, SLP_BREAK);
+<a href='../S/328.html#L176'>t</a>                 176 sys/kern/exception.c 	thread_t t = NULL;
+<a href='../S/328.html#L199'>t</a>                 199 sys/kern/exception.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L200'>t</a>                 200 sys/kern/exception.c 		if (t-&gt;slpevt == &amp;exception_event) {
+<a href='../S/328.html#L213'>t</a>                 213 sys/kern/exception.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/328.html#L221'>t</a>                 221 sys/kern/exception.c 	t-&gt;excbits |= (1 &lt;&lt; excno);
+<a href='../S/328.html#L228'>t</a>                 228 sys/kern/exception.c 	sched_unsleep(t, SLP_INTR);
+<a href='../S/331.html#L118'>t</a>                 118 sys/kern/sched.c runq_enqueue(thread_t t)
+<a href='../S/331.html#L121'>t</a>                 121 sys/kern/sched.c 	enqueue(&amp;runq[t-&gt;priority], &amp;t-&gt;sched_link);
+<a href='../S/331.html#L122'>t</a>                 122 sys/kern/sched.c 	if (t-&gt;priority &lt; maxpri) {
+<a href='../S/331.html#L123'>t</a>                 123 sys/kern/sched.c 		maxpri = t-&gt;priority;
+<a href='../S/331.html#L133'>t</a>                 133 sys/kern/sched.c runq_insert(thread_t t)
+<a href='../S/331.html#L136'>t</a>                 136 sys/kern/sched.c 	queue_insert(&amp;runq[t-&gt;priority], &amp;t-&gt;sched_link);
+<a href='../S/331.html#L137'>t</a>                 137 sys/kern/sched.c 	if (t-&gt;priority &lt; maxpri)
+<a href='../S/331.html#L138'>t</a>                 138 sys/kern/sched.c 		maxpri = t-&gt;priority;
+<a href='../S/331.html#L149'>t</a>                 149 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L152'>t</a>                 152 sys/kern/sched.c 	t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L156'>t</a>                 156 sys/kern/sched.c 	return t;
+<a href='../S/331.html#L163'>t</a>                 163 sys/kern/sched.c runq_remove(thread_t t)
+<a href='../S/331.html#L166'>t</a>                 166 sys/kern/sched.c 	queue_remove(&amp;t-&gt;sched_link);
+<a href='../S/331.html#L177'>t</a>                 177 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L184'>t</a>                 184 sys/kern/sched.c 		t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L185'>t</a>                 185 sys/kern/sched.c 		t-&gt;slpevt = NULL;
+<a href='../S/331.html#L186'>t</a>                 186 sys/kern/sched.c 		t-&gt;state &amp;= ~TS_SLEEP;
+<a href='../S/331.html#L187'>t</a>                 187 sys/kern/sched.c 		if (t != curthread &amp;&amp; t-&gt;state == TS_RUN)
+<a href='../S/331.html#L188'>t</a>                 188 sys/kern/sched.c 			runq_enqueue(t);
+<a href='../S/331.html#L198'>t</a>                 198 sys/kern/sched.c sched_setrun(thread_t t)
+<a href='../S/331.html#L201'>t</a>                 201 sys/kern/sched.c 	enqueue(&amp;wakeq, &amp;t-&gt;sched_link);
+<a href='../S/331.html#L202'>t</a>                 202 sys/kern/sched.c 	timer_stop(&amp;t-&gt;timeout);
+<a href='../S/331.html#L257'>t</a>                 257 sys/kern/sched.c 	thread_t t = (thread_t)arg;
+<a href='../S/331.html#L259'>t</a>                 259 sys/kern/sched.c 	sched_unsleep(t, SLP_TIMEOUT);
+<a href='../S/331.html#L310'>t</a>                 310 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L319'>t</a>                 319 sys/kern/sched.c 		t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L320'>t</a>                 320 sys/kern/sched.c 		t-&gt;slpret = 0;
+<a href='../S/331.html#L321'>t</a>                 321 sys/kern/sched.c 		sched_setrun(t);
+<a href='../S/331.html#L338'>t</a>                 338 sys/kern/sched.c 	thread_t top, t = NULL;
+<a href='../S/331.html#L352'>t</a>                 352 sys/kern/sched.c 			t = queue_entry(q, struct thread, sched_link);
+<a href='../S/331.html#L353'>t</a>                 353 sys/kern/sched.c 			if (t-&gt;priority &lt; top-&gt;priority)
+<a href='../S/331.html#L354'>t</a>                 354 sys/kern/sched.c 				top = t;
+<a href='../S/331.html#L363'>t</a>                 363 sys/kern/sched.c 	return t;
+<a href='../S/331.html#L374'>t</a>                 374 sys/kern/sched.c sched_unsleep(thread_t t, int result)
+<a href='../S/331.html#L379'>t</a>                 379 sys/kern/sched.c 	if (t-&gt;state &amp; TS_SLEEP) {
+<a href='../S/331.html#L381'>t</a>                 381 sys/kern/sched.c 		queue_remove(&amp;t-&gt;sched_link);
+<a href='../S/331.html#L382'>t</a>                 382 sys/kern/sched.c 		t-&gt;slpret = result;
+<a href='../S/331.html#L383'>t</a>                 383 sys/kern/sched.c 		sched_setrun(t);
+<a href='../S/331.html#L412'>t</a>                 412 sys/kern/sched.c sched_suspend(thread_t t)
+<a href='../S/331.html#L415'>t</a>                 415 sys/kern/sched.c 	if (t-&gt;state == TS_RUN) {
+<a href='../S/331.html#L416'>t</a>                 416 sys/kern/sched.c 		if (t == curthread)
+<a href='../S/331.html#L419'>t</a>                 419 sys/kern/sched.c 			runq_remove(t);
+<a href='../S/331.html#L421'>t</a>                 421 sys/kern/sched.c 	t-&gt;state |= TS_SUSP;
+<a href='../S/331.html#L429'>t</a>                 429 sys/kern/sched.c sched_resume(thread_t t)
+<a href='../S/331.html#L432'>t</a>                 432 sys/kern/sched.c 	if (t-&gt;state &amp; TS_SUSP) {
+<a href='../S/331.html#L433'>t</a>                 433 sys/kern/sched.c 		t-&gt;state &amp;= ~TS_SUSP;
+<a href='../S/331.html#L434'>t</a>                 434 sys/kern/sched.c 		if (t-&gt;state == TS_RUN)
+<a href='../S/331.html#L435'>t</a>                 435 sys/kern/sched.c 			runq_enqueue(t);
+<a href='../S/331.html#L471'>t</a>                 471 sys/kern/sched.c sched_start(thread_t t, int pri, int policy)
+<a href='../S/331.html#L474'>t</a>                 474 sys/kern/sched.c 	t-&gt;state = TS_RUN | TS_SUSP;
+<a href='../S/331.html#L475'>t</a>                 475 sys/kern/sched.c 	t-&gt;policy = policy;
+<a href='../S/331.html#L476'>t</a>                 476 sys/kern/sched.c 	t-&gt;priority = pri;
+<a href='../S/331.html#L477'>t</a>                 477 sys/kern/sched.c 	t-&gt;basepri = pri;
+<a href='../S/331.html#L478'>t</a>                 478 sys/kern/sched.c 	if (t-&gt;policy == SCHED_RR)
+<a href='../S/331.html#L479'>t</a>                 479 sys/kern/sched.c 		t-&gt;timeleft = QUANTUM;
+<a href='../S/331.html#L486'>t</a>                 486 sys/kern/sched.c sched_stop(thread_t t)
+<a href='../S/331.html#L489'>t</a>                 489 sys/kern/sched.c 	if (t == curthread) {
+<a href='../S/331.html#L499'>t</a>                 499 sys/kern/sched.c 		if (t-&gt;state == TS_RUN)
+<a href='../S/331.html#L500'>t</a>                 500 sys/kern/sched.c 			runq_remove(t);
+<a href='../S/331.html#L501'>t</a>                 501 sys/kern/sched.c 		else if (t-&gt;state &amp; TS_SLEEP)
+<a href='../S/331.html#L502'>t</a>                 502 sys/kern/sched.c 			queue_remove(&amp;t-&gt;sched_link);
+<a href='../S/331.html#L504'>t</a>                 504 sys/kern/sched.c 	timer_stop(&amp;t-&gt;timeout);
+<a href='../S/331.html#L505'>t</a>                 505 sys/kern/sched.c 	t-&gt;state = TS_EXIT;
+<a href='../S/331.html#L567'>t</a>                 567 sys/kern/sched.c sched_getpri(thread_t t)
+<a href='../S/331.html#L570'>t</a>                 570 sys/kern/sched.c 	return t-&gt;priority;
+<a href='../S/331.html#L581'>t</a>                 581 sys/kern/sched.c sched_setpri(thread_t t, int basepri, int pri)
+<a href='../S/331.html#L584'>t</a>                 584 sys/kern/sched.c 	t-&gt;basepri = basepri;
+<a href='../S/331.html#L586'>t</a>                 586 sys/kern/sched.c 	if (t == curthread) {
+<a href='../S/331.html#L591'>t</a>                 591 sys/kern/sched.c 		t-&gt;priority = pri;
+<a href='../S/331.html#L596'>t</a>                 596 sys/kern/sched.c 		if (t-&gt;state == TS_RUN) {
+<a href='../S/331.html#L602'>t</a>                 602 sys/kern/sched.c 			runq_remove(t);
+<a href='../S/331.html#L603'>t</a>                 603 sys/kern/sched.c 			t-&gt;priority = pri;
+<a href='../S/331.html#L604'>t</a>                 604 sys/kern/sched.c 			runq_enqueue(t);
+<a href='../S/331.html#L606'>t</a>                 606 sys/kern/sched.c 			t-&gt;priority = pri;
+<a href='../S/331.html#L614'>t</a>                 614 sys/kern/sched.c sched_getpolicy(thread_t t)
+<a href='../S/331.html#L617'>t</a>                 617 sys/kern/sched.c 	return t-&gt;policy;
+<a href='../S/331.html#L624'>t</a>                 624 sys/kern/sched.c sched_setpolicy(thread_t t, int policy)
+<a href='../S/331.html#L631'>t</a>                 631 sys/kern/sched.c 		t-&gt;timeleft = QUANTUM;
+<a href='../S/331.html#L632'>t</a>                 632 sys/kern/sched.c 		t-&gt;policy = policy;
+<a href='../S/331.html#L716'>t</a>                 716 sys/kern/sched.c 	thread_t t;
+<a href='../S/331.html#L728'>t</a>                 728 sys/kern/sched.c 	t = kthread_create(dpc_thread, NULL, PRI_DPC);
+<a href='../S/331.html#L729'>t</a>                 729 sys/kern/sched.c 	if (t == NULL)
+<a href='../S/333.html#L232'>t</a>                 232 sys/kern/system.c 	u_long t;
+<a href='../S/333.html#L234'>t</a>                 234 sys/kern/system.c 	t = timer_ticks();
+<a href='../S/333.html#L235'>t</a>                 235 sys/kern/system.c 	return copyout(&amp;t, ticks, sizeof(t));
+<a href='../S/334.html#L169'>t</a>                 169 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L198'>t</a>                 198 sys/kern/task.c 		t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L199'>t</a>                 199 sys/kern/task.c 		if (t != curthread)
+<a href='../S/334.html#L200'>t</a>                 200 sys/kern/task.c 			thread_destroy(t);
+<a href='../S/334.html#L230'>t</a>                 230 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L248'>t</a>                 248 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L249'>t</a>                 249 sys/kern/task.c 			thread_suspend(t);
+<a href='../S/334.html#L266'>t</a>                 266 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L290'>t</a>                 290 sys/kern/task.c 			t = list_entry(n, struct thread, task_link);
+<a href='../S/334.html#L291'>t</a>                 291 sys/kern/task.c 			thread_resume(t);
+<a href='../S/334.html#L478'>t</a>                 478 sys/kern/task.c 	thread_t t;
+<a href='../S/334.html#L506'>t</a>                 506 sys/kern/task.c 		if ((error = thread_create(task, &amp;t)) != 0)
+<a href='../S/334.html#L509'>t</a>                 509 sys/kern/task.c 		error = thread_load(t, (void (*)(void))mod-&gt;entry, sp);
+<a href='../S/334.html#L512'>t</a>                 512 sys/kern/task.c 		t-&gt;priority = PRI_REALTIME;
+<a href='../S/334.html#L513'>t</a>                 513 sys/kern/task.c 		t-&gt;basepri = PRI_REALTIME;
+<a href='../S/334.html#L514'>t</a>                 514 sys/kern/task.c 		thread_resume(t);
+<a href='../S/335.html#L67'>t</a>                  67 sys/kern/thread.c 	thread_t t;
+<a href='../S/335.html#L90'>t</a>                  90 sys/kern/thread.c 		t = NULL;
+<a href='../S/335.html#L91'>t</a>                  91 sys/kern/thread.c 		if (copyout(&amp;t, tp, sizeof(t))) {
+<a href='../S/335.html#L99'>t</a>                  99 sys/kern/thread.c 	if ((t = thread_allocate(task)) == NULL) {
+<a href='../S/335.html#L104'>t</a>                 104 sys/kern/thread.c 	memcpy(t-&gt;kstack, curthread-&gt;kstack, KSTACKSZ);
+<a href='../S/335.html#L105'>t</a>                 105 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L106'>t</a>                 106 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L107'>t</a>                 107 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)&amp;syscall_ret);
+<a href='../S/335.html#L108'>t</a>                 108 sys/kern/thread.c 	sched_start(t, curthread-&gt;basepri, SCHED_RR);
+<a href='../S/335.html#L109'>t</a>                 109 sys/kern/thread.c 	t-&gt;suscnt = task-&gt;suscnt + 1;
+<a href='../S/335.html#L115'>t</a>                 115 sys/kern/thread.c 		*tp = t;
+<a href='../S/335.html#L117'>t</a>                 117 sys/kern/thread.c 		copyout(&amp;t, tp, sizeof(t));
+<a href='../S/335.html#L129'>t</a>                 129 sys/kern/thread.c thread_terminate(thread_t t)
+<a href='../S/335.html#L133'>t</a>                 133 sys/kern/thread.c 	if (!thread_valid(t)) {
+<a href='../S/335.html#L137'>t</a>                 137 sys/kern/thread.c 	if (!task_access(t-&gt;task)) {
+<a href='../S/335.html#L141'>t</a>                 141 sys/kern/thread.c 	thread_destroy(t);
+<a href='../S/335.html#L167'>t</a>                 167 sys/kern/thread.c thread_load(thread_t t, void (*entry)(void), void *stack)
+<a href='../S/335.html#L178'>t</a>                 178 sys/kern/thread.c 	if (!thread_valid(t)) {
+<a href='../S/335.html#L182'>t</a>                 182 sys/kern/thread.c 	if (!task_access(t-&gt;task)) {
+<a href='../S/335.html#L188'>t</a>                 188 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_UENTRY, (register_t)entry);
+<a href='../S/335.html#L190'>t</a>                 190 sys/kern/thread.c 		context_set(&amp;t-&gt;ctx, CTX_USTACK, (register_t)stack);
+<a href='../S/335.html#L211'>t</a>                 211 sys/kern/thread.c thread_valid(thread_t t)
+<a href='../S/335.html#L219'>t</a>                 219 sys/kern/thread.c 		if (tmp == t)
+<a href='../S/335.html#L243'>t</a>                 243 sys/kern/thread.c thread_suspend(thread_t t)
+<a href='../S/335.html#L247'>t</a>                 247 sys/kern/thread.c 	if (!thread_valid(t)) {
+<a href='../S/335.html#L251'>t</a>                 251 sys/kern/thread.c 	if (!task_access(t-&gt;task)) {
+<a href='../S/335.html#L255'>t</a>                 255 sys/kern/thread.c 	if (++t-&gt;suscnt == 1)
+<a href='../S/335.html#L256'>t</a>                 256 sys/kern/thread.c 		sched_suspend(t);
+<a href='../S/335.html#L269'>t</a>                 269 sys/kern/thread.c thread_resume(thread_t t)
+<a href='../S/335.html#L272'>t</a>                 272 sys/kern/thread.c 	ASSERT(t != curthread);
+<a href='../S/335.html#L275'>t</a>                 275 sys/kern/thread.c 	if (!thread_valid(t)) {
+<a href='../S/335.html#L279'>t</a>                 279 sys/kern/thread.c 	if (!task_access(t-&gt;task)) {
+<a href='../S/335.html#L283'>t</a>                 283 sys/kern/thread.c 	if (t-&gt;suscnt == 0) {
+<a href='../S/335.html#L287'>t</a>                 287 sys/kern/thread.c 	t-&gt;suscnt--;
+<a href='../S/335.html#L288'>t</a>                 288 sys/kern/thread.c 	if (t-&gt;suscnt == 0 &amp;&amp; t-&gt;task-&gt;suscnt == 0)
+<a href='../S/335.html#L289'>t</a>                 289 sys/kern/thread.c 		sched_resume(t);
+<a href='../S/335.html#L299'>t</a>                 299 sys/kern/thread.c thread_schedparam(thread_t t, int op, int *param)
+<a href='../S/335.html#L305'>t</a>                 305 sys/kern/thread.c 	if (!thread_valid(t)) {
+<a href='../S/335.html#L309'>t</a>                 309 sys/kern/thread.c 	if (t-&gt;task-&gt;flags &amp; TF_SYSTEM) {
+<a href='../S/335.html#L317'>t</a>                 317 sys/kern/thread.c 	if (!(t-&gt;task == curtask || t-&gt;task-&gt;parent == curtask) &amp;&amp;
+<a href='../S/335.html#L325'>t</a>                 325 sys/kern/thread.c 		pri = sched_getpri(t);
+<a href='../S/335.html#L360'>t</a>                 360 sys/kern/thread.c 		if (t-&gt;priority != t-&gt;basepri &amp;&amp; pri &gt; t-&gt;priority)
+<a href='../S/335.html#L361'>t</a>                 361 sys/kern/thread.c 			pri = t-&gt;priority;
+<a href='../S/335.html#L363'>t</a>                 363 sys/kern/thread.c 		mutex_setpri(t, pri);
+<a href='../S/335.html#L364'>t</a>                 364 sys/kern/thread.c 		sched_setpri(t, pri, pri);
+<a href='../S/335.html#L368'>t</a>                 368 sys/kern/thread.c 		policy = sched_getpolicy(t);
+<a href='../S/335.html#L378'>t</a>                 378 sys/kern/thread.c 		error = sched_setpolicy(t, policy);
+<a href='../S/335.html#L413'>t</a>                 413 sys/kern/thread.c 	struct thread *t;
+<a href='../S/335.html#L416'>t</a>                 416 sys/kern/thread.c 	if ((t = kmem_alloc(sizeof(*t))) == NULL)
+<a href='../S/335.html#L420'>t</a>                 420 sys/kern/thread.c 		kmem_free(t);
+<a href='../S/335.html#L423'>t</a>                 423 sys/kern/thread.c 	memset(t, 0, sizeof(*t));
+<a href='../S/335.html#L425'>t</a>                 425 sys/kern/thread.c 	t-&gt;kstack = stack;
+<a href='../S/335.html#L426'>t</a>                 426 sys/kern/thread.c 	t-&gt;task = task;
+<a href='../S/335.html#L427'>t</a>                 427 sys/kern/thread.c 	list_init(&amp;t-&gt;mutexes);
+<a href='../S/335.html#L428'>t</a>                 428 sys/kern/thread.c 	list_insert(&amp;thread_list, &amp;t-&gt;link);
+<a href='../S/335.html#L429'>t</a>                 429 sys/kern/thread.c 	list_insert(&amp;task-&gt;threads, &amp;t-&gt;task_link);
+<a href='../S/335.html#L432'>t</a>                 432 sys/kern/thread.c 	return t;
+<a href='../S/335.html#L444'>t</a>                 444 sys/kern/thread.c thread_deallocate(thread_t t)
+<a href='../S/335.html#L447'>t</a>                 447 sys/kern/thread.c 	list_remove(&amp;t-&gt;task_link);
+<a href='../S/335.html#L448'>t</a>                 448 sys/kern/thread.c 	list_remove(&amp;t-&gt;link);
+<a href='../S/335.html#L449'>t</a>                 449 sys/kern/thread.c 	t-&gt;excbits = 0;
+<a href='../S/335.html#L450'>t</a>                 450 sys/kern/thread.c 	t-&gt;task-&gt;nthreads--;
+<a href='../S/335.html#L463'>t</a>                 463 sys/kern/thread.c 	if (t == curthread) {
+<a href='../S/335.html#L468'>t</a>                 468 sys/kern/thread.c 		zombie = t;
+<a href='../S/335.html#L472'>t</a>                 472 sys/kern/thread.c 	kmem_free(t-&gt;kstack);
+<a href='../S/335.html#L473'>t</a>                 473 sys/kern/thread.c 	t-&gt;kstack = NULL;
+<a href='../S/335.html#L474'>t</a>                 474 sys/kern/thread.c 	kmem_free(t);
+<a href='../S/335.html#L485'>t</a>                 485 sys/kern/thread.c 	thread_t t;
+<a href='../S/335.html#L492'>t</a>                 492 sys/kern/thread.c 			t = list_entry(n, struct thread, link);
+<a href='../S/335.html#L494'>t</a>                 494 sys/kern/thread.c 			info-&gt;id = t;
+<a href='../S/335.html#L495'>t</a>                 495 sys/kern/thread.c 			info-&gt;state = t-&gt;state;
+<a href='../S/335.html#L496'>t</a>                 496 sys/kern/thread.c 			info-&gt;policy = t-&gt;policy;
+<a href='../S/335.html#L497'>t</a>                 497 sys/kern/thread.c 			info-&gt;priority = t-&gt;priority;
+<a href='../S/335.html#L498'>t</a>                 498 sys/kern/thread.c 			info-&gt;basepri = t-&gt;basepri;
+<a href='../S/335.html#L499'>t</a>                 499 sys/kern/thread.c 			info-&gt;time = t-&gt;time;
+<a href='../S/335.html#L500'>t</a>                 500 sys/kern/thread.c 			info-&gt;suscnt = t-&gt;suscnt;
+<a href='../S/335.html#L501'>t</a>                 501 sys/kern/thread.c 			info-&gt;task = t-&gt;task;
+<a href='../S/335.html#L502'>t</a>                 502 sys/kern/thread.c 			info-&gt;active = (t == curthread) ? 1 : 0;
+<a href='../S/335.html#L503'>t</a>                 503 sys/kern/thread.c 			strlcpy(info-&gt;taskname, t-&gt;task-&gt;name, MAXTASKNAME);
+<a href='../S/335.html#L504'>t</a>                 504 sys/kern/thread.c 			strlcpy(info-&gt;slpevt, t-&gt;slpevt ?
+<a href='../S/335.html#L505'>t</a>                 505 sys/kern/thread.c 				t-&gt;slpevt-&gt;name : "-", MAXEVTNAME);
+<a href='../S/335.html#L527'>t</a>                 527 sys/kern/thread.c 	thread_t t;
+<a href='../S/335.html#L536'>t</a>                 536 sys/kern/thread.c 	if ((t = thread_allocate(&amp;kernel_task)) == NULL)
+<a href='../S/335.html#L539'>t</a>                 539 sys/kern/thread.c 	memset(t-&gt;kstack, 0, KSTACKSZ);
+<a href='../S/335.html#L540'>t</a>                 540 sys/kern/thread.c 	sp = (vaddr_t)t-&gt;kstack + KSTACKSZ;
+<a href='../S/335.html#L541'>t</a>                 541 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KSTACK, (register_t)sp);
+<a href='../S/335.html#L542'>t</a>                 542 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KENTRY, (register_t)entry);
+<a href='../S/335.html#L543'>t</a>                 543 sys/kern/thread.c 	context_set(&amp;t-&gt;ctx, CTX_KARG, (register_t)arg);
+<a href='../S/335.html#L544'>t</a>                 544 sys/kern/thread.c 	sched_start(t, pri, SCHED_FIFO);
+<a href='../S/335.html#L545'>t</a>                 545 sys/kern/thread.c 	t-&gt;suscnt = 1;
+<a href='../S/335.html#L546'>t</a>                 546 sys/kern/thread.c 	sched_resume(t);
+<a href='../S/335.html#L548'>t</a>                 548 sys/kern/thread.c 	return t;
+<a href='../S/335.html#L555'>t</a>                 555 sys/kern/thread.c kthread_terminate(thread_t t)
+<a href='../S/335.html#L557'>t</a>                 557 sys/kern/thread.c 	ASSERT(t != NULL);
+<a href='../S/335.html#L558'>t</a>                 558 sys/kern/thread.c 	ASSERT(t-&gt;task-&gt;flags &amp; TF_SYSTEM);
+<a href='../S/335.html#L562'>t</a>                 562 sys/kern/thread.c 	mutex_cancel(t);
+<a href='../S/335.html#L563'>t</a>                 563 sys/kern/thread.c 	timer_cancel(t);
+<a href='../S/335.html#L564'>t</a>                 564 sys/kern/thread.c 	sched_stop(t);
+<a href='../S/335.html#L565'>t</a>                 565 sys/kern/thread.c 	thread_deallocate(t);
+<a href='../S/336.html#L72'>t</a>                  72 sys/kern/timer.c 	struct timer *t;
+<a href='../S/336.html#L86'>t</a>                  86 sys/kern/timer.c 		t = list_entry(n, struct timer, link);
+<a href='../S/336.html#L87'>t</a>                  87 sys/kern/timer.c 		if (time_before(tmr-&gt;expire, t-&gt;expire))
+<a href='../S/336.html#L240'>t</a>                 240 sys/kern/timer.c timer_periodic(thread_t t, u_long start, u_long period)
+<a href='../S/336.html#L249'>t</a>                 249 sys/kern/timer.c 	if (!thread_valid(t)) {
+<a href='../S/336.html#L253'>t</a>                 253 sys/kern/timer.c 	if (t-&gt;task != curtask) {
+<a href='../S/336.html#L258'>t</a>                 258 sys/kern/timer.c 	tmr = t-&gt;periodic;
+<a href='../S/336.html#L281'>t</a>                 281 sys/kern/timer.c 			t-&gt;periodic = tmr;
+<a href='../S/336.html#L330'>t</a>                 330 sys/kern/timer.c timer_cancel(thread_t t)
+<a href='../S/336.html#L333'>t</a>                 333 sys/kern/timer.c 	if (t-&gt;periodic != NULL) {
+<a href='../S/336.html#L334'>t</a>                 334 sys/kern/timer.c 		timer_stop(t-&gt;periodic);
+<a href='../S/336.html#L335'>t</a>                 335 sys/kern/timer.c 		kmem_free(t-&gt;periodic);
+<a href='../S/336.html#L336'>t</a>                 336 sys/kern/timer.c 		t-&gt;periodic = NULL;
+<a href='../S/346.html#L316'>t</a>                 316 sys/sync/mutex.c mutex_cancel(thread_t t)
+<a href='../S/346.html#L325'>t</a>                 325 sys/sync/mutex.c 	head = &amp;t-&gt;mutexes;
+<a href='../S/346.html#L353'>t</a>                 353 sys/sync/mutex.c mutex_setpri(thread_t t, int pri)
+<a href='../S/346.html#L356'>t</a>                 356 sys/sync/mutex.c 	if (t-&gt;mutex_waiting &amp;&amp; pri &lt; t-&gt;priority)
+<a href='../S/346.html#L357'>t</a>                 357 sys/sync/mutex.c 		prio_inherit(t);
+<a href='../S/346.html#L469'>t</a>                 469 sys/sync/mutex.c prio_uninherit(thread_t t)
+<a href='../S/346.html#L476'>t</a>                 476 sys/sync/mutex.c 	if (t-&gt;priority == t-&gt;basepri)
+<a href='../S/346.html#L479'>t</a>                 479 sys/sync/mutex.c 	maxpri = t-&gt;basepri;
+<a href='../S/346.html#L486'>t</a>                 486 sys/sync/mutex.c 	head = &amp;t-&gt;mutexes;
+<a href='../S/346.html#L493'>t</a>                 493 sys/sync/mutex.c 	sched_setpri(t, t-&gt;basepri, maxpri);
+<a href='../S/421.html#L402'>t</a>                 402 usr/bin/test/test.c 	char *s, *t;
+<a href='../S/421.html#L407'>t</a>                 407 usr/bin/test/test.c 	if ((t = *(t_wp+2)) == 0)
+<a href='../S/421.html#L412'>t</a>                 412 usr/bin/test/test.c 	    		    (t[0] != ')' || t[1] != '\0');
+<a href='../S/479.html#L255'>t</a>                 255 usr/lib/libc/gen/fts.c 	char *t;
+<a href='../S/479.html#L384'>t</a>                 384 usr/lib/libc/gen/fts.c name:		t = sp-&gt;fts_path + NAPPEND(p-&gt;fts_parent);
+<a href='../S/479.html#L385'>t</a>                 385 usr/lib/libc/gen/fts.c 		*t++ = '/';
+<a href='../S/479.html#L386'>t</a>                 386 usr/lib/libc/gen/fts.c 		memmove(t, p-&gt;fts_name, p-&gt;fts_namelen + 1);
+<a href='../S/479.html#L768'>t</a>                 768 usr/lib/libc/gen/fts.c 	FTSENT *t;
+<a href='../S/479.html#L830'>t</a>                 830 usr/lib/libc/gen/fts.c 		for (t = p-&gt;fts_parent;
+<a href='../S/479.html#L831'>t</a>                 831 usr/lib/libc/gen/fts.c 		    t-&gt;fts_level &gt;= FTS_ROOTLEVEL; t = t-&gt;fts_parent)
+<a href='../S/479.html#L832'>t</a>                 832 usr/lib/libc/gen/fts.c 			if (ino == t-&gt;fts_ino &amp;&amp; dev == t-&gt;fts_dev) {
+<a href='../S/479.html#L833'>t</a>                 833 usr/lib/libc/gen/fts.c 				p-&gt;fts_cycle = t;
+<a href='../S/487.html#L38'>t</a>                  38 usr/lib/libc/gen/time.c time(t)
+<a href='../S/487.html#L39'>t</a>                  39 usr/lib/libc/gen/time.c 	time_t *t;
+<a href='../S/487.html#L45'>t</a>                  45 usr/lib/libc/gen/time.c 	if (t != NULL)
+<a href='../S/487.html#L46'>t</a>                  46 usr/lib/libc/gen/time.c 		*t = tt.tv_sec;
+<a href='../S/501.html#L57'>t</a>                  57 usr/lib/libc/stdio/fflush.c 	int n, t;
+<a href='../S/501.html#L59'>t</a>                  59 usr/lib/libc/stdio/fflush.c 	t = fp-&gt;_flags;
+<a href='../S/501.html#L60'>t</a>                  60 usr/lib/libc/stdio/fflush.c 	if ((t &amp; __SWR) == 0)
+<a href='../S/501.html#L73'>t</a>                  73 usr/lib/libc/stdio/fflush.c 	fp-&gt;_w = t &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/501.html#L75'>t</a>                  75 usr/lib/libc/stdio/fflush.c 	for (; n &gt; 0; n -= t, p += t) {
+<a href='../S/501.html#L76'>t</a>                  76 usr/lib/libc/stdio/fflush.c 		t = __swrite(fp, (char *)p, n);
+<a href='../S/501.html#L77'>t</a>                  77 usr/lib/libc/stdio/fflush.c 		if (t &lt;= 0) {
+<a href='../S/575.html#L51'>t</a>                  51 usr/lib/libc/stdlib/qsort.c 		TYPE	t = *pi;			\
+<a href='../S/575.html#L53'>t</a>                  53 usr/lib/libc/stdlib/qsort.c 		*pj++ = t;				\
+<a href='../S/575.html#L74'>t</a>                  74 usr/lib/libc/stdlib/qsort.c 		long t = *(long *)(void *)(a);			\
+<a href='../S/575.html#L76'>t</a>                  76 usr/lib/libc/stdlib/qsort.c 		*(long *)(void *)(b) = t;			\
+<a href='../S/577.html#L59'>t</a>                  59 usr/lib/libc/stdlib/random.c 	long x, hi, lo, t;
+<a href='../S/577.html#L72'>t</a>                  72 usr/lib/libc/stdlib/random.c 	t = 16807 * lo - 2836 * hi;
+<a href='../S/577.html#L73'>t</a>                  73 usr/lib/libc/stdlib/random.c 	if (t &lt; 0)
+<a href='../S/577.html#L74'>t</a>                  74 usr/lib/libc/stdlib/random.c 		t += 0x7fffffff;
+<a href='../S/577.html#L75'>t</a>                  75 usr/lib/libc/stdlib/random.c 	randseed = t;
+<a href='../S/577.html#L76'>t</a>                  76 usr/lib/libc/stdlib/random.c 	return (t);
+<a href='../S/587.html#L34'>t</a>                  34 usr/lib/libc/string/memccpy.c memccpy(t, f, c, n)
+<a href='../S/587.html#L35'>t</a>                  35 usr/lib/libc/string/memccpy.c 	void *t;
+<a href='../S/587.html#L42'>t</a>                  42 usr/lib/libc/string/memccpy.c 		unsigned char *tp = t;
+<a href='../S/587.html#L46'>t</a>                  46 usr/lib/libc/string/memccpy.c 				return (t);
+<a href='../S/619.html#L38'>t</a>                  38 usr/lib/libc/termios/cfgetispeed.c cfgetispeed(t)
+<a href='../S/619.html#L39'>t</a>                  39 usr/lib/libc/termios/cfgetispeed.c 	const struct termios *t;
+<a href='../S/619.html#L42'>t</a>                  42 usr/lib/libc/termios/cfgetispeed.c 	return (t-&gt;c_ispeed);
+<a href='../S/620.html#L38'>t</a>                  38 usr/lib/libc/termios/cfgetospeed.c cfgetospeed(t)
+<a href='../S/620.html#L39'>t</a>                  39 usr/lib/libc/termios/cfgetospeed.c 	const struct termios *t;
+<a href='../S/620.html#L42'>t</a>                  42 usr/lib/libc/termios/cfgetospeed.c 	return (t-&gt;c_ospeed);
+<a href='../S/621.html#L40'>t</a>                  40 usr/lib/libc/termios/cfmakeraw.c cfmakeraw(t)
+<a href='../S/621.html#L41'>t</a>                  41 usr/lib/libc/termios/cfmakeraw.c 	struct termios *t;
+<a href='../S/621.html#L44'>t</a>                  44 usr/lib/libc/termios/cfmakeraw.c 	t-&gt;c_iflag &amp;= ~(IGNBRK|BRKINT|PARMRK|ISTRIP|INLCR|IGNCR|ICRNL|IXON);
+<a href='../S/621.html#L45'>t</a>                  45 usr/lib/libc/termios/cfmakeraw.c 	t-&gt;c_oflag &amp;= ~OPOST;
+<a href='../S/621.html#L46'>t</a>                  46 usr/lib/libc/termios/cfmakeraw.c 	t-&gt;c_lflag &amp;= ~(ECHO|ECHONL|ICANON|ISIG|IEXTEN);
+<a href='../S/621.html#L47'>t</a>                  47 usr/lib/libc/termios/cfmakeraw.c 	t-&gt;c_cflag &amp;= ~(CSIZE|PARENB);
+<a href='../S/621.html#L48'>t</a>                  48 usr/lib/libc/termios/cfmakeraw.c 	t-&gt;c_cflag |= CS8;
+<a href='../S/622.html#L38'>t</a>                  38 usr/lib/libc/termios/cfsetispeed.c cfsetispeed(t, speed)
+<a href='../S/622.html#L39'>t</a>                  39 usr/lib/libc/termios/cfsetispeed.c 	struct termios *t;
+<a href='../S/622.html#L43'>t</a>                  43 usr/lib/libc/termios/cfsetispeed.c 	t-&gt;c_ispeed = speed;
+<a href='../S/623.html#L38'>t</a>                  38 usr/lib/libc/termios/cfsetospeed.c cfsetospeed(t, speed)
+<a href='../S/623.html#L39'>t</a>                  39 usr/lib/libc/termios/cfsetospeed.c 	struct termios *t;
+<a href='../S/623.html#L43'>t</a>                  43 usr/lib/libc/termios/cfsetospeed.c 	t-&gt;c_ospeed = speed;
+<a href='../S/624.html#L38'>t</a>                  38 usr/lib/libc/termios/cfsetspeed.c cfsetspeed(t, speed)
+<a href='../S/624.html#L39'>t</a>                  39 usr/lib/libc/termios/cfsetspeed.c 	struct termios *t;
+<a href='../S/624.html#L43'>t</a>                  43 usr/lib/libc/termios/cfsetspeed.c 	t-&gt;c_ispeed = t-&gt;c_ospeed = speed;
+<a href='../S/629.html#L36'>t</a>                  36 usr/lib/libc/termios/tcgetattr.c tcgetattr(fd, t)
+<a href='../S/629.html#L38'>t</a>                  38 usr/lib/libc/termios/tcgetattr.c 	struct termios *t;
+<a href='../S/629.html#L41'>t</a>                  41 usr/lib/libc/termios/tcgetattr.c 	return (ioctl(fd, TIOCGETA, t));
+<a href='../S/632.html#L39'>t</a>                  39 usr/lib/libc/termios/tcsetattr.c tcsetattr(fd, opt, t)
+<a href='../S/632.html#L41'>t</a>                  41 usr/lib/libc/termios/tcsetattr.c 	const struct termios *t;
+<a href='../S/632.html#L46'>t</a>                  46 usr/lib/libc/termios/tcsetattr.c 		localterm = *t;
+<a href='../S/632.html#L48'>t</a>                  48 usr/lib/libc/termios/tcsetattr.c 		t = &amp;localterm;
+<a href='../S/632.html#L52'>t</a>                  52 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETA, t));
+<a href='../S/632.html#L54'>t</a>                  54 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETAW, t));
+<a href='../S/632.html#L56'>t</a>                  56 usr/lib/libc/termios/tcsetattr.c 		return (ioctl(fd, TIOCSETAF, t));
+<a href='../S/637.html#L45'>t</a>                  45 usr/lib/libc/time/gmtime_r.c 	time_t t;
+<a href='../S/637.html#L49'>t</a>                  49 usr/lib/libc/time/gmtime_r.c 	t = *timep;
+<a href='../S/637.html#L50'>t</a>                  50 usr/lib/libc/time/gmtime_r.c 	days = t / 60 / 60 / 24;
+<a href='../S/637.html#L72'>t</a>                  72 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_sec = t % 60;
+<a href='../S/637.html#L73'>t</a>                  73 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_min = (t / 60) % 60;
+<a href='../S/637.html#L74'>t</a>                  74 usr/lib/libc/time/gmtime_r.c 	tmp-&gt;tm_hour = (t / 60 / 60) % 24;
+<a href='../S/642.html#L59'>t</a>                  59 usr/lib/libc/time/strftime.c strftime(s, maxsize, format, t)
+<a href='../S/642.html#L63'>t</a>                  63 usr/lib/libc/time/strftime.c 	const struct tm *t;
+<a href='../S/642.html#L69'>t</a>                  69 usr/lib/libc/time/strftime.c 	if (_fmt(format, t)) {
+<a href='../S/642.html#L77'>t</a>                  77 usr/lib/libc/time/strftime.c _fmt(format, t)
+<a href='../S/642.html#L79'>t</a>                  79 usr/lib/libc/time/strftime.c 	const struct tm *t;
+<a href='../S/642.html#L88'>t</a>                  88 usr/lib/libc/time/strftime.c 				if (t-&gt;tm_wday &lt; 0 || t-&gt;tm_wday &gt; 6)
+<a href='../S/642.html#L90'>t</a>                  90 usr/lib/libc/time/strftime.c 				if (!_add(Afmt[t-&gt;tm_wday]))
+<a href='../S/642.html#L94'>t</a>                  94 usr/lib/libc/time/strftime.c 				if (t-&gt;tm_wday &lt; 0 || t-&gt;tm_wday &gt; 6)
+<a href='../S/642.html#L96'>t</a>                  96 usr/lib/libc/time/strftime.c 				if (!_add(afmt[t-&gt;tm_wday]))
+<a href='../S/642.html#L100'>t</a>                 100 usr/lib/libc/time/strftime.c 				if (t-&gt;tm_mon &lt; 0 || t-&gt;tm_mon &gt; 11)
+<a href='../S/642.html#L102'>t</a>                 102 usr/lib/libc/time/strftime.c 				if (!_add(Bfmt[t-&gt;tm_mon]))
+<a href='../S/642.html#L107'>t</a>                 107 usr/lib/libc/time/strftime.c 				if (t-&gt;tm_mon &lt; 0 || t-&gt;tm_mon &gt; 11)
+<a href='../S/642.html#L109'>t</a>                 109 usr/lib/libc/time/strftime.c 				if (!_add(bfmt[t-&gt;tm_mon]))
+<a href='../S/642.html#L113'>t</a>                 113 usr/lib/libc/time/strftime.c 				if (!_fmt("%a %b %e %H:%M:%S %Y", t))
+<a href='../S/642.html#L117'>t</a>                 117 usr/lib/libc/time/strftime.c 				if (!_fmt("%m/%d/%y %H:%M:%S", t))
+<a href='../S/642.html#L121'>t</a>                 121 usr/lib/libc/time/strftime.c 				if (!_fmt("%m/%d/%y", t))
+<a href='../S/642.html#L125'>t</a>                 125 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_mday, 2, '0'))
+<a href='../S/642.html#L129'>t</a>                 129 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_mday, 2, ' '))
+<a href='../S/642.html#L133'>t</a>                 133 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour, 2, '0'))
+<a href='../S/642.html#L137'>t</a>                 137 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour % 12 ?
+<a href='../S/642.html#L138'>t</a>                 138 usr/lib/libc/time/strftime.c 				    t-&gt;tm_hour % 12 : 12, 2, '0'))
+<a href='../S/642.html#L142'>t</a>                 142 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_yday + 1, 3, '0'))
+<a href='../S/642.html#L146'>t</a>                 146 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour, 2, ' '))
+<a href='../S/642.html#L150'>t</a>                 150 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_hour % 12 ?
+<a href='../S/642.html#L151'>t</a>                 151 usr/lib/libc/time/strftime.c 				    t-&gt;tm_hour % 12 : 12, 2, ' '))
+<a href='../S/642.html#L155'>t</a>                 155 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_min, 2, '0'))
+<a href='../S/642.html#L159'>t</a>                 159 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_mon + 1, 2, '0'))
+<a href='../S/642.html#L167'>t</a>                 167 usr/lib/libc/time/strftime.c 				if (!_add(t-&gt;tm_hour &gt;= 12 ? "PM" : "AM"))
+<a href='../S/642.html#L171'>t</a>                 171 usr/lib/libc/time/strftime.c 				if (!_fmt("%H:%M", t))
+<a href='../S/642.html#L175'>t</a>                 175 usr/lib/libc/time/strftime.c 				if (!_fmt("%I:%M:%S %p", t))
+<a href='../S/642.html#L179'>t</a>                 179 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_sec, 2, '0'))
+<a href='../S/642.html#L183'>t</a>                 183 usr/lib/libc/time/strftime.c 				if (!_secs(t))
+<a href='../S/642.html#L188'>t</a>                 188 usr/lib/libc/time/strftime.c 				if (!_fmt("%H:%M:%S", t))
+<a href='../S/642.html#L196'>t</a>                 196 usr/lib/libc/time/strftime.c 				if (!_conv((t-&gt;tm_yday + 7 - t-&gt;tm_wday) / 7,
+<a href='../S/642.html#L201'>t</a>                 201 usr/lib/libc/time/strftime.c 				if (!_conv((t-&gt;tm_yday + 7 -
+<a href='../S/642.html#L202'>t</a>                 202 usr/lib/libc/time/strftime.c 				    (t-&gt;tm_wday ? (t-&gt;tm_wday - 1) : 6))
+<a href='../S/642.html#L207'>t</a>                 207 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_wday, 1, '0'))
+<a href='../S/642.html#L211'>t</a>                 211 usr/lib/libc/time/strftime.c 				if (!_fmt("%m/%d/%y", t))
+<a href='../S/642.html#L215'>t</a>                 215 usr/lib/libc/time/strftime.c 				if (!_conv((t-&gt;tm_year + TM_YEAR_BASE)
+<a href='../S/642.html#L220'>t</a>                 220 usr/lib/libc/time/strftime.c 				if (!_conv(t-&gt;tm_year + TM_YEAR_BASE, 4, '0'))
+<a href='../S/642.html#L246'>t</a>                 246 usr/lib/libc/time/strftime.c _secs(t)
+<a href='../S/642.html#L247'>t</a>                 247 usr/lib/libc/time/strftime.c 	const struct tm *t;
+<a href='../S/642.html#L255'>t</a>                 255 usr/lib/libc/time/strftime.c 	tmp = *t;
+<a href='../S/705.html#L87'>t</a>                  87 usr/lib/posix/process/fork.c 	thread_t t;
+<a href='../S/705.html#L101'>t</a>                 101 usr/lib/posix/process/fork.c 		if ((error = thread_create(tsk, &amp;t)) != 0) {
+<a href='../S/705.html#L127'>t</a>                 127 usr/lib/posix/process/fork.c 		thread_load(t, __child_entry, NULL);
+<a href='../S/705.html#L128'>t</a>                 128 usr/lib/posix/process/fork.c 		thread_resume(t);
+<a href='../S/706.html#L89'>t</a>                  89 usr/lib/posix/process/fork_nommu.c 	thread_t t;
+<a href='../S/706.html#L102'>t</a>                 102 usr/lib/posix/process/fork_nommu.c 		if ((error = thread_create(tsk, &amp;t)) != 0) {
+<a href='../S/706.html#L133'>t</a>                 133 usr/lib/posix/process/fork_nommu.c 		thread_load(t, __child_entry, NULL);
+<a href='../S/706.html#L134'>t</a>                 134 usr/lib/posix/process/fork_nommu.c 		thread_getpri(t, &amp;pri);
+<a href='../S/706.html#L135'>t</a>                 135 usr/lib/posix/process/fork_nommu.c 		thread_setpri(t, pri + 1);
+<a href='../S/706.html#L136'>t</a>                 136 usr/lib/posix/process/fork_nommu.c 		thread_resume(t);
+<a href='../S/706.html#L149'>t</a>                 149 usr/lib/posix/process/fork_nommu.c 		t = thread_self();
+<a href='../S/706.html#L150'>t</a>                 150 usr/lib/posix/process/fork_nommu.c 		thread_getpri(t, &amp;pri);
+<a href='../S/706.html#L151'>t</a>                 151 usr/lib/posix/process/fork_nommu.c 		thread_setpri(t, pri - 1);
+<a href='../S/803.html#L32'>t</a>                  32 usr/lib/prex/syscalls/thread_getpolicy.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/803.html#L35'>t</a>                  35 usr/lib/prex/syscalls/thread_getpolicy.c thread_getpolicy(thread_t t, int *policy)
+<a href='../S/803.html#L38'>t</a>                  38 usr/lib/prex/syscalls/thread_getpolicy.c 	return thread_schedparam(t, 2, policy);
+<a href='../S/804.html#L32'>t</a>                  32 usr/lib/prex/syscalls/thread_getpri.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/804.html#L35'>t</a>                  35 usr/lib/prex/syscalls/thread_getpri.c thread_getpri(thread_t t, int *pri)
+<a href='../S/804.html#L38'>t</a>                  38 usr/lib/prex/syscalls/thread_getpri.c 	return thread_schedparam(t, 0, pri);
+<a href='../S/809.html#L32'>t</a>                  32 usr/lib/prex/syscalls/thread_setpolicy.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/809.html#L35'>t</a>                  35 usr/lib/prex/syscalls/thread_setpolicy.c thread_setpolicy(thread_t t, int policy)
+<a href='../S/809.html#L38'>t</a>                  38 usr/lib/prex/syscalls/thread_setpolicy.c 	return thread_schedparam(t, 3, &amp;policy);
+<a href='../S/810.html#L32'>t</a>                  32 usr/lib/prex/syscalls/thread_setpri.c extern int thread_schedparam(thread_t t, int op, int *param);
+<a href='../S/810.html#L35'>t</a>                  35 usr/lib/prex/syscalls/thread_setpri.c thread_setpri(thread_t t, int pri)
+<a href='../S/810.html#L38'>t</a>                  38 usr/lib/prex/syscalls/thread_setpri.c 	return thread_schedparam(t, 1, &amp;pri);
+<a href='../S/829.html#L52'>t</a>                  52 usr/sample/balls/balls.c 	thread_t t;
+<a href='../S/829.html#L54'>t</a>                  54 usr/sample/balls/balls.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/829.html#L56'>t</a>                  56 usr/sample/balls/balls.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/829.html#L58'>t</a>                  58 usr/sample/balls/balls.c 	if (thread_resume(t) != 0)
+<a href='../S/829.html#L60'>t</a>                  60 usr/sample/balls/balls.c 	return t;
+<a href='../S/837.html#L57'>t</a>                  57 usr/sample/ipc/ipc.c 	thread_t t;
+<a href='../S/837.html#L65'>t</a>                  65 usr/sample/ipc/ipc.c 	if (thread_create(task, &amp;t) != 0)
+<a href='../S/837.html#L68'>t</a>                  68 usr/sample/ipc/ipc.c 	if (thread_load(t, func, stack) != 0)
+<a href='../S/837.html#L71'>t</a>                  71 usr/sample/ipc/ipc.c 	if (thread_resume(t) != 0)
+<a href='../S/841.html#L84'>t</a>                  84 usr/sample/mutex/mutex.c 	thread_t t;
+<a href='../S/841.html#L86'>t</a>                  86 usr/sample/mutex/mutex.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/841.html#L89'>t</a>                  89 usr/sample/mutex/mutex.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/841.html#L92'>t</a>                  92 usr/sample/mutex/mutex.c 	return t;
+<a href='../S/843.html#L42'>t</a>                  42 usr/sample/sem/sem.c 	thread_t t;
+<a href='../S/843.html#L44'>t</a>                  44 usr/sample/sem/sem.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/843.html#L47'>t</a>                  47 usr/sample/sem/sem.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/843.html#L50'>t</a>                  50 usr/sample/sem/sem.c 	if (thread_resume(t) != 0)
+<a href='../S/843.html#L63'>t</a>                  63 usr/sample/sem/sem.c 	thread_t t;
+<a href='../S/843.html#L65'>t</a>                  65 usr/sample/sem/sem.c 	t = thread_self();
+<a href='../S/843.html#L66'>t</a>                  66 usr/sample/sem/sem.c 	printf("Start thread=%x\n", (u_int)t);
+<a href='../S/843.html#L77'>t</a>                  77 usr/sample/sem/sem.c 	printf("Running thread=%x\n", (u_int)t);
+<a href='../S/843.html#L85'>t</a>                  85 usr/sample/sem/sem.c 	printf("End thread=%x\n", (u_int)t);
+<a href='../S/843.html#L86'>t</a>                  86 usr/sample/sem/sem.c 	thread_terminate(t);
+<a href='../S/845.html#L48'>t</a>                  48 usr/sample/task/task.c 	thread_t t;
+<a href='../S/845.html#L54'>t</a>                  54 usr/sample/task/task.c 	if (thread_create(task, &amp;t) != 0)
+<a href='../S/845.html#L57'>t</a>                  57 usr/sample/task/task.c 	if (thread_load(t, func, stack + 1024) != 0)
+<a href='../S/845.html#L60'>t</a>                  60 usr/sample/task/task.c 	if (thread_resume(t) != 0)
+<a href='../S/855.html#L54'>t</a>                  54 usr/sample/thread/thread.c 	thread_t t;
+<a href='../S/855.html#L56'>t</a>                  56 usr/sample/thread/thread.c 	if (thread_create(task_self(), &amp;t) != 0)
+<a href='../S/855.html#L59'>t</a>                  59 usr/sample/thread/thread.c 	if (thread_load(t, start, stack) != 0)
+<a href='../S/855.html#L62'>t</a>                  62 usr/sample/thread/thread.c 	if (thread_setpri(t, 128) != 0)
+<a href='../S/855.html#L65'>t</a>                  65 usr/sample/thread/thread.c 	if (thread_resume(t) != 0)
+<a href='../S/866.html#L125'>t</a>                 125 usr/sbin/lock/lock.c 	char *p, *t;
+<a href='../S/866.html#L134'>t</a>                 134 usr/sbin/lock/lock.c 		for (t = p; *t &amp;&amp; isdigit(*t); ++t);
+<a href='../S/866.html#L135'>t</a>                 135 usr/sbin/lock/lock.c 		if (strlen(p) != 4 || *t) {
+<a href='../S/877.html#L77'>t</a>                  77 usr/server/exec/exec_execve.c 	thread_t t;
+<a href='../S/877.html#L172'>t</a>                 172 usr/server/exec/exec_execve.c 	if ((error = thread_create(new_task, &amp;t)) != 0)
+<a href='../S/877.html#L194'>t</a>                 194 usr/server/exec/exec_execve.c 	if ((error = thread_load(t, (void (*)(void))exec.entry, sp)) != 0)
+<a href='../S/877.html#L210'>t</a>                 210 usr/server/exec/exec_execve.c 	thread_setpri(t, PRI_DEFAULT);
+<a href='../S/877.html#L211'>t</a>                 211 usr/server/exec/exec_execve.c 	thread_resume(t);
+<a href='../S/877.html#L218'>t</a>                 218 usr/server/exec/exec_execve.c 	thread_terminate(t);
+<a href='../S/903.html#L89'>t</a>                  89 usr/server/fs/vfs/main.c fs_mount(struct task *t, struct mount_msg *msg)
+<a href='../S/903.html#L94'>t</a>                  94 usr/server/fs/vfs/main.c 	if (task_chkcap(t-&gt;t_taskid, CAP_DISKADMIN) != 0)
+<a href='../S/903.html#L109'>t</a>                 109 usr/server/fs/vfs/main.c fs_umount(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L113'>t</a>                 113 usr/server/fs/vfs/main.c 	if (task_chkcap(t-&gt;t_taskid, CAP_DISKADMIN) != 0)
+<a href='../S/903.html#L120'>t</a>                 120 usr/server/fs/vfs/main.c fs_sync(struct task *t, struct msg *msg)
+<a href='../S/903.html#L127'>t</a>                 127 usr/server/fs/vfs/main.c fs_open(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L135'>t</a>                 135 usr/server/fs/vfs/main.c 	if ((fd = task_newfd(t)) == -1)
+<a href='../S/903.html#L150'>t</a>                 150 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L156'>t</a>                 156 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/903.html#L157'>t</a>                 157 usr/server/fs/vfs/main.c 	t-&gt;t_nopens++;
+<a href='../S/903.html#L163'>t</a>                 163 usr/server/fs/vfs/main.c fs_close(struct task *t, struct msg *msg)
+<a href='../S/903.html#L172'>t</a>                 172 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L179'>t</a>                 179 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = NULL;
+<a href='../S/903.html#L180'>t</a>                 180 usr/server/fs/vfs/main.c 	t-&gt;t_nopens--;
+<a href='../S/903.html#L185'>t</a>                 185 usr/server/fs/vfs/main.c fs_mknod(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L190'>t</a>                 190 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L197'>t</a>                 197 usr/server/fs/vfs/main.c fs_lseek(struct task *t, struct msg *msg)
+<a href='../S/903.html#L203'>t</a>                 203 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L214'>t</a>                 214 usr/server/fs/vfs/main.c fs_read(struct task *t, struct io_msg *msg)
+<a href='../S/903.html#L221'>t</a>                 221 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L234'>t</a>                 234 usr/server/fs/vfs/main.c fs_write(struct task *t, struct io_msg *msg)
+<a href='../S/903.html#L241'>t</a>                 241 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L254'>t</a>                 254 usr/server/fs/vfs/main.c fs_ioctl(struct task *t, struct ioctl_msg *msg)
+<a href='../S/903.html#L258'>t</a>                 258 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L265'>t</a>                 265 usr/server/fs/vfs/main.c fs_fsync(struct task *t, struct msg *msg)
+<a href='../S/903.html#L269'>t</a>                 269 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L276'>t</a>                 276 usr/server/fs/vfs/main.c fs_fstat(struct task *t, struct stat_msg *msg)
+<a href='../S/903.html#L282'>t</a>                 282 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L291'>t</a>                 291 usr/server/fs/vfs/main.c fs_opendir(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L298'>t</a>                 298 usr/server/fs/vfs/main.c 	if ((fd = task_newfd(t)) == -1)
+<a href='../S/903.html#L302'>t</a>                 302 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, path)) != 0)
+<a href='../S/903.html#L307'>t</a>                 307 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/903.html#L313'>t</a>                 313 usr/server/fs/vfs/main.c fs_closedir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L321'>t</a>                 321 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L327'>t</a>                 327 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[fd] = NULL;
+<a href='../S/903.html#L332'>t</a>                 332 usr/server/fs/vfs/main.c fs_readdir(struct task *t, struct dir_msg *msg)
+<a href='../S/903.html#L336'>t</a>                 336 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L343'>t</a>                 343 usr/server/fs/vfs/main.c fs_rewinddir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L347'>t</a>                 347 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L354'>t</a>                 354 usr/server/fs/vfs/main.c fs_seekdir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L359'>t</a>                 359 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L367'>t</a>                 367 usr/server/fs/vfs/main.c fs_telldir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L373'>t</a>                 373 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L384'>t</a>                 384 usr/server/fs/vfs/main.c fs_mkdir(struct task *t, struct open_msg *msg)
+<a href='../S/903.html#L389'>t</a>                 389 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L396'>t</a>                 396 usr/server/fs/vfs/main.c fs_rmdir(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L403'>t</a>                 403 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L410'>t</a>                 410 usr/server/fs/vfs/main.c fs_rename(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L419'>t</a>                 419 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, src)) != 0)
+<a href='../S/903.html#L422'>t</a>                 422 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path2, VWRITE, dest)) != 0)
+<a href='../S/903.html#L429'>t</a>                 429 usr/server/fs/vfs/main.c fs_chdir(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L437'>t</a>                 437 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VREAD, path)) != 0)
+<a href='../S/903.html#L443'>t</a>                 443 usr/server/fs/vfs/main.c 	if (t-&gt;t_cwdfp)
+<a href='../S/903.html#L444'>t</a>                 444 usr/server/fs/vfs/main.c 		sys_closedir(t-&gt;t_cwdfp);
+<a href='../S/903.html#L445'>t</a>                 445 usr/server/fs/vfs/main.c 	t-&gt;t_cwdfp = fp;
+<a href='../S/903.html#L446'>t</a>                 446 usr/server/fs/vfs/main.c 	strlcpy(t-&gt;t_cwd, path, sizeof(t-&gt;t_cwd));
+<a href='../S/903.html#L451'>t</a>                 451 usr/server/fs/vfs/main.c fs_fchdir(struct task *t, struct msg *msg)
+<a href='../S/903.html#L457'>t</a>                 457 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, fd)) == NULL)
+<a href='../S/903.html#L460'>t</a>                 460 usr/server/fs/vfs/main.c 	if (t-&gt;t_cwdfp)
+<a href='../S/903.html#L461'>t</a>                 461 usr/server/fs/vfs/main.c 		sys_closedir(t-&gt;t_cwdfp);
+<a href='../S/903.html#L462'>t</a>                 462 usr/server/fs/vfs/main.c 	t-&gt;t_cwdfp = fp;
+<a href='../S/903.html#L463'>t</a>                 463 usr/server/fs/vfs/main.c 	return sys_fchdir(fp, t-&gt;t_cwd);
+<a href='../S/903.html#L467'>t</a>                 467 usr/server/fs/vfs/main.c fs_link(struct task *t, struct msg *msg)
+<a href='../S/903.html#L474'>t</a>                 474 usr/server/fs/vfs/main.c fs_unlink(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L481'>t</a>                 481 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L488'>t</a>                 488 usr/server/fs/vfs/main.c fs_stat(struct task *t, struct stat_msg *msg)
+<a href='../S/903.html#L494'>t</a>                 494 usr/server/fs/vfs/main.c 	error = task_conv(t, msg-&gt;path, 0, path);
+<a href='../S/903.html#L503'>t</a>                 503 usr/server/fs/vfs/main.c fs_getcwd(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L506'>t</a>                 506 usr/server/fs/vfs/main.c 	strlcpy(msg-&gt;path, t-&gt;t_cwd, sizeof(msg-&gt;path));
+<a href='../S/903.html#L514'>t</a>                 514 usr/server/fs/vfs/main.c fs_dup(struct task *t, struct msg *msg)
+<a href='../S/903.html#L520'>t</a>                 520 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, old_fd)) == NULL)
+<a href='../S/903.html#L524'>t</a>                 524 usr/server/fs/vfs/main.c 	if ((new_fd = task_newfd(t)) == -1)
+<a href='../S/903.html#L527'>t</a>                 527 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[new_fd] = fp;
+<a href='../S/903.html#L541'>t</a>                 541 usr/server/fs/vfs/main.c fs_dup2(struct task *t, struct msg *msg)
+<a href='../S/903.html#L551'>t</a>                 551 usr/server/fs/vfs/main.c 	fp = t-&gt;t_ofile[old_fd];
+<a href='../S/903.html#L554'>t</a>                 554 usr/server/fs/vfs/main.c 	org = t-&gt;t_ofile[new_fd];
+<a href='../S/903.html#L559'>t</a>                 559 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[new_fd] = fp;
+<a href='../S/903.html#L573'>t</a>                 573 usr/server/fs/vfs/main.c fs_fcntl(struct task *t, struct fcntl_msg *msg)
+<a href='../S/903.html#L578'>t</a>                 578 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;fd)) == NULL)
+<a href='../S/903.html#L587'>t</a>                 587 usr/server/fs/vfs/main.c 		if ((new_fd = task_newfd(t)) == -1)
+<a href='../S/903.html#L589'>t</a>                 589 usr/server/fs/vfs/main.c 		t-&gt;t_ofile[new_fd] = fp;
+<a href='../S/903.html#L619'>t</a>                 619 usr/server/fs/vfs/main.c fs_access(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L631'>t</a>                 631 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, acc, path)) != 0)
+<a href='../S/903.html#L641'>t</a>                 641 usr/server/fs/vfs/main.c fs_fork(struct task *t, struct msg *msg)
+<a href='../S/903.html#L655'>t</a>                 655 usr/server/fs/vfs/main.c 	newtask-&gt;t_cwdfp = t-&gt;t_cwdfp;
+<a href='../S/903.html#L656'>t</a>                 656 usr/server/fs/vfs/main.c 	strlcpy(newtask-&gt;t_cwd, t-&gt;t_cwd, sizeof(newtask-&gt;t_cwd));
+<a href='../S/903.html#L658'>t</a>                 658 usr/server/fs/vfs/main.c 		fp = t-&gt;t_ofile[i];
+<a href='../S/903.html#L685'>t</a>                 685 usr/server/fs/vfs/main.c fs_exec(struct task *t, struct msg *msg)
+<a href='../S/903.html#L721'>t</a>                 721 usr/server/fs/vfs/main.c fs_exit(struct task *t, struct msg *msg)
+<a href='../S/903.html#L732'>t</a>                 732 usr/server/fs/vfs/main.c 		fp = t-&gt;t_ofile[fd];
+<a href='../S/903.html#L736'>t</a>                 736 usr/server/fs/vfs/main.c 	if (t-&gt;t_cwdfp)
+<a href='../S/903.html#L737'>t</a>                 737 usr/server/fs/vfs/main.c 		sys_close(t-&gt;t_cwdfp);
+<a href='../S/903.html#L738'>t</a>                 738 usr/server/fs/vfs/main.c 	task_free(t);
+<a href='../S/903.html#L747'>t</a>                 747 usr/server/fs/vfs/main.c fs_register(struct task *t, struct msg *msg)
+<a href='../S/903.html#L759'>t</a>                 759 usr/server/fs/vfs/main.c fs_pipe(struct task *t, struct msg *msg)
+<a href='../S/903.html#L768'>t</a>                 768 usr/server/fs/vfs/main.c 	if ((rfd = task_newfd(t)) == -1)
+<a href='../S/903.html#L770'>t</a>                 770 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[rfd] = (file_t)1; /* temp */
+<a href='../S/903.html#L772'>t</a>                 772 usr/server/fs/vfs/main.c 	if ((wfd = task_newfd(t)) == -1) {
+<a href='../S/903.html#L773'>t</a>                 773 usr/server/fs/vfs/main.c 		t-&gt;t_ofile[rfd] = NULL;
+<a href='../S/903.html#L776'>t</a>                 776 usr/server/fs/vfs/main.c 	sprintf(path, "/mnt/fifo/pipe-%x-%d", (u_int)t-&gt;t_taskid, rfd);
+<a href='../S/903.html#L786'>t</a>                 786 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[rfd] = rfp;
+<a href='../S/903.html#L787'>t</a>                 787 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[wfd] = wfp;
+<a href='../S/903.html#L788'>t</a>                 788 usr/server/fs/vfs/main.c 	t-&gt;t_nopens += 2;
+<a href='../S/903.html#L793'>t</a>                 793 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[rfd] = NULL;
+<a href='../S/903.html#L794'>t</a>                 794 usr/server/fs/vfs/main.c 	t-&gt;t_ofile[wfd] = NULL;
+<a href='../S/903.html#L805'>t</a>                 805 usr/server/fs/vfs/main.c fs_isatty(struct task *t, struct msg *msg)
+<a href='../S/903.html#L810'>t</a>                 810 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L820'>t</a>                 820 usr/server/fs/vfs/main.c fs_truncate(struct task *t, struct path_msg *msg)
+<a href='../S/903.html#L827'>t</a>                 827 usr/server/fs/vfs/main.c 	if ((error = task_conv(t, msg-&gt;path, VWRITE, path)) != 0)
+<a href='../S/903.html#L834'>t</a>                 834 usr/server/fs/vfs/main.c fs_ftruncate(struct task *t, struct msg *msg)
+<a href='../S/903.html#L838'>t</a>                 838 usr/server/fs/vfs/main.c 	if ((fp = task_getfp(t, msg-&gt;data[0])) == NULL)
+<a href='../S/903.html#L848'>t</a>                 848 usr/server/fs/vfs/main.c fs_boot(struct task *t, struct msg *msg)
+<a href='../S/903.html#L883'>t</a>                 883 usr/server/fs/vfs/main.c fs_shutdown(struct task *t, struct msg *msg)
+<a href='../S/903.html#L901'>t</a>                 901 usr/server/fs/vfs/main.c fs_debug(struct task *t, struct msg *msg)
+<a href='../S/903.html#L948'>t</a>                 948 usr/server/fs/vfs/main.c 	thread_t t;
+<a href='../S/903.html#L953'>t</a>                 953 usr/server/fs/vfs/main.c 	if ((error = thread_create(self, &amp;t)) != 0)
+<a href='../S/903.html#L959'>t</a>                 959 usr/server/fs/vfs/main.c 	if ((error = thread_load(t, entry, sp)) != 0)
+<a href='../S/903.html#L962'>t</a>                 962 usr/server/fs/vfs/main.c 	return thread_resume(t);
+<a href='../S/903.html#L1031'>t</a>                1031 usr/server/fs/vfs/main.c 	struct task *t;
+<a href='../S/903.html#L1063'>t</a>                1063 usr/server/fs/vfs/main.c 				t = task_lookup(msg-&gt;hdr.task);
+<a href='../S/903.html#L1064'>t</a>                1064 usr/server/fs/vfs/main.c 				if (t == NULL)
+<a href='../S/903.html#L1068'>t</a>                1068 usr/server/fs/vfs/main.c 				error = (*map-&gt;func)(t, msg);
+<a href='../S/903.html#L1070'>t</a>                1070 usr/server/fs/vfs/main.c 					task_unlock(t);
+<a href='../S/905.html#L128'>t</a>                 128 usr/server/fs/vfs/vfs.h void	 task_free(struct task *t);
+<a href='../S/905.html#L129'>t</a>                 129 usr/server/fs/vfs/vfs.h void	 task_setid(struct task *t, task_t task);
+<a href='../S/905.html#L130'>t</a>                 130 usr/server/fs/vfs/vfs.h void	 task_unlock(struct task *t);
+<a href='../S/905.html#L132'>t</a>                 132 usr/server/fs/vfs/vfs.h file_t	 task_getfp(struct task *t, int fd);
+<a href='../S/905.html#L133'>t</a>                 133 usr/server/fs/vfs/vfs.h void	 task_setfp(struct task *t, int fd, file_t fp);
+<a href='../S/905.html#L134'>t</a>                 134 usr/server/fs/vfs/vfs.h int	 task_newfd(struct task *t);
+<a href='../S/905.html#L135'>t</a>                 135 usr/server/fs/vfs/vfs.h void	 task_delfd(struct task *t, int fd);
+<a href='../S/905.html#L137'>t</a>                 137 usr/server/fs/vfs/vfs.h int	 task_conv(struct task *t, char *path, int mode, char *full);
+<a href='../S/906.html#L55'>t</a>                  55 usr/server/fs/vfs/vfs_bio.c #define	SET(t, f)	(t) |= (f)
+<a href='../S/906.html#L56'>t</a>                  56 usr/server/fs/vfs/vfs_bio.c #define	CLR(t, f)	(t) &amp;= ~(f)
+<a href='../S/906.html#L57'>t</a>                  57 usr/server/fs/vfs/vfs_bio.c #define	ISSET(t, f)	((t) &amp; (f))
+<a href='../S/912.html#L73'>t</a>                  73 usr/server/fs/vfs/vfs_task.c 	struct task *t;
+<a href='../S/912.html#L81'>t</a>                  81 usr/server/fs/vfs/vfs_task.c 		t = list_entry(n, struct task, t_link);
+<a href='../S/912.html#L82'>t</a>                  82 usr/server/fs/vfs/vfs_task.c 		ASSERT(t-&gt;t_taskid);
+<a href='../S/912.html#L83'>t</a>                  83 usr/server/fs/vfs/vfs_task.c 		if (t-&gt;t_taskid == task) {
+<a href='../S/912.html#L85'>t</a>                  85 usr/server/fs/vfs/vfs_task.c 			mutex_lock(&amp;t-&gt;t_lock);
+<a href='../S/912.html#L86'>t</a>                  86 usr/server/fs/vfs/vfs_task.c 			return t;
+<a href='../S/912.html#L101'>t</a>                 101 usr/server/fs/vfs/vfs_task.c 	struct task *t;
+<a href='../S/912.html#L107'>t</a>                 107 usr/server/fs/vfs/vfs_task.c 	if (!(t = malloc(sizeof(struct task))))
+<a href='../S/912.html#L109'>t</a>                 109 usr/server/fs/vfs/vfs_task.c 	memset(t, 0, sizeof(struct task));
+<a href='../S/912.html#L110'>t</a>                 110 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_taskid = task;
+<a href='../S/912.html#L111'>t</a>                 111 usr/server/fs/vfs/vfs_task.c 	strlcpy(t-&gt;t_cwd, "/", sizeof(t-&gt;t_cwd));
+<a href='../S/912.html#L112'>t</a>                 112 usr/server/fs/vfs/vfs_task.c 	mutex_init(&amp;t-&gt;t_lock);
+<a href='../S/912.html#L115'>t</a>                 115 usr/server/fs/vfs/vfs_task.c 	list_insert(&amp;task_table[TASKHASH(task)], &amp;t-&gt;t_link);
+<a href='../S/912.html#L117'>t</a>                 117 usr/server/fs/vfs/vfs_task.c 	*pt = t;
+<a href='../S/912.html#L125'>t</a>                 125 usr/server/fs/vfs/vfs_task.c task_free(struct task *t)
+<a href='../S/912.html#L129'>t</a>                 129 usr/server/fs/vfs/vfs_task.c 	list_remove(&amp;t-&gt;t_link);
+<a href='../S/912.html#L130'>t</a>                 130 usr/server/fs/vfs/vfs_task.c 	mutex_unlock(&amp;t-&gt;t_lock);
+<a href='../S/912.html#L131'>t</a>                 131 usr/server/fs/vfs/vfs_task.c 	mutex_destroy(&amp;t-&gt;t_lock);
+<a href='../S/912.html#L132'>t</a>                 132 usr/server/fs/vfs/vfs_task.c 	free(t);
+<a href='../S/912.html#L140'>t</a>                 140 usr/server/fs/vfs/vfs_task.c task_setid(struct task *t, task_t task)
+<a href='../S/912.html#L144'>t</a>                 144 usr/server/fs/vfs/vfs_task.c 	list_remove(&amp;t-&gt;t_link);
+<a href='../S/912.html#L145'>t</a>                 145 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_taskid = task;
+<a href='../S/912.html#L146'>t</a>                 146 usr/server/fs/vfs/vfs_task.c 	list_insert(&amp;task_table[TASKHASH(task)], &amp;t-&gt;t_link);
+<a href='../S/912.html#L154'>t</a>                 154 usr/server/fs/vfs/vfs_task.c task_unlock(struct task *t)
+<a href='../S/912.html#L157'>t</a>                 157 usr/server/fs/vfs/vfs_task.c 	mutex_unlock(&amp;t-&gt;t_lock);
+<a href='../S/912.html#L165'>t</a>                 165 usr/server/fs/vfs/vfs_task.c task_getfp(struct task *t, int fd)
+<a href='../S/912.html#L171'>t</a>                 171 usr/server/fs/vfs/vfs_task.c 	return t-&gt;t_ofile[fd];
+<a href='../S/912.html#L178'>t</a>                 178 usr/server/fs/vfs/vfs_task.c task_setfp(struct task *t, int fd, file_t fp)
+<a href='../S/912.html#L181'>t</a>                 181 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_ofile[fd] = fp;
+<a href='../S/912.html#L189'>t</a>                 189 usr/server/fs/vfs/vfs_task.c task_newfd(struct task *t)
+<a href='../S/912.html#L197'>t</a>                 197 usr/server/fs/vfs/vfs_task.c 		if (t-&gt;t_ofile[fd] == NULL)
+<a href='../S/912.html#L210'>t</a>                 210 usr/server/fs/vfs/vfs_task.c task_delfd(struct task *t, int fd)
+<a href='../S/912.html#L213'>t</a>                 213 usr/server/fs/vfs/vfs_task.c 	t-&gt;t_ofile[fd] = NULL;
+<a href='../S/912.html#L224'>t</a>                 224 usr/server/fs/vfs/vfs_task.c task_conv(struct task *t, char *path, int acc, char *full)
+<a href='../S/912.html#L229'>t</a>                 229 usr/server/fs/vfs/vfs_task.c 	cwd = t-&gt;t_cwd;
+<a href='../S/912.html#L289'>t</a>                 289 usr/server/fs/vfs/vfs_task.c 	return sec_file_permission(t-&gt;t_taskid, full, acc);
+<a href='../S/912.html#L297'>t</a>                 297 usr/server/fs/vfs/vfs_task.c 	struct task *t;
+<a href='../S/912.html#L307'>t</a>                 307 usr/server/fs/vfs/vfs_task.c 			t = list_entry(n, struct task, t_link);
+<a href='../S/912.html#L308'>t</a>                 308 usr/server/fs/vfs/vfs_task.c 			dprintf(" %08x %7x %s\n", (int)t-&gt;t_taskid, t-&gt;t_nopens,
+<a href='../S/912.html#L309'>t</a>                 309 usr/server/fs/vfs/vfs_task.c 			       t-&gt;t_cwd);
+<a href='../S/916.html#L269'>t</a>                 269 usr/server/pow/pow.c 	thread_t t;
+<a href='../S/916.html#L274'>t</a>                 274 usr/server/pow/pow.c 	if ((error = thread_create(self, &amp;t)) != 0)
+<a href='../S/916.html#L280'>t</a>                 280 usr/server/pow/pow.c 	if ((error = thread_load(t, entry, sp)) != 0)
+<a href='../S/916.html#L283'>t</a>                 283 usr/server/pow/pow.c 	return thread_resume(t);
+<a href='../S/928.html#L52'>t</a>                  52 usr/test/attack/attack.c 	thread_t t	= (thread_t)random();
+<a href='../S/928.html#L96'>t</a>                  96 usr/test/attack/attack.c 	thread_suspend(t);
+<a href='../S/928.html#L97'>t</a>                  97 usr/test/attack/attack.c 	thread_terminate(t);
+<a href='../S/938.html#L60'>t</a>                  60 usr/test/deadlock/deadlock.c 	thread_t t;
+<a href='../S/938.html#L63'>t</a>                  63 usr/test/deadlock/deadlock.c 	error = thread_create(task_self(), &amp;t);
+<a href='../S/938.html#L67'>t</a>                  67 usr/test/deadlock/deadlock.c 	error = thread_load(t, start, stack);
+<a href='../S/938.html#L71'>t</a>                  71 usr/test/deadlock/deadlock.c 	return t;
+<a href='../S/960.html#L46'>t</a>                  46 usr/test/ipc/ipc.c 	thread_t t;
+<a href='../S/960.html#L49'>t</a>                  49 usr/test/ipc/ipc.c 	error = thread_create(task_self(), &amp;t);
+<a href='../S/960.html#L53'>t</a>                  53 usr/test/ipc/ipc.c 	error = thread_load(t, start, stack);
+<a href='../S/960.html#L57'>t</a>                  57 usr/test/ipc/ipc.c 	error = thread_resume(t);
+<a href='../S/962.html#L48'>t</a>                  48 usr/test/ipc_mt/ipc_mt.c 	thread_t t;
+<a href='../S/962.html#L51'>t</a>                  51 usr/test/ipc_mt/ipc_mt.c 	error = thread_create(task_self(), &amp;t);
+<a href='../S/962.html#L55'>t</a>                  55 usr/test/ipc_mt/ipc_mt.c 	error = thread_load(t, start, stack);
+<a href='../S/962.html#L59'>t</a>                  59 usr/test/ipc_mt/ipc_mt.c 	error = thread_resume(t);
+<a href='../S/966.html#L117'>t</a>                 117 usr/test/kmon/cmd.c 	thread_t t;
+<a href='../S/966.html#L124'>t</a>                 124 usr/test/kmon/cmd.c 	t = (thread_t)strtoul(argv[1], &amp;ep, 16);
+<a href='../S/966.html#L125'>t</a>                 125 usr/test/kmon/cmd.c 	printf("Kill thread id:%x\n", (u_int)t);
+<a href='../S/966.html#L127'>t</a>                 127 usr/test/kmon/cmd.c 	if (thread_terminate(t))
+<a href='../S/966.html#L128'>t</a>                 128 usr/test/kmon/cmd.c 		printf("Thread %x does not exist\n", (u_int)t);
+<a href='../S/998.html#L57'>t</a>                  57 usr/test/task/task.c 	thread_t t;
+<a href='../S/998.html#L85'>t</a>                  85 usr/test/task/task.c 		error = thread_create(task, &amp;t);
+<a href='../S/998.html#L87'>t</a>                  87 usr/test/task/task.c 		error = thread_load(t, test_thread, stack[i]+1024);
+<a href='../S/998.html#L89'>t</a>                  89 usr/test/task/task.c 		thread_resume(t);
+<a href='../S/1000.html#L42'>t</a>                  42 usr/test/thread/thread.c 	thread_t t;
+<a href='../S/1000.html#L45'>t</a>                  45 usr/test/thread/thread.c 	if ((error = thread_create(task_self(), &amp;t)) != 0)
+<a href='../S/1000.html#L48'>t</a>                  48 usr/test/thread/thread.c 	if ((error = thread_load(t, start, stack)) != 0)
+<a href='../S/1000.html#L51'>t</a>                  51 usr/test/thread/thread.c 	if ((error = thread_resume(t)) != 0)
+<a href='../S/1000.html#L54'>t</a>                  54 usr/test/thread/thread.c 	return t;
+<a href='../S/1000.html#L69'>t</a>                  69 usr/test/thread/thread.c 	thread_t self, t;
+<a href='../S/1000.html#L79'>t</a>                  79 usr/test/thread/thread.c 	t = thread_run(test_thread, stack+1024);
+<a href='../S/1000.html#L90'>t</a>                  90 usr/test/thread/thread.c 	error = thread_suspend(t);
+<a href='../S/1000.html#L101'>t</a>                 101 usr/test/thread/thread.c 	error = thread_resume(t);
+<a href='../S/1000.html#L111'>t</a>                 111 usr/test/thread/thread.c 	thread_suspend(t);
+<a href='../S/1000.html#L121'>t</a>                 121 usr/test/thread/thread.c 	thread_resume(t);
+</pre>
+</body>
+</html>

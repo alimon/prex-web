@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>org</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/888.html#L208'>org</a>               208 usr/server/fs/fatfs/fatfs.h void	 fat_convert_name(char *org, char *name);
+<a href='../S/888.html#L209'>org</a>               209 usr/server/fs/fatfs/fatfs.h void	 fat_restore_name(char *org, char *name);
+<a href='../S/891.html#L46'>org</a>                46 usr/server/fs/fatfs/fatfs_subr.c fat_convert_name(char *org, char *name)
+<a href='../S/891.html#L52'>org</a>                52 usr/server/fs/fatfs/fatfs_subr.c 		if (!*org)
+<a href='../S/891.html#L54'>org</a>                54 usr/server/fs/fatfs/fatfs_subr.c 		if (*org == '/')
+<a href='../S/891.html#L56'>org</a>                56 usr/server/fs/fatfs/fatfs_subr.c 		if (*org == '.') {
+<a href='../S/891.html#L58'>org</a>                58 usr/server/fs/fatfs/fatfs_subr.c 			org++;
+<a href='../S/891.html#L61'>org</a>                61 usr/server/fs/fatfs/fatfs_subr.c 		*(name + i) = *org;
+<a href='../S/891.html#L62'>org</a>                62 usr/server/fs/fatfs/fatfs_subr.c 		org++;
+<a href='../S/891.html#L71'>org</a>                71 usr/server/fs/fatfs/fatfs_subr.c fat_restore_name(char *org, char *name)
+<a href='../S/891.html#L77'>org</a>                77 usr/server/fs/fatfs/fatfs_subr.c 		if (*org != ' ')
+<a href='../S/891.html#L78'>org</a>                78 usr/server/fs/fatfs/fatfs_subr.c 			*name++ = *org;
+<a href='../S/891.html#L79'>org</a>                79 usr/server/fs/fatfs/fatfs_subr.c 		org++;
+<a href='../S/891.html#L81'>org</a>                81 usr/server/fs/fatfs/fatfs_subr.c 	if (*org != ' ')
+<a href='../S/891.html#L84'>org</a>                84 usr/server/fs/fatfs/fatfs_subr.c 		if (*org != ' ')
+<a href='../S/891.html#L85'>org</a>                85 usr/server/fs/fatfs/fatfs_subr.c 			*name++ = *org;
+<a href='../S/891.html#L86'>org</a>                86 usr/server/fs/fatfs/fatfs_subr.c 		org++;
+<a href='../S/903.html#L200'>org</a>               200 usr/server/fs/vfs/main.c 	off_t offset, org;
+<a href='../S/903.html#L208'>org</a>               208 usr/server/fs/vfs/main.c 	error = sys_lseek(fp, offset, type, &amp;org);
+<a href='../S/903.html#L209'>org</a>               209 usr/server/fs/vfs/main.c 	msg-&gt;data[0] = (int)org;
+<a href='../S/903.html#L543'>org</a>               543 usr/server/fs/vfs/main.c 	file_t fp, org;
+<a href='../S/903.html#L554'>org</a>               554 usr/server/fs/vfs/main.c 	org = t-&gt;t_ofile[new_fd];
+<a href='../S/903.html#L555'>org</a>               555 usr/server/fs/vfs/main.c 	if (org != NULL) {
+<a href='../S/903.html#L557'>org</a>               557 usr/server/fs/vfs/main.c 		error = sys_close(org);
+</pre>
+</body>
+</html>

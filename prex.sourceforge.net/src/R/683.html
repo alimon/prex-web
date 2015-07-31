@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>PAGE_TABLE</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/131.html#L166'>PAGE_TABLE</a>        166 bsp/hal/arm/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/131.html#L284'>PAGE_TABLE</a>        284 bsp/hal/arm/arch/mmu.c 	pte[PAGE_TABLE(virt)] = (uint32_t)phys | PTE_PRESENT | PTE_SYSTEM;
+<a href='../S/144.html#L67'>PAGE_TABLE</a>         67 bsp/hal/arm/include/mmu.h #define page_present(pte, virt) (pte[PAGE_TABLE(virt)] &amp; PTE_PRESENT)
+<a href='../S/144.html#L73'>PAGE_TABLE</a>         73 bsp/hal/arm/include/mmu.h             ((pte)[PAGE_TABLE(virt)] &amp; PTE_ADDRESS)
+<a href='../S/178.html#L138'>PAGE_TABLE</a>        138 bsp/hal/x86/arch/mmu.c 		pte[PAGE_TABLE(va)] = (uint32_t)pa | pte_flag;
+<a href='../S/184.html#L72'>PAGE_TABLE</a>         72 bsp/hal/x86/include/mmu.h #define page_present(pte, virt) (pte[PAGE_TABLE(virt)] &amp; PTE_PRESENT)
+<a href='../S/184.html#L78'>PAGE_TABLE</a>         78 bsp/hal/x86/include/mmu.h             ((pte)[PAGE_TABLE(virt)] &amp; PTE_ADDRESS)
+</pre>
+</body>
+</html>

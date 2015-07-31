@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>oam</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/54.html#L186'>oam</a>               186 bsp/drv/arm/gba/swkbd.c 	uint16_t *oam = OAM;
+<a href='../S/54.html#L210'>oam</a>               210 bsp/drv/arm/gba/swkbd.c 		oam[curcur * 4] = (uint16_t)((oam[curcur * 4] &amp; 0xff00) | 160);
+<a href='../S/54.html#L211'>oam</a>               211 bsp/drv/arm/gba/swkbd.c 		oam[curcur * 4 + 1] = (uint16_t)((oam[curcur * 4 + 1] &amp; 0xfe00) | 240);
+<a href='../S/54.html#L214'>oam</a>               214 bsp/drv/arm/gba/swkbd.c 	oam[newcur * 4] = (uint16_t)((oam[newcur * 4] &amp; 0xff00) | y);
+<a href='../S/54.html#L215'>oam</a>               215 bsp/drv/arm/gba/swkbd.c 	oam[newcur * 4 + 1] = (uint16_t)((oam[newcur * 4 + 1] &amp; 0xfe00) | x);
+<a href='../S/54.html#L440'>oam</a>               440 bsp/drv/arm/gba/swkbd.c 	uint16_t *oam = OAM;
+<a href='../S/54.html#L446'>oam</a>               446 bsp/drv/arm/gba/swkbd.c 		oam[0] = 160;
+<a href='../S/54.html#L447'>oam</a>               447 bsp/drv/arm/gba/swkbd.c 		oam[1] = 240;
+<a href='../S/54.html#L448'>oam</a>               448 bsp/drv/arm/gba/swkbd.c 		oam += 4;
+<a href='../S/54.html#L463'>oam</a>               463 bsp/drv/arm/gba/swkbd.c 	oam = OAM;
+<a href='../S/54.html#L465'>oam</a>               465 bsp/drv/arm/gba/swkbd.c 		oam[0] = (uint16_t)(0x6000 + 160); /* 256 color, Horizontal */
+<a href='../S/54.html#L466'>oam</a>               466 bsp/drv/arm/gba/swkbd.c 		oam[1] = (uint16_t)(0x8000 + 240); /* 32x16 */
+<a href='../S/54.html#L467'>oam</a>               467 bsp/drv/arm/gba/swkbd.c 		oam[2] = (uint16_t)(i * 16); /* Tile number */
+<a href='../S/54.html#L468'>oam</a>               468 bsp/drv/arm/gba/swkbd.c 		oam += 4;
+<a href='../S/54.html#L471'>oam</a>               471 bsp/drv/arm/gba/swkbd.c 	oam[0] = 0x6000 + 160; /* 256 color, Horizontal */
+<a href='../S/54.html#L472'>oam</a>               472 bsp/drv/arm/gba/swkbd.c 	oam[1] = 0xC000 + 240; /* 64x32 */
+<a href='../S/54.html#L473'>oam</a>               473 bsp/drv/arm/gba/swkbd.c 	oam[2] = 112;
+</pre>
+</body>
+</html>

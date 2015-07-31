@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>rn_buf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/900.html#L68'>rn_buf</a>             68 usr/server/fs/ramfs/ramfs.h 	char	*rn_buf;	/* buffer to the file data */
+<a href='../S/902.html#L275'>rn_buf</a>            275 usr/server/fs/ramfs/ramfs_vnops.c 	if (np-&gt;rn_buf != NULL)
+<a href='../S/902.html#L276'>rn_buf</a>            276 usr/server/fs/ramfs/ramfs_vnops.c 		vm_free(task_self(), np-&gt;rn_buf);
+<a href='../S/902.html#L293'>rn_buf</a>            293 usr/server/fs/ramfs/ramfs_vnops.c 		if (np-&gt;rn_buf != NULL) {
+<a href='../S/902.html#L294'>rn_buf</a>            294 usr/server/fs/ramfs/ramfs_vnops.c 			vm_free(task_self(), np-&gt;rn_buf);
+<a href='../S/902.html#L295'>rn_buf</a>            295 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_buf = NULL;
+<a href='../S/902.html#L304'>rn_buf</a>            304 usr/server/fs/ramfs/ramfs_vnops.c 			memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L305'>rn_buf</a>            305 usr/server/fs/ramfs/ramfs_vnops.c 			vm_free(task, np-&gt;rn_buf);
+<a href='../S/902.html#L307'>rn_buf</a>            307 usr/server/fs/ramfs/ramfs_vnops.c 		np-&gt;rn_buf = new_buf;
+<a href='../S/902.html#L353'>rn_buf</a>            353 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(buf, np-&gt;rn_buf + off, size);
+<a href='../S/902.html#L395'>rn_buf</a>            395 usr/server/fs/ramfs/ramfs_vnops.c 				memcpy(new_buf, np-&gt;rn_buf, vp-&gt;v_size);
+<a href='../S/902.html#L396'>rn_buf</a>            396 usr/server/fs/ramfs/ramfs_vnops.c 				vm_free(task, np-&gt;rn_buf);
+<a href='../S/902.html#L398'>rn_buf</a>            398 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_buf = new_buf;
+<a href='../S/902.html#L404'>rn_buf</a>            404 usr/server/fs/ramfs/ramfs_vnops.c 	memcpy(np-&gt;rn_buf + file_pos, buf, size);
+<a href='../S/902.html#L438'>rn_buf</a>            438 usr/server/fs/ramfs/ramfs_vnops.c 			np-&gt;rn_buf = old_np-&gt;rn_buf;
+</pre>
+</body>
+</html>

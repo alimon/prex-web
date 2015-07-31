@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>lbolt</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/336.html#L44'>lbolt</a>              44 sys/kern/timer.c static volatile u_long	lbolt;		/* ticks elapsed since bootup */
+<a href='../S/336.html#L60'>lbolt</a>              60 sys/kern/timer.c 	if (time_before(lbolt, expire))
+<a href='../S/336.html#L61'>lbolt</a>              61 sys/kern/timer.c 		return expire - lbolt;
+<a href='../S/336.html#L77'>lbolt</a>              77 sys/kern/timer.c 	tmr-&gt;expire = lbolt + ticks;
+<a href='../S/336.html#L315'>lbolt</a>             315 sys/kern/timer.c 	if (time_before(lbolt, tmr-&gt;expire)) {
+<a href='../S/336.html#L399'>lbolt</a>             399 sys/kern/timer.c 	lbolt++;
+<a href='../S/336.html#L408'>lbolt</a>             408 sys/kern/timer.c 		if (time_before(lbolt, tmr-&gt;expire))
+<a href='../S/336.html#L440'>lbolt</a>             440 sys/kern/timer.c 	return lbolt;
+<a href='../S/336.html#L451'>lbolt</a>             451 sys/kern/timer.c 	info-&gt;cputicks = lbolt;
+</pre>
+</body>
+</html>

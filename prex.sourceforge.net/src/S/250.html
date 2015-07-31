@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/sys/cdefs.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<body>
+<div id="middle">
+<table id="content" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+
+    <tr>
+      <td id="header" colspan="2" valign="top">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="logo">
+            <a href="../../index.html">
+            <img alt="Prex logo" src="../../img/logo.gif" border="0"
+            style="width: 250px; height: 54px;"></a>
+          </td>
+          <td id="brief" align="right" valign="bottom">
+            An Open Source, Royalty-free,<br>
+	    Real-time Operating System
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="directory" style="vertical-align: top;"><p>
+      <a href="../../index.html">Prex Home</a> /
+      <a href="../index.html">Browse Source</a>
+      - Prex Version: 0.9.0</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="main" style="vertical-align: top;">
+<a id='TOP' name='TOP' /><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/1070.html'>include</a>/<a href='../files/1075.html'>sys</a>/cdefs.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='250.html#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/251.html' title='Multiple included from 133 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1' />   1 <em class='comment'>/*</em>
+<a id='L2' name='L2' />   2 <em class='comment'> * Copyright (c) 1991, 1993</em>
+<a id='L3' name='L3' />   3 <em class='comment'> *      The Regents of the University of California.  All rights reserved.</em>
+<a id='L4' name='L4' />   4 <em class='comment'> *</em>
+<a id='L5' name='L5' />   5 <em class='comment'> * This code is derived from software contributed to Berkeley by</em>
+<a id='L6' name='L6' />   6 <em class='comment'> * Berkeley Software Design, Inc.</em>
+<a id='L7' name='L7' />   7 <em class='comment'> *</em>
+<a id='L8' name='L8' />   8 <em class='comment'> * Redistribution and use in source and binary forms, with or without</em>
+<a id='L9' name='L9' />   9 <em class='comment'> * modification, are permitted provided that the following conditions</em>
+<a id='L10' name='L10' />  10 <em class='comment'> * are met:</em>
+<a id='L11' name='L11' />  11 <em class='comment'> * 1. Redistributions of source code must retain the above copyright</em>
+<a id='L12' name='L12' />  12 <em class='comment'> *    notice, this list of conditions and the following disclaimer.</em>
+<a id='L13' name='L13' />  13 <em class='comment'> * 2. Redistributions in binary form must reproduce the above copyright</em>
+<a id='L14' name='L14' />  14 <em class='comment'> *    notice, this list of conditions and the following disclaimer in the</em>
+<a id='L15' name='L15' />  15 <em class='comment'> *    documentation and/or other materials provided with the distribution.</em>
+<a id='L16' name='L16' />  16 <em class='comment'> * 3. Neither the name of the University nor the names of its contributors</em>
+<a id='L17' name='L17' />  17 <em class='comment'> *    may be used to endorse or promote products derived from this software</em>
+<a id='L18' name='L18' />  18 <em class='comment'> *    without specific prior written permission.</em>
+<a id='L19' name='L19' />  19 <em class='comment'> *</em>
+<a id='L20' name='L20' />  20 <em class='comment'> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</em>
+<a id='L21' name='L21' />  21 <em class='comment'> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</em>
+<a id='L22' name='L22' />  22 <em class='comment'> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</em>
+<a id='L23' name='L23' />  23 <em class='comment'> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</em>
+<a id='L24' name='L24' />  24 <em class='comment'> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</em>
+<a id='L25' name='L25' />  25 <em class='comment'> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</em>
+<a id='L26' name='L26' />  26 <em class='comment'> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</em>
+<a id='L27' name='L27' />  27 <em class='comment'> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</em>
+<a id='L28' name='L28' />  28 <em class='comment'> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</em>
+<a id='L29' name='L29' />  29 <em class='comment'> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</em>
+<a id='L30' name='L30' />  30 <em class='comment'> * SUCH DAMAGE.</em>
+<a id='L31' name='L31' />  31 <em class='comment'> *</em>
+<a id='L32' name='L32' />  32 <em class='comment'> *      @(#)cdefs.h     8.8 (Berkeley) 1/9/95</em>
+<a id='L33' name='L33' />  33 <em class='comment'> */</em>
+<a id='L34' name='L34' />  34 
+<a id='L35' name='L35' />  35 <em class='sharp'>#ifndef</em> <a href='250.html#L36' title='Defined at 36 in include/sys/cdefs.h.'>_SYS_CDEFS_H_</a>
+<a id='L36' name='L36' />  36 <em class='sharp'>#define</em> <a href='250.html#L35' title='Refered from 35 in include/sys/cdefs.h.'>_SYS_CDEFS_H_</a>
+<a id='L37' name='L37' />  37 
+<a id='L38' name='L38' />  38 <em class='comment'>/*</em>
+<a id='L39' name='L39' />  39 <em class='comment'> * Macro to test if we're using a GNU C compiler of a specific vintage</em>
+<a id='L40' name='L40' />  40 <em class='comment'> * or later, for e.g. features that appeared in a particular version</em>
+<a id='L41' name='L41' />  41 <em class='comment'> * of GNU C.  Usage:</em>
+<a id='L42' name='L42' />  42 <em class='comment'> *</em>
+<a id='L43' name='L43' />  43 <em class='comment'> *      #if __GNUC_PREREQ__(major, minor)</em>
+<a id='L44' name='L44' />  44 <em class='comment'> *      ...cool feature...</em>
+<a id='L45' name='L45' />  45 <em class='comment'> *      #else</em>
+<a id='L46' name='L46' />  46 <em class='comment'> *      ...delete feature...</em>
+<a id='L47' name='L47' />  47 <em class='comment'> *      #endif</em>
+<a id='L48' name='L48' />  48 <em class='comment'> */</em>
+<a id='L49' name='L49' />  49 <em class='sharp'>#ifdef</em> <a href='../Y/256.html' title='Multiple used in 6 places.'>__GNUC__</a>
+<a id='L50' name='L50' />  50 <em class='sharp'>#define</em> <a href='../R/1388.html' title='Multiple refered from 3 places.'>__GNUC_PREREQ__</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>, <a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)                                           \
+<a id='L51' name='L51' />  51         ((<a href='../Y/256.html' title='Multiple used in 6 places.'>__GNUC__</a> == (<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>) &amp;&amp; <a href='250.html#L51' title='Used at 51 in include/sys/cdefs.h.'>__GNUC_MINOR__</a> &gt;= (<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)) ||                  \
+<a id='L52' name='L52' />  52          (<a href='../Y/256.html' title='Multiple used in 6 places.'>__GNUC__</a> &gt; (<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)))
+<a id='L53' name='L53' />  53 <em class='sharp'>#else</em>
+<a id='L54' name='L54' />  54 <em class='sharp'>#define</em> <a href='../R/1388.html' title='Multiple refered from 3 places.'>__GNUC_PREREQ__</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>, <a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)   0
+<a id='L55' name='L55' />  55 <em class='sharp'>#endif</em>
+<a id='L56' name='L56' />  56 
+<a id='L57' name='L57' />  57 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/274.html' title='Multiple used in 5 places.'>__cplusplus</a>)
+<a id='L58' name='L58' />  58 <em class='sharp'>#define</em> <a href='../R/1385.html' title='Multiple refered from 94 places.'>__BEGIN_DECLS</a>   <strong class='reserved'>extern</strong> "C" <em class='brace'>{</em>
+<a id='L59' name='L59' />  59 <em class='sharp'>#define</em> <a href='../R/1387.html' title='Multiple refered from 84 places.'>__END_DECLS</a>     <em class='brace'>}</em>;
+<a id='L60' name='L60' />  60 <em class='sharp'>#else</em>
+<a id='L61' name='L61' />  61 <em class='sharp'>#define</em> <a href='../R/1385.html' title='Multiple refered from 94 places.'>__BEGIN_DECLS</a>
+<a id='L62' name='L62' />  62 <em class='sharp'>#define</em> <a href='../R/1387.html' title='Multiple refered from 84 places.'>__END_DECLS</a>
+<a id='L63' name='L63' />  63 <em class='sharp'>#endif</em>
+<a id='L64' name='L64' />  64 
+<a id='L65' name='L65' />  65 <em class='sharp'>#define</em> <a href='254.html#L426' title='Refered from 426 in include/sys/elf.h.'>__CONCAT</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>,<a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>)   <a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a> ## <a href='../Y/2449.html' title='Multiple used in 35 places.'>y</a>
+<a id='L66' name='L66' />  66 <em class='sharp'>#define</em> <a href='../R/1398.html' title='Multiple refered from 2 places.'>__STRING</a>(<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>)     #<a href='../Y/2443.html' title='Multiple used in 86 places.'>x</a>
+<a id='L67' name='L67' />  67 
+<a id='L68' name='L68' />  68 <em class='sharp'>#if</em> <strong class='reserved'>defined</strong>(<a href='../Y/274.html' title='Multiple used in 5 places.'>__cplusplus</a>) || <strong class='reserved'>defined</strong>(<a href='../Y/258.html' title='Multiple used in 2 places.'>__PCC__</a>)
+<a id='L69' name='L69' />  69 <em class='sharp'>#define</em> <strong class='reserved'>__inline</strong>        <strong class='reserved'>inline</strong>          <em class='comment'>/* convert to C++/C99 keyword */</em>
+<a id='L70' name='L70' />  70 <em class='sharp'>#else</em>
+<a id='L71' name='L71' />  71 <em class='sharp'>#ifndef</em> <a href='../Y/256.html' title='Multiple used in 6 places.'>__GNUC__</a>
+<a id='L72' name='L72' />  72 <em class='sharp'>#define</em> <strong class='reserved'>__inline</strong>                        <em class='comment'>/* delete GCC keyword */</em>
+<a id='L73' name='L73' />  73 <em class='sharp'>#endif</em>
+<a id='L74' name='L74' />  74 <em class='sharp'>#endif</em> <em class='comment'>/* !__cplusplus */</em>
+<a id='L75' name='L75' />  75 
+<a id='L76' name='L76' />  76 <em class='sharp'>#ifdef</em> <a href='../Y/256.html' title='Multiple used in 6 places.'>__GNUC__</a>
+<a id='L77' name='L77' />  77 <em class='sharp'>#define</em> <a href='../R/1413.html' title='Multiple refered from 7 places.'>__packed</a>        <strong class='reserved'>__attribute__</strong>((<a href='250.html#L77' title='Used at 77 in include/sys/cdefs.h.'>__packed__</a>))
+<a id='L78' name='L78' />  78 <em class='sharp'>#define</em> __noreturn      <strong class='reserved'>__attribute__</strong>((<a href='250.html#L78' title='Used at 78 in include/sys/cdefs.h.'>__noreturn__</a>))
+<a id='L79' name='L79' />  79 <em class='sharp'>#elif</em> <strong class='reserved'>defined</strong>(<a href='../Y/278.html' title='Multiple used in 5 places.'>__lint__</a>)
+<a id='L80' name='L80' />  80 <em class='sharp'>#define</em> <a href='../R/1413.html' title='Multiple refered from 7 places.'>__packed</a>        <em class='comment'>/* delete */</em>
+<a id='L81' name='L81' />  81 <em class='sharp'>#define</em> __noreturn      <em class='comment'>/* delete */</em>
+<a id='L82' name='L82' />  82 <em class='sharp'>#elif</em> <strong class='reserved'>defined</strong>(<a href='../Y/258.html' title='Multiple used in 2 places.'>__PCC__</a>)
+<a id='L83' name='L83' />  83 <em class='sharp'>#define</em> <a href='../R/1413.html' title='Multiple refered from 7 places.'>__packed</a>        <a href='250.html#L83' title='Used at 83 in include/sys/cdefs.h.'>_Pragma</a>("packed")
+<a id='L84' name='L84' />  84 <em class='sharp'>#define</em> __noreturn      <em class='comment'>/* delete */</em>
+<a id='L85' name='L85' />  85 <em class='sharp'>#elif</em> <strong class='reserved'>defined</strong>(<a href='../Y/261.html' title='Multiple used in 5 places.'>__SUNPRO_C</a>)
+<a id='L86' name='L86' />  86 <em class='sharp'>#define</em> <a href='../R/1413.html' title='Multiple refered from 7 places.'>__packed</a>        <em class='comment'>/* delete */</em>
+<a id='L87' name='L87' />  87 <em class='sharp'>#define</em> __noreturn      <em class='comment'>/* delete */</em>
+<a id='L88' name='L88' />  88 <em class='sharp'>#else</em>
+<a id='L89' name='L89' />  89 <em class='sharp'>#define</em> <a href='../D/2275.html' title='Multiple defined in 5 places.'>__packed</a>        <a href='../D/2604.html' title='Multiple defined in 3 places.'>error</a>: <a href='250.html#L89' title='Used at 89 in include/sys/cdefs.h.'>no</a> <a href='../R/1413.html' title='Multiple refered from 7 places.'>__packed</a> <strong class='reserved'>for</strong> <a href='250.html#L89' title='Used at 89 in include/sys/cdefs.h.'>this</a> <a href='250.html#L89' title='Used at 89 in include/sys/cdefs.h.'>compiler</a>
+<a id='L90' name='L90' />  90 <em class='sharp'>#define</em> __noreturn      <em class='comment'>/* delete */</em>
+<a id='L91' name='L91' />  91 <em class='sharp'>#endif</em>
+<a id='L92' name='L92' />  92 
+<a id='L93' name='L93' />  93 <em class='sharp'>#define</em> <strong class='reserved'>__P</strong>(<a href='250.html#L93' title='Used at 93 in include/sys/cdefs.h.'>protos</a>)     ()
+<a id='L94' name='L94' />  94 <em class='sharp'>#define</em> __RCSID(<a href='../Y/321.html' title='Multiple used in 2 places.'>_s</a>)
+<a id='L95' name='L95' />  95 <em class='sharp'>#define</em> __COPYRIGHT(<a href='../Y/321.html' title='Multiple used in 2 places.'>_s</a>)
+<a id='L96' name='L96' />  96 
+<a id='L97' name='L97' />  97 <em class='sharp'>#endif</em> <em class='comment'>/* !_SYS_CDEFS_H_ */</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM' />
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='250.html#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<br />    <tr>
+      <td id="footer" colspan="2" style="vertical-align: top;">
+        <a href="http://sourceforge.net">
+        <img src="http://sourceforge.net/sflogo.php?group_id=132028&amp;type=1"
+        alt="SourceForge.net Logo" border="0" height="31" width="88"></a><br>
+        Copyright&copy; 2005-2009 Kohsuke Ohtani
+      </td>
+    </tr>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</body>
+</html>

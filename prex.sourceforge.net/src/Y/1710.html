@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>ramfs_node</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/900.html#L61'>ramfs_node</a>         61 usr/server/fs/ramfs/ramfs.h struct ramfs_node {
+<a href='../S/900.html#L62'>ramfs_node</a>         62 usr/server/fs/ramfs/ramfs.h 	struct	ramfs_node *rn_next;   /* next node in the same directory */
+<a href='../S/900.html#L63'>ramfs_node</a>         63 usr/server/fs/ramfs/ramfs.h 	struct	ramfs_node *rn_child;  /* first child node */
+<a href='../S/900.html#L73'>ramfs_node</a>         73 usr/server/fs/ramfs/ramfs.h struct ramfs_node *ramfs_allocate_node(char *name, int type);
+<a href='../S/900.html#L74'>ramfs_node</a>         74 usr/server/fs/ramfs/ramfs.h void ramfs_free_node(struct ramfs_node *node);
+<a href='../S/901.html#L63'>ramfs_node</a>         63 usr/server/fs/ramfs/ramfs_vfsops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L98'>ramfs_node</a>         98 usr/server/fs/ramfs/ramfs_vnops.c struct ramfs_node *
+<a href='../S/902.html#L101'>ramfs_node</a>        101 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L103'>ramfs_node</a>        103 usr/server/fs/ramfs/ramfs_vnops.c 	np = malloc(sizeof(struct ramfs_node));
+<a href='../S/902.html#L106'>ramfs_node</a>        106 usr/server/fs/ramfs/ramfs_vnops.c 	memset(np, 0, sizeof(struct ramfs_node));
+<a href='../S/902.html#L120'>ramfs_node</a>        120 usr/server/fs/ramfs/ramfs_vnops.c ramfs_free_node(struct ramfs_node *np)
+<a href='../S/902.html#L127'>ramfs_node</a>        127 usr/server/fs/ramfs/ramfs_vnops.c static struct ramfs_node *
+<a href='../S/902.html#L128'>ramfs_node</a>        128 usr/server/fs/ramfs/ramfs_vnops.c ramfs_add_node(struct ramfs_node *dnp, char *name, int type)
+<a href='../S/902.html#L130'>ramfs_node</a>        130 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *prev;
+<a href='../S/902.html#L152'>ramfs_node</a>        152 usr/server/fs/ramfs/ramfs_vnops.c ramfs_remove_node(struct ramfs_node *dnp, struct ramfs_node *np)
+<a href='../S/902.html#L154'>ramfs_node</a>        154 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *prev;
+<a href='../S/902.html#L181'>ramfs_node</a>        181 usr/server/fs/ramfs/ramfs_vnops.c ramfs_rename_node(struct ramfs_node *np, char *name)
+<a href='../S/902.html#L206'>ramfs_node</a>        206 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *dnp;
+<a href='../S/902.html#L241'>ramfs_node</a>        241 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L266'>ramfs_node</a>        266 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L284'>ramfs_node</a>        284 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L321'>ramfs_node</a>        321 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L336'>ramfs_node</a>        336 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L363'>ramfs_node</a>        363 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np;
+<a href='../S/902.html#L414'>ramfs_node</a>        414 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *old_np;
+<a href='../S/902.html#L454'>ramfs_node</a>        454 usr/server/fs/ramfs/ramfs_vnops.c 	struct ramfs_node *np, *dnp;
+</pre>
+</body>
+</html>

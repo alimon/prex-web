@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>serial_port</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/87.html#L91'>serial_port</a>        91 bsp/drv/dev/serial/ns16550.c static void	ns16550_xmt_char(struct serial_port *, char);
+<a href='../S/87.html#L92'>serial_port</a>        92 bsp/drv/dev/serial/ns16550.c static char	ns16550_rcv_char(struct serial_port *);
+<a href='../S/87.html#L93'>serial_port</a>        93 bsp/drv/dev/serial/ns16550.c static void	ns16550_set_poll(struct serial_port *, int);
+<a href='../S/87.html#L94'>serial_port</a>        94 bsp/drv/dev/serial/ns16550.c static void	ns16550_start(struct serial_port *);
+<a href='../S/87.html#L95'>serial_port</a>        95 bsp/drv/dev/serial/ns16550.c static void	ns16550_stop(struct serial_port *);
+<a href='../S/87.html#L117'>serial_port</a>       117 bsp/drv/dev/serial/ns16550.c static struct serial_port ns16550_port;
+<a href='../S/87.html#L121'>serial_port</a>       121 bsp/drv/dev/serial/ns16550.c ns16550_xmt_char(struct serial_port *sp, char c)
+<a href='../S/87.html#L130'>serial_port</a>       130 bsp/drv/dev/serial/ns16550.c ns16550_rcv_char(struct serial_port *sp)
+<a href='../S/87.html#L139'>serial_port</a>       139 bsp/drv/dev/serial/ns16550.c ns16550_set_poll(struct serial_port *sp, int on)
+<a href='../S/87.html#L154'>serial_port</a>       154 bsp/drv/dev/serial/ns16550.c 	struct serial_port *sp = arg;
+<a href='../S/87.html#L174'>serial_port</a>       174 bsp/drv/dev/serial/ns16550.c ns16550_start(struct serial_port *sp)
+<a href='../S/87.html#L196'>serial_port</a>       196 bsp/drv/dev/serial/ns16550.c ns16550_stop(struct serial_port *sp)
+<a href='../S/88.html#L91'>serial_port</a>        91 bsp/drv/dev/serial/pl011.c static void	pl011_xmt_char(struct serial_port *, char);
+<a href='../S/88.html#L92'>serial_port</a>        92 bsp/drv/dev/serial/pl011.c static char	pl011_rcv_char(struct serial_port *);
+<a href='../S/88.html#L93'>serial_port</a>        93 bsp/drv/dev/serial/pl011.c static void	pl011_set_poll(struct serial_port *, int);
+<a href='../S/88.html#L94'>serial_port</a>        94 bsp/drv/dev/serial/pl011.c static void	pl011_start(struct serial_port *);
+<a href='../S/88.html#L95'>serial_port</a>        95 bsp/drv/dev/serial/pl011.c static void	pl011_stop(struct serial_port *);
+<a href='../S/88.html#L116'>serial_port</a>       116 bsp/drv/dev/serial/pl011.c static struct serial_port pl011_port;
+<a href='../S/88.html#L120'>serial_port</a>       120 bsp/drv/dev/serial/pl011.c pl011_xmt_char(struct serial_port *sp, char c)
+<a href='../S/88.html#L129'>serial_port</a>       129 bsp/drv/dev/serial/pl011.c pl011_rcv_char(struct serial_port *sp)
+<a href='../S/88.html#L140'>serial_port</a>       140 bsp/drv/dev/serial/pl011.c pl011_set_poll(struct serial_port *sp, int on)
+<a href='../S/88.html#L155'>serial_port</a>       155 bsp/drv/dev/serial/pl011.c 	struct serial_port *sp = arg;
+<a href='../S/88.html#L188'>serial_port</a>       188 bsp/drv/dev/serial/pl011.c pl011_start(struct serial_port *sp)
+<a href='../S/88.html#L221'>serial_port</a>       221 bsp/drv/dev/serial/pl011.c pl011_stop(struct serial_port *sp)
+<a href='../S/89.html#L51'>serial_port</a>        51 bsp/drv/dev/serial/serial.c 	struct serial_port *port;	/* port setting */
+<a href='../S/89.html#L125'>serial_port</a>       125 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L136'>serial_port</a>       136 bsp/drv/dev/serial/serial.c serial_xmt_done(struct serial_port *port)
+<a href='../S/89.html#L146'>serial_port</a>       146 bsp/drv/dev/serial/serial.c serial_rcv_char(struct serial_port *port, char c)
+<a href='../S/89.html#L156'>serial_port</a>       156 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L165'>serial_port</a>       165 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L174'>serial_port</a>       174 bsp/drv/dev/serial/serial.c 	struct serial_port *port = sc-&gt;port;
+<a href='../S/89.html#L180'>serial_port</a>       180 bsp/drv/dev/serial/serial.c serial_attach(struct serial_ops *ops, struct serial_port *port)
+<a href='../S/101.html#L36'>serial_port</a>        36 bsp/drv/include/serial.h struct serial_port {
+<a href='../S/101.html#L42'>serial_port</a>        42 bsp/drv/include/serial.h 	void	(*xmt_char)(struct serial_port *port, char c);
+<a href='../S/101.html#L43'>serial_port</a>        43 bsp/drv/include/serial.h 	char	(*rcv_char)(struct serial_port *port);
+<a href='../S/101.html#L44'>serial_port</a>        44 bsp/drv/include/serial.h 	void	(*set_poll)(struct serial_port *port, int on);
+<a href='../S/101.html#L45'>serial_port</a>        45 bsp/drv/include/serial.h 	void	(*start)(struct serial_port *port);
+<a href='../S/101.html#L46'>serial_port</a>        46 bsp/drv/include/serial.h 	void	(*stop)(struct serial_port *port);
+<a href='../S/101.html#L50'>serial_port</a>        50 bsp/drv/include/serial.h void	serial_attach(struct serial_ops *, struct serial_port *);
+<a href='../S/101.html#L51'>serial_port</a>        51 bsp/drv/include/serial.h void	serial_xmt_done(struct serial_port *);
+<a href='../S/101.html#L52'>serial_port</a>        52 bsp/drv/include/serial.h void	serial_rcv_char(struct serial_port *, char);
+</pre>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>memset</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L157'>memset</a>            157 bsp/boot/common/elf.c 				memset((char *)load_base + m-&gt;datasz,
+<a href='../S/13.html#L332'>memset</a>            332 bsp/boot/common/elf.c 			memset((char *)bss_base, 0, (size_t)shdr-&gt;sh_size);
+<a href='../S/15.html#L57'>memset</a>             57 bsp/boot/common/main.c 	memset(bootinfo, 0, BOOTINFOSZ);
+<a href='../S/20.html#L69'>memset</a>             69 bsp/boot/include/boot.h void	 *memset(void *, int, size_t);
+<a href='../S/64.html#L616'>memset</a>            616 bsp/drv/dev/base/tty.c 	memset(tp, 0, sizeof(struct tty));
+<a href='../S/81.html#L71'>memset</a>             71 bsp/drv/dev/misc/zero.c 	memset(p, 0, *nbyte);
+<a href='../S/94.html#L95'>memset</a>             95 bsp/drv/include/ddi.h void	 *memset(void *dest, int ch, size_t count);
+<a href='../S/131.html#L163'>memset</a>            163 bsp/hal/arm/arch/mmu.c 			memset(pte, 0, L2TBL_SIZE);
+<a href='../S/131.html#L195'>memset</a>            195 bsp/hal/arm/arch/mmu.c 	memset(pgd, 0, L1TBL_SIZE);
+<a href='../S/131.html#L282'>memset</a>            282 bsp/hal/arm/arch/mmu.c 	memset(pte, 0, L2TBL_SIZE);
+<a href='../S/174.html#L201'>memset</a>            201 bsp/hal/x86/arch/cpu.c 	memset(&amp;tss, 0, sizeof(struct tss));
+<a href='../S/178.html#L135'>memset</a>            135 bsp/hal/x86/arch/mmu.c 			memset(pte, 0, PAGE_SIZE);
+<a href='../S/178.html#L168'>memset</a>            168 bsp/hal/x86/arch/mmu.c 	memset(pgd, 0, PAGE_SIZE);
+<a href='../S/313.html#L42'>memset</a>             42 sys/include/libkern.h void	*memset(void *, int, size_t);
+<a href='../S/327.html#L158'>memset</a>            158 sys/kern/device.c 		memset(private, 0, drv-&gt;devsz);
+<a href='../S/329.html#L94'>memset</a>             94 sys/kern/irq.c 	memset(irq, 0, sizeof(*irq));
+<a href='../S/334.html#L108'>memset</a>            108 sys/kern/task.c 	memset(task, 0, sizeof(*task));
+<a href='../S/335.html#L423'>memset</a>            423 sys/kern/thread.c 	memset(t, 0, sizeof(*t));
+<a href='../S/335.html#L539'>memset</a>            539 sys/kern/thread.c 	memset(t-&gt;kstack, 0, KSTACKSZ);
+<a href='../S/335.html#L586'>memset</a>            586 sys/kern/thread.c 	memset(stack, 0, KSTACKSZ);
+<a href='../S/336.html#L279'>memset</a>            279 sys/kern/timer.c 			memset(tmr, 0, sizeof(*tmr));
+<a href='../S/343.html#L159'>memset</a>            159 sys/mem/vm.c   	memset(ptokv(pa), 0, seg-&gt;size);
+<a href='../S/344.html#L141'>memset</a>            141 sys/mem/vm_nommu.c 	memset((void *)start, 0, size);
+<a href='../S/344.html#L480'>memset</a>            480 sys/mem/vm_nommu.c 		memset((void *)(mod-&gt;data + mod-&gt;datasz), 0, mod-&gt;bsssz);
+<a href='../S/443.html#L51'>memset</a>             51 usr/include/string.h void	*memset(void *, int, size_t);
+<a href='../S/479.html#L87'>memset</a>             87 usr/lib/libc/gen/fts.c 	memset(sp, 0, sizeof(FTS));
+<a href='../S/479.html#L781'>memset</a>            781 usr/lib/libc/gen/fts.c 			memset(sbp, '\0', sizeof (*sbp));
+<a href='../S/479.html#L805'>memset</a>            805 usr/lib/libc/gen/fts.c err:		memset(sbp, 0, sizeof(struct stat));
+<a href='../S/506.html#L48'>memset</a>             48 usr/lib/libc/stdio/findfp.c 	memset(fp, 0, sizeof(FILE));
+<a href='../S/877.html#L335'>memset</a>            335 usr/server/exec/exec_execve.c 	memset((void *)mapped, 0, DFLSTKSZ);
+<a href='../S/877.html#L466'>memset</a>            466 usr/server/exec/exec_execve.c 	memset(hdrbuf, 0, HEADER_SIZE);
+<a href='../S/890.html#L333'>memset</a>            333 usr/server/fs/fatfs/fatfs_node.c 		memset(fmp-&gt;dir_buf, 0, SEC_SIZE);
+<a href='../S/891.html#L50'>memset</a>             50 usr/server/fs/fatfs/fatfs_subr.c 	memset(name, (int)' ', 11);
+<a href='../S/891.html#L75'>memset</a>             75 usr/server/fs/fatfs/fatfs_subr.c 	memset(name, 0, 13);
+<a href='../S/893.html#L401'>memset</a>            401 usr/server/fs/fatfs/fatfs_vnops.c 	memset(de, 0, sizeof(struct fat_dirent));
+<a href='../S/893.html#L575'>memset</a>            575 usr/server/fs/fatfs/fatfs_vnops.c 	memset(&amp;np, 0, sizeof(struct fatfs_node));
+<a href='../S/893.html#L587'>memset</a>            587 usr/server/fs/fatfs/fatfs_vnops.c 	memset(fmp-&gt;io_buf, 0, fmp-&gt;cluster_size);
+<a href='../S/902.html#L106'>memset</a>            106 usr/server/fs/ramfs/ramfs_vnops.c 	memset(np, 0, sizeof(struct ramfs_node));
+<a href='../S/911.html#L137'>memset</a>            137 usr/server/fs/vfs/vfs_syscalls.c 	memset(fp, 0, sizeof(struct file));
+<a href='../S/912.html#L109'>memset</a>            109 usr/server/fs/vfs/vfs_task.c 	memset(t, 0, sizeof(struct task));
+<a href='../S/913.html#L171'>memset</a>            171 usr/server/fs/vfs/vfs_vnode.c 	memset(vp, 0, sizeof(struct vnode));
+<a href='../S/913.html#L347'>memset</a>            347 usr/server/fs/vfs/vfs_vnode.c 	memset(st, 0, sizeof(struct stat));
+<a href='../S/917.html#L392'>memset</a>            392 usr/server/proc/main.c 	memset(p, 0, sizeof(struct proc));
+<a href='../S/921.html#L145'>memset</a>            145 usr/server/proc/proc_fork.c 	memset(p, 0, sizeof(*p));
+<a href='../S/923.html#L132'>memset</a>            132 usr/server/proc/proc_pid.c 		memset(pgrp, 0, sizeof(*pgrp));
+<a href='../S/923.html#L217'>memset</a>            217 usr/server/proc/proc_pid.c 	memset(sess, 0, sizeof(*sess));
+<a href='../S/954.html#L61'>memset</a>             61 usr/test/fileio/fileio.c 		memset(iobuf, i, IOBUFSZ);
+</pre>
+</body>
+</html>

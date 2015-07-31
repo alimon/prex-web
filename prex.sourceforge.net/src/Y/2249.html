@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>u_long</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/58.html#L42'>u_long</a>             42 bsp/drv/dev/base/cons.c static int cons_ioctl(device_t, u_long, void *);
+<a href='../S/58.html#L43'>u_long</a>             43 bsp/drv/dev/base/cons.c static int cons_devctl(device_t, u_long, void *);
+<a href='../S/58.html#L108'>u_long</a>            108 bsp/drv/dev/base/cons.c cons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/58.html#L117'>u_long</a>            117 bsp/drv/dev/base/cons.c cons_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/63.html#L68'>u_long</a>             68 bsp/drv/dev/base/pm.c static int	pm_ioctl(device_t, u_long, void *);
+<a href='../S/63.html#L130'>u_long</a>            130 bsp/drv/dev/base/pm.c pm_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/64.html#L530'>u_long</a>            530 bsp/drv/dev/base/tty.c tty_ioctl(struct tty *tp, u_long cmd, void *data)
+<a href='../S/65.html#L74'>u_long</a>             74 bsp/drv/dev/base/wscons.c static int	wscons_ioctl(device_t, u_long, void *);
+<a href='../S/65.html#L133'>u_long</a>            133 bsp/drv/dev/base/wscons.c wscons_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/66.html#L518'>u_long</a>            518 bsp/drv/dev/block/fdd.c fdd_rw(struct fdd_softc *sc, int cmd, char *buf, u_long blksz, int blkno)
+<a href='../S/69.html#L74'>u_long</a>             74 bsp/drv/dev/cpufreq/cpufreq.c static int cpufreq_ioctl(device_t, u_long, void *);
+<a href='../S/69.html#L75'>u_long</a>             75 bsp/drv/dev/cpufreq/cpufreq.c static int cpufreq_devctl(device_t, u_long, void *);
+<a href='../S/69.html#L128'>u_long</a>            128 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_predict_max_speed(u_long run_cycles, u_long idle_cycles)
+<a href='../S/69.html#L173'>u_long</a>            173 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_predict_cpu_speed(u_long run_cycles, u_long idle_cycles)
+<a href='../S/69.html#L303'>u_long</a>            303 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/69.html#L324'>u_long</a>            324 bsp/drv/dev/cpufreq/cpufreq.c cpufreq_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/72.html#L190'>u_long</a>            190 bsp/drv/dev/dma/i8237.c dma_setup(dma_t handle, void *addr, u_long count, int read)
+<a href='../S/85.html#L63'>u_long</a>             63 bsp/drv/dev/rtc/rtc.c static int rtc_ioctl(device_t, u_long, void *);
+<a href='../S/85.html#L178'>u_long</a>            178 bsp/drv/dev/rtc/rtc.c rtc_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/89.html#L59'>u_long</a>             59 bsp/drv/dev/serial/serial.c static int	serial_ioctl(device_t, u_long, void *);
+<a href='../S/89.html#L111'>u_long</a>            111 bsp/drv/dev/serial/serial.c serial_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/91.html#L62'>u_long</a>             62 bsp/drv/dev/video/vga.c static int	vga_devctl(device_t, u_long, void *);
+<a href='../S/91.html#L207'>u_long</a>            207 bsp/drv/dev/video/vga.c vga_devctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/94.html#L78'>u_long</a>             78 bsp/drv/include/ddi.h void	 delay_usec(u_long usec);
+<a href='../S/94.html#L85'>u_long</a>             85 bsp/drv/include/ddi.h void	 dma_setup(dma_t handle, void *addr, u_long count, int read);
+<a href='../S/96.html#L110'>u_long</a>            110 bsp/drv/include/dki.h int	 device_control(device_t, u_long, void *);
+<a href='../S/96.html#L111'>u_long</a>            111 bsp/drv/include/dki.h int	 device_broadcast(u_long, void *, int);
+<a href='../S/96.html#L133'>u_long</a>            133 bsp/drv/include/dki.h void	 timer_callout(timer_t *, u_long, void (*)(void *), void *);
+<a href='../S/96.html#L135'>u_long</a>            135 bsp/drv/include/dki.h u_long	 timer_delay(u_long);
+<a href='../S/96.html#L140'>u_long</a>            140 bsp/drv/include/dki.h int	 sched_tsleep(struct event *, u_long);
+<a href='../S/102.html#L93'>u_long</a>             93 bsp/drv/include/tty.h int	 tty_ioctl(struct tty *, u_long, void *);
+<a href='../S/107.html#L45'>u_long</a>             45 bsp/drv/lib/delay.c void delay_loop(u_long count)
+<a href='../S/107.html#L57'>u_long</a>             57 bsp/drv/lib/delay.c delay_usec(u_long usec)
+<a href='../S/252.html#L66'>u_long</a>             66 include/sys/device.h typedef int (*devop_ioctl_t)  (device_t, u_long, void *);
+<a href='../S/252.html#L67'>u_long</a>             67 include/sys/device.h typedef int (*devop_devctl_t) (device_t, u_long, void *);
+<a href='../S/267.html#L121'>u_long</a>            121 include/sys/prex.h int	timer_sleep(u_long msec, u_long *remain);
+<a href='../S/267.html#L122'>u_long</a>            122 include/sys/prex.h int	timer_alarm(u_long msec, u_long *remain);
+<a href='../S/267.html#L123'>u_long</a>            123 include/sys/prex.h int	timer_periodic(thread_t t, u_long start, u_long period);
+<a href='../S/267.html#L130'>u_long</a>            130 include/sys/prex.h int	device_ioctl(device_t dev, u_long cmd, void *arg);
+<a href='../S/267.html#L146'>u_long</a>            146 include/sys/prex.h int	sem_wait(sem_t *sp, u_long timeout);
+<a href='../S/267.html#L154'>u_long</a>            154 include/sys/prex.h int	sys_time(u_long *ticks);
+<a href='../S/279.html#L129'>u_long</a>            129 include/sys/vnode.h typedef	int (*vnop_ioctl_t)	(vnode_t, file_t, u_long, void *);
+<a href='../S/305.html#L55'>u_long</a>             55 sys/include/device.h int	 device_ioctl(device_t, u_long, void *);
+<a href='../S/315.html#L67'>u_long</a>             67 sys/include/sched.h int	 sched_tsleep(struct event *, u_long);
+<a href='../S/316.html#L75'>u_long</a>             75 sys/include/sync.h int	 sem_wait(sem_t *, u_long);
+<a href='../S/317.html#L42'>u_long</a>             42 sys/include/system.h int	 sys_time(u_long *);
+<a href='../S/320.html#L73'>u_long</a>             73 sys/include/timer.h void	 timer_callout(struct timer *, u_long, void (*)(void *), void *);
+<a href='../S/320.html#L75'>u_long</a>             75 sys/include/timer.h u_long	 timer_delay(u_long);
+<a href='../S/320.html#L76'>u_long</a>             76 sys/include/timer.h int	 timer_sleep(u_long, u_long *);
+<a href='../S/320.html#L77'>u_long</a>             77 sys/include/timer.h int	 timer_alarm(u_long, u_long *);
+<a href='../S/320.html#L78'>u_long</a>             78 sys/include/timer.h int	 timer_periodic(thread_t, u_long, u_long);
+<a href='../S/327.html#L65'>u_long</a>             65 sys/kern/device.c static int	device_control(device_t, u_long, void *);
+<a href='../S/327.html#L66'>u_long</a>             66 sys/kern/device.c static int	device_broadcast(u_long, void *, int);
+<a href='../S/327.html#L430'>u_long</a>            430 sys/kern/device.c device_ioctl(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L451'>u_long</a>            451 sys/kern/device.c device_control(device_t dev, u_long cmd, void *arg)
+<a href='../S/327.html#L480'>u_long</a>            480 sys/kern/device.c device_broadcast(u_long cmd, void *arg, int force)
+<a href='../S/331.html#L268'>u_long</a>            268 sys/kern/sched.c sched_tsleep(struct event *evt, u_long msec)
+<a href='../S/333.html#L230'>u_long</a>            230 sys/kern/system.c sys_time(u_long *ticks)
+<a href='../S/336.html#L57'>u_long</a>             57 sys/kern/timer.c time_remain(u_long expire)
+<a href='../S/336.html#L69'>u_long</a>             69 sys/kern/timer.c timer_add(struct timer *tmr, u_long ticks)
+<a href='../S/336.html#L119'>u_long</a>            119 sys/kern/timer.c timer_callout(struct timer *tmr, u_long msec, void (*fn)(void *), void *arg)
+<a href='../S/336.html#L147'>u_long</a>            147 sys/kern/timer.c timer_delay(u_long msec)
+<a href='../S/336.html#L169'>u_long</a>            169 sys/kern/timer.c timer_sleep(u_long msec, u_long *remain)
+<a href='../S/336.html#L204'>u_long</a>            204 sys/kern/timer.c timer_alarm(u_long msec, u_long *remain)
+<a href='../S/336.html#L240'>u_long</a>            240 sys/kern/timer.c timer_periodic(thread_t t, u_long start, u_long period)
+<a href='../S/347.html#L162'>u_long</a>            162 sys/sync/sem.c sem_wait(sem_t *sp, u_long timeout)
+<a href='../S/552.html#L112'>u_long</a>            112 usr/lib/libc/stdio/vfprintf.c __ultoa(u_long val, char *endp, int base, int octzero, char *xdigs)
+<a href='../S/577.html#L42'>u_long</a>             42 usr/lib/libc/stdlib/random.c 	u_long seed;
+<a href='../S/886.html#L64'>u_long</a>             64 usr/server/fs/devfs/devfs_vnops.c static int devfs_ioctl	(vnode_t, file_t, u_long, void *);
+<a href='../S/886.html#L183'>u_long</a>            183 usr/server/fs/devfs/devfs_vnops.c devfs_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/888.html#L199'>u_long</a>            199 usr/server/fs/fatfs/fatfs.h int	 fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next);
+<a href='../S/888.html#L200'>u_long</a>            200 usr/server/fs/fatfs/fatfs.h int	 fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next);
+<a href='../S/888.html#L201'>u_long</a>            201 usr/server/fs/fatfs/fatfs.h int	 fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free);
+<a href='../S/888.html#L202'>u_long</a>            202 usr/server/fs/fatfs/fatfs.h int	 fat_free_clusters(struct fatfsmount *fmp, u_long start);
+<a href='../S/888.html#L203'>u_long</a>            203 usr/server/fs/fatfs/fatfs.h int	 fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/888.html#L204'>u_long</a>            204 usr/server/fs/fatfs/fatfs.h 			    u_long *cl);
+<a href='../S/888.html#L205'>u_long</a>            205 usr/server/fs/fatfs/fatfs.h int	 fat_expand_file(struct fatfsmount *fmp, u_long cl, int size);
+<a href='../S/888.html#L206'>u_long</a>            206 usr/server/fs/fatfs/fatfs.h int	 fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl);
+<a href='../S/889.html#L44'>u_long</a>             44 usr/server/fs/fatfs/fatfs_fat.c read_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L87'>u_long</a>             87 usr/server/fs/fatfs/fatfs_fat.c write_fat_entry(struct fatfsmount *fmp, u_long cl)
+<a href='../S/889.html#L128'>u_long</a>            128 usr/server/fs/fatfs/fatfs_fat.c fat_next_cluster(struct fatfsmount *fmp, u_long cl, u_long *next)
+<a href='../S/889.html#L167'>u_long</a>            167 usr/server/fs/fatfs/fatfs_fat.c fat_set_cluster(struct fatfsmount *fmp, u_long cl, u_long next)
+<a href='../S/889.html#L212'>u_long</a>            212 usr/server/fs/fatfs/fatfs_fat.c fat_alloc_cluster(struct fatfsmount *fmp, u_long scan_start, u_long *free)
+<a href='../S/889.html#L244'>u_long</a>            244 usr/server/fs/fatfs/fatfs_fat.c fat_free_clusters(struct fatfsmount *fmp, u_long start)
+<a href='../S/889.html#L278'>u_long</a>            278 usr/server/fs/fatfs/fatfs_fat.c fat_seek_cluster(struct fatfsmount *fmp, u_long start, u_long offset,
+<a href='../S/889.html#L279'>u_long</a>            279 usr/server/fs/fatfs/fatfs_fat.c 		 u_long *cl)
+<a href='../S/889.html#L308'>u_long</a>            308 usr/server/fs/fatfs/fatfs_fat.c fat_expand_file(struct fatfsmount *fmp, u_long cl, int size)
+<a href='../S/889.html#L349'>u_long</a>            349 usr/server/fs/fatfs/fatfs_fat.c fat_expand_dir(struct fatfsmount *fmp, u_long cl, u_long *new_cl)
+<a href='../S/890.html#L45'>u_long</a>             45 usr/server/fs/fatfs/fatfs_node.c fat_read_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L61'>u_long</a>             61 usr/server/fs/fatfs/fatfs_node.c fat_write_dirent(struct fatfsmount *fmp, u_long sec)
+<a href='../S/890.html#L80'>u_long</a>             80 usr/server/fs/fatfs/fatfs_node.c fat_lookup_dirent(struct fatfsmount *fmp, u_long sec, char *name,
+<a href='../S/890.html#L175'>u_long</a>            175 usr/server/fs/fatfs/fatfs_node.c fat_get_dirent(struct fatfsmount *fmp, u_long sec, int target, int *index,
+<a href='../S/890.html#L260'>u_long</a>            260 usr/server/fs/fatfs/fatfs_node.c fat_add_dirent(struct fatfsmount *fmp, u_long sec, struct fatfs_node *np)
+<a href='../S/893.html#L101'>u_long</a>            101 usr/server/fs/fatfs/fatfs_vnops.c fat_read_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/893.html#L115'>u_long</a>            115 usr/server/fs/fatfs/fatfs_vnops.c fat_write_cluster(struct fatfsmount *fmp, u_long cluster)
+<a href='../S/896.html#L79'>u_long</a>             79 usr/server/fs/fifofs/fifo_vnops.c static int fifo_ioctl	(vnode_t, file_t, u_long, void *);
+<a href='../S/896.html#L310'>u_long</a>            310 usr/server/fs/fifofs/fifo_vnops.c fifo_ioctl(vnode_t vp, file_t fp, u_long cmd, void *arg)
+<a href='../S/905.html#L99'>u_long</a>             99 usr/server/fs/vfs/vfs.h int	 sys_ioctl(file_t fp, u_long request, void *buf);
+<a href='../S/911.html#L267'>u_long</a>            267 usr/server/fs/vfs/vfs_syscalls.c sys_ioctl(file_t fp, u_long request, void *buf)
+</pre>
+</body>
+</html>

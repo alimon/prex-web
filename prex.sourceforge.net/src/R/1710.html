@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>dprintf</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/267.html#L158'>dprintf</a>           158 include/sys/prex.h void	dprintf(const char *fmt, ...);
+<a href='../S/873.html#L46'>dprintf</a>            46 usr/server/exec/exec.h #define DPRINTF(a)	dprintf a
+<a href='../S/881.html#L41'>dprintf</a>            41 usr/server/fs/arfs/arfs.h #define DPRINTF(a)	dprintf a
+<a href='../S/885.html#L41'>dprintf</a>            41 usr/server/fs/devfs/devfs.h #define DPRINTF(a)	dprintf a
+<a href='../S/888.html#L45'>dprintf</a>            45 usr/server/fs/fatfs/fatfs.h #define DPRINTF(a)	dprintf a
+<a href='../S/895.html#L41'>dprintf</a>            41 usr/server/fs/fifofs/fifo.h #define DPRINTF(a)	dprintf a
+<a href='../S/900.html#L40'>dprintf</a>            40 usr/server/fs/ramfs/ramfs.h #define DPRINTF(a)	dprintf a
+<a href='../S/903.html#L103'>dprintf</a>           103 usr/server/fs/vfs/main.c 		dprintf("VFS: mount failed!\n");
+<a href='../S/903.html#L904'>dprintf</a>           904 usr/server/fs/vfs/main.c 	dprintf("&lt;File System Server&gt;\n");
+<a href='../S/903.html#L1077'>dprintf</a>          1077 usr/server/fs/vfs/main.c 			dprintf("VFS: task=%x code=%x error=%d\n",
+<a href='../S/905.html#L60'>dprintf</a>            60 usr/server/fs/vfs/vfs.h #define	DPRINTF(_m,X)	if (vfs_debug &amp; (_m)) dprintf X
+<a href='../S/909.html#L99'>dprintf</a>            99 usr/server/fs/vfs/vfs_mount.c 	dprintf("VFS: mounting %s at %s\n", fsname, dir);
+<a href='../S/909.html#L389'>dprintf</a>           389 usr/server/fs/vfs/vfs_mount.c 	dprintf("mount_dump\n");
+<a href='../S/909.html#L390'>dprintf</a>           390 usr/server/fs/vfs/vfs_mount.c 	dprintf("dev      count root\n");
+<a href='../S/909.html#L391'>dprintf</a>           391 usr/server/fs/vfs/vfs_mount.c 	dprintf("-------- ----- --------\n");
+<a href='../S/909.html#L395'>dprintf</a>           395 usr/server/fs/vfs/vfs_mount.c 		dprintf("%8x %5d %s\n", mp-&gt;m_dev, mp-&gt;m_count, mp-&gt;m_path);
+<a href='../S/912.html#L301'>dprintf</a>           301 usr/server/fs/vfs/vfs_task.c 	dprintf("Dump file data\n");
+<a href='../S/912.html#L302'>dprintf</a>           302 usr/server/fs/vfs/vfs_task.c 	dprintf(" task     opens   cwd\n");
+<a href='../S/912.html#L303'>dprintf</a>           303 usr/server/fs/vfs/vfs_task.c 	dprintf(" -------- ------- ------------------------------\n");
+<a href='../S/912.html#L308'>dprintf</a>           308 usr/server/fs/vfs/vfs_task.c 			dprintf(" %08x %7x %s\n", (int)t-&gt;t_taskid, t-&gt;t_nopens,
+<a href='../S/912.html#L312'>dprintf</a>           312 usr/server/fs/vfs/vfs_task.c 	dprintf("\n");
+<a href='../S/913.html#L433'>dprintf</a>           433 usr/server/fs/vfs/vfs_vnode.c 	dprintf("Dump vnode\n");
+<a href='../S/913.html#L434'>dprintf</a>           434 usr/server/fs/vfs/vfs_vnode.c 	dprintf(" vnode    mount    type  refcnt blkno    path\n");
+<a href='../S/913.html#L435'>dprintf</a>           435 usr/server/fs/vfs/vfs_vnode.c 	dprintf(" -------- -------- ----- ------ -------- ------------------------------\n");
+<a href='../S/913.html#L443'>dprintf</a>           443 usr/server/fs/vfs/vfs_vnode.c 			dprintf(" %08x %08x %s %6d %8d %s%s\n", (u_int)vp,
+<a href='../S/913.html#L450'>dprintf</a>           450 usr/server/fs/vfs/vfs_vnode.c 	dprintf("\n");
+<a href='../S/916.html#L52'>dprintf</a>            52 usr/server/pow/pow.c #define DPRINTF(a) dprintf a
+<a href='../S/917.html#L453'>dprintf</a>           453 usr/server/proc/main.c 	dprintf("&lt;Process Server&gt;\n");
+<a href='../S/917.html#L454'>dprintf</a>           454 usr/server/proc/main.c 	dprintf("Dump process\n");
+<a href='../S/917.html#L455'>dprintf</a>           455 usr/server/proc/main.c 	dprintf(" pid    ppid   pgid   sid    stat task\n");
+<a href='../S/917.html#L456'>dprintf</a>           456 usr/server/proc/main.c 	dprintf(" ------ ------ ------ ------ ---- --------\n");
+<a href='../S/917.html#L461'>dprintf</a>           461 usr/server/proc/main.c 		dprintf(" %6d %6d %6d %6d %s %08x\n", p-&gt;p_pid,
+<a href='../S/917.html#L466'>dprintf</a>           466 usr/server/proc/main.c 	dprintf("\n");
+<a href='../S/919.html#L48'>dprintf</a>            48 usr/server/proc/proc.h #define DPRINTF(a)	dprintf a
+</pre>
+</body>
+</html>

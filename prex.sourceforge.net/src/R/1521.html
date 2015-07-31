@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>bus_write_32</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/88.html#L125'>bus_write_32</a>      125 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_DR, (uint32_t)c);
+<a href='../S/88.html#L147'>bus_write_32</a>      147 bsp/drv/dev/serial/pl011.c 		bus_write_32(UART_IMSC, 0);
+<a href='../S/88.html#L149'>bus_write_32</a>      149 bsp/drv/dev/serial/pl011.c 		bus_write_32(UART_IMSC, (IMSC_RX | IMSC_TX));
+<a href='../S/88.html#L173'>bus_write_32</a>      173 bsp/drv/dev/serial/pl011.c 		bus_write_32(UART_ICR, ICR_RX);
+<a href='../S/88.html#L182'>bus_write_32</a>      182 bsp/drv/dev/serial/pl011.c 		bus_write_32(UART_ICR, ICR_TX);
+<a href='../S/88.html#L192'>bus_write_32</a>      192 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_CR, 0);	/* Disable everything */
+<a href='../S/88.html#L193'>bus_write_32</a>      193 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_ICR, 0x07ff);	/* Clear all interrupt status */
+<a href='../S/88.html#L204'>bus_write_32</a>      204 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_IBRD, divider);
+<a href='../S/88.html#L205'>bus_write_32</a>      205 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_FBRD, fraction);
+<a href='../S/88.html#L208'>bus_write_32</a>      208 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_LCRH, (LCRH_WLEN8 | LCRH_FEN));
+<a href='../S/88.html#L211'>bus_write_32</a>      211 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_CR, (CR_RXE | CR_TXE | CR_UARTEN));
+<a href='../S/88.html#L217'>bus_write_32</a>      217 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_IMSC, (IMSC_RX | IMSC_TX));
+<a href='../S/88.html#L224'>bus_write_32</a>      224 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_IMSC, 0);	/* Disable all interrupts */
+<a href='../S/88.html#L225'>bus_write_32</a>      225 bsp/drv/dev/serial/pl011.c 	bus_write_32(UART_CR, 0);	/* Disable everything */
+<a href='../S/123.html#L43'>bus_write_32</a>       43 bsp/drv/x86/include/busio.h void	 bus_write_32(int addr, uint32_t val);
+</pre>
+</body>
+</html>

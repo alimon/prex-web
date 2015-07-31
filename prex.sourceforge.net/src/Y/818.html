@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>f</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/277.html#L129'>f</a>                 129 include/sys/types.h #define	FD_COPY(f, t)	bcopy(f, t, sizeof(*(f)))
+<a href='../S/508.html#L46'>f</a>                  46 usr/lib/libc/stdio/fopen.c 	int f;
+<a href='../S/508.html#L53'>f</a>                  53 usr/lib/libc/stdio/fopen.c 	if ((f = open(file, oflags, DEFFILEMODE)) &lt; 0) {
+<a href='../S/508.html#L57'>f</a>                  57 usr/lib/libc/stdio/fopen.c 	fp-&gt;_file = f;
+<a href='../S/514.html#L52'>f</a>                  52 usr/lib/libc/stdio/freopen.c 	int f;
+<a href='../S/514.html#L88'>f</a>                  88 usr/lib/libc/stdio/freopen.c 	f = open(file, oflags, DEFFILEMODE);
+<a href='../S/514.html#L89'>f</a>                  89 usr/lib/libc/stdio/freopen.c 	if (f &lt; 0 &amp;&amp; isopen) {
+<a href='../S/514.html#L94'>f</a>                  94 usr/lib/libc/stdio/freopen.c 			f = open(file, oflags, DEFFILEMODE);
+<a href='../S/514.html#L117'>f</a>                 117 usr/lib/libc/stdio/freopen.c 	if (f &lt; 0) {			/* did not get it after all */
+<a href='../S/514.html#L128'>f</a>                 128 usr/lib/libc/stdio/freopen.c 	if (wantfd &gt;= 0 &amp;&amp; f != wantfd) {
+<a href='../S/514.html#L129'>f</a>                 129 usr/lib/libc/stdio/freopen.c 		if (dup2(f, wantfd) &gt;= 0) {
+<a href='../S/514.html#L130'>f</a>                 130 usr/lib/libc/stdio/freopen.c 			(void) close(f);
+<a href='../S/514.html#L131'>f</a>                 131 usr/lib/libc/stdio/freopen.c 			f = wantfd;
+<a href='../S/514.html#L136'>f</a>                 136 usr/lib/libc/stdio/freopen.c 	fp-&gt;_file = f;
+<a href='../S/544.html#L41'>f</a>                  41 usr/lib/libc/stdio/snprintf.c 	FILE f;
+<a href='../S/544.html#L46'>f</a>                  46 usr/lib/libc/stdio/snprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/544.html#L47'>f</a>                  47 usr/lib/libc/stdio/snprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/544.html#L48'>f</a>                  48 usr/lib/libc/stdio/snprintf.c 	f._bf._size = f._w = n - 1;
+<a href='../S/544.html#L49'>f</a>                  49 usr/lib/libc/stdio/snprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/544.html#L50'>f</a>                  50 usr/lib/libc/stdio/snprintf.c 	*f._p = 0;
+<a href='../S/545.html#L43'>f</a>                  43 usr/lib/libc/stdio/sprintf.c 	FILE f;
+<a href='../S/545.html#L45'>f</a>                  45 usr/lib/libc/stdio/sprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/545.html#L46'>f</a>                  46 usr/lib/libc/stdio/sprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/545.html#L47'>f</a>                  47 usr/lib/libc/stdio/sprintf.c 	f._bf._size = f._w = INT_MAX;
+<a href='../S/545.html#L49'>f</a>                  49 usr/lib/libc/stdio/sprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/545.html#L51'>f</a>                  51 usr/lib/libc/stdio/sprintf.c 	*f._p = 0;
+<a href='../S/546.html#L43'>f</a>                  43 usr/lib/libc/stdio/sscanf.c 	FILE f;
+<a href='../S/546.html#L45'>f</a>                  45 usr/lib/libc/stdio/sscanf.c 	f._flags = __SRD;
+<a href='../S/546.html#L46'>f</a>                  46 usr/lib/libc/stdio/sscanf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/546.html#L47'>f</a>                  47 usr/lib/libc/stdio/sscanf.c 	f._bf._size = f._r = strlen(str);
+<a href='../S/546.html#L48'>f</a>                  48 usr/lib/libc/stdio/sscanf.c 	f._ub._base = NULL;
+<a href='../S/546.html#L50'>f</a>                  50 usr/lib/libc/stdio/sscanf.c 	ret = __svfscanf(&amp;f, fmt, ap);
+<a href='../S/548.html#L43'>f</a>                  43 usr/lib/libc/stdio/tempnam.c 	char *f, *name;
+<a href='../S/548.html#L51'>f</a>                  51 usr/lib/libc/stdio/tempnam.c 	if ((f = getenv("TMPDIR")) != NULL) {
+<a href='../S/548.html#L52'>f</a>                  52 usr/lib/libc/stdio/tempnam.c 		(void)snprintf(name, (size_t)MAXPATHLEN, "%s%s%sXXXXXXXXXX", f,
+<a href='../S/548.html#L53'>f</a>                  53 usr/lib/libc/stdio/tempnam.c 		    *(f + strlen(f) - 1) == '/'? "": "/", pfx);
+<a href='../S/548.html#L54'>f</a>                  54 usr/lib/libc/stdio/tempnam.c 		if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L55'>f</a>                  55 usr/lib/libc/stdio/tempnam.c 			return(f);
+<a href='../S/548.html#L58'>f</a>                  58 usr/lib/libc/stdio/tempnam.c 	if ((/* LINTED */f = (char *)dir) != NULL) {
+<a href='../S/548.html#L59'>f</a>                  59 usr/lib/libc/stdio/tempnam.c 		(void)snprintf(name, (size_t)MAXPATHLEN, "%s%s%sXXXXXXXXXX", f,
+<a href='../S/548.html#L60'>f</a>                  60 usr/lib/libc/stdio/tempnam.c 		    *(f + strlen(f) - 1) == '/'? "": "/", pfx);
+<a href='../S/548.html#L61'>f</a>                  61 usr/lib/libc/stdio/tempnam.c 		if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L62'>f</a>                  62 usr/lib/libc/stdio/tempnam.c 			return(f);
+<a href='../S/548.html#L65'>f</a>                  65 usr/lib/libc/stdio/tempnam.c 	f = P_tmpdir;
+<a href='../S/548.html#L66'>f</a>                  66 usr/lib/libc/stdio/tempnam.c 	(void)snprintf(name, (size_t)MAXPATHLEN, "%s%sXXXXXXXXXX", f, pfx);
+<a href='../S/548.html#L67'>f</a>                  67 usr/lib/libc/stdio/tempnam.c 	if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L68'>f</a>                  68 usr/lib/libc/stdio/tempnam.c 		return(f);
+<a href='../S/548.html#L70'>f</a>                  70 usr/lib/libc/stdio/tempnam.c 	f = _PATH_TMP;
+<a href='../S/548.html#L71'>f</a>                  71 usr/lib/libc/stdio/tempnam.c 	(void)snprintf(name, (size_t)MAXPATHLEN, "%s%sXXXXXXXXXX", f, pfx);
+<a href='../S/548.html#L72'>f</a>                  72 usr/lib/libc/stdio/tempnam.c 	if ((f = mktemp(name)) != NULL)
+<a href='../S/548.html#L73'>f</a>                  73 usr/lib/libc/stdio/tempnam.c 		return(f);
+<a href='../S/556.html#L43'>f</a>                  43 usr/lib/libc/stdio/vsnprintf.c 	FILE f;
+<a href='../S/556.html#L47'>f</a>                  47 usr/lib/libc/stdio/vsnprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/556.html#L48'>f</a>                  48 usr/lib/libc/stdio/vsnprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/556.html#L49'>f</a>                  49 usr/lib/libc/stdio/vsnprintf.c 	f._bf._size = f._w = n - 1;
+<a href='../S/556.html#L50'>f</a>                  50 usr/lib/libc/stdio/vsnprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/556.html#L51'>f</a>                  51 usr/lib/libc/stdio/vsnprintf.c 	*f._p = 0;
+<a href='../S/557.html#L43'>f</a>                  43 usr/lib/libc/stdio/vsprintf.c 	FILE f;
+<a href='../S/557.html#L45'>f</a>                  45 usr/lib/libc/stdio/vsprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/557.html#L46'>f</a>                  46 usr/lib/libc/stdio/vsprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/557.html#L47'>f</a>                  47 usr/lib/libc/stdio/vsprintf.c 	f._bf._size = f._w = INT_MAX;
+<a href='../S/557.html#L48'>f</a>                  48 usr/lib/libc/stdio/vsprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/557.html#L49'>f</a>                  49 usr/lib/libc/stdio/vsprintf.c 	*f._p = 0;
+<a href='../S/558.html#L42'>f</a>                  42 usr/lib/libc/stdio/vsscanf.c 	FILE f;
+<a href='../S/558.html#L44'>f</a>                  44 usr/lib/libc/stdio/vsscanf.c 	f._flags = __SRD;
+<a href='../S/558.html#L45'>f</a>                  45 usr/lib/libc/stdio/vsscanf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/558.html#L46'>f</a>                  46 usr/lib/libc/stdio/vsscanf.c 	f._bf._size = f._r = strlen(str);
+<a href='../S/558.html#L47'>f</a>                  47 usr/lib/libc/stdio/vsscanf.c 	return (__svfscanf(&amp;f, fmt, ap));
+<a href='../S/587.html#L34'>f</a>                  34 usr/lib/libc/string/memccpy.c memccpy(t, f, c, n)
+<a href='../S/587.html#L36'>f</a>                  36 usr/lib/libc/string/memccpy.c 	const void *f;
+<a href='../S/587.html#L43'>f</a>                  43 usr/lib/libc/string/memccpy.c 		const unsigned char *fp = f;
+<a href='../S/649.html#L42'>f</a>                  42 usr/lib/libsa/sprintf.c 	FILE f;
+<a href='../S/649.html#L44'>f</a>                  44 usr/lib/libsa/sprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/649.html#L45'>f</a>                  45 usr/lib/libsa/sprintf.c 	f._bf._base = f._p = (unsigned char *)str;
+<a href='../S/649.html#L46'>f</a>                  46 usr/lib/libsa/sprintf.c 	f._bf._size = f._w = INT_MAX;
+<a href='../S/649.html#L48'>f</a>                  48 usr/lib/libsa/sprintf.c 	ret = vfprintf(&amp;f, fmt, ap);
+<a href='../S/649.html#L50'>f</a>                  50 usr/lib/libsa/sprintf.c 	*f._p = 0;
+<a href='../S/906.html#L55'>f</a>                  55 usr/server/fs/vfs/vfs_bio.c #define	SET(t, f)	(t) |= (f)
+<a href='../S/906.html#L56'>f</a>                  56 usr/server/fs/vfs/vfs_bio.c #define	CLR(t, f)	(t) &amp;= ~(f)
+<a href='../S/906.html#L57'>f</a>                  57 usr/server/fs/vfs/vfs_bio.c #define	ISSET(t, f)	((t) &amp; (f))
+</pre>
+</body>
+</html>

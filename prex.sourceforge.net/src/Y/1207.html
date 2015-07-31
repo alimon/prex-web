@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>load_base</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L75'>load_base</a>          75 bsp/boot/common/elf.c 		load_base = (vaddr_t)ptokv(phdr-&gt;p_paddr);
+<a href='../S/13.html#L76'>load_base</a>          76 bsp/boot/common/elf.c 		if (load_base == 0) {
+<a href='../S/13.html#L80'>load_base</a>          80 bsp/boot/common/elf.c 		ELFDBG(("kernel base=%lx\n", load_base));
+<a href='../S/13.html#L81'>load_base</a>          81 bsp/boot/common/elf.c 		load_start = load_base;
+<a href='../S/13.html#L85'>load_base</a>          85 bsp/boot/common/elf.c 		ELFDBG(("driver base=%lx\n", load_base));
+<a href='../S/13.html#L89'>load_base</a>          89 bsp/boot/common/elf.c 		ELFDBG(("task base=%lx\n", load_base));
+<a href='../S/13.html#L117'>load_base</a>         117 bsp/boot/common/elf.c 	phys_base = load_base;
+<a href='../S/13.html#L120'>load_base</a>         120 bsp/boot/common/elf.c 	m-&gt;phys = load_base;
+<a href='../S/13.html#L121'>load_base</a>         121 bsp/boot/common/elf.c 	phys_base = load_base;
+<a href='../S/13.html#L146'>load_base</a>         146 bsp/boot/common/elf.c 			load_base = phys_base + (m-&gt;data - m-&gt;text);
+<a href='../S/13.html#L149'>load_base</a>         149 bsp/boot/common/elf.c 			memcpy((char *)load_base, img + phdr-&gt;p_offset,
+<a href='../S/13.html#L152'>load_base</a>         152 bsp/boot/common/elf.c 				 load_base, (int)phdr-&gt;p_filesz));
+<a href='../S/13.html#L157'>load_base</a>         157 bsp/boot/common/elf.c 				memset((char *)load_base + m-&gt;datasz,
+<a href='../S/13.html#L160'>load_base</a>         160 bsp/boot/common/elf.c 			load_base += phdr-&gt;p_memsz;
+<a href='../S/13.html#L165'>load_base</a>         165 bsp/boot/common/elf.c 		load_base = phys_base + m-&gt;textsz;
+<a href='../S/13.html#L167'>load_base</a>         167 bsp/boot/common/elf.c 	load_base = round_page(load_base);
+<a href='../S/13.html#L168'>load_base</a>         168 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - m-&gt;phys);
+<a href='../S/13.html#L286'>load_base</a>         286 bsp/boot/common/elf.c 	m-&gt;phys = load_base;
+<a href='../S/13.html#L287'>load_base</a>         287 bsp/boot/common/elf.c 	ELFDBG(("phys addr=%lx\n", load_base));
+<a href='../S/13.html#L302'>load_base</a>         302 bsp/boot/common/elf.c 				m-&gt;text = (vaddr_t)ptokv(load_base);
+<a href='../S/13.html#L307'>load_base</a>         307 bsp/boot/common/elf.c 					m-&gt;data = (vaddr_t)ptokv(load_base +
+<a href='../S/13.html#L318'>load_base</a>         318 bsp/boot/common/elf.c 			sect_base = load_base + shdr-&gt;sh_addr;
+<a href='../S/13.html#L328'>load_base</a>         328 bsp/boot/common/elf.c 			sect_base = load_base + shdr-&gt;sh_addr;
+<a href='../S/13.html#L353'>load_base</a>         353 bsp/boot/common/elf.c 	load_base = bss_base + m-&gt;bsssz;
+<a href='../S/13.html#L354'>load_base</a>         354 bsp/boot/common/elf.c 	load_base = round_page(load_base);
+<a href='../S/13.html#L356'>load_base</a>         356 bsp/boot/common/elf.c 	ELFDBG(("module load_base=%lx text=%lx\n", load_base, m-&gt;text));
+<a href='../S/13.html#L357'>load_base</a>         357 bsp/boot/common/elf.c 	m-&gt;size = (size_t)(load_base - kvtop(m-&gt;text));
+<a href='../S/14.html#L43'>load_base</a>          43 bsp/boot/common/load.c paddr_t	load_base;	/* current load address */
+<a href='../S/14.html#L69'>load_base</a>          69 bsp/boot/common/load.c 	load_base = 0;
+<a href='../S/14.html#L141'>load_base</a>         141 bsp/boot/common/load.c 	bi-&gt;ram[i].size = (size_t)(load_base - load_start);
+<a href='../S/22.html#L35'>load_base</a>          35 bsp/boot/include/load.h extern paddr_t	load_base;
+</pre>
+</body>
+</html>

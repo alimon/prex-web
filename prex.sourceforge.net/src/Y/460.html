@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>buf_pos</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/883.html#L208'>buf_pos</a>           208 usr/server/fs/arfs/arfs_vnops.c 	off_t off, file_pos, buf_pos;
+<a href='../S/883.html#L238'>buf_pos</a>           238 usr/server/fs/arfs/arfs_vnops.c 		buf_pos = (off + file_pos) % BSIZE;
+<a href='../S/883.html#L242'>buf_pos</a>           242 usr/server/fs/arfs/arfs_vnops.c 		if (buf_pos &gt; 0)
+<a href='../S/883.html#L243'>buf_pos</a>           243 usr/server/fs/arfs/arfs_vnops.c 			nr_copy -= buf_pos;
+<a href='../S/883.html#L244'>buf_pos</a>           244 usr/server/fs/arfs/arfs_vnops.c 		if (buf_pos + size &lt; BSIZE)
+<a href='../S/883.html#L247'>buf_pos</a>           247 usr/server/fs/arfs/arfs_vnops.c 		memcpy(buf, bp-&gt;b_data + buf_pos, nr_copy);
+<a href='../S/883.html#L259'>buf_pos</a>           259 usr/server/fs/arfs/arfs_vnops.c 		buf_pos = 0;
+<a href='../S/893.html#L168'>buf_pos</a>           168 usr/server/fs/fatfs/fatfs_vnops.c 	int nr_read, nr_copy, buf_pos, error;
+<a href='../S/893.html#L199'>buf_pos</a>           199 usr/server/fs/fatfs/fatfs_vnops.c 	buf_pos = file_pos % fmp-&gt;cluster_size;
+<a href='../S/893.html#L207'>buf_pos</a>           207 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos &gt; 0)
+<a href='../S/893.html#L208'>buf_pos</a>           208 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy -= buf_pos;
+<a href='../S/893.html#L209'>buf_pos</a>           209 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos + size &lt; fmp-&gt;cluster_size)
+<a href='../S/893.html#L211'>buf_pos</a>           211 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(buf, fmp-&gt;io_buf + buf_pos, nr_copy);
+<a href='../S/893.html#L224'>buf_pos</a>           224 usr/server/fs/fatfs/fatfs_vnops.c 		buf_pos = 0;
+<a href='../S/893.html#L241'>buf_pos</a>           241 usr/server/fs/fatfs/fatfs_vnops.c 	int nr_copy, nr_write, buf_pos, i, cl_size, error;
+<a href='../S/893.html#L284'>buf_pos</a>           284 usr/server/fs/fatfs/fatfs_vnops.c 	buf_pos = file_pos % fmp-&gt;cluster_size;
+<a href='../S/893.html#L297'>buf_pos</a>           297 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos &gt; 0)
+<a href='../S/893.html#L298'>buf_pos</a>           298 usr/server/fs/fatfs/fatfs_vnops.c 			nr_copy -= buf_pos;
+<a href='../S/893.html#L299'>buf_pos</a>           299 usr/server/fs/fatfs/fatfs_vnops.c 		if (buf_pos + size &lt; fmp-&gt;cluster_size)
+<a href='../S/893.html#L301'>buf_pos</a>           301 usr/server/fs/fatfs/fatfs_vnops.c 		memcpy(fmp-&gt;io_buf + buf_pos, buf, nr_copy);
+<a href='../S/893.html#L318'>buf_pos</a>           318 usr/server/fs/fatfs/fatfs_vnops.c 		buf_pos = 0;
+</pre>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>_flags</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/441.html#L103'>_flags</a>            103 usr/include/stdio.h 	short	_flags;		/* flags, below; this FILE is free if 0 */
+<a href='../S/441.html#L288'>_flags</a>            288 usr/include/stdio.h #define	__sfeof(p)	(((p)-&gt;_flags &amp; __SEOF) != 0)
+<a href='../S/441.html#L289'>_flags</a>            289 usr/include/stdio.h #define	__sferror(p)	(((p)-&gt;_flags &amp; __SERR) != 0)
+<a href='../S/441.html#L290'>_flags</a>            290 usr/include/stdio.h #define	__sclearerr(p)	((void)((p)-&gt;_flags &amp;= ~(__SERR|__SEOF)))
+<a href='../S/497.html#L44'>_flags</a>             44 usr/lib/libc/stdio/fclose.c 	if (fp-&gt;_flags == 0) {	/* not open! */
+<a href='../S/497.html#L48'>_flags</a>             48 usr/lib/libc/stdio/fclose.c 	r = fp-&gt;_flags &amp; __SWR ? __sflush(fp) : 0;
+<a href='../S/497.html#L51'>_flags</a>             51 usr/lib/libc/stdio/fclose.c 	if (fp-&gt;_flags &amp; __SMBF)
+<a href='../S/497.html#L55'>_flags</a>             55 usr/lib/libc/stdio/fclose.c 	fp-&gt;_flags = 0;		/* Release this FILE for reuse. */
+<a href='../S/498.html#L62'>_flags</a>             62 usr/lib/libc/stdio/fdopen.c 	fp-&gt;_flags = flags;
+<a href='../S/498.html#L69'>_flags</a>             69 usr/lib/libc/stdio/fdopen.c 		fp-&gt;_flags |= __SAPP;
+<a href='../S/501.html#L45'>_flags</a>             45 usr/lib/libc/stdio/fflush.c 	if ((fp-&gt;_flags &amp; (__SWR | __SRW)) == 0) {
+<a href='../S/501.html#L59'>_flags</a>             59 usr/lib/libc/stdio/fflush.c 	t = fp-&gt;_flags;
+<a href='../S/501.html#L78'>_flags</a>             78 usr/lib/libc/stdio/fflush.c 			fp-&gt;_flags |= __SERR;
+<a href='../S/506.html#L50'>_flags</a>             50 usr/lib/libc/stdio/findfp.c 	fp-&gt;_flags = flags;
+<a href='../S/506.html#L65'>_flags</a>             65 usr/lib/libc/stdio/findfp.c 		if (fp-&gt;_flags == 0)
+<a href='../S/508.html#L54'>_flags</a>             54 usr/lib/libc/stdio/fopen.c 		fp-&gt;_flags = 0;			/* release */
+<a href='../S/508.html#L58'>_flags</a>             58 usr/lib/libc/stdio/fopen.c 	fp-&gt;_flags = flags;
+<a href='../S/510.html#L46'>_flags</a>             46 usr/lib/libc/stdio/fpurge.c 	if (!fp-&gt;_flags) {
+<a href='../S/510.html#L55'>_flags</a>             55 usr/lib/libc/stdio/fpurge.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SLBF|__SNBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/514.html#L71'>_flags</a>             71 usr/lib/libc/stdio/freopen.c 	if (fp-&gt;_flags == 0) {
+<a href='../S/514.html#L72'>_flags</a>             72 usr/lib/libc/stdio/freopen.c 		fp-&gt;_flags = __SEOF;	/* hold on to it */
+<a href='../S/514.html#L77'>_flags</a>             77 usr/lib/libc/stdio/freopen.c 		if (fp-&gt;_flags &amp; __SWR)
+<a href='../S/514.html#L106'>_flags</a>            106 usr/lib/libc/stdio/freopen.c 	if (fp-&gt;_flags &amp; __SMBF)
+<a href='../S/514.html#L118'>_flags</a>            118 usr/lib/libc/stdio/freopen.c 		fp-&gt;_flags = 0;		/* set it free */
+<a href='../S/514.html#L135'>_flags</a>            135 usr/lib/libc/stdio/freopen.c 	fp-&gt;_flags = flags;
+<a href='../S/516.html#L75'>_flags</a>             75 usr/lib/libc/stdio/fseek.c 		if (fp-&gt;_flags &amp; __SRD) {
+<a href='../S/516.html#L79'>_flags</a>             79 usr/lib/libc/stdio/fseek.c 		} else if (fp-&gt;_flags &amp; __SWR &amp;&amp; fp-&gt;_p != NULL)
+<a href='../S/516.html#L111'>_flags</a>            111 usr/lib/libc/stdio/fseek.c 	fp-&gt;_flags &amp;= ~__SEOF;
+<a href='../S/518.html#L54'>_flags</a>             54 usr/lib/libc/stdio/ftell.c 	if (fp-&gt;_flags &amp; __SRD) {
+<a href='../S/518.html#L63'>_flags</a>             63 usr/lib/libc/stdio/ftell.c 	} else if (fp-&gt;_flags &amp; __SWR &amp;&amp; fp-&gt;_p != NULL) {
+<a href='../S/519.html#L76'>_flags</a>             76 usr/lib/libc/stdio/fvwrite.c 	if (fp-&gt;_flags &amp; __SNBF) {
+<a href='../S/519.html#L88'>_flags</a>             88 usr/lib/libc/stdio/fvwrite.c 	} else if ((fp-&gt;_flags &amp; __SLBF) == 0) {
+<a href='../S/519.html#L103'>_flags</a>            103 usr/lib/libc/stdio/fvwrite.c 			if (fp-&gt;_flags &amp; __SSTR) {
+<a href='../S/519.html#L180'>_flags</a>            180 usr/lib/libc/stdio/fvwrite.c 	fp-&gt;_flags |= __SERR;
+<a href='../S/521.html#L46'>_flags</a>             46 usr/lib/libc/stdio/fwalk.c 		if (fp-&gt;_flags != 0)
+<a href='../S/526.html#L45'>_flags</a>             45 usr/lib/libc/stdio/getw.c 	if (fp-&gt;_flags &amp; (__SERR|__SEOF))
+<a href='../S/527.html#L64'>_flags</a>             64 usr/lib/libc/stdio/local.h 	((((fp)-&gt;_flags &amp; __SWR) == 0 || (fp)-&gt;_bf._base == NULL) &amp;&amp; \
+<a href='../S/528.html#L74'>_flags</a>             74 usr/lib/libc/stdio/makebuf.c 	if (fp-&gt;_flags &amp; __SNBF) {
+<a href='../S/528.html#L81'>_flags</a>             81 usr/lib/libc/stdio/makebuf.c 		fp-&gt;_flags |= __SNBF;
+<a href='../S/528.html#L93'>_flags</a>             93 usr/lib/libc/stdio/makebuf.c 	fp-&gt;_flags |= flags;
+<a href='../S/533.html#L69'>_flags</a>             69 usr/lib/libc/stdio/putc.c 	if (++n == fp-&gt;_bf._size || (fp-&gt;_flags &amp; __SLBF &amp;&amp; c == '\n'))
+<a href='../S/536.html#L45'>_flags</a>             45 usr/lib/libc/stdio/putw.c 	if (fp-&gt;_flags &amp; __SERR)
+<a href='../S/537.html#L42'>_flags</a>             42 usr/lib/libc/stdio/refill.c 	if ((fp-&gt;_flags &amp; (__SLBF|__SWR)) == (__SLBF|__SWR))
+<a href='../S/537.html#L63'>_flags</a>             63 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_flags &amp; __SEOF)
+<a href='../S/537.html#L67'>_flags</a>             67 usr/lib/libc/stdio/refill.c 	if ((fp-&gt;_flags &amp; __SRD) == 0) {
+<a href='../S/537.html#L68'>_flags</a>             68 usr/lib/libc/stdio/refill.c 		if ((fp-&gt;_flags &amp; __SRW) == 0) {
+<a href='../S/537.html#L73'>_flags</a>             73 usr/lib/libc/stdio/refill.c 		if (fp-&gt;_flags &amp; __SWR) {
+<a href='../S/537.html#L76'>_flags</a>             76 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags &amp;= ~__SWR;
+<a href='../S/537.html#L79'>_flags</a>             79 usr/lib/libc/stdio/refill.c 		fp-&gt;_flags |= __SRD;
+<a href='../S/537.html#L104'>_flags</a>            104 usr/lib/libc/stdio/refill.c 	if (fp-&gt;_flags &amp; (__SLBF|__SNBF))
+<a href='../S/537.html#L110'>_flags</a>            110 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags |= __SEOF;
+<a href='../S/537.html#L113'>_flags</a>            113 usr/lib/libc/stdio/refill.c 			fp-&gt;_flags |= __SERR;
+<a href='../S/543.html#L71'>_flags</a>             71 usr/lib/libc/stdio/setvbuf.c 	flags = fp-&gt;_flags;
+<a href='../S/543.html#L82'>_flags</a>             82 usr/lib/libc/stdio/setvbuf.c 	fp-&gt;_flags = flags;
+<a href='../S/544.html#L46'>_flags</a>             46 usr/lib/libc/stdio/snprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/545.html#L45'>_flags</a>             45 usr/lib/libc/stdio/sprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/546.html#L45'>_flags</a>             45 usr/lib/libc/stdio/sscanf.c 	f._flags = __SRD;
+<a href='../S/547.html#L57'>_flags</a>             57 usr/lib/libc/stdio/stdio.c 	if (fp-&gt;_flags &amp; __SAPP)
+<a href='../S/551.html#L47'>_flags</a>             47 usr/lib/libc/stdio/ungetc.c 	if ((fp-&gt;_flags &amp; __SRD) == 0) {
+<a href='../S/551.html#L52'>_flags</a>             52 usr/lib/libc/stdio/ungetc.c 		if ((fp-&gt;_flags &amp; __SRW) == 0)
+<a href='../S/551.html#L54'>_flags</a>             54 usr/lib/libc/stdio/ungetc.c 		if (fp-&gt;_flags &amp; __SWR) {
+<a href='../S/551.html#L57'>_flags</a>             57 usr/lib/libc/stdio/ungetc.c 			fp-&gt;_flags &amp;= ~__SWR;
+<a href='../S/551.html#L60'>_flags</a>             60 usr/lib/libc/stdio/ungetc.c 		fp-&gt;_flags |= __SRD;
+<a href='../S/551.html#L74'>_flags</a>             74 usr/lib/libc/stdio/ungetc.c 	fp-&gt;_flags &amp;= ~__SEOF;
+<a href='../S/552.html#L82'>_flags</a>             82 usr/lib/libc/stdio/vfprintf.c 	fake._flags = fp-&gt;_flags &amp; ~__SNBF;
+<a href='../S/552.html#L93'>_flags</a>             93 usr/lib/libc/stdio/vfprintf.c 	if (fake._flags &amp; __SERR)
+<a href='../S/552.html#L94'>_flags</a>             94 usr/lib/libc/stdio/vfprintf.c 		fp-&gt;_flags |= __SERR;
+<a href='../S/552.html#L268'>_flags</a>            268 usr/lib/libc/stdio/vfprintf.c 	if ((fp-&gt;_flags &amp; (__SNBF|__SWR|__SRW)) == (__SNBF|__SWR) &amp;&amp;
+<a href='../S/556.html#L47'>_flags</a>             47 usr/lib/libc/stdio/vsnprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/557.html#L45'>_flags</a>             45 usr/lib/libc/stdio/vsprintf.c 	f._flags = __SWR | __SSTR;
+<a href='../S/558.html#L44'>_flags</a>             44 usr/lib/libc/stdio/vsscanf.c 	f._flags = __SRD;
+<a href='../S/559.html#L54'>_flags</a>             54 usr/lib/libc/stdio/wsetup.c 	if ((fp-&gt;_flags &amp; __SWR) == 0) {
+<a href='../S/559.html#L55'>_flags</a>             55 usr/lib/libc/stdio/wsetup.c 		if ((fp-&gt;_flags &amp; __SRW) == 0)
+<a href='../S/559.html#L57'>_flags</a>             57 usr/lib/libc/stdio/wsetup.c 		if (fp-&gt;_flags &amp; __SRD) {
+<a href='../S/559.html#L61'>_flags</a>             61 usr/lib/libc/stdio/wsetup.c 			fp-&gt;_flags &amp;= ~(__SRD|__SEOF);
+<a href='../S/559.html#L65'>_flags</a>             65 usr/lib/libc/stdio/wsetup.c 		fp-&gt;_flags |= __SWR;
+<a href='../S/559.html#L74'>_flags</a>             74 usr/lib/libc/stdio/wsetup.c 	fp-&gt;_w = fp-&gt;_flags &amp; (__SNBF|__SLBF) ? 0 : fp-&gt;_bf._size;
+<a href='../S/649.html#L44'>_flags</a>             44 usr/lib/libsa/sprintf.c 	f._flags = __SWR | __SSTR;
+</pre>
+</body>
+</html>

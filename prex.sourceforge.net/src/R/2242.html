@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>paddr_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/13.html#L71'>paddr_t</a>            71 bsp/boot/common/elf.c 	phdr = (Elf32_Phdr *)((paddr_t)ehdr + ehdr-&gt;e_ehsize);
+<a href='../S/13.html#L114'>paddr_t</a>           114 bsp/boot/common/elf.c 	paddr_t phys_base;
+<a href='../S/13.html#L119'>paddr_t</a>           119 bsp/boot/common/elf.c 	phdr = (Elf32_Phdr *)((paddr_t)ehdr + ehdr-&gt;e_phoff);
+<a href='../S/13.html#L279'>paddr_t</a>           279 bsp/boot/common/elf.c 	paddr_t sect_base, bss_base;
+<a href='../S/13.html#L284'>paddr_t</a>           284 bsp/boot/common/elf.c 	shdr = (Elf32_Shdr *)((paddr_t)ehdr + ehdr-&gt;e_shoff);
+<a href='../S/13.html#L362'>paddr_t</a>           362 bsp/boot/common/elf.c 	shdr = (Elf32_Shdr *)((paddr_t)ehdr + ehdr-&gt;e_shoff);
+<a href='../S/14.html#L43'>paddr_t</a>            43 bsp/boot/common/load.c paddr_t	load_base;	/* current load address */
+<a href='../S/14.html#L44'>paddr_t</a>            44 bsp/boot/common/load.c paddr_t	load_start;	/* start address for loading */
+<a href='../S/14.html#L83'>paddr_t</a>            83 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)magic + 8);
+<a href='../S/14.html#L94'>paddr_t</a>            94 bsp/boot/common/load.c 	hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L109'>paddr_t</a>           109 bsp/boot/common/load.c 		hdr = (char *)((paddr_t)hdr + sizeof(struct ar_hdr) + len);
+<a href='../S/14.html#L166'>paddr_t</a>           166 bsp/boot/common/load.c 		 (paddr_t)hdr, (paddr_t)m, m-&gt;name));
+<a href='../S/14.html#L181'>paddr_t</a>           181 bsp/boot/common/load.c 	paddr_t base;
+<a href='../S/14.html#L197'>paddr_t</a>           197 bsp/boot/common/load.c 	base = (paddr_t)hdr + sizeof(struct ar_hdr);
+<a href='../S/22.html#L35'>paddr_t</a>            35 bsp/boot/include/load.h extern paddr_t	load_base;
+<a href='../S/22.html#L36'>paddr_t</a>            36 bsp/boot/include/load.h extern paddr_t	load_start;
+<a href='../S/42.html#L37'>paddr_t</a>            37 bsp/boot/x86/pc/startup.c extern paddr_t	lo_mem;
+<a href='../S/42.html#L38'>paddr_t</a>            38 bsp/boot/x86/pc/startup.c extern paddr_t	hi_mem;
+<a href='../S/72.html#L93'>paddr_t</a>            93 bsp/drv/dev/dma/i8237.c #define DMA_ALIGN(n)	((((paddr_t)(n)) + DMA_MASK) &amp; ~DMA_MASK)
+<a href='../S/72.html#L195'>paddr_t</a>           195 bsp/drv/dev/dma/i8237.c 	paddr_t paddr;
+<a href='../S/72.html#L252'>paddr_t</a>           252 bsp/drv/dev/dma/i8237.c 	paddr_t tmp, base;
+<a href='../S/96.html#L122'>paddr_t</a>           122 bsp/drv/include/dki.h paddr_t	 page_alloc(psize_t);
+<a href='../S/96.html#L123'>paddr_t</a>           123 bsp/drv/include/dki.h void	 page_free(paddr_t, psize_t);
+<a href='../S/96.html#L124'>paddr_t</a>           124 bsp/drv/include/dki.h void	 page_reserve(paddr_t, psize_t);
+<a href='../S/131.html#L48'>paddr_t</a>            48 bsp/hal/arm/arch/mmu.c #define PGD_ALIGN(n)	((((paddr_t)(n)) + L1TBL_MASK) &amp; ~L1TBL_MASK)
+<a href='../S/131.html#L63'>paddr_t</a>            63 bsp/hal/arm/arch/mmu.c static paddr_t
+<a href='../S/131.html#L66'>paddr_t</a>            66 bsp/hal/arm/arch/mmu.c 	paddr_t pg, pgd;
+<a href='../S/131.html#L80'>paddr_t</a>            80 bsp/hal/arm/arch/mmu.c 	page_free((paddr_t)(pgd + L1TBL_SIZE), (size_t)(L1TBL_SIZE - gap));
+<a href='../S/131.html#L111'>paddr_t</a>           111 bsp/hal/arm/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/131.html#L115'>paddr_t</a>           115 bsp/hal/arm/arch/mmu.c 	paddr_t pg;	/* page */
+<a href='../S/131.html#L188'>paddr_t</a>           188 bsp/hal/arm/arch/mmu.c 	paddr_t pg;
+<a href='../S/131.html#L221'>paddr_t</a>           221 bsp/hal/arm/arch/mmu.c 			page_free(((paddr_t)pte &amp; PTE_ADDRESS),
+<a href='../S/131.html#L238'>paddr_t</a>           238 bsp/hal/arm/arch/mmu.c 	paddr_t phys = kvtop(pgd);
+<a href='../S/131.html#L249'>paddr_t</a>           249 bsp/hal/arm/arch/mmu.c paddr_t
+<a href='../S/131.html#L254'>paddr_t</a>           254 bsp/hal/arm/arch/mmu.c 	paddr_t pa;
+<a href='../S/131.html#L270'>paddr_t</a>           270 bsp/hal/arm/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/131.html#L271'>paddr_t</a>           271 bsp/hal/arm/arch/mmu.c 	return pa + (paddr_t)(virt - start);
+<a href='../S/131.html#L278'>paddr_t</a>           278 bsp/hal/arm/arch/mmu.c mmu_premap(paddr_t phys, vaddr_t virt)
+<a href='../S/142.html#L40'>paddr_t</a>            40 bsp/hal/arm/include/cpufunc.h paddr_t	 get_ttb(void);
+<a href='../S/142.html#L41'>paddr_t</a>            41 bsp/hal/arm/include/cpufunc.h void	 set_ttb(paddr_t);
+<a href='../S/142.html#L42'>paddr_t</a>            42 bsp/hal/arm/include/cpufunc.h void	 switch_ttb(paddr_t);
+<a href='../S/178.html#L82'>paddr_t</a>            82 bsp/hal/x86/arch/mmu.c mmu_map(pgd_t pgd, paddr_t pa, vaddr_t va, size_t size, int type)
+<a href='../S/178.html#L87'>paddr_t</a>            87 bsp/hal/x86/arch/mmu.c 	paddr_t pg;
+<a href='../S/178.html#L160'>paddr_t</a>           160 bsp/hal/x86/arch/mmu.c 	paddr_t pg;
+<a href='../S/178.html#L191'>paddr_t</a>           191 bsp/hal/x86/arch/mmu.c 			page_free((paddr_t)((paddr_t)pte &amp; PTE_ADDRESS),
+<a href='../S/178.html#L219'>paddr_t</a>           219 bsp/hal/x86/arch/mmu.c paddr_t
+<a href='../S/178.html#L224'>paddr_t</a>           224 bsp/hal/x86/arch/mmu.c 	paddr_t pa;
+<a href='../S/178.html#L240'>paddr_t</a>           240 bsp/hal/x86/arch/mmu.c 	pa = (paddr_t)ptetopg(pte, start);
+<a href='../S/178.html#L241'>paddr_t</a>           241 bsp/hal/x86/arch/mmu.c 	return pa + (paddr_t)(va - start);
+<a href='../S/247.html#L62'>paddr_t</a>            62 include/sys/bootinfo.h 	paddr_t		phys;		/* physical address */
+<a href='../S/247.html#L77'>paddr_t</a>            77 include/sys/bootinfo.h 	paddr_t		base;		/* start address */
+<a href='../S/264.html#L128'>paddr_t</a>           128 include/sys/param.h #define ptokv(pa)	(void *)((paddr_t)(pa) + KERNBASE)
+<a href='../S/264.html#L129'>paddr_t</a>           129 include/sys/param.h #define kvtop(va)	((paddr_t)(va) - KERNBASE)
+<a href='../S/272.html#L121'>paddr_t</a>           121 include/sys/sysinfo.h 	paddr_t		phys;		/* physical address */
+<a href='../S/308.html#L65'>paddr_t</a>            65 sys/include/hal.h 	paddr_t		phys;		/* physical address */
+<a href='../S/308.html#L107'>paddr_t</a>           107 sys/include/hal.h void	  mmu_premap(paddr_t, vaddr_t);
+<a href='../S/308.html#L110'>paddr_t</a>           110 sys/include/hal.h int	  mmu_map(pgd_t, paddr_t, vaddr_t, size_t, int);
+<a href='../S/308.html#L112'>paddr_t</a>           112 sys/include/hal.h paddr_t	  mmu_extract(pgd_t, vaddr_t, size_t);
+<a href='../S/314.html#L38'>paddr_t</a>            38 sys/include/page.h paddr_t	 page_alloc(psize_t);
+<a href='../S/314.html#L39'>paddr_t</a>            39 sys/include/page.h void	 page_free(paddr_t, psize_t);
+<a href='../S/314.html#L40'>paddr_t</a>            40 sys/include/page.h int	 page_reserve(paddr_t, psize_t);
+<a href='../S/323.html#L49'>paddr_t</a>            49 sys/include/vm.h 	paddr_t		phys;		/* physical address */
+<a href='../S/323.html#L87'>paddr_t</a>            87 sys/include/vm.h paddr_t	 vm_translate(vaddr_t, size_t);
+<a href='../S/341.html#L179'>paddr_t</a>           179 sys/mem/kmem.c 	paddr_t pa;
+<a href='../S/341.html#L316'>paddr_t</a>           316 sys/mem/kmem.c 	paddr_t pa;
+<a href='../S/342.html#L75'>paddr_t</a>            75 sys/mem/page.c paddr_t
+<a href='../S/342.html#L129'>paddr_t</a>           129 sys/mem/page.c page_free(paddr_t paddr, psize_t psize)
+<a href='../S/342.html#L182'>paddr_t</a>           182 sys/mem/page.c page_reserve(paddr_t paddr, psize_t psize)
+<a href='../S/343.html#L123'>paddr_t</a>           123 sys/mem/vm.c   	paddr_t pa;
+<a href='../S/343.html#L280'>paddr_t</a>           280 sys/mem/vm.c   	paddr_t old_pa, new_pa;
+<a href='../S/343.html#L391'>paddr_t</a>           391 sys/mem/vm.c   	paddr_t pa;
+<a href='../S/343.html#L435'>paddr_t</a>           435 sys/mem/vm.c   	pa = tgt-&gt;phys + (paddr_t)(start - tgt-&gt;addr);
+<a href='../S/343.html#L732'>paddr_t</a>           732 sys/mem/vm.c   paddr_t
+<a href='../S/344.html#L492'>paddr_t</a>           492 sys/mem/vm_nommu.c paddr_t
+<a href='../S/344.html#L496'>paddr_t</a>           496 sys/mem/vm_nommu.c 	return (paddr_t)addr;
+<a href='../S/344.html#L569'>paddr_t</a>           569 sys/mem/vm_nommu.c 	seg-&gt;phys = (paddr_t)addr;
+<a href='../S/344.html#L627'>paddr_t</a>           627 sys/mem/vm_nommu.c 	paddr_t pa;
+<a href='../S/344.html#L669'>paddr_t</a>           669 sys/mem/vm_nommu.c 	paddr_t pa;
+<a href='../S/344.html#L671'>paddr_t</a>           671 sys/mem/vm_nommu.c 	pa = (paddr_t)addr;
+</pre>
+</body>
+</html>

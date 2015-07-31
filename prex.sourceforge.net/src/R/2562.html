@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>sigmask</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/482.html#L61'>sigmask</a>            61 usr/lib/libc/gen/getpass.c 	omask = sigblock(sigmask(SIGINT)|sigmask(SIGTSTP));
+<a href='../S/743.html#L74'>sigmask</a>            74 usr/lib/posix/signal/__exception.c 		if (active &amp; sigmask(sig)) {
+<a href='../S/743.html#L90'>sigmask</a>            90 usr/lib/posix/signal/__exception.c 					__sig_pending &amp;= ~sigmask(sig);
+<a href='../S/743.html#L108'>sigmask</a>           108 usr/lib/posix/signal/__exception.c 			__sig_pending &amp;= ~sigmask(sig);
+<a href='../S/743.html#L142'>sigmask</a>           142 usr/lib/posix/signal/__exception.c 			__sig_pending |= sigmask(excpt);
+<a href='../S/735.html#L50'>sigmask</a>            50 usr/lib/posix/signal/pause.c 			if (!(__sig_mask &amp; sigmask(sig)) &amp;&amp;
+<a href='../S/735.html#L51'>sigmask</a>            51 usr/lib/posix/signal/pause.c 			    !(__sig_pending &amp; sigmask(sig)))
+<a href='../S/736.html#L64'>sigmask</a>            64 usr/lib/posix/signal/sigaction.c 		__sig_pending &amp;= ~sigmask(signum);
+<a href='../S/739.html#L49'>sigmask</a>            49 usr/lib/posix/signal/signal.c 		act.sa_mask = sigmask(sig);
+<a href='../S/741.html#L66'>sigmask</a>            66 usr/lib/posix/signal/sigprocmask.c 	__sig_mask &amp;= ~(sigmask(SIGSTOP) | sigmask(SIGKILL));
+</pre>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>trap_table</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/174.html#L61'>trap_table</a>         61 bsp/hal/x86/arch/cpu.c static const trapfn_t trap_table[] = {
+<a href='../S/174.html#L66'>trap_table</a>         66 bsp/hal/x86/arch/cpu.c #define NTRAPS	(int)(sizeof(trap_table) / sizeof(void *))
+<a href='../S/174.html#L170'>trap_table</a>        170 bsp/hal/x86/arch/cpu.c 		idt_set(i, trap_table[i], KERNEL_CS, ST_KERN | ST_TRAP_GATE);
+</pre>
+</body>
+</html>

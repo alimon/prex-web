@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>pid</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/388.html#L50'>pid</a>                50 usr/bin/kill/kill.c 	int errors, numsig, pid;
+<a href='../S/388.html#L113'>pid</a>               113 usr/bin/kill/kill.c 		pid = strtol(*argv, &amp;ep, 10);
+<a href='../S/388.html#L117'>pid</a>               117 usr/bin/kill/kill.c 		} else if (kill(pid, numsig) == -1) {
+<a href='../S/404.html#L47'>pid</a>                47 usr/bin/ps/ps.c 	pid_t	pid;
+<a href='../S/404.html#L67'>pid</a>                67 usr/bin/ps/ps.c 		pi-&gt;pid = -1;
+<a href='../S/404.html#L73'>pid</a>                73 usr/bin/ps/ps.c 	pi-&gt;pid = m.data[0];
+<a href='../S/404.html#L129'>pid</a>               129 usr/bin/ps/ps.c 				if (pi.pid == -1)
+<a href='../S/404.html#L132'>pid</a>               132 usr/bin/ps/ps.c 					printf("%5d %5d", pi.pid, pi.ppid);
+<a href='../S/404.html#L140'>pid</a>               140 usr/bin/ps/ps.c 				if (!(ps_flag &amp; PSFX) &amp;&amp; (pi.pid == last_pid))
+<a href='../S/404.html#L142'>pid</a>               142 usr/bin/ps/ps.c 				if (pi.pid == -1)
+<a href='../S/404.html#L145'>pid</a>               145 usr/bin/ps/ps.c 					printf("%5d", pi.pid);
+<a href='../S/404.html#L148'>pid</a>               148 usr/bin/ps/ps.c 				last_pid = pi.pid;
+<a href='../S/413.html#L88'>pid</a>                88 usr/bin/sh/sh.c showsignal(int pid, int s)
+<a href='../S/413.html#L94'>pid</a>                94 usr/bin/sh/sh.c 		error(" %d: %s", pid, sys_siglist[signo]);
+<a href='../S/413.html#L96'>pid</a>                96 usr/bin/sh/sh.c 		error(" %d: Signal %d", pid, signo);
+<a href='../S/413.html#L115'>pid</a>               115 usr/bin/sh/sh.c 	int pid, i;
+<a href='../S/413.html#L123'>pid</a>               123 usr/bin/sh/sh.c 	pid = vfork();
+<a href='../S/413.html#L124'>pid</a>               124 usr/bin/sh/sh.c 	if (pid == -1) {
+<a href='../S/413.html#L131'>pid</a>               131 usr/bin/sh/sh.c 	if (pid == 0) {
+<a href='../S/413.html#L184'>pid</a>               184 usr/bin/sh/sh.c 		sprintf(spid, "%u\n", pid);
+<a href='../S/413.html#L189'>pid</a>               189 usr/bin/sh/sh.c 	while (wait(&amp;status) != pid);
+<a href='../S/413.html#L192'>pid</a>               192 usr/bin/sh/sh.c 			showsignal(pid, status);
+<a href='../S/530.html#L64'>pid</a>                64 usr/lib/libc/stdio/mktemp.c 	u_int pid;
+<a href='../S/530.html#L66'>pid</a>                66 usr/lib/libc/stdio/mktemp.c 	pid = getpid();
+<a href='../S/530.html#L69'>pid</a>                69 usr/lib/libc/stdio/mktemp.c 		*trv = (pid % 10) + '0';
+<a href='../S/530.html#L70'>pid</a>                70 usr/lib/libc/stdio/mktemp.c 		pid /= 10;
+<a href='../S/705.html#L89'>pid</a>                89 usr/lib/posix/process/fork.c 	pid_t pid;
+<a href='../S/705.html#L114'>pid</a>               114 usr/lib/posix/process/fork.c 		pid = m.data[0];
+<a href='../S/705.html#L139'>pid</a>               139 usr/lib/posix/process/fork.c 	return pid;
+<a href='../S/710.html#L39'>pid</a>                39 usr/lib/posix/process/getpgid.c getpgid(pid_t pid)
+<a href='../S/710.html#L44'>pid</a>                44 usr/lib/posix/process/getpgid.c 	m.data[0] = pid;
+<a href='../S/715.html#L39'>pid</a>                39 usr/lib/posix/process/getsid.c getsid(pid_t pid)
+<a href='../S/715.html#L44'>pid</a>                44 usr/lib/posix/process/getsid.c 	m.data[0] = pid;
+<a href='../S/717.html#L41'>pid</a>                41 usr/lib/posix/process/kill.c kill(pid_t pid, int sig)
+<a href='../S/717.html#L50'>pid</a>                50 usr/lib/posix/process/kill.c 	m.data[0] = pid;
+<a href='../S/724.html#L40'>pid</a>                40 usr/lib/posix/process/setpgid.c setpgid(pid_t pid, pid_t pgid)
+<a href='../S/724.html#L45'>pid</a>                45 usr/lib/posix/process/setpgid.c 	m.data[0] = pid;
+<a href='../S/725.html#L34'>pid</a>                34 usr/lib/posix/process/setpgrp.c setpgrp(pid_t pid, pid_t pgrp)
+<a href='../S/731.html#L46'>pid</a>                46 usr/lib/posix/process/waitpid.c waitpid(pid_t pid, int *status, int options)
+<a href='../S/731.html#L60'>pid</a>                60 usr/lib/posix/process/waitpid.c 		m.data[0] = pid;
+<a href='../S/860.html#L61'>pid</a>                61 usr/sbin/init/init.c 	pid_t pid;
+<a href='../S/860.html#L72'>pid</a>                72 usr/sbin/init/init.c 	pid = vfork();
+<a href='../S/860.html#L74'>pid</a>                74 usr/sbin/init/init.c 	if (pid == -1)
+<a href='../S/860.html#L77'>pid</a>                77 usr/sbin/init/init.c 	if (pid == 0) {
+<a href='../S/860.html#L95'>pid</a>                95 usr/sbin/init/init.c 	while (wait((int *)0) != pid)
+<a href='../S/917.html#L129'>pid</a>               129 usr/server/proc/main.c 	pid_t pid;
+<a href='../S/917.html#L131'>pid</a>               131 usr/server/proc/main.c 	pid = sys_getpid();
+<a href='../S/917.html#L133'>pid</a>               133 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pid;
+<a href='../S/917.html#L151'>pid</a>               151 usr/server/proc/main.c 	pid_t pid, pgid;
+<a href='../S/917.html#L154'>pid</a>               154 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L156'>pid</a>               156 usr/server/proc/main.c 	error = sys_getpgid(pid, &amp;pgid);
+<a href='../S/917.html#L167'>pid</a>               167 usr/server/proc/main.c 	pid_t pid, pgid;
+<a href='../S/917.html#L169'>pid</a>               169 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L172'>pid</a>               172 usr/server/proc/main.c 	return sys_setpgid(pid, pgid);
+<a href='../S/917.html#L178'>pid</a>               178 usr/server/proc/main.c 	pid_t pid, sid;
+<a href='../S/917.html#L181'>pid</a>               181 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L183'>pid</a>               183 usr/server/proc/main.c 	error = sys_getsid(pid, &amp;sid);
+<a href='../S/917.html#L210'>pid</a>               210 usr/server/proc/main.c 	pid_t pid;
+<a href='../S/917.html#L216'>pid</a>               216 usr/server/proc/main.c 	error = sys_fork(child, vfork, &amp;pid);
+<a href='../S/917.html#L220'>pid</a>               220 usr/server/proc/main.c 	msg-&gt;data[0] = (int)pid;
+<a href='../S/917.html#L247'>pid</a>               247 usr/server/proc/main.c 	pid_t pid, pid_child;
+<a href='../S/917.html#L250'>pid</a>               250 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L253'>pid</a>               253 usr/server/proc/main.c 	error = sys_waitpid(pid, &amp;status, options, &amp;pid_child);
+<a href='../S/917.html#L266'>pid</a>               266 usr/server/proc/main.c 	pid_t pid;
+<a href='../S/917.html#L269'>pid</a>               269 usr/server/proc/main.c 	pid = (pid_t)msg-&gt;data[0];
+<a href='../S/917.html#L272'>pid</a>               272 usr/server/proc/main.c 	return sys_kill(pid, sig);
+<a href='../S/919.html#L143'>pid</a>               143 usr/server/proc/proc.h int	sys_kill(pid_t pid, int sig);
+<a href='../S/920.html#L142'>pid</a>               142 usr/server/proc/proc_exit.c sys_waitpid(pid_t pid, int *status, int options, pid_t *retval)
+<a href='../S/920.html#L149'>pid</a>               149 usr/server/proc/proc_exit.c 	DPRINTF(("proc: wait pid=%d options=%x\n", pid, options));
+<a href='../S/920.html#L170'>pid</a>               170 usr/server/proc/proc_exit.c 		if (pid &gt; 0) {
+<a href='../S/920.html#L174'>pid</a>               174 usr/server/proc/proc_exit.c 			if (p-&gt;p_pid == pid)
+<a href='../S/920.html#L176'>pid</a>               176 usr/server/proc/proc_exit.c 		} else if (pid == 0) {
+<a href='../S/920.html#L182'>pid</a>               182 usr/server/proc/proc_exit.c 		} else if (pid != -1) {
+<a href='../S/920.html#L186'>pid</a>               186 usr/server/proc/proc_exit.c 			if (p-&gt;p_pgrp-&gt;pg_pgid == -pid)
+<a href='../S/921.html#L63'>pid</a>                63 usr/server/proc/proc_fork.c 	pid_t pid;
+<a href='../S/921.html#L65'>pid</a>                65 usr/server/proc/proc_fork.c 	pid = last_pid + 1;
+<a href='../S/921.html#L66'>pid</a>                66 usr/server/proc/proc_fork.c 	if (pid &gt;= PID_MAX)
+<a href='../S/921.html#L67'>pid</a>                67 usr/server/proc/proc_fork.c 		pid = 1;
+<a href='../S/921.html#L68'>pid</a>                68 usr/server/proc/proc_fork.c 	while (pid != last_pid) {
+<a href='../S/921.html#L69'>pid</a>                69 usr/server/proc/proc_fork.c 		if (p_find(pid) == NULL)
+<a href='../S/921.html#L71'>pid</a>                71 usr/server/proc/proc_fork.c 		if (++pid &gt;= PID_MAX)
+<a href='../S/921.html#L72'>pid</a>                72 usr/server/proc/proc_fork.c 			pid = 1;
+<a href='../S/921.html#L74'>pid</a>                74 usr/server/proc/proc_fork.c 	if (pid == last_pid)
+<a href='../S/921.html#L76'>pid</a>                76 usr/server/proc/proc_fork.c 	last_pid = pid;
+<a href='../S/921.html#L77'>pid</a>                77 usr/server/proc/proc_fork.c 	return pid;
+<a href='../S/921.html#L84'>pid</a>                84 usr/server/proc/proc_fork.c newproc(struct proc *p, pid_t pid, task_t task)
+<a href='../S/921.html#L90'>pid</a>                90 usr/server/proc/proc_fork.c 	if (pid == 0) {
+<a href='../S/921.html#L91'>pid</a>                91 usr/server/proc/proc_fork.c 		pid = pid_alloc();
+<a href='../S/921.html#L92'>pid</a>                92 usr/server/proc/proc_fork.c 		if (pid == 0) {
+<a href='../S/921.html#L104'>pid</a>               104 usr/server/proc/proc_fork.c 	p-&gt;p_pid = pid;
+<a href='../S/922.html#L53'>pid</a>                53 usr/server/proc/proc_hash.c p_find(pid_t pid)
+<a href='../S/922.html#L58'>pid</a>                58 usr/server/proc/proc_hash.c 	head = &amp;pid_table[IDHASH(pid)];
+<a href='../S/922.html#L62'>pid</a>                62 usr/server/proc/proc_hash.c 		if (p-&gt;p_pid == pid)
+<a href='../S/923.html#L75'>pid</a>                75 usr/server/proc/proc_pid.c sys_getpgid(pid_t pid, pid_t *retval)
+<a href='../S/923.html#L81'>pid</a>                81 usr/server/proc/proc_pid.c 	if (pid == 0)
+<a href='../S/923.html#L84'>pid</a>                84 usr/server/proc/proc_pid.c 		if ((p = p_find(pid)) == NULL)
+<a href='../S/923.html#L95'>pid</a>                95 usr/server/proc/proc_pid.c sys_getsid(pid_t pid, pid_t *retval)
+<a href='../S/923.html#L102'>pid</a>               102 usr/server/proc/proc_pid.c 	if (pid == 0)
+<a href='../S/923.html#L105'>pid</a>               105 usr/server/proc/proc_pid.c 		if ((p = p_find(pid)) == NULL)
+<a href='../S/923.html#L177'>pid</a>               177 usr/server/proc/proc_pid.c sys_setpgid(pid_t pid, pid_t pgid)
+<a href='../S/923.html#L181'>pid</a>               181 usr/server/proc/proc_pid.c 	DPRINTF(("proc: setpgid pid=%d pgid=%d\n", pid, pgid));
+<a href='../S/923.html#L183'>pid</a>               183 usr/server/proc/proc_pid.c 	if (pid == 0)
+<a href='../S/923.html#L186'>pid</a>               186 usr/server/proc/proc_pid.c 		if ((p = p_find(pid)) == NULL)
+<a href='../S/924.html#L85'>pid</a>                85 usr/server/proc/proc_sig.c kill_one(pid_t pid, int sig)
+<a href='../S/924.html#L89'>pid</a>                89 usr/server/proc/proc_sig.c 	DPRINTF(("proc: killone pid=%d sig=%d\n", pid, sig));
+<a href='../S/924.html#L91'>pid</a>                91 usr/server/proc/proc_sig.c 	if ((p = p_find(pid)) == NULL)
+<a href='../S/924.html#L142'>pid</a>               142 usr/server/proc/proc_sig.c sys_kill(pid_t pid, int sig)
+<a href='../S/924.html#L148'>pid</a>               148 usr/server/proc/proc_sig.c 	DPRINTF(("proc: kill pid=%d sig=%d\n", pid, sig));
+<a href='../S/924.html#L157'>pid</a>               157 usr/server/proc/proc_sig.c 	if (pid &gt; 0) {
+<a href='../S/924.html#L158'>pid</a>               158 usr/server/proc/proc_sig.c 		if (pid != curproc-&gt;p_pid &amp;&amp; !kill_capable()) {
+<a href='../S/924.html#L162'>pid</a>               162 usr/server/proc/proc_sig.c 		error = kill_one(pid, sig);
+<a href='../S/924.html#L164'>pid</a>               164 usr/server/proc/proc_sig.c 	else if (pid == -1) {
+<a href='../S/924.html#L190'>pid</a>               190 usr/server/proc/proc_sig.c 	else if (pid == 0) {
+<a href='../S/924.html#L194'>pid</a>               194 usr/server/proc/proc_sig.c 		if (curproc-&gt;p_pgrp-&gt;pg_pgid != -pid &amp;&amp; !kill_capable())
+<a href='../S/924.html#L196'>pid</a>               196 usr/server/proc/proc_sig.c 		error = kill_pg(-pid, sig);
+<a href='../S/936.html#L53'>pid</a>                53 usr/test/creat/creat.c 	pid_t pid = getpid();
+<a href='../S/936.html#L55'>pid</a>                55 usr/test/creat/creat.c 	sprintf(path, "t%05d", pid);
+<a href='../S/936.html#L62'>pid</a>                62 usr/test/creat/creat.c 		sprintf(file, "p%05d.%03d", pid, i);
+<a href='../S/936.html#L74'>pid</a>                74 usr/test/creat/creat.c 		sprintf(file, "p%05d.%03d", pid, i);
+<a href='../S/952.html#L47'>pid</a>                47 usr/test/fifo/fifo.c 	int pid, fd1, fd2, len;
+<a href='../S/952.html#L56'>pid</a>                56 usr/test/fifo/fifo.c 	pid = vfork();
+<a href='../S/952.html#L57'>pid</a>                57 usr/test/fifo/fifo.c 	if (pid == -1) {
+<a href='../S/952.html#L61'>pid</a>                61 usr/test/fifo/fifo.c 	if (pid == 0) {
+<a href='../S/956.html#L43'>pid</a>                43 usr/test/fork/fork.c 	pid_t pid;
+<a href='../S/956.html#L50'>pid</a>                50 usr/test/fork/fork.c 		pid = vfork();
+<a href='../S/956.html#L51'>pid</a>                51 usr/test/fork/fork.c 		if (pid == 0) {
+<a href='../S/956.html#L56'>pid</a>                56 usr/test/fork/fork.c 			while (wait(&amp;sts) != pid)
+</pre>
+</body>
+</html>

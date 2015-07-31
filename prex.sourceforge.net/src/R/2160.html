@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mode_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/219.html#L103'>mode_t</a>            103 include/ipc/fs.h 	mode_t	mode;			/* open mode */
+<a href='../S/257.html#L133'>mode_t</a>            133 include/sys/fcntl.h int	creat(const char *, mode_t);
+<a href='../S/271.html#L45'>mode_t</a>             45 include/sys/stat.h 	mode_t	  st_mode;		/* inode protection mode */
+<a href='../S/271.html#L105'>mode_t</a>            105 include/sys/stat.h #define	ALLPERMS	(mode_t)(S_ISUID|S_ISGID|S_ISTXT|S_IRWXU|S_IRWXG|S_IRWXO)
+<a href='../S/271.html#L114'>mode_t</a>            114 include/sys/stat.h int	chmod(const char *, mode_t);
+<a href='../S/271.html#L116'>mode_t</a>            116 include/sys/stat.h int	mkdir(const char *, mode_t);
+<a href='../S/271.html#L117'>mode_t</a>            117 include/sys/stat.h int	mkfifo(const char *, mode_t);
+<a href='../S/271.html#L119'>mode_t</a>            119 include/sys/stat.h mode_t	umask(mode_t);
+<a href='../S/279.html#L70'>mode_t</a>             70 include/sys/vnode.h 	mode_t		v_mode;		/* file mode */
+<a href='../S/279.html#L90'>mode_t</a>             90 include/sys/vnode.h 	mode_t		va_mode;	/* file access mode */
+<a href='../S/279.html#L113'>mode_t</a>            113 include/sys/vnode.h 	int (*vop_create)	(vnode_t, char *, mode_t);
+<a href='../S/279.html#L116'>mode_t</a>            116 include/sys/vnode.h 	int (*vop_mkdir)	(vnode_t, char *, mode_t);
+<a href='../S/374.html#L134'>mode_t</a>            134 usr/bin/cp/cp.c 	mode_t mode;
+<a href='../S/394.html#L72'>mode_t</a>             72 usr/bin/mkdir/mkdir.c 			  (mode_t)(S_IRWXU | S_IRWXG | S_IRWXO)) &lt; 0) {
+<a href='../S/394.html#L99'>mode_t</a>             99 usr/bin/mkdir/mkdir.c 			    mkdir(path, (mode_t)(S_IRWXU | S_IRWXG | S_IRWXO)) &lt; 0) {
+<a href='../S/447.html#L123'>mode_t</a>            123 usr/include/unistd.h int	 mknod(const char *, mode_t, dev_t);
+<a href='../S/447.html#L153'>mode_t</a>            153 usr/include/unistd.h void	 strmode(mode_t, char *);
+<a href='../S/606.html#L37'>mode_t</a>             37 usr/lib/libc/string/strmode.c 	mode_t mode;
+<a href='../S/659.html#L37'>mode_t</a>             37 usr/lib/posix/file/chmod.c chmod(const char *path, mode_t mode)
+<a href='../S/663.html#L35'>mode_t</a>             35 usr/lib/posix/file/creat.c creat(const char *file, mode_t mode)
+<a href='../S/678.html#L40'>mode_t</a>             40 usr/lib/posix/file/mkdir.c mkdir(const char *path, mode_t mode)
+<a href='../S/679.html#L40'>mode_t</a>             40 usr/lib/posix/file/mknod.c mknod(const char *path, mode_t mode, dev_t dev)
+<a href='../S/681.html#L44'>mode_t</a>             44 usr/lib/posix/file/open.c 	mode_t mode;
+<a href='../S/692.html#L36'>mode_t</a>             36 usr/lib/posix/file/umask.c mode_t
+<a href='../S/692.html#L37'>mode_t</a>             37 usr/lib/posix/file/umask.c umask(mode_t mode)
+<a href='../S/862.html#L118'>mode_t</a>            118 usr/sbin/install/install.c 	mode_t mode;
+<a href='../S/871.html#L242'>mode_t</a>            242 usr/server/boot/boot.c 	mode_t mode;
+<a href='../S/883.html#L194'>mode_t</a>            194 usr/server/fs/arfs/arfs_vnops.c 	vp-&gt;v_mode = (mode_t)(S_IRUSR | S_IXUSR);
+<a href='../S/886.html#L221'>mode_t</a>            221 usr/server/fs/devfs/devfs_vnops.c 		vp-&gt;v_mode = (mode_t)(S_IRUSR | S_IWUSR);
+<a href='../S/888.html#L212'>mode_t</a>            212 usr/server/fs/fatfs/fatfs.h void	 fat_mode_to_attr(mode_t mode, u_char *attr);
+<a href='../S/888.html#L213'>mode_t</a>            213 usr/server/fs/fatfs/fatfs.h void	 fat_attr_to_mode(u_char attr, mode_t *mode);
+<a href='../S/891.html#L158'>mode_t</a>            158 usr/server/fs/fatfs/fatfs_subr.c fat_mode_to_attr(mode_t mode, u_char *attr)
+<a href='../S/891.html#L174'>mode_t</a>            174 usr/server/fs/fatfs/fatfs_subr.c fat_attr_to_mode(u_char attr, mode_t *mode)
+<a href='../S/893.html#L63'>mode_t</a>             63 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_create	(vnode_t, char *, mode_t);
+<a href='../S/893.html#L66'>mode_t</a>             66 usr/server/fs/fatfs/fatfs_vnops.c static int fatfs_mkdir	(vnode_t, char *, mode_t);
+<a href='../S/893.html#L376'>mode_t</a>            376 usr/server/fs/fatfs/fatfs_vnops.c fatfs_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/893.html#L553'>mode_t</a>            553 usr/server/fs/fatfs/fatfs_vnops.c fatfs_mkdir(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/896.html#L83'>mode_t</a>             83 usr/server/fs/fifofs/fifo_vnops.c static int fifo_create	(vnode_t, char *, mode_t);
+<a href='../S/896.html#L352'>mode_t</a>            352 usr/server/fs/fifofs/fifo_vnops.c fifo_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/902.html#L59'>mode_t</a>             59 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_create	(vnode_t, char *, mode_t);
+<a href='../S/902.html#L62'>mode_t</a>             62 usr/server/fs/ramfs/ramfs_vnops.c static int ramfs_mkdir	(vnode_t, char *, mode_t);
+<a href='../S/902.html#L239'>mode_t</a>            239 usr/server/fs/ramfs/ramfs_vnops.c ramfs_mkdir(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/902.html#L319'>mode_t</a>            319 usr/server/fs/ramfs/ramfs_vnops.c ramfs_create(vnode_t dvp, char *name, mode_t mode)
+<a href='../S/905.html#L94'>mode_t</a>             94 usr/server/fs/vfs/vfs.h int	 sys_open(char *path, int flags, mode_t mode, file_t *pfp);
+<a href='../S/905.html#L112'>mode_t</a>            112 usr/server/fs/vfs/vfs.h int	 sys_mkdir(char *path, mode_t mode);
+<a href='../S/905.html#L114'>mode_t</a>            114 usr/server/fs/vfs/vfs.h int	 sys_mknod(char *path, mode_t mode);
+<a href='../S/911.html#L55'>mode_t</a>             55 usr/server/fs/vfs/vfs_syscalls.c sys_open(char *path, int flags, mode_t mode, file_t *pfp)
+<a href='../S/911.html#L461'>mode_t</a>            461 usr/server/fs/vfs/vfs_syscalls.c sys_mkdir(char *path, mode_t mode)
+<a href='../S/911.html#L529'>mode_t</a>            529 usr/server/fs/vfs/vfs_syscalls.c sys_mknod(char *path, mode_t mode)
+<a href='../S/913.html#L345'>mode_t</a>            345 usr/server/fs/vfs/vfs_vnode.c 	mode_t mode;
+<a href='../S/952.html#L52'>mode_t</a>             52 usr/test/fifo/fifo.c 	if (mknod("/mnt/fifo/test", (mode_t)(S_IFIFO | 0666), 0) == -1) {
+</pre>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>mount_t</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-5.6.1' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<a href='../S/263.html#L123'>mount_t</a>           123 include/sys/mount.h 	int (*vfs_mount)	(mount_t, char *, int, void *);
+<a href='../S/263.html#L124'>mount_t</a>           124 include/sys/mount.h 	int (*vfs_unmount)	(mount_t);
+<a href='../S/263.html#L125'>mount_t</a>           125 include/sys/mount.h 	int (*vfs_sync)		(mount_t);
+<a href='../S/263.html#L126'>mount_t</a>           126 include/sys/mount.h 	int (*vfs_vget)		(mount_t, vnode_t);
+<a href='../S/263.html#L127'>mount_t</a>           127 include/sys/mount.h 	int (*vfs_statfs)	(mount_t, struct statfs *);
+<a href='../S/882.html#L49'>mount_t</a>            49 usr/server/fs/arfs/arfs_vfsops.c static int arfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/882.html#L50'>mount_t</a>            50 usr/server/fs/arfs/arfs_vfsops.c static int arfs_unmount	(mount_t mp);
+<a href='../S/882.html#L71'>mount_t</a>            71 usr/server/fs/arfs/arfs_vfsops.c arfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/882.html#L105'>mount_t</a>           105 usr/server/fs/arfs/arfs_vfsops.c arfs_unmount(mount_t mp)
+<a href='../S/883.html#L118'>mount_t</a>           118 usr/server/fs/arfs/arfs_vnops.c arfs_readblk(mount_t mp, int blkno)
+<a href='../S/883.html#L150'>mount_t</a>           150 usr/server/fs/arfs/arfs_vnops.c 	mount_t mp;
+<a href='../S/883.html#L211'>mount_t</a>           211 usr/server/fs/arfs/arfs_vnops.c 	mount_t mp;
+<a href='../S/883.html#L290'>mount_t</a>           290 usr/server/fs/arfs/arfs_vnops.c 	mount_t mp;
+<a href='../S/892.html#L47'>mount_t</a>            47 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_mount	(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/892.html#L48'>mount_t</a>            48 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_unmount(mount_t mp);
+<a href='../S/892.html#L50'>mount_t</a>            50 usr/server/fs/fatfs/fatfs_vfsops.c static int fatfs_vget	(mount_t mp, vnode_t vp);
+<a href='../S/892.html#L136'>mount_t</a>           136 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/892.html#L183'>mount_t</a>           183 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_unmount(mount_t mp)
+<a href='../S/892.html#L200'>mount_t</a>           200 usr/server/fs/fatfs/fatfs_vfsops.c fatfs_vget(mount_t mp, vnode_t vp)
+<a href='../S/901.html#L39'>mount_t</a>            39 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_mount(mount_t mp, char *dev, int flags, void *data);
+<a href='../S/901.html#L40'>mount_t</a>            40 usr/server/fs/ramfs/ramfs_vfsops.c static int ramfs_unmount(mount_t mp);
+<a href='../S/901.html#L61'>mount_t</a>            61 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_mount(mount_t mp, char *dev, int flags, void *data)
+<a href='../S/901.html#L83'>mount_t</a>            83 usr/server/fs/ramfs/ramfs_vfsops.c ramfs_unmount(mount_t mp)
+<a href='../S/905.html#L147'>mount_t</a>           147 usr/server/fs/vfs/vfs.h int	 vfs_findroot(char *path, mount_t *mp, char **root);
+<a href='../S/905.html#L148'>mount_t</a>           148 usr/server/fs/vfs/vfs.h void	 vfs_busy(mount_t mp);
+<a href='../S/905.html#L149'>mount_t</a>           149 usr/server/fs/vfs/vfs.h void	 vfs_unbusy(mount_t mp);
+<a href='../S/908.html#L56'>mount_t</a>            56 usr/server/fs/vfs/vfs_lookup.c 	mount_t mp;
+<a href='../S/909.html#L92'>mount_t</a>            92 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L214'>mount_t</a>           214 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L264'>mount_t</a>           264 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/909.html#L312'>mount_t</a>           312 usr/server/fs/vfs/vfs_mount.c vfs_findroot(char *path, mount_t *mp, char **root)
+<a href='../S/909.html#L314'>mount_t</a>           314 usr/server/fs/vfs/vfs_mount.c 	mount_t m, tmp;
+<a href='../S/909.html#L347'>mount_t</a>           347 usr/server/fs/vfs/vfs_mount.c vfs_busy(mount_t mp)
+<a href='../S/909.html#L360'>mount_t</a>           360 usr/server/fs/vfs/vfs_mount.c vfs_unbusy(mount_t mp)
+<a href='../S/909.html#L385'>mount_t</a>           385 usr/server/fs/vfs/vfs_mount.c 	mount_t mp;
+<a href='../S/913.html#L89'>mount_t</a>            89 usr/server/fs/vfs/vfs_vnode.c vn_hash(mount_t mp, char *path)
+<a href='../S/913.html#L105'>mount_t</a>           105 usr/server/fs/vfs/vfs_vnode.c vn_lookup(mount_t mp, char *path)
+<a href='../S/913.html#L161'>mount_t</a>           161 usr/server/fs/vfs/vfs_vnode.c vget(mount_t mp, char *path)
+<a href='../S/913.html#L323'>mount_t</a>           323 usr/server/fs/vfs/vfs_vnode.c vflush(mount_t mp)
+<a href='../S/913.html#L428'>mount_t</a>           428 usr/server/fs/vfs/vfs_vnode.c 	mount_t mp;
+</pre>
+</body>
+</html>
